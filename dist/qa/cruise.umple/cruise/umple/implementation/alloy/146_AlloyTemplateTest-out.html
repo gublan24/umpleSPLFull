@@ -1,0 +1,1209 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from AlloyTemplateTest</title>
+    </head>
+    <body>
+        <pre>
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AlloyShapes.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class Shape2D
+sig Shape2D {
+  center : one Point
+}
+
+-- Defines a signature for class Point
+sig Point {
+  x : Int,
+  y : Int
+}
+
+-- Defines a signature for class EllipticalShape
+sig EllipticalShape extends Shape2D {
+  semiMajorAxis : String
+}
+
+-- Defines a signature for class Polygon
+sig Polygon extends Shape2D { }
+
+-- Defines a signature for class Circle
+sig Circle extends EllipticalShape { }
+
+-- Defines a signature for class Ellipse
+sig Ellipse extends EllipticalShape { }
+
+-- Defines a signature for class SimplePolygon
+sig SimplePolygon extends Polygon { }
+
+-- Defines a signature for class ArbitraryPolygon
+sig ArbitraryPolygon extends Polygon {
+  points : Int
+}
+
+-- Defines a signature for class Rectangle
+sig Rectangle extends SimplePolygon {
+  height : Int,
+  width : Int
+}
+
+-- Defines a signature for class RegularPolygon
+sig RegularPolygon extends SimplePolygon {
+  numPoints : Int,
+  radius : Int
+}
+
+
+-- Defines constraints on association between Shape2D and Point
+fact AssociationFact {
+  Shape2D &lt;: center in (Shape2D) one -&gt; one (Point)
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from FiniteSat.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class Academic
+sig Academic {
+  students : some Graduate
+}
+
+-- Defines a signature for class Graduate
+sig Graduate {
+  advisor : one Academic
+}
+
+
+-- Defines constraints on association between Graduate and Academic
+fact AssociationFact {
+  Graduate &lt;: advisor in (Graduate) some -&gt; some (Academic)
+}
+
+-- Defines bidirectionality rule between class Academic and class Graduate
+fact BidirectionalityRule {
+  all academic_1 : Academic, graduate_1 : Graduate |
+    academic_1 in advisor[graduate_1] &lt;=&gt; graduate_1 in students[academic_1]
+}
+
+-- Defines numeric bound rule for class Academic
+fact NumericBoundFact {
+  no academic_1 : Academic |
+    #academic_1.students != 2
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AlloyAssociations.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class A
+sig A {
+  b : one B,
+  c : lone C,
+  ds : some D,
+  es : set E
+}
+
+-- Defines a signature for class B
+sig B {
+  c : one C,
+  d : lone D,
+  es : some E,
+  fs : set F,
+  a : one A
+}
+
+-- Defines a signature for class C
+sig C {
+  d : one D,
+  e : lone E,
+  fs : some F,
+  gs : set G,
+  a : one A,
+  b : lone B
+}
+
+-- Defines a signature for class D
+sig D {
+  e : one E,
+  f : lone F,
+  gs : some G,
+  a : one A,
+  b : lone B,
+  cs : some C
+}
+
+-- Defines a signature for class E
+sig E {
+  a : one A,
+  b : lone B,
+  cs : some C,
+  ds : set D
+}
+
+-- Defines a signature for class F
+sig F {
+  b : lone B,
+  cs : some C,
+  ds : set D
+}
+
+-- Defines a signature for class G
+sig G {
+  cs : some C,
+  ds : set D
+}
+
+-- Defines a signature for class H
+sig H { }
+
+
+-- Defines constraints on association between B and A
+fact AssociationFact {
+  B &lt;: a in (B) one -&gt; one (A)
+}
+
+-- Defines constraints on association between C and A
+fact AssociationFact {
+  C &lt;: a in (C) lone -&gt; lone (A)
+}
+
+-- Defines constraints on association between D and A
+fact AssociationFact {
+  D &lt;: a in (D) some -&gt; some (A)
+}
+
+-- Defines constraints on association between E and A
+fact AssociationFact {
+  E &lt;: a in (E) set -&gt; set (A)
+}
+
+-- Defines constraints on association between C and B
+fact AssociationFact {
+  C &lt;: b in (C) one -&gt; one (B)
+}
+
+-- Defines constraints on association between D and B
+fact AssociationFact {
+  D &lt;: b in (D) lone -&gt; lone (B)
+}
+
+-- Defines constraints on association between E and B
+fact AssociationFact {
+  E &lt;: b in (E) some -&gt; some (B)
+}
+
+-- Defines constraints on association between F and B
+fact AssociationFact {
+  F &lt;: b in (F) set -&gt; set (B)
+}
+
+-- Defines constraints on association between D and C
+fact AssociationFact {
+  D &lt;: cs in (D) one -&gt; one (C)
+}
+
+-- Defines constraints on association between E and C
+fact AssociationFact {
+  E &lt;: cs in (E) lone -&gt; lone (C)
+}
+
+-- Defines constraints on association between F and C
+fact AssociationFact {
+  F &lt;: cs in (F) some -&gt; some (C)
+}
+
+-- Defines constraints on association between G and C
+fact AssociationFact {
+  G &lt;: cs in (G) set -&gt; set (C)
+}
+
+-- Defines constraints on association between E and D
+fact AssociationFact {
+  E &lt;: ds in (E) one -&gt; one (D)
+}
+
+-- Defines constraints on association between F and D
+fact AssociationFact {
+  F &lt;: ds in (F) lone -&gt; lone (D)
+}
+
+-- Defines constraints on association between G and D
+fact AssociationFact {
+  G &lt;: ds in (G) some -&gt; some (D)
+}
+
+-- Defines bidirectionality rule between class A and class B
+fact BidirectionalityRule {
+  all a_1 : A, b_1 : B |
+    a_1 in a[b_1] &lt;=&gt; b_1 in b[a_1]
+}
+
+-- Defines bidirectionality rule between class A and class C
+fact BidirectionalityRule {
+  all a_1 : A, c_1 : C |
+    a_1 in a[c_1] &lt;=&gt; c_1 in c[a_1]
+}
+
+-- Defines bidirectionality rule between class A and class D
+fact BidirectionalityRule {
+  all a_1 : A, d_1 : D |
+    a_1 in a[d_1] &lt;=&gt; d_1 in ds[a_1]
+}
+
+-- Defines bidirectionality rule between class A and class E
+fact BidirectionalityRule {
+  all a_1 : A, e_1 : E |
+    a_1 in a[e_1] &lt;=&gt; e_1 in es[a_1]
+}
+
+-- Defines bidirectionality rule between class B and class C
+fact BidirectionalityRule {
+  all b_1 : B, c_1 : C |
+    b_1 in b[c_1] &lt;=&gt; c_1 in c[b_1]
+}
+
+-- Defines bidirectionality rule between class B and class D
+fact BidirectionalityRule {
+  all b_1 : B, d_1 : D |
+    b_1 in b[d_1] &lt;=&gt; d_1 in d[b_1]
+}
+
+-- Defines bidirectionality rule between class B and class E
+fact BidirectionalityRule {
+  all b_1 : B, e_1 : E |
+    b_1 in b[e_1] &lt;=&gt; e_1 in es[b_1]
+}
+
+-- Defines bidirectionality rule between class B and class F
+fact BidirectionalityRule {
+  all b_1 : B, f_1 : F |
+    b_1 in b[f_1] &lt;=&gt; f_1 in fs[b_1]
+}
+
+-- Defines bidirectionality rule between class C and class D
+fact BidirectionalityRule {
+  all c_1 : C, d_1 : D |
+    c_1 in cs[d_1] &lt;=&gt; d_1 in d[c_1]
+}
+
+-- Defines bidirectionality rule between class C and class E
+fact BidirectionalityRule {
+  all c_1 : C, e_1 : E |
+    c_1 in cs[e_1] &lt;=&gt; e_1 in e[c_1]
+}
+
+-- Defines bidirectionality rule between class C and class F
+fact BidirectionalityRule {
+  all c_1 : C, f_1 : F |
+    c_1 in cs[f_1] &lt;=&gt; f_1 in fs[c_1]
+}
+
+-- Defines bidirectionality rule between class C and class G
+fact BidirectionalityRule {
+  all c_1 : C, g_1 : G |
+    c_1 in cs[g_1] &lt;=&gt; g_1 in gs[c_1]
+}
+
+-- Defines bidirectionality rule between class D and class E
+fact BidirectionalityRule {
+  all d_1 : D, e_1 : E |
+    d_1 in ds[e_1] &lt;=&gt; e_1 in e[d_1]
+}
+
+-- Defines bidirectionality rule between class D and class F
+fact BidirectionalityRule {
+  all d_1 : D, f_1 : F |
+    d_1 in ds[f_1] &lt;=&gt; f_1 in f[d_1]
+}
+
+-- Defines bidirectionality rule between class D and class G
+fact BidirectionalityRule {
+  all d_1 : D, g_1 : G |
+    d_1 in ds[g_1] &lt;=&gt; g_1 in gs[d_1]
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from singleton.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class A
+one sig A { }
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from UmpleClass.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class A
+sig A { }
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from Alloy_AssociationOneToMany.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class A
+sig A {
+  bs : set B,
+  a : Int
+}
+
+-- Defines a signature for class B
+sig B {
+  a : one A
+}
+
+
+-- Defines constraints on association between B and A
+fact AssociationFact {
+  B &lt;: a in (B) set -&gt; set (A)
+}
+
+-- Defines bidirectionality rule between class A and class B
+fact BidirectionalityRule {
+  all a_1 : A, b_1 : B |
+    a_1 in a[b_1] &lt;=&gt; b_1 in bs[a_1]
+}
+module BankingSystem/core/humanResources
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from BankingSystem.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class PersonRole
+sig PersonRole {
+  person : one Person
+}
+
+-- Defines a signature for class Person
+sig Person {
+  personRoles : set PersonRole,
+  name : String,
+  address : String,
+  phoneNumber : String
+}
+
+-- Defines a signature for class Employee
+sig Employee extends PersonRole {
+  manager : lone Manager,
+  division : one Division
+}
+
+-- Defines a signature for class Client
+sig Client extends PersonRole {
+  accounts : some Account,
+  name : String,
+  address : String,
+  phoneNumber : String
+}
+
+-- Defines a signature for class Manager
+sig Manager extends Employee {
+  employees : set Employee
+}
+
+-- Defines a signature for class Account
+sig Account {
+  accountType : one AccountType,
+  clients : some Client,
+  branch : one Branch,
+  accountNumber : Int,
+  balance : Int,
+  creditLimit : Int
+}
+
+-- Defines a signature for class AccountType
+sig AccountType {
+  privileges : set Privilege,
+  monthlyFee : Int,
+  interestRate : Int
+}
+
+-- Defines a signature for class Privilege
+sig Privilege {
+  accountTypes : set AccountType,
+  description : String
+}
+
+-- Defines a signature for class CreditCardAccount
+sig CreditCardAccount extends Account {
+  cards : some Card,
+  expiryDate : String
+}
+
+-- Defines a signature for class MortgageAccount
+sig MortgageAccount extends Account {
+  collateral : String
+}
+
+-- Defines a signature for class Card
+sig Card {
+  creditCardAccount : one CreditCardAccount,
+  holderName : String
+}
+
+-- Defines a signature for class Branch
+sig Branch extends Division {
+  accounts : set Account,
+  address : String,
+  branchNumber : String
+}
+
+-- Defines a signature for class Division
+sig Division {
+  employees : set Employee,
+  subDivision : set Division,
+  name : String
+}
+
+
+-- Defines constraints on association between PersonRole and Person
+fact AssociationFact {
+  PersonRole &lt;: person in (PersonRole) set -&gt; set (Person)
+}
+
+-- Defines constraints on association between Account and Client
+fact AssociationFact {
+  Account &lt;: clients in (Account) some -&gt; some (Client)
+}
+
+-- Defines constraints on association between Employee and Manager
+fact AssociationFact {
+  Employee &lt;: manager in (Employee) set -&gt; set (Manager)
+}
+
+-- Defines constraints on association between Account and AccountType
+fact AssociationFact {
+  Account &lt;: accountType in (Account) set -&gt; one (AccountType)
+}
+
+-- Defines constraints on association between Privilege and AccountType
+fact AssociationFact {
+  Privilege &lt;: accountTypes in (Privilege) set -&gt; set (AccountType)
+}
+
+-- Defines constraints on association between Card and CreditCardAccount
+fact AssociationFact {
+  Card &lt;: creditCardAccount in (Card) some -&gt; some (CreditCardAccount)
+}
+
+-- Defines constraints on association between Account and Branch
+fact AssociationFact {
+  Account &lt;: branch in (Account) set -&gt; set (Branch)
+}
+
+-- Defines constraints on association between Employee and Division
+fact AssociationFact {
+  Employee &lt;: division in (Employee) set -&gt; set (Division)
+}
+
+-- Defines non-reflexive rule for class Division
+fact NonReflexiveRule {
+  no division_1 : Division |
+    division_1 in subDivision[division_1]
+}
+
+-- Defines symmetric rule for class Division
+fact SymmetricRelation {
+  all division_1, division_2 : Division |
+    division_1 in subDivision[division_2] &lt;=&gt; division_2 in subDivision[division_1]
+}
+
+-- Defines non-reflexive rule for class Division
+fact NonReflexiveRule {
+  no division_1 : Division |
+    division_1 in subDivision[division_1]
+}
+
+-- Defines symmetric rule for class Division
+fact SymmetricRelation {
+  all division_1, division_2 : Division |
+    division_1 in subDivision[division_2] &lt;=&gt; division_2 in subDivision[division_1]
+}
+
+-- Defines bidirectionality rule between class Person and class PersonRole
+fact BidirectionalityRule {
+  all person_1 : Person, personrole_1 : PersonRole |
+    person_1 in person[personrole_1] &lt;=&gt; personrole_1 in personRoles[person_1]
+}
+
+-- Defines bidirectionality rule between class Client and class Account
+fact BidirectionalityRule {
+  all client_1 : Client, account_1 : Account |
+    client_1 in clients[account_1] &lt;=&gt; account_1 in accounts[client_1]
+}
+
+-- Defines numeric bound rule for class Account
+fact NumericBoundFact {
+  no account_1 : Account |
+    #account_1.clients &lt; 1 || #account_1.clients &gt; 2
+}
+
+-- Defines bidirectionality rule between class Manager and class Employee
+fact BidirectionalityRule {
+  all manager_1 : Manager, employee_1 : Employee |
+    manager_1 in manager[employee_1] &lt;=&gt; employee_1 in employees[manager_1]
+}
+
+-- Defines bidirectionality rule between class AccountType and class Privilege
+fact BidirectionalityRule {
+  all accounttype_1 : AccountType, privilege_1 : Privilege |
+    accounttype_1 in accountTypes[privilege_1] &lt;=&gt; privilege_1 in privileges[accounttype_1]
+}
+
+-- Defines bidirectionality rule between class CreditCardAccount and class Card
+fact BidirectionalityRule {
+  all creditcardaccount_1 : CreditCardAccount, card_1 : Card |
+    creditcardaccount_1 in creditCardAccount[card_1] &lt;=&gt; card_1 in cards[creditcardaccount_1]
+}
+
+-- Defines bidirectionality rule between class Branch and class Account
+fact BidirectionalityRule {
+  all branch_1 : Branch, account_1 : Account |
+    branch_1 in branch[account_1] &lt;=&gt; account_1 in accounts[branch_1]
+}
+
+-- Defines bidirectionality rule between class Division and class Employee
+fact BidirectionalityRule {
+  all division_1 : Division, employee_1 : Employee |
+    division_1 in division[employee_1] &lt;=&gt; employee_1 in employees[division_1]
+}
+
+-- Defines generalization hierarchy rule between class Employee and Manager
+fact GenHierarchyFact {
+  no manager_1 : Manager |
+    manager_1.employees = manager_1
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from isARelationship.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class A
+sig A { }
+
+-- Defines a signature for class B
+sig B extends A { }
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AlloyReflexiveRelation.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class Person
+sig Person {
+  children : set Person
+}
+
+
+-- Defines no self relation rule for class Person
+fact NoSelfRelation {
+  no person_1 : Person |
+    person_1 in person_1.^children
+}
+
+-- Defines no extended relation rule for class Person
+fact NoExtendedRelation {
+  no disj person_1, person_2, person_3 : Person |
+    person_1 in children[person_2] &amp;&amp; person_1 in children[person_3]
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AlloyGenHierarchy.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class Employee
+sig Employee {
+  manager : lone Manager
+}
+
+-- Defines a signature for class Secretary
+sig Secretary extends Employee { }
+
+-- Defines a signature for class Technician
+sig Technician extends Employee { }
+
+-- Defines a signature for class Manager
+sig Manager extends Employee {
+  supervises : set Employee
+}
+
+
+-- Defines constraints on association between Employee and Manager
+fact AssociationFact {
+  Employee &lt;: manager in (Employee) set -&gt; set (Manager)
+}
+
+-- Defines bidirectionality rule between class Manager and class Employee
+fact BidirectionalityRule {
+  all manager_1 : Manager, employee_1 : Employee |
+    manager_1 in manager[employee_1] &lt;=&gt; employee_1 in supervises[manager_1]
+}
+
+-- Defines generalization hierarchy rule between class Employee and Manager
+fact GenHierarchyFact {
+  no manager_1 : Manager |
+    manager_1.supervises = manager_1
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from Alloy_AssociationOneToOne.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class A
+sig A {
+  b : one B
+}
+
+-- Defines a signature for class B
+sig B {
+  a : one A
+}
+
+
+-- Defines constraints on association between B and A
+fact AssociationFact {
+  B &lt;: a in (B) one -&gt; one (A)
+}
+
+-- Defines bidirectionality rule between class A and class B
+fact BidirectionalityRule {
+  all a_1 : A, b_1 : B |
+    a_1 in a[b_1] &lt;=&gt; b_1 in b[a_1]
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from abstractSingleton.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class A
+abstract one sig A { }
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AlloySymmetricReflexive.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class Course
+sig Course {
+  mutuallyExclusiveWith : set Course
+}
+
+
+-- Defines non-reflexive rule for class Course
+fact NonReflexiveRule {
+  no course_1 : Course |
+    course_1 in mutuallyExclusiveWith[course_1]
+}
+
+-- Defines symmetric rule for class Course
+fact SymmetricRelation {
+  all course_1, course_2 : Course |
+    course_1 in mutuallyExclusiveWith[course_2] &lt;=&gt; course_2 in mutuallyExclusiveWith[course_1]
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AssociationWithNumericBounds.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class Man
+sig Man {
+  children : some Child
+}
+
+-- Defines a signature for class Child
+sig Child {
+  father : lone Man
+}
+
+
+-- Defines constraints on association between Child and Man
+fact AssociationFact {
+  Child &lt;: father in (Child) some -&gt; some (Man)
+}
+
+-- Defines bidirectionality rule between class Man and class Child
+fact BidirectionalityRule {
+  all man_1 : Man, child_1 : Child |
+    man_1 in father[child_1] &lt;=&gt; child_1 in children[man_1]
+}
+
+-- Defines numeric bound rule for class Man
+fact NumericBoundFact {
+  no man_1 : Man |
+    #man_1.children != 5
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AlloySophisticatedAssociations.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class A
+sig A {
+  bs : set B,
+  cs : some C
+}
+
+-- Defines a signature for class B
+sig B {
+  cs : some C,
+  a : lone A
+}
+
+-- Defines a signature for class C
+sig C {
+  as_ : some A,
+  b : one B,
+  d : one D
+}
+
+-- Defines a signature for class D
+sig D {
+  cs : some C
+}
+
+
+-- Defines constraints on association between B and A
+fact AssociationFact {
+  B &lt;: a in (B) set -&gt; set (A)
+}
+
+-- Defines constraints on association between C and B
+fact AssociationFact {
+  C &lt;: b in (C) some -&gt; some (B)
+}
+
+-- Defines constraints on association between A and C
+fact AssociationFact {
+  A &lt;: cs in (A) some -&gt; some (C)
+}
+
+-- Defines constraints on association between C and D
+fact AssociationFact {
+  C &lt;: d in (C) some -&gt; some (D)
+}
+
+-- Defines bidirectionality rule between class A and class B
+fact BidirectionalityRule {
+  all a_1 : A, b_1 : B |
+    a_1 in a[b_1] &lt;=&gt; b_1 in bs[a_1]
+}
+
+-- Defines numeric bound rule for class A
+fact NumericBoundFact {
+  no a_1 : A |
+    #a_1.bs &gt; 2
+}
+
+-- Defines bidirectionality rule between class B and class C
+fact BidirectionalityRule {
+  all b_1 : B, c_1 : C |
+    b_1 in b[c_1] &lt;=&gt; c_1 in cs[b_1]
+}
+
+-- Defines numeric bound rule for class B
+fact NumericBoundFact {
+  no b_1 : B |
+    #b_1.cs &lt; 1 || #b_1.cs &gt; 3
+}
+
+-- Defines bidirectionality rule between class C and class A
+fact BidirectionalityRule {
+  all c_1 : C, a_1 : A |
+    c_1 in cs[a_1] &lt;=&gt; a_1 in as_[c_1]
+}
+
+-- Defines numeric bound rule for class A
+fact NumericBoundFact {
+  no a_1 : A |
+    #a_1.cs &lt; 3 || #a_1.cs &gt; 5
+}
+
+-- Defines numeric bound rule for class C
+fact NumericBoundFact {
+  no c_1 : C |
+    #c_1.as_ &lt; 3 || #c_1.as_ &gt; 7
+}
+
+-- Defines bidirectionality rule between class D and class C
+fact BidirectionalityRule {
+  all d_1 : D, c_1 : C |
+    d_1 in d[c_1] &lt;=&gt; c_1 in cs[d_1]
+}
+
+-- Defines numeric bound rule for class D
+fact NumericBoundFact {
+  no d_1 : D |
+    #d_1.cs != 4
+}
+module realestate
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AlloyRealEstateSystem.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class Address
+sig Address {
+  numberOnStreet : Int,
+  apartmentOrUnit : Int,
+  street : String,
+  city : String,
+  postalCode : String
+}
+
+-- Defines a signature for class GPSCoord
+sig GPSCoord {
+  lattitude : Int,
+  longitude : Int
+}
+
+-- Defines a signature for class Property
+sig Property {
+  neighbourhood : one Neighbourhood,
+  propertySales : set PropertySale,
+  propertyForSales : set PropertyForSale,
+  propertyAddress : Address,
+  numberBedrooms : Int,
+  numberBathrooms : Int,
+  squareFeet : Int,
+  numFloors : Int,
+  gpsCoord : GPSCoord
+}
+
+-- Defines a signature for class Neighbourhood
+sig Neighbourhood {
+  properties : set Property,
+  agents : set Agent,
+  description : String,
+  gpsCoordsOfBoundary : set GPSCoord
+}
+
+-- Defines a signature for class PropertySale
+sig PropertySale {
+  property : one Property,
+  propertyForSale : lone PropertyForSale,
+  salePrice : Int,
+  seller : String,
+  buyer : String
+}
+
+-- Defines a signature for class OpenHouse
+sig OpenHouse {
+  propertyForSale : one PropertyForSale,
+  agentInCharge : lone Agent,
+  date : String,
+  startTime : String,
+  endTime : String
+}
+
+-- Defines a signature for class Agent
+sig Agent {
+  specializingNeighbourhoods : set Neighbourhood,
+  openHouses : set OpenHouse,
+  propertyForSales : set PropertyForSale,
+  name : String,
+  licenseNumber : String,
+  emailAddress : String,
+  officePhoneNumber : String,
+  cellPhoneNumber : String,
+  officeAddress : Address
+}
+
+-- Defines a signature for class PropertyForSale
+sig PropertyForSale {
+  listedProperty : one Property,
+  listingAgent : lone Agent,
+  propertySale : lone PropertySale,
+  openHouses : set OpenHouse,
+  listingNumber : Int,
+  askingPrice : Int,
+  dateListedForSale : String
+}
+
+
+-- Defines constraints on association between Neighbourhood and Property
+fact AssociationFact {
+  Neighbourhood &lt;: properties in (Neighbourhood) one -&gt; one (Property)
+}
+
+-- Defines constraints on association between Property and PropertySale
+fact AssociationFact {
+  Property &lt;: propertySales in (Property) one -&gt; one (PropertySale)
+}
+
+-- Defines constraints on association between PropertyForSale and OpenHouse
+fact AssociationFact {
+  PropertyForSale &lt;: openHouses in (PropertyForSale) one -&gt; one (OpenHouse)
+}
+
+-- Defines constraints on association between Agent and OpenHouse
+fact AssociationFact {
+  Agent &lt;: openHouses in (Agent) lone -&gt; lone (OpenHouse)
+}
+
+-- Defines constraints on association between Neighbourhood and Agent
+fact AssociationFact {
+  Neighbourhood &lt;: agents in (Neighbourhood) set -&gt; set (Agent)
+}
+
+-- Defines constraints on association between Property and PropertyForSale
+fact AssociationFact {
+  Property &lt;: propertyForSales in (Property) one -&gt; one (PropertyForSale)
+}
+
+-- Defines constraints on association between Agent and PropertyForSale
+fact AssociationFact {
+  Agent &lt;: propertyForSales in (Agent) lone -&gt; lone (PropertyForSale)
+}
+
+-- Defines constraints on association between PropertySale and PropertyForSale
+fact AssociationFact {
+  PropertySale &lt;: propertyForSale in (PropertySale) lone -&gt; lone (PropertyForSale)
+}
+
+-- Defines bidirectionality rule between class Property and class Neighbourhood
+fact BidirectionalityRule {
+  all property_1 : Property, neighbourhood_1 : Neighbourhood |
+    property_1 in properties[neighbourhood_1] &lt;=&gt; neighbourhood_1 in neighbourhood[property_1]
+}
+
+-- Defines bidirectionality rule between class PropertySale and class Property
+fact BidirectionalityRule {
+  all propertysale_1 : PropertySale, property_1 : Property |
+    propertysale_1 in propertySales[property_1] &lt;=&gt; property_1 in property[propertysale_1]
+}
+
+-- Defines bidirectionality rule between class OpenHouse and class PropertyForSale
+fact BidirectionalityRule {
+  all openhouse_1 : OpenHouse, propertyforsale_1 : PropertyForSale |
+    openhouse_1 in openHouses[propertyforsale_1] &lt;=&gt; propertyforsale_1 in propertyForSale[openhouse_1]
+}
+
+-- Defines bidirectionality rule between class OpenHouse and class Agent
+fact BidirectionalityRule {
+  all openhouse_1 : OpenHouse, agent_1 : Agent |
+    openhouse_1 in openHouses[agent_1] &lt;=&gt; agent_1 in agentInCharge[openhouse_1]
+}
+
+-- Defines bidirectionality rule between class Agent and class Neighbourhood
+fact BidirectionalityRule {
+  all agent_1 : Agent, neighbourhood_1 : Neighbourhood |
+    agent_1 in agents[neighbourhood_1] &lt;=&gt; neighbourhood_1 in specializingNeighbourhoods[agent_1]
+}
+
+-- Defines bidirectionality rule between class PropertyForSale and class Property
+fact BidirectionalityRule {
+  all propertyforsale_1 : PropertyForSale, property_1 : Property |
+    propertyforsale_1 in propertyForSales[property_1] &lt;=&gt; property_1 in listedProperty[propertyforsale_1]
+}
+
+-- Defines bidirectionality rule between class PropertyForSale and class Agent
+fact BidirectionalityRule {
+  all propertyforsale_1 : PropertyForSale, agent_1 : Agent |
+    propertyforsale_1 in propertyForSales[agent_1] &lt;=&gt; agent_1 in listingAgent[propertyforsale_1]
+}
+
+-- Defines bidirectionality rule between class PropertyForSale and class PropertySale
+fact BidirectionalityRule {
+  all propertyforsale_1 : PropertyForSale, propertysale_1 : PropertySale |
+    propertyforsale_1 in propertyForSale[propertysale_1] &lt;=&gt; propertysale_1 in propertySale[propertyforsale_1]
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AlloyAssociation.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class Man
+sig Man {
+  wives : some Woman,
+  children : some Child
+}
+
+-- Defines a signature for class Woman
+sig Woman {
+  husband : one Man
+}
+
+-- Defines a signature for class Child
+sig Child {
+  father : lone Man
+}
+
+
+-- Defines constraints on association between Woman and Man
+fact AssociationFact {
+  Woman &lt;: husband in (Woman) some -&gt; some (Man)
+}
+
+-- Defines constraints on association between Child and Man
+fact AssociationFact {
+  Child &lt;: father in (Child) some -&gt; some (Man)
+}
+
+-- Defines bidirectionality rule between class Man and class Woman
+fact BidirectionalityRule {
+  all man_1 : Man, woman_1 : Woman |
+    man_1 in husband[woman_1] &lt;=&gt; woman_1 in wives[man_1]
+}
+
+-- Defines numeric bound rule for class Man
+fact NumericBoundFact {
+  no man_1 : Man |
+    #man_1.wives != 2
+}
+
+-- Defines bidirectionality rule between class Man and class Child
+fact BidirectionalityRule {
+  all man_1 : Man, child_1 : Child |
+    man_1 in father[child_1] &lt;=&gt; child_1 in children[man_1]
+}
+
+-- Defines numeric bound rule for class Man
+fact NumericBoundFact {
+  no man_1 : Man |
+    #man_1.children &lt; 1 || #man_1.children &gt; 5
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AlloyExample1.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class Employee
+sig Employee {
+  worksIn : some Address
+}
+
+-- Defines a signature for class Address
+sig Address {
+  employees : some Employee
+}
+
+
+-- Defines constraints on association between Address and Employee
+fact AssociationFact {
+  Address &lt;: employees in (Address) some -&gt; some (Employee)
+}
+
+-- Defines bidirectionality rule between class Employee and class Address
+fact BidirectionalityRule {
+  all employee_1 : Employee, address_1 : Address |
+    employee_1 in employees[address_1] &lt;=&gt; address_1 in worksIn[employee_1]
+}
+
+-- Defines numeric bound rule for class Address
+fact NumericBoundFact {
+  no address_1 : Address |
+    #address_1.employees != 5
+}
+
+-- Defines numeric bound rule for class Employee
+fact NumericBoundFact {
+  no employee_1 : Employee |
+    #employee_1.worksIn != 4
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from Alloy_Unidirectional.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class A
+sig A {
+  bs : set B
+}
+
+-- Defines a signature for class B
+sig B { }
+
+-- Defines a signature for class C
+sig C {
+  b : one B
+}
+
+
+-- Defines constraints on association between A and B
+fact AssociationFact {
+  A &lt;: bs in (A) one -&gt; set (B)
+}
+
+-- Defines constraints on association between C and B
+fact AssociationFact {
+  C &lt;: b in (C) set -&gt; set (B)
+}
+</pre>
+    </body>
+</html>

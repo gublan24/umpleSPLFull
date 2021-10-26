@@ -1,0 +1,246 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from OptionalOneToNTest</title>
+    </head>
+    <body>
+        <pre>/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+import java.util.*;
+
+// line 3 "../OptionalOneToNTest.ump"
+public class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private String name;
+
+  //Mentor Associations
+  private List&lt;Student&gt; students;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Mentor(String aName, Student... allStudents)
+  {
+    name = aName;
+    students = new ArrayList&lt;Student&gt;();
+    boolean didAddStudents = setStudents(allStudents);
+    if (!didAddStudents)
+    {
+      throw new RuntimeException("Unable to create Mentor, must have 3 students. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setName(String aName)
+  {
+    boolean wasSet = false;
+    name = aName;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getName()
+  {
+    return name;
+  }
+  /* Code from template association_GetMany */
+  public Student getStudent(int index)
+  {
+    Student aStudent = students.get(index);
+    return aStudent;
+  }
+
+  public List&lt;Student&gt; getStudents()
+  {
+    List&lt;Student&gt; newStudents = Collections.unmodifiableList(students);
+    return newStudents;
+  }
+
+  public int numberOfStudents()
+  {
+    int number = students.size();
+    return number;
+  }
+
+  public boolean hasStudents()
+  {
+    boolean has = students.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfStudent(Student aStudent)
+  {
+    int index = students.indexOf(aStudent);
+    return index;
+  }
+  /* Code from template association_RequiredNumberOfMethod */
+  public static int requiredNumberOfStudents()
+  {
+    return 3;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfStudents()
+  {
+    return 3;
+  }
+  /* Code from template association_MaximumNumberOfMethod */
+  public static int maximumNumberOfStudents()
+  {
+    return 3;
+  }
+  /* Code from template association_SetNToOptionalOne */
+  public boolean setStudents(Student... newStudents)
+  {
+    boolean wasSet = false;
+    ArrayList&lt;Student&gt; checkNewStudents = new ArrayList&lt;Student&gt;();
+    for (Student aStudent : newStudents)
+    {
+      if (checkNewStudents.contains(aStudent))
+      {
+        return wasSet;
+      }
+      else if (aStudent.getMentor() != null &amp;&amp; !this.equals(aStudent.getMentor()))
+      {
+        return wasSet;
+      }
+      checkNewStudents.add(aStudent);
+    }
+
+    if (checkNewStudents.size() != minimumNumberOfStudents())
+    {
+      return wasSet;
+    }
+
+    students.removeAll(checkNewStudents);
+    
+    for (Student orphan : students)
+    {
+      setMentor(orphan, null);
+    }
+    students.clear();
+    for (Student aStudent : newStudents)
+    {
+      setMentor(aStudent, this);
+      students.add(aStudent);
+    }
+    wasSet = true;
+    return wasSet;
+  }
+  /* Code from template association_GetPrivate */
+  private void setMentor(Student aStudent, Mentor aMentor)
+  {
+    try
+    {
+      java.lang.reflect.Field mentorField = aStudent.getClass().getDeclaredField("mentor");
+      mentorField.setAccessible(true);
+      mentorField.set(aStudent, aMentor);
+    }
+    catch (Exception e)
+    {
+      throw new RuntimeException("Issue internally setting aMentor to aStudent", e);
+    }
+  }
+
+  public void delete()
+  {
+    for(Student aStudent : students)
+    {
+      setMentor(aStudent,null);
+    }
+    students.clear();
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "name" + ":" + getName()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 9 "../OptionalOneToNTest.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private String number;
+
+  //Student Associations
+  private Mentor mentor;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student(String aNumber)
+  {
+    number = aNumber;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setNumber(String aNumber)
+  {
+    boolean wasSet = false;
+    number = aNumber;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getNumber()
+  {
+    return number;
+  }
+  /* Code from template association_GetOne */
+  public Mentor getMentor()
+  {
+    return mentor;
+  }
+
+  public boolean hasMentor()
+  {
+    boolean has = mentor != null;
+    return has;
+  }
+
+  public void delete()
+  {
+    if (mentor != null)
+    {
+      mentor.delete();
+    }
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "number" + ":" + getNumber()+ "]" + System.getProperties().getProperty("line.separator") +
+            "  " + "mentor = "+(getMentor()!=null?Integer.toHexString(System.identityHashCode(getMentor())):"null");
+  }
+}
+</pre>
+    </body>
+</html>

@@ -1,0 +1,2182 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from PhpDuplicateInterfaceAssociationMethodsTest</title>
+    </head>
+    <body>
+        <pre>&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class First implements I
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //First Associations
+  private $seconds;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;seconds = array();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSecond_index($index)
+  {
+    $aSecond = $this-&gt;seconds[$index];
+    return $aSecond;
+  }
+
+  public function getSeconds()
+  {
+    $newSeconds = $this-&gt;seconds;
+    return $newSeconds;
+  }
+
+  public function numberOfSeconds()
+  {
+    $number = count($this-&gt;seconds);
+    return $number;
+  }
+
+  public function hasSeconds()
+  {
+    $has = $this-&gt;numberOfSeconds() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfSecond($aSecond)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;seconds as $second)
+    {
+      if ($second-&gt;equals($aSecond))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public static function minimumNumberOfSeconds()
+  {
+    return 0;
+  }
+
+  public function addSecond($aSecond)
+  {
+    $wasAdded = false;
+    if ($this-&gt;indexOfSecond($aSecond) !== -1) { return false; }
+    $this-&gt;seconds[] = $aSecond;
+    if ($aSecond-&gt;indexOfFirst($this) != -1)
+    {
+      $wasAdded = true;
+    }
+    else
+    {
+      $wasAdded = $aSecond-&gt;addFirst($this);
+      if (!$wasAdded)
+      {
+        array_pop($this-&gt;seconds);
+      }
+    }
+    return $wasAdded;
+  }
+
+  public function removeSecond($aSecond)
+  {
+    $wasRemoved = false;
+    if ($this-&gt;indexOfSecond($aSecond) == -1)
+    {
+      return $wasRemoved;
+    }
+
+    $oldIndex = $this-&gt;indexOfSecond($aSecond);
+    unset($this-&gt;seconds[$oldIndex]);
+    if ($aSecond-&gt;indexOfFirst($this) == -1)
+    {
+      $wasRemoved = true;
+    }
+    else
+    {
+      $wasRemoved = $aSecond-&gt;removeFirst($this);
+      if (!$wasRemoved)
+      {
+        $this-&gt;seconds[$oldIndex] = $aSecond;
+        ksort($this-&gt;seconds);
+      }
+    }
+    $this-&gt;seconds = array_values($this-&gt;seconds);
+    return $wasRemoved;
+  }
+
+  public function addSecondAt($aSecond, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addSecond($aSecond))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfSeconds()) { $index = $this-&gt;numberOfSeconds() - 1; }
+      array_splice($this-&gt;seconds, $this-&gt;indexOfSecond($aSecond), 1);
+      array_splice($this-&gt;seconds, $index, 0, array($aSecond));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveSecondAt($aSecond, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfSecond($aSecond) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfSeconds()) { $index = $this-&gt;numberOfSeconds() - 1; }
+      array_splice($this-&gt;seconds, $this-&gt;indexOfSecond($aSecond), 1);
+      array_splice($this-&gt;seconds, $index, 0, array($aSecond));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addSecondAt($aSecond, $index);
+    }
+    return $wasAdded;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $copyOfSeconds = $this-&gt;seconds;
+    $this-&gt;seconds = array();
+    foreach ($copyOfSeconds as $aSecond)
+    {
+      $aSecond-&gt;removeFirst($this);
+    }
+  }
+
+  public function setSecond(Second $aSecond)
+  {
+          return "";
+  }
+
+  public function setSeconds(Second... $newSeconds)
+  {
+          return "";
+  }
+
+  public function isNumberOfSecondsValid()
+  {
+          return "";
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class First implements I
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //First Associations
+  private $second;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aSecond)
+  {
+    $didAddSecond = $this-&gt;setSecond($aSecond);
+    if (!$didAddSecond)
+    {
+      throw new Exception("Unable to create first due to second. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSecond()
+  {
+    return $this-&gt;second;
+  }
+
+  public function setSecond($aSecond)
+  {
+    $wasSet = false;
+    if ($aSecond == null)
+    {
+      return $wasSet;
+    }
+    
+    $existingSecond = $this-&gt;second;
+    $this-&gt;second = $aSecond;
+    if ($existingSecond != null &amp;&amp; $existingSecond != $aSecond)
+    {
+      $existingSecond-&gt;removeFirst($this);
+    }
+    $this-&gt;second-&gt;addFirst($this);
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $placeholderSecond = $this-&gt;second;
+    $this-&gt;second = null;
+    $placeholderSecond-&gt;removeFirst($this);
+  }
+
+  public function addSecond(Second $aSecond)
+  {
+          return "";
+  }
+
+  public function getSeconds()
+  {
+          return "";
+  }
+
+  public function setSeconds(Second... $newSeconds)
+  {
+          return "";
+  }
+
+  public function numberOfSeconds()
+  {
+          return "";
+  }
+
+  public function hasSeconds()
+  {
+          return "";
+  }
+
+  public function indexOfSecond(Second $second)
+  {
+          return "";
+  }
+
+  public function isNumberOfSecondsValid()
+  {
+          return "";
+  }
+
+  public function removeSecond(Second $second)
+  {
+          return "";
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class First implements I
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //First Associations
+  private $seconds;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($allSeconds)
+  {
+    $this-&gt;seconds = array();
+    $didAddSeconds = $this-&gt;setSeconds($allSeconds);
+    if (!$didAddSeconds)
+    {
+      throw new Exception("Unable to create First, must have 1 to 5 seconds. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSecond_index($index)
+  {
+    $aSecond = $this-&gt;seconds[$index];
+    return $aSecond;
+  }
+
+  public function getSeconds()
+  {
+    $newSeconds = $this-&gt;seconds;
+    return $newSeconds;
+  }
+
+  public function numberOfSeconds()
+  {
+    $number = count($this-&gt;seconds);
+    return $number;
+  }
+
+  public function hasSeconds()
+  {
+    $has = $this-&gt;numberOfSeconds() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfSecond($aSecond)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;seconds as $second)
+    {
+      if ($second-&gt;equals($aSecond))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public function isNumberOfSecondsValid()
+  {
+    $isValid = $this-&gt;numberOfSeconds() &gt;= self::minimumNumberOfSeconds() &amp;&amp; $this-&gt;numberOfSeconds() &lt;= self::maximumNumberOfSeconds();
+    return $isValid;
+  }
+
+  public static function minimumNumberOfSeconds()
+  {
+    return 1;
+  }
+
+  public static function maximumNumberOfSeconds()
+  {
+    return 5;
+  }
+
+  public function addSecond($aSecond)
+  {
+    $wasAdded = false;
+    if ($this-&gt;indexOfSecond($aSecond) !== -1) { return false; }
+    if ($this-&gt;numberOfSeconds() &gt;= self::maximumNumberOfSeconds())
+    {
+      return $wasAdded;
+    }
+
+    $this-&gt;seconds[] = $aSecond;
+    if ($aSecond-&gt;indexOfFirst($this) != -1)
+    {
+      $wasAdded = true;
+    }
+    else
+    {
+      $wasAdded = $aSecond-&gt;addFirst($this);
+      if (!$wasAdded)
+      {
+        array_pop($this-&gt;seconds);
+      }
+    }
+    return $wasAdded;
+  }
+
+  public function removeSecond($aSecond)
+  {
+    $wasRemoved = false;
+    if ($this-&gt;indexOfSecond($aSecond) == -1)
+    {
+      return $wasRemoved;
+    }
+
+    if ($this-&gt;numberOfSeconds() &lt;= self::minimumNumberOfSeconds())
+    {
+      return $wasRemoved;
+    }
+
+    $oldIndex = $this-&gt;indexOfSecond($aSecond);
+    unset($this-&gt;seconds[$oldIndex]);
+    if ($aSecond-&gt;indexOfFirst($this) == -1)
+    {
+      $wasRemoved = true;
+    }
+    else
+    {
+      $wasRemoved = $aSecond-&gt;removeFirst($this);
+      if (!$wasRemoved)
+      {
+        $this-&gt;seconds[$oldIndex] = $aSecond;
+        ksort($this-&gt;seconds);
+      }
+    }
+    $this-&gt;seconds = array_values($this-&gt;seconds);
+    return $wasRemoved;
+  }
+
+  public function setSeconds($newSeconds)
+  {
+    $wasSet = false;
+    $verifiedSeconds = array();
+    foreach ($newSeconds as $aSecond)
+    {
+      if (array_search($aSecond,$verifiedSeconds) !== false)
+      {
+        continue;
+      }
+      $verifiedSeconds[] = $aSecond;
+    }
+
+    if (count($verifiedSeconds) != count($newSeconds) || count($verifiedSeconds) &lt; self::minimumNumberOfSeconds() || count($verifiedSeconds) &gt; self::maximumNumberOfSeconds())
+    {
+      return $wasSet;
+    }
+
+    $oldSeconds = $this-&gt;seconds;
+    $this-&gt;seconds = array();
+    foreach ($verifiedSeconds as $aNewSecond)
+    {
+      $this-&gt;seconds[] = $aNewSecond;
+      $removeIndex = array_search($aNewSecond,$oldSeconds);
+      if ($removeIndex !== false)
+      {
+        unset($oldSeconds[$removeIndex]);
+        $oldSeconds = array_values($oldSeconds);
+      }
+      else
+      {
+        $aNewSecond-&gt;addFirst($this);
+      }
+    }
+
+    foreach ($oldSeconds as $anOldSecond)
+    {
+      $anOldSecond-&gt;removeFirst($this);
+    }
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function addSecondAt($aSecond, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addSecond($aSecond))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfSeconds()) { $index = $this-&gt;numberOfSeconds() - 1; }
+      array_splice($this-&gt;seconds, $this-&gt;indexOfSecond($aSecond), 1);
+      array_splice($this-&gt;seconds, $index, 0, array($aSecond));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveSecondAt($aSecond, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfSecond($aSecond) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfSeconds()) { $index = $this-&gt;numberOfSeconds() - 1; }
+      array_splice($this-&gt;seconds, $this-&gt;indexOfSecond($aSecond), 1);
+      array_splice($this-&gt;seconds, $index, 0, array($aSecond));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addSecondAt($aSecond, $index);
+    }
+    return $wasAdded;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $copyOfSeconds = $this-&gt;seconds;
+    $this-&gt;seconds = array();
+    foreach ($copyOfSeconds as $aSecond)
+    {
+      $aSecond-&gt;removeFirst($this);
+    }
+  }
+
+  public function setSecond(Second $aSecond)
+  {
+          return "";
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class First implements I
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //First Associations
+  private $seconds;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($allSeconds)
+  {
+    $this-&gt;seconds = array();
+    $didAddSeconds = $this-&gt;setSeconds($allSeconds);
+    if (!$didAddSeconds)
+    {
+      throw new Exception("Unable to create First, must have at least 1 seconds. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSecond_index($index)
+  {
+    $aSecond = $this-&gt;seconds[$index];
+    return $aSecond;
+  }
+
+  public function getSeconds()
+  {
+    $newSeconds = $this-&gt;seconds;
+    return $newSeconds;
+  }
+
+  public function numberOfSeconds()
+  {
+    $number = count($this-&gt;seconds);
+    return $number;
+  }
+
+  public function hasSeconds()
+  {
+    $has = $this-&gt;numberOfSeconds() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfSecond($aSecond)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;seconds as $second)
+    {
+      if ($second-&gt;equals($aSecond))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public function isNumberOfSecondsValid()
+  {
+    $isValid = $this-&gt;numberOfSeconds() &gt;= self::minimumNumberOfSeconds();
+    return $isValid;
+  }
+
+  public static function minimumNumberOfSeconds()
+  {
+    return 1;
+  }
+
+  public function addSecond($aSecond)
+  {
+    $wasAdded = false;
+    if ($this-&gt;indexOfSecond($aSecond) !== -1) { return false; }
+    $this-&gt;seconds[] = $aSecond;
+    if ($aSecond-&gt;indexOfFirst($this) != -1)
+    {
+      $wasAdded = true;
+    }
+    else
+    {
+      $wasAdded = $aSecond-&gt;addFirst($this);
+      if (!$wasAdded)
+      {
+        array_pop($this-&gt;seconds);
+      }
+    }
+    return $wasAdded;
+  }
+
+  public function removeSecond($aSecond)
+  {
+    $wasRemoved = false;
+    if ($this-&gt;indexOfSecond($aSecond) == -1)
+    {
+      return $wasRemoved;
+    }
+
+    if ($this-&gt;numberOfSeconds() &lt;= self::minimumNumberOfSeconds())
+    {
+      return $wasRemoved;
+    }
+
+    $oldIndex = $this-&gt;indexOfSecond($aSecond);
+    unset($this-&gt;seconds[$oldIndex]);
+    if ($aSecond-&gt;indexOfFirst($this) == -1)
+    {
+      $wasRemoved = true;
+    }
+    else
+    {
+      $wasRemoved = $aSecond-&gt;removeFirst($this);
+      if (!$wasRemoved)
+      {
+        $this-&gt;seconds[$oldIndex] = $aSecond;
+        ksort($this-&gt;seconds);
+      }
+    }
+    $this-&gt;seconds = array_values($this-&gt;seconds);
+    return $wasRemoved;
+  }
+
+  public function setSeconds($newSeconds)
+  {
+    $wasSet = false;
+    $verifiedSeconds = array();
+    foreach ($newSeconds as $aSecond)
+    {
+      if (array_search($aSecond,$verifiedSeconds) !== false)
+      {
+        continue;
+      }
+      $verifiedSeconds[] = $aSecond;
+    }
+
+    if (count($verifiedSeconds) != count($newSeconds) || count($verifiedSeconds) &lt; self::minimumNumberOfSeconds())
+    {
+      return $wasSet;
+    }
+
+    $oldSeconds = $this-&gt;seconds;
+    $this-&gt;seconds = array();
+    foreach ($verifiedSeconds as $aNewSecond)
+    {
+      $this-&gt;seconds[] = $aNewSecond;
+      $removeIndex = array_search($aNewSecond,$oldSeconds);
+      if ($removeIndex !== false)
+      {
+        unset($oldSeconds[$removeIndex]);
+        $oldSeconds = array_values($oldSeconds);
+      }
+      else
+      {
+        $aNewSecond-&gt;addFirst($this);
+      }
+    }
+
+    foreach ($oldSeconds as $anOldSecond)
+    {
+      $anOldSecond-&gt;removeFirst($this);
+    }
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function addSecondAt($aSecond, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addSecond($aSecond))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfSeconds()) { $index = $this-&gt;numberOfSeconds() - 1; }
+      array_splice($this-&gt;seconds, $this-&gt;indexOfSecond($aSecond), 1);
+      array_splice($this-&gt;seconds, $index, 0, array($aSecond));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveSecondAt($aSecond, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfSecond($aSecond) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfSeconds()) { $index = $this-&gt;numberOfSeconds() - 1; }
+      array_splice($this-&gt;seconds, $this-&gt;indexOfSecond($aSecond), 1);
+      array_splice($this-&gt;seconds, $index, 0, array($aSecond));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addSecondAt($aSecond, $index);
+    }
+    return $wasAdded;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $copyOfSeconds = $this-&gt;seconds;
+    $this-&gt;seconds = array();
+    foreach ($copyOfSeconds as $aSecond)
+    {
+      $aSecond-&gt;removeFirst($this);
+    }
+  }
+
+  public function setSecond(Second $aSecond)
+  {
+          return "";
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class First implements I
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //First Associations
+  private $seconds;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($allSeconds)
+  {
+    $this-&gt;seconds = array();
+    $didAddSeconds = $this-&gt;setSeconds($allSeconds);
+    if (!$didAddSeconds)
+    {
+      throw new Exception("Unable to create First, must have 5 seconds. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSecond_index($index)
+  {
+    $aSecond = $this-&gt;seconds[$index];
+    return $aSecond;
+  }
+
+  public function getSeconds()
+  {
+    $newSeconds = $this-&gt;seconds;
+    return $newSeconds;
+  }
+
+  public function numberOfSeconds()
+  {
+    $number = count($this-&gt;seconds);
+    return $number;
+  }
+
+  public function hasSeconds()
+  {
+    $has = $this-&gt;numberOfSeconds() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfSecond($aSecond)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;seconds as $second)
+    {
+      if ($second-&gt;equals($aSecond))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public function isNumberOfSecondsValid()
+  {
+    $isValid = $this-&gt;numberOfSeconds() &gt;= self::minimumNumberOfSeconds() &amp;&amp; $this-&gt;numberOfSeconds() &lt;= self::maximumNumberOfSeconds();
+    return $isValid;
+  }
+
+  public static function requiredNumberOfSeconds()
+  {
+    return 5;
+  }
+
+  public static function minimumNumberOfSeconds()
+  {
+    return 5;
+  }
+
+  public static function maximumNumberOfSeconds()
+  {
+    return 5;
+  }
+
+  public function addSecond($aSecond)
+  {
+    $wasAdded = false;
+    if ($this-&gt;indexOfSecond($aSecond) !== -1) { return false; }
+    if ($this-&gt;numberOfSeconds() &gt;= self::maximumNumberOfSeconds())
+    {
+      return $wasAdded;
+    }
+
+    $this-&gt;seconds[] = $aSecond;
+    if ($aSecond-&gt;indexOfFirst($this) != -1)
+    {
+      $wasAdded = true;
+    }
+    else
+    {
+      $wasAdded = $aSecond-&gt;addFirst($this);
+      if (!$wasAdded)
+      {
+        array_pop($this-&gt;seconds);
+      }
+    }
+    return $wasAdded;
+  }
+
+  public function removeSecond($aSecond)
+  {
+    $wasRemoved = false;
+    if ($this-&gt;indexOfSecond($aSecond) == -1)
+    {
+      return $wasRemoved;
+    }
+
+    if ($this-&gt;numberOfSeconds() &lt;= self::minimumNumberOfSeconds())
+    {
+      return $wasRemoved;
+    }
+
+    $oldIndex = $this-&gt;indexOfSecond($aSecond);
+    unset($this-&gt;seconds[$oldIndex]);
+    if ($aSecond-&gt;indexOfFirst($this) == -1)
+    {
+      $wasRemoved = true;
+    }
+    else
+    {
+      $wasRemoved = $aSecond-&gt;removeFirst($this);
+      if (!$wasRemoved)
+      {
+        $this-&gt;seconds[$oldIndex] = $aSecond;
+        ksort($this-&gt;seconds);
+      }
+    }
+    $this-&gt;seconds = array_values($this-&gt;seconds);
+    return $wasRemoved;
+  }
+
+  public function setSeconds($newSeconds)
+  {
+    $wasSet = false;
+    $verifiedSeconds = array();
+    foreach ($newSeconds as $aSecond)
+    {
+      if (array_search($aSecond,$verifiedSeconds) !== false)
+      {
+        continue;
+      }
+      $verifiedSeconds[] = $aSecond;
+    }
+
+    if (count($verifiedSeconds) != count($newSeconds) || count($verifiedSeconds) &lt; self::minimumNumberOfSeconds() || count($verifiedSeconds) &gt; self::maximumNumberOfSeconds())
+    {
+      return $wasSet;
+    }
+
+    $oldSeconds = $this-&gt;seconds;
+    $this-&gt;seconds = array();
+    foreach ($verifiedSeconds as $aNewSecond)
+    {
+      $this-&gt;seconds[] = $aNewSecond;
+      $removeIndex = array_search($aNewSecond,$oldSeconds);
+      if ($removeIndex !== false)
+      {
+        unset($oldSeconds[$removeIndex]);
+        $oldSeconds = array_values($oldSeconds);
+      }
+      else
+      {
+        $aNewSecond-&gt;addFirst($this);
+      }
+    }
+
+    foreach ($oldSeconds as $anOldSecond)
+    {
+      $anOldSecond-&gt;removeFirst($this);
+    }
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $copyOfSeconds = $this-&gt;seconds;
+    $this-&gt;seconds = array();
+    foreach ($copyOfSeconds as $aSecond)
+    {
+      $aSecond-&gt;removeFirst($this);
+    }
+  }
+
+  public function setSecond(Second $aSecond)
+  {
+          return "";
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class First implements I
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //First Associations
+  private $seconds;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;seconds = array();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSecond_index($index)
+  {
+    $aSecond = $this-&gt;seconds[$index];
+    return $aSecond;
+  }
+
+  public function getSeconds()
+  {
+    $newSeconds = $this-&gt;seconds;
+    return $newSeconds;
+  }
+
+  public function numberOfSeconds()
+  {
+    $number = count($this-&gt;seconds);
+    return $number;
+  }
+
+  public function hasSeconds()
+  {
+    $has = $this-&gt;numberOfSeconds() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfSecond($aSecond)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;seconds as $second)
+    {
+      if ($second-&gt;equals($aSecond))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public static function minimumNumberOfSeconds()
+  {
+    return 0;
+  }
+
+  public static function maximumNumberOfSeconds()
+  {
+    return 5;
+  }
+
+  public function addSecond($aSecond)
+  {
+    $wasAdded = false;
+    if ($this-&gt;indexOfSecond($aSecond) !== -1) { return false; }
+    if ($this-&gt;numberOfSeconds() &gt;= self::maximumNumberOfSeconds())
+    {
+      return $wasAdded;
+    }
+
+    $this-&gt;seconds[] = $aSecond;
+    if ($aSecond-&gt;indexOfFirst($this) != -1)
+    {
+      $wasAdded = true;
+    }
+    else
+    {
+      $wasAdded = $aSecond-&gt;addFirst($this);
+      if (!$wasAdded)
+      {
+        array_pop($this-&gt;seconds);
+      }
+    }
+    return $wasAdded;
+  }
+
+  public function removeSecond($aSecond)
+  {
+    $wasRemoved = false;
+    if ($this-&gt;indexOfSecond($aSecond) == -1)
+    {
+      return $wasRemoved;
+    }
+
+    $oldIndex = $this-&gt;indexOfSecond($aSecond);
+    unset($this-&gt;seconds[$oldIndex]);
+    if ($aSecond-&gt;indexOfFirst($this) == -1)
+    {
+      $wasRemoved = true;
+    }
+    else
+    {
+      $wasRemoved = $aSecond-&gt;removeFirst($this);
+      if (!$wasRemoved)
+      {
+        $this-&gt;seconds[$oldIndex] = $aSecond;
+        ksort($this-&gt;seconds);
+      }
+    }
+    $this-&gt;seconds = array_values($this-&gt;seconds);
+    return $wasRemoved;
+  }
+
+  public function setSeconds($newSeconds)
+  {
+    $wasSet = false;
+    $verifiedSeconds = array();
+    foreach ($newSeconds as $aSecond)
+    {
+      if (array_search($aSecond,$verifiedSeconds) !== false)
+      {
+        continue;
+      }
+      $verifiedSeconds[] = $aSecond;
+    }
+
+    if (count($verifiedSeconds) != count($newSeconds) || count($verifiedSeconds) &gt; self::maximumNumberOfSeconds())
+    {
+      return $wasSet;
+    }
+
+    $oldSeconds = $this-&gt;seconds;
+    $this-&gt;seconds = array();
+    foreach ($verifiedSeconds as $aNewSecond)
+    {
+      $this-&gt;seconds[] = $aNewSecond;
+      $removeIndex = array_search($aNewSecond,$oldSeconds);
+      if ($removeIndex !== false)
+      {
+        unset($oldSeconds[$removeIndex]);
+        $oldSeconds = array_values($oldSeconds);
+      }
+      else
+      {
+        $aNewSecond-&gt;addFirst($this);
+      }
+    }
+
+    foreach ($oldSeconds as $anOldSecond)
+    {
+      $anOldSecond-&gt;removeFirst($this);
+    }
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function addSecondAt($aSecond, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addSecond($aSecond))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfSeconds()) { $index = $this-&gt;numberOfSeconds() - 1; }
+      array_splice($this-&gt;seconds, $this-&gt;indexOfSecond($aSecond), 1);
+      array_splice($this-&gt;seconds, $index, 0, array($aSecond));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveSecondAt($aSecond, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfSecond($aSecond) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfSeconds()) { $index = $this-&gt;numberOfSeconds() - 1; }
+      array_splice($this-&gt;seconds, $this-&gt;indexOfSecond($aSecond), 1);
+      array_splice($this-&gt;seconds, $index, 0, array($aSecond));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addSecondAt($aSecond, $index);
+    }
+    return $wasAdded;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $copyOfSeconds = $this-&gt;seconds;
+    $this-&gt;seconds = array();
+    foreach ($copyOfSeconds as $aSecond)
+    {
+      $aSecond-&gt;removeFirst($this);
+    }
+  }
+
+  public function setSecond(Second $aSecond)
+  {
+          return "";
+  }
+
+  public function isNumberOfSecondsValid()
+  {
+          return "";
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class First implements I
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //First Associations
+  private $seconds;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;seconds = array();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSecond_index($index)
+  {
+    $aSecond = $this-&gt;seconds[$index];
+    return $aSecond;
+  }
+
+  public function getSeconds()
+  {
+    $newSeconds = $this-&gt;seconds;
+    return $newSeconds;
+  }
+
+  public function numberOfSeconds()
+  {
+    $number = count($this-&gt;seconds);
+    return $number;
+  }
+
+  public function hasSeconds()
+  {
+    $has = $this-&gt;numberOfSeconds() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfSecond($aSecond)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;seconds as $second)
+    {
+      if ($second-&gt;equals($aSecond))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public static function minimumNumberOfSeconds()
+  {
+    return 0;
+  }
+
+  public function addSecond($aSecond)
+  {
+    $wasAdded = false;
+    if ($this-&gt;indexOfSecond($aSecond) !== -1) { return false; }
+    $this-&gt;seconds[] = $aSecond;
+    if ($aSecond-&gt;indexOfFirst($this) != -1)
+    {
+      $wasAdded = true;
+    }
+    else
+    {
+      $wasAdded = $aSecond-&gt;addFirst($this);
+      if (!$wasAdded)
+      {
+        array_pop($this-&gt;seconds);
+      }
+    }
+    return $wasAdded;
+  }
+
+  public function removeSecond($aSecond)
+  {
+    $wasRemoved = false;
+    if ($this-&gt;indexOfSecond($aSecond) == -1)
+    {
+      return $wasRemoved;
+    }
+
+    $oldIndex = $this-&gt;indexOfSecond($aSecond);
+    unset($this-&gt;seconds[$oldIndex]);
+    if ($aSecond-&gt;indexOfFirst($this) == -1)
+    {
+      $wasRemoved = true;
+    }
+    else
+    {
+      $wasRemoved = $aSecond-&gt;removeFirst($this);
+      if (!$wasRemoved)
+      {
+        $this-&gt;seconds[$oldIndex] = $aSecond;
+        ksort($this-&gt;seconds);
+      }
+    }
+    $this-&gt;seconds = array_values($this-&gt;seconds);
+    return $wasRemoved;
+  }
+
+  public function addSecondAt($aSecond, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addSecond($aSecond))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfSeconds()) { $index = $this-&gt;numberOfSeconds() - 1; }
+      array_splice($this-&gt;seconds, $this-&gt;indexOfSecond($aSecond), 1);
+      array_splice($this-&gt;seconds, $index, 0, array($aSecond));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveSecondAt($aSecond, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfSecond($aSecond) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfSeconds()) { $index = $this-&gt;numberOfSeconds() - 1; }
+      array_splice($this-&gt;seconds, $this-&gt;indexOfSecond($aSecond), 1);
+      array_splice($this-&gt;seconds, $index, 0, array($aSecond));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addSecondAt($aSecond, $index);
+    }
+    return $wasAdded;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $copyOfSeconds = $this-&gt;seconds;
+    $this-&gt;seconds = array();
+    foreach ($copyOfSeconds as $aSecond)
+    {
+      $aSecond-&gt;removeFirst($this);
+    }
+  }
+
+  public function setSecond(Second $aSecond)
+  {
+          return "";
+  }
+
+  public function setSeconds(Second... $newSeconds)
+  {
+          return "";
+  }
+
+  public function isNumberOfSecondsValid()
+  {
+          return "";
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class First implements I
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //First Associations
+  private $second;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aSecond = null)
+  {
+    if (func_num_args() == 0) { return; }
+
+    if ($aSecond == null || $aSecond-&gt;getFirst() != null)
+    {
+      throw new Exception("Unable to create First due to aSecond. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+    $this-&gt;second = $aSecond;
+  }
+  public static function newInstance()
+  {
+    $thisInstance = new First();
+    $thisInstance-&gt;second = new Second($thisInstance);
+    return $thisInstance;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSecond()
+  {
+    return $this-&gt;second;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $existingSecond = $this-&gt;second;
+    $this-&gt;second = null;
+    if ($existingSecond != null)
+    {
+      $existingSecond-&gt;delete();
+    }
+  }
+
+  public function addSecond(Second $aSecond)
+  {
+          return "";
+  }
+
+  public function getSeconds()
+  {
+          return "";
+  }
+
+  public function setSecond(Second $aSecond)
+  {
+          return "";
+  }
+
+  public function setSeconds(Second... $newSeconds)
+  {
+          return "";
+  }
+
+  public function numberOfSeconds()
+  {
+          return "";
+  }
+
+  public function hasSeconds()
+  {
+          return "";
+  }
+
+  public function indexOfSecond(Second $second)
+  {
+          return "";
+  }
+
+  public function isNumberOfSecondsValid()
+  {
+          return "";
+  }
+
+  public function removeSecond(Second $second)
+  {
+          return "";
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class First implements I
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //First Associations
+  private $seconds;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;seconds = array();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSecond_index($index)
+  {
+    $aSecond = $this-&gt;seconds[$index];
+    return $aSecond;
+  }
+
+  public function getSeconds()
+  {
+    $newSeconds = $this-&gt;seconds;
+    return $newSeconds;
+  }
+
+  public function numberOfSeconds()
+  {
+    $number = count($this-&gt;seconds);
+    return $number;
+  }
+
+  public function hasSeconds()
+  {
+    $has = $this-&gt;numberOfSeconds() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfSecond($aSecond)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;seconds as $second)
+    {
+      if ($second-&gt;equals($aSecond))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public function isNumberOfSecondsValid()
+  {
+    $isValid = $this-&gt;numberOfSeconds() &gt;= self::minimumNumberOfSeconds() &amp;&amp; $this-&gt;numberOfSeconds() &lt;= self::maximumNumberOfSeconds();
+    return $isValid;
+  }
+
+  public static function requiredNumberOfSeconds()
+  {
+    return 5;
+  }
+
+  public static function minimumNumberOfSeconds()
+  {
+    return 5;
+  }
+
+  public static function maximumNumberOfSeconds()
+  {
+    return 5;
+  }
+
+  public function addSecond($aSecond)
+  {
+    $wasAdded = false;
+    if ($this-&gt;indexOfSecond($aSecond) !== -1) { return false; }
+    if ($this-&gt;numberOfSeconds() &gt;= self::maximumNumberOfSeconds())
+    {
+      return $wasAdded;
+    }
+
+    $this-&gt;seconds[] = $aSecond;
+    if ($aSecond-&gt;indexOfFirst($this) != -1)
+    {
+      $wasAdded = true;
+    }
+    else
+    {
+      $wasAdded = $aSecond-&gt;addFirst($this);
+      if (!$wasAdded)
+      {
+        array_pop($this-&gt;seconds);
+      }
+    }
+    return $wasAdded;
+  }
+
+  public function removeSecond($aSecond)
+  {
+    $wasRemoved = false;
+    if ($this-&gt;indexOfSecond($aSecond) == -1)
+    {
+      return $wasRemoved;
+    }
+
+    if ($this-&gt;numberOfSeconds() &lt;= self::minimumNumberOfSeconds())
+    {
+      return $wasRemoved;
+    }
+
+    $oldIndex = $this-&gt;indexOfSecond($aSecond);
+    unset($this-&gt;seconds[$oldIndex]);
+    if ($aSecond-&gt;indexOfFirst($this) == -1)
+    {
+      $wasRemoved = true;
+    }
+    else
+    {
+      $wasRemoved = $aSecond-&gt;removeFirst($this);
+      if (!$wasRemoved)
+      {
+        $this-&gt;seconds[$oldIndex] = $aSecond;
+        ksort($this-&gt;seconds);
+      }
+    }
+    $this-&gt;seconds = array_values($this-&gt;seconds);
+    return $wasRemoved;
+  }
+
+  public function setSeconds($newSeconds)
+  {
+    $wasSet = false;
+    $verifiedSeconds = array();
+    foreach ($newSeconds as $aSecond)
+    {
+      if (array_search($aSecond,$verifiedSeconds) !== false)
+      {
+        continue;
+      }
+      $verifiedSeconds[] = $aSecond;
+    }
+
+    if (count($verifiedSeconds) != count($newSeconds) || count($verifiedSeconds) &lt; self::minimumNumberOfSeconds() || count($verifiedSeconds) &gt; self::maximumNumberOfSeconds())
+    {
+      return $wasSet;
+    }
+
+    $oldSeconds = $this-&gt;seconds;
+    $this-&gt;seconds = array();
+    foreach ($verifiedSeconds as $aNewSecond)
+    {
+      $this-&gt;seconds[] = $aNewSecond;
+      $removeIndex = array_search($aNewSecond,$oldSeconds);
+      if ($removeIndex !== false)
+      {
+        unset($oldSeconds[$removeIndex]);
+        $oldSeconds = array_values($oldSeconds);
+      }
+      else
+      {
+        $aNewSecond-&gt;addFirst($this);
+      }
+    }
+
+    foreach ($oldSeconds as $anOldSecond)
+    {
+      $anOldSecond-&gt;removeFirst($this);
+    }
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $copyOfSeconds = $this-&gt;seconds;
+    $this-&gt;seconds = array();
+    foreach ($copyOfSeconds as $aSecond)
+    {
+      if ($aSecond-&gt;numberOfFirsts() &lt;= Second::minimumNumberOfFirsts())
+      {
+        $aSecond-&gt;delete();
+      }
+      else
+      {
+        $aSecond-&gt;removeFirst($this);
+      }
+    }
+  }
+
+  public function setSecond(Second $aSecond)
+  {
+          return "";
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class First implements I
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //First Associations
+  private $seconds;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;seconds = array();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSecond_index($index)
+  {
+    $aSecond = $this-&gt;seconds[$index];
+    return $aSecond;
+  }
+
+  public function getSeconds()
+  {
+    $newSeconds = $this-&gt;seconds;
+    return $newSeconds;
+  }
+
+  public function numberOfSeconds()
+  {
+    $number = count($this-&gt;seconds);
+    return $number;
+  }
+
+  public function hasSeconds()
+  {
+    $has = $this-&gt;numberOfSeconds() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfSecond($aSecond)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;seconds as $second)
+    {
+      if ($second-&gt;equals($aSecond))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public function isNumberOfSecondsValid()
+  {
+    $isValid = $this-&gt;numberOfSeconds() &gt;= self::minimumNumberOfSeconds() &amp;&amp; $this-&gt;numberOfSeconds() &lt;= self::maximumNumberOfSeconds();
+    return $isValid;
+  }
+
+  public static function minimumNumberOfSeconds()
+  {
+    return 2;
+  }
+
+  public static function maximumNumberOfSeconds()
+  {
+    return 4;
+  }
+
+  public function addSecond($aSecond)
+  {
+    $wasAdded = false;
+    if ($this-&gt;indexOfSecond($aSecond) !== -1) { return false; }
+    if ($this-&gt;numberOfSeconds() &gt;= self::maximumNumberOfSeconds())
+    {
+      return $wasAdded;
+    }
+
+    $this-&gt;seconds[] = $aSecond;
+    if ($aSecond-&gt;indexOfFirst($this) != -1)
+    {
+      $wasAdded = true;
+    }
+    else
+    {
+      $wasAdded = $aSecond-&gt;addFirst($this);
+      if (!$wasAdded)
+      {
+        array_pop($this-&gt;seconds);
+      }
+    }
+    return $wasAdded;
+  }
+
+  public function removeSecond($aSecond)
+  {
+    $wasRemoved = false;
+    if ($this-&gt;indexOfSecond($aSecond) == -1)
+    {
+      return $wasRemoved;
+    }
+
+    if ($this-&gt;numberOfSeconds() &lt;= self::minimumNumberOfSeconds())
+    {
+      return $wasRemoved;
+    }
+
+    $oldIndex = $this-&gt;indexOfSecond($aSecond);
+    unset($this-&gt;seconds[$oldIndex]);
+    if ($aSecond-&gt;indexOfFirst($this) == -1)
+    {
+      $wasRemoved = true;
+    }
+    else
+    {
+      $wasRemoved = $aSecond-&gt;removeFirst($this);
+      if (!$wasRemoved)
+      {
+        $this-&gt;seconds[$oldIndex] = $aSecond;
+        ksort($this-&gt;seconds);
+      }
+    }
+    $this-&gt;seconds = array_values($this-&gt;seconds);
+    return $wasRemoved;
+  }
+
+  public function setSeconds($newSeconds)
+  {
+    $wasSet = false;
+    $verifiedSeconds = array();
+    foreach ($newSeconds as $aSecond)
+    {
+      if (array_search($aSecond,$verifiedSeconds) !== false)
+      {
+        continue;
+      }
+      $verifiedSeconds[] = $aSecond;
+    }
+
+    if (count($verifiedSeconds) != count($newSeconds) || count($verifiedSeconds) &lt; self::minimumNumberOfSeconds() || count($verifiedSeconds) &gt; self::maximumNumberOfSeconds())
+    {
+      return $wasSet;
+    }
+
+    $oldSeconds = $this-&gt;seconds;
+    $this-&gt;seconds = array();
+    foreach ($verifiedSeconds as $aNewSecond)
+    {
+      $this-&gt;seconds[] = $aNewSecond;
+      $removeIndex = array_search($aNewSecond,$oldSeconds);
+      if ($removeIndex !== false)
+      {
+        unset($oldSeconds[$removeIndex]);
+        $oldSeconds = array_values($oldSeconds);
+      }
+      else
+      {
+        $aNewSecond-&gt;addFirst($this);
+      }
+    }
+
+    foreach ($oldSeconds as $anOldSecond)
+    {
+      $anOldSecond-&gt;removeFirst($this);
+    }
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function addSecondAt($aSecond, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addSecond($aSecond))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfSeconds()) { $index = $this-&gt;numberOfSeconds() - 1; }
+      array_splice($this-&gt;seconds, $this-&gt;indexOfSecond($aSecond), 1);
+      array_splice($this-&gt;seconds, $index, 0, array($aSecond));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveSecondAt($aSecond, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfSecond($aSecond) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfSeconds()) { $index = $this-&gt;numberOfSeconds() - 1; }
+      array_splice($this-&gt;seconds, $this-&gt;indexOfSecond($aSecond), 1);
+      array_splice($this-&gt;seconds, $index, 0, array($aSecond));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addSecondAt($aSecond, $index);
+    }
+    return $wasAdded;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $copyOfSeconds = $this-&gt;seconds;
+    $this-&gt;seconds = array();
+    foreach ($copyOfSeconds as $aSecond)
+    {
+      if ($aSecond-&gt;numberOfFirsts() &lt;= Second::minimumNumberOfFirsts())
+      {
+        $aSecond-&gt;delete();
+      }
+      else
+      {
+        $aSecond-&gt;removeFirst($this);
+      }
+    }
+  }
+
+  public function setSecond(Second $aSecond)
+  {
+          return "";
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class First implements I
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //First Associations
+  private $seconds;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;seconds = array();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSecond_index($index)
+  {
+    $aSecond = $this-&gt;seconds[$index];
+    return $aSecond;
+  }
+
+  public function getSeconds()
+  {
+    $newSeconds = $this-&gt;seconds;
+    return $newSeconds;
+  }
+
+  public function numberOfSeconds()
+  {
+    $number = count($this-&gt;seconds);
+    return $number;
+  }
+
+  public function hasSeconds()
+  {
+    $has = $this-&gt;numberOfSeconds() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfSecond($aSecond)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;seconds as $second)
+    {
+      if ($second-&gt;equals($aSecond))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public function isNumberOfSecondsValid()
+  {
+    $isValid = $this-&gt;numberOfSeconds() &gt;= self::minimumNumberOfSeconds() &amp;&amp; $this-&gt;numberOfSeconds() &lt;= self::maximumNumberOfSeconds();
+    return $isValid;
+  }
+
+  public static function minimumNumberOfSeconds()
+  {
+    return 1;
+  }
+
+  public static function maximumNumberOfSeconds()
+  {
+    return 4;
+  }
+
+  public function addSecondVia()
+  {
+    if ($this-&gt;numberOfSeconds() &gt;= self::maximumNumberOfSeconds())
+    {
+      return null;
+    }
+    else
+    {
+      return new Second($this);
+    }
+  }
+
+  public function addSecond($aSecond)
+  {
+    $wasAdded = false;
+    if ($this-&gt;indexOfSecond($aSecond) !== -1) { return false; }
+    if ($this-&gt;numberOfSeconds() &gt;= self::maximumNumberOfSeconds())
+    {
+      return $wasAdded;
+    }
+
+    $existingFirst = $aSecond-&gt;getFirst();
+    $isNewFirst = $existingFirst != null &amp;&amp; $this !== $existingFirst;
+
+    if ($isNewFirst &amp;&amp; $existingFirst-&gt;numberOfSeconds() &lt;= self::minimumNumberOfSeconds())
+    {
+      return $wasAdded;
+    }
+
+    if ($isNewFirst)
+    {
+      $aSecond-&gt;setFirst($this);
+    }
+    else
+    {
+      $this-&gt;seconds[] = $aSecond;
+    }
+    $wasAdded = true;
+    return $wasAdded;
+  }
+
+  public function removeSecond($aSecond)
+  {
+    $wasRemoved = false;
+    //Unable to remove aSecond, as it must always have a first
+    if ($this === $aSecond-&gt;getFirst())
+    {
+      return $wasRemoved;
+    }
+
+    //first already at minimum (1)
+    if ($this-&gt;numberOfSeconds() &lt;= self::minimumNumberOfSeconds())
+    {
+      return $wasRemoved;
+    }
+
+    unset($this-&gt;seconds[$this-&gt;indexOfSecond($aSecond)]);
+    $this-&gt;seconds = array_values($this-&gt;seconds);
+    $wasRemoved = true;
+    return $wasRemoved;
+  }
+
+  public function addSecondAt($aSecond, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addSecond($aSecond))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfSeconds()) { $index = $this-&gt;numberOfSeconds() - 1; }
+      array_splice($this-&gt;seconds, $this-&gt;indexOfSecond($aSecond), 1);
+      array_splice($this-&gt;seconds, $index, 0, array($aSecond));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveSecondAt($aSecond, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfSecond($aSecond) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfSeconds()) { $index = $this-&gt;numberOfSeconds() - 1; }
+      array_splice($this-&gt;seconds, $this-&gt;indexOfSecond($aSecond), 1);
+      array_splice($this-&gt;seconds, $index, 0, array($aSecond));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addSecondAt($aSecond, $index);
+    }
+    return $wasAdded;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    foreach ($this-&gt;seconds as $aSecond)
+    {
+      $aSecond-&gt;delete();
+    }
+  }
+
+  public function setSecond(Second $aSecond)
+  {
+          return "";
+  }
+
+  public function setSeconds(Second... $newSeconds)
+  {
+          return "";
+  }
+
+}
+?&gt;
+</pre>
+    </body>
+</html>

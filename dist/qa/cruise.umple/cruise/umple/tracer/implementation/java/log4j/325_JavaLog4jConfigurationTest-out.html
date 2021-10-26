@@ -1,0 +1,59 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from JavaLog4jConfigurationTest</title>
+    </head>
+    <body>
+        <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;Configuration&gt;
+  &lt;Appenders&gt;
+    &lt;Console name="console" target="SYSTEM_OUT"&gt;
+      &lt;PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/&gt;
+    &lt;/Console&gt;
+    &lt;File name="file" fileName="logs/trace.log" immediateFlush="false" append="false"&gt;
+      &lt;PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/&gt;
+    &lt;/File&gt;
+  &lt;/Appenders&gt;
+  &lt;Loggers&gt;
+    &lt;Root level="info"&gt;
+      &lt;AppenderRef ref="console"/&gt;
+    &lt;/Root&gt;
+  &lt;/Loggers&gt;
+&lt;/Configuration&gt;
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;Configuration&gt;
+  &lt;Appenders&gt;
+    &lt;Console name="console" target="SYSTEM_OUT"&gt;
+      &lt;PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/&gt;
+    &lt;/Console&gt;
+    &lt;File name="file" fileName="logs/trace.log" immediateFlush="false" append="false"&gt;
+      &lt;PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/&gt;
+    &lt;/File&gt;
+  &lt;/Appenders&gt;
+  &lt;Loggers&gt;
+    &lt;Root level="error"&gt;
+      &lt;AppenderRef ref="console" level="error"/&gt;
+      &lt;AppenderRef ref="file" level="error"/&gt;
+    &lt;/Root&gt;
+  &lt;/Loggers&gt;
+&lt;/Configuration&gt;
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;Configuration monitorInterval="30"&gt;
+  &lt;Appenders&gt;
+    &lt;Console name="console" target="SYSTEM_OUT"&gt;
+      &lt;PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/&gt;
+    &lt;/Console&gt;
+    &lt;File name="file" fileName="logs/trace.log" immediateFlush="false" append="false"&gt;
+      &lt;PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/&gt;
+    &lt;/File&gt;
+  &lt;/Appenders&gt;
+  &lt;Loggers&gt;
+    &lt;Root level="all"&gt;
+      &lt;AppenderRef ref="console" level="debug"/&gt;
+      &lt;AppenderRef ref="file" level="fatal"/&gt;
+    &lt;/Root&gt;
+  &lt;/Loggers&gt;
+&lt;/Configuration&gt;
+</pre>
+    </body>
+</html>

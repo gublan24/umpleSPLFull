@@ -1,0 +1,35 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from SimulateGeneratorTest</title>
+    </head>
+    <body>
+        <pre>&lt;?php
+$modelOverview = new ModelOverview();
+$aClass = new ClassOverview("Student",$modelOverview);
+new Attribute("String","name",false,$aClass);
+new Attribute("String","id",true,$aClass);
+
+&lt;?php
+$modelOverview = new ModelOverview();
+$aClass = new ClassOverview("Student",$modelOverview);
+
+&lt;?php
+$modelOverview = new ModelOverview();
+$aClass = new ClassOverview("Student",$modelOverview);
+$aStateMachine = new StateMachine("Status",$aClass);
+$aStateMachine-&gt;addEvent("flip");
+$aStateMachine-&gt;addEvent("flop");
+
+&lt;?php
+$modelOverview = new ModelOverview();
+$aClass = new ClassOverview("Student",$modelOverview);
+new AssociationEnd(0,-1,"Mentor","m",$aClass);
+new AssociationEnd(0,1,"Student","a",$aClass);
+new AssociationEnd(0,-1,"Student","b",$aClass);
+$aClass = new ClassOverview("Mentor",$modelOverview);
+new AssociationEnd(0,1,"Student","student",$aClass);
+
+</pre>
+    </body>
+</html>

@@ -1,0 +1,1737 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from CodeInjectionTest</title>
+    </head>
+    <body>
+        <pre>/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+import java.util.*;
+
+// line 9 "CodeInjectionTestSubclass.ump"
+public class Example extends Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Example(String aAttr)
+  {
+    super(aAttr);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public String getAttr()
+  {
+    // line 12 "CodeInjectionTestSubclass.ump"
+    /*before getAttr*/
+    // END OF UMPLE BEFORE INJECTION
+    String aAttr =  super.getAttr();    // line 17 "CodeInjectionTestSubclass.ump"
+    /*after getAttr*/
+    // END OF UMPLE AFTER INJECTION
+
+    return aAttr;
+  }  /* Code from template attribute_GetDerivedSubclass */
+  public int getDerivedAttr()
+  {
+    // line 13 "CodeInjectionTestSubclass.ump"
+    /*before getDerivedAttr*/
+    // END OF UMPLE BEFORE INJECTION
+    int aDerivedAttr = super.getDerivedAttr();
+    // line 18 "CodeInjectionTestSubclass.ump"
+    /*after getDerivedAttr*/
+    // END OF UMPLE AFTER INJECTION
+    return aDerivedAttr;
+  }
+  /* Code from template attribute_GetManySubclass */
+  public String getListAttr(int index)
+  {
+    // line 14 "CodeInjectionTestSubclass.ump"
+    /*before getListAttr*/
+    // END OF UMPLE BEFORE INJECTION
+    String aListAttr = super.getListAttr(index);
+    // line 19 "CodeInjectionTestSubclass.ump"
+    /*after getListAttr*/
+    // END OF UMPLE AFTER INJECTION
+    return aListAttr;
+  }
+
+  public String getDefaultedAttr()
+  {
+    // line 15 "CodeInjectionTestSubclass.ump"
+    /*before getDefaultedAttr*/
+    // END OF UMPLE BEFORE INJECTION
+    String aDefaultedAttr =  super.getDefaultedAttr();    // line 20 "CodeInjectionTestSubclass.ump"
+    /*after getDefaultedAttr*/
+    // END OF UMPLE AFTER INJECTION
+
+    return aDefaultedAttr;
+  }
+  public void delete()
+  {
+    super.delete();
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 3 "../CodeInjectionWildCardTest.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private String firstName;
+  private String lastName;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student(String aFirstName, String aLastName)
+  {
+    firstName = aFirstName;
+    lastName = aLastName;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setFirstName(String aFirstName)
+  {
+    boolean wasSet = false;
+    firstName = aFirstName;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setLastName(String aLastName)
+  {
+    boolean wasSet = false;
+    lastName = aLastName;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getFirstName()
+  {
+    // line 8 "../CodeInjectionWildCardTest.ump"
+    print "before";
+    // END OF UMPLE BEFORE INJECTION
+    return firstName;
+  }
+
+  public String getLastName()
+  {
+    // line 8 "../CodeInjectionWildCardTest.ump"
+    print "before";
+    // END OF UMPLE BEFORE INJECTION
+    return lastName;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "firstName" + ":" + getFirstName()+ "," +
+            "lastName" + ":" + getLastName()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 26 "toplevelCodeInjectionTest.ump"
+// line 53 "toplevelCodeInjectionTest.ump"
+public class Student11
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student11 Attributes
+  private String name;
+  private String b;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student11(String aName, String aB)
+  {
+    name = aName;
+    b = aB;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setName(String aName)
+  {
+    boolean wasSet = false;
+    name = aName;
+    wasSet = true;
+    // line 24 "toplevelCodeInjectionTest.ump"
+    //doSomething1();
+    // END OF UMPLE AFTER INJECTION
+    return wasSet;
+  }
+
+  public boolean setB(String aB)
+  {
+    boolean wasSet = false;
+    b = aB;
+    wasSet = true;
+    // line 24 "toplevelCodeInjectionTest.ump"
+    //doSomething1();
+    // END OF UMPLE AFTER INJECTION
+    // line 49 "toplevelCodeInjectionTest.ump"
+    //doSomething2();
+    // END OF UMPLE AFTER INJECTION
+    return wasSet;
+  }
+
+  public String getName()
+  {
+    return name;
+  }
+
+  public String getB()
+  {
+    return b;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "name" + ":" + getName()+ "," +
+            "b" + ":" + getB()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+import java.util.*;
+
+// line 3 "../CodeInjectionTest.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private String id;
+  private String name;
+  private String type;
+  private List&lt;String&gt; roles;
+  private boolean injBool;
+
+  //Helper Variables
+  private boolean canSetId;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student(String aName, boolean aInjBool)
+  {
+    // line 21 "../CodeInjectionTest.ump"
+    print "before constructor";
+    // END OF UMPLE BEFORE INJECTION
+    canSetId = true;
+    name = aName;
+    resetType();
+    roles = new ArrayList&lt;String&gt;();
+    injBool = aInjBool;
+    // line 22 "../CodeInjectionTest.ump"
+    print "after constructor";
+    // END OF UMPLE AFTER INJECTION
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+  /* Code from template attribute_SetImmutable */
+  public boolean setId(String aId)
+  {
+    boolean wasSet = false;
+    // line 29 "../CodeInjectionTest.ump"
+    print "start setId";
+    // END OF UMPLE BEFORE INJECTION
+    if (!canSetId) { return false; }
+    canSetId = false;
+    id = aId;
+    wasSet = true;
+    // line 30 "../CodeInjectionTest.ump"
+    print "end setId";
+    // END OF UMPLE AFTER INJECTION
+    return wasSet;
+  }
+
+  public boolean setName(String aName)
+  {
+    boolean wasSet = false;
+    // line 34 "../CodeInjectionTest.ump"
+    print "start setName";
+    // END OF UMPLE BEFORE INJECTION
+    // line 35 "../CodeInjectionTest.ump"
+    print "start setName2";
+    // END OF UMPLE BEFORE INJECTION
+    name = aName;
+    wasSet = true;
+    // line 36 "../CodeInjectionTest.ump"
+    print "end setName";
+    // END OF UMPLE AFTER INJECTION
+    return wasSet;
+  }
+  /* Code from template attribute_SetDefaulted */
+  public boolean setType(String aType)
+  {
+    boolean wasSet = false;
+    // line 40 "../CodeInjectionTest.ump"
+    print "start setType";
+    // END OF UMPLE BEFORE INJECTION
+    type = aType;
+    wasSet = true;
+    // line 41 "../CodeInjectionTest.ump"
+    print "end setType";
+    // END OF UMPLE AFTER INJECTION
+    return wasSet;
+  }
+
+  public boolean resetType()
+  {
+    boolean wasReset = false;
+    // line 46 "../CodeInjectionTest.ump"
+    print "start resetType";
+    // END OF UMPLE BEFORE INJECTION
+    type = getDefaultType();
+    wasReset = true;
+    // line 47 "../CodeInjectionTest.ump"
+    print "end resetType";
+    // END OF UMPLE AFTER INJECTION
+    return wasReset;
+  }
+  /* Code from template attribute_SetMany */
+  public boolean addRole(String aRole)
+  {
+    boolean wasAdded = false;
+    // line 49 "../CodeInjectionTest.ump"
+    print "start add";
+    // END OF UMPLE BEFORE INJECTION
+    wasAdded = roles.add(aRole);
+    // line 50 "../CodeInjectionTest.ump"
+    print "end add";
+    // END OF UMPLE AFTER INJECTION
+    return wasAdded;
+  }
+
+  public boolean removeRole(String aRole)
+  {
+    boolean wasRemoved = false;
+    // line 51 "../CodeInjectionTest.ump"
+    print "start remove";
+    // END OF UMPLE BEFORE INJECTION
+    wasRemoved = roles.remove(aRole);
+    // line 52 "../CodeInjectionTest.ump"
+    print "end remove";
+    // END OF UMPLE AFTER INJECTION
+    return wasRemoved;
+  }
+
+  public boolean setInjBool(boolean aInjBool)
+  {
+    boolean wasSet = false;
+    injBool = aInjBool;
+    wasSet = true;
+    return wasSet;
+  }
+  /* Code from template attribute_GetCodeInjection */
+  public String getId()
+  {
+    // line 31 "../CodeInjectionTest.ump"
+    print "start getId";
+    // END OF UMPLE BEFORE INJECTION
+    String aId = id;
+    // line 32 "../CodeInjectionTest.ump"
+    print "end getId";
+    // END OF UMPLE AFTER INJECTION
+    return aId;
+  }
+  /* Code from template attribute_GetCodeInjection */
+  public String getName()
+  {
+    // line 37 "../CodeInjectionTest.ump"
+    print "start getName";
+    // END OF UMPLE BEFORE INJECTION
+    String aName = name;
+    // line 38 "../CodeInjectionTest.ump"
+    print "end getName";
+    // END OF UMPLE AFTER INJECTION
+    return aName;
+  }
+  /* Code from template attribute_GetCodeInjection */
+  public String getType()
+  {
+    // line 42 "../CodeInjectionTest.ump"
+    print "start getType";
+    // END OF UMPLE BEFORE INJECTION
+    String aType = type;
+    // line 43 "../CodeInjectionTest.ump"
+    print "end getType";
+    // END OF UMPLE AFTER INJECTION
+    return aType;
+  }
+  /* Code from template attribute_GetDefaultedCodeInjection */
+  public String getDefaultType()
+  {
+    // line 44 "../CodeInjectionTest.ump"
+    print "start getDefaultType";
+    // END OF UMPLE BEFORE INJECTION
+    String aType = "None";
+    // line 45 "../CodeInjectionTest.ump"
+    print "end getDefaultType";
+    // END OF UMPLE AFTER INJECTION
+    return aType;
+  }
+  /* Code from template attribute_GetMany */
+  public String getRole(int index)
+  {
+    // line 53 "../CodeInjectionTest.ump"
+    print "start getRole";
+    // END OF UMPLE BEFORE INJECTION
+    String aRole = roles.get(index);
+    // line 54 "../CodeInjectionTest.ump"
+    print "end getRole";
+    // END OF UMPLE AFTER INJECTION
+    return aRole;
+  }
+
+  public String[] getRoles()
+  {
+    // line 55 "../CodeInjectionTest.ump"
+    print "start getRoles";
+    // END OF UMPLE BEFORE INJECTION
+    String[] newRoles = roles.toArray(new String[roles.size()]);
+    // line 56 "../CodeInjectionTest.ump"
+    print "end getRoles";
+    // END OF UMPLE AFTER INJECTION
+    return newRoles;
+  }
+
+  public int numberOfRoles()
+  {
+    // line 57 "../CodeInjectionTest.ump"
+    print "start numberOfRoles";
+    // END OF UMPLE BEFORE INJECTION
+    int number = roles.size();
+    // line 58 "../CodeInjectionTest.ump"
+    print "end numberOfRoles";
+    // END OF UMPLE AFTER INJECTION
+    return number;
+  }
+
+  public boolean hasRoles()
+  {
+    boolean has = roles.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfRole(String aRole)
+  {
+    // line 59 "../CodeInjectionTest.ump"
+    print "start indexOfRole";
+    // END OF UMPLE BEFORE INJECTION
+    int index = roles.indexOf(aRole);
+    // line 60 "../CodeInjectionTest.ump"
+    print "end indexOfRole";
+    // END OF UMPLE AFTER INJECTION
+    return index;
+  }
+  /* Code from template attribute_GetDerivedCodeInjection */
+  public String getFunName()
+  {
+    // line 24 "../CodeInjectionTest.ump"
+    print "start funName";
+    // END OF UMPLE BEFORE INJECTION
+    String aFunName = name + "sillypans";
+    // line 25 "../CodeInjectionTest.ump"
+    print "end funName";
+    // END OF UMPLE AFTER INJECTION
+    return aFunName;
+  }
+  /* Code from template attribute_GetDerivedCodeInjection */
+  public String getOtherFunName()
+  {
+    // line 27 "../CodeInjectionTest.ump"
+    print "This was so much fun";
+    // END OF UMPLE BEFORE INJECTION
+    String aOtherFunName = name + "Other Fun";
+    return aOtherFunName;
+  }
+
+  public boolean getInjBool()
+  {
+    return injBool;
+  }
+
+  public boolean getDInjBool()
+  {
+    return 2/3;
+  }
+  /* Code from template attribute_IsBooleanCodeInjection */
+  public boolean isInjBool()
+  {
+    // line 15 "../CodeInjectionTest.ump"
+    print "before injBool";
+    // END OF UMPLE BEFORE INJECTION
+    boolean aInjBool = injBool;
+    // line 16 "../CodeInjectionTest.ump"
+    print "after injBool";
+    // END OF UMPLE AFTER INJECTION
+    return aInjBool;
+  }
+  /* Code from template attribute_IsBooleanCodeInjectionDerived */
+  public boolean isDInjBool()
+  {
+    // line 18 "../CodeInjectionTest.ump"
+    print "before dInjBool";
+    // END OF UMPLE BEFORE INJECTION
+    boolean aDInjBool = 2/3;
+    // line 19 "../CodeInjectionTest.ump"
+    print "after dInjBool";
+    // END OF UMPLE AFTER INJECTION
+    return aDInjBool;
+  }
+
+  public void delete()
+  {
+    // line 62 "../CodeInjectionTest.ump"
+    print "start delete";
+    // END OF UMPLE BEFORE INJECTION
+    // line 63 "../CodeInjectionTest.ump"
+    print "after delete";
+    // END OF UMPLE AFTER INJECTION
+  }
+
+  // line 68 "../CodeInjectionTest.ump"
+  public String foo(int a){
+    System.out.println("This is great " + " I will return to this");
+    if(a == 3) {      
+      // line 65 "../CodeInjectionTest.ump"
+      print "Such fun!"
+      // END OF UMPLE AFTER INJECTION
+      return "4";
+    }
+    //Testing inline return
+    
+    // inject before return    
+    // line 65 "../CodeInjectionTest.ump"
+    print "Such fun!"
+    // END OF UMPLE AFTER INJECTION
+    return "";
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "id" + ":" + getId()+ "," +
+            "name" + ":" + getName()+ "," +
+            "type" + ":" + getType()+ "," +
+            "funName" + ":" + getFunName()+ "," +
+            "otherFunName" + ":" + getOtherFunName()+ "," +
+            "injBool" + ":" + getInjBool()+ "," +
+            "dInjBool" + ":" + getDInjBool()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "CodeInjectionStateMachineTest.ump"
+public class Example
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Example State Machines
+  public enum Light { On, Off }
+  private Light light;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Example()
+  {
+    setLight(Light.On);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public String getLightFullName()
+  {
+    String answer = light.toString();
+    return answer;
+  }
+
+  public Light getLight()
+  {
+    return light;
+  }
+
+  public boolean flip()
+  {
+    boolean wasEventProcessed = false;
+    
+    Light aLight = light;
+    switch (aLight)
+    {
+      case On:
+        setLight(Light.Off);
+        wasEventProcessed = true;
+        break;
+      case Off:
+        setLight(Light.On);
+        wasEventProcessed = true;
+        break;
+      default:
+        // Other states do respond to this event
+    }
+
+    return wasEventProcessed;
+  }
+
+  private void setLight(Light aLight)
+  {
+    // line 14 "CodeInjectionStateMachineTest.ump"
+    System.out.println("About to flip");
+    // END OF UMPLE BEFORE INJECTION
+    light = aLight;
+    // line 10 "CodeInjectionStateMachineTest.ump"
+    System.out.println("Just flipped");
+    // END OF UMPLE AFTER INJECTION
+  }
+
+  public void delete()
+  {}
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+import java.util.*;
+
+// line 4 "../CodeInjectionAssociationTest.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Associations
+  private Mentor m1;
+  private Mentor m2;
+  private List&lt;Mentor&gt; m3s;
+  private List&lt;Mentor&gt; m4s;
+  private List&lt;Mentor&gt; m5s;
+  private List&lt;Mentor&gt; m6s;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student(Mentor aM2, Mentor[] allM3s, Mentor[] allM4s, Mentor[] allM5s)
+  {
+    boolean didAddM2 = setM2(aM2);
+    if (!didAddM2)
+    {
+      throw new RuntimeException("Unable to create two due to m2. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+    m3s = new ArrayList&lt;Mentor&gt;();
+    boolean didAddM3s = setM3s(allM3s);
+    if (!didAddM3s)
+    {
+      throw new RuntimeException("Unable to create Student, must have 1 to 3 m3s. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+    m4s = new ArrayList&lt;Mentor&gt;();
+    boolean didAddM4s = setM4s(allM4s);
+    if (!didAddM4s)
+    {
+      throw new RuntimeException("Unable to create Student, must have 4 to 7 m4s. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+    m5s = new ArrayList&lt;Mentor&gt;();
+    boolean didAddM5s = setM5s(allM5s);
+    if (!didAddM5s)
+    {
+      throw new RuntimeException("Unable to create Student, must have at least 2 m5s. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+    m6s = new ArrayList&lt;Mentor&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+  /* Code from template association_GetOne */
+  public Mentor getM1()
+  {
+    // line 13 "../CodeInjectionAssociationTest.ump"
+    print "getM1";
+    // END OF UMPLE BEFORE INJECTION
+    Mentor aM1 = m1;
+    // line 57 "../CodeInjectionAssociationTest.ump"
+    print "after getM1";
+    // END OF UMPLE AFTER INJECTION
+    return aM1;
+  }
+
+  public boolean hasM1()
+  {
+    boolean has = m1 != null;
+    return has;
+  }
+  /* Code from template association_GetOne */
+  public Mentor getM2()
+  {
+    // line 14 "../CodeInjectionAssociationTest.ump"
+    print "getM2";
+    // END OF UMPLE BEFORE INJECTION
+    Mentor aM2 = m2;
+    // line 58 "../CodeInjectionAssociationTest.ump"
+    print "after getM2";
+    // END OF UMPLE AFTER INJECTION
+    return aM2;
+  }
+  /* Code from template association_GetMany */
+  public Mentor getM3(int index)
+  {
+    // line 15 "../CodeInjectionAssociationTest.ump"
+    print "getM3";
+    // END OF UMPLE BEFORE INJECTION
+    Mentor aM3 = m3s.get(index);
+    // line 59 "../CodeInjectionAssociationTest.ump"
+    print "after getM3";
+    // END OF UMPLE AFTER INJECTION
+    return aM3;
+  }
+
+  public List&lt;Mentor&gt; getM3s()
+  {
+    // line 16 "../CodeInjectionAssociationTest.ump"
+    print "getM3s";
+    // END OF UMPLE BEFORE INJECTION
+    List&lt;Mentor&gt; newM3s = Collections.unmodifiableList(m3s);
+    // line 60 "../CodeInjectionAssociationTest.ump"
+    print "after getM3s";
+    // END OF UMPLE AFTER INJECTION
+    return newM3s;
+  }
+
+  public int numberOfM3s()
+  {
+    // line 17 "../CodeInjectionAssociationTest.ump"
+    print "numberOfM3s";
+    // END OF UMPLE BEFORE INJECTION
+    int number = m3s.size();
+    // line 61 "../CodeInjectionAssociationTest.ump"
+    print "after numberOfM3s";
+    // END OF UMPLE AFTER INJECTION
+    return number;
+  }
+
+  public boolean hasM3s()
+  {
+    // line 18 "../CodeInjectionAssociationTest.ump"
+    print "hasM3s";
+    // END OF UMPLE BEFORE INJECTION
+    boolean has = m3s.size() &gt; 0;
+    // line 62 "../CodeInjectionAssociationTest.ump"
+    print "after hasM3s";
+    // END OF UMPLE AFTER INJECTION
+    return has;
+  }
+
+  public int indexOfM3(Mentor aM3)
+  {
+    // line 19 "../CodeInjectionAssociationTest.ump"
+    print "indexOfM3";
+    // END OF UMPLE BEFORE INJECTION
+    int index = m3s.indexOf(aM3);
+    // line 63 "../CodeInjectionAssociationTest.ump"
+    print "after indexOfM3";
+    // END OF UMPLE AFTER INJECTION
+    return index;
+  }
+  /* Code from template association_GetMany */
+  public Mentor getM4(int index)
+  {
+    // line 20 "../CodeInjectionAssociationTest.ump"
+    print "getM4";
+    // END OF UMPLE BEFORE INJECTION
+    Mentor aM4 = m4s.get(index);
+    // line 64 "../CodeInjectionAssociationTest.ump"
+    print "after getM4";
+    // END OF UMPLE AFTER INJECTION
+    return aM4;
+  }
+
+  public List&lt;Mentor&gt; getM4s()
+  {
+    // line 21 "../CodeInjectionAssociationTest.ump"
+    print "getM4s";
+    // END OF UMPLE BEFORE INJECTION
+    List&lt;Mentor&gt; newM4s = Collections.unmodifiableList(m4s);
+    // line 65 "../CodeInjectionAssociationTest.ump"
+    print "after getM4s";
+    // END OF UMPLE AFTER INJECTION
+    return newM4s;
+  }
+
+  public int numberOfM4s()
+  {
+    // line 22 "../CodeInjectionAssociationTest.ump"
+    print "numberOfM4s";
+    // END OF UMPLE BEFORE INJECTION
+    int number = m4s.size();
+    // line 66 "../CodeInjectionAssociationTest.ump"
+    print "after numberOfM4s";
+    // END OF UMPLE AFTER INJECTION
+    return number;
+  }
+
+  public boolean hasM4s()
+  {
+    // line 23 "../CodeInjectionAssociationTest.ump"
+    print "hasM4s";
+    // END OF UMPLE BEFORE INJECTION
+    boolean has = m4s.size() &gt; 0;
+    // line 67 "../CodeInjectionAssociationTest.ump"
+    print "after hasM4s";
+    // END OF UMPLE AFTER INJECTION
+    return has;
+  }
+
+  public int indexOfM4(Mentor aM4)
+  {
+    // line 24 "../CodeInjectionAssociationTest.ump"
+    print "indexOfM4";
+    // END OF UMPLE BEFORE INJECTION
+    int index = m4s.indexOf(aM4);
+    // line 68 "../CodeInjectionAssociationTest.ump"
+    print "after indexOfM4";
+    // END OF UMPLE AFTER INJECTION
+    return index;
+  }
+  /* Code from template association_GetMany */
+  public Mentor getM5(int index)
+  {
+    // line 25 "../CodeInjectionAssociationTest.ump"
+    print "getM5";
+    // END OF UMPLE BEFORE INJECTION
+    Mentor aM5 = m5s.get(index);
+    // line 69 "../CodeInjectionAssociationTest.ump"
+    print "after getM5";
+    // END OF UMPLE AFTER INJECTION
+    return aM5;
+  }
+
+  public List&lt;Mentor&gt; getM5s()
+  {
+    // line 26 "../CodeInjectionAssociationTest.ump"
+    print "getM5s";
+    // END OF UMPLE BEFORE INJECTION
+    List&lt;Mentor&gt; newM5s = Collections.unmodifiableList(m5s);
+    // line 70 "../CodeInjectionAssociationTest.ump"
+    print "after getM5s";
+    // END OF UMPLE AFTER INJECTION
+    return newM5s;
+  }
+
+  public int numberOfM5s()
+  {
+    // line 27 "../CodeInjectionAssociationTest.ump"
+    print "numberOfM5s";
+    // END OF UMPLE BEFORE INJECTION
+    int number = m5s.size();
+    // line 71 "../CodeInjectionAssociationTest.ump"
+    print "after numberOfM5s";
+    // END OF UMPLE AFTER INJECTION
+    return number;
+  }
+
+  public boolean hasM5s()
+  {
+    // line 28 "../CodeInjectionAssociationTest.ump"
+    print "hasM5s";
+    // END OF UMPLE BEFORE INJECTION
+    boolean has = m5s.size() &gt; 0;
+    // line 72 "../CodeInjectionAssociationTest.ump"
+    print "after hasM5s";
+    // END OF UMPLE AFTER INJECTION
+    return has;
+  }
+
+  public int indexOfM5(Mentor aM5)
+  {
+    // line 29 "../CodeInjectionAssociationTest.ump"
+    print "indexOfM5";
+    // END OF UMPLE BEFORE INJECTION
+    int index = m5s.indexOf(aM5);
+    // line 73 "../CodeInjectionAssociationTest.ump"
+    print "after indexOfM5";
+    // END OF UMPLE AFTER INJECTION
+    return index;
+  }
+  /* Code from template association_GetMany */
+  public Mentor getM6(int index)
+  {
+    // line 30 "../CodeInjectionAssociationTest.ump"
+    print "getM6";
+    // END OF UMPLE BEFORE INJECTION
+    Mentor aM6 = m6s.get(index);
+    // line 74 "../CodeInjectionAssociationTest.ump"
+    print "after getM6";
+    // END OF UMPLE AFTER INJECTION
+    return aM6;
+  }
+
+  public List&lt;Mentor&gt; getM6s()
+  {
+    // line 31 "../CodeInjectionAssociationTest.ump"
+    print "getM6s";
+    // END OF UMPLE BEFORE INJECTION
+    List&lt;Mentor&gt; newM6s = Collections.unmodifiableList(m6s);
+    // line 75 "../CodeInjectionAssociationTest.ump"
+    print "after getM6s";
+    // END OF UMPLE AFTER INJECTION
+    return newM6s;
+  }
+
+  public int numberOfM6s()
+  {
+    // line 32 "../CodeInjectionAssociationTest.ump"
+    print "numberOfM6s";
+    // END OF UMPLE BEFORE INJECTION
+    int number = m6s.size();
+    // line 76 "../CodeInjectionAssociationTest.ump"
+    print "after numberOfM6s";
+    // END OF UMPLE AFTER INJECTION
+    return number;
+  }
+
+  public boolean hasM6s()
+  {
+    // line 33 "../CodeInjectionAssociationTest.ump"
+    print "hasM6s";
+    // END OF UMPLE BEFORE INJECTION
+    boolean has = m6s.size() &gt; 0;
+    // line 77 "../CodeInjectionAssociationTest.ump"
+    print "after hasM6s";
+    // END OF UMPLE AFTER INJECTION
+    return has;
+  }
+
+  public int indexOfM6(Mentor aM6)
+  {
+    // line 34 "../CodeInjectionAssociationTest.ump"
+    print "indexOfM6";
+    // END OF UMPLE BEFORE INJECTION
+    int index = m6s.indexOf(aM6);
+    // line 78 "../CodeInjectionAssociationTest.ump"
+    print "after indexOfM6";
+    // END OF UMPLE AFTER INJECTION
+    return index;
+  }
+  /* Code from template association_SetOptionalOneToMany */
+  public boolean setM1(Mentor aM1)
+  {
+    boolean wasSet = false;
+    // line 35 "../CodeInjectionAssociationTest.ump"
+    print "setM1";
+    // END OF UMPLE BEFORE INJECTION
+    Mentor existingM1 = m1;
+    m1 = aM1;
+    if (existingM1 != null &amp;&amp; !existingM1.equals(aM1))
+    {
+      existingM1.removeOne(this);
+    }
+    if (aM1 != null)
+    {
+      aM1.addOne(this);
+    }
+    wasSet = true;
+    // line 79 "../CodeInjectionAssociationTest.ump"
+    print "after setM1";
+    // END OF UMPLE AFTER INJECTION
+    return wasSet;
+  }
+  /* Code from template association_SetOneToMany */
+  public boolean setM2(Mentor aM2)
+  {
+    boolean wasSet = false;
+    // line 36 "../CodeInjectionAssociationTest.ump"
+    print "setM2";
+    // END OF UMPLE BEFORE INJECTION
+    if (aM2 == null)
+    {
+      // line 80 "../CodeInjectionAssociationTest.ump"
+      print "after setM2";
+      // END OF UMPLE AFTER INJECTION
+      return wasSet;
+    }
+
+    Mentor existingM2 = m2;
+    m2 = aM2;
+    if (existingM2 != null &amp;&amp; !existingM2.equals(aM2))
+    {
+      existingM2.removeTwo(this);
+    }
+    m2.addTwo(this);
+    wasSet = true;
+    // line 80 "../CodeInjectionAssociationTest.ump"
+    print "after setM2";
+    // END OF UMPLE AFTER INJECTION
+    return wasSet;
+  }
+  /* Code from template association_IsNumberOfValidMethod */
+  public boolean isNumberOfM3sValid()
+  {
+    // line 37 "../CodeInjectionAssociationTest.ump"
+    print "isNumberOfM3sValid";
+    // END OF UMPLE BEFORE INJECTION
+    boolean isValid = numberOfM3s() &gt;= minimumNumberOfM3s() &amp;&amp; numberOfM3s() &lt;= maximumNumberOfM3s();
+    // line 81 "../CodeInjectionAssociationTest.ump"
+    print "after isNumberOfM3sValid";
+    // END OF UMPLE AFTER INJECTION
+    return isValid;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfM3s()
+  {
+    // line 38 "../CodeInjectionAssociationTest.ump"
+    print "minimumNumberOfM3s";
+    // END OF UMPLE BEFORE INJECTION
+    int minimum = 1;
+    // line 82 "../CodeInjectionAssociationTest.ump"
+    print "after minimumNumberOfM3s";
+    // END OF UMPLE AFTER INJECTION
+    return minimum;
+  }
+  /* Code from template association_MaximumNumberOfMethod */
+  public static int maximumNumberOfM3s()
+  {
+    // line 39 "../CodeInjectionAssociationTest.ump"
+    print "maximumNumberOfM3s";
+    // END OF UMPLE BEFORE INJECTION
+    int maximum = 3;
+    // line 83 "../CodeInjectionAssociationTest.ump"
+    print "after maximumNumberOfM3s";
+    // END OF UMPLE AFTER INJECTION
+    return maximum;
+  }
+  /* Code from template association_AddManyToManyMethod */
+  public boolean addM3(Mentor aM3)
+  {
+    boolean wasAdded = false;
+    // line 40 "../CodeInjectionAssociationTest.ump"
+    print "addM3";
+    // END OF UMPLE BEFORE INJECTION
+    if (m3s.contains(aM3)) { return false; }
+    if (numberOfM3s() &gt;= maximumNumberOfM3s())
+    {
+      // line 84 "../CodeInjectionAssociationTest.ump"
+      print "after addM3";
+      // END OF UMPLE AFTER INJECTION
+      return wasAdded;
+    }
+
+    m3s.add(aM3);
+    if (aM3.indexOfThree(this) != -1)
+    {
+      wasAdded = true;
+    }
+    else
+    {
+      wasAdded = aM3.addThree(this);
+      if (!wasAdded)
+      {
+        m3s.remove(aM3);
+      }
+    }
+    // line 84 "../CodeInjectionAssociationTest.ump"
+    print "after addM3";
+    // END OF UMPLE AFTER INJECTION
+    return wasAdded;
+  }
+  /* Code from template association_AddMNToMany */
+  public boolean removeM3(Mentor aM3)
+  {
+    boolean wasRemoved = false;
+    // line 41 "../CodeInjectionAssociationTest.ump"
+    print "before removeM3";
+    // END OF UMPLE BEFORE INJECTION
+    if (!m3s.contains(aM3))
+    {
+      // line 85 "../CodeInjectionAssociationTest.ump"
+      print "after removeM3";
+      // END OF UMPLE AFTER INJECTION
+      return wasRemoved;
+    }
+
+    if (numberOfM3s() &lt;= minimumNumberOfM3s())
+    {
+      // line 85 "../CodeInjectionAssociationTest.ump"
+      print "after removeM3";
+      // END OF UMPLE AFTER INJECTION
+      return wasRemoved;
+    }
+
+    int oldIndex = m3s.indexOf(aM3);
+    m3s.remove(oldIndex);
+    if (aM3.indexOfThree(this) == -1)
+    {
+      wasRemoved = true;
+    }
+    else
+    {
+      wasRemoved = aM3.removeThree(this);
+      if (!wasRemoved)
+      {
+        m3s.add(oldIndex,aM3);
+      }
+    }
+    // line 85 "../CodeInjectionAssociationTest.ump"
+    print "after removeM3";
+    // END OF UMPLE AFTER INJECTION
+    return wasRemoved;
+  }
+  /* Code from template association_SetMNToMany */
+  public boolean setM3s(Mentor... newM3s)
+  {
+    boolean wasSet = false;
+    // line 42 "../CodeInjectionAssociationTest.ump"
+    print "setM3s";
+    // END OF UMPLE BEFORE INJECTION
+    ArrayList&lt;Mentor&gt; verifiedM3s = new ArrayList&lt;Mentor&gt;();
+    for (Mentor aM3 : newM3s)
+    {
+      if (verifiedM3s.contains(aM3))
+      {
+        continue;
+      }
+      verifiedM3s.add(aM3);
+    }
+
+    if (verifiedM3s.size() != newM3s.length || verifiedM3s.size() &lt; minimumNumberOfM3s() || verifiedM3s.size() &gt; maximumNumberOfM3s())
+    {
+      // line 86 "../CodeInjectionAssociationTest.ump"
+      print "after setM3s";
+      // END OF UMPLE AFTER INJECTION
+      return wasSet;
+    }
+
+    ArrayList&lt;Mentor&gt; oldM3s = new ArrayList&lt;Mentor&gt;(m3s);
+    m3s.clear();
+    for (Mentor aNewM3 : verifiedM3s)
+    {
+      m3s.add(aNewM3);
+      if (oldM3s.contains(aNewM3))
+      {
+        oldM3s.remove(aNewM3);
+      }
+      else
+      {
+        aNewM3.addThree(this);
+      }
+    }
+
+    for (Mentor anOldM3 : oldM3s)
+    {
+      anOldM3.removeThree(this);
+    }
+    wasSet = true;
+    // line 86 "../CodeInjectionAssociationTest.ump"
+    print "after setM3s";
+    // END OF UMPLE AFTER INJECTION
+    return wasSet;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addM3At(Mentor aM3, int index)
+  {  
+    boolean wasAdded = false;
+    if(addM3(aM3))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfM3s()) { index = numberOfM3s() - 1; }
+      m3s.remove(aM3);
+      m3s.add(index, aM3);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveM3At(Mentor aM3, int index)
+  {
+    boolean wasAdded = false;
+    if(m3s.contains(aM3))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfM3s()) { index = numberOfM3s() - 1; }
+      m3s.remove(aM3);
+      m3s.add(index, aM3);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addM3At(aM3, index);
+    }
+    return wasAdded;
+  }
+  /* Code from template association_IsNumberOfValidMethod */
+  public boolean isNumberOfM4sValid()
+  {
+    // line 43 "../CodeInjectionAssociationTest.ump"
+    print "isNumberOfM4sValid";
+    // END OF UMPLE BEFORE INJECTION
+    boolean isValid = numberOfM4s() &gt;= minimumNumberOfM4s() &amp;&amp; numberOfM4s() &lt;= maximumNumberOfM4s();
+    // line 87 "../CodeInjectionAssociationTest.ump"
+    print "after isNumberOfM4sValid";
+    // END OF UMPLE AFTER INJECTION
+    return isValid;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfM4s()
+  {
+    // line 44 "../CodeInjectionAssociationTest.ump"
+    print "minimumNumberOfM4s";
+    // END OF UMPLE BEFORE INJECTION
+    int minimum = 4;
+    // line 88 "../CodeInjectionAssociationTest.ump"
+    print "after minimumNumberOfM4s";
+    // END OF UMPLE AFTER INJECTION
+    return minimum;
+  }
+  /* Code from template association_MaximumNumberOfMethod */
+  public static int maximumNumberOfM4s()
+  {
+    // line 45 "../CodeInjectionAssociationTest.ump"
+    print "maximumNumberOfM4s";
+    // END OF UMPLE BEFORE INJECTION
+    int maximum = 7;
+    // line 89 "../CodeInjectionAssociationTest.ump"
+    print "after maximumNumberOfM4s";
+    // END OF UMPLE AFTER INJECTION
+    return maximum;
+  }
+  /* Code from template association_AddManyToManyMethod */
+  public boolean addM4(Mentor aM4)
+  {
+    boolean wasAdded = false;
+    // line 46 "../CodeInjectionAssociationTest.ump"
+    print "addM4";
+    // END OF UMPLE BEFORE INJECTION
+    if (m4s.contains(aM4)) { return false; }
+    if (numberOfM4s() &gt;= maximumNumberOfM4s())
+    {
+      // line 90 "../CodeInjectionAssociationTest.ump"
+      print "after addM4";
+      // END OF UMPLE AFTER INJECTION
+      return wasAdded;
+    }
+
+    m4s.add(aM4);
+    if (aM4.indexOfFour(this) != -1)
+    {
+      wasAdded = true;
+    }
+    else
+    {
+      wasAdded = aM4.addFour(this);
+      if (!wasAdded)
+      {
+        m4s.remove(aM4);
+      }
+    }
+    // line 90 "../CodeInjectionAssociationTest.ump"
+    print "after addM4";
+    // END OF UMPLE AFTER INJECTION
+    return wasAdded;
+  }
+  /* Code from template association_AddMNToMany */
+  public boolean removeM4(Mentor aM4)
+  {
+    boolean wasRemoved = false;
+    // line 47 "../CodeInjectionAssociationTest.ump"
+    print "removeM4";
+    // END OF UMPLE BEFORE INJECTION
+    if (!m4s.contains(aM4))
+    {
+      // line 91 "../CodeInjectionAssociationTest.ump"
+      print "after removeM4";
+      // END OF UMPLE AFTER INJECTION
+      return wasRemoved;
+    }
+
+    if (numberOfM4s() &lt;= minimumNumberOfM4s())
+    {
+      // line 91 "../CodeInjectionAssociationTest.ump"
+      print "after removeM4";
+      // END OF UMPLE AFTER INJECTION
+      return wasRemoved;
+    }
+
+    int oldIndex = m4s.indexOf(aM4);
+    m4s.remove(oldIndex);
+    if (aM4.indexOfFour(this) == -1)
+    {
+      wasRemoved = true;
+    }
+    else
+    {
+      wasRemoved = aM4.removeFour(this);
+      if (!wasRemoved)
+      {
+        m4s.add(oldIndex,aM4);
+      }
+    }
+    // line 91 "../CodeInjectionAssociationTest.ump"
+    print "after removeM4";
+    // END OF UMPLE AFTER INJECTION
+    return wasRemoved;
+  }
+  /* Code from template association_SetMNToMany */
+  public boolean setM4s(Mentor... newM4s)
+  {
+    boolean wasSet = false;
+    // line 48 "../CodeInjectionAssociationTest.ump"
+    print "setM4s";
+    // END OF UMPLE BEFORE INJECTION
+    ArrayList&lt;Mentor&gt; verifiedM4s = new ArrayList&lt;Mentor&gt;();
+    for (Mentor aM4 : newM4s)
+    {
+      if (verifiedM4s.contains(aM4))
+      {
+        continue;
+      }
+      verifiedM4s.add(aM4);
+    }
+
+    if (verifiedM4s.size() != newM4s.length || verifiedM4s.size() &lt; minimumNumberOfM4s() || verifiedM4s.size() &gt; maximumNumberOfM4s())
+    {
+      // line 92 "../CodeInjectionAssociationTest.ump"
+      print "after setM4s";
+      // END OF UMPLE AFTER INJECTION
+      return wasSet;
+    }
+
+    ArrayList&lt;Mentor&gt; oldM4s = new ArrayList&lt;Mentor&gt;(m4s);
+    m4s.clear();
+    for (Mentor aNewM4 : verifiedM4s)
+    {
+      m4s.add(aNewM4);
+      if (oldM4s.contains(aNewM4))
+      {
+        oldM4s.remove(aNewM4);
+      }
+      else
+      {
+        aNewM4.addFour(this);
+      }
+    }
+
+    for (Mentor anOldM4 : oldM4s)
+    {
+      anOldM4.removeFour(this);
+    }
+    wasSet = true;
+    // line 92 "../CodeInjectionAssociationTest.ump"
+    print "after setM4s";
+    // END OF UMPLE AFTER INJECTION
+    return wasSet;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addM4At(Mentor aM4, int index)
+  {  
+    boolean wasAdded = false;
+    if(addM4(aM4))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfM4s()) { index = numberOfM4s() - 1; }
+      m4s.remove(aM4);
+      m4s.add(index, aM4);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveM4At(Mentor aM4, int index)
+  {
+    boolean wasAdded = false;
+    if(m4s.contains(aM4))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfM4s()) { index = numberOfM4s() - 1; }
+      m4s.remove(aM4);
+      m4s.add(index, aM4);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addM4At(aM4, index);
+    }
+    return wasAdded;
+  }
+  /* Code from template association_IsNumberOfValidMethod */
+  public boolean isNumberOfM5sValid()
+  {
+    // line 49 "../CodeInjectionAssociationTest.ump"
+    print "isNumberOfM5sValid";
+    // END OF UMPLE BEFORE INJECTION
+    boolean isValid = numberOfM5s() &gt;= minimumNumberOfM5s();
+    // line 93 "../CodeInjectionAssociationTest.ump"
+    print "after isNumberOfM5sValid";
+    // END OF UMPLE AFTER INJECTION
+    return isValid;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfM5s()
+  {
+    // line 50 "../CodeInjectionAssociationTest.ump"
+    print "minimumNumberOfM5s";
+    // END OF UMPLE BEFORE INJECTION
+    int minimum = 2;
+    // line 94 "../CodeInjectionAssociationTest.ump"
+    print "after minimumNumberOfM5s";
+    // END OF UMPLE AFTER INJECTION
+    return minimum;
+  }
+  /* Code from template association_AddManyToManyMethod */
+  public boolean addM5(Mentor aM5)
+  {
+    boolean wasAdded = false;
+    // line 51 "../CodeInjectionAssociationTest.ump"
+    print "addM5";
+    // END OF UMPLE BEFORE INJECTION
+    if (m5s.contains(aM5)) { return false; }
+    m5s.add(aM5);
+    if (aM5.indexOfFive(this) != -1)
+    {
+      wasAdded = true;
+    }
+    else
+    {
+      wasAdded = aM5.addFive(this);
+      if (!wasAdded)
+      {
+        m5s.remove(aM5);
+      }
+    }
+    // line 95 "../CodeInjectionAssociationTest.ump"
+    print "after addM5";
+    // END OF UMPLE AFTER INJECTION
+    return wasAdded;
+  }
+  /* Code from template association_AddMStarToMany */
+  public boolean removeM5(Mentor aM5)
+  {
+    boolean wasRemoved = false;
+    // line 52 "../CodeInjectionAssociationTest.ump"
+    print "removeM5";
+    // END OF UMPLE BEFORE INJECTION
+    if (!m5s.contains(aM5))
+    {
+      // line 96 "../CodeInjectionAssociationTest.ump"
+      print "after removeM5";
+      // END OF UMPLE AFTER INJECTION
+      return wasRemoved;
+    }
+
+    if (numberOfM5s() &lt;= minimumNumberOfM5s())
+    {
+      // line 96 "../CodeInjectionAssociationTest.ump"
+      print "after removeM5";
+      // END OF UMPLE AFTER INJECTION
+      return wasRemoved;
+    }
+
+    int oldIndex = m5s.indexOf(aM5);
+    m5s.remove(oldIndex);
+    if (aM5.indexOfFive(this) == -1)
+    {
+      wasRemoved = true;
+    }
+    else
+    {
+      wasRemoved = aM5.removeFive(this);
+      if (!wasRemoved)
+      {
+        m5s.add(oldIndex,aM5);
+      }
+    }
+    // line 96 "../CodeInjectionAssociationTest.ump"
+    print "after removeM5";
+    // END OF UMPLE AFTER INJECTION
+    return wasRemoved;
+  }
+  /* Code from template association_SetMStarToMany */
+  public boolean setM5s(Mentor... newM5s)
+  {
+    boolean wasSet = false;
+    // line 53 "../CodeInjectionAssociationTest.ump"
+    print "setM5s";
+    // END OF UMPLE BEFORE INJECTION
+    ArrayList&lt;Mentor&gt; verifiedM5s = new ArrayList&lt;Mentor&gt;();
+    for (Mentor aM5 : newM5s)
+    {
+      if (verifiedM5s.contains(aM5))
+      {
+        continue;
+      }
+      verifiedM5s.add(aM5);
+    }
+
+    if (verifiedM5s.size() != newM5s.length || verifiedM5s.size() &lt; minimumNumberOfM5s())
+    {
+      // line 97 "../CodeInjectionAssociationTest.ump"
+      print "after setM5s";
+      // END OF UMPLE AFTER INJECTION
+      return wasSet;
+    }
+
+    ArrayList&lt;Mentor&gt; oldM5s = new ArrayList&lt;Mentor&gt;(m5s);
+    m5s.clear();
+    for (Mentor aNewM5 : verifiedM5s)
+    {
+      m5s.add(aNewM5);
+      if (oldM5s.contains(aNewM5))
+      {
+        oldM5s.remove(aNewM5);
+      }
+      else
+      {
+        aNewM5.addFive(this);
+      }
+    }
+
+    for (Mentor anOldM5 : oldM5s)
+    {
+      anOldM5.removeFive(this);
+    }
+    wasSet = true;
+    // line 97 "../CodeInjectionAssociationTest.ump"
+    print "after setM5s";
+    // END OF UMPLE AFTER INJECTION
+    return wasSet;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addM5At(Mentor aM5, int index)
+  {  
+    boolean wasAdded = false;
+    if(addM5(aM5))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfM5s()) { index = numberOfM5s() - 1; }
+      m5s.remove(aM5);
+      m5s.add(index, aM5);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveM5At(Mentor aM5, int index)
+  {
+    boolean wasAdded = false;
+    if(m5s.contains(aM5))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfM5s()) { index = numberOfM5s() - 1; }
+      m5s.remove(aM5);
+      m5s.add(index, aM5);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addM5At(aM5, index);
+    }
+    return wasAdded;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfM6s()
+  {
+    return 0;
+  }
+  /* Code from template association_AddManyToManyMethod */
+  public boolean addM6(Mentor aM6)
+  {
+    boolean wasAdded = false;
+    // line 54 "../CodeInjectionAssociationTest.ump"
+    print "addM6";
+    // END OF UMPLE BEFORE INJECTION
+    if (m6s.contains(aM6)) { return false; }
+    m6s.add(aM6);
+    if (aM6.indexOfSix(this) != -1)
+    {
+      wasAdded = true;
+    }
+    else
+    {
+      wasAdded = aM6.addSix(this);
+      if (!wasAdded)
+      {
+        m6s.remove(aM6);
+      }
+    }
+    // line 98 "../CodeInjectionAssociationTest.ump"
+    print "after addM6";
+    // END OF UMPLE AFTER INJECTION
+    return wasAdded;
+  }
+  /* Code from template association_RemoveMany */
+  public boolean removeM6(Mentor aM6)
+  {
+    boolean wasRemoved = false;
+    // line 55 "../CodeInjectionAssociationTest.ump"
+    print "removeM6";
+    // END OF UMPLE BEFORE INJECTION
+    if (!m6s.contains(aM6))
+    {
+      // line 99 "../CodeInjectionAssociationTest.ump"
+      print "after removeM6";
+      // END OF UMPLE AFTER INJECTION
+      return wasRemoved;
+    }
+
+    int oldIndex = m6s.indexOf(aM6);
+    m6s.remove(oldIndex);
+    if (aM6.indexOfSix(this) == -1)
+    {
+      wasRemoved = true;
+    }
+    else
+    {
+      wasRemoved = aM6.removeSix(this);
+      if (!wasRemoved)
+      {
+        m6s.add(oldIndex,aM6);
+      }
+    }
+    // line 99 "../CodeInjectionAssociationTest.ump"
+    print "after removeM6";
+    // END OF UMPLE AFTER INJECTION
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addM6At(Mentor aM6, int index)
+  {  
+    boolean wasAdded = false;
+    if(addM6(aM6))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfM6s()) { index = numberOfM6s() - 1; }
+      m6s.remove(aM6);
+      m6s.add(index, aM6);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveM6At(Mentor aM6, int index)
+  {
+    boolean wasAdded = false;
+    if(m6s.contains(aM6))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfM6s()) { index = numberOfM6s() - 1; }
+      m6s.remove(aM6);
+      m6s.add(index, aM6);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addM6At(aM6, index);
+    }
+    return wasAdded;
+  }
+
+  public void delete()
+  {
+    if (m1 != null)
+    {
+      Mentor placeholderM1 = m1;
+      this.m1 = null;
+      placeholderM1.removeOne(this);
+    }
+    Mentor placeholderM2 = m2;
+    this.m2 = null;
+    if(placeholderM2 != null)
+    {
+      placeholderM2.removeTwo(this);
+    }
+    ArrayList&lt;Mentor&gt; copyOfM3s = new ArrayList&lt;Mentor&gt;(m3s);
+    m3s.clear();
+    for(Mentor aM3 : copyOfM3s)
+    {
+      aM3.removeThree(this);
+    }
+    ArrayList&lt;Mentor&gt; copyOfM4s = new ArrayList&lt;Mentor&gt;(m4s);
+    m4s.clear();
+    for(Mentor aM4 : copyOfM4s)
+    {
+      aM4.removeFour(this);
+    }
+    ArrayList&lt;Mentor&gt; copyOfM5s = new ArrayList&lt;Mentor&gt;(m5s);
+    m5s.clear();
+    for(Mentor aM5 : copyOfM5s)
+    {
+      aM5.removeFive(this);
+    }
+    ArrayList&lt;Mentor&gt; copyOfM6s = new ArrayList&lt;Mentor&gt;(m6s);
+    m6s.clear();
+    for(Mentor aM6 : copyOfM6s)
+    {
+      aM6.removeSix(this);
+    }
+  }
+
+}
+</pre>
+    </body>
+</html>

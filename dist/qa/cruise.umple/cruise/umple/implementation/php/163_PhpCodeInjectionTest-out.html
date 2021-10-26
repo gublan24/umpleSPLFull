@@ -1,0 +1,1788 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from PhpCodeInjectionTest</title>
+    </head>
+    <body>
+        <pre>&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Example extends Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aAttr)
+  {
+    parent::__construct($aAttr);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getAttr()
+  {
+    // line 12 "CodeInjectionTestSubclass.ump"
+    /*before getAttr*/
+    // END OF UMPLE BEFORE INJECTION
+    $aAttr = parent::getAttr();
+    // line 17 "CodeInjectionTestSubclass.ump"
+    /*after getAttr*/
+    // END OF UMPLE AFTER INJECTION
+    return $aAttr;
+  }
+  
+  public function getDerivedAttr()
+  {
+    // line 13 "CodeInjectionTestSubclass.ump"
+    /*before getDerivedAttr*/
+    // END OF UMPLE BEFORE INJECTION
+    $aDerivedAttr = parent::getDerivedAttr();
+    // line 18 "CodeInjectionTestSubclass.ump"
+    /*after getDerivedAttr*/
+    // END OF UMPLE AFTER INJECTION
+    return $aDerivedAttr;
+  }
+  
+  public function getListAttr($index)
+  {
+    // line 14 "CodeInjectionTestSubclass.ump"
+    /*before getListAttr*/
+    // END OF UMPLE BEFORE INJECTION
+    $aListAttr = parent::getListAttr($index);
+    // line 19 "CodeInjectionTestSubclass.ump"
+    /*after getListAttr*/
+    // END OF UMPLE AFTER INJECTION
+    return $aListAttr;
+  }
+
+  public function getDefaultedAttr()
+  {
+    // line 15 "CodeInjectionTestSubclass.ump"
+    /*before getDefaultedAttr*/
+    // END OF UMPLE BEFORE INJECTION
+    $aDefaultedAttr = parent::getDefaultedAttr();
+    // line 20 "CodeInjectionTestSubclass.ump"
+    /*after getDefaultedAttr*/
+    // END OF UMPLE AFTER INJECTION
+    return $aDefaultedAttr;
+  }
+  
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    parent::delete();
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private $firstName;
+  private $lastName;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aFirstName, $aLastName)
+  {
+    $this-&gt;firstName = $aFirstName;
+    $this-&gt;lastName = $aLastName;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setFirstName($aFirstName)
+  {
+    $wasSet = false;
+    $this-&gt;firstName = $aFirstName;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setLastName($aLastName)
+  {
+    $wasSet = false;
+    $this-&gt;lastName = $aLastName;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getFirstName()
+  {
+    // line 8 "../CodeInjectionWildCardTest.ump"
+    print "before";
+    // END OF UMPLE BEFORE INJECTION
+    return $this-&gt;firstName;
+  }
+
+  public function getLastName()
+  {
+    // line 8 "../CodeInjectionWildCardTest.ump"
+    print "before";
+    // END OF UMPLE BEFORE INJECTION
+    return $this-&gt;lastName;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student11
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student11 Attributes
+  private $name;
+  private $b;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aName, $aB)
+  {
+    $this-&gt;name = $aName;
+    $this-&gt;b = $aB;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setName($aName)
+  {
+    $wasSet = false;
+    $this-&gt;name = $aName;
+    $wasSet = true;
+    // line 24 "toplevelCodeInjectionTest.ump"
+    //doSomething1();
+    // END OF UMPLE AFTER INJECTION
+    return $wasSet;
+  }
+
+  public function setB($aB)
+  {
+    $wasSet = false;
+    $this-&gt;b = $aB;
+    $wasSet = true;
+    // line 24 "toplevelCodeInjectionTest.ump"
+    //doSomething1();
+    // END OF UMPLE AFTER INJECTION
+    // line 49 "toplevelCodeInjectionTest.ump"
+    //doSomething2();
+    // END OF UMPLE AFTER INJECTION
+    return $wasSet;
+  }
+
+  public function getName()
+  {
+    return $this-&gt;name;
+  }
+
+  public function getB()
+  {
+    return $this-&gt;b;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private $id;
+  private $name;
+  private $type;
+  private $roles;
+  private $injBool;
+
+  //Helper Variables
+  private $canSetId;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aName, $aInjBool)
+  {
+    // line 21 "../CodeInjectionTest.ump"
+    print "before constructor";
+    // END OF UMPLE BEFORE INJECTION
+    $this-&gt;canSetId = true;
+    $this-&gt;name = $aName;
+    $this-&gt;resetType();
+    $this-&gt;roles = array();
+    $this-&gt;injBool = $aInjBool;
+    // line 22 "../CodeInjectionTest.ump"
+    print "after constructor";
+    // END OF UMPLE AFTER INJECTION
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setId($aId)
+  {
+    $wasSet = false;
+    // line 29 "../CodeInjectionTest.ump"
+    print "start setId";
+    // END OF UMPLE BEFORE INJECTION
+    if (!$this-&gt;canSetId) { return false; }
+    $this-&gt;canSetId = false;
+    $this-&gt;id = $aId;
+    $wasSet = true;
+    // line 30 "../CodeInjectionTest.ump"
+    print "end setId";
+    // END OF UMPLE AFTER INJECTION
+    return $wasSet;
+  }
+
+  public function setName($aName)
+  {
+    $wasSet = false;
+    // line 34 "../CodeInjectionTest.ump"
+    print "start setName";
+    // END OF UMPLE BEFORE INJECTION
+    // line 35 "../CodeInjectionTest.ump"
+    print "start setName2";
+    // END OF UMPLE BEFORE INJECTION
+    $this-&gt;name = $aName;
+    $wasSet = true;
+    // line 36 "../CodeInjectionTest.ump"
+    print "end setName";
+    // END OF UMPLE AFTER INJECTION
+    return $wasSet;
+  }
+
+  public function setType($aType)
+  {
+    $wasSet = false;
+    // line 40 "../CodeInjectionTest.ump"
+    print "start setType";
+    // END OF UMPLE BEFORE INJECTION
+    $this-&gt;type = $aType;
+    $wasSet = true;
+    // line 41 "../CodeInjectionTest.ump"
+    print "end setType";
+    // END OF UMPLE AFTER INJECTION
+    return $wasSet;
+  }
+
+  public function resetType()
+  {
+    $wasReset = false;
+    // line 46 "../CodeInjectionTest.ump"
+    print "start resetType";
+    // END OF UMPLE BEFORE INJECTION
+    $this-&gt;type = $this-&gt;getDefaultType();
+    $wasReset = true;
+    // line 47 "../CodeInjectionTest.ump"
+    print "end resetType";
+    // END OF UMPLE AFTER INJECTION
+    return $wasReset;
+  }
+
+  public function addRole($aRole)
+  {
+    $wasAdded = false;
+    // line 49 "../CodeInjectionTest.ump"
+    print "start add";
+    // END OF UMPLE BEFORE INJECTION
+    $this-&gt;roles[] = $aRole;
+    $wasAdded = true;
+    // line 50 "../CodeInjectionTest.ump"
+    print "end add";
+    // END OF UMPLE AFTER INJECTION
+    return $wasAdded;
+  }
+
+  public function removeRole($aRole)
+  {
+    $wasRemoved = false;
+    // line 51 "../CodeInjectionTest.ump"
+    print "start remove";
+    // END OF UMPLE BEFORE INJECTION
+    unset($this-&gt;roles[$this-&gt;indexOfRole($aRole)]);
+    $this-&gt;roles = array_values($this-&gt;roles);
+    $wasRemoved = true;
+    // line 52 "../CodeInjectionTest.ump"
+    print "end remove";
+    // END OF UMPLE AFTER INJECTION
+    return $wasRemoved;
+  }
+
+  public function setInjBool($aInjBool)
+  {
+    $wasSet = false;
+    $this-&gt;injBool = $aInjBool;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getId()
+  {
+    // line 31 "../CodeInjectionTest.ump"
+    print "start getId";
+    // END OF UMPLE BEFORE INJECTION
+    $aId = $this-&gt;id;
+    // line 32 "../CodeInjectionTest.ump"
+    print "end getId";
+    // END OF UMPLE AFTER INJECTION
+    return $aId;
+  }
+
+  public function getName()
+  {
+    // line 37 "../CodeInjectionTest.ump"
+    print "start getName";
+    // END OF UMPLE BEFORE INJECTION
+    $aName = $this-&gt;name;
+    // line 38 "../CodeInjectionTest.ump"
+    print "end getName";
+    // END OF UMPLE AFTER INJECTION
+    return $aName;
+  }
+
+  public function getType()
+  {
+    // line 42 "../CodeInjectionTest.ump"
+    print "start getType";
+    // END OF UMPLE BEFORE INJECTION
+    $aType = $this-&gt;type;
+    // line 43 "../CodeInjectionTest.ump"
+    print "end getType";
+    // END OF UMPLE AFTER INJECTION
+    return $aType;
+  }
+
+  public function getDefaultType()
+  {
+    // line 44 "../CodeInjectionTest.ump"
+    print "start getDefaultType";
+    // END OF UMPLE BEFORE INJECTION
+    $aType = "None";
+    // line 45 "../CodeInjectionTest.ump"
+    print "end getDefaultType";
+    // END OF UMPLE AFTER INJECTION
+    return $aType;
+  }
+
+  public function getRole($index)
+  {
+    // line 53 "../CodeInjectionTest.ump"
+    print "start getRole";
+    // END OF UMPLE BEFORE INJECTION
+    $aRole = $this-&gt;roles[$index];
+    // line 54 "../CodeInjectionTest.ump"
+    print "end getRole";
+    // END OF UMPLE AFTER INJECTION
+    return $aRole;
+  }
+
+  public function getRoles()
+  {
+    // line 55 "../CodeInjectionTest.ump"
+    print "start getRoles";
+    // END OF UMPLE BEFORE INJECTION
+    $newRoles = $this-&gt;roles;
+    // line 56 "../CodeInjectionTest.ump"
+    print "end getRoles";
+    // END OF UMPLE AFTER INJECTION
+    return $newRoles;
+  }
+
+  public function numberOfRoles()
+  {
+    // line 57 "../CodeInjectionTest.ump"
+    print "start numberOfRoles";
+    // END OF UMPLE BEFORE INJECTION
+    $number = count($this-&gt;roles);
+    // line 58 "../CodeInjectionTest.ump"
+    print "end numberOfRoles";
+    // END OF UMPLE AFTER INJECTION
+    return $number;
+  }
+
+  public function hasRoles()
+  {
+    $has = roles.size() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfRole($aRole)
+  {
+    // line 59 "../CodeInjectionTest.ump"
+    print "start indexOfRole";
+    // END OF UMPLE BEFORE INJECTION
+    $rawAnswer = array_search($aRole,$this-&gt;roles);
+    $index = $rawAnswer == null &amp;&amp; $rawAnswer !== 0 ? -1 : $rawAnswer;
+    // line 60 "../CodeInjectionTest.ump"
+    print "end indexOfRole";
+    // END OF UMPLE AFTER INJECTION
+    return $index;
+  }
+
+  public function getFunName()
+  {
+    // line 24 "../CodeInjectionTest.ump"
+    print "start funName";
+    // END OF UMPLE BEFORE INJECTION
+    $aFunName = name + "sillypans";
+    // line 25 "../CodeInjectionTest.ump"
+    print "end funName";
+    // END OF UMPLE AFTER INJECTION
+    return $aFunName;
+  }
+
+  public function getOtherFunName()
+  {
+    // line 27 "../CodeInjectionTest.ump"
+    print "This was so much fun";
+    // END OF UMPLE BEFORE INJECTION
+    return name + "Other Fun";
+  }
+
+  public function getInjBool()
+  {
+    return $this-&gt;injBool;
+  }
+
+  public function getDInjBool()
+  {
+    return 2/3;
+  }
+
+  public Boolean isInjBool()
+  {
+    // line 15 "../CodeInjectionTest.ump"
+    print "before injBool";
+    // END OF UMPLE BEFORE INJECTION
+    $aInjBool = $this-&gt;null;
+    // line 16 "../CodeInjectionTest.ump"
+    print "after injBool";
+    // END OF UMPLE AFTER INJECTION
+    return $aInjBool;
+  }
+
+  public Boolean isDInjBool()
+  {
+    // line 18 "../CodeInjectionTest.ump"
+    print "before dInjBool";
+    // END OF UMPLE BEFORE INJECTION
+    Boolean aDInjBool = 2/3;
+    // line 19 "../CodeInjectionTest.ump"
+    print "after dInjBool";
+    // END OF UMPLE AFTER INJECTION
+    return aDInjBool;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    // line 62 "../CodeInjectionTest.ump"
+    print "start delete";
+    // END OF UMPLE BEFORE INJECTION
+    // line 63 "../CodeInjectionTest.ump"
+    print "after delete";
+    // END OF UMPLE AFTER INJECTION
+  }
+
+  public function foo(int $a)
+  {
+    System.out.println("This is great " + " I will return to this");
+    if(a == 3) {      
+      // line 65 "../CodeInjectionTest.ump"
+      print "Such fun!"
+      // END OF UMPLE AFTER INJECTION
+      return "4";
+    }
+    //Testing inline return
+    
+    // inject before return    
+    // line 65 "../CodeInjectionTest.ump"
+    print "Such fun!"
+    // END OF UMPLE AFTER INJECTION
+    return "";
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Example
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Example State Machines
+  private static $LightOn = 1;
+  private static $LightOff = 2;
+  private $light;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setLight(self::$LightOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getLightFullName()
+  {
+    $answer = $this-&gt;getLight();
+    return $answer;
+  }
+
+  public function getLight()
+  {
+    if ($this-&gt;light == self::$LightOn) { return "LightOn"; }
+    elseif ($this-&gt;light == self::$LightOff) { return "LightOff"; }
+    return null;
+  }
+
+  public function flip()
+  {
+    $wasEventProcessed = false;
+    
+    $aLight = $this-&gt;light;
+    if ($aLight == self::$LightOn)
+    {
+      $this-&gt;setLight(self::$LightOff);
+      $wasEventProcessed = true;
+    }
+    elseif ($aLight == self::$LightOff)
+    {
+      $this-&gt;setLight(self::$LightOn);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setLight($aLight)
+  {
+    // line 14 "CodeInjectionStateMachineTest.ump"
+    System.out.println("About to flip");
+    // END OF UMPLE BEFORE INJECTION
+    $this-&gt;light = $aLight;
+    // line 10 "CodeInjectionStateMachineTest.ump"
+    System.out.println("Just flipped");
+    // END OF UMPLE AFTER INJECTION
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Associations
+  private $m1;
+  private $m2;
+  private $m3s;
+  private $m4s;
+  private $m5s;
+  private $m6s;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aM2, $allM3s, $allM4s, $allM5s)
+  {
+    $didAddM2 = $this-&gt;setM2($aM2);
+    if (!$didAddM2)
+    {
+      throw new Exception("Unable to create two due to m2. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+    $this-&gt;m3s = array();
+    $didAddM3s = $this-&gt;setM3s($allM3s);
+    if (!$didAddM3s)
+    {
+      throw new Exception("Unable to create Student, must have 1 to 3 m3s. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+    $this-&gt;m4s = array();
+    $didAddM4s = $this-&gt;setM4s($allM4s);
+    if (!$didAddM4s)
+    {
+      throw new Exception("Unable to create Student, must have 4 to 7 m4s. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+    $this-&gt;m5s = array();
+    $didAddM5s = $this-&gt;setM5s($allM5s);
+    if (!$didAddM5s)
+    {
+      throw new Exception("Unable to create Student, must have at least 2 m5s. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+    $this-&gt;m6s = array();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getM1()
+  {
+    // line 13 "../CodeInjectionAssociationTest.ump"
+    print "getM1";
+    // END OF UMPLE BEFORE INJECTION
+    $aM1 = $this-&gt;m1;
+    // line 57 "../CodeInjectionAssociationTest.ump"
+    print "after getM1";
+    // END OF UMPLE AFTER INJECTION
+    return $aM1;
+  }
+
+  public function hasM1()
+  {
+    $has = $this-&gt;m1 != null;
+    return $has;
+  }
+
+  public function getM2()
+  {
+    // line 14 "../CodeInjectionAssociationTest.ump"
+    print "getM2";
+    // END OF UMPLE BEFORE INJECTION
+    $aM2 = $this-&gt;m2;
+    // line 58 "../CodeInjectionAssociationTest.ump"
+    print "after getM2";
+    // END OF UMPLE AFTER INJECTION
+    return $aM2;
+  }
+
+  public function getM3_index($index)
+  {
+    // line 15 "../CodeInjectionAssociationTest.ump"
+    print "getM3";
+    // END OF UMPLE BEFORE INJECTION
+    $aM3 = $this-&gt;m3s[$index];
+    // line 59 "../CodeInjectionAssociationTest.ump"
+    print "after getM3";
+    // END OF UMPLE AFTER INJECTION
+    return $aM3;
+  }
+
+  public function getM3s()
+  {
+    // line 16 "../CodeInjectionAssociationTest.ump"
+    print "getM3s";
+    // END OF UMPLE BEFORE INJECTION
+    $newM3s = $this-&gt;m3s;
+    // line 60 "../CodeInjectionAssociationTest.ump"
+    print "after getM3s";
+    // END OF UMPLE AFTER INJECTION
+    return $newM3s;
+  }
+
+  public function numberOfM3s()
+  {
+    // line 17 "../CodeInjectionAssociationTest.ump"
+    print "numberOfM3s";
+    // END OF UMPLE BEFORE INJECTION
+    $number = count($this-&gt;m3s);
+    // line 61 "../CodeInjectionAssociationTest.ump"
+    print "after numberOfM3s";
+    // END OF UMPLE AFTER INJECTION
+    return $number;
+  }
+
+  public function hasM3s()
+  {
+    // line 18 "../CodeInjectionAssociationTest.ump"
+    print "hasM3s";
+    // END OF UMPLE BEFORE INJECTION
+    $has = $this-&gt;numberOfM3s() &gt; 0;
+    // line 62 "../CodeInjectionAssociationTest.ump"
+    print "after hasM3s";
+    // END OF UMPLE AFTER INJECTION
+    return $has;
+  }
+
+  public function indexOfM3($aM3)
+  {
+    // line 19 "../CodeInjectionAssociationTest.ump"
+    print "indexOfM3";
+    // END OF UMPLE BEFORE INJECTION
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;m3s as $m3)
+    {
+      if ($m3-&gt;equals($aM3))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    // line 63 "../CodeInjectionAssociationTest.ump"
+    print "after indexOfM3";
+    // END OF UMPLE AFTER INJECTION
+    return $index;
+  }
+
+  public function getM4_index($index)
+  {
+    // line 20 "../CodeInjectionAssociationTest.ump"
+    print "getM4";
+    // END OF UMPLE BEFORE INJECTION
+    $aM4 = $this-&gt;m4s[$index];
+    // line 64 "../CodeInjectionAssociationTest.ump"
+    print "after getM4";
+    // END OF UMPLE AFTER INJECTION
+    return $aM4;
+  }
+
+  public function getM4s()
+  {
+    // line 21 "../CodeInjectionAssociationTest.ump"
+    print "getM4s";
+    // END OF UMPLE BEFORE INJECTION
+    $newM4s = $this-&gt;m4s;
+    // line 65 "../CodeInjectionAssociationTest.ump"
+    print "after getM4s";
+    // END OF UMPLE AFTER INJECTION
+    return $newM4s;
+  }
+
+  public function numberOfM4s()
+  {
+    // line 22 "../CodeInjectionAssociationTest.ump"
+    print "numberOfM4s";
+    // END OF UMPLE BEFORE INJECTION
+    $number = count($this-&gt;m4s);
+    // line 66 "../CodeInjectionAssociationTest.ump"
+    print "after numberOfM4s";
+    // END OF UMPLE AFTER INJECTION
+    return $number;
+  }
+
+  public function hasM4s()
+  {
+    // line 23 "../CodeInjectionAssociationTest.ump"
+    print "hasM4s";
+    // END OF UMPLE BEFORE INJECTION
+    $has = $this-&gt;numberOfM4s() &gt; 0;
+    // line 67 "../CodeInjectionAssociationTest.ump"
+    print "after hasM4s";
+    // END OF UMPLE AFTER INJECTION
+    return $has;
+  }
+
+  public function indexOfM4($aM4)
+  {
+    // line 24 "../CodeInjectionAssociationTest.ump"
+    print "indexOfM4";
+    // END OF UMPLE BEFORE INJECTION
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;m4s as $m4)
+    {
+      if ($m4-&gt;equals($aM4))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    // line 68 "../CodeInjectionAssociationTest.ump"
+    print "after indexOfM4";
+    // END OF UMPLE AFTER INJECTION
+    return $index;
+  }
+
+  public function getM5_index($index)
+  {
+    // line 25 "../CodeInjectionAssociationTest.ump"
+    print "getM5";
+    // END OF UMPLE BEFORE INJECTION
+    $aM5 = $this-&gt;m5s[$index];
+    // line 69 "../CodeInjectionAssociationTest.ump"
+    print "after getM5";
+    // END OF UMPLE AFTER INJECTION
+    return $aM5;
+  }
+
+  public function getM5s()
+  {
+    // line 26 "../CodeInjectionAssociationTest.ump"
+    print "getM5s";
+    // END OF UMPLE BEFORE INJECTION
+    $newM5s = $this-&gt;m5s;
+    // line 70 "../CodeInjectionAssociationTest.ump"
+    print "after getM5s";
+    // END OF UMPLE AFTER INJECTION
+    return $newM5s;
+  }
+
+  public function numberOfM5s()
+  {
+    // line 27 "../CodeInjectionAssociationTest.ump"
+    print "numberOfM5s";
+    // END OF UMPLE BEFORE INJECTION
+    $number = count($this-&gt;m5s);
+    // line 71 "../CodeInjectionAssociationTest.ump"
+    print "after numberOfM5s";
+    // END OF UMPLE AFTER INJECTION
+    return $number;
+  }
+
+  public function hasM5s()
+  {
+    // line 28 "../CodeInjectionAssociationTest.ump"
+    print "hasM5s";
+    // END OF UMPLE BEFORE INJECTION
+    $has = $this-&gt;numberOfM5s() &gt; 0;
+    // line 72 "../CodeInjectionAssociationTest.ump"
+    print "after hasM5s";
+    // END OF UMPLE AFTER INJECTION
+    return $has;
+  }
+
+  public function indexOfM5($aM5)
+  {
+    // line 29 "../CodeInjectionAssociationTest.ump"
+    print "indexOfM5";
+    // END OF UMPLE BEFORE INJECTION
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;m5s as $m5)
+    {
+      if ($m5-&gt;equals($aM5))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    // line 73 "../CodeInjectionAssociationTest.ump"
+    print "after indexOfM5";
+    // END OF UMPLE AFTER INJECTION
+    return $index;
+  }
+
+  public function getM6_index($index)
+  {
+    // line 30 "../CodeInjectionAssociationTest.ump"
+    print "getM6";
+    // END OF UMPLE BEFORE INJECTION
+    $aM6 = $this-&gt;m6s[$index];
+    // line 74 "../CodeInjectionAssociationTest.ump"
+    print "after getM6";
+    // END OF UMPLE AFTER INJECTION
+    return $aM6;
+  }
+
+  public function getM6s()
+  {
+    // line 31 "../CodeInjectionAssociationTest.ump"
+    print "getM6s";
+    // END OF UMPLE BEFORE INJECTION
+    $newM6s = $this-&gt;m6s;
+    // line 75 "../CodeInjectionAssociationTest.ump"
+    print "after getM6s";
+    // END OF UMPLE AFTER INJECTION
+    return $newM6s;
+  }
+
+  public function numberOfM6s()
+  {
+    // line 32 "../CodeInjectionAssociationTest.ump"
+    print "numberOfM6s";
+    // END OF UMPLE BEFORE INJECTION
+    $number = count($this-&gt;m6s);
+    // line 76 "../CodeInjectionAssociationTest.ump"
+    print "after numberOfM6s";
+    // END OF UMPLE AFTER INJECTION
+    return $number;
+  }
+
+  public function hasM6s()
+  {
+    // line 33 "../CodeInjectionAssociationTest.ump"
+    print "hasM6s";
+    // END OF UMPLE BEFORE INJECTION
+    $has = $this-&gt;numberOfM6s() &gt; 0;
+    // line 77 "../CodeInjectionAssociationTest.ump"
+    print "after hasM6s";
+    // END OF UMPLE AFTER INJECTION
+    return $has;
+  }
+
+  public function indexOfM6($aM6)
+  {
+    // line 34 "../CodeInjectionAssociationTest.ump"
+    print "indexOfM6";
+    // END OF UMPLE BEFORE INJECTION
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;m6s as $m6)
+    {
+      if ($m6-&gt;equals($aM6))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    // line 78 "../CodeInjectionAssociationTest.ump"
+    print "after indexOfM6";
+    // END OF UMPLE AFTER INJECTION
+    return $index;
+  }
+
+  public function setM1($aM1)
+  {
+    $wasSet = false;
+    // line 35 "../CodeInjectionAssociationTest.ump"
+    print "setM1";
+    // END OF UMPLE BEFORE INJECTION
+    $existingM1 = $this-&gt;m1;
+    $this-&gt;m1 = $aM1;
+    if ($existingM1 != null &amp;&amp; $existingM1 !== $aM1)
+    {
+      $existingM1-&gt;removeOne($this);
+    }
+    if ($aM1 != null &amp;&amp; $aM1 !== $existingM1)
+    {
+      $aM1-&gt;addOne($this);
+    }
+    $wasSet = true;
+    // line 79 "../CodeInjectionAssociationTest.ump"
+    print "after setM1";
+    // END OF UMPLE AFTER INJECTION
+    return $wasSet;
+  }
+
+  public function setM2($aM2)
+  {
+    $wasSet = false;
+    // line 36 "../CodeInjectionAssociationTest.ump"
+    print "setM2";
+    // END OF UMPLE BEFORE INJECTION
+    if ($aM2 == null)
+    {
+      // line 80 "../CodeInjectionAssociationTest.ump"
+      print "after setM2";
+      // END OF UMPLE AFTER INJECTION
+      return $wasSet;
+    }
+    
+    $existingM2 = $this-&gt;m2;
+    $this-&gt;m2 = $aM2;
+    if ($existingM2 != null &amp;&amp; $existingM2 != $aM2)
+    {
+      $existingM2-&gt;removeTwo($this);
+    }
+    $this-&gt;m2-&gt;addTwo($this);
+    $wasSet = true;
+      // line 80 "../CodeInjectionAssociationTest.ump"
+      print "after setM2";
+      // END OF UMPLE AFTER INJECTION
+    return $wasSet;
+  }
+
+  public function isNumberOfM3sValid()
+  {
+    // line 37 "../CodeInjectionAssociationTest.ump"
+    print "isNumberOfM3sValid";
+    // END OF UMPLE BEFORE INJECTION
+    $isValid = $this-&gt;numberOfM3s() &gt;= self::minimumNumberOfM3s() &amp;&amp; $this-&gt;numberOfM3s() &lt;= self::maximumNumberOfM3s();
+    // line 81 "../CodeInjectionAssociationTest.ump"
+    print "after isNumberOfM3sValid";
+    // END OF UMPLE AFTER INJECTION
+    return $isValid;
+  }
+
+  public static function minimumNumberOfM3s()
+  {
+    // line 38 "../CodeInjectionAssociationTest.ump"
+    print "minimumNumberOfM3s";
+    // END OF UMPLE BEFORE INJECTION
+    $minimum = 1;
+    // line 82 "../CodeInjectionAssociationTest.ump"
+    print "after minimumNumberOfM3s";
+    // END OF UMPLE AFTER INJECTION
+    return $minimum;
+  }
+
+  public static function maximumNumberOfM3s()
+  {
+    // line 39 "../CodeInjectionAssociationTest.ump"
+    print "maximumNumberOfM3s";
+    // END OF UMPLE BEFORE INJECTION
+    $maximum = 3;
+    // line 83 "../CodeInjectionAssociationTest.ump"
+    print "after maximumNumberOfM3s";
+    // END OF UMPLE AFTER INJECTION
+    return $maximum;
+  }
+
+  public function addM3($aM3)
+  {
+    $wasAdded = false;
+    // line 40 "../CodeInjectionAssociationTest.ump"
+    print "addM3";
+    // END OF UMPLE BEFORE INJECTION
+    if ($this-&gt;indexOfM3($aM3) !== -1) { return false; }
+    if ($this-&gt;numberOfM3s() &gt;= self::maximumNumberOfM3s())
+    {
+      // line 84 "../CodeInjectionAssociationTest.ump"
+      print "after addM3";
+      // END OF UMPLE AFTER INJECTION
+      return $wasAdded;
+    }
+
+    $this-&gt;m3s[] = $aM3;
+    if ($aM3-&gt;indexOfThree($this) != -1)
+    {
+      $wasAdded = true;
+    }
+    else
+    {
+      $wasAdded = $aM3-&gt;addThree($this);
+      if (!$wasAdded)
+      {
+        array_pop($this-&gt;m3s);
+      }
+    }
+      // line 84 "../CodeInjectionAssociationTest.ump"
+      print "after addM3";
+      // END OF UMPLE AFTER INJECTION
+    return $wasAdded;
+  }
+
+  public function removeM3($aM3)
+  {
+    $wasRemoved = false;
+    // line 41 "../CodeInjectionAssociationTest.ump"
+    print "before removeM3";
+    // END OF UMPLE BEFORE INJECTION
+    if ($this-&gt;indexOfM3($aM3) == -1)
+    {
+      // line 85 "../CodeInjectionAssociationTest.ump"
+      print "after removeM3";
+      // END OF UMPLE AFTER INJECTION
+      return $wasRemoved;
+    }
+
+    if ($this-&gt;numberOfM3s() &lt;= self::minimumNumberOfM3s())
+    {
+      // line 85 "../CodeInjectionAssociationTest.ump"
+      print "after removeM3";
+      // END OF UMPLE AFTER INJECTION
+      return $wasRemoved;
+    }
+
+    $oldIndex = $this-&gt;indexOfM3($aM3);
+    unset($this-&gt;m3s[$oldIndex]);
+    if ($aM3-&gt;indexOfThree($this) == -1)
+    {
+      $wasRemoved = true;
+    }
+    else
+    {
+      $wasRemoved = $aM3-&gt;removeThree($this);
+      if (!$wasRemoved)
+      {
+        $this-&gt;m3s[$oldIndex] = $aM3;
+        ksort($this-&gt;m3s);
+      }
+    }
+    $this-&gt;m3s = array_values($this-&gt;m3s);
+    // line 85 "../CodeInjectionAssociationTest.ump"
+    print "after removeM3";
+    // END OF UMPLE AFTER INJECTION
+    return $wasRemoved;
+  }
+
+  public function setM3s($newM3s)
+  {
+    $wasSet = false;
+    // line 42 "../CodeInjectionAssociationTest.ump"
+    print "setM3s";
+    // END OF UMPLE BEFORE INJECTION
+    $verifiedM3s = array();
+    foreach ($newM3s as $aM3)
+    {
+      if (array_search($aM3,$verifiedM3s) !== false)
+      {
+        continue;
+      }
+      $verifiedM3s[] = $aM3;
+    }
+
+    if (count($verifiedM3s) != count($newM3s) || count($verifiedM3s) &lt; self::minimumNumberOfM3s() || count($verifiedM3s) &gt; self::maximumNumberOfM3s())
+    {
+      // line 86 "../CodeInjectionAssociationTest.ump"
+      print "after setM3s";
+      // END OF UMPLE AFTER INJECTION
+      return $wasSet;
+    }
+
+    $oldM3s = $this-&gt;m3s;
+    $this-&gt;m3s = array();
+    foreach ($verifiedM3s as $aNewM3)
+    {
+      $this-&gt;m3s[] = $aNewM3;
+      $removeIndex = array_search($aNewM3,$oldM3s);
+      if ($removeIndex !== false)
+      {
+        unset($oldM3s[$removeIndex]);
+        $oldM3s = array_values($oldM3s);
+      }
+      else
+      {
+        $aNewM3-&gt;addThree($this);
+      }
+    }
+
+    foreach ($oldM3s as $anOldM3)
+    {
+      $anOldM3-&gt;removeThree($this);
+    }
+    $wasSet = true;
+    // line 86 "../CodeInjectionAssociationTest.ump"
+    print "after setM3s";
+    // END OF UMPLE AFTER INJECTION
+    return $wasSet;
+  }
+
+  public function addM3At($aM3, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addM3($aM3))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfM3s()) { $index = $this-&gt;numberOfM3s() - 1; }
+      array_splice($this-&gt;m3s, $this-&gt;indexOfM3($aM3), 1);
+      array_splice($this-&gt;m3s, $index, 0, array($aM3));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveM3At($aM3, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfM3($aM3) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfM3s()) { $index = $this-&gt;numberOfM3s() - 1; }
+      array_splice($this-&gt;m3s, $this-&gt;indexOfM3($aM3), 1);
+      array_splice($this-&gt;m3s, $index, 0, array($aM3));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addM3At($aM3, $index);
+    }
+    return $wasAdded;
+  }
+
+  public function isNumberOfM4sValid()
+  {
+    // line 43 "../CodeInjectionAssociationTest.ump"
+    print "isNumberOfM4sValid";
+    // END OF UMPLE BEFORE INJECTION
+    $isValid = $this-&gt;numberOfM4s() &gt;= self::minimumNumberOfM4s() &amp;&amp; $this-&gt;numberOfM4s() &lt;= self::maximumNumberOfM4s();
+    // line 87 "../CodeInjectionAssociationTest.ump"
+    print "after isNumberOfM4sValid";
+    // END OF UMPLE AFTER INJECTION
+    return $isValid;
+  }
+
+  public static function minimumNumberOfM4s()
+  {
+    // line 44 "../CodeInjectionAssociationTest.ump"
+    print "minimumNumberOfM4s";
+    // END OF UMPLE BEFORE INJECTION
+    $minimum = 4;
+    // line 88 "../CodeInjectionAssociationTest.ump"
+    print "after minimumNumberOfM4s";
+    // END OF UMPLE AFTER INJECTION
+    return $minimum;
+  }
+
+  public static function maximumNumberOfM4s()
+  {
+    // line 45 "../CodeInjectionAssociationTest.ump"
+    print "maximumNumberOfM4s";
+    // END OF UMPLE BEFORE INJECTION
+    $maximum = 7;
+    // line 89 "../CodeInjectionAssociationTest.ump"
+    print "after maximumNumberOfM4s";
+    // END OF UMPLE AFTER INJECTION
+    return $maximum;
+  }
+
+  public function addM4($aM4)
+  {
+    $wasAdded = false;
+    // line 46 "../CodeInjectionAssociationTest.ump"
+    print "addM4";
+    // END OF UMPLE BEFORE INJECTION
+    if ($this-&gt;indexOfM4($aM4) !== -1) { return false; }
+    if ($this-&gt;numberOfM4s() &gt;= self::maximumNumberOfM4s())
+    {
+      // line 90 "../CodeInjectionAssociationTest.ump"
+      print "after addM4";
+      // END OF UMPLE AFTER INJECTION
+      return $wasAdded;
+    }
+
+    $this-&gt;m4s[] = $aM4;
+    if ($aM4-&gt;indexOfFour($this) != -1)
+    {
+      $wasAdded = true;
+    }
+    else
+    {
+      $wasAdded = $aM4-&gt;addFour($this);
+      if (!$wasAdded)
+      {
+        array_pop($this-&gt;m4s);
+      }
+    }
+      // line 90 "../CodeInjectionAssociationTest.ump"
+      print "after addM4";
+      // END OF UMPLE AFTER INJECTION
+    return $wasAdded;
+  }
+
+  public function removeM4($aM4)
+  {
+    $wasRemoved = false;
+    // line 47 "../CodeInjectionAssociationTest.ump"
+    print "removeM4";
+    // END OF UMPLE BEFORE INJECTION
+    if ($this-&gt;indexOfM4($aM4) == -1)
+    {
+      // line 91 "../CodeInjectionAssociationTest.ump"
+      print "after removeM4";
+      // END OF UMPLE AFTER INJECTION
+      return $wasRemoved;
+    }
+
+    if ($this-&gt;numberOfM4s() &lt;= self::minimumNumberOfM4s())
+    {
+      // line 91 "../CodeInjectionAssociationTest.ump"
+      print "after removeM4";
+      // END OF UMPLE AFTER INJECTION
+      return $wasRemoved;
+    }
+
+    $oldIndex = $this-&gt;indexOfM4($aM4);
+    unset($this-&gt;m4s[$oldIndex]);
+    if ($aM4-&gt;indexOfFour($this) == -1)
+    {
+      $wasRemoved = true;
+    }
+    else
+    {
+      $wasRemoved = $aM4-&gt;removeFour($this);
+      if (!$wasRemoved)
+      {
+        $this-&gt;m4s[$oldIndex] = $aM4;
+        ksort($this-&gt;m4s);
+      }
+    }
+    $this-&gt;m4s = array_values($this-&gt;m4s);
+    // line 91 "../CodeInjectionAssociationTest.ump"
+    print "after removeM4";
+    // END OF UMPLE AFTER INJECTION
+    return $wasRemoved;
+  }
+
+  public function setM4s($newM4s)
+  {
+    $wasSet = false;
+    // line 48 "../CodeInjectionAssociationTest.ump"
+    print "setM4s";
+    // END OF UMPLE BEFORE INJECTION
+    $verifiedM4s = array();
+    foreach ($newM4s as $aM4)
+    {
+      if (array_search($aM4,$verifiedM4s) !== false)
+      {
+        continue;
+      }
+      $verifiedM4s[] = $aM4;
+    }
+
+    if (count($verifiedM4s) != count($newM4s) || count($verifiedM4s) &lt; self::minimumNumberOfM4s() || count($verifiedM4s) &gt; self::maximumNumberOfM4s())
+    {
+      // line 92 "../CodeInjectionAssociationTest.ump"
+      print "after setM4s";
+      // END OF UMPLE AFTER INJECTION
+      return $wasSet;
+    }
+
+    $oldM4s = $this-&gt;m4s;
+    $this-&gt;m4s = array();
+    foreach ($verifiedM4s as $aNewM4)
+    {
+      $this-&gt;m4s[] = $aNewM4;
+      $removeIndex = array_search($aNewM4,$oldM4s);
+      if ($removeIndex !== false)
+      {
+        unset($oldM4s[$removeIndex]);
+        $oldM4s = array_values($oldM4s);
+      }
+      else
+      {
+        $aNewM4-&gt;addFour($this);
+      }
+    }
+
+    foreach ($oldM4s as $anOldM4)
+    {
+      $anOldM4-&gt;removeFour($this);
+    }
+    $wasSet = true;
+    // line 92 "../CodeInjectionAssociationTest.ump"
+    print "after setM4s";
+    // END OF UMPLE AFTER INJECTION
+    return $wasSet;
+  }
+
+  public function addM4At($aM4, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addM4($aM4))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfM4s()) { $index = $this-&gt;numberOfM4s() - 1; }
+      array_splice($this-&gt;m4s, $this-&gt;indexOfM4($aM4), 1);
+      array_splice($this-&gt;m4s, $index, 0, array($aM4));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveM4At($aM4, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfM4($aM4) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfM4s()) { $index = $this-&gt;numberOfM4s() - 1; }
+      array_splice($this-&gt;m4s, $this-&gt;indexOfM4($aM4), 1);
+      array_splice($this-&gt;m4s, $index, 0, array($aM4));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addM4At($aM4, $index);
+    }
+    return $wasAdded;
+  }
+
+  public function isNumberOfM5sValid()
+  {
+    // line 49 "../CodeInjectionAssociationTest.ump"
+    print "isNumberOfM5sValid";
+    // END OF UMPLE BEFORE INJECTION
+    $isValid = $this-&gt;numberOfM5s() &gt;= self::minimumNumberOfM5s();
+    // line 93 "../CodeInjectionAssociationTest.ump"
+    print "after isNumberOfM5sValid";
+    // END OF UMPLE AFTER INJECTION
+    return $isValid;
+  }
+
+  public static function minimumNumberOfM5s()
+  {
+    // line 50 "../CodeInjectionAssociationTest.ump"
+    print "minimumNumberOfM5s";
+    // END OF UMPLE BEFORE INJECTION
+    $minimum = 2;
+    // line 94 "../CodeInjectionAssociationTest.ump"
+    print "after minimumNumberOfM5s";
+    // END OF UMPLE AFTER INJECTION
+    return $minimum;
+  }
+
+  public function addM5($aM5)
+  {
+    $wasAdded = false;
+    // line 51 "../CodeInjectionAssociationTest.ump"
+    print "addM5";
+    // END OF UMPLE BEFORE INJECTION
+    if ($this-&gt;indexOfM5($aM5) !== -1) { return false; }
+    $this-&gt;m5s[] = $aM5;
+    if ($aM5-&gt;indexOfFive($this) != -1)
+    {
+      $wasAdded = true;
+    }
+    else
+    {
+      $wasAdded = $aM5-&gt;addFive($this);
+      if (!$wasAdded)
+      {
+        array_pop($this-&gt;m5s);
+      }
+    }
+      // line 95 "../CodeInjectionAssociationTest.ump"
+      print "after addM5";
+      // END OF UMPLE AFTER INJECTION
+    return $wasAdded;
+  }
+
+  public function removeM5($aM5)
+  {
+    $wasRemoved = false;
+    // line 52 "../CodeInjectionAssociationTest.ump"
+    print "removeM5";
+    // END OF UMPLE BEFORE INJECTION
+    if ($this-&gt;indexOfM5($aM5) == -1)
+    {
+      // line 96 "../CodeInjectionAssociationTest.ump"
+      print "after removeM5";
+      // END OF UMPLE AFTER INJECTION
+      return $wasRemoved;
+    }
+
+    if ($this-&gt;numberOfM5s() &lt;= self::minimumNumberOfM5s())
+    {
+      // line 96 "../CodeInjectionAssociationTest.ump"
+      print "after removeM5";
+      // END OF UMPLE AFTER INJECTION
+      return $wasRemoved;
+    }
+
+    $oldIndex = $this-&gt;indexOfM5($aM5);
+    unset($this-&gt;m5s[$oldIndex]);
+    if ($aM5-&gt;indexOfFive($this) == -1)
+    {
+      $wasRemoved = true;
+    }
+    else
+    {
+      $wasRemoved = $aM5-&gt;removeFive($this);
+      if (!$wasRemoved)
+      {
+        $this-&gt;m5s[$oldIndex] = $aM5;
+        ksort($this-&gt;m5s);
+      }
+    }
+    $this-&gt;m5s = array_values($this-&gt;m5s);
+    // line 96 "../CodeInjectionAssociationTest.ump"
+    print "after removeM5";
+    // END OF UMPLE AFTER INJECTION
+    return $wasRemoved;
+  }
+
+  public function setM5s($newM5s)
+  {
+    $wasSet = false;
+    // line 53 "../CodeInjectionAssociationTest.ump"
+    print "setM5s";
+    // END OF UMPLE BEFORE INJECTION
+    $verifiedM5s = array();
+    foreach ($newM5s as $aM5)
+    {
+      if (array_search($aM5,$verifiedM5s) !== false)
+      {
+        continue;
+      }
+      $verifiedM5s[] = $aM5;
+    }
+
+    if (count($verifiedM5s) != count($newM5s) || count($verifiedM5s) &lt; self::minimumNumberOfM5s())
+    {
+      // line 97 "../CodeInjectionAssociationTest.ump"
+      print "after setM5s";
+      // END OF UMPLE AFTER INJECTION
+      return $wasSet;
+    }
+
+    $oldM5s = $this-&gt;m5s;
+    $this-&gt;m5s = array();
+    foreach ($verifiedM5s as $aNewM5)
+    {
+      $this-&gt;m5s[] = $aNewM5;
+      $removeIndex = array_search($aNewM5,$oldM5s);
+      if ($removeIndex !== false)
+      {
+        unset($oldM5s[$removeIndex]);
+        $oldM5s = array_values($oldM5s);
+      }
+      else
+      {
+        $aNewM5-&gt;addFive($this);
+      }
+    }
+
+    foreach ($oldM5s as $anOldM5)
+    {
+      $anOldM5-&gt;removeFive($this);
+    }
+    $wasSet = true;
+    // line 97 "../CodeInjectionAssociationTest.ump"
+    print "after setM5s";
+    // END OF UMPLE AFTER INJECTION
+    return $wasSet;
+  }
+
+  public function addM5At($aM5, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addM5($aM5))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfM5s()) { $index = $this-&gt;numberOfM5s() - 1; }
+      array_splice($this-&gt;m5s, $this-&gt;indexOfM5($aM5), 1);
+      array_splice($this-&gt;m5s, $index, 0, array($aM5));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveM5At($aM5, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfM5($aM5) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfM5s()) { $index = $this-&gt;numberOfM5s() - 1; }
+      array_splice($this-&gt;m5s, $this-&gt;indexOfM5($aM5), 1);
+      array_splice($this-&gt;m5s, $index, 0, array($aM5));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addM5At($aM5, $index);
+    }
+    return $wasAdded;
+  }
+
+  public static function minimumNumberOfM6s()
+  {
+    return 0;
+  }
+
+  public function addM6($aM6)
+  {
+    $wasAdded = false;
+    // line 54 "../CodeInjectionAssociationTest.ump"
+    print "addM6";
+    // END OF UMPLE BEFORE INJECTION
+    if ($this-&gt;indexOfM6($aM6) !== -1) { return false; }
+    $this-&gt;m6s[] = $aM6;
+    if ($aM6-&gt;indexOfSix($this) != -1)
+    {
+      $wasAdded = true;
+    }
+    else
+    {
+      $wasAdded = $aM6-&gt;addSix($this);
+      if (!$wasAdded)
+      {
+        array_pop($this-&gt;m6s);
+      }
+    }
+      // line 98 "../CodeInjectionAssociationTest.ump"
+      print "after addM6";
+      // END OF UMPLE AFTER INJECTION
+    return $wasAdded;
+  }
+
+  public function removeM6($aM6)
+  {
+    $wasRemoved = false;
+    // line 55 "../CodeInjectionAssociationTest.ump"
+    print "removeM6";
+    // END OF UMPLE BEFORE INJECTION
+    if ($this-&gt;indexOfM6($aM6) == -1)
+    {
+      // line 99 "../CodeInjectionAssociationTest.ump"
+      print "after removeM6";
+      // END OF UMPLE AFTER INJECTION
+      return $wasRemoved;
+    }
+
+    $oldIndex = $this-&gt;indexOfM6($aM6);
+    unset($this-&gt;m6s[$oldIndex]);
+    if ($aM6-&gt;indexOfSix($this) == -1)
+    {
+      $wasRemoved = true;
+    }
+    else
+    {
+      $wasRemoved = $aM6-&gt;removeSix($this);
+      if (!$wasRemoved)
+      {
+        $this-&gt;m6s[$oldIndex] = $aM6;
+        ksort($this-&gt;m6s);
+      }
+    }
+    $this-&gt;m6s = array_values($this-&gt;m6s);
+    // line 99 "../CodeInjectionAssociationTest.ump"
+    print "after removeM6";
+    // END OF UMPLE AFTER INJECTION
+    return $wasRemoved;
+  }
+
+  public function addM6At($aM6, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addM6($aM6))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfM6s()) { $index = $this-&gt;numberOfM6s() - 1; }
+      array_splice($this-&gt;m6s, $this-&gt;indexOfM6($aM6), 1);
+      array_splice($this-&gt;m6s, $index, 0, array($aM6));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveM6At($aM6, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfM6($aM6) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfM6s()) { $index = $this-&gt;numberOfM6s() - 1; }
+      array_splice($this-&gt;m6s, $this-&gt;indexOfM6($aM6), 1);
+      array_splice($this-&gt;m6s, $index, 0, array($aM6));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addM6At($aM6, $index);
+    }
+    return $wasAdded;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    if ($this-&gt;m1 != null)
+    {
+      $this-&gt;m1-&gt;removeOne($this);
+    }
+    $placeholderM2 = $this-&gt;m2;
+    $this-&gt;m2 = null;
+    $placeholderM2-&gt;removeTwo($this);
+    $copyOfM3s = $this-&gt;m3s;
+    $this-&gt;m3s = array();
+    foreach ($copyOfM3s as $aM3)
+    {
+      $aM3-&gt;removeThree($this);
+    }
+    $copyOfM4s = $this-&gt;m4s;
+    $this-&gt;m4s = array();
+    foreach ($copyOfM4s as $aM4)
+    {
+      $aM4-&gt;removeFour($this);
+    }
+    $copyOfM5s = $this-&gt;m5s;
+    $this-&gt;m5s = array();
+    foreach ($copyOfM5s as $aM5)
+    {
+      $aM5-&gt;removeFive($this);
+    }
+    $copyOfM6s = $this-&gt;m6s;
+    $this-&gt;m6s = array();
+    foreach ($copyOfM6s as $aM6)
+    {
+      $aM6-&gt;removeSix($this);
+    }
+  }
+
+}
+?&gt;
+</pre>
+    </body>
+</html>

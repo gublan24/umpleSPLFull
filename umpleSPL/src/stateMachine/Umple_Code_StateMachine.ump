@@ -1,0 +1,101 @@
+// Fragment source file: Umple_Code.ump
+// Line : 212
+  class UmpleModel {
+    public StateMachine getStateMachineDefinition(String name)
+    {
+      for (StateMachine aStateMachine : getStateMachineDefinitions())
+      {
+        if (aStateMachine.getName().equals(name))
+        {
+          return aStateMachine;
+        }
+      }
+      return null;
+    }
+} 
+
+
+
+// Fragment source file: Umple_Code.ump
+// Line : 1311
+ class UmpleClass {
+  public List<StateMachine> getAllStateMachines()
+  {
+      ArrayList<StateMachine> all = new ArrayList<StateMachine>();
+      all.addAll(getStateMachines());
+      for (StateMachine sm : getStateMachines())
+      {
+        all.addAll(sm.getNestedStateMachines());
+      }
+      return all;
+    } 
+  } 
+
+// Fragment source file: Umple_Code.ump
+// Line : 1566
+ class UmpleClass {
+     
+  public List<StateMachine> getStateMachines(Event e)
+  {
+      List<StateMachine> allStateMachines = new ArrayList<StateMachine>();
+      for (StateMachine sm : getAllStateMachines())
+      {
+        List<Event> allEvents = sm.getEvents();
+        if (allEvents.contains(e))
+        {
+          allStateMachines.add(sm);
+        }
+      }
+      return allStateMachines;
+    }
+    public List<Event> getEvents()
+    {
+      List<Event> allEvents = new ArrayList<Event>();
+      for (StateMachine sm : getAllStateMachines())
+      {
+        allEvents.addAll(sm.getEvents());
+      }
+
+      List<Event> allUniqueEvents = new ArrayList<Event>();
+      for (Event e : allEvents)
+      {
+        if (!allUniqueEvents.contains(e))
+        {
+          allUniqueEvents.add(e);
+        }
+      }
+      return allUniqueEvents;
+    }
+
+    public Event findOrCreateEvent(String aName)
+    {
+      if (aName == null)
+      {
+        return null;
+      }
+
+      for (StateMachine sm : getStateMachines())
+      {
+        for (Event aEvent : sm.getAllEvents())
+        {
+          if (aName.equals(aEvent.getName()))
+          {
+            return aEvent;
+          }
+        }
+      }
+      return new Event(aName);
+    }
+
+    public StateMachine getStateMachine(String name)
+    {
+      for (StateMachine sm : stateMachines)
+      {
+        if (sm.getName().equals(name))
+        {
+          return sm;
+        }
+      }
+      return null;
+    } 
+  } 

@@ -1,0 +1,7793 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from PhpStateMachineTemplateTest</title>
+    </head>
+    <body>
+        <pre>&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class LightFixture
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //LightFixture Attributes
+  private $brightness;
+
+  //LightFixture State Machines
+  private static $BulbOff = 1;
+  private static $BulbDimmed = 2;
+  private static $BulbOn = 3;
+  private $bulb;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;brightness = 0;
+    $this-&gt;setBulb(self::$BulbOff);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setBrightness($aBrightness)
+  {
+    $wasSet = false;
+    $this-&gt;brightness = $aBrightness;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getBrightness()
+  {
+    return $this-&gt;brightness;
+  }
+
+  public function getBulbFullName()
+  {
+    $answer = $this-&gt;getBulb();
+    return $answer;
+  }
+
+  public function getBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOff) { return "BulbOff"; }
+    elseif ($this-&gt;bulb == self::$BulbDimmed) { return "BulbDimmed"; }
+    elseif ($this-&gt;bulb == self::$BulbOn) { return "BulbOn"; }
+    return null;
+  }
+
+  public function turnDimmer($lightval, $grade)
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOff)
+    {
+      setBrightness(lightval)
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbDimmed)
+    {
+      setBrightness(lightval)
+      $this-&gt;setBulb(self::$BulbDimmed);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbOn)
+    {
+      setBrightness(lightval)
+      $this-&gt;setBulb(self::$BulbDimmed);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function flipSwitch()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOff)
+    {
+      $this-&gt;setBulb(self::$BulbDimmed);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbDimmed)
+    {
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbOn)
+    {
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function entry()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbDimmed)
+    {
+      if ($this-&gt;dimmer&gt;99)
+      {
+        $this-&gt;setBulb(self::$BulbOn);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setBulb($aBulb)
+  {
+    $this-&gt;bulb = $aBulb;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X State Machines
+  private static $StatusOn = 1;
+  private static $StatusOff = 2;
+  private static $StatusFINAL = 3;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOn) { return "StatusOn"; }
+    elseif ($this-&gt;status == self::$StatusOff) { return "StatusOff"; }
+    elseif ($this-&gt;status == self::$StatusFINAL) { return "StatusFINAL"; }
+    return null;
+  }
+
+  public function turnoff()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOn)
+    {
+      $this-&gt;setStatus(self::$StatusOff);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function powerOff()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOn)
+    {
+      $this-&gt;setStatus(self::$StatusFINAL);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function turnOn()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOff)
+    {
+      $this-&gt;setStatus(self::$StatusOn);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+
+    // entry actions and do activities
+    if ($this-&gt;status == self::$StatusFINAL)
+    {
+      entry();
+      $this-&gt;delete();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private $howLongUntilOk;
+
+  //Mentor State Machines
+  private static $StatusOk = 1;
+  private static $StatusNotOk = 2;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;howLongUntilOk = 3;
+    $this-&gt;setStatus(self::$StatusOk);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setHowLongUntilOk($aHowLongUntilOk)
+  {
+    $wasSet = false;
+    $this-&gt;howLongUntilOk = $aHowLongUntilOk;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getHowLongUntilOk()
+  {
+    return $this-&gt;howLongUntilOk;
+  }
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOk) { return "StatusOk"; }
+    elseif ($this-&gt;status == self::$StatusNotOk) { return "StatusNotOk"; }
+    return null;
+  }
+
+  public function timeoutOkToNotOk()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOk)
+    {
+      $this-&gt;setStatus(self::$StatusNotOk);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function timeoutNotOkToOk()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusNotOk)
+    {
+      $this-&gt;setStatus(self::$StatusOk);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class stateMachineWithNegativeNumberGuard2
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //stateMachineWithNegativeNumberGuard2 State Machines
+  private static $StatusOn = 1;
+  private static $StatusOff = 2;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOn) { return "StatusOn"; }
+    elseif ($this-&gt;status == self::$StatusOff) { return "StatusOff"; }
+    return null;
+  }
+
+  public function turnOff($pn)
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOn)
+    {
+      if ($this-&gt;pn&lt;-1)
+      {
+        $this-&gt;setStatus(self::$StatusOff);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  public function turnOn()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOff)
+    {
+      $this-&gt;setStatus(self::$StatusOn);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Course
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Course State Machines
+  private static $StatusOpen = 1;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOpen);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOpen) { return "StatusOpen"; }
+    return null;
+  }
+
+  public function register()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOpen)
+    {
+      System.out.println("transition");
+      $this-&gt;setStatus(self::$StatusOpen);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Course
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Course State Machines
+  private static $StatusOpen = 1;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOpen);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOpen) { return "StatusOpen"; }
+    return null;
+  }
+
+  public function register()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOpen)
+    {
+      $this-&gt;setStatus(self::$StatusOpen);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Course
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Course State Machines
+  private static $StatusOpen = 1;
+  private static $StatusFull = 2;
+  private static $StatusError1 = 3;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOpen);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOpen) { return "StatusOpen"; }
+    elseif ($this-&gt;status == self::$StatusFull) { return "StatusFull"; }
+    elseif ($this-&gt;status == self::$StatusError1) { return "StatusError1"; }
+    return null;
+  }
+
+  public function register()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOpen)
+    {
+      $this-&gt;setStatus(self::$StatusFull);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function unspecified()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOpen)
+    {
+      $this-&gt;setStatus(self::$StatusError1);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function reject()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusFull)
+    {
+      $this-&gt;setStatus(self::$StatusFull);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function __autotransition1__()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusError1)
+    {
+      $this-&gt;setStatus(self::$StatusOpen);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+
+    // entry actions and do activities
+    if ($this-&gt;status == self::$StatusError1)
+    {
+      $this-&gt;__autotransition1__();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Duplicate
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Duplicate State Machines
+  private static $SmS0 = 1;
+  private static $SmS1 = 2;
+  private $sm;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setSm(self::$SmS0);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSmFullName()
+  {
+    $answer = $this-&gt;getSm();
+    return $answer;
+  }
+
+  public function getSm()
+  {
+    if ($this-&gt;sm == self::$SmS0) { return "SmS0"; }
+    elseif ($this-&gt;sm == self::$SmS1) { return "SmS1"; }
+    return null;
+  }
+
+  public function e0()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS0)
+    {
+      $this-&gt;exitSm();
+      $this-&gt;setSm(self::$SmS1);
+      $wasEventProcessed = true;
+    }
+    elseif ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmS1);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function exitSm()
+  {
+    if ($this-&gt;sm == self::$SmS0)
+    {
+      s0_exit1();
+      s0_exit2();
+    }
+    elseif ($this-&gt;sm == self::$SmS1)
+    {
+      s1_exit1();
+      s1_exit1();
+    }
+  }
+
+  private function setSm($aSm)
+  {
+    $this-&gt;sm = $aSm;
+
+    // entry actions and do activities
+    if ($this-&gt;sm == self::$SmS0)
+    {
+      s0_entr1();
+      s0_entry2();
+    }
+    elseif ($this-&gt;sm == self::$SmS1)
+    {
+      s1_entry1();
+      s1_entry1();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class A_Guard
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //A_Guard State Machines
+  private static $StatusS1 = 1;
+  private static $StatusS2 = 2;
+  private static $StatusS3 = 3;
+  private $Status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusS1);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;Status == self::$StatusS1) { return "StatusS1"; }
+    elseif ($this-&gt;Status == self::$StatusS2) { return "StatusS2"; }
+    elseif ($this-&gt;Status == self::$StatusS3) { return "StatusS3"; }
+    return null;
+  }
+
+  public function e1($myB)
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;Status;
+    if ($aStatus == self::$StatusS1)
+    {
+      if ($this-&gt;checkGuard($this-&gt;myB))
+      {
+        $this-&gt;setStatus(self::$StatusS2);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  public function e2($myB, $mySecondB)
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;Status;
+    if ($aStatus == self::$StatusS2)
+    {
+      if ($this-&gt;checkGuard($this-&gt;myB))
+      {
+        $this-&gt;setStatus(self::$StatusS3);
+        $wasEventProcessed = true;
+      }
+    }
+    elseif ($aStatus == self::$StatusS3)
+    {
+      if ($this-&gt;checkGuard($this-&gt;myB,$this-&gt;mySecondB))
+      {
+        $this-&gt;setStatus(self::$StatusS1);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;Status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+   private function checkGuard(B $myB)
+  {
+    return true;
+  }
+
+   private function checkGuard(B $myB, B $mySecondB)
+  {
+    return true;
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class LightFixture
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //LightFixture Attributes
+  private $brightness;
+
+  //LightFixture State Machines
+  private static $BulbOff = 1;
+  private static $BulbDimmed = 2;
+  private static $BulbOn = 3;
+  private $bulb;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;brightness = 0;
+    $this-&gt;setBulb(self::$BulbOff);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setBrightness($aBrightness)
+  {
+    $wasSet = false;
+    $this-&gt;brightness = $aBrightness;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getBrightness()
+  {
+    return $this-&gt;brightness;
+  }
+
+  public function getBulbFullName()
+  {
+    $answer = $this-&gt;getBulb();
+    return $answer;
+  }
+
+  public function getBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOff) { return "BulbOff"; }
+    elseif ($this-&gt;bulb == self::$BulbDimmed) { return "BulbDimmed"; }
+    elseif ($this-&gt;bulb == self::$BulbOn) { return "BulbOn"; }
+    return null;
+  }
+
+  public function turnDimmer($lightval)
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOff)
+    {
+      setBrightness(lightval)
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbDimmed)
+    {
+      setBrightness(lightval)
+      $this-&gt;setBulb(self::$BulbDimmed);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbOn)
+    {
+      setBrightness(lightval)
+      $this-&gt;setBulb(self::$BulbDimmed);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function flipSwitch()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOff)
+    {
+      $this-&gt;setBulb(self::$BulbDimmed);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbDimmed)
+    {
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbOn)
+    {
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function entry()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbDimmed)
+    {
+      if ($this-&gt;dimmer&gt;99)
+      {
+        $this-&gt;setBulb(self::$BulbOn);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setBulb($aBulb)
+  {
+    $this-&gt;bulb = $aBulb;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Light
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Light State Machines
+  private static $StatusOn = 1;
+  private static $StatusOff = 2;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOn) { return "StatusOn"; }
+    elseif ($this-&gt;status == self::$StatusOff) { return "StatusOff"; }
+    return null;
+  }
+
+  public function flip()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOn)
+    {
+      $this-&gt;setStatus(self::$StatusOff);
+      $wasEventProcessed = true;
+    }
+    elseif ($aStatus == self::$StatusOff)
+    {
+      $this-&gt;setStatus(self::$StatusOn);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+
+    // entry actions and do activities
+    if ($this-&gt;status == self::$StatusOn)
+    {
+      System.out.println("entry");
+      System.out.println("entry2");
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X State Machines
+  private static $StatusOn = 1;
+  private static $StatusOff = 2;
+  private static $StatusFINAL = 3;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOn) { return "StatusOn"; }
+    elseif ($this-&gt;status == self::$StatusOff) { return "StatusOff"; }
+    elseif ($this-&gt;status == self::$StatusFINAL) { return "StatusFINAL"; }
+    return null;
+  }
+
+  public function turnoff()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOn)
+    {
+      $this-&gt;setStatus(self::$StatusOff);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function powerOff()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOn)
+    {
+      $this-&gt;setStatus(self::$StatusFINAL);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function turnOn()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOff)
+    {
+      $this-&gt;setStatus(self::$StatusOn);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+
+    // entry actions and do activities
+    if ($this-&gt;status == self::$StatusFINAL)
+    {
+      entry();
+      $this-&gt;delete();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X State Machines
+  private static $Sm1S1 = 1;
+  private static $Sm1S2 = 2;
+  private $sm1;
+
+  private static $Sm2S1 = 1;
+  private static $Sm2S2 = 2;
+  private $sm2;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setSm1(self::$Sm1S1);
+    $this-&gt;setSm2(self::$Sm2S1);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSm1FullName()
+  {
+    $answer = $this-&gt;getSm1();
+    return $answer;
+  }
+
+  public function getSm2FullName()
+  {
+    $answer = $this-&gt;getSm2();
+    return $answer;
+  }
+
+  public function getSm1()
+  {
+    if ($this-&gt;sm1 == self::$Sm1S1) { return "Sm1S1"; }
+    elseif ($this-&gt;sm1 == self::$Sm1S2) { return "Sm1S2"; }
+    return null;
+  }
+
+  public function getSm2()
+  {
+    if ($this-&gt;sm2 == self::$Sm2S1) { return "Sm2S1"; }
+    elseif ($this-&gt;sm2 == self::$Sm2S2) { return "Sm2S2"; }
+    return null;
+  }
+
+  public function timeouts1Tos2()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm1 = $this-&gt;sm1;
+    $aSm2 = $this-&gt;sm2;
+    if ($aSm1 == self::$Sm1S1)
+    {
+      $this-&gt;setSm1(self::$Sm1S2);
+      $wasEventProcessed = true;
+    }
+
+    
+    if ($aSm2 == self::$Sm2S1)
+    {
+      $this-&gt;setSm2(self::$Sm2S2);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setSm1($aSm1)
+  {
+    $this-&gt;sm1 = $aSm1;
+  }
+
+  private function setSm2($aSm2)
+  {
+    $this-&gt;sm2 = $aSm2;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class LightFixture
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //LightFixture Attributes
+  private $brightness;
+
+  //LightFixture State Machines
+  private static $BulbOn = 1;
+  private static $BulbOff = 2;
+  private static $BulbAmber = 3;
+  private $bulb;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;brightness = 0;
+    $this-&gt;setBulb(self::$BulbOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setBrightness($aBrightness)
+  {
+    $wasSet = false;
+    $this-&gt;brightness = $aBrightness;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getBrightness()
+  {
+    return $this-&gt;brightness;
+  }
+
+  public function getBulbFullName()
+  {
+    $answer = $this-&gt;getBulb();
+    return $answer;
+  }
+
+  public function getBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOn) { return "BulbOn"; }
+    elseif ($this-&gt;bulb == self::$BulbOff) { return "BulbOff"; }
+    elseif ($this-&gt;bulb == self::$BulbAmber) { return "BulbAmber"; }
+    return null;
+  }
+
+  public function push()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOn)
+    {
+      if ($this-&gt;getBrightness()&lt;1)
+      {
+        $this-&gt;setBulb(self::$BulbOff);
+        $wasEventProcessed = true;
+      }
+      if ($this-&gt;getBrightness()&gt;10)
+      {
+        $this-&gt;setBulb(self::$BulbAmber);
+        $wasEventProcessed = true;
+      }
+      $this-&gt;setBulb(self::$BulbOn);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setBulb($aBulb)
+  {
+    $this-&gt;bulb = $aBulb;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X State Machines
+  private static $StatusOn = 1;
+  private static $StatusOff = 2;
+  private static $StatusFINAL = 3;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOn) { return "StatusOn"; }
+    elseif ($this-&gt;status == self::$StatusOff) { return "StatusOff"; }
+    elseif ($this-&gt;status == self::$StatusFINAL) { return "StatusFINAL"; }
+    return null;
+  }
+
+  public function turnoff()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOn)
+    {
+      $this-&gt;setStatus(self::$StatusOff);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function powerOff()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOn)
+    {
+      $this-&gt;setStatus(self::$StatusFINAL);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function turnOn()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOff)
+    {
+      $this-&gt;setStatus(self::$StatusOn);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+
+    // entry actions and do activities
+    if ($this-&gt;status == self::$StatusFINAL)
+    {
+      $this-&gt;delete();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Course
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Course State Machines
+  private static $StatusOpen = 1;
+  private static $StatusFull = 2;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOpen);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOpen) { return "StatusOpen"; }
+    elseif ($this-&gt;status == self::$StatusFull) { return "StatusFull"; }
+    return null;
+  }
+
+  public function setStatus($aStatus)
+  {
+    if ($aStatus == "StatusOpen" || $aStatus == self::$StatusOpen)
+    {
+      $this-&gt;status = self::$StatusOpen;
+      return true;
+    }
+    elseif ($aStatus == "StatusFull" || $aStatus == self::$StatusFull)
+    {
+      $this-&gt;status = self::$StatusFull;
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X State Machines
+  private static $SmS1 = 1;
+  private static $SmS2 = 2;
+  private static $SmS3 = 3;
+  private static $SmS4 = 4;
+  private $sm;
+
+  private static $Sm2Sm21 = 1;
+  private static $Sm2Sm22 = 2;
+  private $sm2;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setSm(self::$SmS1);
+    $this-&gt;setSm2(self::$Sm2Sm21);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSmFullName()
+  {
+    $answer = $this-&gt;getSm();
+    return $answer;
+  }
+
+  public function getSm2FullName()
+  {
+    $answer = $this-&gt;getSm2();
+    return $answer;
+  }
+
+  public function getSm()
+  {
+    if ($this-&gt;sm == self::$SmS1) { return "SmS1"; }
+    elseif ($this-&gt;sm == self::$SmS2) { return "SmS2"; }
+    elseif ($this-&gt;sm == self::$SmS3) { return "SmS3"; }
+    elseif ($this-&gt;sm == self::$SmS4) { return "SmS4"; }
+    return null;
+  }
+
+  public function getSm2()
+  {
+    if ($this-&gt;sm2 == self::$Sm2Sm21) { return "Sm2Sm21"; }
+    elseif ($this-&gt;sm2 == self::$Sm2Sm22) { return "Sm2Sm22"; }
+    return null;
+  }
+
+  public function ev1()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    $aSm2 = $this-&gt;sm2;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmS2);
+      $wasEventProcessed = true;
+    }
+
+    
+    if ($aSm2 == self::$Sm2Sm21)
+    {
+      $this-&gt;setSm2(self::$Sm2Sm22);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev5()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmS2);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev2()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS2)
+    {
+      $this-&gt;setSm(self::$SmS3);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev3()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS3)
+    {
+      $this-&gt;setSm(self::$SmS4);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev4()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS4)
+    {
+      $this-&gt;setSm(self::$SmS1);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev7()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm2 = $this-&gt;sm2;
+    if ($aSm2 == self::$Sm2Sm22)
+    {
+      $this-&gt;setSm2(self::$Sm2Sm21);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setSm($aSm)
+  {
+    $this-&gt;sm = $aSm;
+  }
+
+  private function setSm2($aSm2)
+  {
+    $this-&gt;sm2 = $aSm2;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Light
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Light State Machines
+  private static $StatusOn = 1;
+  private static $StatusOff = 2;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOn) { return "StatusOn"; }
+    elseif ($this-&gt;status == self::$StatusOff) { return "StatusOff"; }
+    return null;
+  }
+
+  public function flip()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOn)
+    {
+      $this-&gt;setStatus(self::$StatusOff);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X State Machines
+  private static $SmS1 = 1;
+  private static $SmS2 = 2;
+  private static $SmS3 = 3;
+  private $sm;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setSm(self::$SmS1);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSmFullName()
+  {
+    $answer = $this-&gt;getSm();
+    return $answer;
+  }
+
+  public function getSm()
+  {
+    if ($this-&gt;sm == self::$SmS1) { return "SmS1"; }
+    elseif ($this-&gt;sm == self::$SmS2) { return "SmS2"; }
+    elseif ($this-&gt;sm == self::$SmS3) { return "SmS3"; }
+    return null;
+  }
+
+  private function __autotransition1__()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmS3);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function timeouts2Tos3()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS2)
+    {
+      $this-&gt;setSm(self::$SmS3);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setSm($aSm)
+  {
+    $this-&gt;sm = $aSm;
+
+    // entry actions and do activities
+    if ($this-&gt;sm == self::$SmS1)
+    {
+      $this-&gt;__autotransition1__();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class QSMwithUnspecifiedRecep
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //QSMwithUnspecifiedRecep State Machines
+  private static $SmS1 = 1;
+  private static $SmS2 = 2;
+  private static $SmError1 = 3;
+  private static $SmError2 = 4;
+  private $sm;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setSm(self::$SmS1);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSmFullName()
+  {
+    $answer = $this-&gt;getSm();
+    return $answer;
+  }
+
+  public function getSm()
+  {
+    if ($this-&gt;sm == self::$SmS1) { return "SmS1"; }
+    elseif ($this-&gt;sm == self::$SmS2) { return "SmS2"; }
+    elseif ($this-&gt;sm == self::$SmError1) { return "SmError1"; }
+    elseif ($this-&gt;sm == self::$SmError2) { return "SmError2"; }
+    return null;
+  }
+
+  public function e1()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmS2);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function unspecified()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      printError();
+      $this-&gt;setSm(self::$SmError1);
+      $wasEventProcessed = true;
+    }
+    elseif ($aSm == self::$SmS2)
+    {
+      $this-&gt;setSm(self::$SmError2);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function e2()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS2)
+    {
+      $this-&gt;setSm(self::$SmS1);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function __autotransition1__()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmError1)
+    {
+      $this-&gt;setSm(self::$SmS1);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function __autotransition2__()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmError2)
+    {
+      $this-&gt;setSm(self::$SmS2);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setSm($aSm)
+  {
+    $this-&gt;sm = $aSm;
+
+    // entry actions and do activities
+    if ($this-&gt;sm == self::$SmError1)
+    {
+      $this-&gt;__autotransition1__();
+    }
+    elseif ($this-&gt;sm == self::$SmError2)
+    {
+      $this-&gt;__autotransition2__();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+  public function printError()
+  {
+    System.out.println("Unspecified Reception");
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Garage
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Garage State Machines
+  private $GarageDoor;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getGarageDoorFullName()
+  {
+    $answer = $this-&gt;getGarageDoor();
+    return $answer;
+  }
+
+  public function getGarageDoor()
+  {
+    return null;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class stateMachineWithStringComparisonGuard
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //stateMachineWithStringComparisonGuard Attributes
+  private $cmdString;
+
+  //stateMachineWithStringComparisonGuard State Machines
+  private static $CommandControlIDLE = 1;
+  private static $CommandControlCHECK_AVAILABILITY = 2;
+  private static $CommandControlCOMMAND_VALIDITY = 3;
+  private static $CommandControlEXECUTION = 4;
+  private $CommandControl;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;cmdString = "";
+    $this-&gt;setCommandControl(self::$CommandControlIDLE);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setCmdString($aCmdString)
+  {
+    $wasSet = false;
+    $this-&gt;cmdString = $aCmdString;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getCmdString()
+  {
+    return $this-&gt;cmdString;
+  }
+
+  public function getCommandControlFullName()
+  {
+    $answer = $this-&gt;getCommandControl();
+    return $answer;
+  }
+
+  public function getCommandControl()
+  {
+    if ($this-&gt;CommandControl == self::$CommandControlIDLE) { return "CommandControlIDLE"; }
+    elseif ($this-&gt;CommandControl == self::$CommandControlCHECK_AVAILABILITY) { return "CommandControlCHECK_AVAILABILITY"; }
+    elseif ($this-&gt;CommandControl == self::$CommandControlCOMMAND_VALIDITY) { return "CommandControlCOMMAND_VALIDITY"; }
+    elseif ($this-&gt;CommandControl == self::$CommandControlEXECUTION) { return "CommandControlEXECUTION"; }
+    return null;
+  }
+
+  public function execute()
+  {
+    $wasEventProcessed = false;
+    
+    $aCommandControl = $this-&gt;CommandControl;
+    if ($aCommandControl == self::$CommandControlIDLE)
+    {
+      $this-&gt;setCommandControl(self::$CommandControlCHECK_AVAILABILITY);
+      $wasEventProcessed = true;
+    }
+    elseif ($aCommandControl == self::$CommandControlCHECK_AVAILABILITY)
+    {
+      if (!(""==$this-&gt;getCmdString()))
+      {
+        $this-&gt;setCommandControl(self::$CommandControlCOMMAND_VALIDITY);
+        $wasEventProcessed = true;
+      }
+    }
+    elseif ($aCommandControl == self::$CommandControlCOMMAND_VALIDITY)
+    {
+      if ($this-&gt;isCommandValid($this-&gt;getCmdString()))
+      {
+        $this-&gt;setCommandControl(self::$CommandControlEXECUTION);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setCommandControl($aCommandControl)
+  {
+    $this-&gt;CommandControl = $aCommandControl;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Lamp
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Lamp State Machines
+  private static $StatusOn = 1;
+  private static $StatusOff = 2;
+  private $status;
+
+  //Lamp Do Activity Threads
+  private $doActivityStatusOnThread = null;
+  private $doActivityStatusOffThread = null;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOn) { return "StatusOn"; }
+    elseif ($this-&gt;status == self::$StatusOff) { return "StatusOff"; }
+    return null;
+  }
+
+  public function press()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOn)
+    {
+      $this-&gt;setStatus(self::$StatusOff);
+      $wasEventProcessed = true;
+    }
+    elseif ($aStatus == self::$StatusOff)
+    {
+      $this-&gt;setStatus(self::$StatusOn);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+
+    // entry actions and do activities
+    if ($this-&gt;status == self::$StatusOn)
+    {
+      alsoDo();
+    }
+    elseif ($this-&gt;status == self::$StatusOff)
+    {
+      keepDoing();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+interface IX
+{
+  
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class X implements IX
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X State Machines
+  private static $SmS1 = 1;
+  private $sm;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setSm(self::$SmS1);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSmFullName()
+  {
+    $answer = $this-&gt;getSm();
+    return $answer;
+  }
+
+  public function getSm()
+  {
+    if ($this-&gt;sm == self::$SmS1) { return "SmS1"; }
+    return null;
+  }
+
+  public function e()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmS1);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setSm($aSm)
+  {
+    $this-&gt;sm = $aSm;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Agent
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Agent State Machines
+  private static $StatusFollow = 1;
+  private static $StatusChanging_lane = 2;
+  private static $StatusFinal = 3;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusFollow);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusFollow) { return "StatusFollow"; }
+    elseif ($this-&gt;status == self::$StatusChanging_lane) { return "StatusChanging_lane"; }
+    elseif ($this-&gt;status == self::$StatusFinal) { return "StatusFinal"; }
+    return null;
+  }
+
+  public function change_lane()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusFollow)
+    {
+      $this-&gt;setStatus(self::$StatusChanging_lane);
+      $wasEventProcessed = true;
+    }
+    elseif ($aStatus == self::$StatusChanging_lane)
+    {
+      if ($this-&gt;not_achieved==$this-&gt;False)
+      {
+        $this-&gt;setStatus(self::$StatusChanging_lane);
+        $wasEventProcessed = true;
+      }
+      if ($this-&gt;not_achieved==$this-&gt;True)
+      {
+        $this-&gt;setStatus(self::$StatusFinal);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Light
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Light State Machines
+  private static $BulbOff = 1;
+  private static $BulbOn = 2;
+  private $bulb;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setBulb(self::$BulbOff);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getBulbFullName()
+  {
+    $answer = $this-&gt;getBulb();
+    return $answer;
+  }
+
+  public function getBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOff) { return "BulbOff"; }
+    elseif ($this-&gt;bulb == self::$BulbOn) { return "BulbOn"; }
+    return null;
+  }
+
+  public function flip()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOff)
+    {
+      $this-&gt;setBulb(self::$BulbOn);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbOn)
+    {
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setBulb($aBulb)
+  {
+    $this-&gt;bulb = $aBulb;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class LightFixture
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //LightFixture State Machines
+  private static $BulbOn = 1;
+  private static $BulbOff = 2;
+  private $bulb;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setBulb(self::$BulbOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getBulbFullName()
+  {
+    $answer = $this-&gt;getBulb();
+    return $answer;
+  }
+
+  public function getBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOn) { return "BulbOn"; }
+    elseif ($this-&gt;bulb == self::$BulbOff) { return "BulbOff"; }
+    return null;
+  }
+
+  public function push()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOn)
+    {
+      $this-&gt;exitBulb();
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function exitBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOn)
+    {
+      blahblah;
+    }
+  }
+
+  private function setBulb($aBulb)
+  {
+    $this-&gt;bulb = $aBulb;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class LightFixture
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //LightFixture Attributes
+  private $brightness;
+
+  //LightFixture State Machines
+  private static $BulbOff = 1;
+  private static $BulbDimmed = 2;
+  private static $BulbOn = 3;
+  private $bulb;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;brightness = 0;
+    $this-&gt;setBulb(self::$BulbOff);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setBrightness($aBrightness)
+  {
+    $wasSet = false;
+    $this-&gt;brightness = $aBrightness;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getBrightness()
+  {
+    return $this-&gt;brightness;
+  }
+
+  public function getBulbFullName()
+  {
+    $answer = $this-&gt;getBulb();
+    return $answer;
+  }
+
+  public function getBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOff) { return "BulbOff"; }
+    elseif ($this-&gt;bulb == self::$BulbDimmed) { return "BulbDimmed"; }
+    elseif ($this-&gt;bulb == self::$BulbOn) { return "BulbOn"; }
+    return null;
+  }
+
+  public function turnDimmer($lightval, $lightval_1)
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOff)
+    {
+      setBrightness(lightval)
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbDimmed)
+    {
+      setBrightness(lightval)
+      $this-&gt;setBulb(self::$BulbDimmed);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbOn)
+    {
+      setBrightness(lightval)
+      $this-&gt;setBulb(self::$BulbDimmed);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function flipSwitch()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOff)
+    {
+      $this-&gt;setBulb(self::$BulbDimmed);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbDimmed)
+    {
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbOn)
+    {
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function entry()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbDimmed)
+    {
+      if ($this-&gt;dimmer&gt;99)
+      {
+        $this-&gt;setBulb(self::$BulbOn);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setBulb($aBulb)
+  {
+    $this-&gt;bulb = $aBulb;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Course
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Course State Machines
+  private static $StatusOpen = 1;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOpen);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOpen) { return "StatusOpen"; }
+    return null;
+  }
+
+  public function register($name, $age, $grades)
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOpen)
+    {
+      $this-&gt;setStatus(self::$StatusOpen);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor State Machines
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    return null;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class GarageDoor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //GarageDoor State Machines
+  private static $StatusOpen = 1;
+  private static $StatusClosing = 2;
+  private static $StatusClosed = 3;
+  private static $StatusOpening = 4;
+  private static $StatusHalfOpen = 5;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOpen);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOpen) { return "StatusOpen"; }
+    elseif ($this-&gt;status == self::$StatusClosing) { return "StatusClosing"; }
+    elseif ($this-&gt;status == self::$StatusClosed) { return "StatusClosed"; }
+    elseif ($this-&gt;status == self::$StatusOpening) { return "StatusOpening"; }
+    elseif ($this-&gt;status == self::$StatusHalfOpen) { return "StatusHalfOpen"; }
+    return null;
+  }
+
+  public function buttonOrObstacle()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOpen)
+    {
+      $this-&gt;setStatus(self::$StatusClosing);
+      $wasEventProcessed = true;
+    }
+    elseif ($aStatus == self::$StatusClosing)
+    {
+      $this-&gt;setStatus(self::$StatusOpening);
+      $wasEventProcessed = true;
+    }
+    elseif ($aStatus == self::$StatusClosed)
+    {
+      $this-&gt;setStatus(self::$StatusOpening);
+      $wasEventProcessed = true;
+    }
+    elseif ($aStatus == self::$StatusOpening)
+    {
+      $this-&gt;setStatus(self::$StatusHalfOpen);
+      $wasEventProcessed = true;
+    }
+    elseif ($aStatus == self::$StatusHalfOpen)
+    {
+      $this-&gt;setStatus(self::$StatusOpening);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function reachBottom()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusClosing)
+    {
+      $this-&gt;setStatus(self::$StatusClosed);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function reachTop()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOpening)
+    {
+      $this-&gt;setStatus(self::$StatusOpen);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X State Machines
+  private static $SmS0 = 1;
+  private static $SmS1 = 2;
+  private static $SmS2 = 3;
+  private static $SmS3 = 4;
+  private static $SmS4 = 5;
+  private $sm;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setSm(self::$SmS0);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSmFullName()
+  {
+    $answer = $this-&gt;getSm();
+    return $answer;
+  }
+
+  public function getSm()
+  {
+    if ($this-&gt;sm == self::$SmS0) { return "SmS0"; }
+    elseif ($this-&gt;sm == self::$SmS1) { return "SmS1"; }
+    elseif ($this-&gt;sm == self::$SmS2) { return "SmS2"; }
+    elseif ($this-&gt;sm == self::$SmS3) { return "SmS3"; }
+    elseif ($this-&gt;sm == self::$SmS4) { return "SmS4"; }
+    return null;
+  }
+
+  public function ev0()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS0)
+    {
+      $this-&gt;setSm(self::$SmS1);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function timeouts1Tos2()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmS2);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev2()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS2)
+    {
+      $this-&gt;setSm(self::$SmS4);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev3()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS3)
+    {
+      $this-&gt;setSm(self::$SmS4);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setSm($aSm)
+  {
+    $this-&gt;sm = $aSm;
+
+    // entry actions and do activities
+    if ($this-&gt;sm == self::$SmS0)
+    {
+      a();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+  public function a()
+  {
+    System.out.println("a running");
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X State Machines
+  private static $SmS0 = 1;
+  private static $SmS1 = 2;
+  private static $SmS2 = 3;
+  private static $SmS3 = 4;
+  private static $SmS4 = 5;
+  private $sm;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setSm(self::$SmS0);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSmFullName()
+  {
+    $answer = $this-&gt;getSm();
+    return $answer;
+  }
+
+  public function getSm()
+  {
+    if ($this-&gt;sm == self::$SmS0) { return "SmS0"; }
+    elseif ($this-&gt;sm == self::$SmS1) { return "SmS1"; }
+    elseif ($this-&gt;sm == self::$SmS2) { return "SmS2"; }
+    elseif ($this-&gt;sm == self::$SmS3) { return "SmS3"; }
+    elseif ($this-&gt;sm == self::$SmS4) { return "SmS4"; }
+    return null;
+  }
+
+  public function ev0()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS0)
+    {
+      $this-&gt;setSm(self::$SmS1);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function timeouts1Tos2()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmS2);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev1()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmS3);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev2()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS2)
+    {
+      $this-&gt;setSm(self::$SmS4);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev3()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS3)
+    {
+      $this-&gt;setSm(self::$SmS4);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setSm($aSm)
+  {
+    $this-&gt;sm = $aSm;
+
+    // entry actions and do activities
+    if ($this-&gt;sm == self::$SmS0)
+    {
+      a();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+  public function a()
+  {
+    System.out.println("a running");
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class A
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //A Attributes
+  private $result;
+
+  //A State Machines
+  private static $SmCreated = 1;
+  private static $SmInitialized = 2;
+  private $sm;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;result = false;
+    $this-&gt;setSm(self::$SmCreated);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setResult($aResult)
+  {
+    $wasSet = false;
+    $this-&gt;result = $aResult;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getResult()
+  {
+    return $this-&gt;result;
+  }
+
+  public function getSmFullName()
+  {
+    $answer = $this-&gt;getSm();
+    return $answer;
+  }
+
+  public function getSm()
+  {
+    if ($this-&gt;sm == self::$SmCreated) { return "SmCreated"; }
+    elseif ($this-&gt;sm == self::$SmInitialized) { return "SmInitialized"; }
+    return null;
+  }
+
+  public function init()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmCreated)
+    {
+      if ($this-&gt;getResult()==$this-&gt;false)
+      {
+        $this-&gt;setSm(self::$SmCreated);
+        $wasEventProcessed = true;
+      }
+      if ($this-&gt;getResult()==$this-&gt;true)
+      {
+        $this-&gt;exitSm();
+        $this-&gt;setSm(self::$SmInitialized);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  public function getback()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmInitialized)
+    {
+      $this-&gt;setSm(self::$SmCreated);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function exitSm()
+  {
+    if ($this-&gt;sm == self::$SmCreated)
+    {
+      execute_exit_code();
+    }
+  }
+
+  private function setSm($aSm)
+  {
+    $this-&gt;sm = $aSm;
+
+    // entry actions and do activities
+    if ($this-&gt;sm == self::$SmCreated)
+    {
+      execute_entry_code();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class A
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //A Attributes
+  private $repeatCheck;
+
+  //A State Machines
+  private static $StatusS1 = 1;
+  private static $StatusS2 = 2;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;repeatCheck = false;
+    $this-&gt;setStatus(self::$StatusS1);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setRepeatCheck($aRepeatCheck)
+  {
+    $wasSet = false;
+    $this-&gt;repeatCheck = $aRepeatCheck;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getRepeatCheck()
+  {
+    return $this-&gt;repeatCheck;
+  }
+
+  public function isRepeatCheck()
+  {
+    return $this-&gt;repeatCheck;
+  }
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusS1) { return "StatusS1"; }
+    elseif ($this-&gt;status == self::$StatusS2) { return "StatusS2"; }
+    return null;
+  }
+
+  private function __autotransition1__()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusS1)
+    {
+      if ($this-&gt;getRepeatCheck()&lt;$this-&gt;repeatCheck($this-&gt;z))
+      {
+        $this-&gt;setStatus(self::$StatusS2);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+
+    // entry actions and do activities
+    if ($this-&gt;status == self::$StatusS1)
+    {
+      $this-&gt;__autotransition1__();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+  public function repeatCheck()
+  {
+    return true;
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class A
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //A Attributes
+  private $repeatCheck;
+
+  //A State Machines
+  private static $StatusS1 = 1;
+  private static $StatusS2 = 2;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;repeatCheck = false;
+    $this-&gt;setStatus(self::$StatusS1);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setRepeatCheck($aRepeatCheck)
+  {
+    $wasSet = false;
+    $this-&gt;repeatCheck = $aRepeatCheck;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getRepeatCheck()
+  {
+    return $this-&gt;repeatCheck;
+  }
+
+  public function isRepeatCheck()
+  {
+    return $this-&gt;repeatCheck;
+  }
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusS1) { return "StatusS1"; }
+    elseif ($this-&gt;status == self::$StatusS2) { return "StatusS2"; }
+    return null;
+  }
+
+  private function __autotransition1__()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusS1)
+    {
+      if ($this-&gt;getRepeatCheck()!=$this-&gt;repeatCheck())
+      {
+        $this-&gt;setStatus(self::$StatusS2);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+
+    // entry actions and do activities
+    if ($this-&gt;status == self::$StatusS1)
+    {
+      $this-&gt;__autotransition1__();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+  public function repeatCheck()
+  {
+    return true;
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X State Machines
+  private static $SmS1 = 1;
+  private static $SmS2 = 2;
+  private $sm;
+
+  //X Do Activity Threads
+  private $doActivity0SmS1Thread = null;
+  private $doActivity1SmS1Thread = null;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setSm(self::$SmS1);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSmFullName()
+  {
+    $answer = $this-&gt;getSm();
+    return $answer;
+  }
+
+  public function getSm()
+  {
+    if ($this-&gt;sm == self::$SmS1) { return "SmS1"; }
+    elseif ($this-&gt;sm == self::$SmS2) { return "SmS2"; }
+    return null;
+  }
+
+  public function e1()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmS2);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setSm($aSm)
+  {
+    $this-&gt;sm = $aSm;
+
+    // entry actions and do activities
+    if ($this-&gt;sm == self::$SmS1)
+    {
+      blah1();
+      blah2();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class PooledSMwithUnspecifiedReception
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //PooledSMwithUnspecifiedReception State Machines
+  private static $SmS1 = 1;
+  private static $SmS2 = 2;
+  private static $SmError1 = 3;
+  private $sm;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setSm(self::$SmS1);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSmFullName()
+  {
+    $answer = $this-&gt;getSm();
+    return $answer;
+  }
+
+  public function getSm()
+  {
+    if ($this-&gt;sm == self::$SmS1) { return "SmS1"; }
+    elseif ($this-&gt;sm == self::$SmS2) { return "SmS2"; }
+    elseif ($this-&gt;sm == self::$SmError1) { return "SmError1"; }
+    return null;
+  }
+
+  public function e1()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmS2);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function unspecified()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmError1);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function __autotransition1__()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmError1)
+    {
+      $this-&gt;setSm(self::$SmS1);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setSm($aSm)
+  {
+    $this-&gt;sm = $aSm;
+
+    // entry actions and do activities
+    if ($this-&gt;sm == self::$SmError1)
+    {
+      $this-&gt;__autotransition1__();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Light
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Light State Machines
+  private static $BulbOff = 1;
+  private static $BulbOn = 2;
+  private $bulb;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setBulb(self::$BulbOff);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getBulbFullName()
+  {
+    $answer = $this-&gt;getBulb();
+    return $answer;
+  }
+
+  public function getBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOff) { return "BulbOff"; }
+    elseif ($this-&gt;bulb == self::$BulbOn) { return "BulbOn"; }
+    return null;
+  }
+
+  public function flip()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOff)
+    {
+      $this-&gt;setBulb(self::$BulbOn);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbOn)
+    {
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setBulb($aBulb)
+  {
+    $this-&gt;bulb = $aBulb;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class stateMachineWithNegativeNumberGuard
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //stateMachineWithNegativeNumberGuard State Machines
+  private static $StatusOn = 1;
+  private static $StatusOff = 2;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOn) { return "StatusOn"; }
+    elseif ($this-&gt;status == self::$StatusOff) { return "StatusOff"; }
+    return null;
+  }
+
+  public function turnOff($pn)
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOn)
+    {
+      if ($this-&gt;pn&gt;-1)
+      {
+        $this-&gt;setStatus(self::$StatusOff);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  public function turnOn()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOff)
+    {
+      $this-&gt;setStatus(self::$StatusOn);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class LightFixture
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //LightFixture State Machines
+  private static $BulbOn = 1;
+  private static $BulbOff = 2;
+  private $Bulb;
+
+  //LightFixture Do Activity Threads
+  private $doActivityBulbOnThread = null;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setBulb(self::$BulbOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getBulbFullName()
+  {
+    $answer = $this-&gt;getBulb();
+    return $answer;
+  }
+
+  public function getBulb()
+  {
+    if ($this-&gt;Bulb == self::$BulbOn) { return "BulbOn"; }
+    elseif ($this-&gt;Bulb == self::$BulbOff) { return "BulbOff"; }
+    return null;
+  }
+
+  public function setBulb($aBulb)
+  {
+    if ($aBulb == "BulbOn" || $aBulb == self::$BulbOn)
+    {
+      $this-&gt;Bulb = self::$BulbOn;
+      return true;
+    }
+    elseif ($aBulb == "BulbOff" || $aBulb == self::$BulbOff)
+    {
+      $this-&gt;Bulb = self::$BulbOff;
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class LightFixture
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //LightFixture Attributes
+  private $brightness;
+
+  //LightFixture State Machines
+  private static $BulbOff = 1;
+  private static $BulbDimmed = 2;
+  private static $BulbOn = 3;
+  private $bulb;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;brightness = 0;
+    $this-&gt;setBulb(self::$BulbOff);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setBrightness($aBrightness)
+  {
+    $wasSet = false;
+    $this-&gt;brightness = $aBrightness;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getBrightness()
+  {
+    return $this-&gt;brightness;
+  }
+
+  public function getBulbFullName()
+  {
+    $answer = $this-&gt;getBulb();
+    return $answer;
+  }
+
+  public function getBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOff) { return "BulbOff"; }
+    elseif ($this-&gt;bulb == self::$BulbDimmed) { return "BulbDimmed"; }
+    elseif ($this-&gt;bulb == self::$BulbOn) { return "BulbOn"; }
+    return null;
+  }
+
+  public function turnDimmer($lightval)
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOff)
+    {
+      setBrightness(lightval)
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbDimmed)
+    {
+      setBrightness(lightval)
+      $this-&gt;setBulb(self::$BulbDimmed);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbOn)
+    {
+      setBrightness(lightval)
+      $this-&gt;setBulb(self::$BulbDimmed);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function flipSwitch()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOff)
+    {
+      $this-&gt;setBulb(self::$BulbDimmed);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbDimmed)
+    {
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbOn)
+    {
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function entry()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbDimmed)
+    {
+      if ($this-&gt;dimmer&gt;99)
+      {
+        $this-&gt;setBulb(self::$BulbOn);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setBulb($aBulb)
+  {
+    $this-&gt;bulb = $aBulb;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X State Machines
+  private static $SmS1 = 1;
+  private static $SmS2 = 2;
+  private static $SmS3 = 3;
+  private $sm;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setSm(self::$SmS1);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSmFullName()
+  {
+    $answer = $this-&gt;getSm();
+    return $answer;
+  }
+
+  public function getSm()
+  {
+    if ($this-&gt;sm == self::$SmS1) { return "SmS1"; }
+    elseif ($this-&gt;sm == self::$SmS2) { return "SmS2"; }
+    elseif ($this-&gt;sm == self::$SmS3) { return "SmS3"; }
+    return null;
+  }
+
+  private function __autotransition1__()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmS3);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function timeouts2Tos3()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS2)
+    {
+      $this-&gt;setSm(self::$SmS3);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setSm($aSm)
+  {
+    $this-&gt;sm = $aSm;
+
+    // entry actions and do activities
+    if ($this-&gt;sm == self::$SmS1)
+    {
+      $this-&gt;__autotransition1__();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X State Machines
+  private static $SmS0 = 1;
+  private static $SmS1 = 2;
+  private static $SmS2 = 3;
+  private static $SmS3 = 4;
+  private static $SmS4 = 5;
+  private $sm;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setSm(self::$SmS0);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSmFullName()
+  {
+    $answer = $this-&gt;getSm();
+    return $answer;
+  }
+
+  public function getSm()
+  {
+    if ($this-&gt;sm == self::$SmS0) { return "SmS0"; }
+    elseif ($this-&gt;sm == self::$SmS1) { return "SmS1"; }
+    elseif ($this-&gt;sm == self::$SmS2) { return "SmS2"; }
+    elseif ($this-&gt;sm == self::$SmS3) { return "SmS3"; }
+    elseif ($this-&gt;sm == self::$SmS4) { return "SmS4"; }
+    return null;
+  }
+
+  public function ev0()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS0)
+    {
+      $this-&gt;setSm(self::$SmS1);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function timeouts1Tos2()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmS2);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev2()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS2)
+    {
+      $this-&gt;setSm(self::$SmS4);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev3()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS3)
+    {
+      $this-&gt;setSm(self::$SmS4);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setSm($aSm)
+  {
+    $this-&gt;sm = $aSm;
+
+    // entry actions and do activities
+    if ($this-&gt;sm == self::$SmS0)
+    {
+      a();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+  public function a()
+  {
+    System.out.println("a running");
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X State Machines
+  private static $SmS0 = 1;
+  private static $SmS1 = 2;
+  private static $SmS2 = 3;
+  private static $SmS3 = 4;
+  private static $SmS4 = 5;
+  private $sm;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setSm(self::$SmS0);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSmFullName()
+  {
+    $answer = $this-&gt;getSm();
+    return $answer;
+  }
+
+  public function getSm()
+  {
+    if ($this-&gt;sm == self::$SmS0) { return "SmS0"; }
+    elseif ($this-&gt;sm == self::$SmS1) { return "SmS1"; }
+    elseif ($this-&gt;sm == self::$SmS2) { return "SmS2"; }
+    elseif ($this-&gt;sm == self::$SmS3) { return "SmS3"; }
+    elseif ($this-&gt;sm == self::$SmS4) { return "SmS4"; }
+    return null;
+  }
+
+  public function ev0()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS0)
+    {
+      $this-&gt;setSm(self::$SmS1);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function timeouts1Tos2()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmS2);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev1()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmS3);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev2()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS2)
+    {
+      $this-&gt;setSm(self::$SmS4);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev3()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS3)
+    {
+      $this-&gt;setSm(self::$SmS4);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setSm($aSm)
+  {
+    $this-&gt;sm = $aSm;
+
+    // entry actions and do activities
+    if ($this-&gt;sm == self::$SmS0)
+    {
+      a();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+  public function a()
+  {
+    System.out.println("a running");
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class LightFixture
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //LightFixture State Machines
+  private static $BulbOn = 1;
+  private static $BulbOff = 2;
+  private $Bulb;
+
+  //LightFixture Do Activity Threads
+  private $doActivity0BulbOnThread = null;
+  private $doActivity1BulbOnThread = null;
+  private $doActivity0BulbOffThread = null;
+  private $doActivity1BulbOffThread = null;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setBulb(self::$BulbOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getBulbFullName()
+  {
+    $answer = $this-&gt;getBulb();
+    return $answer;
+  }
+
+  public function getBulb()
+  {
+    if ($this-&gt;Bulb == self::$BulbOn) { return "BulbOn"; }
+    elseif ($this-&gt;Bulb == self::$BulbOff) { return "BulbOff"; }
+    return null;
+  }
+
+  private function __autotransition1__()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;Bulb;
+    if ($aBulb == self::$BulbOn)
+    {
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function __autotransition2__()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;Bulb;
+    if ($aBulb == self::$BulbOff)
+    {
+      $this-&gt;setBulb(self::$BulbOn);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setBulb($aBulb)
+  {
+    $this-&gt;Bulb = $aBulb;
+
+    // entry actions and do activities
+    if ($this-&gt;Bulb == self::$BulbOn)
+    {
+      onActivity1();
+      onActivity2();
+    }
+    elseif ($this-&gt;Bulb == self::$BulbOff)
+    {
+      offActivity1();
+      offActivity2();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private $howLongUntilOk;
+
+  //Mentor State Machines
+  private static $StatusOk = 1;
+  private static $StatusNotOk = 2;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;howLongUntilOk = 3;
+    $this-&gt;setStatus(self::$StatusOk);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setHowLongUntilOk($aHowLongUntilOk)
+  {
+    $wasSet = false;
+    $this-&gt;howLongUntilOk = $aHowLongUntilOk;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getHowLongUntilOk()
+  {
+    return $this-&gt;howLongUntilOk;
+  }
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOk) { return "StatusOk"; }
+    elseif ($this-&gt;status == self::$StatusNotOk) { return "StatusNotOk"; }
+    return null;
+  }
+
+  public function timeoutOkToNotOk()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOk)
+    {
+      $this-&gt;setStatus(self::$StatusNotOk);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function timeoutNotOkToOk()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusNotOk)
+    {
+      $this-&gt;setStatus(self::$StatusOk);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Course
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Course State Machines
+  private static $StatusOpen = 1;
+  private static $StatusFull = 2;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOpen);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOpen) { return "StatusOpen"; }
+    elseif ($this-&gt;status == self::$StatusFull) { return "StatusFull"; }
+    return null;
+  }
+
+  public function register($name, $age, $grades)
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOpen)
+    {
+      $this-&gt;setStatus(self::$StatusOpen);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function reject($firstName)
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusFull)
+    {
+      $this-&gt;setStatus(self::$StatusFull);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class LightFixture
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //LightFixture Attributes
+  private $brightness;
+
+  //LightFixture State Machines
+  private static $BulbOff = 1;
+  private static $BulbDimmed = 2;
+  private static $BulbOn = 3;
+  private $bulb;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;brightness = 0;
+    $this-&gt;setBulb(self::$BulbOff);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setBrightness($aBrightness)
+  {
+    $wasSet = false;
+    $this-&gt;brightness = $aBrightness;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getBrightness()
+  {
+    return $this-&gt;brightness;
+  }
+
+  public function getBulbFullName()
+  {
+    $answer = $this-&gt;getBulb();
+    return $answer;
+  }
+
+  public function getBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOff) { return "BulbOff"; }
+    elseif ($this-&gt;bulb == self::$BulbDimmed) { return "BulbDimmed"; }
+    elseif ($this-&gt;bulb == self::$BulbOn) { return "BulbOn"; }
+    return null;
+  }
+
+  public function turnDimmer($lightval)
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOff)
+    {
+      setBrightness(lightval)
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbDimmed)
+    {
+      setBrightness(lightval)
+      $this-&gt;setBulb(self::$BulbDimmed);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbOn)
+    {
+      setBrightness(lightval)
+      $this-&gt;setBulb(self::$BulbDimmed);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function flipSwitch()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOff)
+    {
+      $this-&gt;setBulb(self::$BulbDimmed);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbDimmed)
+    {
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbOn)
+    {
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function entry()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbDimmed)
+    {
+      if ($this-&gt;dimmer&gt;99)
+      {
+        $this-&gt;setBulb(self::$BulbOn);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setBulb($aBulb)
+  {
+    $this-&gt;bulb = $aBulb;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor State Machines
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    return null;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class LightFixture
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //LightFixture State Machines
+  private static $BulbOn = 1;
+  private static $BulbOff = 2;
+  private $bulb;
+
+  private static $AnotherBulbOn = 1;
+  private static $AnotherBulbAmber = 2;
+  private $anotherBulb;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setBulb(self::$BulbOn);
+    $this-&gt;setAnotherBulb(self::$AnotherBulbOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getBulbFullName()
+  {
+    $answer = $this-&gt;getBulb();
+    return $answer;
+  }
+
+  public function getAnotherBulbFullName()
+  {
+    $answer = $this-&gt;getAnotherBulb();
+    return $answer;
+  }
+
+  public function getBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOn) { return "BulbOn"; }
+    elseif ($this-&gt;bulb == self::$BulbOff) { return "BulbOff"; }
+    return null;
+  }
+
+  public function getAnotherBulb()
+  {
+    if ($this-&gt;anotherBulb == self::$AnotherBulbOn) { return "AnotherBulbOn"; }
+    elseif ($this-&gt;anotherBulb == self::$AnotherBulbAmber) { return "AnotherBulbAmber"; }
+    return null;
+  }
+
+  public function flip()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    $aAnotherBulb = $this-&gt;anotherBulb;
+    if ($aBulb == self::$BulbOn)
+    {
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    elseif ($aBulb == self::$BulbOff)
+    {
+      $this-&gt;setBulb(self::$BulbOn);
+      $wasEventProcessed = true;
+    }
+
+    
+    if ($aAnotherBulb == self::$AnotherBulbOn)
+    {
+      $this-&gt;setAnotherBulb(self::$AnotherBulbAmber);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function unflip()
+  {
+    $wasEventProcessed = false;
+    
+    $aAnotherBulb = $this-&gt;anotherBulb;
+    if ($aAnotherBulb == self::$AnotherBulbAmber)
+    {
+      $this-&gt;setAnotherBulb(self::$AnotherBulbOn);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setBulb($aBulb)
+  {
+    $this-&gt;bulb = $aBulb;
+  }
+
+  private function setAnotherBulb($aAnotherBulb)
+  {
+    $this-&gt;anotherBulb = $aAnotherBulb;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Window
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Window State Machines
+  private static $WindowControllerStationary = 1;
+  private static $WindowControllerSafetyMechanism = 2;
+  private static $WindowControllerStationaryNull = 3;
+  private static $WindowControllerStationaryNormalStationary = 4;
+  private $WindowController;
+  private $WindowControllerStationary;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setWindowControllerStationary(self::$WindowControllerStationaryNull);
+    $this-&gt;setWindowController(self::$WindowControllerStationary);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getWindowControllerFullName()
+  {
+    $answer = $this-&gt;getWindowController();
+    if ($this-&gt;WindowControllerStationary != self::$WindowControllerStationaryNull) { $answer .= "." . $this-&gt;getWindowControllerStationary(); }
+    return $answer;
+  }
+
+  public function getWindowController()
+  {
+    if ($this-&gt;WindowController == self::$WindowControllerStationary) { return "WindowControllerStationary"; }
+    elseif ($this-&gt;WindowController == self::$WindowControllerSafetyMechanism) { return "WindowControllerSafetyMechanism"; }
+    return null;
+  }
+
+  public function getWindowControllerStationary()
+  {
+    if ($this-&gt;WindowControllerStationary == self::$WindowControllerStationaryNull) { return "WindowControllerStationaryNull"; }
+    elseif ($this-&gt;WindowControllerStationary == self::$WindowControllerStationaryNormalStationary) { return "WindowControllerStationaryNormalStationary"; }
+    return null;
+  }
+
+  public function timeoutSafetyMechanismToStationary()
+  {
+    $wasEventProcessed = false;
+    
+    $aWindowController = $this-&gt;WindowController;
+    if ($aWindowController == self::$WindowControllerSafetyMechanism)
+    {
+      $this-&gt;setWindowController(self::$WindowControllerStationary);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function down()
+  {
+    $wasEventProcessed = false;
+    
+    $aWindowControllerStationary = $this-&gt;WindowControllerStationary;
+    if ($aWindowControllerStationary == self::$WindowControllerStationaryNormalStationary)
+    {
+      $this-&gt;exitWindowControllerStationary();
+      $this-&gt;setWindowController(self::$WindowControllerSafetyMechanism);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function exitWindowController()
+  {
+    if ($this-&gt;WindowController == self::$WindowControllerStationary)
+    {
+      $this-&gt;exitWindowControllerStationary();
+    }
+  }
+
+  private function setWindowController($aWindowController)
+  {
+    $this-&gt;WindowController = $aWindowController;
+
+    // entry actions and do activities
+    if ($this-&gt;WindowController == self::$WindowControllerStationary)
+    {
+      
+      if ($this-&gt;WindowControllerStationary == self::$WindowControllerStationaryNull) { $this-&gt;setWindowControllerStationary(self::$WindowControllerStationaryNormalStationary); }
+    }
+    elseif ($this-&gt;WindowController == self::$WindowControllerSafetyMechanism)
+    {
+      System.out.println("Safety mechanism");
+    }
+  }
+
+  private function exitWindowControllerStationary()
+  {
+    if ($this-&gt;WindowControllerStationary == self::$WindowControllerStationaryNormalStationary)
+    {
+      $this-&gt;setWindowControllerStationary(self::$WindowControllerStationaryNull);
+    }
+  }
+
+  private function setWindowControllerStationary($aWindowControllerStationary)
+  {
+    $this-&gt;WindowControllerStationary = $aWindowControllerStationary;
+    if ($this-&gt;WindowController != self::$WindowControllerStationary &amp;&amp; $aWindowControllerStationary != self::$WindowControllerStationaryNull) { $this-&gt;setWindowController(self::$WindowControllerStationary); }
+
+    // entry actions and do activities
+    if ($this-&gt;WindowControllerStationary == self::$WindowControllerStationaryNormalStationary)
+    {
+      System.out.println("Window is stopped");
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+   public static  function main($argc)
+  {
+    new Window1();
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class LightFixture
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //LightFixture State Machines
+  private static $LightOn = 1;
+  private static $LightOff = 2;
+  private $light;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setLight(self::$LightOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getLightFullName()
+  {
+    $answer = $this-&gt;getLight();
+    return $answer;
+  }
+
+  public function getLight()
+  {
+    if ($this-&gt;light == self::$LightOn) { return "LightOn"; }
+    elseif ($this-&gt;light == self::$LightOff) { return "LightOff"; }
+    return null;
+  }
+
+  public function flip()
+  {
+    $wasEventProcessed = false;
+    
+    $aLight = $this-&gt;light;
+    if ($aLight == self::$LightOn)
+    {
+      $this-&gt;setLight(self::$LightOff);
+      $wasEventProcessed = true;
+    }
+    elseif ($aLight == self::$LightOff)
+    {
+      $this-&gt;setLight(self::$LightOn);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setLight($aLight)
+  {
+    // line 16 "../BeforeAndAfter_StateMachineSet.ump"
+    System.out.println("About to flip");
+    // END OF UMPLE BEFORE INJECTION
+    $this-&gt;light = $aLight;
+    // line 12 "../BeforeAndAfter_StateMachineSet.ump"
+    System.out.println("Just flipped");
+    // END OF UMPLE AFTER INJECTION
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class LightFixture
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //LightFixture Attributes
+  private $brightness;
+
+  //LightFixture State Machines
+  private static $BulbOn = 1;
+  private static $BulbOff = 2;
+  private static $BulbAmber = 3;
+  private $bulb;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;brightness = 0;
+    $this-&gt;setBulb(self::$BulbOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setBrightness($aBrightness)
+  {
+    $wasSet = false;
+    $this-&gt;brightness = $aBrightness;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getBrightness()
+  {
+    return $this-&gt;brightness;
+  }
+
+  public function getBulbFullName()
+  {
+    $answer = $this-&gt;getBulb();
+    return $answer;
+  }
+
+  public function getBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOn) { return "BulbOn"; }
+    elseif ($this-&gt;bulb == self::$BulbOff) { return "BulbOff"; }
+    elseif ($this-&gt;bulb == self::$BulbAmber) { return "BulbAmber"; }
+    return null;
+  }
+
+  public function push()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOn)
+    {
+      if ($this-&gt;getBrightness()&lt;1)
+      {
+        $this-&gt;setBulb(self::$BulbOff);
+        $wasEventProcessed = true;
+      }
+      if ($this-&gt;getBrightness()&gt;10)
+      {
+        $this-&gt;setBulb(self::$BulbAmber);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setBulb($aBulb)
+  {
+    $this-&gt;bulb = $aBulb;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Course
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Course State Machines
+  private static $StatusOpen = 1;
+  private static $StatusClosed = 2;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOpen);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOpen) { return "StatusOpen"; }
+    elseif ($this-&gt;status == self::$StatusClosed) { return "StatusClosed"; }
+    return null;
+  }
+
+  public function register()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOpen)
+    {
+      $this-&gt;setStatus(self::$StatusClosed);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function deregister()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusClosed)
+    {
+      $this-&gt;setStatus(self::$StatusOpen);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Garage
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Garage Attributes
+  private $entranceClear;
+
+  //Garage State Machines
+  private static $GarageDoorOpen = 1;
+  private static $GarageDoorClosing = 2;
+  private $GarageDoor;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aEntranceClear)
+  {
+    $this-&gt;entranceClear = $aEntranceClear;
+    $this-&gt;setGarageDoor(self::$GarageDoorOpen);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setEntranceClear($aEntranceClear)
+  {
+    $wasSet = false;
+    $this-&gt;entranceClear = $aEntranceClear;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getEntranceClear()
+  {
+    return $this-&gt;entranceClear;
+  }
+
+  public function isEntranceClear()
+  {
+    return $this-&gt;entranceClear;
+  }
+
+  public function getGarageDoorFullName()
+  {
+    $answer = $this-&gt;getGarageDoor();
+    return $answer;
+  }
+
+  public function getGarageDoor()
+  {
+    if ($this-&gt;GarageDoor == self::$GarageDoorOpen) { return "GarageDoorOpen"; }
+    elseif ($this-&gt;GarageDoor == self::$GarageDoorClosing) { return "GarageDoorClosing"; }
+    return null;
+  }
+
+  public function pressButton()
+  {
+    $wasEventProcessed = false;
+    
+    $aGarageDoor = $this-&gt;GarageDoor;
+    if ($aGarageDoor == self::$GarageDoorOpen)
+    {
+      if ($this-&gt;getEntranceClear())
+      {
+        $this-&gt;setGarageDoor(self::$GarageDoorClosing);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setGarageDoor($aGarageDoor)
+  {
+    $this-&gt;GarageDoor = $aGarageDoor;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Course
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Course State Machines
+  private static $StatusOpen = 1;
+  private static $StatusFull = 2;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOpen);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOpen) { return "StatusOpen"; }
+    elseif ($this-&gt;status == self::$StatusFull) { return "StatusFull"; }
+    return null;
+  }
+
+  public function register()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOpen)
+    {
+      $this-&gt;setStatus(self::$StatusFull);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function reject()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusFull)
+    {
+      $this-&gt;setStatus(self::$StatusFull);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Course
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Course State Machines
+  private static $StatusOpen = 1;
+  private static $StatusFull = 2;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOpen);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOpen) { return "StatusOpen"; }
+    elseif ($this-&gt;status == self::$StatusFull) { return "StatusFull"; }
+    return null;
+  }
+
+  public function register()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOpen)
+    {
+      $this-&gt;setStatus(self::$StatusFull);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function reject()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusFull)
+    {
+      $this-&gt;setStatus(self::$StatusFull);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student State Machines
+  private static $GradePass = 1;
+  private $grade;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setGrade(self::$GradePass);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getGradeFullName()
+  {
+    $answer = $this-&gt;getGrade();
+    return $answer;
+  }
+
+  public function getGrade()
+  {
+    if ($this-&gt;grade == self::$GradePass) { return "GradePass"; }
+    return null;
+  }
+
+  public function setGrade($aGrade)
+  {
+    if ($aGrade == "GradePass" || $aGrade == self::$GradePass)
+    {
+      $this-&gt;grade = self::$GradePass;
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Garage
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Garage State Machines
+  private static $GarageDoorClosed = 1;
+  private static $GarageDoorOpening = 2;
+  private $GarageDoor;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setGarageDoor(self::$GarageDoorClosed);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getGarageDoorFullName()
+  {
+    $answer = $this-&gt;getGarageDoor();
+    return $answer;
+  }
+
+  public function getGarageDoor()
+  {
+    if ($this-&gt;GarageDoor == self::$GarageDoorClosed) { return "GarageDoorClosed"; }
+    elseif ($this-&gt;GarageDoor == self::$GarageDoorOpening) { return "GarageDoorOpening"; }
+    return null;
+  }
+
+  public function pressButton()
+  {
+    $wasEventProcessed = false;
+    
+    $aGarageDoor = $this-&gt;GarageDoor;
+    if ($aGarageDoor == self::$GarageDoorClosed)
+    {
+      turnLightOn();
+      $this-&gt;setGarageDoor(self::$GarageDoorOpening);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setGarageDoor($aGarageDoor)
+  {
+    $this-&gt;GarageDoor = $aGarageDoor;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Garage
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Garage State Machines
+  private static $GarageDoorClosed = 1;
+  private static $GarageDoorOpening = 2;
+  private $GarageDoor;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setGarageDoor(self::$GarageDoorClosed);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getGarageDoorFullName()
+  {
+    $answer = $this-&gt;getGarageDoor();
+    return $answer;
+  }
+
+  public function getGarageDoor()
+  {
+    if ($this-&gt;GarageDoor == self::$GarageDoorClosed) { return "GarageDoorClosed"; }
+    elseif ($this-&gt;GarageDoor == self::$GarageDoorOpening) { return "GarageDoorOpening"; }
+    return null;
+  }
+
+  public function pressButton()
+  {
+    $wasEventProcessed = false;
+    
+    $aGarageDoor = $this-&gt;GarageDoor;
+    if ($aGarageDoor == self::$GarageDoorClosed)
+    {
+      turnLightOn();
+      $this-&gt;setGarageDoor(self::$GarageDoorOpening);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setGarageDoor($aGarageDoor)
+  {
+    $this-&gt;GarageDoor = $aGarageDoor;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class LightFixture
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //LightFixture State Machines
+  private static $BulbOn = 1;
+  private static $BulbOff = 2;
+  private $bulb;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setBulb(self::$BulbOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getBulbFullName()
+  {
+    $answer = $this-&gt;getBulb();
+    return $answer;
+  }
+
+  public function getBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOn) { return "BulbOn"; }
+    elseif ($this-&gt;bulb == self::$BulbOff) { return "BulbOff"; }
+    return null;
+  }
+
+  public function push()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOn)
+    {
+      $this-&gt;exitBulb();
+      doTransition();
+      $this-&gt;setBulb(self::$BulbOff);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function exitBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOn)
+    {
+      doExit();
+    }
+  }
+
+  private function setBulb($aBulb)
+  {
+    $this-&gt;bulb = $aBulb;
+
+    // entry actions and do activities
+    if ($this-&gt;bulb == self::$BulbOn)
+    {
+      doEntry();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private $howLongUntilOk;
+
+  //Mentor State Machines
+  private static $StatusOk = 1;
+  private static $StatusNotOkay = 2;
+  private static $StatusNotOk = 3;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;howLongUntilOk = 3;
+    $this-&gt;setStatus(self::$StatusOk);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setHowLongUntilOk($aHowLongUntilOk)
+  {
+    $wasSet = false;
+    $this-&gt;howLongUntilOk = $aHowLongUntilOk;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getHowLongUntilOk()
+  {
+    return $this-&gt;howLongUntilOk;
+  }
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOk) { return "StatusOk"; }
+    elseif ($this-&gt;status == self::$StatusNotOkay) { return "StatusNotOkay"; }
+    elseif ($this-&gt;status == self::$StatusNotOk) { return "StatusNotOk"; }
+    return null;
+  }
+
+  public function timeoutOkToNotOk()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOk)
+    {
+      $this-&gt;setStatus(self::$StatusNotOk);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function timeoutNotOkayToOk()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusNotOkay)
+    {
+      $this-&gt;setStatus(self::$StatusOk);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X Attributes
+  private $ev;
+
+  //X State Machines
+  private static $SmS1 = 1;
+  private static $SmS2 = 2;
+  private static $SmS3 = 3;
+  private static $SmS4 = 4;
+  private $sm;
+
+  private static $Sm2Sm21 = 1;
+  private static $Sm2Sm22 = 2;
+  private $sm2;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;ev = "";
+    $this-&gt;setSm(self::$SmS1);
+    $this-&gt;setSm2(self::$Sm2Sm21);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setEv($aEv)
+  {
+    $wasSet = false;
+    $this-&gt;ev = $aEv;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getEv()
+  {
+    return $this-&gt;ev;
+  }
+
+  public function getSmFullName()
+  {
+    $answer = $this-&gt;getSm();
+    return $answer;
+  }
+
+  public function getSm2FullName()
+  {
+    $answer = $this-&gt;getSm2();
+    return $answer;
+  }
+
+  public function getSm()
+  {
+    if ($this-&gt;sm == self::$SmS1) { return "SmS1"; }
+    elseif ($this-&gt;sm == self::$SmS2) { return "SmS2"; }
+    elseif ($this-&gt;sm == self::$SmS3) { return "SmS3"; }
+    elseif ($this-&gt;sm == self::$SmS4) { return "SmS4"; }
+    return null;
+  }
+
+  public function getSm2()
+  {
+    if ($this-&gt;sm2 == self::$Sm2Sm21) { return "Sm2Sm21"; }
+    elseif ($this-&gt;sm2 == self::$Sm2Sm22) { return "Sm2Sm22"; }
+    return null;
+  }
+
+  public function ev1()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    $aSm2 = $this-&gt;sm2;
+    if ($aSm == self::$SmS1)
+    {
+      ev="ev1";
+      $this-&gt;setSm(self::$SmS2);
+      $wasEventProcessed = true;
+    }
+
+    
+    if ($aSm2 == self::$Sm2Sm21)
+    {
+      ev="ev1 in sm2";
+      $this-&gt;setSm2(self::$Sm2Sm22);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev5()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      ev="ev5";
+      $this-&gt;setSm(self::$SmS2);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev2()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS2)
+    {
+      ev="ev2";
+      $this-&gt;setSm(self::$SmS3);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev3()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS3)
+    {
+      ev="ev3";
+      $this-&gt;setSm(self::$SmS4);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev4()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS4)
+    {
+      ev="ev4";
+      $this-&gt;setSm(self::$SmS1);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev7()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm2 = $this-&gt;sm2;
+    if ($aSm2 == self::$Sm2Sm22)
+    {
+      ev="ev7 in sm2";
+      $this-&gt;setSm2(self::$Sm2Sm21);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setSm($aSm)
+  {
+    $this-&gt;sm = $aSm;
+  }
+
+  private function setSm2($aSm2)
+  {
+    $this-&gt;sm2 = $aSm2;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X State Machines
+  private static $SmS1 = 1;
+  private static $SmS2 = 2;
+  private $sm;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setSm(self::$SmS1);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSmFullName()
+  {
+    $answer = $this-&gt;getSm();
+    return $answer;
+  }
+
+  public function getSm()
+  {
+    if ($this-&gt;sm == self::$SmS1) { return "SmS1"; }
+    elseif ($this-&gt;sm == self::$SmS2) { return "SmS2"; }
+    return null;
+  }
+
+  public function hh()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;exitSm();
+      $this-&gt;setSm(self::$SmS2);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function hhh()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS2)
+    {
+      $this-&gt;exitSm();
+      $this-&gt;setSm(self::$SmS1);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function exitSm()
+  {
+    if ($this-&gt;sm == self::$SmS1)
+    {
+      if (!condition2)
+        {
+          System.out.println("s1 exit!");
+        }
+    }
+    elseif ($this-&gt;sm == self::$SmS2)
+    {
+      if (condition4)
+        {
+          System.out.println("s2 exit!");
+        }
+    }
+  }
+
+  private function setSm($aSm)
+  {
+    $this-&gt;sm = $aSm;
+
+    // entry actions and do activities
+    if ($this-&gt;sm == self::$SmS1)
+    {
+      if (condition)
+        {
+          System.out.println("s1 entry!");
+        }
+    }
+    elseif ($this-&gt;sm == self::$SmS2)
+    {
+      if (condition3)
+        {
+          System.out.println("s2 entry!");
+        }
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class A
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //A State Machines
+  private static $StatusS1 = 1;
+  private static $StatusS2 = 2;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusS1);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusS1) { return "StatusS1"; }
+    elseif ($this-&gt;status == self::$StatusS2) { return "StatusS2"; }
+    return null;
+  }
+
+  public function test()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusS1)
+    {
+      if ($this-&gt;y&gt;$this-&gt;z)
+      {
+        $this-&gt;setStatus(self::$StatusS2);
+        $wasEventProcessed = true;
+      }
+      if (($this-&gt;x+$this-&gt;y)&gt;$this-&gt;z)
+      {
+        $this-&gt;setStatus(self::$StatusS2);
+        $wasEventProcessed = true;
+      }
+      if ((5*2)&lt;11)
+      {
+        $this-&gt;setStatus(self::$StatusS2);
+        $wasEventProcessed = true;
+      }
+      if (($this-&gt;x+$this-&gt;y)==$this-&gt;z)
+      {
+        $this-&gt;setStatus(self::$StatusS2);
+        $wasEventProcessed = true;
+      }
+      if ($this-&gt;x==$this-&gt;y)
+      {
+        $this-&gt;setStatus(self::$StatusS2);
+        $wasEventProcessed = true;
+      }
+      if ("test"==$this-&gt;x)
+      {
+        $this-&gt;setStatus(self::$StatusS2);
+        $wasEventProcessed = true;
+      }
+      if ($this-&gt;x=="test"."hello")
+      {
+        $this-&gt;setStatus(self::$StatusS2);
+        $wasEventProcessed = true;
+      }
+      if (((5*2)&lt;=11))
+      {
+        $this-&gt;setStatus(self::$StatusS2);
+        $wasEventProcessed = true;
+      }
+      if ((($this-&gt;a&gt;$this-&gt;b)||($this-&gt;variable&amp;&amp;(($this-&gt;b&lt;$this-&gt;a)||($this-&gt;c&gt;=$this-&gt;b)))))
+      {
+        $this-&gt;setStatus(self::$StatusS2);
+        $wasEventProcessed = true;
+      }
+      if ((($this-&gt;a-$this-&gt;c)&gt;($this-&gt;b*2))!=(($this-&gt;a-$this-&gt;c)&gt;($this-&gt;b^2)))
+      {
+        $this-&gt;setStatus(self::$StatusS2);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Switch
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Switch State Machines
+  private static $StatusOn = 1;
+  private static $StatusOff = 2;
+  private $status;
+
+  //Switch Do Activity Threads
+  private $doActivityStatusOffThread = null;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOn) { return "StatusOn"; }
+    elseif ($this-&gt;status == self::$StatusOff) { return "StatusOff"; }
+    return null;
+  }
+
+  public function press()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOn)
+    {
+      $this-&gt;setStatus(self::$StatusOff);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+
+    // entry actions and do activities
+    if ($this-&gt;status == self::$StatusOff)
+    {
+      keepDoing();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X State Machines
+  private static $SmS1 = 1;
+  private static $SmS2 = 2;
+  private static $SmS3 = 3;
+  private static $SmS4 = 4;
+  private $sm;
+
+  private static $Sm2Sm21 = 1;
+  private static $Sm2Sm22 = 2;
+  private $sm2;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setSm(self::$SmS1);
+    $this-&gt;setSm2(self::$Sm2Sm21);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSmFullName()
+  {
+    $answer = $this-&gt;getSm();
+    return $answer;
+  }
+
+  public function getSm2FullName()
+  {
+    $answer = $this-&gt;getSm2();
+    return $answer;
+  }
+
+  public function getSm()
+  {
+    if ($this-&gt;sm == self::$SmS1) { return "SmS1"; }
+    elseif ($this-&gt;sm == self::$SmS2) { return "SmS2"; }
+    elseif ($this-&gt;sm == self::$SmS3) { return "SmS3"; }
+    elseif ($this-&gt;sm == self::$SmS4) { return "SmS4"; }
+    return null;
+  }
+
+  public function getSm2()
+  {
+    if ($this-&gt;sm2 == self::$Sm2Sm21) { return "Sm2Sm21"; }
+    elseif ($this-&gt;sm2 == self::$Sm2Sm22) { return "Sm2Sm22"; }
+    return null;
+  }
+
+  public function ev1()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    $aSm2 = $this-&gt;sm2;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmS2);
+      $wasEventProcessed = true;
+    }
+
+    
+    if ($aSm2 == self::$Sm2Sm21)
+    {
+      $this-&gt;setSm2(self::$Sm2Sm22);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev5()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmS2);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev2()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS2)
+    {
+      $this-&gt;setSm(self::$SmS3);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev3()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS3)
+    {
+      $this-&gt;setSm(self::$SmS4);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev4()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS4)
+    {
+      $this-&gt;setSm(self::$SmS1);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function ev7()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm2 = $this-&gt;sm2;
+    if ($aSm2 == self::$Sm2Sm22)
+    {
+      $this-&gt;setSm2(self::$Sm2Sm21);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setSm($aSm)
+  {
+    $this-&gt;sm = $aSm;
+  }
+
+  private function setSm2($aSm2)
+  {
+    $this-&gt;sm2 = $aSm2;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X State Machines
+  private static $SmS1 = 1;
+  private static $SmS2 = 2;
+  private $sm;
+
+  private static $Sm1S3 = 1;
+  private static $Sm1S4 = 2;
+  private static $Sm1S5 = 3;
+  private $sm1;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setSm(self::$SmS1);
+    $this-&gt;setSm1(self::$Sm1S3);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSmFullName()
+  {
+    $answer = $this-&gt;getSm();
+    return $answer;
+  }
+
+  public function getSm1FullName()
+  {
+    $answer = $this-&gt;getSm1();
+    return $answer;
+  }
+
+  public function getSm()
+  {
+    if ($this-&gt;sm == self::$SmS1) { return "SmS1"; }
+    elseif ($this-&gt;sm == self::$SmS2) { return "SmS2"; }
+    return null;
+  }
+
+  public function getSm1()
+  {
+    if ($this-&gt;sm1 == self::$Sm1S3) { return "Sm1S3"; }
+    elseif ($this-&gt;sm1 == self::$Sm1S4) { return "Sm1S4"; }
+    elseif ($this-&gt;sm1 == self::$Sm1S5) { return "Sm1S5"; }
+    return null;
+  }
+
+  public function e1()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmS2);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function e2()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS2)
+    {
+      $this-&gt;setSm(self::$SmS1);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function e3()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm1 = $this-&gt;sm1;
+    if ($aSm1 == self::$Sm1S3)
+    {
+      $this-&gt;setSm1(self::$Sm1S4);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function e4()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm1 = $this-&gt;sm1;
+    if ($aSm1 == self::$Sm1S4)
+    {
+      $this-&gt;setSm1(self::$Sm1S3);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setSm($aSm)
+  {
+    $this-&gt;sm = $aSm;
+  }
+
+  private function setSm1($aSm1)
+  {
+    $this-&gt;sm1 = $aSm1;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class A
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //A Attributes
+  private $repeatCheck;
+
+  //A State Machines
+  private static $StatusS1 = 1;
+  private static $StatusS2 = 2;
+  private static $StatusS3 = 3;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;repeatCheck = false;
+    $this-&gt;setStatus(self::$StatusS1);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setRepeatCheck($aRepeatCheck)
+  {
+    $wasSet = false;
+    $this-&gt;repeatCheck = $aRepeatCheck;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getRepeatCheck()
+  {
+    return $this-&gt;repeatCheck;
+  }
+
+  public function isRepeatCheck()
+  {
+    return $this-&gt;repeatCheck;
+  }
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusS1) { return "StatusS1"; }
+    elseif ($this-&gt;status == self::$StatusS2) { return "StatusS2"; }
+    elseif ($this-&gt;status == self::$StatusS3) { return "StatusS3"; }
+    return null;
+  }
+
+  private function __autotransition1__()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusS1)
+    {
+      if ($this-&gt;repeatCheck())
+      {
+        $this-&gt;setStatus(self::$StatusS2);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+
+    // entry actions and do activities
+    if ($this-&gt;status == self::$StatusS1)
+    {
+      $this-&gt;__autotransition1__();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+  public function repeatCheck()
+  {
+    return true;
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Light
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Light State Machines
+  private static $BulbOff = 1;
+  private static $BulbOn = 2;
+  private $bulb;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setBulb(self::$BulbOff);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getBulbFullName()
+  {
+    $answer = $this-&gt;getBulb();
+    return $answer;
+  }
+
+  public function getBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOff) { return "BulbOff"; }
+    elseif ($this-&gt;bulb == self::$BulbOn) { return "BulbOn"; }
+    return null;
+  }
+
+  private function __autotransition1__()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOff)
+    {
+      $this-&gt;setBulb(self::$BulbOn);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setBulb($aBulb)
+  {
+    $this-&gt;bulb = $aBulb;
+
+    // entry actions and do activities
+    if ($this-&gt;bulb == self::$BulbOff)
+    {
+      $this-&gt;__autotransition1__();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X State Machines
+  private static $SmS1 = 1;
+  private static $SmS2 = 2;
+  private $sm;
+
+  //X Do Activity Threads
+  private $doActivity0SmS1Thread = null;
+  private $doActivity1SmS1Thread = null;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setSm(self::$SmS1);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getSmFullName()
+  {
+    $answer = $this-&gt;getSm();
+    return $answer;
+  }
+
+  public function getSm()
+  {
+    if ($this-&gt;sm == self::$SmS1) { return "SmS1"; }
+    elseif ($this-&gt;sm == self::$SmS2) { return "SmS2"; }
+    return null;
+  }
+
+  public function e1()
+  {
+    $wasEventProcessed = false;
+    
+    $aSm = $this-&gt;sm;
+    if ($aSm == self::$SmS1)
+    {
+      $this-&gt;setSm(self::$SmS2);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setSm($aSm)
+  {
+    $this-&gt;sm = $aSm;
+
+    // entry actions and do activities
+    if ($this-&gt;sm == self::$SmS1)
+    {
+      blah1();
+      blah2();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class LightFixture
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //LightFixture State Machines
+  private static $BulbOn = 1;
+  private static $BulbOff = 2;
+  private $bulb;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setBulb(self::$BulbOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getBulbFullName()
+  {
+    $answer = $this-&gt;getBulb();
+    return $answer;
+  }
+
+  public function getBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOn) { return "BulbOn"; }
+    elseif ($this-&gt;bulb == self::$BulbOff) { return "BulbOff"; }
+    return null;
+  }
+
+  public function push()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOn)
+    {
+      if ($this-&gt;isTurnedOn)
+      {
+        $this-&gt;exitBulb();
+        doTransition();
+        $this-&gt;setBulb(self::$BulbOff);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  private function exitBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOn)
+    {
+      doExit();
+    }
+  }
+
+  private function setBulb($aBulb)
+  {
+    $this-&gt;bulb = $aBulb;
+
+    // entry actions and do activities
+    if ($this-&gt;bulb == self::$BulbOn)
+    {
+      doEntry();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Light
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Light State Machines
+  private static $BulbOff = 1;
+  private static $BulbOn = 2;
+  private $bulb;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setBulb(self::$BulbOff);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getBulbFullName()
+  {
+    $answer = $this-&gt;getBulb();
+    return $answer;
+  }
+
+  public function getBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOff) { return "BulbOff"; }
+    elseif ($this-&gt;bulb == self::$BulbOn) { return "BulbOn"; }
+    return null;
+  }
+
+  private function __autotransition1__()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOff)
+    {
+      $this-&gt;setBulb(self::$BulbOn);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setBulb($aBulb)
+  {
+    $this-&gt;bulb = $aBulb;
+
+    // entry actions and do activities
+    if ($this-&gt;bulb == self::$BulbOff)
+    {
+      $this-&gt;__autotransition1__();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Course
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Course State Machines
+  private static $StatusOpen = 1;
+  private static $StatusFull = 2;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOpen);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOpen) { return "StatusOpen"; }
+    elseif ($this-&gt;status == self::$StatusFull) { return "StatusFull"; }
+    return null;
+  }
+
+  public function setStatus($aStatus)
+  {
+    if ($aStatus == "StatusOpen" || $aStatus == self::$StatusOpen)
+    {
+      $this-&gt;status = self::$StatusOpen;
+      return true;
+    }
+    elseif ($aStatus == "StatusFull" || $aStatus == self::$StatusFull)
+    {
+      $this-&gt;status = self::$StatusFull;
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class LightFixture
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //LightFixture Attributes
+  private $brightness;
+
+  //LightFixture State Machines
+  private static $BulbOn = 1;
+  private static $BulbOff = 2;
+  private $bulb;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;brightness = 0;
+    $this-&gt;setBulb(self::$BulbOn);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setBrightness($aBrightness)
+  {
+    $wasSet = false;
+    $this-&gt;brightness = $aBrightness;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getBrightness()
+  {
+    return $this-&gt;brightness;
+  }
+
+  public function getBulbFullName()
+  {
+    $answer = $this-&gt;getBulb();
+    return $answer;
+  }
+
+  public function getBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOn) { return "BulbOn"; }
+    elseif ($this-&gt;bulb == self::$BulbOff) { return "BulbOff"; }
+    return null;
+  }
+
+  public function push()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOn)
+    {
+      if ($this-&gt;getBrightness()&lt;1)
+      {
+        $this-&gt;setBulb(self::$BulbOff);
+        $wasEventProcessed = true;
+      }
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setBulb($aBulb)
+  {
+    $this-&gt;bulb = $aBulb;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student State Machines
+  private static $GradePass = 1;
+  private $grade;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setGrade(self::$GradePass);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getGradeFullName()
+  {
+    $answer = $this-&gt;getGrade();
+    return $answer;
+  }
+
+  public function getGrade()
+  {
+    if ($this-&gt;grade == self::$GradePass) { return "GradePass"; }
+    return null;
+  }
+
+  public function setGrade($aGrade)
+  {
+    if ($aGrade == "GradePass" || $aGrade == self::$GradePass)
+    {
+      $this-&gt;grade = self::$GradePass;
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Light
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Light State Machines
+  private static $BulbOff = 1;
+  private static $BulbOn = 2;
+  private $bulb;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setBulb(self::$BulbOff);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getBulbFullName()
+  {
+    $answer = $this-&gt;getBulb();
+    return $answer;
+  }
+
+  public function getBulb()
+  {
+    if ($this-&gt;bulb == self::$BulbOff) { return "BulbOff"; }
+    elseif ($this-&gt;bulb == self::$BulbOn) { return "BulbOn"; }
+    return null;
+  }
+
+  private function __autotransition1__()
+  {
+    $wasEventProcessed = false;
+    
+    $aBulb = $this-&gt;bulb;
+    if ($aBulb == self::$BulbOff)
+    {
+      $this-&gt;setBulb(self::$BulbOn);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setBulb($aBulb)
+  {
+    $this-&gt;bulb = $aBulb;
+
+    // entry actions and do activities
+    if ($this-&gt;bulb == self::$BulbOff)
+    {
+      $this-&gt;__autotransition1__();
+    }
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Course
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Course State Machines
+  private static $StatusOpen = 1;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;setStatus(self::$StatusOpen);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusOpen) { return "StatusOpen"; }
+    return null;
+  }
+
+  public function register()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusOpen)
+    {
+      $this-&gt;setStatus(self::$StatusOpen);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+</pre>
+    </body>
+</html>

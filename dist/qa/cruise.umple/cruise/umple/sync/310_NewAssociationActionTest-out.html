@@ -1,0 +1,117 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from NewAssociationActionTest</title>
+    </head>
+    <body>
+        <pre>class Student
+{
+    * -- * Course;
+position 68 52 109 42;
+  position.association Course__Student 30,35 40,45;
+}
+
+class Course
+{
+  position 176 199 109 42;
+}
+
+class Student
+{
+  * -- * Course;
+}
+
+class Course
+{
+  position 117 201 109 42;
+}
+
+class Student
+{
+  position.association Course__Student 52,41 0,0;
+}
+
+class Student
+{
+  * -- * Student roleName;
+}
+
+//$?[End_of_model]$?
+
+class Student
+{
+  position 68 52 109 42;
+  position.association Student__Student 42,45 0,20;
+}
+
+class Student
+{
+}
+
+class Mentor
+{
+  * -- * Student;
+}
+
+//$?[End_of_model]$?
+
+class Student
+{
+  position 328 83 109 45;
+}
+
+class Mentor
+{
+  position 108 253 109 45;
+  position.association Mentor__Student 75,0 30,45;
+}
+
+
+class Student
+{
+  * -- * Course;
+}
+
+
+class Student
+{
+  position 68 52 109 42;
+  position.association Course__Student 30,35 40,45;
+}
+
+class Course
+{
+  position 176 199 109 42;
+}
+
+class Student
+{
+  isA Mentor;
+  * -- * Course;
+}
+
+class Mentor
+{
+}
+
+class Course
+{
+  position 65 200 109 42;
+}
+
+
+class Mentor
+{
+  position 177 81 109 41;
+}
+
+
+class Student
+{
+  position 262 199 109 41;
+  position.association Course__Student 25,0 97,0;
+}
+
+</pre>
+    </body>
+</html>

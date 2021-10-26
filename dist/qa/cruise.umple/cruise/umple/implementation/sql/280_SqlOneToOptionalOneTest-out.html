@@ -1,0 +1,57 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from SqlOneToOptionalOneTest</title>
+    </head>
+    <body>
+        <pre>-- PLEASE DO NOT EDIT THIS CODE
+-- This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+
+CREATE DATABASE IF NOT EXISTS `example`;
+USE `example`;
+
+CREATE TABLE IF NOT EXISTS `example`.`my_subordinate`
+(
+  /*------------------------*/
+  /* MEMBER VARIABLES       */
+  /*------------------------*/
+
+  /*my_subordinate Associations*/
+  my_driver_name VARCHAR(255),
+  
+  /*my_subordinate Attributes*/
+  number VARCHAR(255),
+  PRIMARY KEY(number)
+
+);
+
+
+ALTER TABLE `example`.`my_subordinate` ADD CONSTRAINT `fk_mysubordinate_my_driver_name` FOREIGN KEY (`my_driver_name`) REFERENCES `example`.`my_driver`(`name`);
+
+-- PLEASE DO NOT EDIT THIS CODE
+-- This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+
+CREATE DATABASE IF NOT EXISTS `example`;
+USE `example`;
+
+CREATE TABLE IF NOT EXISTS `example`.`my_driver`
+(
+  /*------------------------*/
+  /* MEMBER VARIABLES       */
+  /*------------------------*/
+
+  /*my_driver Associations*/
+  my_subordinate_number VARCHAR(255),
+  
+  /*my_driver Attributes*/
+  name VARCHAR(255),
+  PRIMARY KEY(name)
+
+);
+
+
+ALTER TABLE `example`.`my_driver` ADD CONSTRAINT `fk_mydriver_my_subordinate_number` FOREIGN KEY (`my_subordinate_number`) REFERENCES `example`.`my_subordinate`(`number`);
+
+</pre>
+    </body>
+</html>

@@ -1,0 +1,2944 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from RubyClassTemplateTest</title>
+    </head>
+    <body>
+        <pre># PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+class Mentor
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+  def main ()
+    
+  end
+
+
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+class Mentor
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module ExampleOne
+
+class Mentor
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Mentor Attributes - for documentation purposes
+  #attr_reader :name
+
+  #Mentor Associations - for documentation purposes
+  #attr_reader :student
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_name)
+    @initialized = false
+    @deleted = false
+    @name = a_name
+    @student = nil
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def set_name(a_name)
+    was_set = false
+    @name = a_name
+    was_set = true
+    was_set
+  end
+
+  def get_name
+    @name
+  end
+
+  def get_student
+    @student
+  end
+
+  def has_student
+    has = !@student.nil?
+    has
+  end
+
+  def set_student(a_student)
+    #
+    # self source of self source generation is association_SetOptionalOneToMandatoryMany.jet
+    # self set file assumes the generation of a maximumNumberOfXXX method does not exist because 
+    # it's not required (No upper bound)
+    #   
+    
+    wasSet = false
+    
+    existing_student = student;
+    
+    if existing_student.nil?
+      if !a_student.nil
+        if a_student.add_mentor(self)
+          existing_student = a_student
+          wasSet = true
+        end
+      end
+    elsif existing_student != null
+      if a_student == null
+        if existing_student.minimum_number_of_mentors() &lt; existing_student.number_of_mentors()
+          existing_student.remove_mentor(self);
+          existing_student = a_student;  # a_student == null
+          wasSet = true;
+        end
+      else
+        if existing_student.minimum_number_of_mentors() &lt; existing_student.number_of_mentors()
+          existing_student.remove_mentor(self);
+          a_student.add_mentor(self);
+          existing_student = a_student;
+          wasSet = true;
+        end
+      end
+    end
+    
+    if wasSet == true
+      student = existing_student;
+    end
+    
+    return wasSet;
+  end
+
+  def delete
+    @deleted = true
+    unless @student.nil?
+      if @student.number_of_mentors &lt;= 1
+        @student.delete
+      else
+        @student.remove_mentor(self)
+      end
+    end
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module ExampleTwo
+
+class Student
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Student Attributes - for documentation purposes
+  #attr_reader :number
+
+  #Student Associations - for documentation purposes
+  #attr_reader :mentors, :courses
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_number, all_mentors)
+    @initialized = false
+    @deleted = false
+    @number = a_number
+    @mentors = []
+    did_add_mentors = set_mentors(all_mentors)
+    raise "Unable to create Student, must have at least 1 @mentors. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html" unless did_add_mentors
+    @courses = []
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def set_number(a_number)
+    was_set = false
+    @number = a_number
+    was_set = true
+    was_set
+  end
+
+  def get_number
+    @number
+  end
+
+  def get_mentor(index)
+    a_mentor = @mentors[index]
+    a_mentor
+  end
+
+  def get_mentors
+    new_mentors = @mentors.dup
+    new_mentors
+  end
+
+  def number_of_mentors
+    number = @mentors.size
+    number
+  end
+
+  def has_mentors
+    has = @mentors.size &gt; 0
+    has
+  end
+
+  def index_of_mentor(a_mentor)
+    index = @mentors.index(a_mentor)
+    index = -1 if index.nil?
+    index
+  end
+
+  def get_course(index)
+    a_course = @courses[index]
+    a_course
+  end
+
+  def get_courses
+    new_courses = @courses.dup
+    new_courses
+  end
+
+  def number_of_courses
+    number = @courses.size
+    number
+  end
+
+  def has_courses
+    has = @courses.size &gt; 0
+    has
+  end
+
+  def index_of_course(a_course)
+    index = @courses.index(a_course)
+    index = -1 if index.nil?
+    index
+  end
+
+  def self.minimum_number_of_mentors
+    1
+  end
+
+  def add_mentor(a_mentor)
+    was_added = false
+    return false if index_of_mentor(a_mentor) != -1
+    existing_student = a_mentor.get_student
+    if !existing_student.nil? and existing_student.number_of_mentors &lt;= Student.minimum_number_of_mentors
+      return was_added
+    elsif !existing_student.nil?
+      existing_student.instance_variable_get("@mentors").delete(a_mentor)
+    end
+    @mentors &lt;&lt; a_mentor
+    a_mentor.instance_variable_set("@student",self)
+    was_added = true
+    was_added
+  end
+
+  def remove_mentor(a_mentor)
+    was_removed = false
+    if @mentors.include?(a_mentor) and number_of_mentors &gt; Student.minimum_number_of_mentors
+      @mentors.delete(a_mentor)
+      a_mentor.instance_variable_set("@student",nil)
+      was_removed = true
+    end
+    was_removed
+  end
+
+  def set_mentors(new_mentors)
+    was_set = false
+    if new_mentors.length &lt; Student.minimum_number_of_mentors
+      return was_set
+    end
+
+    check_new_mentors = []
+    studentToNewMentors = {}
+    new_mentors.each do |a_mentor|
+      if check_new_mentors.include?(a_mentor)
+        return was_set
+      elsif !a_mentor.get_student.nil? and !a_mentor.get_student.eql?(self)
+        existing_student = a_mentor.get_student
+        unless studentToNewMentors.has_key?(existing_student)
+          studentToNewMentors[existing_student] = existing_student.number_of_mentors
+        end
+        currentCount = studentToNewMentors[existing_student]
+        nextCount = currentCount - 1
+        if nextCount &lt; 1
+          return was_set
+        end
+        studentToNewMentors[existing_student] = nextCount
+      end
+      check_new_mentors &lt;&lt; a_mentor
+    end
+
+    check_new_mentors.each do |a_mentor|
+      @mentors.delete(a_mentor)
+    end
+
+    @mentors.each do |orphan|
+      orphan.instance_variable_set("@student",nil)
+    end
+    @mentors.clear
+    new_mentors.each do |a_mentor|
+      unless a_mentor.get_student.nil?
+        a_mentor.get_student.instance_variable_get("@mentors").delete(a_mentor)
+      end
+      a_mentor.instance_variable_set("@student",self)
+      @mentors &lt;&lt; a_mentor
+    end
+    was_set = true
+    was_set
+  end
+
+  def add_mentor_at(a_mentor, index)
+    was_added = false
+    if add_mentor(a_mentor)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_mentors())
+        index = number_of_mentors() - 1
+      end
+      @mentors.delete(a_mentor)
+      @mentors.insert(index, a_mentor)
+      was_added = true
+    end
+    was_added
+  end
+
+  def add_or_move_mentor_at(a_mentor, index)
+    was_added = false
+    if @mentors.include?(a_mentor)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_mentors())
+        index = number_of_mentors() - 1
+      end
+      @mentors.delete(a_mentor)
+      @mentors.insert(index, a_mentor)
+      was_added = true
+    else
+      was_added = add_mentor_at(a_mentor, index)
+    end
+    was_added
+  end
+
+  def self.minimum_number_of_courses
+    0
+  end
+
+  def add_course(a_course)
+    was_added = false
+    return false if index_of_course(a_course) != -1
+    @courses &lt;&lt; a_course
+    if a_course.index_of_student(self) != -1
+      was_added = true
+    else
+      was_added = a_course.add_student(self)
+      unless was_added
+        @courses.delete(a_course)
+      end
+    end
+    was_added
+  end
+
+  def remove_course(a_course)
+    was_removed = false
+    unless @courses.include?(a_course)
+      return was_removed
+    end
+
+    oldIndex = @courses.index(a_course)
+    @courses.delete_at(oldIndex)
+    if a_course.index_of_student(self) == -1
+      was_removed = true
+    else
+      was_removed = a_course.remove_student(self)
+      @courses.insert(oldIndex,a_course) unless was_removed
+    end
+    was_removed
+  end
+
+  def add_course_at(a_course, index)
+    was_added = false
+    if add_course(a_course)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_courses())
+        index = number_of_courses() - 1
+      end
+      @courses.delete(a_course)
+      @courses.insert(index, a_course)
+      was_added = true
+    end
+    was_added
+  end
+
+  def add_or_move_course_at(a_course, index)
+    was_added = false
+    if @courses.include?(a_course)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_courses())
+        index = number_of_courses() - 1
+      end
+      @courses.delete(a_course)
+      @courses.insert(index, a_course)
+      was_added = true
+    else
+      was_added = add_course_at(a_course, index)
+    end
+    was_added
+  end
+
+  def delete
+    @deleted = true
+    @mentors.each do |a_mentor|
+      a_mentor.instance_variable_set("@student",nil)
+    end
+    @mentors.clear
+    copy_of_courses = @courses.dup
+    @courses.clear
+    copy_of_courses.each do |a_course|
+      a_course.remove_student(self)
+    end
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module ExampleThree
+
+class Course
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Course Associations - for documentation purposes
+  #attr_reader :students
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @students = []
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def get_student(index)
+    a_student = @students[index]
+    a_student
+  end
+
+  def get_students
+    new_students = @students.dup
+    new_students
+  end
+
+  def number_of_students
+    number = @students.size
+    number
+  end
+
+  def has_students
+    has = @students.size &gt; 0
+    has
+  end
+
+  def index_of_student(a_student)
+    index = @students.index(a_student)
+    index = -1 if index.nil?
+    index
+  end
+
+  def self.minimum_number_of_students
+    0
+  end
+
+  def add_student(a_student)
+    was_added = false
+    return false if index_of_student(a_student) != -1
+    @students &lt;&lt; a_student
+    if a_student.index_of_course(self) != -1
+      was_added = true
+    else
+      was_added = a_student.add_course(self)
+      unless was_added
+        @students.delete(a_student)
+      end
+    end
+    was_added
+  end
+
+  def remove_student(a_student)
+    was_removed = false
+    unless @students.include?(a_student)
+      return was_removed
+    end
+
+    oldIndex = @students.index(a_student)
+    @students.delete_at(oldIndex)
+    if a_student.index_of_course(self) == -1
+      was_removed = true
+    else
+      was_removed = a_student.remove_course(self)
+      @students.insert(oldIndex,a_student) unless was_removed
+    end
+    was_removed
+  end
+
+  def add_student_at(a_student, index)
+    was_added = false
+    if add_student(a_student)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_students())
+        index = number_of_students() - 1
+      end
+      @students.delete(a_student)
+      @students.insert(index, a_student)
+      was_added = true
+    end
+    was_added
+  end
+
+  def add_or_move_student_at(a_student, index)
+    was_added = false
+    if @students.include?(a_student)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_students())
+        index = number_of_students() - 1
+      end
+      @students.delete(a_student)
+      @students.insert(index, a_student)
+      was_added = true
+    else
+      was_added = add_student_at(a_student, index)
+    end
+    was_added
+  end
+
+  def delete
+    @deleted = true
+    copy_of_students = @students.dup
+    @students.clear
+    copy_of_students.each do |a_student|
+      a_student.remove_course(self)
+    end
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+class Student
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Student
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+  def foo (a)
+    // line 22 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+    System.out.println("Starting foo...");
+    // END OF UMPLE BEFORE INJECTION
+    if(a &lt; 0) {      
+      // line 18 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+      System.out.println("Returning from foo, a: " + a);
+      // END OF UMPLE AFTER INJECTION
+      return 4;
+    }    
+    // line 18 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+    System.out.println("Returning from foo, a: " + a);
+    // END OF UMPLE AFTER INJECTION
+    return 3;
+
+  end
+
+  def foo (a, b)
+    // line 22 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+    System.out.println("Starting foo...");
+    // END OF UMPLE BEFORE INJECTION
+    if(a &gt; 0 &amp;&amp; "".equals(b))      
+      // line 18 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+      System.out.println("Returning from foo, a: " + a);
+      // END OF UMPLE AFTER INJECTION
+      return 3;    
+    // line 18 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+    System.out.println("Returning from foo, a: " + a);
+    // END OF UMPLE AFTER INJECTION
+    return 1;
+
+  end
+
+
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+require 'date'
+require 'time'
+
+class Mentor
+
+
+  #------------------------
+  # STATIC VARIABLES
+  #------------------------
+
+  MAX = 100;
+  MIN = -99;
+  HELLO = "Hello";
+  @@next_x = 1
+  class &lt;&lt; self; attr_accessor :mentors_by_id end
+  @mentors_by_id = Hash.new
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Mentor Attributes - for documentation purposes
+  #attr_reader :str, :str2, :someName, :lDoub, :lBool, :name, :d, :t, :i, :id, :p, :q, :r, :s, :tt, :u, :v, :w
+
+  #Autounique Attributes - for documentation purposes
+  #attr_reader x;
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_str, a_d, a_i, a_id)
+    @initialized = false
+    @deleted = false
+    @str = a_str
+    @can_set_str = false
+    @str2 = nil
+    @can_set_str2 = true
+    @someName = nil
+    @lDoub = 0
+    @lBool = false
+    @name = "Johannes"
+    @d = a_d
+    @t = new Time()
+    @i = a_i
+    reset_p
+    @q = "chicken"
+    reset_r
+    @s = "123"
+    @can_set_s = false
+    @tt = Date.parse("1978-12-25")
+    @u = Time.parse("12:13:14")
+    reset_v
+    reset_w
+    @x = @@next_x
+    @@next_x += 1
+    @id = nil
+    if (!set_id(a_id))
+      raise ArgumentError, 'Cannot create due to duplicate id. See http://manual.umple.org?RE003ViolationofUniqueness.html'
+    end
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def set_str2(a_str2)
+    was_set = false
+    return false unless @can_set_str2
+    @can_set_str2 = false
+    @str2 = a_str2
+    was_set = true
+    was_set
+  end
+
+  def set_someName(a_someName)
+    was_set = false
+    @someName = a_someName
+    was_set = true
+    was_set
+  end
+
+  def set_lDoub(a_lDoub)
+    was_set = false
+    @lDoub = a_lDoub
+    was_set = true
+    was_set
+  end
+
+  def set_lBool(a_lBool)
+    was_set = false
+    @lBool = a_lBool
+    was_set = true
+    was_set
+  end
+
+  def set_name(a_name)
+    was_set = false
+    @name = a_name
+    was_set = true
+    was_set
+  end
+
+  def set_d(a_d)
+    was_set = false
+    @d = a_d
+    was_set = true
+    was_set
+  end
+
+  def set_i(a_i)
+    was_set = false
+    @i = a_i
+    was_set = true
+    was_set
+  end
+
+  def set_id(a_id)
+    was_set = false
+    an_old_id = get_id();
+    if (an_old_id != nil &amp;&amp; an_old_id == a_id)
+      return true
+    end
+    if (Mentor.has_with_id?(a_id))
+      return was_set
+    end
+    @id = a_id
+    was_set = true
+    if (an_old_id != nil)
+      Mentor.mentors_by_id[an_old_id] = nil
+    end
+    Mentor.mentors_by_id[a_id] = self
+    was_set
+  end
+
+  def set_p(a_p)
+    was_set = false
+    @p = a_p
+    was_set = true
+    was_set
+  end
+
+  def reset_p
+    wasReset = false
+    @p = get_default_p
+    wasReset = true
+    wasReset
+  end
+
+  def set_q(a_q)
+    was_set = false
+    @q = a_q
+    was_set = true
+    was_set
+  end
+
+  def set_r(a_r)
+    was_set = false
+    @r = a_r
+    was_set = true
+    was_set
+  end
+
+  def reset_r
+    wasReset = false
+    @r = get_default_r
+    wasReset = true
+    wasReset
+  end
+
+  def set_tt(a_tt)
+    was_set = false
+    @tt = a_tt
+    was_set = true
+    was_set
+  end
+
+  def set_u(a_u)
+    was_set = false
+    @u = a_u
+    was_set = true
+    was_set
+  end
+
+  def set_v(a_v)
+    was_set = false
+    @v = a_v
+    was_set = true
+    was_set
+  end
+
+  def reset_v
+    wasReset = false
+    @v = get_default_v
+    wasReset = true
+    wasReset
+  end
+
+  def set_w(a_w)
+    was_set = false
+    @w = a_w
+    was_set = true
+    was_set
+  end
+
+  def reset_w
+    wasReset = false
+    @w = get_default_w
+    wasReset = true
+    wasReset
+  end
+
+  def get_str
+    @str
+  end
+
+  def get_str2
+    @str2
+  end
+
+  def get_someName
+    @someName
+  end
+
+  def get_lDoub
+    @lDoub
+  end
+
+  def get_lBool
+    @lBool
+  end
+
+  def get_name
+    @name
+  end
+
+  def get_d
+    @d
+  end
+
+  def get_i
+    @i
+  end
+
+  def get_derivedTwiceI
+    i*2
+  end
+
+  def get_id
+    @id
+  end
+
+  def Mentor::get_with_id(a_id)
+    @mentors_by_id[a_id]
+  end
+
+  def Mentor::has_with_id?(a_id)
+    get_with_id(a_id) != nil
+  end
+
+  def get_p
+    @p
+  end
+
+  def get_default_p
+    "robot"
+  end
+
+  def get_q
+    @q
+  end
+
+  def get_r
+    @r
+  end
+
+  def get_default_r
+    ""
+  end
+
+  def get_s
+    @s
+  end
+
+  def get_tt
+    @tt
+  end
+
+  def get_u
+    @u
+  end
+
+  def get_v
+    @v
+  end
+
+  def get_default_v
+    Date.parse("1978-12-26")
+  end
+
+  def get_w
+    @w
+  end
+
+  def get_default_w
+    Time.parse("12:59:59")
+  end
+
+  def get_x
+    @x
+  end
+
+  def is_lBool?
+    @lBool
+  end
+
+  def delete
+    @deleted = true
+    Mentor.mentors_by_id[get_id()] = nil
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+# This is a student
+class Student
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Foo
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Foo Associations - for documentation purposes
+
+  # I am a multiline comment above an association.
+  #attr_reader :bars
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @bars = []
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def get_bar(index)
+    a_bar = @bars[index]
+    a_bar
+  end
+
+  def get_bars
+    new_bars = @bars.dup
+    new_bars
+  end
+
+  def number_of_bars
+    number = @bars.size
+    number
+  end
+
+  def has_bars
+    has = @bars.size &gt; 0
+    has
+  end
+
+  def index_of_bar(a_bar)
+    index = @bars.index(a_bar)
+    index = -1 if index.nil?
+    index
+  end
+
+  def self.minimum_number_of_bars
+    0
+  end
+
+  def add_bar(a_bar)
+    was_added = false
+    return false if index_of_bar(a_bar) != -1
+    existing_foo = a_bar.get_foo
+    is_new_foo = (!existing_foo.nil? and !existing_foo.eql?(self))
+    if is_new_foo
+      a_bar.set_foo(self)
+    else
+      @bars &lt;&lt; a_bar
+    end
+    was_added = true
+    was_added
+  end
+
+  def remove_bar(a_bar)
+    was_removed = false
+    # Unable to remove a_bar, as it must always have a foo
+    unless a_bar.get_foo.eql?(self)
+      @bars.delete(a_bar)
+      was_removed = true
+    end
+    was_removed
+  end
+
+  def add_bar_at(a_bar, index)
+    was_added = false
+    if add_bar(a_bar)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_bars())
+        index = number_of_bars() - 1
+      end
+      @bars.delete(a_bar)
+      @bars.insert(index, a_bar)
+      was_added = true
+    end
+    was_added
+  end
+
+  def add_or_move_bar_at(a_bar, index)
+    was_added = false
+    if @bars.include?(a_bar)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_bars())
+        index = number_of_bars() - 1
+      end
+      @bars.delete(a_bar)
+      @bars.insert(index, a_bar)
+      was_added = true
+    else
+      was_added = add_bar_at(a_bar, index)
+    end
+    was_added
+  end
+
+  def delete
+    @deleted = true
+    @bars.each do |a_bar|
+      a_bar.delete
+    end
+  end
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+class Student
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Student Attributes - for documentation purposes
+  #attr_reader :grade
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @grade = ""
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def set_grade(a_grade)
+    was_set = false
+    @grade = a_grade
+    was_set = true
+    was_set
+  end
+
+  def get_grade
+    @grade
+  end
+
+  def delete
+    @deleted = true
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+class Token
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Token Attributes - for documentation purposes
+  #attr_reader :p
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_p)
+    @initialized = false
+    @deleted = false
+    @p = a_p
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def set_p(a_p)
+    was_set = false
+    @p = a_p
+    was_set = true
+    was_set
+  end
+
+  def get_p
+    @p
+  end
+
+  def delete
+    @deleted = true
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+# This is a student
+# Multiple comments
+# on several lines
+class Student
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+# I am a class comment.
+# 
+# Notice how there are 4 empty lines below me.
+# 
+# 
+# 
+# 
+# And 2 below me.
+# 
+# 
+# These lines should come out as we see here.
+# Comments such as these are often used to improve readability through whitespace clarity.
+class Foo
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Foo
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Foo Attributes - for documentation purposes
+
+  # I am a multiline comment above an attribute.
+  #attr_reader :name
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_name)
+    @initialized = false
+    @deleted = false
+    @name = a_name
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def set_name(a_name)
+    was_set = false
+    @name = a_name
+    was_set = true
+    was_set
+  end
+
+  def get_name
+    @name
+  end
+
+  def delete
+    @deleted = true
+  end
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Token
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Foo
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Foo Attributes - for documentation purposes
+
+  # Inline comment above attribute.
+  #attr_reader :testAttribute1, :testAttribute2, :testAttribute3, :testAttribute4
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_testAttribute1, a_testAttribute2, a_testAttribute3, a_testAttribute4)
+    @initialized = false
+    @deleted = false
+    @testAttribute1 = a_testAttribute1
+    @testAttribute2 = a_testAttribute2
+    @testAttribute3 = a_testAttribute3
+    @testAttribute4 = a_testAttribute4
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def set_testAttribute1(a_testAttribute1)
+    was_set = false
+    @testAttribute1 = a_testAttribute1
+    was_set = true
+    was_set
+  end
+
+  def set_testAttribute2(a_testAttribute2)
+    was_set = false
+    @testAttribute2 = a_testAttribute2
+    was_set = true
+    was_set
+  end
+
+  def set_testAttribute3(a_testAttribute3)
+    was_set = false
+    @testAttribute3 = a_testAttribute3
+    was_set = true
+    was_set
+  end
+
+  def set_testAttribute4(a_testAttribute4)
+    was_set = false
+    @testAttribute4 = a_testAttribute4
+    was_set = true
+    was_set
+  end
+
+  def get_testAttribute1
+    @testAttribute1
+  end
+
+  def get_testAttribute2
+    @testAttribute2
+  end
+
+  def get_testAttribute3
+    @testAttribute3
+  end
+
+  def get_testAttribute4
+    @testAttribute4
+  end
+
+  def delete
+    @deleted = true
+  end
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Student
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+  def foo (a)
+    // line 25 "ClassTemplateTest_CodeInjectionsComments.ump"
+    System.out.println("Starting foo with argument: " + a);
+    // END OF UMPLE BEFORE INJECTION
+    if(a &lt; 0)
+      /*
+        {
+      */      
+      // line 29 "ClassTemplateTest_CodeInjectionsComments.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 0;
+    else if(a == 1)
+      // foo()      
+      // line 29 "ClassTemplateTest_CodeInjectionsComments.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return -1;
+    else
+      // {      
+      // line 29 "ClassTemplateTest_CodeInjectionsComments.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 4;
+
+    for(int i = 0; i &lt; a; i++) {
+      // TODO: call foo()
+      if(i == a/4)        
+        // line 29 "ClassTemplateTest_CodeInjectionsComments.ump"
+        System.out.println("Returning from foo!");
+        // END OF UMPLE AFTER INJECTION
+        return a;
+    }    
+    // line 29 "ClassTemplateTest_CodeInjectionsComments.ump"
+    System.out.println("Returning from foo!");
+    // END OF UMPLE AFTER INJECTION
+    return 4;
+
+  end
+
+
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+class SubMentor &lt; Mentor
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_name)
+    super(a_name)
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+    super
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+class SubMentor2 &lt; Mentor
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #SubMentor2 Attributes - for documentation purposes
+  #attr_reader :subName
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_name, a_subName)
+    super(a_name)
+    @initialized = false
+    @deleted = false
+    @subName = a_subName
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def set_subName(a_subName)
+    was_set = false
+    @subName = a_subName
+    was_set = true
+    was_set
+  end
+
+  def get_subName
+    @subName
+  end
+
+  def delete
+    @deleted = true
+    super
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+class Token
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Token Attributes - for documentation purposes
+  #attr_reader :positions
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @positions = []
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def add_position(a_position)
+    was_added = false
+    was_added = positions &lt;&lt; a_position
+    was_added
+  end
+
+  def remove_position(a_position)
+    was_removed = false
+    was_removed = positions.delete(a_position)
+    was_removed
+  end
+
+  def get_position(index)
+    a_position = positions[index]
+    a_position
+  end
+
+  def get_positions
+    Position[] new_positions = positions.toArray(new Position[positions.size])
+    new_positions
+  end
+
+  def number_of_positions
+    number = positions.size
+    number;
+  end
+
+  def has_positions
+    has = positions.size &gt; 0
+    has
+  end
+
+  def index_of_position(a_position)
+    index = positions.index(a_position)
+    index = -1 if index.nil?
+    index
+  end
+
+  def delete
+    @deleted = true
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Student
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+  def foo (a)
+    // line 17 "ClassTemplateTest_CodeInjectionsBasic.ump"
+    System.out.println("Starting foo with argument: " + a);
+    // END OF UMPLE BEFORE INJECTION
+    if(a &lt; 0) {      
+      // line 21 "ClassTemplateTest_CodeInjectionsBasic.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 0;
+    }
+
+    for(int i = 0; i &lt; a; i++) {
+      if(i == a/4) {        
+        // line 21 "ClassTemplateTest_CodeInjectionsBasic.ump"
+        System.out.println("Returning from foo!");
+        // END OF UMPLE AFTER INJECTION
+        return a;
+      }
+    }    
+    // line 21 "ClassTemplateTest_CodeInjectionsBasic.ump"
+    System.out.println("Returning from foo!");
+    // END OF UMPLE AFTER INJECTION
+    return 4;
+
+  end
+
+
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Student
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+  def foo (a)
+    // line 26 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+    System.out.println("Starting foo...");
+    // END OF UMPLE BEFORE INJECTION
+    // line 38 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+    System.out.println("Starting execution...");
+    // END OF UMPLE BEFORE INJECTION
+    if(a &lt; 0) {
+      return 4;
+    }
+
+    return 3;
+  end
+
+  def foo (a, b)
+    // line 26 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+    System.out.println("Starting foo...");
+    // END OF UMPLE BEFORE INJECTION
+    if(a &gt; 0 &amp;&amp; "".equals(b))      
+      // line 30 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+      System.out.println("Returning from foo, a: " + a ", b: " + b);
+      // END OF UMPLE AFTER INJECTION
+      return 3;    
+    // line 30 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+    System.out.println("Returning from foo, a: " + a ", b: " + b);
+    // END OF UMPLE AFTER INJECTION
+    return 1;
+
+  end
+
+  def bar ()
+    // line 34 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+    // TODO: fix asap
+    // END OF UMPLE BEFORE INJECTION
+    // line 38 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+    System.out.println("Starting execution...");
+    // END OF UMPLE BEFORE INJECTION
+    int a = 4;
+
+    if(a == 3) return 2;
+    
+    return 1;
+  end
+
+
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Student
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+  def foo (a)
+    // line 18 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+    System.out.println("Starting foo with argument: " + a);
+    // END OF UMPLE BEFORE INJECTION
+    if(a &lt; 0)      
+      // line 22 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 0;
+    else if(a == 1)      
+      // line 22 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return -1;
+    else      
+      // line 22 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 4;
+
+    for(int i = 0; i &lt; a; i++)
+      if(i == a/4)        
+        // line 22 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+        System.out.println("Returning from foo!");
+        // END OF UMPLE AFTER INJECTION
+        return a;    
+    // line 22 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+    System.out.println("Returning from foo!");
+    // END OF UMPLE AFTER INJECTION
+    return 4;
+
+  end
+
+
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Foo
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+
+  # I am a method comment.
+  # 
+  # Notice how there are 4 empty lines below me.
+  # 
+  # 
+  # 
+  # 
+  # And 2 below me.
+  # 
+  # 
+  # These lines should come out as we see here.
+  # Comments such as these are often used to improve readability through whitespace clarity.
+  def testMethod ()
+    // I am a test method.
+  end
+
+
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+class Mentor
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Student
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+  def foo (a)
+    // line 16 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+    System.out.println("Starting foo with argument: " + a);
+    // END OF UMPLE BEFORE INJECTION
+    if(a &lt; 0)      
+      // line 20 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 0;
+    else if(a == 1) {      
+      // line 20 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return -1;
+    }
+    else      
+      // line 20 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 4;
+
+    for(int i = 0; i &lt; a; i++) {
+      // TODO: call foo()
+      if(i == a/4) {        
+        // line 20 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+        System.out.println("Returning from foo!");
+        // END OF UMPLE AFTER INJECTION
+        return a;
+      }
+    }    
+    // line 20 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+    System.out.println("Returning from foo!");
+    // END OF UMPLE AFTER INJECTION
+    return 4;
+
+  end
+
+
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+# This is a student
+# Multiple comments
+# on several lines
+class Student
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Foo
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Foo Associations - for documentation purposes
+
+  # I am a inline comment above an association.
+  #attr_reader :bars
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @bars = []
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def get_bar(index)
+    a_bar = @bars[index]
+    a_bar
+  end
+
+  def get_bars
+    new_bars = @bars.dup
+    new_bars
+  end
+
+  def number_of_bars
+    number = @bars.size
+    number
+  end
+
+  def has_bars
+    has = @bars.size &gt; 0
+    has
+  end
+
+  def index_of_bar(a_bar)
+    index = @bars.index(a_bar)
+    index = -1 if index.nil?
+    index
+  end
+
+  def self.minimum_number_of_bars
+    0
+  end
+
+  def add_bar(a_bar)
+    was_added = false
+    return false if index_of_bar(a_bar) != -1
+    existing_foo = a_bar.get_foo
+    is_new_foo = (!existing_foo.nil? and !existing_foo.eql?(self))
+    if is_new_foo
+      a_bar.set_foo(self)
+    else
+      @bars &lt;&lt; a_bar
+    end
+    was_added = true
+    was_added
+  end
+
+  def remove_bar(a_bar)
+    was_removed = false
+    # Unable to remove a_bar, as it must always have a foo
+    unless a_bar.get_foo.eql?(self)
+      @bars.delete(a_bar)
+      was_removed = true
+    end
+    was_removed
+  end
+
+  def add_bar_at(a_bar, index)
+    was_added = false
+    if add_bar(a_bar)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_bars())
+        index = number_of_bars() - 1
+      end
+      @bars.delete(a_bar)
+      @bars.insert(index, a_bar)
+      was_added = true
+    end
+    was_added
+  end
+
+  def add_or_move_bar_at(a_bar, index)
+    was_added = false
+    if @bars.include?(a_bar)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_bars())
+        index = number_of_bars() - 1
+      end
+      @bars.delete(a_bar)
+      @bars.insert(index, a_bar)
+      was_added = true
+    else
+      was_added = add_bar_at(a_bar, index)
+    end
+    was_added
+  end
+
+  def delete
+    @deleted = true
+    @bars.each do |a_bar|
+      a_bar.delete
+    end
+  end
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+# This is a student
+class Student
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Foo
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+
+  # Inline comment above method.
+  def testMethod1 ()
+    // I am a comment inside a method.
+  end
+
+
+  # Multiple inline comments
+  # above method.
+  def testMethod2 ()
+    // I am a comment inside a method.
+  end
+
+
+  # Multiline comment above method.
+  def testMethod3 ()
+    // I am a comment inside a method.
+  end
+
+
+  # Multiple multiline comments
+  # above method.
+  def testMethod4 ()
+    // I am a comment inside a method.
+  end
+
+
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Foo
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Foo Associations - for documentation purposes
+
+  # Inline comment above association.
+  #attr_reader :bar1s, :bar2s, :bar3s, :bar4s
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @bar1s = []
+    @bar2s = []
+    @bar3s = []
+    @bar4s = []
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def get_bar1(index)
+    a_bar1 = @bar1s[index]
+    a_bar1
+  end
+
+  def get_bar1s
+    new_bar1s = @bar1s.dup
+    new_bar1s
+  end
+
+  def number_of_bar1s
+    number = @bar1s.size
+    number
+  end
+
+  def has_bar1s
+    has = @bar1s.size &gt; 0
+    has
+  end
+
+  def index_of_bar1(a_bar1)
+    index = @bar1s.index(a_bar1)
+    index = -1 if index.nil?
+    index
+  end
+
+  def get_bar2(index)
+    a_bar2 = @bar2s[index]
+    a_bar2
+  end
+
+  def get_bar2s
+    new_bar2s = @bar2s.dup
+    new_bar2s
+  end
+
+  def number_of_bar2s
+    number = @bar2s.size
+    number
+  end
+
+  def has_bar2s
+    has = @bar2s.size &gt; 0
+    has
+  end
+
+  def index_of_bar2(a_bar2)
+    index = @bar2s.index(a_bar2)
+    index = -1 if index.nil?
+    index
+  end
+
+  def get_bar3(index)
+    a_bar3 = @bar3s[index]
+    a_bar3
+  end
+
+  def get_bar3s
+    new_bar3s = @bar3s.dup
+    new_bar3s
+  end
+
+  def number_of_bar3s
+    number = @bar3s.size
+    number
+  end
+
+  def has_bar3s
+    has = @bar3s.size &gt; 0
+    has
+  end
+
+  def index_of_bar3(a_bar3)
+    index = @bar3s.index(a_bar3)
+    index = -1 if index.nil?
+    index
+  end
+
+  def get_bar4(index)
+    a_bar4 = @bar4s[index]
+    a_bar4
+  end
+
+  def get_bar4s
+    new_bar4s = @bar4s.dup
+    new_bar4s
+  end
+
+  def number_of_bar4s
+    number = @bar4s.size
+    number
+  end
+
+  def has_bar4s
+    has = @bar4s.size &gt; 0
+    has
+  end
+
+  def index_of_bar4(a_bar4)
+    index = @bar4s.index(a_bar4)
+    index = -1 if index.nil?
+    index
+  end
+
+  def self.minimum_number_of_bar1s
+    0
+  end
+
+  def add_bar1(a_bar1)
+    was_added = false
+    return false if index_of_bar1(a_bar1) != -1
+    existing_foo = a_bar1.get_foo
+    is_new_foo = (!existing_foo.nil? and !existing_foo.eql?(self))
+    if is_new_foo
+      a_bar1.set_foo(self)
+    else
+      @bar1s &lt;&lt; a_bar1
+    end
+    was_added = true
+    was_added
+  end
+
+  def remove_bar1(a_bar1)
+    was_removed = false
+    # Unable to remove a_bar1, as it must always have a foo
+    unless a_bar1.get_foo.eql?(self)
+      @bar1s.delete(a_bar1)
+      was_removed = true
+    end
+    was_removed
+  end
+
+  def add_bar1_at(a_bar1, index)
+    was_added = false
+    if add_bar1(a_bar1)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_bar1s())
+        index = number_of_bar1s() - 1
+      end
+      @bar1s.delete(a_bar1)
+      @bar1s.insert(index, a_bar1)
+      was_added = true
+    end
+    was_added
+  end
+
+  def add_or_move_bar1_at(a_bar1, index)
+    was_added = false
+    if @bar1s.include?(a_bar1)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_bar1s())
+        index = number_of_bar1s() - 1
+      end
+      @bar1s.delete(a_bar1)
+      @bar1s.insert(index, a_bar1)
+      was_added = true
+    else
+      was_added = add_bar1_at(a_bar1, index)
+    end
+    was_added
+  end
+
+  def self.minimum_number_of_bar2s
+    0
+  end
+
+  def add_bar2(a_bar2)
+    was_added = false
+    return false if index_of_bar2(a_bar2) != -1
+    existing_foo = a_bar2.get_foo
+    is_new_foo = (!existing_foo.nil? and !existing_foo.eql?(self))
+    if is_new_foo
+      a_bar2.set_foo(self)
+    else
+      @bar2s &lt;&lt; a_bar2
+    end
+    was_added = true
+    was_added
+  end
+
+  def remove_bar2(a_bar2)
+    was_removed = false
+    # Unable to remove a_bar2, as it must always have a foo
+    unless a_bar2.get_foo.eql?(self)
+      @bar2s.delete(a_bar2)
+      was_removed = true
+    end
+    was_removed
+  end
+
+  def add_bar2_at(a_bar2, index)
+    was_added = false
+    if add_bar2(a_bar2)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_bar2s())
+        index = number_of_bar2s() - 1
+      end
+      @bar2s.delete(a_bar2)
+      @bar2s.insert(index, a_bar2)
+      was_added = true
+    end
+    was_added
+  end
+
+  def add_or_move_bar2_at(a_bar2, index)
+    was_added = false
+    if @bar2s.include?(a_bar2)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_bar2s())
+        index = number_of_bar2s() - 1
+      end
+      @bar2s.delete(a_bar2)
+      @bar2s.insert(index, a_bar2)
+      was_added = true
+    else
+      was_added = add_bar2_at(a_bar2, index)
+    end
+    was_added
+  end
+
+  def self.minimum_number_of_bar3s
+    0
+  end
+
+  def add_bar3(a_bar3)
+    was_added = false
+    return false if index_of_bar3(a_bar3) != -1
+    existing_foo = a_bar3.get_foo
+    is_new_foo = (!existing_foo.nil? and !existing_foo.eql?(self))
+    if is_new_foo
+      a_bar3.set_foo(self)
+    else
+      @bar3s &lt;&lt; a_bar3
+    end
+    was_added = true
+    was_added
+  end
+
+  def remove_bar3(a_bar3)
+    was_removed = false
+    # Unable to remove a_bar3, as it must always have a foo
+    unless a_bar3.get_foo.eql?(self)
+      @bar3s.delete(a_bar3)
+      was_removed = true
+    end
+    was_removed
+  end
+
+  def add_bar3_at(a_bar3, index)
+    was_added = false
+    if add_bar3(a_bar3)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_bar3s())
+        index = number_of_bar3s() - 1
+      end
+      @bar3s.delete(a_bar3)
+      @bar3s.insert(index, a_bar3)
+      was_added = true
+    end
+    was_added
+  end
+
+  def add_or_move_bar3_at(a_bar3, index)
+    was_added = false
+    if @bar3s.include?(a_bar3)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_bar3s())
+        index = number_of_bar3s() - 1
+      end
+      @bar3s.delete(a_bar3)
+      @bar3s.insert(index, a_bar3)
+      was_added = true
+    else
+      was_added = add_bar3_at(a_bar3, index)
+    end
+    was_added
+  end
+
+  def self.minimum_number_of_bar4s
+    0
+  end
+
+  def add_bar4(a_bar4)
+    was_added = false
+    return false if index_of_bar4(a_bar4) != -1
+    existing_foo = a_bar4.get_foo
+    is_new_foo = (!existing_foo.nil? and !existing_foo.eql?(self))
+    if is_new_foo
+      a_bar4.set_foo(self)
+    else
+      @bar4s &lt;&lt; a_bar4
+    end
+    was_added = true
+    was_added
+  end
+
+  def remove_bar4(a_bar4)
+    was_removed = false
+    # Unable to remove a_bar4, as it must always have a foo
+    unless a_bar4.get_foo.eql?(self)
+      @bar4s.delete(a_bar4)
+      was_removed = true
+    end
+    was_removed
+  end
+
+  def add_bar4_at(a_bar4, index)
+    was_added = false
+    if add_bar4(a_bar4)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_bar4s())
+        index = number_of_bar4s() - 1
+      end
+      @bar4s.delete(a_bar4)
+      @bar4s.insert(index, a_bar4)
+      was_added = true
+    end
+    was_added
+  end
+
+  def add_or_move_bar4_at(a_bar4, index)
+    was_added = false
+    if @bar4s.include?(a_bar4)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_bar4s())
+        index = number_of_bar4s() - 1
+      end
+      @bar4s.delete(a_bar4)
+      @bar4s.insert(index, a_bar4)
+      was_added = true
+    else
+      was_added = add_bar4_at(a_bar4, index)
+    end
+    was_added
+  end
+
+  def delete
+    @deleted = true
+    @bar1s.each do |a_bar1|
+      a_bar1.delete
+    end
+    @bar2s.each do |a_bar2|
+      a_bar2.delete
+    end
+    @bar3s.each do |a_bar3|
+      a_bar3.delete
+    end
+    @bar4s.each do |a_bar4|
+      a_bar4.delete
+    end
+  end
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Foo
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+
+  # I am a comment above a method.
+  def testMethod ()
+    // I am a comment inside a method.
+  end
+
+
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Foo
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+
+  # I am a comment above a method.
+  def testMethod ()
+    // I am a comment inside a method.
+  end
+
+
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Foo
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Foo Attributes - for documentation purposes
+
+  # I am a inline comment above an attribute.
+  #attr_reader :bar
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_bar)
+    @initialized = false
+    @deleted = false
+    @bar = a_bar
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def set_bar(a_bar)
+    was_set = false
+    @bar = a_bar
+    was_set = true
+    was_set
+  end
+
+  def get_bar
+    @bar
+  end
+
+  def delete
+    @deleted = true
+  end
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+require 'java.util.Map'
+
+class Mentor
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def delete
+    @deleted = true
+  end
+
+end
+end
+</pre>
+    </body>
+</html>

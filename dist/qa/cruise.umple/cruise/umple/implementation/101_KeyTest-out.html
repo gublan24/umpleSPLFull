@@ -1,0 +1,109 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from KeyTest</title>
+    </head>
+    <body>
+        <pre>/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 5 "InheritedKeys.ump"
+public class Bar extends Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Bar Attributes
+  private int b;
+
+  //Helper Variables
+  private int cachedHashCode;
+  private boolean canSetA;
+  private boolean canSetB;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Bar(int aA, int aB)
+  {
+    super(aA);
+    cachedHashCode = -1;
+    canSetA = true;
+    canSetB = true;
+    b = aB;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setB(int aB)
+  {
+    boolean wasSet = false;
+    if (!canSetB) { return false; }
+    b = aB;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public int getB()
+  {
+    return b;
+  }
+
+  public boolean equals(Object obj)
+  {
+    if (obj == null) { return false; }
+    if (!getClass().equals(obj.getClass())) { return false; }
+
+    Bar compareTo = (Bar)obj;
+  
+    if (getA() != compareTo.getA())
+    {
+      return false;
+    }
+
+    if (getB() != compareTo.getB())
+    {
+      return false;
+    }
+
+    return true;
+  }
+
+  public int hashCode()
+  {
+    if (cachedHashCode != -1)
+    {
+      return cachedHashCode;
+    }
+    cachedHashCode = 17;
+    cachedHashCode = cachedHashCode * 23 + getA();
+
+    cachedHashCode = cachedHashCode * 23 + getB();
+
+    canSetA = false;
+    canSetB = false;
+    return cachedHashCode;
+  }
+
+  public void delete()
+  {
+    super.delete();
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "b" + ":" + getB()+ "]";
+  }
+}
+</pre>
+    </body>
+</html>

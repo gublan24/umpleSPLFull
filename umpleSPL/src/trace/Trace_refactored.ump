@@ -1,0 +1,54 @@
+
+
+
+class GeneratorHelper { 
+    before Label_Trace_2:postpare(UmpleModel)
+  {
+      postpareTrace(model);
+    }  }
+
+class GeneratorHelper { 
+    before Label_Trace_4:postpare(UmpleClass)
+  {
+      postpareTrace(aClass);
+    }  }
+
+class UmpleGenerator { 
+    before Label_Trace_11:initializeParser
+  {
+      parser.addGrammarFile("/trace/umple_traces.grammar");
+    }  }
+
+class UmpleInternalParser { 
+    before Label_Trace_58:analyzeToken(Token,int)
+  {
+      analyzeTraceToken(t,analysisStep);
+    }  }
+
+class UmpleInternalParser { 
+    before Label_Trace_69:analyzeDependentTokens(Token,UmpleClass,int)
+  {
+      analyzeTraceToken(t,aClass);
+    }  }
+
+class UmpleInternalParser { 
+    before Label_Trace_72:postTokenAnalysis
+  { 
+      if (getParseResult().getWasSuccess())
+      {
+        postTokenTraceAnalysis();
+      }
+    }  }
+
+class UmpleInternalParser { 
+    before Label_Trace_128:populateStateMachine(Token,StateMachine,UmpleClassifier)
+  {
+        if(stateToken.is("trace"))
+        {
+          if (uClassifier instanceof UmpleClass) {
+          analyzeTraceStatement((UmpleClass)uClassifier,stateToken); 
+        } else {
+          //TODO--- trait's functionality for trace;
+        }
+        }
+      }  }

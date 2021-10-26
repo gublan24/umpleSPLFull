@@ -1,0 +1,459 @@
+
+deleteTempFolders:
+
+testSetup:
+    [mkdir] Created dir: /Users/abdulaziz/tmp/umple/temp
+    [mkdir] Created dir: /Users/abdulaziz/tmp/umple/temp/java
+    [mkdir] Created dir: /Users/abdulaziz/tmp/umple/temp/java/src-gen-umple
+    [mkdir] Created dir: /Users/abdulaziz/tmp/umple/temp/java/bin
+    [mkdir] Created dir: /Users/abdulaziz/tmp/umple/temp/cpp
+    [mkdir] Created dir: /Users/abdulaziz/tmp/umple/temp/cpp/src-gen-umple
+    [mkdir] Created dir: /Users/abdulaziz/tmp/umple/temp/cpp/bin
+    [mkdir] Created dir: /Users/abdulaziz/tmp/umple/temp/php
+    [mkdir] Created dir: /Users/abdulaziz/tmp/umple/temp/php/src-gen-umple
+    [mkdir] Created dir: /Users/abdulaziz/tmp/umple/temp/ruby
+    [mkdir] Created dir: /Users/abdulaziz/tmp/umple/temp/ruby/src-gen-umple
+
+allUserManualAndExampleTests:
+     [echo] Building User Manual and UmpleOnline Examples
+     [echo] See /Users/abdulaziz/tmp/umple/build/UserManualAndExampleTests_output.txt for build results
+     [echo] Last Version: 1.31.1.5860.78bb27cc6
+     [echo] Using myenv=local
+
+checkRuby:
+     [echo] NotRuby: true
+     [echo] Last Version: 1.31.1.5860.78bb27cc6
+     [echo] Using myenv=local
+
+checkCpp:
+     [echo] Not C++: true
+     [echo] Last Version: 1.31.1.5860.78bb27cc6
+     [echo] Using myenv=local
+
+newUserManualAndExampleTestsJava:
+     [echo] Building User Manual and UmpleOnline Examples for Java and compiling Java using -c - option and method inside the compiler.
+     [echo] Umple examples to be tested and Java tested are in "temp/java/allExamplesList.txt"
+     [copy] Copying 1 file to /Users/abdulaziz/tmp/umple/dist/qa
+     [java] Warning 31 on line 14 of file 'BcmsBaseConfiguration.ump':
+     [java] Declared namespace bcms was not used
+     [java] Warning 31 on line 14 of file 'BcmsBaseConfiguration.ump':
+     [java] Declared namespace bcms was not used
+     [java] Warning 31 on line 14 of file 'BcmsBaseConfiguration.ump':
+     [java] Declared namespace bcms was not used
+     [java] Warning 36 on line 22 of file 'BcmsBaseConfiguration.ump':
+     [java] The specific multiplicity bounds 1 cannot be managed by generated code, since this is a directed association
+     [java] Warning 36 on line 23 of file 'BcmsBaseConfiguration.ump':
+     [java] The specific multiplicity bounds 1 cannot be managed by generated code, since this is a directed association
+     [java] Warning 31 on line 14 of file 'BcmsBaseConfiguration.ump':
+     [java] Declared namespace bcms was not used
+     [java] Warning 36 on line 18 of file 'BcmsMultipleCrisis-Multiple-Coordinator-Configuration.ump':
+     [java] The specific multiplicity bounds 1 cannot be managed by generated code, since this is a directed association
+     [java] Warning 36 on line 19 of file 'BcmsMultipleCrisis-Multiple-Coordinator-Configuration.ump':
+     [java] The specific multiplicity bounds 1 cannot be managed by generated code, since this is a directed association
+     [java] No classes were compiled. It is likely there was no compilable code in the source .ump file(s) including BerkeleyDB_SPL.ump
+     [java] No classes were compiled. It is likely there was no compilable code in the source .ump file(s) including BerkeleyDB_SP_featureDepend.ump
+     [java] Warning 170 on line 63 of file 'HtmlGeneration.ump':
+     [java] Custom constructors should normally not be provided in Umple. Consider using before or after keywords to adjust what the constructor does, or adjusting constructor parameters using keywords like lazy.
+     [java] Warning 170 on line 77 of file 'HtmlGeneration.ump':
+     [java] Custom constructors should normally not be provided in Umple. Consider using before or after keywords to adjust what the constructor does, or adjusting constructor parameters using keywords like lazy.
+     [java] Warning 170 on line 99 of file 'HtmlGeneration.ump':
+     [java] Custom constructors should normally not be provided in Umple. Consider using before or after keywords to adjust what the constructor does, or adjusting constructor parameters using keywords like lazy.
+     [java] No classes were compiled. It is likely there was no compilable code in the source .ump file(s) including InlineComments1.ump
+     [java] No classes were compiled. It is likely there was no compilable code in the source .ump file(s) including MultilineComments1.ump
+     [java] Warning 30 on line 23 of file 'NamespaceDirectives2.ump':
+     [java] Ignored attempt to redefine the namespace of class C to p. Use --redefine to force this
+     [java] Warning 31 on line 22 of file 'NamespaceDirectives2.ump':
+     [java] Declared namespace p was not used
+     [java] Warning 36 on line 13 of file 'RE001ImmutabilityException1.ump':
+     [java] The specific multiplicity bounds 1 cannot be managed by generated code, since this is a directed association
+     [java] No classes were compiled. It is likely there was no compilable code in the source .ump file(s) including RequireStatement.ump
+     [java] No classes were compiled. It is likely there was no compilable code in the source .ump file(s) including RequireStatement2.ump
+     [java] Warning 31 on line 21 of file 'School.ump':
+     [java] Declared namespace education was not used
+     [java] Warning 31 on line 28 of file 'School.ump':
+     [java] Declared namespace human was not used
+     [java] No classes were compiled. It is likely there was no compilable code in the source .ump file(s) including StrictnessDirective1.ump
+     [java] Warning 9999 on line 15 of file 'StrictnessDirective1.ump':
+     [java] Feature under development. 'strictness' found and ignored. processed as: '[strictness:modelOnly]'
+     [java] Warning 9999 on line 21 of file 'StrictnessDirective1.ump':
+     [java] Feature under development. 'strictness' found and ignored. processed as: '[strictness:noExtraCode]'
+     [java] Warning 1012 on line 1 of file 'ToplevelAspect2.ump':
+     [java] Method 'testFunction' cannot be found. Injection was ignored.
+     [java] Warning 1012 on line 1 of file 'ToplevelAspect2.ump':
+     [java] Method 'testFunction' cannot be found. Injection was ignored.
+     [java] No classes were compiled. It is likely there was no compilable code in the source .ump file(s) including UmpleComments1.ump
+     [java] No classes were compiled. It is likely there was no compilable code in the source .ump file(s) including UmpleComments2.ump
+     [java] Warning 1 on line 4 of file 'W001SingletonWithNon-LazyAttribute1.ump':
+     [java] Lazy keyword is needed on singleton class attribute 'x' as the attribute cannot added at construction time
+     [java] Warning 2 on line 4 of file 'W002SingletonWithRequiredObject1.ump':
+     [java] Association is referencing a singleton class with multiplicity 1 'X__Y'
+     [java] Warning 3 on line 3 of file 'W003RedundantLazyWithInitialization1.ump':
+     [java] The lazy keyword is redundant when the attribute is being initialized - in class 'X3lazy'
+     [java] Warning 7 on line 6 of file 'W007KeyAlreadySpecified1.ump':
+     [java] Key already specified in class 'X'
+     [java] Warning 10 on line 7 of file 'W010SingletonMultiplicityOver11.ump':
+     [java] Singleton class 'X' cannot have multiplicity greater than 1
+     [java] Warning 15 on line 8 of file 'W015ImmutableClassStateMachine1.ump':
+     [java] Immutable class 'X' may not contain state machines
+     [java] Warning 27 on line 4 of file 'W027KeyIdentifierIncorrect1.ump':
+     [java] Item 'b' in key statement is not defined in class 'X27itemkeynotdef'
+     [java] Warning 30 on line 11 of file 'W030RedefinedNamespace1.ump':
+     [java] Ignored attempt to redefine the namespace of class X30redefnamespace to b. Use --redefine to force this
+     [java] Warning 31 on line 9 of file 'W030RedefinedNamespace1.ump':
+     [java] Declared namespace b was not used
+     [java] Warning 31 on line 3 of file 'W031NamespaceNotUsed1.ump':
+     [java] Declared namespace n was not used
+     [java] Warning 33 on line 4 of file 'W033MissingSuperclass1.ump':
+     [java] The indicated superclass T of class S does not exist and has been ignored. Declare T to be external if it is defined outside this Umple system
+     [java] Warning 35 on line 4 of file 'W035UninitializedConstant1.ump':
+     [java] 'const' variable 'A' of type 'String' was not initialized and its value was thus set to 'empty String ('')'
+     [java] Warning 36 on line 4 of file 'W036UnmanagedMultiplicity1.ump':
+     [java] The specific multiplicity bounds 1 cannot be managed by generated code, since this is a directed association
+     [java] Warning 36 on line 5 of file 'W036UnmanagedMultiplicity1.ump':
+     [java] The specific multiplicity bounds [1, 3] cannot be managed by generated code, since this is a directed association
+     [java] Warning 36 on line 6 of file 'W036UnmanagedMultiplicity1.ump':
+     [java] The specific multiplicity bounds [0, 2] cannot be managed by generated code, since this is a directed association
+     [java] Warning 39 on line 4 of file 'W039MissingInterface1.ump':
+     [java] The interface A extends  an interface B that does not exist and has been ignored. Declare B to be external if it is defined outside this Umple system
+     [java] Warning 42 on line 30 of file 'W042NamespaceCannotBeDefault.ump':
+     [java] Class or interface J must not be in default namespace. Its namespace has been changed to n
+     [java] Warning 42 on line 17 of file 'W042NamespaceCannotBeDefault.ump':
+     [java] Class or interface C must not be in default namespace. Its namespace has been changed to m
+     [java] Warning 42 on line 29 of file 'W042NamespaceCannotBeDefault.ump':
+     [java] Class or interface F must not be in default namespace. Its namespace has been changed to n
+     [java] Warning 42 on line 28 of file 'W042NamespaceCannotBeDefault.ump':
+     [java] Class or interface E must not be in default namespace. Its namespace has been changed to n
+     [java] Warning 42 on line 16 of file 'W042NamespaceCannotBeDefault.ump':
+     [java] Class or interface B must not be in default namespace. Its namespace has been changed to m
+     [java] Warning 42 on line 15 of file 'W042NamespaceCannotBeDefault.ump':
+     [java] Class or interface A must not be in default namespace. Its namespace has been changed to m
+     [java] Warning 44 on line 8 of file 'W044AttributeDuplicatedinSuperclass1.ump':
+     [java] Class 'B' has attribute name attr that duplicates an attribute inherited from a superclass 'A'. New definition is being disregarded
+     [java] Warning 45 on line 4 of file 'W045InitializedValueinKey1.ump':
+     [java] Attribute 'z' in class 'X' is in the key. Initializing it will result in all instances having this same value and being treated as equal
+     [java] Warning 46 on line 5 of file 'W046AttributeHasTemplateType1.ump':
+     [java] Attribute otherClassGroup in class A is declared using a collection template type List<OtherClassA>. Use a directed association (->) or multi-valued attribute([]) to follow proper modelling conventions
+     [java] Warning 47 on line 4 of file 'W047EmptyKeyStatement1.ump':
+     [java] Empty key statement in class A
+     [java] Warning 49 on line 4 of file 'W049DuplicatedMethodName1.ump':
+     [java] A  implementation of Method 'test1' in class 'A' is already defined at line 3 of 'W049DuplicatedMethodName1.ump' file. New definition at line 4 of 'W049DuplicatedMethodName1.ump' file is being disregarded
+     [java] Warning 50 on line 5 of file 'W050TargetStateNotFound1.ump':
+     [java] State 's2' has not been declared, it is being treated as an new state
+     [java] Warning 54 on line 6 of file 'W054DuplicateEvents1.ump':
+     [java] Transition e will be ignored due to an unguarded duplicate event
+     [java] Warning 67 on line 9 of file 'W054DuplicateEvents1.ump':
+     [java] State 's3' from StateMachine 'sm' is non-reachable.
+     [java] Warning 55 on line 7 of file 'W055DuplicateEventsWithinSubstates1.ump':
+     [java] Transition e in super-state will be ignored due to unguarded duplicate events in all sub-states
+     [java] Warning 67 on line 11 of file 'W055DuplicateEventsWithinSubstates1.ump':
+     [java] State 's3' from StateMachine 'sm' is non-reachable.
+     [java] Warning 56 on line 5 of file 'W056NoEventsQueuedStateMachine1.ump':
+     [java] Queued State machine sm has no events to be queued
+     [java] Warning 57 on line 5 of file 'W057NoEventsPooledStateMachine1.ump':
+     [java] Pooled State machine sm has no events to be pooled
+     [java] Warning 62 on line 7 of file 'W062UnspecifiedEventPooledStateMachine1.ump':
+     [java] (unspecified) must not be used in combination with Pooled State machine sm - it is treated such as other regular events - it is pooled
+     [java] Warning 66 on line 7 of file 'W066TransitionMultiplePossibleDestinations1.ump':
+     [java] Transition to 's1' has multiple possible destinations. Please use dot notation to clarify what state the transition should go to
+     [java] Warning 67 on line 10 of file 'W066TransitionMultiplePossibleDestinations1.ump':
+     [java] State 's2' from StateMachine 'sm' is non-reachable.
+     [java] Warning 67 on line 10 of file 'W067NonReachableState1.ump':
+     [java] State 's3' from StateMachine 'sm' is non-reachable.
+     [java] Warning 68 on line 7 of file 'W068DestinationStateNotFound1.ump':
+     [java] Destination state 's3.s2a' of transition on line '7' has not been found. This transition is being disregarded
+     [java] Warning 67 on line 9 of file 'W068DestinationStateNotFound1.ump':
+     [java] State 's2' from StateMachine 'sm' is non-reachable.
+     [java] Warning 67 on line 7 of file 'W068DestinationStateNotFound1.ump':
+     [java] State 's2a' from StateMachine 'sm' is non-reachable.
+     [java] Warning 69 on line 11 of file 'W069AutoTransitionConflict1.ump':
+     [java] Auto-Transition to 's3' on line '11' conflicts with a previous exisiting transition. This transition is being disregarded
+     [java] Warning 67 on line 16 of file 'W069AutoTransitionConflict1.ump':
+     [java] State 's3' from StateMachine 'sm' is non-reachable.
+     [java] Warning 71 on line 4 of file 'W071DuplicateMethodDifferentType1.ump':
+     [java] A  implementation of Method 'test1' in class 'A' is already defined at line 3 of 'W071DuplicateMethodDifferentType1.ump' file, which returns a different type. New definition at line 4 of 'W071DuplicateMethodDifferentType1.ump' file is being disregarded
+     [java] Warning 72 on line 7 of file 'W072RefactoredFinalState1.ump':
+     [java] Removed do activities, exit actions, transitions, and/or nested state machines from final State 'FINAL' of StateMachine 'status'
+     [java] Warning 82 on line 13 of file 'W082ConflictingModifiers.ump':
+     [java] Found conflicting modifiers for method 'printState'. Ignoring 'private' and using 'public'
+     [java] Warning 9999 on line 3 of file 'W1002-3UnexpectedEmbeddedCode1.ump':
+     [java] Feature under development. 'strictness' found and ignored. processed as: '[strictness:modelOnly]'
+     [java] Warning 1006 on line 4 of file 'W1006StateMachineNotParsed1.ump':
+     [java] State machine syntax could not be processed. It has been considered as Extra Code
+     [java] Warning 1007 on line 3 of file 'W1007ElementNotParsed1.ump':
+     [java] Attribute or Association syntax could not be processed. It has been considered as Extra Code
+     [java] Warning 1009 on line 7 of file 'W1009GetterSetterConflict1.ump':
+     [java] Method 'getAttr' has a name conflict with automatic generated getter/setter methods for attribute 'attr' in class 'A'. Please use a different method name
+     [java] Warning 1010 on line 9 of file 'W1010ConstraintSyntaxNotProcessed1.ump':
+     [java] Constraint syntax, (a > b)) && a < c, could not be processed. It has been considered as Extra Code
+     [java] Warning 1010 on line 10 of file 'W1010ConstraintSyntaxNotProcessed1.ump':
+     [java] Constraint syntax, c < a | b > a, could not be processed. It has been considered as Extra Code
+     [java] Warning 1011 on line 12 of file 'W1011InvalidAssociationClassKey1.ump':
+     [java] AssociationClass 'Booking' missing needed 'passenger' key, provided [number, flight]
+     [java] Warning 1012 on line 4 of file 'W1012MethodNotFoundInjection1.ump':
+     [java] Method 'getAttr' cannot be found. Injection was ignored.
+     [java] Warning 1013 on line 7 of file 'W1013ParameterSpecificationInjection1.ump':
+     [java] Parameter specification does not apply to code injections with the 'generated' keyword. The injection was applied to all generated methods.
+     [java] Warning 1014 on line 9 of file 'W1014ExcludedMethodNotFoundInjection1.ump':
+     [java] Excluded method 'getAttr3' cannot be found. The exclusion was ignored.
+     [java] Warning 102 on line 7 of file 'W102EnumerationCausesMethodParameterAmbiguity1.ump':
+     [java] Assuming enumeration 'Y' on line '7' as the type of parameter 'param' for method 'showY' on line '8' instead of class 'Y'
+     [java] Warning 103 on line 7 of file 'W103EnumerationCausesEventParameterAmbiguity1.ump':
+     [java] Assuming enumeration 'Y' on line '7' as the type of parameter 'param' for event 'goToS2' in state machine 'sm' instead of class 'Y'
+     [java] Warning 106 on line 4 of file 'W106EnumerationInUnidirectionalAssociation1.ump':
+     [java] Assuming enumeration 'Y' on line '4' is used in unidirectional association on line '5' instead of class 'Y'
+     [java] Warning 106 on line 4 of file 'W106EnumerationInUnidirectionalAssociation2.ump':
+     [java] Assuming enumeration 'Y' on line '4' is used in unidirectional association on line '5' instead of class 'Y'
+     [java] Warning 141 on line 4 of file 'W141ValueTypeMismatch1.ump':
+     [java] Mismatch between type 'Date' and value '20130708'
+     [java] Warning 141 on line 5 of file 'W141ValueTypeMismatch1.ump':
+     [java] Mismatch between type 'Integer' and value 'abc'
+     [java] Warning 141 on line 6 of file 'W141ValueTypeMismatch1.ump':
+     [java] Mismatch between type 'String' and value 123
+     [java] Warning 141 on line 7 of file 'W141ValueTypeMismatch1.ump':
+     [java] Mismatch between type 'Boolean' and value 1
+     [java] Warning 141 on line 8 of file 'W141ValueTypeMismatch1.ump':
+     [java] Mismatch between type 'Time' and value '120000'
+     [java] Warning 1007 on line 8 of file 'W142TypeIsAccessSpecifierExplicit.ump':
+     [java] Attribute or Association syntax could not be processed. It has been considered as Extra Code
+     [java] Warning 1512 on line 5 of file 'W1512CodeLabelsInsideMethodAreNotUnique.ump':
+     [java] Multiple code labels having the same name should be avoided for the method 'methodToDoSomething' at line '9'. Please consider unique names for code labels.
+     [java] No classes were compiled. It is likely there was no compilable code in the source .ump file(s) including W201NotWellDefinedIdentifier.ump
+     [java] Warning 201 on line 4 of file 'W201NotWellDefinedIdentifier.ump':
+     [java] The name of trait 'color' should be started with a capital letter.
+     [java] Warning 201 on line 8 of file 'W201NotWellDefinedIdentifier.ump':
+     [java] The name of trait 'equality' should be started with a capital letter.
+     [java] Warning 218 on line 7 of file 'W218ConflictInAttributes1.ump':
+     [java] The attribute 'name' which comes from trait 'T' is also available in class 'A'.
+     [java] Warning 218 on line 10 of file 'W218ConflictInAttributes2.ump':
+     [java] The attribute 'name' which comes from trait 'T1' is also available in trait 'T'.
+     [java] Warning 228 on line 19 of file 'W228InitialStates.ump':
+     [java] Since there are two state machines/composite states with the same name 's1' and having two initial states is not acceptable. These two state machines/composite states are merged as a parallel state machine.
+     [java] Warning 301 on line 7 of file 'W301TracingEntityNotFound1.ump':
+     [java] Tracing of non-existent model entity
+     [java] Warning 302 on line 3 of file 'W302TracerNotRecognized1.ump':
+     [java] Tracer not recognized - Console tracer is defaulted
+     [java] Warning 3506 on line 6 of file 'W3506DuplicateTemplateName1.ump':
+     [java] Class 'A' has duplicate template name temp
+     [java] Warning 901 on line 3 of file 'W901DeprecatedKeywordConstant1.ump':
+     [java] Keyword 'constant' deprecated, please use 'const'
+     [java] Warning 131 on line 4 of file 'WE1xxIdentifierInvalid2.ump':
+     [java] Attribute name 'Attrib' should start with a lower-case letter
+     [java] true
+     [java] true
+     [java] No classes were compiled. It is likely there was no compilable code in the source .ump file(s) including isFeaureMixsetExample.ump
+     [java] No classes were compiled. It is likely there was no compilable code in the source .ump file(s) including traits_example_001.ump
+     [java] Number of successful compilations from umple -f option: 392
+     [echo] Last Version: 1.31.1.5860.78bb27cc6
+     [echo] Using myenv=local
+
+newUserManualAndExampleTestsPhp:
+     [echo] Building User Manual and UmpleOnline Examples for Php and checking validity of Php using -c - option.
+     [echo] Umple examples to be tested and Php Compiled are in "temp/php/allExamplesListPhp.txt"
+     [copy] Copying 1 file to /Users/abdulaziz/tmp/umple/dist/qa
+     [java] Warning 31 on line 14 of file 'BcmsBaseConfiguration.ump':
+     [java] Declared namespace bcms was not used
+     [java] Warning 31 on line 14 of file 'BcmsBaseConfiguration.ump':
+     [java] Declared namespace bcms was not used
+     [java] Warning 31 on line 14 of file 'BcmsBaseConfiguration.ump':
+     [java] Declared namespace bcms was not used
+     [java] Warning 36 on line 22 of file 'BcmsBaseConfiguration.ump':
+     [java] The specific multiplicity bounds 1 cannot be managed by generated code, since this is a directed association
+     [java] Warning 36 on line 23 of file 'BcmsBaseConfiguration.ump':
+     [java] The specific multiplicity bounds 1 cannot be managed by generated code, since this is a directed association
+     [java] Warning 31 on line 14 of file 'BcmsBaseConfiguration.ump':
+     [java] Declared namespace bcms was not used
+     [java] Warning 36 on line 18 of file 'BcmsMultipleCrisis-Multiple-Coordinator-Configuration.ump':
+     [java] The specific multiplicity bounds 1 cannot be managed by generated code, since this is a directed association
+     [java] Warning 36 on line 19 of file 'BcmsMultipleCrisis-Multiple-Coordinator-Configuration.ump':
+     [java] The specific multiplicity bounds 1 cannot be managed by generated code, since this is a directed association
+     [java] Warning 170 on line 63 of file 'HtmlGeneration.ump':
+     [java] Custom constructors should normally not be provided in Umple. Consider using before or after keywords to adjust what the constructor does, or adjusting constructor parameters using keywords like lazy.
+     [java] Warning 170 on line 77 of file 'HtmlGeneration.ump':
+     [java] Custom constructors should normally not be provided in Umple. Consider using before or after keywords to adjust what the constructor does, or adjusting constructor parameters using keywords like lazy.
+     [java] Warning 170 on line 99 of file 'HtmlGeneration.ump':
+     [java] Custom constructors should normally not be provided in Umple. Consider using before or after keywords to adjust what the constructor does, or adjusting constructor parameters using keywords like lazy.
+     [java] Warning 30 on line 23 of file 'NamespaceDirectives2.ump':
+     [java] Ignored attempt to redefine the namespace of class C to p. Use --redefine to force this
+     [java] Warning 31 on line 22 of file 'NamespaceDirectives2.ump':
+     [java] Declared namespace p was not used
+     [java] Warning 36 on line 13 of file 'RE001ImmutabilityException1.ump':
+     [java] The specific multiplicity bounds 1 cannot be managed by generated code, since this is a directed association
+     [java] Warning 31 on line 21 of file 'School.ump':
+     [java] Declared namespace education was not used
+     [java] Warning 31 on line 28 of file 'School.ump':
+     [java] Declared namespace human was not used
+     [java] Warning 9999 on line 15 of file 'StrictnessDirective1.ump':
+     [java] Feature under development. 'strictness' found and ignored. processed as: '[strictness:modelOnly]'
+     [java] Warning 9999 on line 21 of file 'StrictnessDirective1.ump':
+     [java] Feature under development. 'strictness' found and ignored. processed as: '[strictness:noExtraCode]'
+     [java] Warning 1012 on line 1 of file 'ToplevelAspect2.ump':
+     [java] Method 'testFunction' cannot be found. Injection was ignored.
+     [java] Warning 1012 on line 1 of file 'ToplevelAspect2.ump':
+     [java] Method 'testFunction' cannot be found. Injection was ignored.
+     [java] Warning 1 on line 4 of file 'W001SingletonWithNon-LazyAttribute1.ump':
+     [java] Lazy keyword is needed on singleton class attribute 'x' as the attribute cannot added at construction time
+     [java] Warning 2 on line 4 of file 'W002SingletonWithRequiredObject1.ump':
+     [java] Association is referencing a singleton class with multiplicity 1 'X__Y'
+     [java] Warning 3 on line 3 of file 'W003RedundantLazyWithInitialization1.ump':
+     [java] The lazy keyword is redundant when the attribute is being initialized - in class 'X3lazy'
+     [java] Warning 7 on line 6 of file 'W007KeyAlreadySpecified1.ump':
+     [java] Key already specified in class 'X'
+     [java] Warning 10 on line 7 of file 'W010SingletonMultiplicityOver11.ump':
+     [java] Singleton class 'X' cannot have multiplicity greater than 1
+     [java] Warning 15 on line 8 of file 'W015ImmutableClassStateMachine1.ump':
+     [java] Immutable class 'X' may not contain state machines
+     [java] Warning 27 on line 4 of file 'W027KeyIdentifierIncorrect1.ump':
+     [java] Item 'b' in key statement is not defined in class 'X27itemkeynotdef'
+     [java] Warning 30 on line 11 of file 'W030RedefinedNamespace1.ump':
+     [java] Ignored attempt to redefine the namespace of class X30redefnamespace to b. Use --redefine to force this
+     [java] Warning 31 on line 9 of file 'W030RedefinedNamespace1.ump':
+     [java] Declared namespace b was not used
+     [java] Warning 31 on line 3 of file 'W031NamespaceNotUsed1.ump':
+     [java] Declared namespace n was not used
+     [java] Warning 33 on line 4 of file 'W033MissingSuperclass1.ump':
+     [java] The indicated superclass T of class S does not exist and has been ignored. Declare T to be external if it is defined outside this Umple system
+     [java] Warning 35 on line 4 of file 'W035UninitializedConstant1.ump':
+     [java] 'const' variable 'A' of type 'String' was not initialized and its value was thus set to 'empty String ('')'
+     [java] Warning 36 on line 4 of file 'W036UnmanagedMultiplicity1.ump':
+     [java] The specific multiplicity bounds 1 cannot be managed by generated code, since this is a directed association
+     [java] Warning 36 on line 5 of file 'W036UnmanagedMultiplicity1.ump':
+     [java] The specific multiplicity bounds [1, 3] cannot be managed by generated code, since this is a directed association
+     [java] Warning 36 on line 6 of file 'W036UnmanagedMultiplicity1.ump':
+     [java] The specific multiplicity bounds [0, 2] cannot be managed by generated code, since this is a directed association
+     [java] Warning 39 on line 4 of file 'W039MissingInterface1.ump':
+     [java] The interface A extends  an interface B that does not exist and has been ignored. Declare B to be external if it is defined outside this Umple system
+     [java] Warning 42 on line 30 of file 'W042NamespaceCannotBeDefault.ump':
+     [java] Class or interface J must not be in default namespace. Its namespace has been changed to n
+     [java] Warning 42 on line 29 of file 'W042NamespaceCannotBeDefault.ump':
+     [java] Class or interface F must not be in default namespace. Its namespace has been changed to n
+     [java] Warning 42 on line 17 of file 'W042NamespaceCannotBeDefault.ump':
+     [java] Class or interface C must not be in default namespace. Its namespace has been changed to m
+     [java] Warning 42 on line 28 of file 'W042NamespaceCannotBeDefault.ump':
+     [java] Class or interface E must not be in default namespace. Its namespace has been changed to n
+     [java] Warning 42 on line 16 of file 'W042NamespaceCannotBeDefault.ump':
+     [java] Class or interface B must not be in default namespace. Its namespace has been changed to m
+     [java] Warning 42 on line 15 of file 'W042NamespaceCannotBeDefault.ump':
+     [java] Class or interface A must not be in default namespace. Its namespace has been changed to m
+     [java] Warning 44 on line 8 of file 'W044AttributeDuplicatedinSuperclass1.ump':
+     [java] Class 'B' has attribute name attr that duplicates an attribute inherited from a superclass 'A'. New definition is being disregarded
+     [java] Warning 45 on line 4 of file 'W045InitializedValueinKey1.ump':
+     [java] Attribute 'z' in class 'X' is in the key. Initializing it will result in all instances having this same value and being treated as equal
+     [java] Warning 46 on line 5 of file 'W046AttributeHasTemplateType1.ump':
+     [java] Attribute otherClassGroup in class A is declared using a collection template type List<OtherClassA>. Use a directed association (->) or multi-valued attribute([]) to follow proper modelling conventions
+     [java] Warning 47 on line 4 of file 'W047EmptyKeyStatement1.ump':
+     [java] Empty key statement in class A
+     [java] Warning 49 on line 4 of file 'W049DuplicatedMethodName1.ump':
+     [java] A  implementation of Method 'test1' in class 'A' is already defined at line 3 of 'W049DuplicatedMethodName1.ump' file. New definition at line 4 of 'W049DuplicatedMethodName1.ump' file is being disregarded
+     [java] Warning 50 on line 5 of file 'W050TargetStateNotFound1.ump':
+     [java] State 's2' has not been declared, it is being treated as an new state
+     [java] Warning 54 on line 6 of file 'W054DuplicateEvents1.ump':
+     [java] Transition e will be ignored due to an unguarded duplicate event
+     [java] Warning 67 on line 9 of file 'W054DuplicateEvents1.ump':
+     [java] State 's3' from StateMachine 'sm' is non-reachable.
+     [java] Warning 55 on line 7 of file 'W055DuplicateEventsWithinSubstates1.ump':
+     [java] Transition e in super-state will be ignored due to unguarded duplicate events in all sub-states
+     [java] Warning 67 on line 11 of file 'W055DuplicateEventsWithinSubstates1.ump':
+     [java] State 's3' from StateMachine 'sm' is non-reachable.
+     [java] Warning 56 on line 5 of file 'W056NoEventsQueuedStateMachine1.ump':
+     [java] Queued State machine sm has no events to be queued
+     [java] Warning 57 on line 5 of file 'W057NoEventsPooledStateMachine1.ump':
+     [java] Pooled State machine sm has no events to be pooled
+     [java] Warning 62 on line 7 of file 'W062UnspecifiedEventPooledStateMachine1.ump':
+     [java] (unspecified) must not be used in combination with Pooled State machine sm - it is treated such as other regular events - it is pooled
+     [java] Warning 66 on line 7 of file 'W066TransitionMultiplePossibleDestinations1.ump':
+     [java] Transition to 's1' has multiple possible destinations. Please use dot notation to clarify what state the transition should go to
+     [java] Warning 67 on line 10 of file 'W066TransitionMultiplePossibleDestinations1.ump':
+     [java] State 's2' from StateMachine 'sm' is non-reachable.
+     [java] Warning 67 on line 10 of file 'W067NonReachableState1.ump':
+     [java] State 's3' from StateMachine 'sm' is non-reachable.
+     [java] Warning 68 on line 7 of file 'W068DestinationStateNotFound1.ump':
+     [java] Destination state 's3.s2a' of transition on line '7' has not been found. This transition is being disregarded
+     [java] Warning 67 on line 9 of file 'W068DestinationStateNotFound1.ump':
+     [java] State 's2' from StateMachine 'sm' is non-reachable.
+     [java] Warning 67 on line 7 of file 'W068DestinationStateNotFound1.ump':
+     [java] State 's2a' from StateMachine 'sm' is non-reachable.
+     [java] Warning 69 on line 11 of file 'W069AutoTransitionConflict1.ump':
+     [java] Auto-Transition to 's3' on line '11' conflicts with a previous exisiting transition. This transition is being disregarded
+     [java] Warning 67 on line 16 of file 'W069AutoTransitionConflict1.ump':
+     [java] State 's3' from StateMachine 'sm' is non-reachable.
+     [java] Warning 71 on line 4 of file 'W071DuplicateMethodDifferentType1.ump':
+     [java] A  implementation of Method 'test1' in class 'A' is already defined at line 3 of 'W071DuplicateMethodDifferentType1.ump' file, which returns a different type. New definition at line 4 of 'W071DuplicateMethodDifferentType1.ump' file is being disregarded
+     [java] Warning 72 on line 7 of file 'W072RefactoredFinalState1.ump':
+     [java] Removed do activities, exit actions, transitions, and/or nested state machines from final State 'FINAL' of StateMachine 'status'
+     [java] Warning 82 on line 13 of file 'W082ConflictingModifiers.ump':
+     [java] Found conflicting modifiers for method 'printState'. Ignoring 'private' and using 'public'
+     [java] Warning 9999 on line 3 of file 'W1002-3UnexpectedEmbeddedCode1.ump':
+     [java] Feature under development. 'strictness' found and ignored. processed as: '[strictness:modelOnly]'
+     [java] Warning 1006 on line 4 of file 'W1006StateMachineNotParsed1.ump':
+     [java] State machine syntax could not be processed. It has been considered as Extra Code
+     [java] Warning 1007 on line 3 of file 'W1007ElementNotParsed1.ump':
+     [java] Attribute or Association syntax could not be processed. It has been considered as Extra Code
+     [java] Warning 1009 on line 7 of file 'W1009GetterSetterConflict1.ump':
+     [java] Method 'getAttr' has a name conflict with automatic generated getter/setter methods for attribute 'attr' in class 'A'. Please use a different method name
+     [java] Warning 1010 on line 9 of file 'W1010ConstraintSyntaxNotProcessed1.ump':
+     [java] Constraint syntax, (a > b)) && a < c, could not be processed. It has been considered as Extra Code
+     [java] Warning 1010 on line 10 of file 'W1010ConstraintSyntaxNotProcessed1.ump':
+     [java] Constraint syntax, c < a | b > a, could not be processed. It has been considered as Extra Code
+     [java] Warning 1011 on line 12 of file 'W1011InvalidAssociationClassKey1.ump':
+     [java] AssociationClass 'Booking' missing needed 'passenger' key, provided [number, flight]
+     [java] Warning 1012 on line 4 of file 'W1012MethodNotFoundInjection1.ump':
+     [java] Method 'getAttr' cannot be found. Injection was ignored.
+     [java] Warning 1013 on line 7 of file 'W1013ParameterSpecificationInjection1.ump':
+     [java] Parameter specification does not apply to code injections with the 'generated' keyword. The injection was applied to all generated methods.
+     [java] Warning 1014 on line 9 of file 'W1014ExcludedMethodNotFoundInjection1.ump':
+     [java] Excluded method 'getAttr3' cannot be found. The exclusion was ignored.
+     [java] Warning 102 on line 7 of file 'W102EnumerationCausesMethodParameterAmbiguity1.ump':
+     [java] Assuming enumeration 'Y' on line '7' as the type of parameter 'param' for method 'showY' on line '8' instead of class 'Y'
+     [java] Warning 103 on line 7 of file 'W103EnumerationCausesEventParameterAmbiguity1.ump':
+     [java] Assuming enumeration 'Y' on line '7' as the type of parameter 'param' for event 'goToS2' in state machine 'sm' instead of class 'Y'
+     [java] Warning 106 on line 4 of file 'W106EnumerationInUnidirectionalAssociation1.ump':
+     [java] Assuming enumeration 'Y' on line '4' is used in unidirectional association on line '5' instead of class 'Y'
+     [java] Warning 106 on line 4 of file 'W106EnumerationInUnidirectionalAssociation2.ump':
+     [java] Assuming enumeration 'Y' on line '4' is used in unidirectional association on line '5' instead of class 'Y'
+     [java] Warning 141 on line 4 of file 'W141ValueTypeMismatch1.ump':
+     [java] Mismatch between type 'Date' and value '20130708'
+     [java] Warning 141 on line 5 of file 'W141ValueTypeMismatch1.ump':
+     [java] Mismatch between type 'Integer' and value 'abc'
+     [java] Warning 141 on line 6 of file 'W141ValueTypeMismatch1.ump':
+     [java] Mismatch between type 'String' and value 123
+     [java] Warning 141 on line 7 of file 'W141ValueTypeMismatch1.ump':
+     [java] Mismatch between type 'Boolean' and value 1
+     [java] Warning 141 on line 8 of file 'W141ValueTypeMismatch1.ump':
+     [java] Mismatch between type 'Time' and value '120000'
+     [java] Warning 1007 on line 8 of file 'W142TypeIsAccessSpecifierExplicit.ump':
+     [java] Attribute or Association syntax could not be processed. It has been considered as Extra Code
+     [java] Warning 1512 on line 5 of file 'W1512CodeLabelsInsideMethodAreNotUnique.ump':
+     [java] Multiple code labels having the same name should be avoided for the method 'methodToDoSomething' at line '9'. Please consider unique names for code labels.
+     [java] Warning 201 on line 4 of file 'W201NotWellDefinedIdentifier.ump':
+     [java] The name of trait 'color' should be started with a capital letter.
+     [java] Warning 201 on line 8 of file 'W201NotWellDefinedIdentifier.ump':
+     [java] The name of trait 'equality' should be started with a capital letter.
+     [java] Warning 218 on line 7 of file 'W218ConflictInAttributes1.ump':
+     [java] The attribute 'name' which comes from trait 'T' is also available in class 'A'.
+     [java] Warning 218 on line 10 of file 'W218ConflictInAttributes2.ump':
+     [java] The attribute 'name' which comes from trait 'T1' is also available in trait 'T'.
+     [java] Warning 228 on line 19 of file 'W228InitialStates.ump':
+     [java] Since there are two state machines/composite states with the same name 's1' and having two initial states is not acceptable. These two state machines/composite states are merged as a parallel state machine.
+     [java] Warning 301 on line 7 of file 'W301TracingEntityNotFound1.ump':
+     [java] Tracing of non-existent model entity
+     [java] Warning 302 on line 3 of file 'W302TracerNotRecognized1.ump':
+     [java] Tracer not recognized - Console tracer is defaulted
+     [java] Warning 3506 on line 6 of file 'W3506DuplicateTemplateName1.ump':
+     [java] Class 'A' has duplicate template name temp
+     [java] Warning 901 on line 3 of file 'W901DeprecatedKeywordConstant1.ump':
+     [java] Keyword 'constant' deprecated, please use 'const'
+     [java] Warning 131 on line 4 of file 'WE1xxIdentifierInvalid2.ump':
+     [java] Attribute name 'Attrib' should start with a lower-case letter
+     [java] true
+     [java] true
+     [java] Number of successful compilations from umple -f option: 388
+     [echo] Last Version: 1.31.1.5860.78bb27cc6
+     [echo] Using myenv=local
+
+finishLog:
+     [echo] Last Version: 1.31.1.5860.78bb27cc6
+     [echo] Using myenv=local
+
+deleteTempFolders:
+   [delete] Deleting directory /Users/abdulaziz/tmp/umple/temp
+     [echo] See build/UserManualAndExampleTests_output.txt for build results

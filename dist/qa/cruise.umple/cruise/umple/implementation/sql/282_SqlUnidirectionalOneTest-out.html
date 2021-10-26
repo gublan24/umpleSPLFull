@@ -1,0 +1,53 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from SqlUnidirectionalOneTest</title>
+    </head>
+    <body>
+        <pre>-- PLEASE DO NOT EDIT THIS CODE
+-- This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+
+CREATE DATABASE IF NOT EXISTS `example`;
+USE `example`;
+
+CREATE TABLE IF NOT EXISTS `example`.`mentor`
+(
+  /*------------------------*/
+  /* MEMBER VARIABLES       */
+  /*------------------------*/
+
+  /*mentor Associations*/
+  student_number VARCHAR(255),
+  
+  /*mentor Attributes*/
+  name VARCHAR(255),
+  PRIMARY KEY(name)
+
+);
+
+
+ALTER TABLE `example`.`mentor` ADD CONSTRAINT `fk_mentor_student_number` FOREIGN KEY (`student_number`) REFERENCES `example`.`student`(`number`);
+
+-- PLEASE DO NOT EDIT THIS CODE
+-- This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+
+CREATE DATABASE IF NOT EXISTS `example`;
+USE `example`;
+
+CREATE TABLE IF NOT EXISTS `example`.`student`
+(
+  /*------------------------*/
+  /* MEMBER VARIABLES       */
+  /*------------------------*/
+  
+  /*student Attributes*/
+  number VARCHAR(255),
+  PRIMARY KEY(number)
+
+);
+
+
+
+</pre>
+    </body>
+</html>

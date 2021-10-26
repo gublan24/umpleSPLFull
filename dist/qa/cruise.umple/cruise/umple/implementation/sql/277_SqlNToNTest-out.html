@@ -1,0 +1,67 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from SqlNToNTest</title>
+    </head>
+    <body>
+        <pre>-- PLEASE DO NOT EDIT THIS CODE
+-- This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+
+CREATE DATABASE IF NOT EXISTS `example`;
+USE `example`;
+
+CREATE TABLE IF NOT EXISTS `example`.`mentor`
+(
+  /*------------------------*/
+  /* MEMBER VARIABLES       */
+  /*------------------------*/
+
+  /*mentor Associations*/
+  student_number_1 VARCHAR(255),
+  student_number_2 VARCHAR(255),
+  student_number_3 VARCHAR(255),
+  student_number_4 VARCHAR(255),
+  
+  /*mentor Attributes*/
+  name VARCHAR(255),
+  PRIMARY KEY(name)
+
+);
+
+
+ALTER TABLE `example`.`mentor` ADD CONSTRAINT `fk_mentor_student_number_1` FOREIGN KEY (`student_number_1`) REFERENCES `example`.`student`(`number`);
+ALTER TABLE `example`.`mentor` ADD CONSTRAINT `fk_mentor_student_number_2` FOREIGN KEY (`student_number_2`) REFERENCES `example`.`student`(`number`);
+ALTER TABLE `example`.`mentor` ADD CONSTRAINT `fk_mentor_student_number_3` FOREIGN KEY (`student_number_3`) REFERENCES `example`.`student`(`number`);
+ALTER TABLE `example`.`mentor` ADD CONSTRAINT `fk_mentor_student_number_4` FOREIGN KEY (`student_number_4`) REFERENCES `example`.`student`(`number`);
+
+-- PLEASE DO NOT EDIT THIS CODE
+-- This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+
+CREATE DATABASE IF NOT EXISTS `example`;
+USE `example`;
+
+CREATE TABLE IF NOT EXISTS `example`.`student`
+(
+  /*------------------------*/
+  /* MEMBER VARIABLES       */
+  /*------------------------*/
+
+  /*student Associations*/
+  mentor_name_1 VARCHAR(255),
+  mentor_name_2 VARCHAR(255),
+  mentor_name_3 VARCHAR(255),
+  
+  /*student Attributes*/
+  number VARCHAR(255),
+  PRIMARY KEY(number)
+
+);
+
+
+ALTER TABLE `example`.`student` ADD CONSTRAINT `fk_student_mentor_name_1` FOREIGN KEY (`mentor_name_1`) REFERENCES `example`.`mentor`(`name`);
+ALTER TABLE `example`.`student` ADD CONSTRAINT `fk_student_mentor_name_2` FOREIGN KEY (`mentor_name_2`) REFERENCES `example`.`mentor`(`name`);
+ALTER TABLE `example`.`student` ADD CONSTRAINT `fk_student_mentor_name_3` FOREIGN KEY (`mentor_name_3`) REFERENCES `example`.`mentor`(`name`);
+
+</pre>
+    </body>
+</html>

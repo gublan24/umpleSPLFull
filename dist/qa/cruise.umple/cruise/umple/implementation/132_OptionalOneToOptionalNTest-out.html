@@ -1,0 +1,278 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from OptionalOneToOptionalNTest</title>
+    </head>
+    <body>
+        <pre>/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 9 "../OptionalOneToOptionalNTest.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private String number;
+
+  //Student Associations
+  private Mentor mentor;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student(String aNumber)
+  {
+    number = aNumber;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setNumber(String aNumber)
+  {
+    boolean wasSet = false;
+    number = aNumber;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getNumber()
+  {
+    return number;
+  }
+  /* Code from template association_GetOne */
+  public Mentor getMentor()
+  {
+    return mentor;
+  }
+
+  public boolean hasMentor()
+  {
+    boolean has = mentor != null;
+    return has;
+  }
+  /* Code from template association_SetOptionalOneToOptionalN */
+  public boolean setMentor(Mentor aMentor)
+  {
+    boolean wasSet = false;
+    if (aMentor != null &amp;&amp; aMentor.numberOfStudents() &gt;= Mentor.maximumNumberOfStudents())
+    {
+      return wasSet;
+    }
+
+    Mentor existingMentor = mentor;
+    mentor = aMentor;
+    if (existingMentor != null &amp;&amp; !existingMentor.equals(aMentor))
+    {
+      existingMentor.removeStudent(this);
+    }
+    if (aMentor != null)
+    {
+      aMentor.addStudent(this);
+    }
+    wasSet = true;
+    return wasSet;
+  }
+
+  public void delete()
+  {
+    if (mentor != null)
+    {
+      Mentor placeholderMentor = mentor;
+      this.mentor = null;
+      placeholderMentor.removeStudent(this);
+    }
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "number" + ":" + getNumber()+ "]" + System.getProperties().getProperty("line.separator") +
+            "  " + "mentor = "+(getMentor()!=null?Integer.toHexString(System.identityHashCode(getMentor())):"null");
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+import java.util.*;
+
+// line 3 "../OptionalOneToOptionalNTest.ump"
+public class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private String name;
+
+  //Mentor Associations
+  private List&lt;Student&gt; students;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Mentor(String aName)
+  {
+    name = aName;
+    students = new ArrayList&lt;Student&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setName(String aName)
+  {
+    boolean wasSet = false;
+    name = aName;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getName()
+  {
+    return name;
+  }
+  /* Code from template association_GetMany */
+  public Student getStudent(int index)
+  {
+    Student aStudent = students.get(index);
+    return aStudent;
+  }
+
+  public List&lt;Student&gt; getStudents()
+  {
+    List&lt;Student&gt; newStudents = Collections.unmodifiableList(students);
+    return newStudents;
+  }
+
+  public int numberOfStudents()
+  {
+    int number = students.size();
+    return number;
+  }
+
+  public boolean hasStudents()
+  {
+    boolean has = students.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfStudent(Student aStudent)
+  {
+    int index = students.indexOf(aStudent);
+    return index;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfStudents()
+  {
+    return 0;
+  }
+  /* Code from template association_MaximumNumberOfMethod */
+  public static int maximumNumberOfStudents()
+  {
+    return 5;
+  }
+  /* Code from template association_AddOptionalNToOptionalOne */
+  public boolean addStudent(Student aStudent)
+  {
+    boolean wasAdded = false;
+    if (students.contains(aStudent)) { return false; }
+    if (numberOfStudents() &gt;= maximumNumberOfStudents())
+    {
+      return wasAdded;
+    }
+
+    Mentor existingMentor = aStudent.getMentor();
+    if (existingMentor == null)
+    {
+      aStudent.setMentor(this);
+    }
+    else if (!this.equals(existingMentor))
+    {
+      existingMentor.removeStudent(aStudent);
+      addStudent(aStudent);
+    }
+    else
+    {
+      students.add(aStudent);
+    }
+    wasAdded = true;
+    return wasAdded;
+  }
+
+  public boolean removeStudent(Student aStudent)
+  {
+    boolean wasRemoved = false;
+    if (students.contains(aStudent))
+    {
+      students.remove(aStudent);
+      aStudent.setMentor(null);
+      wasRemoved = true;
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addStudentAt(Student aStudent, int index)
+  {  
+    boolean wasAdded = false;
+    if(addStudent(aStudent))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfStudents()) { index = numberOfStudents() - 1; }
+      students.remove(aStudent);
+      students.add(index, aStudent);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveStudentAt(Student aStudent, int index)
+  {
+    boolean wasAdded = false;
+    if(students.contains(aStudent))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfStudents()) { index = numberOfStudents() - 1; }
+      students.remove(aStudent);
+      students.add(index, aStudent);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addStudentAt(aStudent, index);
+    }
+    return wasAdded;
+  }
+
+  public void delete()
+  {
+    while( !students.isEmpty() )
+    {
+      students.get(0).setMentor(null);
+    }
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "name" + ":" + getName()+ "]";
+  }
+}
+</pre>
+    </body>
+</html>

@@ -1,0 +1,92 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from AssociationImportTest</title>
+    </head>
+    <body>
+        <pre>/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example.student;
+
+// line 5 "../../AssociationImportTest.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example.mentor;
+import example.student.*;
+
+// line 10 "../../AssociationImportTest.ump"
+public class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Associations
+  private Student student;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Mentor(Student aStudent)
+  {
+    if (!setStudent(aStudent))
+    {
+      throw new RuntimeException("Unable to create Mentor due to aStudent. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+  /* Code from template association_GetOne */
+  public Student getStudent()
+  {
+    return student;
+  }
+  /* Code from template association_SetUnidirectionalOne */
+  public boolean setStudent(Student aNewStudent)
+  {
+    boolean wasSet = false;
+    if (aNewStudent != null)
+    {
+      student = aNewStudent;
+      wasSet = true;
+    }
+    return wasSet;
+  }
+
+  public void delete()
+  {
+    student = null;
+  }
+
+}
+</pre>
+    </body>
+</html>

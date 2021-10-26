@@ -1,0 +1,3335 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from ClassTemplateTest</title>
+    </head>
+    <body>
+        <pre>/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+  // line 3 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+  public String foo(int a){
+    // line 22 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+    System.out.println("Starting foo...");
+    // END OF UMPLE BEFORE INJECTION
+    if(a &lt; 0) {      
+      // line 18 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+      System.out.println("Returning from foo, a: " + a);
+      // END OF UMPLE AFTER INJECTION
+      return 4;
+    }    
+    // line 18 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+    System.out.println("Returning from foo, a: " + a);
+    // END OF UMPLE AFTER INJECTION
+    return 3;
+
+  }
+
+  // line 11 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+  public String foo(int a, String b){
+    // line 22 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+    System.out.println("Starting foo...");
+    // END OF UMPLE BEFORE INJECTION
+    if(a &gt; 0 &amp;&amp; "".equals(b)) {      
+      // line 18 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+      System.out.println("Returning from foo, a: " + a);
+      // END OF UMPLE AFTER INJECTION
+      return 3;
+    }    
+    // line 18 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+    System.out.println("Returning from foo, a: " + a);
+    // END OF UMPLE AFTER INJECTION
+    return 1;
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+import java.sql.Date;
+import java.sql.Time;
+import java.util.*;
+
+// line 4 "../ClassTemplateTest_Attributes.ump"
+public class Mentor
+{
+
+  //------------------------
+  // STATIC VARIABLES
+  //------------------------
+
+  public static final int MAX = 100;
+  public static final int MIN = -99;
+  public static final String HELLO = "Hello";
+  private static int nextX = 1;
+  private static Map&lt;String, Mentor&gt; mentorsById = new HashMap&lt;String, Mentor&gt;();
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private String str;
+  private String str2;
+  private String someName;
+  private double lDoub;
+  private boolean lBool;
+  private String name;
+  private Date d;
+  private Time t;
+  private int i;
+  private String id;
+  private String p;
+  private String q;
+  private String r;
+  private String s;
+  private Date tt;
+  private Time u;
+  private Date v;
+  private Time w;
+
+  //Autounique Attributes
+  private int x;
+
+  //Helper Variables
+  private boolean canSetStr2;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Mentor(String aStr, Date aD, int aI, String aId)
+  {
+    str = aStr;
+    canSetStr2 = true;
+    someName = null;
+    lDoub = 0;
+    lBool = false;
+    name = "Johannes";
+    d = aD;
+    t = new Time();
+    i = aI;
+    resetP();
+    q = "chicken";
+    resetR();
+    s = "123";
+    tt = Date.valueOf("1978-12-25");
+    u = Time.valueOf("12:13:14");
+    resetV();
+    resetW();
+    x = nextX++;
+    if (!setId(aId))
+    {
+      throw new RuntimeException("Cannot create due to duplicate id. See http://manual.umple.org?RE003ViolationofUniqueness.html");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+  /* Code from template attribute_SetImmutable */
+  public boolean setStr2(String aStr2)
+  {
+    boolean wasSet = false;
+    if (!canSetStr2) { return false; }
+    canSetStr2 = false;
+    str2 = aStr2;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setSomeName(String aSomeName)
+  {
+    boolean wasSet = false;
+    someName = aSomeName;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setLDoub(double aLDoub)
+  {
+    boolean wasSet = false;
+    lDoub = aLDoub;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setLBool(boolean aLBool)
+  {
+    boolean wasSet = false;
+    lBool = aLBool;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setName(String aName)
+  {
+    boolean wasSet = false;
+    name = aName;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setD(Date aD)
+  {
+    boolean wasSet = false;
+    d = aD;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setI(int aI)
+  {
+    boolean wasSet = false;
+    i = aI;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setId(String aId)
+  {
+    boolean wasSet = false;
+    String anOldId = getId();
+    if (anOldId != null &amp;&amp; anOldId.equals(aId)) {
+      return true;
+    }
+    if (hasWithId(aId)) {
+      return wasSet;
+    }
+    id = aId;
+    wasSet = true;
+    if (anOldId != null) {
+      mentorsById.remove(anOldId);
+    }
+    mentorsById.put(aId, this);
+    return wasSet;
+  }
+  /* Code from template attribute_SetDefaulted */
+  public boolean setP(String aP)
+  {
+    boolean wasSet = false;
+    p = aP;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean resetP()
+  {
+    boolean wasReset = false;
+    p = getDefaultP();
+    wasReset = true;
+    return wasReset;
+  }
+
+  public boolean setQ(String aQ)
+  {
+    boolean wasSet = false;
+    q = aQ;
+    wasSet = true;
+    return wasSet;
+  }
+  /* Code from template attribute_SetDefaulted */
+  public boolean setR(String aR)
+  {
+    boolean wasSet = false;
+    r = aR;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean resetR()
+  {
+    boolean wasReset = false;
+    r = getDefaultR();
+    wasReset = true;
+    return wasReset;
+  }
+
+  public boolean setTt(Date aTt)
+  {
+    boolean wasSet = false;
+    tt = aTt;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setU(Time aU)
+  {
+    boolean wasSet = false;
+    u = aU;
+    wasSet = true;
+    return wasSet;
+  }
+  /* Code from template attribute_SetDefaulted */
+  public boolean setV(Date aV)
+  {
+    boolean wasSet = false;
+    v = aV;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean resetV()
+  {
+    boolean wasReset = false;
+    v = getDefaultV();
+    wasReset = true;
+    return wasReset;
+  }
+  /* Code from template attribute_SetDefaulted */
+  public boolean setW(Time aW)
+  {
+    boolean wasSet = false;
+    w = aW;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean resetW()
+  {
+    boolean wasReset = false;
+    w = getDefaultW();
+    wasReset = true;
+    return wasReset;
+  }
+
+  public String getStr()
+  {
+    return str;
+  }
+
+  public String getStr2()
+  {
+    return str2;
+  }
+
+  public String getSomeName()
+  {
+    return someName;
+  }
+
+  public double getLDoub()
+  {
+    return lDoub;
+  }
+
+  public boolean getLBool()
+  {
+    return lBool;
+  }
+
+  public String getName()
+  {
+    return name;
+  }
+
+  public Date getD()
+  {
+    return d;
+  }
+
+  public int getI()
+  {
+    return i;
+  }
+
+  public int getDerivedTwiceI()
+  {
+    return i*2;
+  }
+
+  public String getId()
+  {
+    return id;
+  }
+  /* Code from template attribute_GetUnique */
+  public static Mentor getWithId(String aId)
+  {
+    return mentorsById.get(aId);
+  }
+  /* Code from template attribute_HasUnique */
+  public static boolean hasWithId(String aId)
+  {
+    return getWithId(aId) != null;
+  }
+
+  public String getP()
+  {
+    return p;
+  }
+  /* Code from template attribute_GetDefaulted */
+  public String getDefaultP()
+  {
+    return "robot";
+  }
+
+  public String getQ()
+  {
+    return q;
+  }
+
+  public String getR()
+  {
+    return r;
+  }
+  /* Code from template attribute_GetDefaulted */
+  public String getDefaultR()
+  {
+    return "";
+  }
+
+  public String getS()
+  {
+    return s;
+  }
+
+  public Date getTt()
+  {
+    return tt;
+  }
+
+  public Time getU()
+  {
+    return u;
+  }
+
+  public Date getV()
+  {
+    return v;
+  }
+  /* Code from template attribute_GetDefaulted */
+  public Date getDefaultV()
+  {
+    return Date.valueOf("1978-12-26");
+  }
+
+  public Time getW()
+  {
+    return w;
+  }
+  /* Code from template attribute_GetDefaulted */
+  public Time getDefaultW()
+  {
+    return Time.valueOf("12:59:59");
+  }
+
+  public int getX()
+  {
+    return x;
+  }
+  /* Code from template attribute_IsBoolean */
+  public boolean isLBool()
+  {
+    return lBool;
+  }
+
+  public void delete()
+  {
+    mentorsById.remove(getId());
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "x" + ":" + getX()+ "," +
+            "str" + ":" + getStr()+ "," +
+            "str2" + ":" + getStr2()+ "," +
+            "someName" + ":" + getSomeName()+ "," +
+            "lDoub" + ":" + getLDoub()+ "," +
+            "lBool" + ":" + getLBool()+ "," +
+            "name" + ":" + getName()+ "," +
+            "i" + ":" + getI()+ "," +
+            "derivedTwiceI" + ":" + getDerivedTwiceI()+ "," +
+            "id" + ":" + getId()+ "," +
+            "p" + ":" + getP()+ "," +
+            "q" + ":" + getQ()+ "," +
+            "r" + ":" + getR()+ "," +
+            "s" + ":" + getS()+ "]" + System.getProperties().getProperty("line.separator") +
+            "  " + "d" + "=" + (getD() != null ? !getD().equals(this)  ? getD().toString().replaceAll("  ","    ") : "this" : "null") + System.getProperties().getProperty("line.separator") +
+            "  " + "tt" + "=" + (getTt() != null ? !getTt().equals(this)  ? getTt().toString().replaceAll("  ","    ") : "this" : "null") + System.getProperties().getProperty("line.separator") +
+            "  " + "u" + "=" + (getU() != null ? !getU().equals(this)  ? getU().toString().replaceAll("  ","    ") : "this" : "null") + System.getProperties().getProperty("line.separator") +
+            "  " + "v" + "=" + (getV() != null ? !getV().equals(this)  ? getV().toString().replaceAll("  ","    ") : "this" : "null") + System.getProperties().getProperty("line.separator") +
+            "  " + "w" + "=" + (getW() != null ? !getW().equals(this)  ? getW().toString().replaceAll("  ","    ") : "this" : "null");
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+import java.util.*;
+
+// line 1 "ClassTemplateTest_AbstractClassAvoidingInstantiation.ump"
+public class Teacher
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Teacher Associations
+  private List&lt;Person&gt; myStudents;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Teacher()
+  {
+    myStudents = new ArrayList&lt;Person&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+  /* Code from template association_GetMany */
+  public Person getMyStudent(int index)
+  {
+    Person aMyStudent = myStudents.get(index);
+    return aMyStudent;
+  }
+
+  public List&lt;Person&gt; getMyStudents()
+  {
+    List&lt;Person&gt; newMyStudents = Collections.unmodifiableList(myStudents);
+    return newMyStudents;
+  }
+
+  public int numberOfMyStudents()
+  {
+    int number = myStudents.size();
+    return number;
+  }
+
+  public boolean hasMyStudents()
+  {
+    boolean has = myStudents.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfMyStudent(Person aMyStudent)
+  {
+    int index = myStudents.indexOf(aMyStudent);
+    return index;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfMyStudents()
+  {
+    return 0;
+  }
+  /* Code from template association_AddManyToOne */
+
+
+  public boolean addMyStudent(Person aMyStudent)
+  {
+    boolean wasAdded = false;
+    if (myStudents.contains(aMyStudent)) { return false; }
+    Teacher existingTeacher = aMyStudent.getTeacher();
+    boolean isNewTeacher = existingTeacher != null &amp;&amp; !this.equals(existingTeacher);
+    if (isNewTeacher)
+    {
+      aMyStudent.setTeacher(this);
+    }
+    else
+    {
+      myStudents.add(aMyStudent);
+    }
+    wasAdded = true;
+    return wasAdded;
+  }
+
+  public boolean removeMyStudent(Person aMyStudent)
+  {
+    boolean wasRemoved = false;
+    //Unable to remove aMyStudent, as it must always have a teacher
+    if (!this.equals(aMyStudent.getTeacher()))
+    {
+      myStudents.remove(aMyStudent);
+      wasRemoved = true;
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addMyStudentAt(Person aMyStudent, int index)
+  {  
+    boolean wasAdded = false;
+    if(addMyStudent(aMyStudent))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfMyStudents()) { index = numberOfMyStudents() - 1; }
+      myStudents.remove(aMyStudent);
+      myStudents.add(index, aMyStudent);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveMyStudentAt(Person aMyStudent, int index)
+  {
+    boolean wasAdded = false;
+    if(myStudents.contains(aMyStudent))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfMyStudents()) { index = numberOfMyStudents() - 1; }
+      myStudents.remove(aMyStudent);
+      myStudents.add(index, aMyStudent);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addMyStudentAt(aMyStudent, index);
+    }
+    return wasAdded;
+  }
+
+  public void delete()
+  {
+    for(int i=myStudents.size(); i &gt; 0; i--)
+    {
+      Person aMyStudent = myStudents.get(i - 1);
+      aMyStudent.delete();
+    }
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+import java.util.*;
+
+// line 1 "ClassTemplateTest_MultivaluedAttributesAssignment.ump"
+public class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Foo Attributes
+  private List&lt;String&gt; someStrings;
+  private List&lt;Integer&gt; numbers;
+  private List&lt;Token&gt; objects;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Foo()
+  {
+    someStrings = new ArrayList&lt;String&gt;(); 
+    someStrings.add("a"); 
+    someStrings.add("b"); 
+    someStrings.add("c");
+    numbers = new ArrayList&lt;Integer&gt;(); 
+    numbers.add(1); 
+    numbers.add(2); 
+    numbers.add(3); 
+    numbers.add(10);
+    objects = new ArrayList&lt;Token&gt;(); 
+    objects.add(new Token("first")); 
+    objects.add(new Token("second"));
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+  /* Code from template attribute_SetMany */
+  public boolean addSomeString(String aSomeString)
+  {
+    boolean wasAdded = false;
+    wasAdded = someStrings.add(aSomeString);
+    return wasAdded;
+  }
+
+  public boolean removeSomeString(String aSomeString)
+  {
+    boolean wasRemoved = false;
+    wasRemoved = someStrings.remove(aSomeString);
+    return wasRemoved;
+  }
+  /* Code from template attribute_SetMany */
+  public boolean addNumber(Integer aNumber)
+  {
+    boolean wasAdded = false;
+    wasAdded = numbers.add(aNumber);
+    return wasAdded;
+  }
+
+  public boolean removeNumber(Integer aNumber)
+  {
+    boolean wasRemoved = false;
+    wasRemoved = numbers.remove(aNumber);
+    return wasRemoved;
+  }
+  /* Code from template attribute_SetMany */
+  public boolean addObject(Token aObject)
+  {
+    boolean wasAdded = false;
+    wasAdded = objects.add(aObject);
+    return wasAdded;
+  }
+
+  public boolean removeObject(Token aObject)
+  {
+    boolean wasRemoved = false;
+    wasRemoved = objects.remove(aObject);
+    return wasRemoved;
+  }
+  /* Code from template attribute_GetMany */
+  public String getSomeString(int index)
+  {
+    String aSomeString = someStrings.get(index);
+    return aSomeString;
+  }
+
+  public String[] getSomeStrings()
+  {
+    String[] newSomeStrings = someStrings.toArray(new String[someStrings.size()]);
+    return newSomeStrings;
+  }
+
+  public int numberOfSomeStrings()
+  {
+    int number = someStrings.size();
+    return number;
+  }
+
+  public boolean hasSomeStrings()
+  {
+    boolean has = someStrings.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfSomeString(String aSomeString)
+  {
+    int index = someStrings.indexOf(aSomeString);
+    return index;
+  }
+  /* Code from template attribute_GetMany */
+  public Integer getNumber(int index)
+  {
+    Integer aNumber = numbers.get(index);
+    return aNumber;
+  }
+
+  public Integer[] getNumbers()
+  {
+    Integer[] newNumbers = numbers.toArray(new Integer[numbers.size()]);
+    return newNumbers;
+  }
+
+  public int numberOfNumbers()
+  {
+    int number = numbers.size();
+    return number;
+  }
+
+  public boolean hasNumbers()
+  {
+    boolean has = numbers.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfNumber(Integer aNumber)
+  {
+    int index = numbers.indexOf(aNumber);
+    return index;
+  }
+  /* Code from template attribute_GetMany */
+  public Token getObject(int index)
+  {
+    Token aObject = objects.get(index);
+    return aObject;
+  }
+
+  public Token[] getObjects()
+  {
+    Token[] newObjects = objects.toArray(new Token[objects.size()]);
+    return newObjects;
+  }
+
+  public int numberOfObjects()
+  {
+    int number = objects.size();
+    return number;
+  }
+
+  public boolean hasObjects()
+  {
+    boolean has = objects.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfObject(Token aObject)
+  {
+    int index = objects.indexOf(aObject);
+    return index;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+/**
+ * This is a student
+ */
+// line 4 "../ClassTemplateTest_Comment.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+import java.util.*;
+
+// line 1 "AssociationMultilineComment.ump"
+public class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Foo Associations
+  private List&lt;Bar&gt; bars;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Foo()
+  {
+    bars = new ArrayList&lt;Bar&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+  /* Code from template association_GetMany */
+  public Bar getBar(int index)
+  {
+    Bar aBar = bars.get(index);
+    return aBar;
+  }
+
+  /**
+   * I am a multiline comment above an association.
+   */
+  public List&lt;Bar&gt; getBars()
+  {
+    List&lt;Bar&gt; newBars = Collections.unmodifiableList(bars);
+    return newBars;
+  }
+
+  public int numberOfBars()
+  {
+    int number = bars.size();
+    return number;
+  }
+
+  public boolean hasBars()
+  {
+    boolean has = bars.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfBar(Bar aBar)
+  {
+    int index = bars.indexOf(aBar);
+    return index;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfBars()
+  {
+    return 0;
+  }
+  /* Code from template association_AddManyToOne */
+  public Bar addBar()
+  {
+    return new Bar(this);
+  }
+
+  public boolean addBar(Bar aBar)
+  {
+    boolean wasAdded = false;
+    if (bars.contains(aBar)) { return false; }
+    Foo existingFoo = aBar.getFoo();
+    boolean isNewFoo = existingFoo != null &amp;&amp; !this.equals(existingFoo);
+    if (isNewFoo)
+    {
+      aBar.setFoo(this);
+    }
+    else
+    {
+      bars.add(aBar);
+    }
+    wasAdded = true;
+    return wasAdded;
+  }
+
+  public boolean removeBar(Bar aBar)
+  {
+    boolean wasRemoved = false;
+    //Unable to remove aBar, as it must always have a foo
+    if (!this.equals(aBar.getFoo()))
+    {
+      bars.remove(aBar);
+      wasRemoved = true;
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addBarAt(Bar aBar, int index)
+  {  
+    boolean wasAdded = false;
+    if(addBar(aBar))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfBars()) { index = numberOfBars() - 1; }
+      bars.remove(aBar);
+      bars.add(index, aBar);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveBarAt(Bar aBar, int index)
+  {
+    boolean wasAdded = false;
+    if(bars.contains(aBar))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfBars()) { index = numberOfBars() - 1; }
+      bars.remove(aBar);
+      bars.add(index, aBar);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addBarAt(aBar, index);
+    }
+    return wasAdded;
+  }
+
+  public void delete()
+  {
+    for(int i=bars.size(); i &gt; 0; i--)
+    {
+      Bar aBar = bars.get(i - 1);
+      aBar.delete();
+    }
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 3 "../ClassTemplateTest_EmptyStringAttr.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private String grade;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student()
+  {
+    grade = "";
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setGrade(String aGrade)
+  {
+    boolean wasSet = false;
+    grade = aGrade;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getGrade()
+  {
+    return grade;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "grade" + ":" + getGrade()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 3 "../ClassTemplateTest_AssociationAttributes.ump"
+public class Token
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Token Attributes
+  private Position p;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Token(Position aP)
+  {
+    p = aP;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setP(Position aP)
+  {
+    boolean wasSet = false;
+    p = aP;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public Position getP()
+  {
+    return p;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+ "]" + System.getProperties().getProperty("line.separator") +
+            "  " + "p" + "=" + (getP() != null ? !getP().equals(this)  ? getP().toString().replaceAll("  ","    ") : "this" : "null");
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+/**
+ * This is a student
+ * Multiple comments
+ * on several lines
+ */
+// line 6 "../ClassTemplateTest_MultiComment.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "ClassTemplateTest_AbstractClass.ump"
+public abstract class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Foo()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+/**
+ * I am a class comment.
+ * 
+ * Notice how there are 4 empty lines below me.
+ * 
+ * 
+ * 
+ * 
+ * And 2 below me.
+ * 
+ * 
+ * These lines should come out as we see here.
+ * Comments such as these are often used to improve readability through whitespace clarity.
+ */
+// line 15 "ClassCommentWithEmptyLines.ump"
+public class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Foo()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "AttributeMultilineComment.ump"
+public class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Foo Attributes
+  private String name;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Foo(String aName)
+  {
+    name = aName;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setName(String aName)
+  {
+    boolean wasSet = false;
+    name = aName;
+    wasSet = true;
+    return wasSet;
+  }
+
+  /**
+   * I am a multiline comment above an attribute.
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "name" + ":" + getName()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+import java.util.*;
+import java.lang.Thread;
+
+// line 1 "ClassTemplateTest_QueuedMethod.ump"
+public class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Helper Variables
+
+  protected enum QueuedMethod { method1_M }  QueuedMethodThread queuedMethodThread;
+
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Foo()
+  {
+    queuedMethodThread = new QueuedMethodThread();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {
+    queuedMethodThread.delete();
+  }
+
+  public void method1 ()
+  {
+    queuedMethodThread.putCallTo(queuedMethodThread.new QueuedMethodMessage(QueuedMethod.method1_M, null));
+  }
+
+  // line 5 "ClassTemplateTest_QueuedMethod.ump"
+  public void _method1(){
+    //implementation
+  }
+
+  private class QueuedMethodThread implements Runnable
+  {
+
+    QueuedMethodMessageQueue methodQueue;
+    Thread methodRemoval;
+    
+    public QueuedMethodThread()
+    {
+      methodQueue = new QueuedMethodMessageQueue();
+      methodRemoval = new Thread(this);
+      //start the thread for queued methods of Foo
+      methodRemoval.start();   
+    }
+
+    protected class QueuedMethodMessage
+    {
+      QueuedMethod type;
+      
+      //QueuedMethodMessage parameters
+      Vector&lt;Object&gt; param;
+      
+      public QueuedMethodMessage(QueuedMethod t, Vector&lt;Object&gt; p)
+      {
+        type = t; 
+        param = p;
+      }
+
+      @Override
+      public String toString()
+      {
+        return type + "," + param;
+      }
+    }
+  
+    protected class QueuedMethodMessageQueue {
+      Queue&lt;QueuedMethodMessage&gt; messages = new LinkedList&lt;QueuedMethodMessage&gt;();
+      
+      public synchronized void put(QueuedMethodMessage m)
+      {
+        messages.add(m); 
+        notify();
+      }
+
+      public synchronized QueuedMethodMessage getNext()
+      {
+        try {
+          while (messages.isEmpty()) 
+          {
+            wait();
+          }
+        } catch (InterruptedException e) {
+          Thread.currentThread().interrupt();
+          return null;
+        }
+
+        //The element to be removed
+        QueuedMethodMessage m = messages.remove(); 
+        return (m);
+      }
+    }
+
+    @Override
+    public void run ()
+    {
+      boolean status=false;
+      while (true) 
+      {
+        QueuedMethodMessage qmm = methodQueue.getNext();
+        if(qmm == null)  return;
+        switch(qmm.type)
+        {
+          case method1_M:
+            _method1();
+            break;
+          default:
+        }
+      }
+    }
+    public void putCallTo(QueuedMethodMessage message)
+    {
+      methodQueue.put(message);
+    }
+
+    public void delete()
+    {
+       methodRemoval.interrupt();
+    }
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "ClassTemplateTest_NoNamespace.ump"
+public class Token
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Token()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "MultipleAttributeComments.ump"
+public class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Foo Attributes
+  private String testAttribute1;
+  private String testAttribute2;
+  private String testAttribute3;
+  private String testAttribute4;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Foo(String aTestAttribute1, String aTestAttribute2, String aTestAttribute3, String aTestAttribute4)
+  {
+    testAttribute1 = aTestAttribute1;
+    testAttribute2 = aTestAttribute2;
+    testAttribute3 = aTestAttribute3;
+    testAttribute4 = aTestAttribute4;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setTestAttribute1(String aTestAttribute1)
+  {
+    boolean wasSet = false;
+    testAttribute1 = aTestAttribute1;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setTestAttribute2(String aTestAttribute2)
+  {
+    boolean wasSet = false;
+    testAttribute2 = aTestAttribute2;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setTestAttribute3(String aTestAttribute3)
+  {
+    boolean wasSet = false;
+    testAttribute3 = aTestAttribute3;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setTestAttribute4(String aTestAttribute4)
+  {
+    boolean wasSet = false;
+    testAttribute4 = aTestAttribute4;
+    wasSet = true;
+    return wasSet;
+  }
+
+  /**
+   * Inline comment above attribute.
+   */
+  public String getTestAttribute1()
+  {
+    return testAttribute1;
+  }
+
+  /**
+   * Multiple inline comments
+   * above attribute.
+   */
+  public String getTestAttribute2()
+  {
+    return testAttribute2;
+  }
+
+  /**
+   * Multiline comment above attribute.
+   */
+  public String getTestAttribute3()
+  {
+    return testAttribute3;
+  }
+
+  /**
+   * Multiple multiline comments
+   * above attribute.
+   */
+  public String getTestAttribute4()
+  {
+    return testAttribute4;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "testAttribute1" + ":" + getTestAttribute1()+ "," +
+            "testAttribute2" + ":" + getTestAttribute2()+ "," +
+            "testAttribute3" + ":" + getTestAttribute3()+ "," +
+            "testAttribute4" + ":" + getTestAttribute4()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "ClassTemplateTest_CodeInjectionsComments.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+  // line 3 "ClassTemplateTest_CodeInjectionsComments.ump"
+  public String foo(int a){
+    // line 25 "ClassTemplateTest_CodeInjectionsComments.ump"
+    System.out.println("Starting foo with argument: " + a);
+    // END OF UMPLE BEFORE INJECTION
+    if(a &lt; 0) {
+      /*
+        {
+      */      
+      // line 29 "ClassTemplateTest_CodeInjectionsComments.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 0;
+    }
+    else if(a == 1) {
+      // foo()      
+      // line 29 "ClassTemplateTest_CodeInjectionsComments.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return -1;
+    }
+    else {
+      // {      
+      // line 29 "ClassTemplateTest_CodeInjectionsComments.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 4;
+    }
+
+    for(int i = 0; i &lt; a; i++) {
+      // TODO: call foo()
+      if(i == a/4) {        
+        // line 29 "ClassTemplateTest_CodeInjectionsComments.ump"
+        System.out.println("Returning from foo!");
+        // END OF UMPLE AFTER INJECTION
+        return a;
+      }
+    }    
+    // line 29 "ClassTemplateTest_CodeInjectionsComments.ump"
+    System.out.println("Returning from foo!");
+    // END OF UMPLE AFTER INJECTION
+    return 4;
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 8 "../ClassTemplateTest_IsA.ump"
+public class SubMentor extends Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public SubMentor(String aName)
+  {
+    super(aName);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {
+    super.delete();
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 13 "../ClassTemplateTest_IsA.ump"
+public class SubMentor2 extends Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //SubMentor2 Attributes
+  private String subName;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public SubMentor2(String aName, String aSubName)
+  {
+    super(aName);
+    subName = aSubName;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setSubName(String aSubName)
+  {
+    boolean wasSet = false;
+    subName = aSubName;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getSubName()
+  {
+    return subName;
+  }
+
+  public void delete()
+  {
+    super.delete();
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "subName" + ":" + getSubName()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+import java.util.*;
+
+// line 3 "../ClassTemplateTest_ListAttributes.ump"
+public class Token
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Token Attributes
+  private List&lt;Position&gt; positions;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Token()
+  {
+    positions = new ArrayList&lt;Position&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+  /* Code from template attribute_SetMany */
+  public boolean addPosition(Position aPosition)
+  {
+    boolean wasAdded = false;
+    wasAdded = positions.add(aPosition);
+    return wasAdded;
+  }
+
+  public boolean removePosition(Position aPosition)
+  {
+    boolean wasRemoved = false;
+    wasRemoved = positions.remove(aPosition);
+    return wasRemoved;
+  }
+  /* Code from template attribute_GetMany */
+  public Position getPosition(int index)
+  {
+    Position aPosition = positions.get(index);
+    return aPosition;
+  }
+
+  public Position[] getPositions()
+  {
+    Position[] newPositions = positions.toArray(new Position[positions.size()]);
+    return newPositions;
+  }
+
+  public int numberOfPositions()
+  {
+    int number = positions.size();
+    return number;
+  }
+
+  public boolean hasPositions()
+  {
+    boolean has = positions.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfPosition(Position aPosition)
+  {
+    int index = positions.indexOf(aPosition);
+    return index;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "ClassTemplateTest_CodeInjectionsBasic.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+  // line 3 "ClassTemplateTest_CodeInjectionsBasic.ump"
+  public String foo(int a){
+    // line 17 "ClassTemplateTest_CodeInjectionsBasic.ump"
+    System.out.println("Starting foo with argument: " + a);
+    // END OF UMPLE BEFORE INJECTION
+    if(a &lt; 0) {      
+      // line 21 "ClassTemplateTest_CodeInjectionsBasic.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 0;
+    }
+
+    for(int i = 0; i &lt; a; i++) {
+      if(i == a/4) {        
+        // line 21 "ClassTemplateTest_CodeInjectionsBasic.ump"
+        System.out.println("Returning from foo!");
+        // END OF UMPLE AFTER INJECTION
+        return a;
+      }
+    }    
+    // line 21 "ClassTemplateTest_CodeInjectionsBasic.ump"
+    System.out.println("Returning from foo!");
+    // END OF UMPLE AFTER INJECTION
+    return 4;
+
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+  // line 3 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+  public String foo(int a){
+    // line 26 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+    System.out.println("Starting foo...");
+    // END OF UMPLE BEFORE INJECTION
+    // line 38 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+    System.out.println("Starting execution...");
+    // END OF UMPLE BEFORE INJECTION
+    if(a &lt; 0) {
+      return 4;
+    }
+
+    return 3;
+  }
+
+  // line 11 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+  public String foo(int a, String b){
+    // line 26 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+    System.out.println("Starting foo...");
+    // END OF UMPLE BEFORE INJECTION
+    if(a &gt; 0 &amp;&amp; "".equals(b)) {      
+      // line 30 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+      System.out.println("Returning from foo, a: " + a ", b: " + b);
+      // END OF UMPLE AFTER INJECTION
+      return 3;
+    }    
+    // line 30 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+    System.out.println("Returning from foo, a: " + a ", b: " + b);
+    // END OF UMPLE AFTER INJECTION
+    return 1;
+  }
+
+  // line 18 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+  public String bar(){
+    // line 34 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+    // TODO: fix asap
+    // END OF UMPLE BEFORE INJECTION
+    // line 38 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+    System.out.println("Starting execution...");
+    // END OF UMPLE BEFORE INJECTION
+    int a = 4;
+
+    if(a == 3) return 2;
+    
+    return 1;
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+  // line 3 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+  public String foo(int a){
+    // line 18 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+    System.out.println("Starting foo with argument: " + a);
+    // END OF UMPLE BEFORE INJECTION
+    if(a &lt; 0) {      
+      // line 22 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 0;
+    }
+    else if(a == 1) {      
+      // line 22 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return -1;
+    }
+    else {      
+      // line 22 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 4;
+    }
+
+    for(int i = 0; i &lt; a; i++)
+      if(i == a/4) {        
+        // line 22 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+        System.out.println("Returning from foo!");
+        // END OF UMPLE AFTER INJECTION
+        return a;
+      }    
+    // line 22 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+    System.out.println("Returning from foo!");
+    // END OF UMPLE AFTER INJECTION
+    return 4;
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "MethodCommentWithEmptyLines.ump"
+public class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Foo()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+
+  /**
+   * I am a method comment.
+   * 
+   * Notice how there are 4 empty lines below me.
+   * 
+   * 
+   * 
+   * 
+   * And 2 below me.
+   * 
+   * 
+   * These lines should come out as we see here.
+   * Comments such as these are often used to improve readability through whitespace clarity.
+   */
+  // line 19 "MethodCommentWithEmptyLines.ump"
+  public void testMethod(){
+    // I am a test method.
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 3 "../ClassTemplateTest_EmptyClass.ump"
+public class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Mentor()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+import java.util.*;
+
+// line 16 "ClassTemplateTest_AbstractClassInheritance.ump"
+public class Teacher extends Person
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Teacher Attributes
+  private String position;
+
+  //Teacher Associations
+  private List&lt;Student&gt; students;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Teacher(String aName, int aAge, String aPosition)
+  {
+    super(aName, aAge);
+    position = aPosition;
+    students = new ArrayList&lt;Student&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setPosition(String aPosition)
+  {
+    boolean wasSet = false;
+    position = aPosition;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getPosition()
+  {
+    return position;
+  }
+  /* Code from template association_GetMany */
+  public Student getStudent(int index)
+  {
+    Student aStudent = students.get(index);
+    return aStudent;
+  }
+
+  public List&lt;Student&gt; getStudents()
+  {
+    List&lt;Student&gt; newStudents = Collections.unmodifiableList(students);
+    return newStudents;
+  }
+
+  public int numberOfStudents()
+  {
+    int number = students.size();
+    return number;
+  }
+
+  public boolean hasStudents()
+  {
+    boolean has = students.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfStudent(Student aStudent)
+  {
+    int index = students.indexOf(aStudent);
+    return index;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfStudents()
+  {
+    return 0;
+  }
+  /* Code from template association_AddManyToOne */
+  public Student addStudent(String aName, int aAge, int aStudentID)
+  {
+    return new Student(aName, aAge, aStudentID, this);
+  }
+
+  public boolean addStudent(Student aStudent)
+  {
+    boolean wasAdded = false;
+    if (students.contains(aStudent)) { return false; }
+    Teacher existingTeacher = aStudent.getTeacher();
+    boolean isNewTeacher = existingTeacher != null &amp;&amp; !this.equals(existingTeacher);
+    if (isNewTeacher)
+    {
+      aStudent.setTeacher(this);
+    }
+    else
+    {
+      students.add(aStudent);
+    }
+    wasAdded = true;
+    return wasAdded;
+  }
+
+  public boolean removeStudent(Student aStudent)
+  {
+    boolean wasRemoved = false;
+    //Unable to remove aStudent, as it must always have a teacher
+    if (!this.equals(aStudent.getTeacher()))
+    {
+      students.remove(aStudent);
+      wasRemoved = true;
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addStudentAt(Student aStudent, int index)
+  {  
+    boolean wasAdded = false;
+    if(addStudent(aStudent))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfStudents()) { index = numberOfStudents() - 1; }
+      students.remove(aStudent);
+      students.add(index, aStudent);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveStudentAt(Student aStudent, int index)
+  {
+    boolean wasAdded = false;
+    if(students.contains(aStudent))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfStudents()) { index = numberOfStudents() - 1; }
+      students.remove(aStudent);
+      students.add(index, aStudent);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addStudentAt(aStudent, index);
+    }
+    return wasAdded;
+  }
+
+  public void delete()
+  {
+    for(int i=students.size(); i &gt; 0; i--)
+    {
+      Student aStudent = students.get(i - 1);
+      aStudent.delete();
+    }
+    super.delete();
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "position" + ":" + getPosition()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+  // line 3 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+  public String foo(int a){
+    // line 16 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+    System.out.println("Starting foo with argument: " + a);
+    // END OF UMPLE BEFORE INJECTION
+    if(a &lt; 0) {      
+      // line 20 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 0;
+    }
+    else if(a == 1) {      
+      // line 20 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return -1;
+    }
+    else {      
+      // line 20 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 4;
+    }
+
+    for(int i = 0; i &lt; a; i++) {
+      // TODO: call foo()
+      if(i == a/4) {        
+        // line 20 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+        System.out.println("Returning from foo!");
+        // END OF UMPLE AFTER INJECTION
+        return a;
+      }
+    }    
+    // line 20 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+    System.out.println("Returning from foo!");
+    // END OF UMPLE AFTER INJECTION
+    return 4;
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+/**
+ * This is a student
+ * Multiple comments
+ * on several lines
+ */
+// line 6 "../ClassTemplateTest_MultiLineComment.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+import java.util.*;
+
+// line 1 "AssociationInlineComment.ump"
+public class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Foo Associations
+  private List&lt;Bar&gt; bars;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Foo()
+  {
+    bars = new ArrayList&lt;Bar&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+  /* Code from template association_GetMany */
+  public Bar getBar(int index)
+  {
+    Bar aBar = bars.get(index);
+    return aBar;
+  }
+
+  /**
+   * I am a inline comment above an association.
+   */
+  public List&lt;Bar&gt; getBars()
+  {
+    List&lt;Bar&gt; newBars = Collections.unmodifiableList(bars);
+    return newBars;
+  }
+
+  public int numberOfBars()
+  {
+    int number = bars.size();
+    return number;
+  }
+
+  public boolean hasBars()
+  {
+    boolean has = bars.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfBar(Bar aBar)
+  {
+    int index = bars.indexOf(aBar);
+    return index;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfBars()
+  {
+    return 0;
+  }
+  /* Code from template association_AddManyToOne */
+  public Bar addBar()
+  {
+    return new Bar(this);
+  }
+
+  public boolean addBar(Bar aBar)
+  {
+    boolean wasAdded = false;
+    if (bars.contains(aBar)) { return false; }
+    Foo existingFoo = aBar.getFoo();
+    boolean isNewFoo = existingFoo != null &amp;&amp; !this.equals(existingFoo);
+    if (isNewFoo)
+    {
+      aBar.setFoo(this);
+    }
+    else
+    {
+      bars.add(aBar);
+    }
+    wasAdded = true;
+    return wasAdded;
+  }
+
+  public boolean removeBar(Bar aBar)
+  {
+    boolean wasRemoved = false;
+    //Unable to remove aBar, as it must always have a foo
+    if (!this.equals(aBar.getFoo()))
+    {
+      bars.remove(aBar);
+      wasRemoved = true;
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addBarAt(Bar aBar, int index)
+  {  
+    boolean wasAdded = false;
+    if(addBar(aBar))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfBars()) { index = numberOfBars() - 1; }
+      bars.remove(aBar);
+      bars.add(index, aBar);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveBarAt(Bar aBar, int index)
+  {
+    boolean wasAdded = false;
+    if(bars.contains(aBar))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfBars()) { index = numberOfBars() - 1; }
+      bars.remove(aBar);
+      bars.add(index, aBar);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addBarAt(aBar, index);
+    }
+    return wasAdded;
+  }
+
+  public void delete()
+  {
+    for(int i=bars.size(); i &gt; 0; i--)
+    {
+      Bar aBar = bars.get(i - 1);
+      aBar.delete();
+    }
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+/**
+ * This is a student
+ */
+// line 5 "../ClassTemplateTest_GarbageComment.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "MultipleMethodComments.ump"
+public class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Foo()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+
+  /**
+   * Inline comment above method.
+   */
+  // line 6 "MultipleMethodComments.ump"
+  public void testMethod1(){
+    // I am a comment inside a method.
+  }
+
+
+  /**
+   * Multiple inline comments
+   * above method.
+   */
+  // line 13 "MultipleMethodComments.ump"
+  public void testMethod2(){
+    // I am a comment inside a method.
+  }
+
+
+  /**
+   * Multiline comment above method.
+   */
+  // line 19 "MultipleMethodComments.ump"
+  public void testMethod3(){
+    // I am a comment inside a method.
+  }
+
+
+  /**
+   * Multiple multiline comments
+   * above method.
+   */
+  // line 28 "MultipleMethodComments.ump"
+  public void testMethod4(){
+    // I am a comment inside a method.
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+import java.util.*;
+
+// line 1 "MultipleAssociationComments.ump"
+public class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Foo Associations
+  private List&lt;Bar1&gt; bar1s;
+  private List&lt;Bar2&gt; bar2s;
+  private List&lt;Bar3&gt; bar3s;
+  private List&lt;Bar4&gt; bar4s;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Foo()
+  {
+    bar1s = new ArrayList&lt;Bar1&gt;();
+    bar2s = new ArrayList&lt;Bar2&gt;();
+    bar3s = new ArrayList&lt;Bar3&gt;();
+    bar4s = new ArrayList&lt;Bar4&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+  /* Code from template association_GetMany */
+  public Bar1 getBar1(int index)
+  {
+    Bar1 aBar1 = bar1s.get(index);
+    return aBar1;
+  }
+
+  /**
+   * Inline comment above association.
+   */
+  public List&lt;Bar1&gt; getBar1s()
+  {
+    List&lt;Bar1&gt; newBar1s = Collections.unmodifiableList(bar1s);
+    return newBar1s;
+  }
+
+  public int numberOfBar1s()
+  {
+    int number = bar1s.size();
+    return number;
+  }
+
+  public boolean hasBar1s()
+  {
+    boolean has = bar1s.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfBar1(Bar1 aBar1)
+  {
+    int index = bar1s.indexOf(aBar1);
+    return index;
+  }
+  /* Code from template association_GetMany */
+  public Bar2 getBar2(int index)
+  {
+    Bar2 aBar2 = bar2s.get(index);
+    return aBar2;
+  }
+
+  /**
+   * Multiple inline comments
+   * above association.
+   */
+  public List&lt;Bar2&gt; getBar2s()
+  {
+    List&lt;Bar2&gt; newBar2s = Collections.unmodifiableList(bar2s);
+    return newBar2s;
+  }
+
+  public int numberOfBar2s()
+  {
+    int number = bar2s.size();
+    return number;
+  }
+
+  public boolean hasBar2s()
+  {
+    boolean has = bar2s.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfBar2(Bar2 aBar2)
+  {
+    int index = bar2s.indexOf(aBar2);
+    return index;
+  }
+  /* Code from template association_GetMany */
+  public Bar3 getBar3(int index)
+  {
+    Bar3 aBar3 = bar3s.get(index);
+    return aBar3;
+  }
+
+  /**
+   * Multiline comment above association.
+   */
+  public List&lt;Bar3&gt; getBar3s()
+  {
+    List&lt;Bar3&gt; newBar3s = Collections.unmodifiableList(bar3s);
+    return newBar3s;
+  }
+
+  public int numberOfBar3s()
+  {
+    int number = bar3s.size();
+    return number;
+  }
+
+  public boolean hasBar3s()
+  {
+    boolean has = bar3s.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfBar3(Bar3 aBar3)
+  {
+    int index = bar3s.indexOf(aBar3);
+    return index;
+  }
+  /* Code from template association_GetMany */
+  public Bar4 getBar4(int index)
+  {
+    Bar4 aBar4 = bar4s.get(index);
+    return aBar4;
+  }
+
+  /**
+   * Multiple multiline comments
+   * above association.
+   */
+  public List&lt;Bar4&gt; getBar4s()
+  {
+    List&lt;Bar4&gt; newBar4s = Collections.unmodifiableList(bar4s);
+    return newBar4s;
+  }
+
+  public int numberOfBar4s()
+  {
+    int number = bar4s.size();
+    return number;
+  }
+
+  public boolean hasBar4s()
+  {
+    boolean has = bar4s.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfBar4(Bar4 aBar4)
+  {
+    int index = bar4s.indexOf(aBar4);
+    return index;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfBar1s()
+  {
+    return 0;
+  }
+  /* Code from template association_AddManyToOne */
+  public Bar1 addBar1()
+  {
+    return new Bar1(this);
+  }
+
+  public boolean addBar1(Bar1 aBar1)
+  {
+    boolean wasAdded = false;
+    if (bar1s.contains(aBar1)) { return false; }
+    Foo existingFoo = aBar1.getFoo();
+    boolean isNewFoo = existingFoo != null &amp;&amp; !this.equals(existingFoo);
+    if (isNewFoo)
+    {
+      aBar1.setFoo(this);
+    }
+    else
+    {
+      bar1s.add(aBar1);
+    }
+    wasAdded = true;
+    return wasAdded;
+  }
+
+  public boolean removeBar1(Bar1 aBar1)
+  {
+    boolean wasRemoved = false;
+    //Unable to remove aBar1, as it must always have a foo
+    if (!this.equals(aBar1.getFoo()))
+    {
+      bar1s.remove(aBar1);
+      wasRemoved = true;
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addBar1At(Bar1 aBar1, int index)
+  {  
+    boolean wasAdded = false;
+    if(addBar1(aBar1))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfBar1s()) { index = numberOfBar1s() - 1; }
+      bar1s.remove(aBar1);
+      bar1s.add(index, aBar1);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveBar1At(Bar1 aBar1, int index)
+  {
+    boolean wasAdded = false;
+    if(bar1s.contains(aBar1))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfBar1s()) { index = numberOfBar1s() - 1; }
+      bar1s.remove(aBar1);
+      bar1s.add(index, aBar1);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addBar1At(aBar1, index);
+    }
+    return wasAdded;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfBar2s()
+  {
+    return 0;
+  }
+  /* Code from template association_AddManyToOne */
+  public Bar2 addBar2()
+  {
+    return new Bar2(this);
+  }
+
+  public boolean addBar2(Bar2 aBar2)
+  {
+    boolean wasAdded = false;
+    if (bar2s.contains(aBar2)) { return false; }
+    Foo existingFoo = aBar2.getFoo();
+    boolean isNewFoo = existingFoo != null &amp;&amp; !this.equals(existingFoo);
+    if (isNewFoo)
+    {
+      aBar2.setFoo(this);
+    }
+    else
+    {
+      bar2s.add(aBar2);
+    }
+    wasAdded = true;
+    return wasAdded;
+  }
+
+  public boolean removeBar2(Bar2 aBar2)
+  {
+    boolean wasRemoved = false;
+    //Unable to remove aBar2, as it must always have a foo
+    if (!this.equals(aBar2.getFoo()))
+    {
+      bar2s.remove(aBar2);
+      wasRemoved = true;
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addBar2At(Bar2 aBar2, int index)
+  {  
+    boolean wasAdded = false;
+    if(addBar2(aBar2))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfBar2s()) { index = numberOfBar2s() - 1; }
+      bar2s.remove(aBar2);
+      bar2s.add(index, aBar2);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveBar2At(Bar2 aBar2, int index)
+  {
+    boolean wasAdded = false;
+    if(bar2s.contains(aBar2))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfBar2s()) { index = numberOfBar2s() - 1; }
+      bar2s.remove(aBar2);
+      bar2s.add(index, aBar2);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addBar2At(aBar2, index);
+    }
+    return wasAdded;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfBar3s()
+  {
+    return 0;
+  }
+  /* Code from template association_AddManyToOne */
+  public Bar3 addBar3()
+  {
+    return new Bar3(this);
+  }
+
+  public boolean addBar3(Bar3 aBar3)
+  {
+    boolean wasAdded = false;
+    if (bar3s.contains(aBar3)) { return false; }
+    Foo existingFoo = aBar3.getFoo();
+    boolean isNewFoo = existingFoo != null &amp;&amp; !this.equals(existingFoo);
+    if (isNewFoo)
+    {
+      aBar3.setFoo(this);
+    }
+    else
+    {
+      bar3s.add(aBar3);
+    }
+    wasAdded = true;
+    return wasAdded;
+  }
+
+  public boolean removeBar3(Bar3 aBar3)
+  {
+    boolean wasRemoved = false;
+    //Unable to remove aBar3, as it must always have a foo
+    if (!this.equals(aBar3.getFoo()))
+    {
+      bar3s.remove(aBar3);
+      wasRemoved = true;
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addBar3At(Bar3 aBar3, int index)
+  {  
+    boolean wasAdded = false;
+    if(addBar3(aBar3))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfBar3s()) { index = numberOfBar3s() - 1; }
+      bar3s.remove(aBar3);
+      bar3s.add(index, aBar3);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveBar3At(Bar3 aBar3, int index)
+  {
+    boolean wasAdded = false;
+    if(bar3s.contains(aBar3))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfBar3s()) { index = numberOfBar3s() - 1; }
+      bar3s.remove(aBar3);
+      bar3s.add(index, aBar3);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addBar3At(aBar3, index);
+    }
+    return wasAdded;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfBar4s()
+  {
+    return 0;
+  }
+  /* Code from template association_AddManyToOne */
+  public Bar4 addBar4()
+  {
+    return new Bar4(this);
+  }
+
+  public boolean addBar4(Bar4 aBar4)
+  {
+    boolean wasAdded = false;
+    if (bar4s.contains(aBar4)) { return false; }
+    Foo existingFoo = aBar4.getFoo();
+    boolean isNewFoo = existingFoo != null &amp;&amp; !this.equals(existingFoo);
+    if (isNewFoo)
+    {
+      aBar4.setFoo(this);
+    }
+    else
+    {
+      bar4s.add(aBar4);
+    }
+    wasAdded = true;
+    return wasAdded;
+  }
+
+  public boolean removeBar4(Bar4 aBar4)
+  {
+    boolean wasRemoved = false;
+    //Unable to remove aBar4, as it must always have a foo
+    if (!this.equals(aBar4.getFoo()))
+    {
+      bar4s.remove(aBar4);
+      wasRemoved = true;
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addBar4At(Bar4 aBar4, int index)
+  {  
+    boolean wasAdded = false;
+    if(addBar4(aBar4))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfBar4s()) { index = numberOfBar4s() - 1; }
+      bar4s.remove(aBar4);
+      bar4s.add(index, aBar4);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveBar4At(Bar4 aBar4, int index)
+  {
+    boolean wasAdded = false;
+    if(bar4s.contains(aBar4))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfBar4s()) { index = numberOfBar4s() - 1; }
+      bar4s.remove(aBar4);
+      bar4s.add(index, aBar4);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addBar4At(aBar4, index);
+    }
+    return wasAdded;
+  }
+
+  public void delete()
+  {
+    for(int i=bar1s.size(); i &gt; 0; i--)
+    {
+      Bar1 aBar1 = bar1s.get(i - 1);
+      aBar1.delete();
+    }
+    for(int i=bar2s.size(); i &gt; 0; i--)
+    {
+      Bar2 aBar2 = bar2s.get(i - 1);
+      aBar2.delete();
+    }
+    for(int i=bar3s.size(); i &gt; 0; i--)
+    {
+      Bar3 aBar3 = bar3s.get(i - 1);
+      aBar3.delete();
+    }
+    for(int i=bar4s.size(); i &gt; 0; i--)
+    {
+      Bar4 aBar4 = bar4s.get(i - 1);
+      aBar4.delete();
+    }
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "MethodInlineComment.ump"
+public class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Foo()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+
+  /**
+   * I am a comment above a method.
+   */
+  // line 6 "MethodInlineComment.ump"
+  public void testMethod(){
+    // I am a comment inside a method.
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+import java.util.*;
+
+// line 1 "ClassTemplateTest_AbstractClassAvoidingInstantiation2.ump"
+public class Teacher
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Teacher Associations
+  private List&lt;Foo&gt; myFooss;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Teacher()
+  {
+    myFooss = new ArrayList&lt;Foo&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+  /* Code from template association_GetMany */
+  public Foo getMyFooss(int index)
+  {
+    Foo aMyFooss = myFooss.get(index);
+    return aMyFooss;
+  }
+
+  public List&lt;Foo&gt; getMyFooss()
+  {
+    List&lt;Foo&gt; newMyFooss = Collections.unmodifiableList(myFooss);
+    return newMyFooss;
+  }
+
+  public int numberOfMyFooss()
+  {
+    int number = myFooss.size();
+    return number;
+  }
+
+  public boolean hasMyFooss()
+  {
+    boolean has = myFooss.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfMyFooss(Foo aMyFooss)
+  {
+    int index = myFooss.indexOf(aMyFooss);
+    return index;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfMyFooss()
+  {
+    return 0;
+  }
+  /* Code from template association_MaximumNumberOfMethod */
+  public static int maximumNumberOfMyFooss()
+  {
+    return 2;
+  }
+  /* Code from template association_AddOptionalNToOne */
+
+
+  public boolean addMyFooss(Foo aMyFooss)
+  {
+    boolean wasAdded = false;
+    if (myFooss.contains(aMyFooss)) { return false; }
+    if (numberOfMyFooss() &gt;= maximumNumberOfMyFooss())
+    {
+      return wasAdded;
+    }
+
+    Teacher existingTeacher = aMyFooss.getTeacher();
+    boolean isNewTeacher = existingTeacher != null &amp;&amp; !this.equals(existingTeacher);
+    if (isNewTeacher)
+    {
+      aMyFooss.setTeacher(this);
+    }
+    else
+    {
+      myFooss.add(aMyFooss);
+    }
+    wasAdded = true;
+    return wasAdded;
+  }
+
+  public boolean removeMyFooss(Foo aMyFooss)
+  {
+    boolean wasRemoved = false;
+    //Unable to remove aMyFooss, as it must always have a teacher
+    if (!this.equals(aMyFooss.getTeacher()))
+    {
+      myFooss.remove(aMyFooss);
+      wasRemoved = true;
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addMyFoossAt(Foo aMyFooss, int index)
+  {  
+    boolean wasAdded = false;
+    if(addMyFooss(aMyFooss))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfMyFooss()) { index = numberOfMyFooss() - 1; }
+      myFooss.remove(aMyFooss);
+      myFooss.add(index, aMyFooss);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveMyFoossAt(Foo aMyFooss, int index)
+  {
+    boolean wasAdded = false;
+    if(myFooss.contains(aMyFooss))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfMyFooss()) { index = numberOfMyFooss() - 1; }
+      myFooss.remove(aMyFooss);
+      myFooss.add(index, aMyFooss);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addMyFoossAt(aMyFooss, index);
+    }
+    return wasAdded;
+  }
+
+  public void delete()
+  {
+    for(int i=myFooss.size(); i &gt; 0; i--)
+    {
+      Foo aMyFooss = myFooss.get(i - 1);
+      aMyFooss.delete();
+    }
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "MethodMultilineComment.ump"
+public class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Foo()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+
+  /**
+   * I am a comment above a method.
+   */
+  // line 8 "MethodMultilineComment.ump"
+  public void testMethod(){
+    // I am a comment inside a method.
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "AttributeInlineComment.ump"
+public class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Foo Attributes
+  private String bar;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Foo(String aBar)
+  {
+    bar = aBar;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setBar(String aBar)
+  {
+    boolean wasSet = false;
+    bar = aBar;
+    wasSet = true;
+    return wasSet;
+  }
+
+  /**
+   * I am a inline comment above an attribute.
+   */
+  public String getBar()
+  {
+    return bar;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "bar" + ":" + getBar()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+import java.util.Map;
+
+// line 3 "../ClassTemplateTest_Depend.ump"
+public class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Mentor()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+}
+</pre>
+    </body>
+</html>

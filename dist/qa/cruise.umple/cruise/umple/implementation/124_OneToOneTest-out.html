@@ -1,0 +1,201 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from OneToOneTest</title>
+    </head>
+    <body>
+        <pre>/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 3 "../OneToOneTest.ump"
+public class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private String name;
+  private String id;
+
+  //Mentor Associations
+  private Student student;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Mentor(String aName, Student aStudent)
+  {
+    name = aName;
+    id = null;
+    if (aStudent == null || aStudent.getMentor() != null)
+    {
+      throw new RuntimeException("Unable to create Mentor due to aStudent. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+    student = aStudent;
+  }
+
+  public Mentor(String aName, String aNameForStudent, int aNumberForStudent)
+  {
+    name = aName;
+    id = null;
+    student = new Student(aNameForStudent, aNumberForStudent, this);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setName(String aName)
+  {
+    boolean wasSet = false;
+    name = aName;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setId(String aId)
+  {
+    boolean wasSet = false;
+    id = aId;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getName()
+  {
+    return name;
+  }
+
+  public String getId()
+  {
+    return id;
+  }
+  /* Code from template association_GetOne */
+  public Student getStudent()
+  {
+    return student;
+  }
+
+  public void delete()
+  {
+    Student existingStudent = student;
+    student = null;
+    if (existingStudent != null)
+    {
+      existingStudent.delete();
+    }
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "name" + ":" + getName()+ "," +
+            "id" + ":" + getId()+ "]" + System.getProperties().getProperty("line.separator") +
+            "  " + "student = "+(getStudent()!=null?Integer.toHexString(System.identityHashCode(getStudent())):"null");
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 10 "../OneToOneTest.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private String name;
+  private int number;
+
+  //Student Associations
+  private Mentor mentor;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student(String aName, int aNumber, Mentor aMentor)
+  {
+    name = aName;
+    number = aNumber;
+    if (aMentor == null || aMentor.getStudent() != null)
+    {
+      throw new RuntimeException("Unable to create Student due to aMentor. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+    mentor = aMentor;
+  }
+
+  public Student(String aName, int aNumber, String aNameForMentor)
+  {
+    name = aName;
+    number = aNumber;
+    mentor = new Mentor(aNameForMentor, this);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setName(String aName)
+  {
+    boolean wasSet = false;
+    name = aName;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setNumber(int aNumber)
+  {
+    boolean wasSet = false;
+    number = aNumber;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getName()
+  {
+    return name;
+  }
+
+  public int getNumber()
+  {
+    return number;
+  }
+  /* Code from template association_GetOne */
+  public Mentor getMentor()
+  {
+    return mentor;
+  }
+
+  public void delete()
+  {
+    Mentor existingMentor = mentor;
+    mentor = null;
+    if (existingMentor != null)
+    {
+      existingMentor.delete();
+    }
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "name" + ":" + getName()+ "," +
+            "number" + ":" + getNumber()+ "]" + System.getProperties().getProperty("line.separator") +
+            "  " + "mentor = "+(getMentor()!=null?Integer.toHexString(System.identityHashCode(getMentor())):"null");
+  }
+}
+</pre>
+    </body>
+</html>

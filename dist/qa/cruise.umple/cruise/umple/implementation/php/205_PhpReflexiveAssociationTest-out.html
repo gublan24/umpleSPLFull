@@ -1,0 +1,476 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from PhpReflexiveAssociationTest</title>
+    </head>
+    <body>
+        <pre>&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class OneToMany
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //OneToMany Associations
+  private $oneToMany;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aOneToMany)
+  {
+    if (!$this-&gt;setOneToMany($aOneToMany))
+    {
+      throw new Exception("Unable to create OneToMany due to aOneToMany. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getOneToMany()
+  {
+    return $this-&gt;oneToMany;
+  }
+
+  public function setOneToMany($aNewOneToMany)
+  {
+    $wasSet = false;
+    if ($aNewOneToMany != null)
+    {
+      $this-&gt;oneToMany = $aNewOneToMany;
+      $wasSet = true;
+    }
+    return $wasSet;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $this-&gt;oneToMany = null;
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private $number;
+
+  //Student Associations
+  private $pupil;
+  private $ta;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aNumber)
+  {
+    $this-&gt;number = $aNumber;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setNumber($aNumber)
+  {
+    $wasSet = false;
+    $this-&gt;number = $aNumber;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getNumber()
+  {
+    return $this-&gt;number;
+  }
+
+  public function getPupil()
+  {
+    return $this-&gt;pupil;
+  }
+
+  public function hasPupil()
+  {
+    $has = $this-&gt;pupil != null;
+    return $has;
+  }
+
+  public function getTa()
+  {
+    return $this-&gt;ta;
+  }
+
+  public function hasTa()
+  {
+    $has = $this-&gt;ta != null;
+    return $has;
+  }
+
+  public function setPupil($aNewPupil)
+  {
+    $wasSet = false;
+    if ($aNewPupil == null)
+    {
+      $existingPupil = $this-&gt;pupil;
+      $this-&gt;pupil = null;
+      
+      if ($existingPupil != null &amp;&amp; $existingPupil-&gt;getTa() != null)
+      {
+        $existingPupil-&gt;setTa(null);
+      }
+      $wasSet = true;
+      return $wasSet;
+    }
+    
+    $currentPupil = $this-&gt;getPupil();
+    if ($currentPupil != null &amp;&amp; $currentPupil != $aNewPupil)
+    {
+      $currentPupil-&gt;setTa(null);
+    }
+    
+    $this-&gt;pupil = $aNewPupil;
+    $existingTa = $aNewPupil-&gt;getTa();
+    
+    if ($this != $existingTa)
+    {
+      $aNewPupil-&gt;setTa($this);
+    }
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setTa($aNewTa)
+  {
+    $wasSet = false;
+    if ($aNewTa == null)
+    {
+      $existingTa = $this-&gt;ta;
+      $this-&gt;ta = null;
+      
+      if ($existingTa != null &amp;&amp; $existingTa-&gt;getPupil() != null)
+      {
+        $existingTa-&gt;setPupil(null);
+      }
+      $wasSet = true;
+      return $wasSet;
+    }
+    
+    $currentTa = $this-&gt;getTa();
+    if ($currentTa != null &amp;&amp; $currentTa != $aNewTa)
+    {
+      $currentTa-&gt;setPupil(null);
+    }
+    
+    $this-&gt;ta = $aNewTa;
+    $existingPupil = $aNewTa-&gt;getPupil();
+    
+    if ($this != $existingPupil)
+    {
+      $aNewTa-&gt;setPupil($this);
+    }
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    if ($this-&gt;pupil != null)
+    {
+      $this-&gt;pupil-&gt;setTa(null);
+    }
+    if ($this-&gt;ta != null)
+    {
+      $this-&gt;ta-&gt;setPupil(null);
+    }
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class OneSymmetric
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //OneSymmetric Attributes
+  private $name;
+  private $number;
+
+  //OneSymmetric Associations
+  private $friend;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aName = null, $aNumber = null, $aFriend = null)
+  {
+    if (func_num_args() == 0) { return; }
+
+    $this-&gt;name = $aName;
+    $this-&gt;number = $aNumber;
+    if ($aFriend == null || $aFriend-&gt;getFriend() != null)
+    {
+      throw new Exception("Unable to create OneSymmetric due to aFriend. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+    $this-&gt;friend = $aFriend;
+  }
+  public static function newInstance($aName, $aNumber, $aNameForFriend, $aNumberForFriend)
+  {
+    $thisInstance = new OneSymmetric();
+    $thisInstance-&gt;name = $aName;
+    $thisInstance-&gt;number = $aNumber;
+    $thisInstance-&gt;friend = new OneSymmetric($aNameForFriend, $aNumberForFriend, $thisInstance);
+    return $thisInstance;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setName($aName)
+  {
+    $wasSet = false;
+    $this-&gt;name = $aName;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setNumber($aNumber)
+  {
+    $wasSet = false;
+    $this-&gt;number = $aNumber;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getName()
+  {
+    return $this-&gt;name;
+  }
+
+  public function getNumber()
+  {
+    return $this-&gt;number;
+  }
+
+  public function getFriend()
+  {
+    return $this-&gt;friend;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $existingFriend = $this-&gt;friend;
+    $this-&gt;friend = null;
+    if ($existingFriend != null)
+    {
+      $existingFriend-&gt;delete();
+    }
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class OneSymmetricNoParam
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //OneSymmetricNoParam Associations
+  private $friend;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aFriend = null)
+  {
+    if (func_num_args() == 0) { return; }
+
+    if ($aFriend == null || $aFriend-&gt;getFriend() != null)
+    {
+      throw new Exception("Unable to create OneSymmetricNoParam due to aFriend. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+    $this-&gt;friend = $aFriend;
+  }
+  public static function newInstance()
+  {
+    $thisInstance = new OneSymmetricNoParam();
+    $thisInstance-&gt;friend = new OneSymmetricNoParam($thisInstance);
+    return $thisInstance;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getFriend()
+  {
+    return $this-&gt;friend;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $existingFriend = $this-&gt;friend;
+    $this-&gt;friend = null;
+    if ($existingFriend != null)
+    {
+      $existingFriend-&gt;delete();
+    }
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private $name;
+
+  //Mentor Associations
+  private $superMentor;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aName)
+  {
+    $this-&gt;name = $aName;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setName($aName)
+  {
+    $wasSet = false;
+    $this-&gt;name = $aName;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getName()
+  {
+    return $this-&gt;name;
+  }
+
+  public function getSuperMentor()
+  {
+    return $this-&gt;superMentor;
+  }
+
+  public function hasSuperMentor()
+  {
+    $has = $this-&gt;superMentor != null;
+    return $has;
+  }
+
+  public function setSuperMentor($aNewSuperMentor)
+  {
+    $wasSet = false;
+    if ($aNewSuperMentor == null)
+    {
+      $existingSuperMentor = $this-&gt;superMentor;
+      $this-&gt;superMentor = null;
+      
+      if ($existingSuperMentor != null &amp;&amp; $existingSuperMentor-&gt;getSuperMentor() != null)
+      {
+        $existingSuperMentor-&gt;setSuperMentor(null);
+      }
+      $wasSet = true;
+      return $wasSet;
+    }
+    
+    $currentSuperMentor = $this-&gt;getSuperMentor();
+    if ($currentSuperMentor != null &amp;&amp; $currentSuperMentor != $aNewSuperMentor)
+    {
+      $currentSuperMentor-&gt;setSuperMentor(null);
+    }
+    
+    $this-&gt;superMentor = $aNewSuperMentor;
+    $existingSuperMentor = $aNewSuperMentor-&gt;getSuperMentor();
+    
+    if ($this != $existingSuperMentor)
+    {
+      $aNewSuperMentor-&gt;setSuperMentor($this);
+    }
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    if ($this-&gt;superMentor != null)
+    {
+      $this-&gt;superMentor-&gt;setSuperMentor(null);
+    }
+  }
+
+}
+?&gt;
+</pre>
+    </body>
+</html>

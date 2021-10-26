@@ -1,0 +1,199 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from PhpOneToOneTest</title>
+    </head>
+    <body>
+        <pre>&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private $name;
+  private $id;
+
+  //Mentor Associations
+  private $student;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aName = null, $aStudent = null)
+  {
+    if (func_num_args() == 0) { return; }
+
+    $this-&gt;name = $aName;
+    $this-&gt;id = NULL;
+    if ($aStudent == null || $aStudent-&gt;getMentor() != null)
+    {
+      throw new Exception("Unable to create Mentor due to aStudent. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+    $this-&gt;student = $aStudent;
+  }
+  public static function newInstance($aName, $aNameForStudent, $aNumberForStudent)
+  {
+    $thisInstance = new Mentor();
+    $thisInstance-&gt;name = $aName;
+    $thisInstance-&gt;id = NULL;
+    $thisInstance-&gt;student = new Student($aNameForStudent, $aNumberForStudent, $thisInstance);
+    return $thisInstance;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setName($aName)
+  {
+    $wasSet = false;
+    $this-&gt;name = $aName;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setId($aId)
+  {
+    $wasSet = false;
+    $this-&gt;id = $aId;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getName()
+  {
+    return $this-&gt;name;
+  }
+
+  public function getId()
+  {
+    return $this-&gt;id;
+  }
+
+  public function getStudent()
+  {
+    return $this-&gt;student;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $existingStudent = $this-&gt;student;
+    $this-&gt;student = null;
+    if ($existingStudent != null)
+    {
+      $existingStudent-&gt;delete();
+    }
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private $name;
+  private $number;
+
+  //Student Associations
+  private $mentor;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aName = null, $aNumber = null, $aMentor = null)
+  {
+    if (func_num_args() == 0) { return; }
+
+    $this-&gt;name = $aName;
+    $this-&gt;number = $aNumber;
+    if ($aMentor == null || $aMentor-&gt;getStudent() != null)
+    {
+      throw new Exception("Unable to create Student due to aMentor. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+    $this-&gt;mentor = $aMentor;
+  }
+  public static function newInstance($aName, $aNumber, $aNameForMentor)
+  {
+    $thisInstance = new Student();
+    $thisInstance-&gt;name = $aName;
+    $thisInstance-&gt;number = $aNumber;
+    $thisInstance-&gt;mentor = new Mentor($aNameForMentor, $thisInstance);
+    return $thisInstance;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setName($aName)
+  {
+    $wasSet = false;
+    $this-&gt;name = $aName;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setNumber($aNumber)
+  {
+    $wasSet = false;
+    $this-&gt;number = $aNumber;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getName()
+  {
+    return $this-&gt;name;
+  }
+
+  public function getNumber()
+  {
+    return $this-&gt;number;
+  }
+
+  public function getMentor()
+  {
+    return $this-&gt;mentor;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $existingMentor = $this-&gt;mentor;
+    $this-&gt;mentor = null;
+    if ($existingMentor != null)
+    {
+      $existingMentor-&gt;delete();
+    }
+  }
+
+}
+?&gt;
+</pre>
+    </body>
+</html>

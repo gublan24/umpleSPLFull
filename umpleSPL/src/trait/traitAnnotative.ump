@@ -1,0 +1,71 @@
+// Fragment source file: StateMachine.ump
+// Line : 29
+ class StateMachine { * -- 0..1 UmpleTrait; } 
+
+// Fragment source file: StateMachine.ump
+// Line : 37
+ class StateMachine { before setUmpleTrait { if (aUmpleTrait != null && aUmpleTrait.isImmutable()) { return false; } } } 
+
+// Fragment source file: Umple.ump
+// Line : 102
+ class UmpleModel { 1 -> * UmpleTrait; } 
+
+// Fragment source file: Umple.ump
+// Line : 166
+ class UmpleElement { boolean isUmpleTrait() {return false;} } 
+
+// Fragment source file: Umple_CodeClass.ump
+// Line : 119
+ class UmpleClass { public boolean hasMethodInTraits (Method aMethod) {
+	  for (UmpleTrait uTrait : getExtendsTraits()) {
+		  if (uTrait.hasCascadeMethod(aMethod,true) || uTrait.hasCascadeMethod(aMethod,false)) {
+			  return true;
+		  }
+	}
+	  return false;
+  } } 
+
+// Fragment source file: Umple_Code_StateMachine.ump
+// Line : 21
+class CodeBlock { 
+      /*
+    * @author Vahdat
+    * The following part of code may not generate proper code-style code generation.
+    * Currently, we deal with code style at the code generation level (UmpleTemplate Language);
+    */
+    public void findKeywordAndReplace(String keyword, CodeBlock cBlock, StateMachine inStateMachine){
+      if(keyword==null || keyword=="") return;
+        for (String language : codes.keySet()) {
+          String replacement=System.lineSeparator()+"\t\t//This part of code comes from the trait '"+inStateMachine.getRootStateMachine().getUmpleTrait().getName()+"' -> begins"+System.lineSeparator()+"\t\t";
+          replacement = replacement+cBlock.codes.get(language).replace(keyword, "");
+          replacement=replacement+System.lineSeparator()+"\t\t//The code coming from trait '"+inStateMachine.getRootStateMachine().getUmpleTrait().getName()+"' ends here"+System.lineSeparator()+"\t\t";
+          codes.put(language,codes.get(language).replace(keyword,replacement+keyword)) ;
+        }
+      } 
+    
+  }
+
+// Fragment source file: Umple_Code.ump
+// Line : 868
+use trait/Umple_Code_Trait.ump;
+
+// Fragment source file: UmpleInternalParser_CodeClass.ump
+// Line : 1734
+ class UmpleInternalParser { private boolean associationIsBetweenClassAndTrait(Association a){
+      AssociationEnd myEnd = a.getEnd(0);
+         AssociationEnd yourEnd = a.getEnd(1);
+         
+         UmpleTrait myClass = model.getUmpleTrait(myEnd.getClassName());
+          UmpleClass yourClass = model.getUmpleClass(yourEnd.getClassName());
+         
+         if (myClass != null && yourClass != null ){ //association is between class and interface
+           return true;
+         }
+         
+         return false;
+    } } 
+
+// Fragment source file: UmpleInternalParser_Code.ump
+// Line : 524
+use trait/UmpleInternalParser_CodeTrait.ump;
+

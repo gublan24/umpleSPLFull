@@ -1,0 +1,126 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from ScxmlTemplateTest</title>
+    </head>
+    <body>
+        <pre>&lt;!--  EXPERIMENTAL SCXML OUTPUT, NOT READY FOR USE --&gt;
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;scxml name="sm" xmlns="http://www.w3.org/2005/07/scxml" xmlns:xi="http://www.w3.org/2001/XInclude" version="1.0"&gt;
+&lt;state id="stateOne"&gt;
+&lt;transition event="eventA" target="stateTwo"&gt;
+&lt;script&gt;
+doTransition();
+&lt;/script&gt;
+&lt;/transition&gt;
+&lt;/state&gt;
+&lt;state id="stateTwo"&gt;
+&lt;transition event="eventB" target="stateOne"/&gt;
+&lt;/state&gt;
+&lt;/scxml&gt;
+&lt;!--  EXPERIMENTAL SCXML OUTPUT, NOT READY FOR USE --&gt;
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;scxml name="sm" xmlns="http://www.w3.org/2005/07/scxml" xmlns:xi="http://www.w3.org/2001/XInclude" version="1.0"&gt;
+&lt;state id="stateOne"&gt;
+&lt;transition event="eventA" cond="x" target="stateTwo"/&gt;
+&lt;/state&gt;
+&lt;state id="stateTwo"&gt;
+&lt;transition event="eventB" target="stateOne"/&gt;
+&lt;/state&gt;
+&lt;/scxml&gt;
+&lt;!--  EXPERIMENTAL SCXML OUTPUT, NOT READY FOR USE --&gt;
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;scxml name="sm" xmlns="http://www.w3.org/2005/07/scxml" xmlns:xi="http://www.w3.org/2001/XInclude" version="1.0"&gt;
+&lt;state id="stateOne"&gt;
+&lt;onentry&gt;
+&lt;script&gt;
+System.out.println("auto transition");
+&lt;/script&gt;
+&lt;raise event="__autotransition1__"/&gt;
+&lt;/onentry&gt;
+&lt;transition event="__autotransition1__" target="stateTwo"/&gt;
+&lt;/state&gt;
+&lt;state id="stateTwo"/&gt;
+&lt;/scxml&gt;
+&lt;!--  EXPERIMENTAL SCXML OUTPUT, NOT READY FOR USE --&gt;
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;scxml name="sm" xmlns="http://www.w3.org/2005/07/scxml" xmlns:xi="http://www.w3.org/2001/XInclude" version="1.0"&gt;
+&lt;state id="stateOne"&gt;
+&lt;transition event="eventA" target="stateTwo"/&gt;
+&lt;/state&gt;
+&lt;state id="stateTwo"&gt;
+&lt;transition event="eventB" target="stateOne"/&gt;
+&lt;/state&gt;
+&lt;/scxml&gt;
+&lt;!--  EXPERIMENTAL SCXML OUTPUT, NOT READY FOR USE --&gt;
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;scxml name="sm" xmlns="http://www.w3.org/2005/07/scxml" xmlns:xi="http://www.w3.org/2001/XInclude" version="1.0"&gt;
+&lt;script&gt;
+ void doTransitionA()  {
+System.out.println("Doing transition A");
+  }
+ void doTransitionB()  {
+System.out.println("Doing transition B");
+  }
+&lt;/script&gt;
+&lt;/scxml&gt;
+&lt;!--  EXPERIMENTAL SCXML OUTPUT, NOT READY FOR USE --&gt;
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;scxml name="sm" xmlns="http://www.w3.org/2005/07/scxml" xmlns:xi="http://www.w3.org/2001/XInclude" version="1.0"&gt;
+&lt;state id="superState"&gt;
+&lt;state id="subState"/&gt;
+&lt;/state&gt;
+&lt;/scxml&gt;
+&lt;!--  EXPERIMENTAL SCXML OUTPUT, NOT READY FOR USE --&gt;
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;scxml xmlns="http://www.w3.org/2005/07/scxml" xmlns:xi="http://www.w3.org/2001/XInclude" version="1.0"/&gt;
+
+&lt;!--  EXPERIMENTAL SCXML OUTPUT, NOT READY FOR USE --&gt;
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;scxml name="sm" xmlns="http://www.w3.org/2005/07/scxml" xmlns:xi="http://www.w3.org/2001/XInclude" version="1.0"&gt;
+&lt;state id="stateOne"&gt;
+&lt;onentry&gt;
+&lt;script&gt;
+doEntry();
+&lt;/script&gt;
+&lt;/onentry&gt;
+&lt;/state&gt;
+&lt;/scxml&gt;
+&lt;!--  EXPERIMENTAL SCXML OUTPUT, NOT READY FOR USE --&gt;
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;scxml name="sm" xmlns="http://www.w3.org/2005/07/scxml" xmlns:xi="http://www.w3.org/2001/XInclude" version="1.0"&gt;
+&lt;state id="stateOne"&gt;
+&lt;transition event="eventA" target="stateTwo"&gt;
+&lt;script&gt;
+doTransitionA();
+&lt;/script&gt;
+&lt;/transition&gt;
+&lt;/state&gt;
+&lt;state id="stateTwo"&gt;
+&lt;transition event="eventB" target="stateOne"&gt;
+&lt;script&gt;
+doTransitionB();
+&lt;/script&gt;
+&lt;/transition&gt;
+&lt;/state&gt;
+&lt;script&gt;
+ void doTransitionA()  {
+System.out.println("Doing transition A");
+  }
+ void doTransitionB()  {
+System.out.println("Doing transition B");
+  }
+&lt;/script&gt;
+&lt;/scxml&gt;
+&lt;!--  EXPERIMENTAL SCXML OUTPUT, NOT READY FOR USE --&gt;
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;scxml xmlns="http://www.w3.org/2005/07/scxml" xmlns:xi="http://www.w3.org/2001/XInclude" version="1.0"/&gt;
+
+&lt;!--  EXPERIMENTAL SCXML OUTPUT, NOT READY FOR USE --&gt;
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;scxml name="sm" xmlns="http://www.w3.org/2005/07/scxml" xmlns:xi="http://www.w3.org/2001/XInclude" version="1.0"&gt;
+&lt;state id="stateOne"/&gt;
+&lt;/scxml&gt;
+</pre>
+    </body>
+</html>

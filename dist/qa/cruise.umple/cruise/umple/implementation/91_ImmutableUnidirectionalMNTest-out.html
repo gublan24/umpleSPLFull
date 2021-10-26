@@ -1,0 +1,177 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from ImmutableUnidirectionalMNTest</title>
+    </head>
+    <body>
+        <pre>/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+import java.util.*;
+
+// line 3 "../ImmutableUnidirectionalMNTest.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private String number;
+
+  //Student Associations
+  private List&lt;Mentor&gt; mentors;
+
+  //Helper Variables
+  private boolean canSetMentors;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student(String aNumber, Mentor... allMentors)
+  {
+    number = aNumber;
+    canSetMentors = true;
+    mentors = new ArrayList&lt;Mentor&gt;();
+    boolean didAddMentors = setMentors(allMentors);
+    if (!didAddMentors)
+    {
+      throw new RuntimeException("Unable to create Student, must have 2 to 4 mentors. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public String getNumber()
+  {
+    return number;
+  }
+  /* Code from template association_GetMany */
+  public Mentor getMentor(int index)
+  {
+    Mentor aMentor = mentors.get(index);
+    return aMentor;
+  }
+
+  public List&lt;Mentor&gt; getMentors()
+  {
+    List&lt;Mentor&gt; newMentors = Collections.unmodifiableList(mentors);
+    return newMentors;
+  }
+
+  public int numberOfMentors()
+  {
+    int number = mentors.size();
+    return number;
+  }
+
+  public boolean hasMentors()
+  {
+    boolean has = mentors.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfMentor(Mentor aMentor)
+  {
+    int index = mentors.indexOf(aMentor);
+    return index;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfMentors()
+  {
+    return 2;
+  }
+  /* Code from template association_MaximumNumberOfMethod */
+  public static int maximumNumberOfMentors()
+  {
+    return 4;
+  }
+  /* Code from template association_SetUnidirectionalMN */
+  private boolean setMentors(Mentor... newMentors)
+  {
+    boolean wasSet = false;
+    if (!canSetMentors) { return false; }
+    canSetMentors = false;
+    ArrayList&lt;Mentor&gt; verifiedMentors = new ArrayList&lt;Mentor&gt;();
+    for (Mentor aMentor : newMentors)
+    {
+      if (verifiedMentors.contains(aMentor))
+      {
+        continue;
+      }
+      verifiedMentors.add(aMentor);
+    }
+
+    if (verifiedMentors.size() != newMentors.length || verifiedMentors.size() &lt; minimumNumberOfMentors() || verifiedMentors.size() &gt; maximumNumberOfMentors())
+    {
+      return wasSet;
+    }
+
+    mentors.clear();
+    mentors.addAll(verifiedMentors);
+    wasSet = true;
+    return wasSet;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "number" + ":" + getNumber()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 9 "../ImmutableUnidirectionalMNTest.ump"
+public class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private String name;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Mentor(String aName)
+  {
+    name = aName;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public String getName()
+  {
+    return name;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "name" + ":" + getName()+ "]";
+  }
+}
+</pre>
+    </body>
+</html>

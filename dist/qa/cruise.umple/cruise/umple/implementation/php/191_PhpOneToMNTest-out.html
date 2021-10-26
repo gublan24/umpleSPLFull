@@ -1,0 +1,317 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from PhpOneToMNTest</title>
+    </head>
+    <body>
+        <pre>&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private $name;
+
+  //Mentor Associations
+  private $pupils;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aName)
+  {
+    $this-&gt;name = $aName;
+    $this-&gt;pupils = array();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setName($aName)
+  {
+    $wasSet = false;
+    $this-&gt;name = $aName;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getName()
+  {
+    return $this-&gt;name;
+  }
+
+  public function getPupil_index($index)
+  {
+    $aPupil = $this-&gt;pupils[$index];
+    return $aPupil;
+  }
+
+  public function getPupils()
+  {
+    $newPupils = $this-&gt;pupils;
+    return $newPupils;
+  }
+
+  public function numberOfPupils()
+  {
+    $number = count($this-&gt;pupils);
+    return $number;
+  }
+
+  public function hasPupils()
+  {
+    $has = $this-&gt;numberOfPupils() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfPupil($aPupil)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;pupils as $pupil)
+    {
+      if ($pupil-&gt;equals($aPupil))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public function isNumberOfPupilsValid()
+  {
+    $isValid = $this-&gt;numberOfPupils() &gt;= self::minimumNumberOfPupils() &amp;&amp; $this-&gt;numberOfPupils() &lt;= self::maximumNumberOfPupils();
+    return $isValid;
+  }
+
+  public static function minimumNumberOfPupils()
+  {
+    return 5;
+  }
+
+  public static function maximumNumberOfPupils()
+  {
+    return 7;
+  }
+
+  public function addPupilVia($aNumber)
+  {
+    if ($this-&gt;numberOfPupils() &gt;= self::maximumNumberOfPupils())
+    {
+      return null;
+    }
+    else
+    {
+      return new Pupil($aNumber, $this);
+    }
+  }
+
+  public function addPupil($aPupil)
+  {
+    $wasAdded = false;
+    if ($this-&gt;indexOfPupil($aPupil) !== -1) { return false; }
+    if ($this-&gt;numberOfPupils() &gt;= self::maximumNumberOfPupils())
+    {
+      return $wasAdded;
+    }
+
+    $existingMentor = $aPupil-&gt;getMentor();
+    $isNewMentor = $existingMentor != null &amp;&amp; $this !== $existingMentor;
+
+    if ($isNewMentor &amp;&amp; $existingMentor-&gt;numberOfPupils() &lt;= self::minimumNumberOfPupils())
+    {
+      return $wasAdded;
+    }
+
+    if ($isNewMentor)
+    {
+      $aPupil-&gt;setMentor($this);
+    }
+    else
+    {
+      $this-&gt;pupils[] = $aPupil;
+    }
+    $wasAdded = true;
+    return $wasAdded;
+  }
+
+  public function removePupil($aPupil)
+  {
+    $wasRemoved = false;
+    //Unable to remove aPupil, as it must always have a mentor
+    if ($this === $aPupil-&gt;getMentor())
+    {
+      return $wasRemoved;
+    }
+
+    //mentor already at minimum (5)
+    if ($this-&gt;numberOfPupils() &lt;= self::minimumNumberOfPupils())
+    {
+      return $wasRemoved;
+    }
+
+    unset($this-&gt;pupils[$this-&gt;indexOfPupil($aPupil)]);
+    $this-&gt;pupils = array_values($this-&gt;pupils);
+    $wasRemoved = true;
+    return $wasRemoved;
+  }
+
+  public function addPupilAt($aPupil, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addPupil($aPupil))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfPupils()) { $index = $this-&gt;numberOfPupils() - 1; }
+      array_splice($this-&gt;pupils, $this-&gt;indexOfPupil($aPupil), 1);
+      array_splice($this-&gt;pupils, $index, 0, array($aPupil));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMovePupilAt($aPupil, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfPupil($aPupil) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfPupils()) { $index = $this-&gt;numberOfPupils() - 1; }
+      array_splice($this-&gt;pupils, $this-&gt;indexOfPupil($aPupil), 1);
+      array_splice($this-&gt;pupils, $index, 0, array($aPupil));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addPupilAt($aPupil, $index);
+    }
+    return $wasAdded;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    foreach ($this-&gt;pupils as $aPupil)
+    {
+      $aPupil-&gt;delete();
+    }
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Pupil
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Pupil Attributes
+  private $number;
+
+  //Pupil Associations
+  private $mentor;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aNumber, $aMentor)
+  {
+    $this-&gt;number = $aNumber;
+    $didAddMentor = $this-&gt;setMentor($aMentor);
+    if (!$didAddMentor)
+    {
+      throw new Exception("Unable to create pupil due to mentor. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setNumber($aNumber)
+  {
+    $wasSet = false;
+    $this-&gt;number = $aNumber;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getNumber()
+  {
+    return $this-&gt;number;
+  }
+
+  public function getMentor()
+  {
+    return $this-&gt;mentor;
+  }
+
+  public function setMentor($aMentor)
+  {
+    $wasSet = false;
+    //Must provide mentor to pupil
+    if ($aMentor == null)
+    {
+      return $wasSet;
+    }
+
+    //mentor already at maximum (7)
+    if ($aMentor-&gt;numberOfPupils() &gt;= Mentor::maximumNumberOfPupils())
+    {
+      return $wasSet;
+    }
+    
+    $existingMentor = $this-&gt;mentor;
+    $this-&gt;mentor = $aMentor;
+    if ($existingMentor != null &amp;&amp; $existingMentor != $aMentor)
+    {
+      $didRemove = $existingMentor-&gt;removePupil($this);
+      if (!$didRemove)
+      {
+        $this-&gt;mentor = $existingMentor;
+        return $wasSet;
+      }
+    }
+    $this-&gt;mentor-&gt;addPupil($this);
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $placeholderMentor = $this-&gt;mentor;
+    $this-&gt;mentor = null;
+    $placeholderMentor-&gt;removePupil($this);
+  }
+
+}
+?&gt;
+</pre>
+    </body>
+</html>

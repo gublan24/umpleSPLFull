@@ -1,0 +1,78 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from SqlDoubleChainGenTest</title>
+    </head>
+    <body>
+        <pre>-- PLEASE DO NOT EDIT THIS CODE
+-- This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+
+CREATE DATABASE IF NOT EXISTS `example`;
+USE `example`;
+
+CREATE TABLE IF NOT EXISTS `example`.`employee`
+(
+  /*------------------------*/
+  /* MEMBER VARIABLES       */
+  /*------------------------*/
+
+  /*employee Associations*/
+  person_name VARCHAR(255),
+  
+  /*employee Attributes*/
+  id INT,
+  PRIMARY KEY(id)
+
+);
+
+
+ALTER TABLE `example`.`employee` ADD CONSTRAINT `fk_employee_person_name` FOREIGN KEY (`person_name`) REFERENCES `example`.`person`(`name`);
+
+-- PLEASE DO NOT EDIT THIS CODE
+-- This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+
+CREATE DATABASE IF NOT EXISTS `example`;
+USE `example`;
+
+CREATE TABLE IF NOT EXISTS `example`.`person`
+(
+  /*------------------------*/
+  /* MEMBER VARIABLES       */
+  /*------------------------*/
+  
+  /*person Attributes*/
+  name VARCHAR(255),
+  age INT,
+  PRIMARY KEY(name)
+
+);
+
+
+
+-- PLEASE DO NOT EDIT THIS CODE
+-- This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+
+CREATE DATABASE IF NOT EXISTS `example`;
+USE `example`;
+
+CREATE TABLE IF NOT EXISTS `example`.`admin`
+(
+  /*------------------------*/
+  /* MEMBER VARIABLES       */
+  /*------------------------*/
+
+  /*admin Associations*/
+  employee_id INT,
+  
+  /*admin Attributes*/
+  number INT,
+  PRIMARY KEY(number)
+
+);
+
+
+ALTER TABLE `example`.`admin` ADD CONSTRAINT `fk_admin_employee_id` FOREIGN KEY (`employee_id`) REFERENCES `example`.`employee`(`id`);
+
+</pre>
+    </body>
+</html>

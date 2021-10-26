@@ -1,0 +1,177 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from PhpOptionalOneToOptionalOneTest</title>
+    </head>
+    <body>
+        <pre>&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Associations
+  private $student;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStudent()
+  {
+    return $this-&gt;student;
+  }
+
+  public function hasStudent()
+  {
+    $has = $this-&gt;student != null;
+    return $has;
+  }
+
+  public function setStudent($aNewStudent)
+  {
+    $wasSet = false;
+    if ($aNewStudent == null)
+    {
+      $existingStudent = $this-&gt;student;
+      $this-&gt;student = null;
+      
+      if ($existingStudent != null &amp;&amp; $existingStudent-&gt;getMentor() != null)
+      {
+        $existingStudent-&gt;setMentor(null);
+      }
+      $wasSet = true;
+      return $wasSet;
+    }
+    
+    $currentStudent = $this-&gt;getStudent();
+    if ($currentStudent != null &amp;&amp; $currentStudent != $aNewStudent)
+    {
+      $currentStudent-&gt;setMentor(null);
+    }
+    
+    $this-&gt;student = $aNewStudent;
+    $existingMentor = $aNewStudent-&gt;getMentor();
+    
+    if ($this != $existingMentor)
+    {
+      $aNewStudent-&gt;setMentor($this);
+    }
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    if ($this-&gt;student != null)
+    {
+      $this-&gt;student-&gt;setMentor(null);
+    }
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Associations
+  private $mentor;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getMentor()
+  {
+    return $this-&gt;mentor;
+  }
+
+  public function hasMentor()
+  {
+    $has = $this-&gt;mentor != null;
+    return $has;
+  }
+
+  public function setMentor($aNewMentor)
+  {
+    $wasSet = false;
+    if ($aNewMentor == null)
+    {
+      $existingMentor = $this-&gt;mentor;
+      $this-&gt;mentor = null;
+      
+      if ($existingMentor != null &amp;&amp; $existingMentor-&gt;getStudent() != null)
+      {
+        $existingMentor-&gt;setStudent(null);
+      }
+      $wasSet = true;
+      return $wasSet;
+    }
+    
+    $currentMentor = $this-&gt;getMentor();
+    if ($currentMentor != null &amp;&amp; $currentMentor != $aNewMentor)
+    {
+      $currentMentor-&gt;setStudent(null);
+    }
+    
+    $this-&gt;mentor = $aNewMentor;
+    $existingStudent = $aNewMentor-&gt;getStudent();
+    
+    if ($this != $existingStudent)
+    {
+      $aNewMentor-&gt;setStudent($this);
+    }
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    if ($this-&gt;mentor != null)
+    {
+      $this-&gt;mentor-&gt;setStudent(null);
+    }
+  }
+
+}
+?&gt;
+</pre>
+    </body>
+</html>

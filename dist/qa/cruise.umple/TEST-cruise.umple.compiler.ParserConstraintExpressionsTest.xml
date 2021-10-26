@@ -1,0 +1,926 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="Abdulazizs-MacBook-Pro.local" name="cruise.umple.compiler.ParserConstraintExpressionsTest" skipped="8" tests="308" time="95.914" timestamp="2021-10-26T14:36:37">
+  <properties>
+    <property name="ant.library.dir" value="/usr/local/Cellar/ant/1.10.9/libexec/lib" />
+    <property name="env.TERM" value="xterm-256color" />
+    <property name="java.specification.version" value="15" />
+    <property name="ant.project.name" value="UmpleCore" />
+    <property name="ant.file.type.UmpleCore" value="file" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="ant.file.type.LocalBuildProperties" value="file" />
+    <property name="env.SDKMAN_CANDIDATES_API" value="https://api.sdkman.io/2" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="dist.umple.docs.jar.prev" value="umpledocs-1.31.1.5860.78bb27cc6.jar" />
+    <property name="rake_cmd" value="rake" />
+    <property name="showJunitOutput" value="false" />
+    <property name="umple.deps.dir" value="/Users/abdulaziz/tmp/umple/dist/libs" />
+    <property name="java.vendor.url" value="https://openjdk.java.net/" />
+    <property name="dist.libs.dir" value="/Users/abdulaziz/tmp/umple/dist/libs" />
+    <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home/lib" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=/Users/abdulaziz/tmp/umple/junittestcases17207971584170290149.properties skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/abdulaziz/tmp/umple/dist/qa/cruise.umple/IGNORETHIS.xml crashfile=/Users/abdulaziz/tmp/umple/junitvmwatcher18025810772324144422.properties propsfile=/Users/abdulaziz/tmp/umple/junit11904736065030654403.properties" />
+    <property name="jdk.debug" value="release" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="test.output.path" value="/Users/abdulaziz/tmp/umple/dist/qa/cruise.umple" />
+    <property name="env.JAVA_HOME" value="/usr/local/opt/openjdk" />
+    <property name="java.version.date" value="2020-10-20" />
+    <property name="java.home" value="/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home" />
+    <property name="basedir" value="/Users/abdulaziz/tmp/umple" />
+    <property name="file.separator" value="/" />
+    <property name="java.vm.compressedOopsMode" value="Zero based" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="ivy.jar.file" value="/Users/abdulaziz/.ant/lib/ivy-2.4.0.jar" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.file.Template" value="/Users/abdulaziz/tmp/umple/build/_template.xml" />
+    <property name="dist.umple.stats.jar" value="umplestats-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ivyRetrieveLogLevel" value="quiet" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="java.runtime.version" value="15.0.1+9" />
+    <property name="env.TERM_PROGRAM_VERSION" value="440" />
+    <property name="user.name" value="abdulaziz" />
+    <property name="env.PATH" value="/Users/abdulaziz/.sdkman/candidates/gradle/current/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands" />
+    <property name="env.LOGNAME" value="abdulaziz" />
+    <property name="env.XPC_FLAGS" value="0x0" />
+    <property name="env.__CF_USER_TEXT_ENCODING" value="0x1F5:0x0:0x0" />
+    <property name="file.encoding" value="UTF-8" />
+    <property name="env.__CFBundleIdentifier" value="com.apple.Terminal" />
+    <property name="env.TERM_SESSION_ID" value="20D2790F-0FEC-4CCB-A10B-030C8F4ED298" />
+    <property name="umple.stable.jar" value="/Users/abdulaziz/tmp/umple/dist/libs/umple-1.31.1.5860.78bb27cc6.jar" />
+    <property name="haltonfailure" value="false" />
+    <property name="connectionTimeout" value="30" />
+    <property name="env.SHLVL" value="1" />
+    <property name="dist.dir" value="/Users/abdulaziz/tmp/umple/dist" />
+    <property name="dist.path" value="/Users/abdulaziz/tmp/umple/dist/cruise.umple" />
+    <property name="env.JAVA_MAIN_CLASS_4859" value="org.apache.tools.ant.launch.Launcher" />
+    <property name="java.io.tmpdir" value="/var/folders/fm/7tjk7l8154x840c6vvrs49p40000gn/T/" />
+    <property name="umple.ivy.dep.file" value="/Users/abdulaziz/tmp/umple/build/ivy.xml" />
+    <property name="dist.umple.run.jar.prev" value="umplerun-1.31.1.5860.78bb27cc6.jar" />
+    <property name="dist.umple.jar" value="umple-1.31.1.5860.78bb27cc6.jar" />
+    <property name="java.version" value="15.0.1" />
+    <property name="env.SSH_AUTH_SOCK" value="/private/tmp/com.apple.launchd.qK4l0KXsgu/Listeners" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.home" value="/usr/local/Cellar/ant/1.10.9/libexec" />
+    <property name="ant.file.type.UmpleDeps" value="file" />
+    <property name="env.SDKMAN_DIR" value="/Users/abdulaziz/.sdkman" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.10.9 compiled on September 27 2020" />
+    <property name="env.TMPDIR" value="/var/folders/fm/7tjk7l8154x840c6vvrs49p40000gn/T/" />
+    <property name="env.SDKMAN_PLATFORM" value="darwinx64" />
+    <property name="java.library.path" value="/Users/abdulaziz/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
+    <property name="java.vendor" value="N/A" />
+    <property name="shouldPackageUmpleOnline" value="false" />
+    <property name="dist.umple.validator.jar" value="umplevalidator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="sun.io.unicode.encoding" value="UnicodeBig" />
+    <property name="jopt-simple.install.version" value="4.4" />
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="env.SDKMAN_CANDIDATES_DIR" value="/Users/abdulaziz/.sdkman/candidates" />
+    <property name="env.TERM_PROGRAM" value="Apple_Terminal" />
+    <property name="vendors.path" value="/Users/abdulaziz/tmp/umple/dist/libs/vendors" />
+    <property name="env.PWD" value="/Users/abdulaziz/tmp/umple/build" />
+    <property name="ant.file.type" value="file" />
+    <property name="last.version" value="1.31.1.5860.78bb27cc6" />
+    <property name="env.LANG" value="en_CA.UTF-8" />
+    <property name="ant.file.type.VersionLast" value="file" />
+    <property name="java.class.path" value="/Users/abdulaziz/tmp/umple/cruise.umple/bin:/Users/abdulaziz/tmp/umple/dist/libs/core/ant-launcher.jar:/Users/abdulaziz/tmp/umple/dist/libs/core/ant.jar:/Users/abdulaziz/tmp/umple/dist/libs/core/jopt-simple.jar:/Users/abdulaziz/tmp/umple/dist/libs/test/hamcrest-core.jar:/Users/abdulaziz/tmp/umple/dist/libs/test/junit.jar:/Users/abdulaziz/.ant/lib/junit.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-launcher.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-junit.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-junit4.jar" />
+    <property name="env.HOME" value="/Users/abdulaziz" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="env.GRADLE_HOME" value="/Users/abdulaziz/.sdkman/candidates/gradle/current" />
+    <property name="xtext.project.path" value="cruise.umple.xtext" />
+    <property name="ant.file.type.Template" value="file" />
+    <property name="user.timezone" value="America/Toronto" />
+    <property name="project.path" value="cruise.umple" />
+    <property name="ant.file.UmpleDeps" value="/Users/abdulaziz/tmp/umple/build/build.deps.xml" />
+    <property name="java.vm.specification.version" value="15" />
+    <property name="os.name" value="Mac OS X" />
+    <property name="env.DISPLAY" value="/private/tmp/com.apple.launchd.8VZUm1G4zQ/org.xquartz:0" />
+    <property name="dist.umple.sync.jar" value="umplesync-1.31.1.5860.78bb27cc6.jar" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="user.country" value="CA" />
+    <property name="dist.umple.run.jar" value="umplerun-1.31.1.5860.78bb27cc6.jar" />
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="user.home" value="/Users/abdulaziz" />
+    <property name="user.language" value="en" />
+    <property name="ivy.install.version" value="2.4.0" />
+    <property name="ant.java.version" value="15" />
+    <property name="ant.file.type.Umple" value="file" />
+    <property name="showJunitSummary" value="false" />
+    <property name="bin.path" value="cruise.umple/bin" />
+    <property name="umple.version" value="1.31.1.5860.78bb27cc6" />
+    <property name="dist.umple.sync.jar.prev" value="umplesync-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ivyResolveLogLevel" value="download-only" />
+    <property name="env.XPC_SERVICE_NAME" value="0" />
+    <property name="user.home.ant" value="/Users/abdulaziz/.ant/lib" />
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="is.osx" value="true" />
+    <property name="dist.umple.stats.jar.prev" value="umplestats-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ant.file" value="/Users/abdulaziz/tmp/umple/build/build.umple.xml" />
+    <property name="path.separator" value=":" />
+    <property name="dist.umple.umplificator.jar.prev" value="umpleumplificator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="os.version" value="11.6" />
+    <property name="ant.file.VersionLast" value="/Users/abdulaziz/tmp/umple/build/_versionLast.xml" />
+    <property name="ant.file.Umple" value="/Users/abdulaziz/tmp/umple/build/build.xml" />
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+    <property name="dist.umple.docs.jar" value="umpledocs-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ant.project.invoked-targets" value="template.test" />
+    <property name="dist.umple.umplificator.jar" value="umpleumplificator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM" />
+    <property name="ant.file.LocalBuildProperties" value="/Users/abdulaziz/tmp/umple/build/_local.xml" />
+    <property name="env.SHELL" value="/bin/zsh" />
+    <property name="ant.core.lib" value="/usr/local/Cellar/ant/1.10.9/libexec/lib/ant.jar" />
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/" />
+    <property name="junit" value="*Test" />
+    <property name="user.dir" value="/Users/abdulaziz/tmp/umple/build" />
+    <property name="os.arch" value="x86_64" />
+    <property name="env.SDKMAN_VERSION" value="5.11.5+713" />
+    <property name="shouldDeploy" value="false" />
+    <property name="dist.umple.validator.jar.prev" value="umplevalidator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="java.vm.info" value="mixed mode, sharing" />
+    <property name="java.vm.version" value="15.0.1+9" />
+    <property name="ant.file.UmpleCore" value="/Users/abdulaziz/tmp/umple/build/build.umple.xml" />
+    <property name="online" value="true" />
+    <property name="myenv" value="local" />
+    <property name="umple.deps.manual.dir" value="/Users/abdulaziz/tmp/umple/dist/libs/manual" />
+    <property name="env.USER" value="abdulaziz" />
+    <property name="java.class.version" value="59.0" />
+    <property name="first.build" value="false" />
+    <property name="dist.umple.jar.prev" value="umple-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ant.project.default-target" value="build" />
+  </properties>
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="ConstraintDataType" time="1.711" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="canHandleDateConstraints" time="0.192" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="BasicConstraint2" time="0.187" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="warningConstantDeprecated" time="0.188" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="externalDefinitionAndClassDefinitionCodeGeneration_externalLast" time="0.187" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="associationByItself" time="0.197" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attribute_ContainerType" time="0.191" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="associationWithUnknownClass" time="0.188" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="parseUmpleEnumerationDefinedInClass" time="0.187" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="compositionParseTest_leftVarNames" time="0.189" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="abstractClass" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="propagateImmutabilityToAllRelationships" time="0.2" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="associationClassMultipleDefinitions" time="0.191" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="interfaceWithPosition" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attributeFixml" time="0.0">
+    <skipped />
+  </testcase>
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="enumerationConflictsWithStateMachine" time="0.376" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="singletonWithConst" time="0.195" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attribute_Type" time="0.188" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attribute_list" time="0.188" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="is_A_NonExistingExtendsClass" time="0.755" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="toplevelExtracodeNoCodeLang" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="interfaceWithMultipleMembers" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="toplevelBeforeForMultiClasses" time="0.194" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="classCanNotBeChangedToImmutableWithInvalidAssociations" time="0.193" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="TestReservedRoleNameError32" time="0.192" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multipleAssociationComments" time="0.19" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="association_nonZeroReflexiveAssociation" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="warningClassNameCapitalLetter" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="methodDetection" time="0.192" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="nestedGenericTypes" time="0.403" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="twoCharacterMethod" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attribute_autounique" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="parseUmpleEnumerationDefinedAtTopLevel" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attributeSharedName" time="0.934" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="isA_MultipleInterfacesAndClassesV2" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="methodParameterAmbiguityCausedByEnumeration" time="0.553" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="isAttributeLazyRedundant" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="abstractInheritanceClass" time="0.188" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="invalidNamespace_noName" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="interfaceWithMethodAndNOTParameters" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="templateInexistentReference" time="0.404" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="isA_MultipleTimesInTheSameLine" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="operationNotFound" time="0.371" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attribute_assignedValue" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="interfaceImplementation" time="0.192" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="duplicateNamespace" time="0.0">
+    <skipped />
+  </testcase>
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multipleExtraCodeDoubleDeclaration" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="symmetricReflexiveAssociationError19" time="0.189" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="symmetricReflexiveAssociationError23" time="0.188" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="singleton" time="0.191" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="invalidClassNameStart" time="1.114" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="AssociationClassKeyNoWarnings" time="0.19" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multipleClasses" time="0.191" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multipleMethodBodyWarning" time="0.189" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="invalidClassNamePart" time="1.103" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="outputLanguagePathOverride" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multivaluedAttributeInitialization" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="autoGeneratedGetSetConstAttribute" time="0.188" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="reflexiveMandatoryAssociationMayNotBeImmutable" time="1.304" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="unknownClass" time="0.187" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="validClassName" time="1.102" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="depend" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="unknownInterface" time="0.365" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multivaluedAttributeAssignment" time="0.365" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="nestedClassCyclicInheritance" time="1.122" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="assertSetFailedPosition" time="0.778" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="extraCodeInterfaces" time="0.202" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="isA_ComplexCycle" time="0.191" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="generateSuboption" time="0.19" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="toplevelAspectsForMixset" time="0.213" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="rubyLanguage" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="externalAssociationWithUnknownClassSecondPosition" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="immutableOtherWayInternalAssociation" time="0.188" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attributeLooksLikeAssociation" time="0.375" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="warningUninitializedConstClass" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="validInterfaceName" time="1.091" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="whitespaceCharacter" time="0.0">
+    <skipped />
+  </testcase>
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="AssociationClassCreatesKeyIfMissing" time="0.198" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="interfaceWithSingleIsA" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="stateMachineandAttributeNameClashing" time="0.187" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="referencedPackages" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="invalidInterfaceNamePart" time="1.101" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="emptyClass" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="association_invalidMultiplicityOutOfOrder" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="associationClass2" time="0.001" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="emptyMultiLineCommentWithSpaces" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="immutableExternalOtherWayAssociation" time="0.188" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="invalidAssociationsForImmutableClass_independentlyDefined" time="0.553" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="abstractInterfaceExtends" time="0.188" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="toplevelAfterAsteriskKeyword" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="inlineComments" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attributeComplexAssigned" time="0.19" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="isA_SimpleCycle" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="symmetricReflexiveAssociation" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="associationMultilineComment" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multipleIsA_MultipleClass_Inheritance" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="beforeKeyword" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="keyCannotHaveDuplicateAttributes" time="0.188" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="parseInterfaceCode" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="internalAttributeGetterMethod" time="0.189" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="associationClass" time="1.124" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attribute_defaultedWithoutAValue" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="autoGeneratedGetSetLazyImmutableAttribute" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="notUsedNamespace" time="0.73" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="autoGeneratedGetSetAutouniqueAttribute" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="associationsForMutableClassesParseSuccessfully" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="toplevelExtracode" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="isA_MultipleInterfacesAndClasses" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="isA_SimpleCycle_WithKey" time="0.188" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="duplicateAttributesNames" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attributeAndAssociationNameClashingUnidirectional" time="2.748" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="associationClassPosition" time="0.19" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="duplicateEnumsInClass" time="0.187" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="toplevelBeforeKeywordAtBegining" time="0.187" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="interfaceWithMultipleIsA" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="validAssociationsForImmutableClass_independentlyDefined" time="0.737" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attributeAndAssociationNameClashingBidirectional" time="1.658" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="associationInlineComment" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="is_A_SimpleCycle_Interface" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="filterWithAttributeInTrait" time="0.187" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="parseUmpleEnumerationDefinedAtTopLevelAndInClass" time="0.189" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="nestedUseStatements" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="commentsBeforeClasses" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="enumAttributeEmpty" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="autoGeneratedGetSetBasicAttribute" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="queuedMethods" time="0.366" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multiInject" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="invalidAssociationsForImmutableClass" time="0.73" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="associationClassMissingLeft" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="classAndNamespaces" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="glossary" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="reflexiveAndError21CasesNonDirected" time="0.734" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="warningUninitializedConstObjectClass" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="upperCaseAssociationKey" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="externalDefinitionAndClassDefinitionCodeGeneration_externalMiddle" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="afterKeyword" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multipleEmptyCommentsWithSpaces" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="phpLanguage" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multLanguageImplementation" time="1.285" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="classPosition_default" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="keyWithInitializedAttribute" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="superclassCanNotBeChangedToImmutableWithInvalidAssociationsInSubclass" time="0.187" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="emptyMultiLineComment" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="commentsInClass" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="isA_MultipleInterfaces" time="0.18" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="immutableAssociationMayNotHaveMutableClassAtDirectedEnd" time="1.264" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="immutableClassMayNotContainStateMachines" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="stateMachineConcurrencyBetweenStates" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="associationClassNewSyntax" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="singletonAttributeNotLazy" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attribute_Unique" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="generateSuboptionOverride" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="invalidInterfaceNameStart" time="1.085" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="mixin_redefiningAMethod" time="2.035" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="noDefaultNamespace" time="0.553" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="conflictingModifiersForStateDependentMethods" time="0.189" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="toplevelAfterGlobClassName" time="0.366" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="association" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="compositionParseTest_DoubleDefinition" time="0.187" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="interfaceWithConstants" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="associationWithClassAndInterface" time="0.568" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="positionUnknownAssociation" time="0.188" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="codeBlockMultiLanguage" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attribute_derived" time="0.187" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="toplevelAfterGlobOperationNameOnTrait" time="0.191" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="key" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="test" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="validAssociationsForImmutableClass" time="0.729" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="classWithImplementedMethods" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="enumLongHandSyntax" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="associationClassAdditionalAssociations" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="enumerationInBidirectionalAssoc" time="0.363" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="toplevelInjectMultipleMethods" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="debugKeyword" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="interfaceWithExtraCode" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="javaLanguage" time="0.19" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="empty" time="0.189" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="positionAssociationClass_NoAssociation" time="0.0">
+    <skipped />
+  </testcase>
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="enumerationInUnidirectionalAssoc" time="0.546" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="invalidClassKeyword" time="0.187" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="methodConflictWithAutoGeneratedGetterAndSetterAndNoUserGeneratedMethodBody" time="0.37" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="associationClassMissingRight" time="0.18" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="immutableExternalAssociation" time="0.191" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="externalDefinitionAndClassDefinitionCodeGeneration_externalFirst" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="duplicateConstantNameInterface" time="0.18" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="languageDefault" time="0.178" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="filenamePropogation" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="emptyCommentWithSpaces" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="Singleton_Class_Extended" time="0.367" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="immutableTwoWayAssociationsAreNotAllowed" time="0.376" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="positionAssociationClass_Mixin" time="0.0">
+    <skipped />
+  </testcase>
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="isA_OnlyOne" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="isABlahAttribute" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="singletonToOneAssociation" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="mixDifferentFiles" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attributeInvalidTypeName" time="0.364" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="oneCharacterMethod" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="associationClassSeveralAssociationsAttributes" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="toplevelAfterOnTrait" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="classWithMethods" time="0.0">
+    <skipped />
+  </testcase>
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="toplevelAfterGlobOperationName" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="methodInlineComment" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="methodNameConflictUsingDefaulted" time="0.556" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attribute_simple" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="inputModifierCheck" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="singleIsA_MultipleClass_Inheritance" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="duplicateAssociationNamesClassHierarchy" time="0.916" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multipleConstraintMethodBody" time="0.187" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="duplicateEnumerationsError" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="autoGeneratedGetSetLazyAttribute" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="otherWayAssociation" time="0.187" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="immutableClass" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="autoGeneratedGetSetImmutableAttribute" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="abstractClassAssociation" time="0.733" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attributeInKeyNotDefinedInClass" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multilineComments" time="0.18" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="parseUmpleEnumerationDefinedInAssociationClass" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="reflexiveAndError21CasesDirected" time="0.724" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="methodBodyGenerationMultiLanguage" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="typeIsAccessSpecifier" time="0.538" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="innerClass" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multipleExtraCodeInterfaces" time="0.18" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="externalAssociationWithUnknownClass" time="0.367" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="duplicateAssociationNames" time="2.001" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="stateMachineandAssociationNameClashing" time="0.73" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="autoGeneratedGetSetInternalAttribute" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="enumerationInComposition" time="0.548" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="graphVizLiteralGuards" time="0.18" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="mixin_namespaces" time="0.546" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="emptyComment" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multipleMethodComments" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multipleEmptyComments" time="0.18" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multipleSymmetricReflexiveAssociations" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="autoGeneratedConstructorRemoveAttribute" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="warningUninitializedConstInterface" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="commentsBeforeMultipleClasses" time="0.18" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="validCodeInjection" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="namingConflictBetweenEnumerationAndClass" time="0.557" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="warningInterfaceNameCapitalLetter" time="0.179" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="namingConflictBetweenEnumerationAndTrait" time="0.179" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="mixingRegularAndDerivedAttributes_bug201" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="nestedClassMultipleInheritance" time="0.544" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="isA_ComplexCycle_WithKey" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="methodMultilineComment" time="0.18" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="compositionType" time="0.188" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attributeAndAssociationNameClashingSeparate" time="0.911" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="autoGeneratedGetterAndSetter" time="0.367" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="autoGeneratedGetSetDefaultedAttribute" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="portPrefixAttributeNameAssignment" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="autoGeneratedGetSetInputAttribute" time="0.179" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attributeMultilineComment" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attributeInlineComment" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="immutableOneWayInternalAssociation" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="invalidMultiplicity" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="namespace" time="0.179" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="inheritedKeys" time="0.363" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="removeAllAutogeneratedMethods" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attributesAndAssocations" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="implementsInterface" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="reflexiveCasesNoError21" time="1.443" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="outputLanguagePathOverrideAll" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multiple_Class_Inheritance" time="0.18" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="sameLineComments" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="compositionParseTest" time="0.362" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="complexClassWithAssociationsCannotBeAttribute" time="0.0">
+    <skipped />
+  </testcase>
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="association_attribute" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attributeAndAssociationNameClashingBackwardsUnidirectional" time="2.735" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="interfaceWithMethodAndParameters" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="commentsWayBeforeClass" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multipleClassBlockInheritance" time="0.363" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="eventParameterAmbiguityCausedByEnumeration" time="0.555" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="testSemicolonUnicode" time="0.008" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attributeInvalidName" time="0.547" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="constructorExtraCode" time="0.0">
+    <skipped />
+  </testcase>
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="warningUninitializedConstObjectInterface" time="0.18" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multipleEmptyMultiLineCommentsWithSpaces" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="removeAutogeneratedMethodsForAttribute" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="is_A_ComplexCycle_Interface" time="0.194" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="positionAssociation" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multipleAttributeComments" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="isA_ListForm" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="internalConst" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="toplevelAround" time="0.006" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="toplevelBefore" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="toplevelAndInclassAspects" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="redefineNamespace" time="0.554" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="interfaceBodyWithComments" time="0.365" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="commentInAssociation" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="classPosition" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="cannotHaveDuplicateKeys" time="0.372" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="otherLanguage" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attributeConflictImmutableAndAutounique" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="autoGeneratedAPIMethods" time="0.185" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="cannotHaveKeyAndDefaultKey" time="0.18" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="autoGeneratedConstructor" time="0.182" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="abstractMethod" time="0.18" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="association_external" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="isA_Grouped" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="AssociationClassIncompletKeyWarning" time="0.186" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="namingConflictBetweenEnumerationAndInterface" time="0.18" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="outputLanguagePath" time="0.18" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="associationName" time="0.18" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="enumShortHandSyntax" time="0.183" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="multipleExtraCode" time="0.184" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="interfaceClassDepend" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="oneWayAssociation" time="0.181" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="attributeProperNamingStyle" time="0.369" />
+  <testcase classname="cruise.umple.compiler.ParserConstraintExpressionsTest" name="TypeValueMismatchWarning" time="0.374" />
+  <system-out><![CDATA[[ROOT:][classDefinition][name:A][attribute][type][baseType:String][name:s1][attribute][type][baseType:String][name:s2][attribute][name:s3][attribute][type][baseType:Boolean][name:b1][attribute][type][baseType:Boolean][name:b2][attribute][type][baseType:Integer][name:i][attribute][type][baseType:Double][name:d][attribute][type][baseType:Float][name:f][attribute][type][baseType:Date][name:da][attribute][type][baseType:Time][name:t][attribute][type][baseType:Foo][name:bar][invariant][stringExpr][stringComplexExpression][constraintName][name:s1][equalsOp:==][stringComplexExpression][constraintName][name:s2][invariant][stringExpr][stringComplexExpression][constraintName][name:s1][notequalsOp:!=][stringComplexExpression][constraintName][name:s3][invariant][stringExpr][stringComplexExpression][constraintName][name:s2][equalsOp:==][stringComplexExpression][quote:test][invariant][stringExpr][stringComplexExpression][constraintName][name:s3][notequalsOp:!=][stringComplexExpression][quote:test][invariant][loneBoolean][constraintName][name:b1][invariant][loneBoolean][negativeConstraint][constraintName][name:b2][invariant][stringExpr][stringComplexExpression][constraintName][name:b1][notequalsOp:!=][stringComplexExpression][constraintName][name:b2][invariant][loneBoolean][constraintName][name:b1][orOp:||][linkingOpBody][loneBoolean][constraintName][name:b2][invariant][loneBoolean][constraintName][name:b1][andOp:&&][linkingOpBody][loneBoolean][negativeConstraint][constraintName][name:b2][invariant][loneBoolean][constraintName][name:b1][andOp:&&][linkingOpBody][constraintBody][stringExpr][stringComplexExpression][constraintName][name:s1][equalsOp:==][stringComplexExpression][constraintName][name:s2][invariant][numExpr][constraintName][name:i][moreOp:>][number:0][invariant][numExpr][constraintName][name:i][equalsOp:==][number:1][invariant][constraintBody][numExpr][constraintName][name:d][moreOp:>][constraintName][name:i][andOp:&&][linkingOpBody][constraintBody][numExpr][constraintName][name:d][smallerOp:<][number:10][invariant][constraintBody][numExpr][constraintName][name:f][moreOp:>][constraintName][name:d][orOp:||][linkingOpBody][constraintBody][numExpr][constraintName][name:f][smallerOp:<][number:5][invariant][stringExpr][stringComplexExpression][constraintName][name:da][equalsOp:==][stringComplexExpression][constraintName][name:t][invariant][numExpr][constraintName][name:da][moreOp:>][constraintName][name:t][invariant][loneBoolean][constraintName][name:bar][invariant][numExpr][constraintName][name:bar][moreOp:>][constraintName][name:i][invariant][loneBoolean][negativeConstraint][constraintName][name:bar][invariant][stringExpr][stringComplexExpression][constraintName][name:bar][equalsOp:==][stringComplexExpression][constraintName][name:s1][invariant][loneBoolean][constraintName][name:bar][orOp:||][linkingOpBody][loneBoolean][negativeConstraint][constraintName][name:bar][invariant][constraintBody][loneBoolean][negativeConstraint][constraintBody][numExpr][constraintName][name:d][moreOp:>][constraintName][name:f][andOp:&&][linkingOpBody][loneBoolean][negativeConstraint][constraintBody][stringExpr][stringComplexExpression][constraintName][name:s1][equalsOp:==][stringComplexExpression][constraintName][name:s3][andOp:&&][linkingOpBody][loneBoolean][negativeConstraint][constraintName][name:b2]
+[ROOT:][classDefinition][name:A][attribute][type][baseType:String][name:s1][attribute][name:s2][invariant][numExpr][constraintName][name:s1][moreOp:>][constraintName][name:s2]
+[ROOT:][classDefinition][name:A][attribute][type][baseType:String][name:s1][attribute][name:s2][invariant][loneBoolean][constraintName][name:s1][orOp:||][linkingOpBody][loneBoolean][constraintName][name:s2]
+[ROOT:][classDefinition][name:A][attribute][type][baseType:Boolean][name:b1][attribute][type][baseType:Boolean][name:b2][invariant][numExpr][constraintName][name:b1][moreOp:>][constraintName][name:b2]
+[ROOT:][classDefinition][name:A][attribute][type][baseType:String][name:s][attribute][type][baseType:Integer][name:i][invariant][stringExpr][stringComplexExpression][constraintName][name:s][equalsOp:==][stringComplexExpression][constraintName][name:i]
+[ROOT:][classDefinition][name:A][attribute][name:s][invariant][loneBoolean][constraintName][name:s]
+[ROOT:][classDefinition][name:A][attribute][type][baseType:Integer][name:i][invariant][numExpr][negativeConstraint][constraintName][name:i][moreOp:>][number:0]
+[ROOT:][classDefinition][name:A][attribute][type][baseType:Integer][name:i][attribute][type][baseType:Foo][name:bar][invariant][loneBoolean][constraintName][name:bar][andOp:&&][linkingOpBody][constraintBody][stringExpr][stringComplexExpression][constraintName][name:i][equalsOp:==][stringComplexExpression][quote:]
+[ROOT:][classDefinition][name:TwoDates][attribute][type][baseType:Date][name:d1][attribute][type][baseType:Date][name:d2][invariant][numExpr][constraintName][name:d1][smallerOp:<][constraintName][name:d2]
+[ROOT:][inlineComment:expect this to throw an error][classDefinition][name:Student][attribute][type][baseType:Integer][name:age][invariant][numExpr][constraintName][name:nonclassattribute][moreOp:>][number:12]
+[ROOT:][classDefinition][name:X][attribute][name:abcd][externalDefinition][name:X]
+[ROOT:][associationDefinition][association][associationEnd][lowerBound:0][upperBound:1][type:Student][roleName:aStudent][arrow:--][associationEnd][lowerBound:0][upperBound:1][type:Mentor][roleName:aMentor][association][associationEnd][bound:*][type:Event][arrow:--][associationEnd][bound:*][type:Location][classDefinition][name:Event][classDefinition][name:Location][classDefinition][name:Student][classDefinition][name:Mentor]
+[ROOT:][namespace:example][classDefinition][name:Student][inlineAssociation][inlineAssociationEnd][lowerBound:2][upperBound:3][arrow:--][associationEnd][lowerBound:0][upperBound:1][type:Mentor][roleName:aMentor][inlineAssociation][inlineAssociationEnd][bound:*][roleName:me][arrow:--][associationEnd][bound:*][type:Student][roleName:them]
+[ROOT:][classDefinition][name:Student][enumerationDefinition][name:status][enumValue:FullTime][enumValue:PartTime][enumerationDefinition][name:grade][enumValue:High][enumerationDefinition][name:relationshipStatus][enumValue:single][enumValue:married][enumValue:divorced]
+[ROOT:][classDefinition][name:A1][classDefinition][name:B1][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][roleName:b1][arrow:<@>-][associationEnd][bound:*][type:A1][roleName:a1][classDefinition][name:A2][classDefinition][name:B2][inlineAssociation][inlineAssociationEnd][bound:1][roleName:b2][arrow:<@>-][associationEnd][bound:1][type:A2][roleName:a2][classDefinition][name:A3][classDefinition][name:B3][inlineAssociation][inlineAssociationEnd][bound:*][roleName:b3][arrow:<@>-][associationEnd][lowerBound:0][upperBound:4][type:A3]
+[ROOT:][classDefinition][name:Foo][abstract:abstract][classDefinition][name:Bar]
+[ROOT:][classDefinition][name:URLMS][classDefinition][name:Staff][attribute][type][baseType:Role][name:role][classDefinition][name:WeeklyProgressUpdate][classDefinition][name:FundingAccount][inlineAssociation][inlineAssociationEnd][bound:*][arrow:--][associationEnd][bound:*][type:Report][roleName:report][inlineAssociation][inlineAssociationEnd][bound:*][arrow:--][associationEnd][bound:*][type:LabExpense][roleName:labExpense][classDefinition][name:Report][classDefinition][name:LabExpense][enumerationDefinition][name:Role][enumValue:researchAssociate][enumValue:researchAssistant][classDefinition][name:Equipment][attribute][type][baseType:int][name:quantity][attribute][type][baseType:String][name:type][classDefinition][name:Supply][attribute][type][baseType:String][name:supplyType]
+[ROOT:][associationClassDefinition][name:Relationship][singleAssociationEnd][bound:*][type:Student][singleAssociationEnd][bound:*][type:Mentor][classDefinition][name:Student][classDefinition][name:Mentor][classDefinition][name:Relationship][elementPosition][x:1][y:2][width:3][height:4]
+[ROOT:][interfaceDefinition][name:ISomething][interfaceMemberDeclaration][elementPosition][x:10][y:20][width:30][height:40]
+[ROOT:][classDefinition][name:X][enumerationDefinition][name:Y][enumValue:Red][enumValue:Blue][enumValue:Green][stateMachine][inlineStateMachine][name:Y][state][stateName:s1][transition][event:goToS2][stateName:s2][state][stateName:s2]
+[ROOT:][enumerationDefinition][name:Y][enumValue:Red][enumValue:Blue][enumValue:Green][classDefinition][name:X][concreteMethodDeclaration][methodDeclarator][methodName:showY][parameterList][parameter][type][baseType:Y][name:attr][code:System.out.println(attr);][stateMachine][inlineStateMachine][name:Y][state][stateName:s1]
+[ROOT:][classDefinition][name:Student][attribute][type][baseType:Integer][name:name][attribute][type][baseType:String][name:name2][attribute][type][baseType:Time][name:name3][attribute][type][baseType:Date][name:name4][attribute][type][baseType:Double][name:name5]
+[ROOT:][classDefinition][name:Token][attribute][list:[]][name:blah][attribute][type:String][list:[]][name:name][attribute][type:Position][list:[]][name:start][attribute][type:Integer][list:[]][name:number][classDefinition][name:Position][attribute][type][baseType:Integer][name:lineNumber][attribute][type][baseType:Integer][name:offset]
+[ROOT:][toplevelExtracode][top:Day][code:enum Day { MONDAY=0, FRIDAY=1, SUNDAY=2;}]
+[ROOT:][interfaceDefinition][name:ISomething][interfaceMemberDeclaration][constantDeclaration][type][baseType:String][name:aVariable][value:aValue][interfaceMemberDeclaration][constantDeclaration][type][baseType:String][name:aSecondVariable][value:aSecondValue][interfaceMemberDeclaration][abstractMethodDeclaration][type:String][methodDeclarator][methodName:getMethod][parameterList][parameter][type][baseType:String][name:name]
+[ROOT:][toplevelBeforeCode][className:Student][className:Teacher][injectionOperation][operationName:setName][code:doSomething();][classDefinition][name:Student][attribute][name:name][classDefinition][name:Teacher][attribute][name:name]
+[ROOT:][classDefinition][name:MutableClass][inlineAssociation][inlineAssociationEnd][bound:*][arrow:->][associationEnd][bound:*][type:OtherClass][classDefinition][name:OtherClass][classDefinition][name:MutableClass][immutable:immutable]
+[ROOT:][classDefinition][name:Course][inlineAssociation][inlineAssociationEnd][bound:*][arrow:--][associationEnd][bound:*][type:Course][roleName:courses]
+[ROOT:][classDefinition][name:Foo][inlineComment:Inline comment above association.][inlineAssociation][inlineAssociationEnd][bound:1][arrow:--][associationEnd][bound:*][type:Bar1][inlineComment:Multiple inline comments][inlineComment:above association.][inlineAssociation][inlineAssociationEnd][bound:1][arrow:--][associationEnd][bound:*][type:Bar2][multilineComment:Multiline comment above association.][inlineAssociation][inlineAssociationEnd][bound:1][arrow:--][associationEnd][bound:*][type:Bar3][multilineComment:* Multiple multiline comments
+	 * above association.][inlineAssociation][inlineAssociationEnd][bound:1][arrow:--][associationEnd][bound:*][type:Bar4][classDefinition][name:Bar1][classDefinition][name:Bar2][classDefinition][name:Bar3][classDefinition][name:Bar4]
+[ROOT:][classDefinition][name:Student][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:--][associationEnd][lowerBound:3][upperBound:4][type:Student][roleName:partner]
+[ROOT:][classDefinition][name:Foo][inlineComment:I am a comment above a method.][concreteMethodDeclaration][type:void][methodDeclarator][methodName:testMethod][parameterList][code:// I am a comment inside a method.
+    System.out.println("Hello world!");]
+[ROOT:][classDefinition][name:X][concreteMethodDeclaration][type:void][methodDeclarator][methodName:m1][parameterList][code:z=1;]
+[ROOT:][classDefinition][name:Student][attribute][autounique:autounique][name:id]
+[ROOT:][enumerationDefinition][name:Status][enumValue:married][enumValue:single][enumValue:divorced][classDefinition][name:C1][attribute][type][baseType:Status][name:status][classDefinition][name:C2][attribute][type][baseType:Status][name:status]
+[ROOT:][classDefinition][name:Student][extendsName:Human][extendsName:IStudent][extendsName:IPerson][extendsName:IMan][interfaceDefinition][name:IStudent][interfaceDefinition][name:IPerson][interfaceDefinition][name:IMan][classDefinition][name:Human]
+[ROOT:][classDefinition][name:A][concreteMethodDeclaration][modifier:public][abstract:abstract][type:void][methodDeclarator][methodName:hello][parameterList][classDefinition][name:B][extendsName:A][classDefinition][name:C][extendsName:B][classDefinition][name:D][extendsName:C][concreteMethodDeclaration][modifier:public][type:void][methodDeclarator][methodName:hello][parameterList][code:][classDefinition][name:E][extendsName:D]
+[ROOT:][toplevelException][toplevelExceptionMain][identifier:namespace]
+[ROOT:][interfaceDefinition][name:I_Something][interfaceMemberDeclaration][abstractMethodDeclaration][type:String][methodDeclarator][methodName:getSomething][parameterList]
+[ROOT:][classDefinition][name:InexistentTemplateReference][templateAttributeDefinition][templateName][name:template1][templateAttribute][templateText][templateTextContent: ][templateInclude][templateName][name:aTemplate][templateText][templateTextContent: ][templateTextContent:][emitMethod][emit:emit][methodDeclarator][methodName:method][parameterList][templateName][name:template1]
+[ROOT:][classDefinition][name:MultipleInexistentTemplateReferences][templateAttributeDefinition][templateName][name:template1][templateAttribute][templateText][templateTextContent: ][templateInclude][templateName][name:aTemplate][templateText][templateTextContent: ][templateInclude][templateName][name:otherTemplate][templateText][templateTextContent: ][templateInclude][templateName][name:anotherTemplate][templateTextContent:][emitMethod][emit:emit][methodDeclarator][methodName:method][parameterList][templateName][name:template1]
+[ROOT:][classDefinition][name:Student][extendsName:Person][extendsName:Worker][classDefinition][name:Person][interfaceDefinition][name:Worker]
+[ROOT:][classDefinition][name:Student][attribute][modifier:settable][type][baseType:String][name:s][value:"s"][attribute][name:s2][value:"s2"]
+[ROOT:][interfaceDefinition][name:ISomething][classDefinition][name:Something][extendsName:ISomething]
+[ROOT:][interfaceDefinition][name:A][interfaceMemberDeclaration][exception][malformedStatement1][stuff:constantinople = 1][interfaceMemberDeclaration][exception][malformedStatement1][stuff:constantinople i = 1][interfaceMemberDeclaration][exception][misnamedAttribute][name:dfdfdfdf][interfaceMemberDeclaration][constantDeclaration][name:blah]
+[ROOT:][classDefinition][name:A][symmetricReflexiveAssociation][bound:*][roleName:first][symmetricReflexiveAssociation][bound:*][roleName:first]
+[ROOT:][classDefinition][name:A][symmetricReflexiveAssociation][bound:*][roleName:first][attribute][type][baseType:String][name:first]
+[ROOT:][classDefinition][name:Airline][singleton:singleton]
+[ROOT:][classDefinition][name:42SampleName]
+[ROOT:][classDefinition][name:_SampleName]
+[ROOT:][classDefinition][name:!SampleName]
+[ROOT:][classDefinition][name:&SampleName]
+[ROOT:][classDefinition][name:$SampleName]
+[ROOT:][classDefinition][name:#SampleName]
+[ROOT:][classDefinition][name:Student][classDefinition][name:Mentor]
+[ROOT:][classDefinition][name:SampleName?]
+[ROOT:][classDefinition][name:SampleName!]
+[ROOT:][classDefinition][name:sample&name]
+[ROOT:][classDefinition][name:Sample$Name]
+[ROOT:][classDefinition][name:Sample.Name]
+[ROOT:][classDefinition][name:sample"stuff"name]
+[ROOT:][generate_path][language:Java][output:1][generate_path][language:Java][output:2][generate_path][language:Java][output:3][override:--override][generate_path][language:Java][output:4][override:--override][generate_path][language:Java][output:5]
+[ROOT:][classDefinition][name:MultivaluedAttributeAssignment][attribute][type][baseType:String][list:[]][name:attr][code:arbitraryCode();][inlineComment:Should raise error 83]
+[ROOT:][classDefinition][name:X][attribute][modifier:const][type][baseType:Integer][name:MAX][value:100]
+[ROOT:][classDefinition][name:Student][immutable:immutable][associationDefinition][association][associationEnd][bound:1][type:Student][roleName:me][arrow:->][associationEnd][lowerBound:2][upperBound:*][type:Student][roleName:them]
+[ROOT:][classDefinition][name:Student][immutable:immutable][associationDefinition][association][associationEnd][bound:1][type:Student][roleName:me][arrow:->][associationEnd][lowerBound:2][upperBound:*][type:Student][roleName:them]
+[ROOT:][classDefinition][name:Student][immutable:immutable][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][roleName:me][arrow:->][associationEnd][bound:1][type:Student][roleName:them]
+[ROOT:][classDefinition][name:Student][immutable:immutable][associationDefinition][association][associationEnd][lowerBound:2][upperBound:*][type:Student][roleName:them][arrow:<-][associationEnd][bound:1][type:Student][roleName:me]
+[ROOT:][classDefinition][name:Student][immutable:immutable][associationDefinition][association][associationEnd][lowerBound:2][upperBound:*][type:Student][roleName:them][arrow:<-][associationEnd][bound:1][type:Student][roleName:me]
+[ROOT:][classDefinition][name:Student][immutable:immutable][inlineAssociation][inlineAssociationEnd][bound:1][roleName:them][arrow:<-][associationEnd][bound:1][type:Student][roleName:me]
+[ROOT:][classDefinition][name:Student][immutable:immutable][inlineAssociation][inlineAssociationEnd][bound:1][roleName:them][arrow:<-][associationEnd][bound:1][type:Student][roleName:me]
+[ROOT:][classDefinition][name:Student][inlineAssociation][inlineAssociationEnd][bound:*][arrow:--][associationEnd][bound:*][type:Mentor]
+[ROOT:][classDefinition][name:samplename]
+[ROOT:][classDefinition][name:SAMPLENAME]
+[ROOT:][classDefinition][name:sAmPlEnAmE]
+[ROOT:][classDefinition][name:sample22]
+[ROOT:][classDefinition][name:sample_name]
+[ROOT:][classDefinition][name:sample_name_22]
+[ROOT:][classDefinition][name:Student][depend:java.util.Map]
+[ROOT:][classDefinition][name:MultivaluedAttributeAssignment][attribute][type:String][list:[]][name:attr][value:invalid.values]
+[ROOT:][classDefinition][name:MultivaluedAttributeAssignment][attribute][type:String][list:[]][name:attr][value:arbitraryCode();]
+[ROOT:][classDefinition][name:Hospital][classDefinition][name:Hospital]
+[ROOT:][classDefinition][name:X][classDefinition][name:Y][classDefinition][name:X]
+[ROOT:][classDefinition][name:X][extendsName:Y][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][classDefinition][name:Y][extendsName:Y]
+[ROOT:][classDefinition][name:X][classDefinition][name:Y][classDefinition][name:Y]
+[ROOT:][classDefinition][name:Y][classDefinition][name:X][classDefinition][name:Y][classDefinition][name:X]
+[ROOT:][classDefinition][name:Student][extendsName:Proffesor][classDefinition][name:Proffesor][extendsName:Student]
+[ROOT:][generate][language:GvClassDiagram][suboptionIndicator:--suboption][suboption:hideattributes][suboptionIndicator:-s][suboption:showmethods]
+[ROOT:][inlineComment:Initially there are two classes with no attributes][classDefinition][name:X][classDefinition][name:Z][toplevelAfterCode][className:X][injectionOperation][operationName:setC][code://this code will be injected][inlineComment:In another place, potentially a separate file.][inlineComment:class X is given attribute a][inlineComment:This is a simple mixin][classDefinition][name:X][attribute][name:a][inlineComment:In a third place we conditionally want to][inlineComment:include attribute b, perhaps only in certain][inlineComment:versions of the software.][mixsetDefinition][mixsetName:specialVersion][extraCode:class X {
+    b;
+  }][inlineComment:To activate the specialVersion mixset we need][inlineComment:to encounter the following][useStatement][use:specialVersion][inlineComment:We can also have another 'fragment' of][inlineComment:the specialVersion mixset elsewhere][mixsetDefinition][mixsetName:specialVersion][extraCode:class X {
+    c;
+  }][inlineComment:The following notations can also be used][classDefinition][name:X][mixsetDefinition][mixsetName:specialVersion][extraCode:d;][inlineComment:Any features of a class can be incorporated][inlineComment:using a mixset including the following][inlineComment:Here we introduce a second mixset][mixsetDefinition][mixsetName:specialVersion2][extraCode:class Z {p;}][classDefinition][name:X][mixsetDefinition][mixsetName:specialVersion2][extraCode:isA Z;
+    0..1 -- * Z;][useStatement][use:specialVersion2][inlineComment:The following mixset will be ignored since][inlineComment:there is no use statement for it][mixsetDefinition][mixsetName:specialVersion3][extraCode:class W {}]
+[ROOT:][generate][language:Ruby]
+[ROOT:][namespace:example][associationDefinition][association][associationEnd][lowerBound:4][upperBound:5][type:Student][arrow:--][associationEnd][lowerBound:6][upperBound:9][type:Mentor][roleName:myMentor][classDefinition][name:Student]
+[ROOT:][classDefinition][name:Student][immutable:immutable][inlineAssociation][modifier:immutable][inlineAssociationEnd][bound:*][roleName:them][arrow:<-][associationEnd][bound:1][type:Student][roleName:me][classDefinition][name:Mentor][immutable:immutable][inlineAssociation][modifier:immutable][inlineAssociationEnd][bound:*][roleName:aMentor][arrow:<-][associationEnd][bound:1][type:Student]
+[ROOT:][classDefinition][name:Person][exception][misnamedAttribute][name:--X]
+[ROOT:][classDefinition][name:Person][exception][misnamedAttribute][name:1..*X]
+[ROOT:][interfaceDefinition][name:samplename]
+[ROOT:][interfaceDefinition][name:SAMPLENAME]
+[ROOT:][interfaceDefinition][name:sAmPlEnAmE]
+[ROOT:][interfaceDefinition][name:sample22]
+[ROOT:][interfaceDefinition][name:sample_name]
+[ROOT:][interfaceDefinition][name:sample_name_22]
+[ROOT:][namespace:example][classDefinition][name:Thing][associationClassDefinition][name:Ticket][extendsName:Thing][attribute][name:name][attribute][type][baseType:Integer][name:type][value:1][singleAssociationEnd][bound:*][type:Event][roleName:event][singleAssociationEnd][bound:*][type:Location][extraCode:public int one() {return 1;}][classDefinition][name:Event][classDefinition][name:Location]
+[ROOT:][interfaceDefinition][name:ISomething][interfaceMemberDeclaration][extendsName:ISuper][interfaceDefinition][name:ISuper]
+[ROOT:][classDefinition][name:X][attribute][name:a][stateMachine][inlineStateMachine][name:a][state][stateName:s1][transition][event:e1][stateName:s2][state][stateName:s2]
+[ROOT:][namespace:example][classDefinition][name:Student][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:--][associationEnd][lowerBound:0][upperBound:1][type:Mentor][namespace:anotherExample][classDefinition][name:Mentor]
+[ROOT:][interfaceDefinition][name:SampleName?]
+[ROOT:][interfaceDefinition][name:SampleName!]
+[ROOT:][interfaceDefinition][name:sample&name]
+[ROOT:][interfaceDefinition][name:Sample$Name]
+[ROOT:][interfaceDefinition][name:Sample.Name]
+[ROOT:][interfaceDefinition][name:sample"stuff"name]
+[ROOT:][classDefinition][name:Student]
+[ROOT:][classDefinition][name:Student][inlineAssociation][inlineAssociationEnd][lowerBound:3][upperBound:2][arrow:--][associationEnd][lowerBound:0][upperBound:1][type:Mentor][roleName:aMentor][classDefinition][name:Mentor]
+[ROOT:][multilineComment:][classDefinition][name:Student]
+[ROOT:][classDefinition][name:Student][immutable:immutable][classDefinition][name:Mentor][immutable:immutable][associationDefinition][association][modifier:immutable][associationEnd][lowerBound:6][upperBound:9][type:Mentor][roleName:myMentor][arrow:<-][associationEnd][bound:1][type:Student][association][modifier:immutable][associationEnd][bound:*][type:Student][roleName:them][arrow:<-][associationEnd][bound:*][type:Student][roleName:me]
+[ROOT:][classDefinition][name:StudentE][immutable:immutable][classDefinition][name:MentorE][immutable:immutable][associationDefinition][association][associationEnd][bound:1][type:StudentE][arrow:--][associationEnd][bound:1][type:MentorE]
+[ROOT:][classDefinition][name:StudentF][classDefinition][name:MentorF][immutable:immutable][associationDefinition][association][associationEnd][bound:*][type:StudentF][arrow:<-][associationEnd][bound:*][type:MentorF]
+[ROOT:][classDefinition][name:StudentG][immutable:immutable][classDefinition][name:MentorG][associationDefinition][association][associationEnd][bound:*][type:StudentG][arrow:->][associationEnd][bound:*][type:MentorG]
+[ROOT:][interfaceDefinition][name:I][interfaceMemberDeclaration][abstractMethodDeclaration][type:Integer][methodDeclarator][methodName:I1][parameterList][classDefinition][name:A][extendsName:I][classDefinition][name:B][extendsName:A][classDefinition][name:C][abstract:abstract][extendsName:I][classDefinition][name:D][extendsName:C]
+[ROOT:][toplevelAfterCode][className:*][injectionOperation][operationName:setName][injectionOperation][operationName:testFunction][code:doSomething();][classDefinition][name:Student][attribute][name:name][classDefinition][name:Teacher][attribute][name:name][classDefinition][name:Employer][attribute][name:age][concreteMethodDeclaration][type:String][methodDeclarator][methodName:testFunction][parameterList][code:return "This is a test function";]
+[ROOT:][inlineComment:c 5][inlineComment:c 5b][namespace:example][inlineComment:c 6][inlineComment:c 7][inlineComment:c 7b][inlineComment:c 7c]
+[ROOT:][classDefinition][name:Student][attribute][type][baseType:Time][name:t][value:new Time("now")]
+[ROOT:][classDefinition][name:Student][extendsName:Student]
+[ROOT:][classDefinition][name:Student][symmetricReflexiveAssociation][lowerBound:0][upperBound:1][roleName:partner]
+[ROOT:][classDefinition][name:Foo][multilineComment:* I am a multiline comment above an association.][inlineAssociation][inlineAssociationEnd][bound:1][arrow:--][associationEnd][bound:*][type:Bar][classDefinition][name:Bar]
+[ROOT:][classDefinition][name:Father][classDefinition][name:Mother][classDefinition][name:Child][extendsName:Mother][extendsName:Father]
+[ROOT:][classDefinition][name:Student][attribute][name:name][beforeCode][injectionOperation][operationName:setName][code:doSomething();]
+[ROOT:][classDefinition][name:Student][attribute][name:name][key][keyId:name][keyId:name][classDefinition][name:Test][attribute][name:name][inlineAssociation][inlineAssociationEnd][bound:1][arrow:--][associationEnd][lowerBound:0][upperBound:1][type:Student][roleName:stuff][key][keyId:stuff][keyId:stuff]
+[ROOT:][interfaceDefinition][name:A][interfaceMemberDeclaration][abstractMethodDeclaration][type:void][methodDeclarator][methodName:FunB][parameterList][interfaceMemberDeclaration][exception][malformedStatement1][stuff:blah blah blah][interfaceMemberDeclaration][abstractMethodDeclaration][type:void][methodDeclarator][methodName:FunA][parameterList]
+[ROOT:][classDefinition][name:Student][attribute][modifier:internal][type][baseType:MyObject][name:test][concreteMethodDeclaration][modifier:public][type:MyOtherObject][methodDeclarator][methodName:getTest][parameterList][code:return test.someMethod();]
+[ROOT:][namespace:example][classDefinition][name:Thing][associationClassDefinition][name:Ticket][extendsName:Thing][attribute][name:name][attribute][type][baseType:Integer][name:type][value:1][singleAssociationEnd][bound:*][type:Event][roleName:event][singleAssociationEnd][bound:*][type:Location][extraCode:public int one() {return 1;}][classDefinition][name:Event][classDefinition][name:Location]
+[ROOT:][classDefinition][name:A][associationClassDefinition][name:B][singleAssociationEnd][bound:*][otherEndroleName:b1][type:A][roleName:a1][singleAssociationEnd][bound:*][type:A]
+[ROOT:][classDefinition][name:A][associationClassDefinition][name:B][singleAssociationEnd][bound:*][otherEndroleName:b1][type:A][roleName:a1][singleAssociationEnd][bound:*][otherEndroleName:b2][type:A][roleName:a2]
+[ROOT:][classDefinition][name:A][associationClassDefinition][name:B][singleAssociationEnd][bound:*][type:A][roleName:a1][singleAssociationEnd][bound:*][type:A][roleName:a2]
+[ROOT:][classDefinition][name:A][associationClassDefinition][name:B][singleAssociationEnd][bound:*][type:A][singleAssociationEnd][bound:*][type:A]
+[ROOT:][classDefinition][name:A][associationClassDefinition][name:B][singleAssociationEnd][bound:*][type:A][roleName:a1][singleAssociationEnd][bound:*][type:A]
+[ROOT:][classDefinition][name:Student][attribute][modifier:defaulted][name:x]
+[ROOT:][classDefinition][name:X][attribute][lazy:lazy][modifier:immutable][type][baseType:String][name:str2]
+[ROOT:][classDefinition][name:X][attribute][autounique:autounique][name:x]
+[ROOT:][classDefinition][name:A][inlineAssociation][inlineAssociationEnd][bound:*][arrow:--][associationEnd][bound:*][type:B][inlineAssociation][inlineAssociationEnd][bound:1][arrow:->][associationEnd][bound:*][type:C][inlineAssociation][inlineAssociationEnd][bound:*][arrow:<-][associationEnd][lowerBound:0][upperBound:2][type:D][classDefinition][name:B][inlineAssociation][inlineAssociationEnd][bound:1][arrow:--][associationEnd][bound:1][type:D][classDefinition][name:C][classDefinition][name:D][associationDefinition][association][associationEnd][lowerBound:0][upperBound:5][type:B][roleName:someBs][arrow:--][associationEnd][lowerBound:0][upperBound:5][type:C][association][associationEnd][bound:1][type:D][arrow:<-][associationEnd][bound:1][type:A][association][associationEnd][bound:1][type:C][arrow:->][associationEnd][bound:*][type:B][associationClassDefinition][name:CToD][singleAssociationEnd][bound:*][type:C][singleAssociationEnd][bound:*][type:D]
+[ROOT:][toplevelExtracode][top:Day][codeLang:RTCpp][code:enum Day { MONDAY=0, FRIDAY=1, SUNDAY=2;}]
+[ROOT:][classDefinition][name:Student][extendsName:Human][extendsName:IStudent][extendsName:IPerson][extendsName:IMan][interfaceDefinition][name:IStudent][interfaceDefinition][name:IPerson][interfaceDefinition][name:IMan][classDefinition][name:Human]
+[ROOT:][classDefinition][name:Student][attribute][type][baseType:Integer][name:id][key][keyId:id][extendsName:Student]
+[ROOT:][classDefinition][name:X][attribute][name:a][attribute][name:a]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][bound:*][arrow:->][associationEnd][bound:1][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][bound:*][arrow:->][associationEnd][lowerBound:1][upperBound:10][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][bound:*][arrow:->][associationEnd][bound:*][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][lowerBound:1][upperBound:10][arrow:->][associationEnd][bound:1][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][lowerBound:1][upperBound:10][arrow:->][associationEnd][bound:1][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][lowerBound:1][upperBound:10][arrow:->][associationEnd][lowerBound:1][upperBound:10][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][lowerBound:1][upperBound:10][arrow:->][associationEnd][lowerBound:1][upperBound:10][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][lowerBound:1][upperBound:10][arrow:->][associationEnd][bound:*][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][lowerBound:1][upperBound:10][arrow:->][associationEnd][bound:*][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][bound:1][arrow:->][associationEnd][bound:1][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][bound:1][arrow:->][associationEnd][bound:1][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][bound:1][arrow:->][associationEnd][lowerBound:1][upperBound:10][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][bound:1][arrow:->][associationEnd][lowerBound:1][upperBound:10][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][bound:1][arrow:->][associationEnd][bound:*][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][bound:1][arrow:->][associationEnd][bound:*][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:Student][inlineAssociation][inlineAssociationEnd][bound:1][arrow:--][associationEnd][bound:*][type:Mentor][elementPosition][x:1][y:2][width:3][height:4][associationPosition][name:Mentor__Student][coordinate][x:1][y:2][coordinate][x:3][y:4][classDefinition][name:Mentor][associationClassDefinition][name:Relationship][singleAssociationEnd][bound:*][type:Student][singleAssociationEnd][bound:*][type:Mentor][elementPosition][x:10][y:20][width:30][height:40]
+[ROOT:][namespace:example][classDefinition][name:A][enumerationDefinition][name:Month][enumValue:x][enumValue:y][enumValue:z][enumerationDefinition][name:Month][enumValue:o][enumValue:p][enumValue:q]
+[ROOT:][toplevelBeforeCode][className:Student][injectionOperation][operationName:setName][code:doSomething();][classDefinition][name:Student][attribute][name:name]
+[ROOT:][interfaceDefinition][name:ISuper][interfaceDefinition][name:IOtherSuper][interfaceDefinition][name:IOther][interfaceMemberDeclaration][extendsName:ISuper][extendsName:IOtherSuper]
+[ROOT:][classDefinition][name:StudentA][classDefinition][name:MentorA][immutable:immutable][associationDefinition][association][associationEnd][bound:1][type:StudentA][arrow:->][associationEnd][bound:1][type:MentorA]
+[ROOT:][classDefinition][name:StudentB][immutable:immutable][classDefinition][name:MentorB][associationDefinition][association][associationEnd][bound:1][type:StudentB][arrow:<-][associationEnd][bound:1][type:MentorB]
+[ROOT:][classDefinition][name:StudentC][immutable:immutable][classDefinition][name:MentorC][immutable:immutable][associationDefinition][association][associationEnd][bound:1][type:StudentC][arrow:->][associationEnd][bound:*][type:MentorC]
+[ROOT:][classDefinition][name:StudentD][immutable:immutable][classDefinition][name:MentorD][immutable:immutable][associationDefinition][association][associationEnd][bound:*][type:StudentD][arrow:<-][associationEnd][bound:1][type:MentorD]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][bound:*][arrow:--][associationEnd][bound:1][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][bound:*][arrow:--][associationEnd][lowerBound:1][upperBound:10][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][bound:*][arrow:--][associationEnd][bound:*][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][lowerBound:1][upperBound:10][arrow:--][associationEnd][bound:1][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][lowerBound:1][upperBound:10][arrow:--][associationEnd][lowerBound:1][upperBound:10][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][lowerBound:1][upperBound:10][arrow:--][associationEnd][bound:*][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][bound:1][arrow:--][associationEnd][bound:1][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][bound:1][arrow:--][associationEnd][lowerBound:1][upperBound:10][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][inlineAssociation][inlineAssociationEnd][bound:1][arrow:--][associationEnd][bound:*][type:Y][roleName:a][classDefinition][name:Y]
+[ROOT:][classDefinition][name:Foo][inlineComment:I am a inline comment above an association.][inlineAssociation][inlineAssociationEnd][bound:1][arrow:--][associationEnd][bound:*][type:Bar][classDefinition][name:Bar]
+[ROOT:][interfaceDefinition][name:Student][interfaceMemberDeclaration][extendsName:Student]
+[ROOT:][namespace:example][enumerationDefinition][name:Status][enumValue:married][enumValue:single][enumValue:divorced][classDefinition][name:C1][attribute][type][baseType:Status][name:status][classDefinition][name:C2][enumerationDefinition][name:Gender][enumValue:male][enumValue:female][attribute][type][baseType:Gender][name:gender][attribute][type][baseType:Status][name:status]
+[ROOT:][classDefinition][name:Student][attribute][name:fisrtName][useStatement][use:021_nestedUse_B.ump][classDefinition][name:Student][attribute][name:lastName][useStatement][use:021_nestedUse_C.ump][classDefinition][name:Student][attribute][name:middleName]
+[ROOT:][namespace:example][inlineComment:This is a simple comment][classDefinition][name:Student]
+[ROOT:][classDefinition][name:Student][stateMachine][enum][name:status]
+[ROOT:][classDefinition][name:X][attribute][type][baseType:Date][name:d]
+[ROOT:][classDefinition][name:X][concreteMethodDeclaration][queued:queued][type:Integer][methodDeclarator][methodName:method][parameterList][code:][concreteMethodDeclaration][queued:queued][type:String][methodDeclarator][methodName:method2][parameterList][code:][concreteMethodDeclaration][queued:queued][type:int][methodDeclarator][methodName:method3][parameterList][code:]
+[ROOT:][classDefinition][name:A][attribute][type][baseType:Integer][name:x][attribute][type][baseType:Integer][name:y][afterCode][injectionOperation][operationName:setX][injectionOperation][operationName:setY][code://this code will be injected][classDefinition][name:B][attribute][type][baseType:Integer][name:x][attribute][type][baseType:Integer][name:y][beforeCode][injectionOperation][operationName:setX][injectionOperation][operationName:setY][code://this code will be injected]
+[ROOT:][classDefinition][name:StudentE][immutable:immutable][inlineAssociation][inlineAssociationEnd][bound:1][arrow:--][associationEnd][bound:1][type:MentorE][classDefinition][name:MentorE][immutable:immutable]
+[ROOT:][classDefinition][name:StudentF][inlineAssociation][inlineAssociationEnd][bound:*][arrow:<-][associationEnd][bound:*][type:MentorF][classDefinition][name:MentorF][immutable:immutable]
+[ROOT:][classDefinition][name:StudentG][immutable:immutable][inlineAssociation][inlineAssociationEnd][bound:*][arrow:->][associationEnd][bound:*][type:MentorG][classDefinition][name:MentorG]
+[ROOT:][classDefinition][name:Student][immutable:immutable][classDefinition][name:Mentor][immutable:immutable][associationClassDefinition][name:StudentMentorAssociation][singleAssociationEnd][bound:*][type:Student][roleName:student][singleAssociationEnd][bound:*][type:Mentor][roleName:mentor]
+[ROOT:][associationClassDefinition][name:VotesInPoll][classDefinition][name:Candidature]
+[ROOT:][namespace:cruise.util][classDefinition][name:Student][namespace:cruise.core][classDefinition][name:Mentor]
+[ROOT:][glossary][word][singular:entity][plural:entities]
+[ROOT:][inlineComment:Should generate error 21 reflexive association should use self or 1+ role names.][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][bound:*][arrow:--][associationEnd][bound:*][type:X]
+[ROOT:][inlineComment:Should generate error 21 reflexive association should use self or 1+ role names.][classDefinition][name:X][associationDefinition][association][associationEnd][bound:*][type:X][arrow:--][associationEnd][bound:*][type:X]
+[ROOT:][inlineComment:Should generate error 21 reflexive association should use self or 1+ role names.][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:--][associationEnd][lowerBound:0][upperBound:1][type:X]
+[ROOT:][inlineComment:Should generate error 21 reflexive association should use self or 1+ role names.][classDefinition][name:X][associationDefinition][association][associationEnd][lowerBound:0][upperBound:1][type:X][arrow:--][associationEnd][lowerBound:0][upperBound:1][type:X]
+[ROOT:][classDefinition][name:UninitializedConstObject][attribute][modifier:const][type][baseType:Object][name:A]
+[ROOT:][classDefinition][name:A][inlineAssociation][inlineAssociationEnd][bound:1][arrow:--][associationEnd][bound:1][type:BbbB][key][keyId:BbbB][classDefinition][name:BbbB][attribute][type][baseType:Integer][name:id][key][keyId:id]
+[ROOT:][classDefinition][name:X][attribute][name:abcd][externalDefinition][name:X][classDefinition][name:X][attribute][name:xyz]
+[ROOT:][classDefinition][name:Student][attribute][name:name][afterCode][injectionOperation][operationName:getName][code:notReallyPossible();]
+[ROOT:][inlineComment:][classDefinition][name:Foo][inlineComment:][classDefinition][name:Bar][inlineComment:][inlineComment:][inlineComment:][classDefinition][name:Foobar][inlineComment:][classDefinition][name:Student][inlineComment:][classDefinition][name:Mentor]
+[ROOT:][generate][language:Php]
+[ROOT:][classDefinition][name:Student][elementPosition][x:10][y:20][width:30][height:40]
+[ROOT:][classDefinition][name:SuperClass][attribute][type][baseType:int][name:counter][classDefinition][name:MutableClass][extendsName:SuperClass][inlineAssociation][inlineAssociationEnd][bound:*][arrow:->][associationEnd][bound:*][type:OtherClass][classDefinition][name:OtherClass][classDefinition][name:SuperClass][immutable:immutable]
+[ROOT:][multilineComment:][classDefinition][name:Student]
+[ROOT:][classDefinition][name:Student][inlineComment:A name][attribute][name:name][inlineComment:the time][attribute][type][baseType:Time][name:t]
+[ROOT:][classDefinition][name:Student][extendsName:IStudent][extendsName:IPerson][extendsName:IMan][interfaceDefinition][name:IStudent][interfaceDefinition][name:IPerson][interfaceDefinition][name:IMan]
+[ROOT:][classDefinition][name:Student][classDefinition][name:Mentor][associationDefinition][association][modifier:immutable][associationEnd][bound:*][type:Student][arrow:->][associationEnd][lowerBound:6][upperBound:9][type:Mentor][roleName:myMentor]
+[ROOT:][classDefinition][name:Student][classDefinition][name:Mentor][associationDefinition][association][modifier:immutable][associationEnd][lowerBound:6][upperBound:9][type:Mentor][roleName:myMentor][arrow:<-][associationEnd][bound:*][type:Student]
+[ROOT:][classDefinition][name:Student][associationDefinition][association][modifier:immutable][associationEnd][bound:*][type:Student][roleName:them][arrow:<-][associationEnd][bound:*][type:Student][roleName:me]
+[ROOT:][classDefinition][name:Student][inlineAssociation][modifier:immutable][inlineAssociationEnd][bound:*][arrow:->][associationEnd][bound:*][type:Mentor][roleName:aMentor][classDefinition][name:Mentor]
+[ROOT:][classDefinition][name:Student][classDefinition][name:Mentor][inlineAssociation][modifier:immutable][inlineAssociationEnd][bound:*][roleName:aMentor][arrow:<-][associationEnd][bound:*][type:Student]
+[ROOT:][classDefinition][name:Student][inlineAssociation][modifier:immutable][inlineAssociationEnd][bound:*][roleName:me][arrow:->][associationEnd][bound:*][type:Student][roleName:them]
+[ROOT:][classDefinition][name:Student][inlineAssociation][modifier:immutable][inlineAssociationEnd][bound:*][roleName:me][arrow:<-][associationEnd][bound:*][type:Student][roleName:them]
+[ROOT:][classDefinition][name:LightFixture][stateMachine][inlineStateMachine][name:bulb][state][stateName:On][||:||][state][stateName:Off]
+[ROOT:][classDefinition][name:Student][classDefinition][name:CourseSection][associationClassDefinition][name:Registration][association][associationEnd][bound:*][type:Student][arrow:--][associationEnd][bound:*][type:CourseSection][attribute][type][baseType:String][name:grade]
+[ROOT:][classDefinition][name:Student][attribute][unique:unique][name:number]
+[ROOT:][generate_path][language:GvClassDiagram][output:blah/blah/blah][override:--override][suboptionIndicator:-s][suboption:hideattributes]
+[ROOT:][interfaceDefinition][name:42SampleName]
+[ROOT:][interfaceDefinition][name:_SampleName]
+[ROOT:][interfaceDefinition][name:!SampleName]
+[ROOT:][interfaceDefinition][name:&SampleName]
+[ROOT:][interfaceDefinition][name:$SampleName]
+[ROOT:][interfaceDefinition][name:#SampleName]
+[ROOT:][classDefinition][name:X][concreteMethodDeclaration][type:void][methodDeclarator][methodName:test][parameterList][code:][classDefinition][name:X][concreteMethodDeclaration][type:void][methodDeclarator][methodName:test][parameterList][code:int x = 2;]
+[ROOT:][toplevelAfterCode][className:Student*][injectionOperation][operationName:setName][injectionOperation][operationName:testFunction][code:doSomething();][classDefinition][name:Student1][attribute][name:name][classDefinition][name:Student2][attribute][name:name][classDefinition][name:Employer][attribute][name:age][concreteMethodDeclaration][type:String][methodDeclarator][methodName:testFunction][parameterList][code:return "This is a test function";]
+[ROOT:][classDefinition][name:Student][inlineAssociation][inlineAssociationEnd][lowerBound:2][upperBound:3][arrow:--][associationEnd][lowerBound:0][upperBound:1][type:Mentor][roleName:aMentor][inlineAssociation][inlineAssociationEnd][bound:*][roleName:me][arrow:--][associationEnd][bound:*][type:Student][roleName:them][classDefinition][name:Mentor]
+[ROOT:][classDefinition][name:A][classDefinition][name:C][toplevelException][toplevelExceptionMain][identifier:association][extraStuff:0..1 A <@>-<@> * C;]
+[ROOT:][interfaceDefinition][name:ISomething][interfaceMemberDeclaration][constantDeclaration][type][baseType:String][name:aVariable][value:aValue]
+[ROOT:][classDefinition][name:C][interfaceDefinition][name:Y][inlineComment:Testing Class-Interface Association with -> arrow][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][bound:1][arrow:->][associationEnd][lowerBound:0][upperBound:1][type:Y][inlineComment:Testing Class-Interface Association with -> arrow][classDefinition][name:A][inlineAssociation][inlineAssociationEnd][bound:1][arrow:->][associationEnd][bound:*][type:Y][inlineComment:Testing Class-Interface Association with -> arrow][associationDefinition][association][associationEnd][bound:1][type:C][arrow:->][associationEnd][bound:*][type:Y]
+[ROOT:][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][bound:1][arrow:--][associationEnd][lowerBound:0][upperBound:1][type:Y][interfaceDefinition][name:Y]
+[ROOT:][inlineComment:Test that this generates error 5][classDefinition][name:E][inlineAssociation][inlineAssociationEnd][bound:*][arrow:->][associationEnd][bound:*][type:BadTestInterface]
+[ROOT:][classDefinition][name:Student][elementPosition][x:10][y:20][width:30][height:40][associationPosition][name:Mentor__Student][coordinate][x:1][y:2][coordinate][x:3][y:4]
+[ROOT:][classDefinition][name:A][concreteMethodDeclaration][modifier:public][type:String][methodDeclarator][methodName:doSomething][parameterList][codeLang:Java][code:return "hello";][concreteMethodDeclaration][modifier:public][type:String][methodDeclarator][methodName:doAnother][parameterList][code:return "";]
+[ROOT:][classDefinition][name:Position][attribute][type][baseType:Integer][name:perimeter][code:2*l + 2*w][attribute][type][baseType:Integer][name:w][attribute][type][baseType:Integer][name:l]
+[ROOT:][toplevelAfterCode][className:*][injectionOperation][operationName:set*][code:doSomething();][classDefinition][name:Student1][attribute][name:name][classDefinition][name:Student2][attribute][name:name][extendsName:T][traitDefinition][name:T][concreteMethodDeclaration][type:void][methodDeclarator][methodName:setSomething][parameterList][code://code][classDefinition][name:Employer][attribute][name:age][concreteMethodDeclaration][type:String][methodDeclarator][methodName:testFunction][parameterList][code:return "This is a test function";]
+[ROOT:][classDefinition][name:Student][attribute][name:id][attribute][name:name][key][keyId:id][keyId:name][classDefinition][name:Mentor][attribute][name:employeeId][key][keyId:employeeId][classDefinition][name:Course][attribute][name:code][defaultKey]
+[ROOT:][namespace:example][inlineComment:This is a simple comment][inlineComment:Multiline comment test][classDefinition][name:Student]
+[ROOT:][classDefinition][name:StudentA][inlineAssociation][inlineAssociationEnd][bound:1][arrow:->][associationEnd][bound:1][type:MentorA][classDefinition][name:MentorA][immutable:immutable]
+[ROOT:][classDefinition][name:StudentB][immutable:immutable][inlineAssociation][inlineAssociationEnd][bound:1][arrow:<-][associationEnd][bound:1][type:MentorB][classDefinition][name:MentorB]
+[ROOT:][classDefinition][name:StudentC][immutable:immutable][inlineAssociation][inlineAssociationEnd][bound:1][arrow:->][associationEnd][bound:*][type:MentorC][classDefinition][name:MentorC][immutable:immutable]
+[ROOT:][classDefinition][name:StudentD][immutable:immutable][inlineAssociation][inlineAssociationEnd][bound:*][arrow:<-][associationEnd][bound:1][type:MentorD][classDefinition][name:MentorD][immutable:immutable]
+[ROOT:][interfaceDefinition][name:ISomething][interfaceMemberDeclaration][abstractMethodDeclaration][type:String][methodDeclarator][methodName:getCode][parameterList][classDefinition][name:Something][attribute][type][baseType:implements][name:ISomething][concreteMethodDeclaration][type:String][methodDeclarator][methodName:getCode][parameterList][code:return 0;]
+[ROOT:][classDefinition][name:Student][stateMachine][inlineStateMachine][name:status][state][stateName:FullTime][state][stateName:PartTime]
+[ROOT:][associationClassDefinition][name:VotesInPoll][singleAssociationEnd][bound:*][type:Candidature][singleAssociationEnd][bound:*][type:PollInElection][inlineAssociation][inlineAssociationEnd][bound:*][arrow:--][associationEnd][bound:*][type:Location][classDefinition][name:Candidature][classDefinition][name:PollInElection][classDefinition][name:Location]
+[ROOT:][classDefinition][name:X][enumerationDefinition][name:Y][enumValue:Red][enumValue:Blue][enumValue:Green][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:--][associationEnd][bound:*][type:Y][classDefinition][name:Y]
+[ROOT:][toplevelAfterCode][className:*][injectionOperation][operationName:setX][injectionOperation][operationName:setY][code://this code will be injected][toplevelBeforeCode][className:*][injectionOperation][operationName:setX][injectionOperation][operationName:setY][code://this code will be injected][classDefinition][name:A][attribute][type][baseType:Integer][name:x][attribute][type][baseType:Integer][name:y][classDefinition][name:B][attribute][type][baseType:Integer][name:x][attribute][type][baseType:Integer][name:y]
+[ROOT:][debug:debug][classDefinition][name:Student]
+[ROOT:][interfaceDefinition][name:ISomething][interfaceMemberDeclaration][exception][malformedStatement1][stuff:public void getCode()]
+[ROOT:][generate][language:Java]
+[ROOT:]
+[ROOT:][classDefinition][name:BadSM][toplevelException][toplevelExceptionMain][identifier:clas][name:BadSM][extraStuff:]
+[ROOT:][associationClassDefinition][name:VotesInPoll][singleAssociationEnd][bound:*][type:Candidature][classDefinition][name:Candidature]
+[ROOT:][classDefinition][name:Student][immutable:immutable][classDefinition][name:Mentor][immutable:immutable][associationDefinition][association][modifier:immutable][associationEnd][bound:1][type:Student][arrow:->][associationEnd][lowerBound:6][upperBound:9][type:Mentor][roleName:myMentor][association][modifier:immutable][associationEnd][bound:*][type:Student][roleName:me][arrow:->][associationEnd][bound:*][type:Student][roleName:them]
+[ROOT:][externalDefinition][name:X][classDefinition][name:X][attribute][name:abcd]
+[ROOT:][interfaceDefinition][name:DuplicateConstantNameInInterface][interfaceMemberDeclaration][constantDeclaration][type][baseType:Integer][name:I][value:1][interfaceMemberDeclaration][constantDeclaration][type][baseType:double][name:I][value:4.5]
+[ROOT:]
+[ROOT:][classDefinition][name:Student][stateMachine][inlineStateMachine][name:status][state][stateName:FullTime][state][stateName:PartTime]
+[ROOT:][inlineComment:][classDefinition][name:Student]
+[ROOT:][classDefinition][name:Airplane][singleton:singleton][classDefinition][name:F16][extendsName:Airplane]
+[ROOT:][classDefinition][name:FlyingObject][classDefinition][name:Airplane][extendsName:FlyingObject][singleton:singleton][classDefinition][name:F16][extendsName:Airplane]
+[ROOT:][classDefinition][name:Student][inlineAssociation][modifier:immutable][inlineAssociationEnd][lowerBound:2][upperBound:3][arrow:--][associationEnd][lowerBound:0][upperBound:1][type:Mentor][roleName:aMentor][classDefinition][name:Mentor]
+[ROOT:][classDefinition][name:Student][classDefinition][name:Mentor][associationDefinition][association][modifier:immutable][associationEnd][bound:1][type:Student][arrow:--][associationEnd][lowerBound:6][upperBound:9][type:Mentor][roleName:myMentor]
+[ROOT:][classDefinition][name:Student][extendsName:Person][classDefinition][name:Person]
+[ROOT:][classDefinition][name:Student][attribute][type][baseType:Boolean][name:isActNow]
+[ROOT:][useStatement][use:015_Student.ump][classDefinition][name:Student][useStatement][use:015_Mentor.ump][useStatement][use:015_Student.ump][classDefinition][name:Mentor][extendsName:Student]
+[ROOT:][classDefinition][name:Person][exception][misnamedAttribute][type:&^][name:prof]
+[ROOT:][classDefinition][name:Person][attribute][type][baseType:867][name:prof]
+[ROOT:][classDefinition][name:X][concreteMethodDeclaration][type:void][methodDeclarator][methodName:m][parameterList][code:z=1;]
+[ROOT:][classDefinition][name:A][classDefinition][name:B][classDefinition][name:C][classDefinition][name:D][classDefinition][name:E][classDefinition][name:F][associationClassDefinition][name:G][attribute][type][baseType:String][name:att1][attribute][type][baseType:Integer][name:att2][value:1][singleAssociationEnd][bound:*][type:A][singleAssociationEnd][bound:*][type:B][singleAssociationEnd][bound:*][type:C][attribute][name:att3][singleAssociationEnd][bound:*][type:D][attribute][type][baseType:String][name:att4][association][associationEnd][bound:*][type:E][arrow:--][associationEnd][bound:*][type:F][attribute][type][baseType:Integer][name:att5]
+[ROOT:][toplevelAfterCode][className:*][injectionOperation][operationName:testFunction][code://this code will be injected][classDefinition][name:toplevelAfterOnTraitClass][extendsName:T][traitDefinition][name:T][concreteMethodDeclaration][type:void][methodDeclarator][methodName:testFunction][parameterList][code://code]
+[ROOT:][toplevelAfterCode][className:*][injectionOperation][operationName:set*][code:doSomething();][classDefinition][name:Student1][attribute][name:name][classDefinition][name:Student2][attribute][name:name][classDefinition][name:Employer][attribute][name:age][concreteMethodDeclaration][type:String][methodDeclarator][methodName:testFunction][parameterList][code:return "This is a test function";]
+[ROOT:][classDefinition][name:Foo][inlineComment:I am a comment above a method.][concreteMethodDeclaration][type:void][methodDeclarator][methodName:testMethod][parameterList][code:// I am a comment inside a method.
+    System.out.println("Hello world!");]
+[ROOT:][generate][language:Java][classDefinition][name:Student][attribute][modifier:defaulted][name:name][value:"5"][attribute][type][baseType:String][name:defaultName]
+[ROOT:][generate][language:Php][classDefinition][name:Student][attribute][modifier:defaulted][name:name][value:"5"][attribute][type][baseType:String][name:defaultName]
+[ROOT:][generate][language:Ruby][classDefinition][name:Student][attribute][modifier:defaulted][name:name][value:"5"][attribute][type][baseType:String][name:default_name]
+[ROOT:][classDefinition][name:Student][attribute][name:number]
+[ROOT:][classDefinition][name:X][attribute][ivar:ivar][type][baseType:Double][name:iDoub][attribute][type][baseType:Double][name:xDoub]
+[ROOT:][classDefinition][name:Father][classDefinition][name:Mother][classDefinition][name:Child][extendsName:Mother][extendsName:Father]
+[ROOT:][classDefinition][name:A][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:->][associationEnd][bound:*][type:C][roleName:assoc][classDefinition][name:B][extendsName:A][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:->][associationEnd][bound:*][type:D][roleName:assoc][classDefinition][name:C][classDefinition][name:D]
+[ROOT:][classDefinition][name:Person][inlineAssociation][inlineAssociationEnd][bound:*][arrow:->][associationEnd][bound:*][type:Person][roleName:friends][classDefinition][name:Student][extendsName:Person][inlineAssociation][inlineAssociationEnd][bound:*][arrow:->][associationEnd][bound:*][type:Dog][roleName:friends][classDefinition][name:Dog]
+[ROOT:][classDefinition][name:A][inlineAssociation][inlineAssociationEnd][bound:*][arrow:->][associationEnd][bound:*][type:D][roleName:assoc][classDefinition][name:B][extendsName:A][classDefinition][name:C][extendsName:B][inlineAssociation][inlineAssociationEnd][bound:*][arrow:->][associationEnd][lowerBound:0][upperBound:1][type:E][roleName:assoc][classDefinition][name:D][classDefinition][name:E]
+[ROOT:][classDefinition][name:A][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:->][associationEnd][bound:*][type:B][classDefinition][name:B][extendsName:A][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:->][associationEnd][bound:*][type:D][roleName:bs][classDefinition][name:D]
+[ROOT:][classDefinition][name:A][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:->][associationEnd][bound:*][type:B][classDefinition][name:B][extendsName:A][classDefinition][name:D][extendsName:B][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:->][associationEnd][bound:*][type:D][roleName:bs][classDefinition][name:C]
+[ROOT:][namespace:example][enumerationDefinition][name:Month][enumValue:x][enumValue:y][enumValue:z][enumerationDefinition][name:Month][enumValue:o][enumValue:p][enumValue:q][classDefinition][name:A][attribute][type][baseType:Month][name:m][attribute][type][baseType:Month][name:p]
+[ROOT:][classDefinition][name:X][attribute][lazy:lazy][type][baseType:Double][name:lDoub]
+[ROOT:][classDefinition][name:Student][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:<-][associationEnd][lowerBound:0][upperBound:1][type:Mentor][classDefinition][name:Mentor]
+[ROOT:][classDefinition][name:Student][immutable:immutable][classDefinition][name:Mentor]
+[ROOT:][classDefinition][name:X][attribute][modifier:immutable][type][baseType:String][name:str]
+[ROOT:][classDefinition][name:AbstractClassAssociationHasOne][inlineAssociation][inlineAssociationEnd][bound:1][arrow:--][associationEnd][bound:1][type:AbstractClass][roleName:hasOne][classDefinition][name:AbstractClass][abstract:abstract]
+[ROOT:][classDefinition][name:AbstractClassAssociationOneOrMany][inlineAssociation][inlineAssociationEnd][bound:1][arrow:--][associationEnd][lowerBound:1][upperBound:*][type:AbstractClass][roleName:hasOneorMany][classDefinition][name:AbstractClass][abstract:abstract]
+[ROOT:][classDefinition][name:AbstractClass][abstract:abstract][inlineAssociation][inlineAssociationEnd][lowerBound:1][upperBound:*][arrow:--][associationEnd][bound:1][type:AbstractClassAssociationOneOrMany][classDefinition][name:AbstractClassAssociationOneOrMany]
+[ROOT:][classDefinition][name:AbstractClass][abstract:abstract][inlineAssociation][inlineAssociationEnd][bound:1][arrow:--][associationEnd][bound:1][type:AbstractClassAssociation][classDefinition][name:AbstractClassAssociation]
+[ROOT:][multilineComment:c 1
+  c 1b][multilineComment:c 1c
+  c 1d][multilineComment:c 2][multilineComment:c 2b
+  c 2c][multilineComment:c 2d
+  c 2e][multilineComment:c 2f
+  c 2g][multilineComment:c 3][multilineComment:c 3b
+  c 3c][namespace:example][multilineComment:c 4][multilineComment:c 4b
+  c 4c][multilineComment:c 4d
+  c 4e]
+[ROOT:][classDefinition][name:A][classDefinition][name:B][associationClassDefinition][name:C][singleAssociationEnd][bound:*][type:A][singleAssociationEnd][bound:*][type:B][enumerationDefinition][name:AttributeName][enumValue:something][attribute][type][baseType:AttributeName][name:attribute]
+[ROOT:][inlineComment:Should generate error 21 reflexive association should use self or 1+ role names.][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][bound:*][arrow:->][associationEnd][bound:*][type:X]
+[ROOT:][inlineComment:Should generate error 21 reflexive association should use self or 1+ role names.][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:->][associationEnd][lowerBound:0][upperBound:1][type:X]
+[ROOT:][inlineComment:Should generate error 21 reflexive association should use self or 1+ role names.][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:<-][associationEnd][lowerBound:0][upperBound:1][type:X]
+[ROOT:][inlineComment:Should generate error 21 reflexive association should use self or 1+ role names.][classDefinition][name:X][associationDefinition][association][associationEnd][lowerBound:0][upperBound:1][type:X][arrow:->][associationEnd][lowerBound:0][upperBound:1][type:X]
+[ROOT:][classDefinition][name:A][concreteMethodDeclaration][modifier:public][type:String][methodDeclarator][methodName:doSomething][parameterList][codeLang:Java][code:return "hello";][concreteMethodDeclaration][modifier:public][type:String][methodDeclarator][methodName:doAnother][parameterList][code:return "";]
+[ROOT:][classDefinition][name:Person][attribute][name:name][classDefinition][name:Student][attribute][name:Integer]
+[ROOT:][interfaceDefinition][name:Cat][interfaceMemberDeclaration][constantDeclaration][name:legs][value:4][interfaceMemberDeclaration][exception][malformedStatement1][stuff:meow meowww purrr][interfaceMemberDeclaration][abstractMethodDeclaration][type:void][methodDeclarator][methodName:Meow][parameterList]
+[ROOT:][namespace:example][associationDefinition][association][associationEnd][lowerBound:4][upperBound:5][type:Student][arrow:--][associationEnd][lowerBound:6][upperBound:9][type:Mentor][roleName:myMentor]
+[ROOT:][namespace:example][associationDefinition][association][associationEnd][lowerBound:4][upperBound:5][type:Student][arrow:--][associationEnd][lowerBound:6][upperBound:9][type:Mentor][roleName:myMentor]
+[ROOT:][classDefinition][name:SourceObject][classDefinition][name:SourceRelationship][inlineAssociation][inlineAssociationEnd][bound:*][arrow:--][associationEnd][bound:1][type:SourceObject][inlineAssociation][inlineAssociationEnd][bound:3][arrow:--][associationEnd][bound:1][type:SourceObject]
+[ROOT:][classDefinition][name:MentorA][classDefinition][name:MentorB][classDefinition][name:Student][inlineAssociation][inlineAssociationEnd][bound:*][arrow:--][associationEnd][bound:1][type:MentorA][roleName:mentor][inlineAssociation][inlineAssociationEnd][bound:2][arrow:--][associationEnd][bound:*][type:MentorB][roleName:mentor]
+[ROOT:][classDefinition][name:B][classDefinition][name:A][inlineAssociation][inlineAssociationEnd][bound:1][roleName:first][arrow:--][associationEnd][bound:*][type:B][roleName:b][inlineAssociation][inlineAssociationEnd][bound:1][roleName:second][arrow:--][associationEnd][bound:*][type:B]
+[ROOT:][classDefinition][name:A][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:--][associationEnd][bound:*][type:B][roleName:b1][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:--][associationEnd][bound:*][type:B][roleName:b2][classDefinition][name:B]
+[ROOT:][classDefinition][name:A][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][roleName:a1][arrow:--][associationEnd][bound:*][type:B][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][roleName:a2][arrow:--][associationEnd][bound:*][type:B][classDefinition][name:B]
+[ROOT:][classDefinition][name:A][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:--][associationEnd][bound:*][type:B][roleName:b1][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:--][associationEnd][bound:*][type:B][roleName:b2][classDefinition][name:B]
+[ROOT:][classDefinition][name:A][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:--][associationEnd][bound:*][type:B][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:--][associationEnd][bound:*][type:B][classDefinition][name:B]
+[ROOT:][classDefinition][name:TestClass][inlineAssociation][inlineAssociationEnd][bound:*][arrow:->][associationEnd][lowerBound:3][upperBound:5][type:OtherClass][roleName:othersOne][inlineAssociation][inlineAssociationEnd][bound:*][arrow:->][associationEnd][lowerBound:1][upperBound:3][type:OtherClass][roleName:othersTwo][classDefinition][name:OtherClass]
+[ROOT:][classDefinition][name:Person][classDefinition][name:Course][inlineAssociation][inlineAssociationEnd][bound:*][roleName:courseProf][arrow:--][associationEnd][bound:1][type:Person][roleName:prof][inlineAssociation][inlineAssociationEnd][bound:*][arrow:--][associationEnd][lowerBound:1][upperBound:*][type:Person][roleName:students]
+[ROOT:][classDefinition][name:Person][classDefinition][name:Course][inlineAssociation][inlineAssociationEnd][bound:*][roleName:courseProf][arrow:--][associationEnd][bound:1][type:Person][roleName:prof][inlineAssociation][inlineAssociationEnd][bound:*][roleName:courseStudent][arrow:--][associationEnd][lowerBound:1][upperBound:*][type:Person][roleName:students]
+[ROOT:][classDefinition][name:Person][classDefinition][name:Course][inlineAssociation][inlineAssociationEnd][bound:*][roleName:instructor][arrow:--][associationEnd][bound:*][type:Person][roleName:prof][inlineAssociation][inlineAssociationEnd][bound:*][roleName:student][arrow:--][associationEnd][bound:*][type:Person]
+[ROOT:][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][bound:*][arrow:--][associationEnd][lowerBound:0][upperBound:1][type:A][stateMachine][inlineStateMachine][name:a][state][stateName:s1][transition][event:e1][stateName:s2][state][stateName:s2][classDefinition][name:A]
+[ROOT:][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][bound:*][arrow:--][associationEnd][lowerBound:0][upperBound:1][type:A][stateMachine][inlineStateMachine][name:a][state][stateName:s1][transition][event:e1][stateName:s2][state][stateName:s2][classDefinition][name:A]
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:a][state][stateName:s1][transition][event:e1][stateName:s2][state][stateName:s2][classDefinition][name:A][associationDefinition][association][associationEnd][bound:1][type:X][arrow:--][associationEnd][bound:1][type:A]
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:a][state][stateName:s1][transition][event:e1][stateName:s2][state][stateName:s2][classDefinition][name:A][associationDefinition][association][associationEnd][bound:*][type:X][arrow:->][associationEnd][bound:1][type:A]
+[ROOT:][classDefinition][name:X][attribute][modifier:internal][type][baseType:Boolean][name:internalAttr][value:false]
+[ROOT:][classDefinition][name:X][enumerationDefinition][name:Y][enumValue:Red][enumValue:Blue][enumValue:Green][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:<@>-][associationEnd][bound:*][type:Y][classDefinition][name:Y][attribute][name:name]
+[ROOT:][classDefinition][name:X][enumerationDefinition][name:Y][enumValue:Red][enumValue:Blue][enumValue:Green][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:-<@>][associationEnd][bound:*][type:Y][classDefinition][name:Y][attribute][name:name]
+[ROOT:][generate_path][language:GvClassDiagram][output:blah/blah/blah][override:--override][suboptionIndicator:-s][suboption:hideattributes]
+[ROOT:][namespace:A][classDefinition][name:X][namespace:B][classDefinition][name:Y][classDefinition][name:X]
+[ROOT:][classDefinition][name:X][namespace:B][classDefinition][name:Y][classDefinition][name:X]
+[ROOT:][inlineComment:][classDefinition][name:Student]
+[ROOT:][classDefinition][name:Foo][inlineComment:Inline comment above method.][concreteMethodDeclaration][type:void][methodDeclarator][methodName:testMethod1][parameterList][code:System.out.println("Hello world!");][inlineComment:Multiple inline comments][inlineComment:above method.][concreteMethodDeclaration][type:void][methodDeclarator][methodName:testMethod2][parameterList][code:System.out.println("Hello world!");][multilineComment:Multiline comment above method.][concreteMethodDeclaration][type:void][methodDeclarator][methodName:testMethod3][parameterList][code:System.out.println("Hello world!");][multilineComment:* Multiple multiline comments
+	 * above method.][concreteMethodDeclaration][type:void][methodDeclarator][methodName:testMethod4][parameterList][code:System.out.println("Hello world!");]
+[ROOT:][inlineComment:][classDefinition][name:Student][inlineComment:][classDefinition][name:Mentor][inlineComment:][classDefinition][name:Teacher]
+[ROOT:][classDefinition][name:Student][symmetricReflexiveAssociation][bound:*][roleName:peer][symmetricReflexiveAssociation][bound:*][roleName:roleModel]
+[ROOT:][classDefinition][name:X][attribute][modifier:const][type][baseType:Integer][name:MAX][value:100][attribute][modifier:internal][type][baseType:Boolean][name:internalAttr][value:false][attribute][modifier:immutable][type][baseType:String][name:str][attribute][modifier:immutable][type][baseType:String][name:str1][value:"beep"][attribute][autounique:autounique][name:x][attribute][lazy:lazy][modifier:immutable][type][baseType:String][name:str2][attribute][lazy:lazy][type][baseType:Double][name:lDoub][attribute][type][baseType:Date][name:d][attribute][type][baseType:Integer][name:int1][value:10][attribute][modifier:defaulted][type][baseType:String][name:p][value:"robot"]
+[ROOT:][namespace:example][inlineComment:This is a simple comment][classDefinition][name:Student][classDefinition][name:Mentor][inlineComment:This is a course file][classDefinition][name:Course]
+[ROOT:][enumerationDefinition][name:Y][enumValue:Orange][enumValue:Yellow][classDefinition][name:X][attribute][type][baseType:X][name:t][enumerationDefinition][name:X][enumValue:Red][enumValue:Blue][enumValue:Green]
+[ROOT:][classDefinition][name:X][enumerationDefinition][name:X][enumValue:Red][enumValue:Blue][enumValue:Green][attribute][type][baseType:X][name:t]
+[ROOT:][classDefinition][name:X][enumerationDefinition][name:X][enumValue:Red][enumValue:Blue][enumValue:Green]
+[ROOT:][traitDefinition][name:Y][attribute][name:name][enumerationDefinition][name:Y][enumValue:Red][enumValue:Blue][enumValue:Green]
+[ROOT:][namespace:example][classDefinition][name:Student][attribute][name:one][attribute][name:two][attribute][name:three][code:one + ":" + two]
+[ROOT:][classDefinition][name:TopHat][classDefinition][name:Question][attribute][type][baseType:boolean][name:status][classDefinition][name:HomeworkQuestion][extendsName:Question][attribute][type][baseType:Date][name:dueDate]
+[ROOT:][classDefinition][name:Z][classDefinition][name:X][classDefinition][name:Y][classDefinition][name:X]
+[ROOT:][classDefinition][name:X][classDefinition][name:Y][extendsName:Z][classDefinition][name:Z]
+[ROOT:][classDefinition][name:Inherited2][attribute][type][baseType:Integer][name:id][extendsName:Loop][classDefinition][name:Inherited1][extendsName:Inherited2][attribute][type][baseType:Integer][name:id][classDefinition][name:Loop][extendsName:Inherited1][key][keyId:id]
+[ROOT:][classDefinition][name:Foo][multilineComment:* I am a comment above a method.][concreteMethodDeclaration][type:void][methodDeclarator][methodName:testMethod][parameterList][code:System.out.println("Hello world!");]
+[ROOT:][classDefinition][name:A][classDefinition][name:B][classDefinition][name:C][classDefinition][name:D][associationDefinition][name:comp1][association][associationEnd][bound:*][type:A][arrow:<@>-][associationEnd][bound:*][type:B][associationDefinition][name:comp2][association][associationEnd][bound:*][type:C][arrow:-<@>][associationEnd][bound:1][type:D]
+[ROOT:][classDefinition][name:X][attribute][name:a][classDefinition][name:Y][attribute][name:a][associationDefinition][association][associationEnd][bound:1][type:X][roleName:a][arrow:<-][associationEnd][bound:1][type:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][classDefinition][name:Y][attribute][name:a][associationDefinition][association][associationEnd][bound:1][type:X][roleName:a][arrow:<-][associationEnd][bound:1][type:Y]
+[ROOT:][classDefinition][name:X][attribute][name:a][classDefinition][name:Y][associationDefinition][association][associationEnd][bound:1][type:X][arrow:--][associationEnd][bound:1][type:Y][roleName:a]
+[ROOT:][classDefinition][name:X][attribute][name:a][classDefinition][name:Y][associationDefinition][association][associationEnd][lowerBound:1][upperBound:4][type:X][arrow:->][associationEnd][bound:1][type:Y][roleName:a]
+[ROOT:][classDefinition][name:X][attribute][name:a][classDefinition][name:Y][associationDefinition][association][associationEnd][lowerBound:1][upperBound:4][type:X][arrow:->][associationEnd][bound:1][type:Y][roleName:a]
+[ROOT:][classDefinition][name:X][attribute][modifier:defaulted][type][baseType:String][name:p][value:"robot"]
+[ROOT:][classDefinition][name:X][attribute][ivar:ivar][type][baseType:Double][name:iDoub][attribute][type][baseType:Double][name:xDoub]
+[ROOT:][classDefinition][name:Foo][multilineComment:* I am a multiline comment above an attribute.][attribute][name:name]
+[ROOT:][classDefinition][name:Foo][inlineComment:I am a inline comment above an attribute.][attribute][name:bar]
+[ROOT:][classDefinition][name:Student][immutable:immutable][inlineAssociation][modifier:immutable][inlineAssociationEnd][bound:1][arrow:->][associationEnd][bound:*][type:Mentor][roleName:aMentor][inlineAssociation][modifier:immutable][inlineAssociationEnd][bound:*][roleName:me][arrow:->][associationEnd][bound:*][type:Student][roleName:them][classDefinition][name:Mentor][immutable:immutable]
+[ROOT:][classDefinition][name:X][classDefinition][name:Y][inlineAssociation][inlineAssociationEnd][bound:0][arrow:--][associationEnd][bound:8][type:X]
+[ROOT:][namespace:cruise][namespace:cruise.umple][namespace:example]
+[ROOT:][classDefinition][name:Student][attribute][type][baseType:Integer][name:a][classDefinition][name:Mentor][extendsName:Student][attribute][type][baseType:Integer][name:b][key][keyId:a][keyId:b]
+[ROOT:][classDefinition][name:X][attribute][modifier:const][type][baseType:Integer][name:MAX][value:100][attribute][modifier:internal][type][baseType:Boolean][name:internalAttr][value:false][attribute][modifier:immutable][type][baseType:String][name:str][attribute][autounique:autounique][name:x][attribute][lazy:lazy][modifier:immutable][type][baseType:String][name:str2][attribute][lazy:lazy][type][baseType:Double][name:lDoub][attribute][type][baseType:Date][name:d][attribute][modifier:defaulted][type][baseType:String][name:p][value:"robot"]
+[ROOT:][namespace:example][classDefinition][name:Mentor][attribute][name:name][inlineAssociation][inlineAssociationEnd][bound:*][arrow:->][associationEnd][bound:*][type:Student][classDefinition][name:Student][attribute][name:number]
+[ROOT:][classDefinition][name:Student][extendsName:IStudent][interfaceDefinition][name:IStudent]
+[ROOT:][inlineComment:Should be OK  no error 21][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][bound:*][arrow:->][associationEnd][bound:*][type:X][roleName:right]
+[ROOT:][inlineComment:Should be OK  no error 21][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:->][associationEnd][lowerBound:0][upperBound:1][type:X][roleName:right]
+[ROOT:][inlineComment:Should be OK no error 21][classDefinition][name:X][associationDefinition][association][associationEnd][lowerBound:0][upperBound:1][type:X][arrow:->][associationEnd][lowerBound:0][upperBound:1][type:X][roleName:right]
+[ROOT:][inlineComment:Should be OK  no error 21][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][bound:*][arrow:--][associationEnd][bound:*][type:X][roleName:right]
+[ROOT:][inlineComment:Should be OK  no error X - symmetric case][classDefinition][name:X][symmetricReflexiveAssociation][bound:*][roleName:right]
+[ROOT:][inlineComment:Should be OK  no error 21][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:--][associationEnd][lowerBound:0][upperBound:1][type:X][roleName:right]
+[ROOT:][inlineComment:Should be OK no error 21][classDefinition][name:X][associationDefinition][association][associationEnd][lowerBound:0][upperBound:1][type:X][arrow:--][associationEnd][lowerBound:0][upperBound:1][type:X][roleName:right]
+[ROOT:][inlineComment:Should be OK  no error X - symmetric case][classDefinition][name:X][symmetricReflexiveAssociation][lowerBound:0][upperBound:1][roleName:right]
+[ROOT:][generate_path][language:Php][output:1][generate_path][language:Java][output:2][generate_path][language:Ruby][output:3][override:--override][generate_path][language:Java][output:4][override:--override-all][generate_path][language:Java][output:5][override:--override-all][generate_path][language:Php][output:6][generate_path][language:Ruby][output:7][override:--override]
+[ROOT:][classDefinition][name:Father][classDefinition][name:Mother][classDefinition][name:Child][extendsName:Father][extendsName:Mother]
+[ROOT:][classDefinition][name:Test][inlineComment:Comment][attribute][name:test][inlineComment:OtherComment][attribute][name:test2][classDefinition][name:Test2][attribute][name:attr][classDefinition][name:X][inlineComment:Acomment][inlineAssociation][inlineAssociationEnd][bound:*][arrow:--][associationEnd][bound:1][type:Test][inlineComment:Aothercomment][inlineAssociation][inlineAssociationEnd][bound:*][arrow:--][associationEnd][bound:1][type:Test2][multilineComment:associationClass Y
+{
+  // FirstComment
+  * Test; // SecondComment
+  * Test2;
+}]
+[ROOT:][classDefinition][name:A][classDefinition][name:B][classDefinition][name:C][classDefinition][name:D][associationDefinition][association][associationEnd][lowerBound:0][upperBound:1][type:A][arrow:<@>-][associationEnd][bound:*][type:C][associationDefinition][association][associationEnd][lowerBound:0][upperBound:1][type:B][arrow:-<@>][associationEnd][bound:4][type:D]
+[ROOT:][classDefinition][name:A][classDefinition][name:B][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:-<@>][associationEnd][bound:*][type:C][classDefinition][name:C][classDefinition][name:D][inlineAssociation][inlineAssociationEnd][bound:*][arrow:<@>-][associationEnd][bound:*][type:A]
+[ROOT:][classDefinition][name:Token][attribute][name:number][attribute][type][baseType:Position][name:startPosition][classDefinition][name:Position][attribute][type][baseType:Integer][name:lineNumber][attribute][type][baseType:Integer][name:offset]
+[ROOT:][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][bound:1][arrow:<-][associationEnd][bound:*][type:Y][classDefinition][name:Y][attribute][name:x]
+[ROOT:][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][lowerBound:1][upperBound:10][arrow:<-][associationEnd][bound:*][type:Y][classDefinition][name:Y][attribute][name:xs]
+[ROOT:][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][bound:*][arrow:<-][associationEnd][bound:*][type:Y][classDefinition][name:Y][attribute][name:xs]
+[ROOT:][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][bound:1][arrow:<-][associationEnd][lowerBound:1][upperBound:10][type:Y][classDefinition][name:Y][attribute][name:x]
+[ROOT:][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][bound:1][arrow:<-][associationEnd][lowerBound:1][upperBound:10][type:Y][classDefinition][name:Y][attribute][name:x]
+[ROOT:][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][lowerBound:1][upperBound:10][arrow:<-][associationEnd][lowerBound:1][upperBound:10][type:Y][classDefinition][name:Y][attribute][name:xs]
+[ROOT:][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][lowerBound:1][upperBound:10][arrow:<-][associationEnd][lowerBound:1][upperBound:10][type:Y][classDefinition][name:Y][attribute][name:xs]
+[ROOT:][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][bound:*][arrow:<-][associationEnd][lowerBound:1][upperBound:10][type:Y][classDefinition][name:Y][attribute][name:xs]
+[ROOT:][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][bound:*][arrow:<-][associationEnd][lowerBound:1][upperBound:10][type:Y][classDefinition][name:Y][attribute][name:xs]
+[ROOT:][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][bound:1][arrow:<-][associationEnd][bound:1][type:Y][classDefinition][name:Y][attribute][name:x]
+[ROOT:][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][bound:1][arrow:<-][associationEnd][bound:1][type:Y][classDefinition][name:Y][attribute][name:x]
+[ROOT:][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][lowerBound:1][upperBound:10][arrow:<-][associationEnd][bound:1][type:Y][classDefinition][name:Y][attribute][name:xs]
+[ROOT:][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][lowerBound:1][upperBound:10][arrow:<-][associationEnd][bound:1][type:Y][classDefinition][name:Y][attribute][name:xs]
+[ROOT:][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][bound:*][arrow:<-][associationEnd][bound:1][type:Y][classDefinition][name:Y][attribute][name:xs]
+[ROOT:][classDefinition][name:X][inlineAssociation][inlineAssociationEnd][bound:*][arrow:<-][associationEnd][bound:1][type:Y][classDefinition][name:Y][attribute][name:xs]
+[ROOT:][interfaceDefinition][name:ISomething][interfaceMemberDeclaration][abstractMethodDeclaration][type:String[]][methodDeclarator][methodName:getMethod][parameterList][parameter][type][baseType:String][list:[]][name:aname][parameter][type][baseType:Integer][name:anotherType]
+[ROOT:][inlineComment:This is a simple comment][namespace:example][classDefinition][name:Student]
+[ROOT:][classDefinition][name:A][classDefinition][name:B][classDefinition][name:C][extendsName:A][classDefinition][name:C][extendsName:B]
+[ROOT:][classDefinition][name:A][classDefinition][name:C][extendsName:A][classDefinition][name:C][extendsName:A]
+[ROOT:][classDefinition][name:Student][exception][misnamedAttribute][name:$s]
+[ROOT:][classDefinition][name:Student][exception][misnamedAttribute][name:1s]
+[ROOT:][classDefinition][name:Student][attribute][name:_Prof]
+[ROOT:][interfaceDefinition][name:UninitializedConstObject][interfaceMemberDeclaration][constantDeclaration][type][baseType:Object][name:A]
+[ROOT:][multilineComment:][classDefinition][name:Foo][multilineComment:][classDefinition][name:Bar][multilineComment:*][classDefinition][name:Foobar][multilineComment:* 
+ * 
+ *][classDefinition][name:Student][multilineComment:*                                        
+ *    
+       
+ *   
+ *  
+ *][classDefinition][name:Mentor][multilineComment:][classDefinition][name:Teacher]
+[ROOT:][classDefinition][name:X][attribute][autounique:autounique][name:x][attribute][type][baseType:String][name:str][attribute][type][baseType:Integer][name:test]
+[ROOT:][interfaceDefinition][name:Student][interfaceMemberDeclaration][extendsName:Proffesor][interfaceDefinition][name:Proffesor][interfaceMemberDeclaration][extendsName:Student]
+[ROOT:][classDefinition][name:Student][inlineAssociation][inlineAssociationEnd][bound:1][arrow:--][associationEnd][bound:*][type:Mentor][elementPosition][x:10][y:20][width:30][height:40][associationPosition][name:Mentor__Student][coordinate][x:1][y:2][coordinate][x:3][y:4][classDefinition][name:Mentor]
+[ROOT:][classDefinition][name:Foo][inlineComment:Inline comment above attribute.][attribute][name:testAttribute1][inlineComment:Multiple inline comments][inlineComment:above attribute.][attribute][name:testAttribute2][multilineComment:Multiline comment above attribute.][attribute][name:testAttribute3][multilineComment:* Multiple multiline comments
+	 * above attribute.][attribute][name:testAttribute4]
+[ROOT:][classDefinition][name:Student][extendsName:Person][extendsName:Worker][classDefinition][name:Person][interfaceDefinition][name:Worker]
+[ROOT:][classDefinition][name:Group][constantDeclaration][internal:internal][type][baseType:String][name:Name][value:" "]
+[ROOT:][classDefinition][name:Student][attribute][name:name][toplevelBeforeCode][className:Student][injectionOperation][operationName:setName][code:doSomething();]
+[ROOT:][classDefinition][name:Student][attribute][name:name][afterCode][injectionOperation][operationName:setName][code://afterCodeInjection();][toplevelBeforeCode][className:Student][injectionOperation][operationName:setName][code:doSomething();]
+[ROOT:][classDefinition][name:A][attribute][name:aName][classDefinition][name:B][attribute][name:bName][associationDefinition][association][associationEnd][bound:1][type:A][arrow:--][associationEnd][bound:*][type:B][inlineComment:comment....]
+[ROOT:][classDefinition][name:Student][elementPosition][x:10][y:20][width:30][height:40]
+[ROOT:][classDefinition][name:Student][attribute][name:id][attribute][name:name][attribute][name:age][key][keyId:id][keyId:name][key][keyId:age]
+[ROOT:][toplevelException][toplevelExceptionMain][identifier:generate][name:Blah]
+[ROOT:][classDefinition][name:Student1a][attribute][modifier:immutable][type][baseType:String][name:name][attribute][name:canSetName][classDefinition][name:Student2][attribute][autounique:autounique][name:id][attribute][name:nextId][classDefinition][name:Student1b][attribute][modifier:immutable][type][baseType:String][name:name][attribute][name:can_set_name]
+[ROOT:][classDefinition][name:X][attribute][modifier:const][type][baseType:Integer][name:MAX][value:100][attribute][modifier:internal][type][baseType:Boolean][name:internalAttr][value:false][attribute][modifier:immutable][type][baseType:String][name:str][attribute][autounique:autounique][name:x][attribute][lazy:lazy][modifier:immutable][type][baseType:String][name:str2][attribute][lazy:lazy][type][baseType:Double][name:lDoub][attribute][type][baseType:Date][name:d][attribute][modifier:defaulted][type][baseType:String][name:p][value:"robot"]
+[ROOT:][classDefinition][name:X][attribute][modifier:const][type][baseType:Integer][name:MAX][value:100][attribute][modifier:internal][type][baseType:Boolean][name:internalAttr][value:false][attribute][modifier:immutable][type][baseType:String][name:str][attribute][modifier:immutable][type][baseType:String][name:str1][value:"beep"][attribute][autounique:autounique][name:x][attribute][lazy:lazy][modifier:immutable][type][baseType:String][name:str2][attribute][lazy:lazy][type][baseType:Double][name:lDoub][attribute][type][baseType:Date][name:d][attribute][type][baseType:Integer][name:int1][value:10][attribute][modifier:defaulted][type][baseType:String][name:p][value:"robot"]
+[ROOT:][classDefinition][name:Foome][concreteMethodDeclaration][modifier:protected][abstract:abstract][type:void][methodDeclarator][methodName:barme][parameterList]
+[ROOT:][classDefinition][name:Student][classDefinition][name:Mentor][associationDefinition][association][associationEnd][lowerBound:4][upperBound:5][type:Student][arrow:--][associationEnd][lowerBound:6][upperBound:9][type:Mentor][roleName:myMentor][association][associationEnd][bound:*][type:Student][roleName:me][arrow:--][associationEnd][bound:*][type:Student][roleName:them]
+[ROOT:][classDefinition][name:Student][extendsName:Person][classDefinition][name:Student][classDefinition][name:Person]
+[ROOT:][interfaceDefinition][name:Y][interfaceMemberDeclaration][exception][misnamedAttribute][name:name][classDefinition][name:X][extendsName:Y][enumerationDefinition][name:Y][enumValue:Red][enumValue:Blue][enumValue:Green]
+[ROOT:][generate_path][language:Ruby][output:blah/blah/blah][generate_path][language:Java][output:blue/blue/blue][override:--override][generate_path][language:Php][output:path/to/php]
+[ROOT:][classDefinition][name:Student][classDefinition][name:Mentor][associationDefinition][name:Counsellor][association][associationEnd][lowerBound:4][upperBound:5][type:Student][arrow:--][associationEnd][lowerBound:6][upperBound:9][type:Mentor]
+[ROOT:][classDefinition][name:Student][stateMachine][enum][name:status][stateName:FullTime][stateName:PartTime][stateName:MidTime][stateMachine][enum][name:grade][stateName:High]
+[ROOT:][classDefinition][name:Student][extraCode:blahblah][classDefinition][name:Student][extraCode:moreblah]
+[ROOT:][interfaceDefinition][name:IMe][depend:java.util.*]
+[ROOT:][classDefinition][name:Student][inlineAssociation][inlineAssociationEnd][lowerBound:0][upperBound:1][arrow:->][associationEnd][lowerBound:0][upperBound:1][type:Mentor][classDefinition][name:Mentor]
+[ROOT:][classDefinition][name:Student2][attribute][modifier:const][name:Person2]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

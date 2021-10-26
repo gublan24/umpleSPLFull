@@ -1,0 +1,41 @@
+
+// Code for mixset Class : 
+
+
+class UmpleGenerator { 
+    before Label_Class_7:initializeParser
+  {
+      parser.addGrammarFile("/class/umple_classes.grammar");
+    }  }
+
+class UmpleInternalParser { 
+    before Label_Class_53:analyzeToken(Token,int)
+  {
+      analyzeClassToken(t,analysisStep);
+    }  }
+
+class UmpleInternalParser { 
+    before Label_Class_65:analyzeToken(Token,UmpleClass,int)
+  {
+      analyzeClassToken(t,aClass,analysisStep);
+    }  }
+
+class UmpleInternalParser { 
+    before Label_Class_71:postTokenAnalysis
+  {
+      if (getParseResult().getWasSuccess())
+      {
+        postTokenClassAnalysis();
+      }
+    }  }
+
+class UmpleInternalParser { 
+    before Label_Class_144:getMixsetFragmentWithEnclosingElement(Token,String)
+  {
+      if (token.is("classDefinition"))
+      {
+        tokenKey = "name"; 
+        prefix ="class";
+        returnMixsetBody= true;
+      }
+    }  }

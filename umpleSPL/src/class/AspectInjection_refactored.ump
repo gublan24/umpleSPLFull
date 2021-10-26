@@ -1,0 +1,39 @@
+
+// Code for mixset AspectInjection : 
+
+
+class UmpleInternalParser { 
+
+    before Label_AspectInjection_64:analyzeToken(Token,int)
+  {
+      analyzeInjectionToken(t, analysisStep);
+    }  }
+
+class UmpleInternalParser { 
+    before Label_AspectInjection_68:analyzeDependentTokens(Token,UmpleClass,int)
+  {
+      else if (t.is("beforeCode") || t.is("afterCode"))
+      {
+        analyzeInjectionCode(t,aClass);
+      }
+    }  }
+
+class UmpleInternalParser { 
+    before Label_AspectInjection_114:applyTraitProperties(UmpleClass,UmpleTrait)
+  {
+       // copy injection codes
+       for (CodeInjection cj : inTrait.getCodeInjections()) {
+               cj.setUmpleClassifier(inClass);
+               inClass.addCodeInjection(cj);
+       }
+    }  }
+
+class UmpleInternalParser { 
+    before Label_AspectInjection_110:analyzeDependentTokens(Token,UmpleTrait,int)
+  {
+      else if (t.is("beforeCode") || t.is("afterCode"))
+      {
+      //TODO should applied for traits
+        analyzeInjectionCode(t,inTrait);
+      }
+    }  }

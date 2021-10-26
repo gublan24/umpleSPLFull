@@ -1,0 +1,314 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from OneToMNTest</title>
+    </head>
+    <body>
+        <pre>/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+import java.util.*;
+
+// line 3 "../OneToMNTest.ump"
+public class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private String name;
+
+  //Mentor Associations
+  private List&lt;Pupil&gt; pupils;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Mentor(String aName)
+  {
+    name = aName;
+    pupils = new ArrayList&lt;Pupil&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setName(String aName)
+  {
+    boolean wasSet = false;
+    name = aName;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getName()
+  {
+    return name;
+  }
+  /* Code from template association_GetMany */
+  public Pupil getPupil(int index)
+  {
+    Pupil aPupil = pupils.get(index);
+    return aPupil;
+  }
+
+  public List&lt;Pupil&gt; getPupils()
+  {
+    List&lt;Pupil&gt; newPupils = Collections.unmodifiableList(pupils);
+    return newPupils;
+  }
+
+  public int numberOfPupils()
+  {
+    int number = pupils.size();
+    return number;
+  }
+
+  public boolean hasPupils()
+  {
+    boolean has = pupils.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfPupil(Pupil aPupil)
+  {
+    int index = pupils.indexOf(aPupil);
+    return index;
+  }
+  /* Code from template association_IsNumberOfValidMethod */
+  public boolean isNumberOfPupilsValid()
+  {
+    boolean isValid = numberOfPupils() &gt;= minimumNumberOfPupils() &amp;&amp; numberOfPupils() &lt;= maximumNumberOfPupils();
+    return isValid;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfPupils()
+  {
+    return 5;
+  }
+  /* Code from template association_MaximumNumberOfMethod */
+  public static int maximumNumberOfPupils()
+  {
+    return 7;
+  }
+  /* Code from template association_AddMNToOnlyOne */
+  public Pupil addPupil(String aNumber)
+  {
+    if (numberOfPupils() &gt;= maximumNumberOfPupils())
+    {
+      return null;
+    }
+    else
+    {
+      return new Pupil(aNumber, this);
+    }
+  }
+
+  public boolean addPupil(Pupil aPupil)
+  {
+    boolean wasAdded = false;
+    if (pupils.contains(aPupil)) { return false; }
+    if (numberOfPupils() &gt;= maximumNumberOfPupils())
+    {
+      return wasAdded;
+    }
+
+    Mentor existingMentor = aPupil.getMentor();
+    boolean isNewMentor = existingMentor != null &amp;&amp; !this.equals(existingMentor);
+
+    if (isNewMentor &amp;&amp; existingMentor.numberOfPupils() &lt;= minimumNumberOfPupils())
+    {
+      return wasAdded;
+    }
+
+    if (isNewMentor)
+    {
+      aPupil.setMentor(this);
+    }
+    else
+    {
+      pupils.add(aPupil);
+    }
+    wasAdded = true;
+    return wasAdded;
+  }
+
+  public boolean removePupil(Pupil aPupil)
+  {
+    boolean wasRemoved = false;
+    //Unable to remove aPupil, as it must always have a mentor
+    if (this.equals(aPupil.getMentor()))
+    {
+      return wasRemoved;
+    }
+
+    //mentor already at minimum (5)
+    if (numberOfPupils() &lt;= minimumNumberOfPupils())
+    {
+      return wasRemoved;
+    }
+    pupils.remove(aPupil);
+    wasRemoved = true;
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addPupilAt(Pupil aPupil, int index)
+  {  
+    boolean wasAdded = false;
+    if(addPupil(aPupil))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfPupils()) { index = numberOfPupils() - 1; }
+      pupils.remove(aPupil);
+      pupils.add(index, aPupil);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMovePupilAt(Pupil aPupil, int index)
+  {
+    boolean wasAdded = false;
+    if(pupils.contains(aPupil))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfPupils()) { index = numberOfPupils() - 1; }
+      pupils.remove(aPupil);
+      pupils.add(index, aPupil);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addPupilAt(aPupil, index);
+    }
+    return wasAdded;
+  }
+
+  public void delete()
+  {
+    for(int i=pupils.size(); i &gt; 0; i--)
+    {
+      Pupil aPupil = pupils.get(i - 1);
+      aPupil.delete();
+    }
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "name" + ":" + getName()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 9 "../OneToMNTest.ump"
+public class Pupil
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Pupil Attributes
+  private String number;
+
+  //Pupil Associations
+  private Mentor mentor;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Pupil(String aNumber, Mentor aMentor)
+  {
+    number = aNumber;
+    boolean didAddMentor = setMentor(aMentor);
+    if (!didAddMentor)
+    {
+      throw new RuntimeException("Unable to create pupil due to mentor. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setNumber(String aNumber)
+  {
+    boolean wasSet = false;
+    number = aNumber;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getNumber()
+  {
+    return number;
+  }
+  /* Code from template association_GetOne */
+  public Mentor getMentor()
+  {
+    return mentor;
+  }
+  /* Code from template association_SetOneToAtMostN */
+  public boolean setMentor(Mentor aMentor)
+  {
+    boolean wasSet = false;
+    //Must provide mentor to pupil
+    if (aMentor == null)
+    {
+      return wasSet;
+    }
+
+    //mentor already at maximum (7)
+    if (aMentor.numberOfPupils() &gt;= Mentor.maximumNumberOfPupils())
+    {
+      return wasSet;
+    }
+    
+    Mentor existingMentor = mentor;
+    mentor = aMentor;
+    if (existingMentor != null &amp;&amp; !existingMentor.equals(aMentor))
+    {
+      boolean didRemove = existingMentor.removePupil(this);
+      if (!didRemove)
+      {
+        mentor = existingMentor;
+        return wasSet;
+      }
+    }
+    mentor.addPupil(this);
+    wasSet = true;
+    return wasSet;
+  }
+
+  public void delete()
+  {
+    Mentor placeholderMentor = mentor;
+    this.mentor = null;
+    if(placeholderMentor != null)
+    {
+      placeholderMentor.removePupil(this);
+    }
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "number" + ":" + getNumber()+ "]" + System.getProperties().getProperty("line.separator") +
+            "  " + "mentor = "+(getMentor()!=null?Integer.toHexString(System.identityHashCode(getMentor())):"null");
+  }
+}
+</pre>
+    </body>
+</html>

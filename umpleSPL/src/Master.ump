@@ -1,0 +1,1372 @@
+/*
+
+Copyright: All contributers to the Umple Project
+
+This file is made available subject to the open source license found at:
+http://umple.org/license
+
+This is the Umple master files that calls all other Umple files. By compiling this file,
+Umple will regenerate all Java files.
+
+The following instructs the system to inject comments on every class point to the source
+@outputumplesource
+*/
+
+generate Java "../src-gen-umple";
+
+strictness allow 1006; // Don't worry about extra code that is not pure Umple
+strictness allow 1007;
+strictness allow 1008;
+strictness allow 46; // For now don't worry about special attribute types
+strictness allow 36; // don't worry about multiplicity of directed associations
+strictness allow 170; // allow custom constructors
+strictness allow 31; // dont worry about namespaces
+
+
+use Documenter.ump;
+use Generator.ump;
+use Json.ump;
+use Parser.ump;
+use Umple.ump;
+// code below enables umple mixsets
+use Structure;
+use Trace;
+use Coordinate ;
+use Constraint;
+use StateMachine; 
+use Trait; 
+use Filter;
+use Mixset;
+use Template;
+use FIXML;
+use Layout;
+use Class; use Attribute; 
+use Method;
+use Association;
+use FeatureModel;
+use AspectInjection;
+
+
+use Umlet.ump;
+
+
+
+use UmpleDiagram.ump;
+use UmpleExceptions.ump;
+use util/UmpleHelper.ump;
+use UmpleParser.ump;
+use UmpleAnalysis.ump;
+use UmpleInternalParser.ump;
+use UmpleXtextParser.ump;
+use UmpleSync.ump;
+use Violet.ump;
+use UmpleImport.ump;
+//use Plugin.ump;
+
+use Main_Code.ump;
+use UmpleStats_Code.ump;
+use util/Util_Code.ump;
+use util/Ant.ump;
+use Builder_Code.ump;
+use GraphWalking.ump;
+
+/*
+
+Copyright: All contributers to the Umple Project
+
+This file is made available subject to the open source license found at:
+http://umple.org/license
+
+This is the Umple master files that calls all other Umple files. By compiling this file,
+Umple will regenerate all Java files.
+
+The following instructs the system to inject comments on every class point to the source
+@outputumplesource
+*/
+
+generate Java "../src-gen-umple";
+
+strictness allow 1006; // Don't worry about extra code that is not pure Umple
+strictness allow 1007;
+strictness allow 1008;
+strictness allow 46; // For now don't worry about special attribute types
+strictness allow 36; // don't worry about multiplicity of directed associations
+strictness allow 170; // allow custom constructors
+strictness allow 31; // dont worry about namespaces
+
+
+use Documenter.ump;
+use Generator.ump;
+use Json.ump;
+use Parser.ump;
+// code below enables umple mixsets
+// use Structure;
+// use Trace;
+// use Coordinate ;
+// use Constraint;
+// use StateMachine; 
+// use Trait; 
+// use Filter;
+// use Mixset;
+// use Template;
+// use FIXML;
+// use Layout;
+// use Class; use Attribute; 
+// use Method;
+// use Association;
+// use FeatureModel;
+// use AspectInjection;
+mixset Mixset{
+  use mixset/Mixset.ump;
+}
+mixset FeatureModel {
+  use feature/FeatureModel.ump;
+}
+
+mixset Constraint {
+  use constraint/Umple_CodeConstraint.ump;
+}
+mixset StateMachine {
+  use stateMachine/Umple_Code_StateMachine.ump;
+}
+mixset StateMachine {
+  use stateMachine/StateMachine.ump;
+  use Structure_StateMachine;
+}
+mixset Filter{
+  use filter/Umple_Code_Filter.ump;
+}
+mixset Trait {
+  use trait/Umple_Code_Trait.ump;
+}
+// 
+mixset Class {
+  use class/UmpleInternalParser_CodeClass.ump;
+}
+mixset Trait{
+  use trait/UmpleInternalParser_CodeTrait.ump;
+}
+mixset Constraint {
+  use constraint/UmpleInternalParser_CodeConstraints.ump;
+    use /constraint/Constraint_refactored.ump ;
+
+}
+mixset Structure {
+  use strcture/UmpleInternalParser_CodeStructure.ump;
+  use Template_Strcture;
+}
+mixset Template {
+  use template/UmpleInternalParser_CodeTemplate.ump;
+  use Template_Strcture;
+}
+mixset StateMachine {
+  use stateMachine/UmpleInternalParser_CodeStateMachine.ump;
+}
+mixset Trace {
+  use trace/UmpleInternalParser_CodeTrace.ump;
+}
+mixset Layout {
+  use layout/UmpleInternalParser_CodeLayout.ump;
+}
+mixset Filter {
+  use filter/UmpleInternalParser_CodeFilter.ump;
+}
+
+mixset Mixset{
+  use mixset/UmpleInternalParser_CodeMixset.ump;
+}
+mixset FeatureModel {
+  use UmpleInternalParser_CodeRequireStatement.ump;
+}
+
+mixset AspectInjection {
+  use class/UmpleInternalPraser_CodeInjection.ump;
+}
+
+
+
+use Umlet.ump;
+use Umple.ump;
+
+mixset Trace {
+  use trace/Trace.ump;
+}
+mixset Structure {
+  use strcture/Structure.ump;
+  use Structure_StateMachine;
+}
+mixset Template {
+  use template/Template.ump;
+}
+use UmpleDiagram.ump;
+use UmpleExceptions.ump;
+use util/UmpleHelper.ump;
+use UmpleParser.ump;
+use UmpleAnalysis.ump;
+use UmpleInternalParser.ump;
+use UmpleXtextParser.ump;
+use UmpleSync.ump;
+use Violet.ump;
+use UmpleImport.ump;
+//use Plugin.ump;
+
+use Main_Code.ump;
+use UmpleStats_Code.ump;
+use util/Util_Code.ump;
+use util/Ant.ump;
+use Builder_Code.ump;
+use GraphWalking.ump;
+
+
+mixset FeatureModel {
+  require [Mixset];
+}
+
+
+
+// This file contains the feature model of UmpleSPL.
+
+
+
+
+// SPL feature model (level 1):
+require subfeature [Parser];
+require subfeature [Class];
+require subfeature [opt StateMachine opt Trait opt Mixset opt FeatureModel];
+require subfeature [opt Trace opt Structure opt Template];
+require subfeature [opt Layout opt Filter opt FIXML];
+require subfeature [Generators];
+
+
+// SPL feature dependecies (level 1):
+mixset StateMachine {
+  require [Class];
+}
+
+
+
+mixset Trait {
+  require [Class];
+  
+  use /trait/Trait_refactored.ump;
+  
+}
+mixset Layout {
+  require [Class];
+  use /layout/Layout_refactored.ump;
+  
+}
+mixset FeatureModel {
+  require [Mixset];
+  use /feature/FeatureModel_refactored.ump ;
+  
+}
+
+
+
+mixset Generators {
+  
+  // The below mixsets (SuperCodeGeneratorGenerator, UmpleGenerator) are used to organized the code:
+  use SuperCodeGeneratorGenerator;
+  use UmpleGenerator;
+  
+  // Generators (level 3):
+  require subfeature [JavaGenerator];
+  
+  require subfeature [opt RTCppGenerator opt PhpGenerator opt Uigu2Generator opt SqlGenerator];
+  
+  require subfeature [opt UmpleSelfGenerator opt USEGenerator opt EcoreGenerator opt TestGenerator];
+  
+  require subfeature [opt PapyrusGenerator opt XmiGenerator opt TextUmlGenerator opt ScxmlGenerator];
+  
+  require subfeature [opt GvStateDiagramGenerator ];
+  
+  require subfeature [opt StateTableGenerator opt EventSequenceGenerator opt SimpleMetricsGenerator opt CodeGvClassDiagramGenerator];
+  
+  require subfeature [opt CodeGvClassTraitDiagramGenerator opt FeatureDiagramCo opt EntityRelationshipCon];
+  
+  require subfeature [opt AlloyGenerator opt NuSMVGenerators opt SimulateGenerator opt YumlGenerator opt XtextGenerator];
+  
+  require subfeature [opt JsonGenerator opt JsonMixedGenerator opt StructureDiagramGenerator opt SuperCodeGeneratorGenerator opt SuperGvGeneratorGenerator];
+  
+  require subfeature [opt HtmlGenerator opt UmpleModelWalkerGenerator opt CodeAnalysisGenerator];
+}
+
+
+// dependencies among generators and models
+mixset GvStateDiagramGenerator {
+  require [StateMachine];
+}
+
+mixset StateTableGenerator{
+  require [StateMachine];
+}
+mixset EventSequenceGenerator{
+  require [StateMachine];
+}
+mixset SimpleMetricsGenerator{  }
+
+mixset CodeGvClassDiagramGenerator{
+  require [Class];
+}
+mixset CodeGvClassTraitDiagramGenerator{
+  require [Trait];
+}
+mixset FeatureDiagramCo{
+  require [FeatureModel];
+}
+mixset EntityRelationshipCon{ }
+mixset AlloyGenerator{
+  require [StateMachine];
+}
+mixset NuSMVGenerators{
+  require [StateMachine];
+  // NuSMVGenerators depends on Trait.
+  require [Trait];
+}
+mixset StructureDiagramGenerator{
+  require[Structure];
+}
+mixset JavaGenerator {  }
+mixset RTCppGenerator {
+  // cpp depends on Trait.
+  require [Trait];
+}
+mixset PhpGenerator { }
+mixset Uigu2Generator {  }
+mixset SqlGenerator {  }
+mixset UmpleSelfGenerator {  }
+mixset USEGenerator { }
+mixset EcoreGenerator {  }
+mixset TestGenerator { }
+mixset PapyrusGenerator{  }
+mixset XmiGenerator{ }
+mixset TextUmlGenerator{ }
+mixset ScxmlGenerator{  }
+mixset SimulateGenerator{ }
+mixset YumlGenerator{}
+mixset XtextGenerator{  }
+mixset JsonGenerator{  }
+mixset JsonMixedGenerator{  }
+mixset SuperCodeGeneratorGenerator{ }
+mixset SuperGvGeneratorGenerator{ }
+mixset HtmlGenerator{ }
+mixset UmpleModelWalkerGenerator{ }
+mixset CodeAnalysisGenerator{ }
+
+
+mixset Structure {
+  // Fragment source file: Master.ump
+  // Line : 59
+  use /strcture/Structure.ump;
+  use Structure_StateMachine;
+  
+  // Fragment source file: UmpleInternalParser_Code.ump
+  // Line : 530
+  use /strcture/UmpleInternalParser_CodeStructure.ump;
+  
+  use Template_Strcture;
+  
+  use /strcture/Structure_refactored.ump ;
+  
+}
+// good
+
+
+mixset Trace {
+  // Fragment source file: GeneratorHelper_Code.ump
+  // Line : 66
+  use /generators/GeneratorHelper_CodeTrace.ump;
+  // Fragment source file: Master.ump
+  // Line : 56
+  use /trace/Trace.ump;
+  // Fragment source file: UmpleInternalParser_Code.ump
+  // Line : 541
+  use /trace/UmpleInternalParser_CodeTrace.ump;
+  
+  use /trace/Trace_refactored.ump ;
+  
+  mixset StateMachine {
+    use /stateMachine/UmpleInternalParser_CodeTraceStateMachine.ump;
+  }
+  
+}
+
+
+
+
+mixset StateMachine {
+  use /stateMachine/stateAnnotative.ump;
+  use /stateMachine/StateMachine_refactored.ump ;
+}
+
+mixset Trait{
+  use /trait/traitAnnotative.ump;
+}
+
+mixset Filter {
+  // Fragment source file: Umple_Code.ump
+  // Line : 865
+  use /filter/Umple_Code_Filter.ump;
+  // Fragment source file: UmpleInternalParser_Code.ump
+  // Line : 548
+  use /filter/UmpleInternalParser_CodeFilter.ump;
+  
+  use /filter/Filter_refactored.ump ;
+  
+  
+}
+
+mixset Template {
+  use /template/templateAnnotative.ump;
+  use /template/Template_refactored.ump ;
+  
+}
+
+mixset Mixset {
+  // Fragment source file: Umple.ump
+  // Line : 1324
+  use /mixset/Mixset.ump;
+  
+  // Fragment source file: UmpleInternalParser_Code.ump
+  // Line : 553
+  use /mixset/UmpleInternalParser_CodeMixset.ump;
+  use /mixset/Mixset_refactored.ump ;
+  
+}
+
+
+mixset FIXML {
+  // Fragment source file: UmpleInternalParser_CodeTrait.ump
+  // Line : 2057
+  use /fixml/UmpleInternalParser_FIXML.ump;
+  use /fixml/FIXML_refactored.ump ;
+  
+  
+}
+
+mixset Layout {
+  // Fragment source file: UmpleInternalParser_Code.ump
+  // Line : 544
+  use /layout/UmpleInternalParser_CodeLayout.ump;
+  
+}
+
+mixset Class {
+  // Fragment source file: UmpleInternalParser_Code.ump
+  // Line : 521
+  use /class/UmpleInternalParser_CodeClass.ump;
+  use /class/Attribute_refactored.ump ;
+  use /class/Association_refactored.ump ;
+  use /class/Class_refactored.ump ;
+  
+  
+  
+  
+  
+}
+
+mixset FeatureModel {
+  // Fragment source file: Umple.ump
+  // Line : 1327
+  use /feature/FeatureModel.ump;
+  
+  // Fragment source file: UmpleInternalParser_Code.ump
+  // Line : 556
+  use /UmpleInternalParser_CodeRequireStatement.ump;
+  
+}
+
+mixset AspectInjection{
+  // Fragment source file: UmpleInternalParser_Code.ump
+  // Line : 560
+  use /class/UmpleInternalPraser_CodeInjection.ump;
+  use /class/AspectInjection_refactored.ump ;
+  
+}
+
+
+mixset SuperCodeGeneratorGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 123
+  use /generators/Generator_SuperCodeGenerator.ump;
+}
+
+mixset CodeGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 88
+  use /generators/Generator_Code.ump;
+}
+
+mixset UmpleGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 89
+  use /generators/Generator_CodeUmple.ump;
+}
+
+mixset RubyGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 91
+  use /generators/Generator_CodeRuby.ump;
+  use RubyGeneratorIntMixset;
+  use /generators/RubyGeneratorIntMixset_refactored.ump ;
+  
+}
+
+mixset JavaGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 94
+  use /generators/Generator_CodeJava.ump;
+}
+
+mixset RTCppGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 95
+  use /generators/Generator_CodeRTCpp.ump;
+}
+
+mixset PhpGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 96
+  use /generators/Generator_CodePhp.ump;
+}
+
+mixset Uigu2Generator {
+  // Fragment source file: Generator.ump
+  // Line : 97
+  use /generators/Generator_CodeUigu2.ump;
+}
+
+mixset SqlGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 98
+  use /generators/Generator_CodeSql.ump;
+}
+
+mixset UmpleSelfGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 99
+  use /generators/Generator_CodeUmpleSelf.ump;
+}
+
+mixset USEGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 100
+  use /generators/Generator_CodeUSE.ump;
+}
+
+mixset EcoreGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 101
+  use /generators/ecoreGenerator/ecoreGeneratorConfig.ump;
+}
+
+mixset TestGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 102
+  use /generators/Generator_CodeTest.ump;
+}
+
+mixset PapyrusGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 103
+  use /generators/papyrus/Generator_CodePapyrus.ump;
+}
+
+mixset XmiGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 104
+  use /generators/xmi/Generator_CodeXmi.ump;
+}
+
+mixset TextUmlGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 105
+  use /generators/Generator_CodeTextUml.ump;
+}
+
+mixset ScxmlGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 106
+  use /generators/Generator_CodeScxml.ump;
+}
+
+mixset CodeGvClassTraitDiagramGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 112
+  use /generators/Generator_CodeGvClassTraitDiagram.ump;
+}
+
+mixset EventSequenceGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 109
+  use /generators/Generator_CodeEventSequence.ump;
+}
+
+mixset FeatureDiagramCo {
+  // Fragment source file: Generator.ump
+  // Line : 113
+  use /generators/featureDiagramGenerator/FeatureDiagramConfig.ump;
+}
+
+mixset EntityRelationshipCon {
+  // Fragment source file: Generator.ump
+  // Line : 114
+  use /generators/entityRelationshipDiagramGenerator/entityRelationshipConfig.ump;
+  
+}
+
+mixset SimulateGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 117
+  use /generators/Generator_CodeSimulate.ump;
+}
+
+mixset YumlGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 118
+  use /generators/Generator_CodeYuml.ump;
+}
+
+mixset XtextGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 119
+  use /generators/Generator_CodeXtext.ump;
+}
+
+mixset JsonGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 120
+  use /generators/Generator_CodeJson.ump;
+}
+
+mixset JsonMixedGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 121
+  use /generators/Generator_CodeJsonMixed.ump;
+}
+
+mixset StructureDiagramGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 122
+  use /generators/Generator_CodeStructureDiagram.ump;
+}
+
+mixset GvStateDiagramGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 107
+  use /generators/statemachineDiagramGenerator/stateMachineDiagramConfig.ump;
+}
+
+mixset StateTableGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 108
+  use /generators/Generator_CodeStateTables.ump;
+}
+
+mixset SuperGvGeneratorGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 124
+  use /generators/Generator_SuperGvGenerator.ump;
+}
+
+mixset HtmlGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 125
+  use /generators/Generator_Html.ump;
+}
+
+mixset UmpleModelWalkerGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 126
+  use /generators/Generator_UmpleModelWalker.ump;
+}
+
+mixset CodeAnalysisGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 127
+  use /generators/Generator_CodeAnalysis.ump;
+}
+
+mixset AlloyGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 115
+  use /generators/alloy/Generator_CodeAlloy.ump;
+}
+
+mixset NuSMVGenerators {
+  // Fragment source file: Generator.ump
+  // Line : 116
+  use /generators/NuSMV/nusmvGeneratorConfig.ump;
+}
+
+mixset NuSMVGenerator {
+  // Fragment source file: nusmvGeneratorConfig.ump
+  // Line : 9
+  use /generators/NuSMV/Generator_CodeNuSMV.ump;
+}
+
+mixset NuSMVOptimizerGenerator {
+  // Fragment source file: nusmvGeneratorConfig.ump
+  // Line : 11
+  use /generators/NuSMV/Generator_CodeNuSMVOptimizer.ump;
+}
+
+
+mixset SimpleMetricsGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 110
+  use /generators/Generator_CodeSimpleMetrics.ump;
+}
+
+mixset CodeGvClassDiagramGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 111
+  use /generators/Generator_CodeGvClassDiagram.ump;
+}
+
+
+mixset UmpleAnnotaiveToCompositionGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 128
+  use /generators/Generator_CodeAnnotaiveToComposition.ump;
+}
+
+mixset EoreGenerator {
+  use /generators/ecoreGenerator/ecoreGeneratorConfig.ump;
+  use /generators/ecoreGenerator/Generator_CodeEcore.ump;
+  
+}
+
+
+mixset StateDiagramGenerator {
+  // Fragment source file: stateMachineDiagramConfig.ump
+  // Line : 7
+  use /generators/statemachineDiagramGenerator/Generator_CodeGvStateDiagram.ump;
+
+  
+}
+
+mixset FeatureDiagramGenerator {
+  // Fragment source file: FeatureDiagramConfig.ump
+  // Line : 9
+  use /generators/featureDiagramGenerator/Generator_CodeGvFeatureDiagram.ump;
+  
+  
+}
+
+mixset EntityRelationshipGenerator {
+  // Fragment source file: entityRelationshipConfig.ump
+  // Line : 7
+  use /generators/entityRelationshipDiagramGenerator/Generator_CodeGvEntityRelationshipDiagram.ump;
+}
+
+
+/*
+
+mixset Trait {
+  require [Class];
+  
+  use src/trait/Trait_refactored.ump;
+  
+}
+mixset Layout {
+  require [Class];
+  use src/layout/Layout_refactored.ump;
+  
+}
+mixset FeatureModel {
+  require [Mixset];
+  use src/feature/FeatureModel_refactored.ump ;
+  
+}
+
+
+
+mixset Generators {
+  
+  // The below mixsets (SuperCodeGeneratorGenerator, UmpleGenerator) are used to organized the code:
+  use SuperCodeGeneratorGenerator;
+  use UmpleGenerator;
+  
+  // Generators (level 3):
+  require subfeature [JavaGenerator];
+  
+  require subfeature [opt RTCppGenerator opt PhpGenerator opt Uigu2Generator opt SqlGenerator];
+  
+  require subfeature [opt UmpleSelfGenerator opt USEGenerator opt EcoreGenerator opt TestGenerator];
+  
+  require subfeature [opt PapyrusGenerator opt XmiGenerator opt TextUmlGenerator opt ScxmlGenerator];
+  
+  require subfeature [opt GvStateDiagramGenerator ];
+  
+  require subfeature [opt StateTableGenerator opt EventSequenceGenerator opt SimpleMetricsGenerator opt CodeGvClassDiagramGenerator];
+  
+  require subfeature [opt CodeGvClassTraitDiagramGenerator opt FeatureDiagramCo opt EntityRelationshipCon];
+  
+  require subfeature [opt AlloyGenerator opt NuSMVGenerators opt SimulateGenerator opt YumlGenerator opt XtextGenerator];
+  
+  require subfeature [opt JsonGenerator opt JsonMixedGenerator opt StructureDiagramGenerator opt SuperCodeGeneratorGenerator opt SuperGvGeneratorGenerator];
+  
+  require subfeature [opt HtmlGenerator opt UmpleModelWalkerGenerator opt CodeAnalysisGenerator];
+}
+
+
+// dependencies among generators and models
+mixset GvStateDiagramGenerator {
+  require [StateMachine];
+}
+
+mixset StateTableGenerator{
+  require [StateMachine];
+}
+mixset EventSequenceGenerator{
+  require [StateMachine];
+}
+mixset SimpleMetricsGenerator{  }
+
+mixset CodeGvClassDiagramGenerator{
+  require [Class];
+}
+mixset CodeGvClassTraitDiagramGenerator{
+  require [Trait];
+}
+mixset FeatureDiagramCo{
+  require [FeatureModel];
+}
+mixset EntityRelationshipCon{ }
+mixset AlloyGenerator{
+  require [StateMachine];
+}
+mixset NuSMVGenerators{
+  require [StateMachine];
+  // NuSMVGenerators depends on Trait.
+  require [Trait];
+}
+mixset StructureDiagramGenerator{
+  require[Structure];
+}
+mixset JavaGenerator {  }
+mixset RTCppGenerator {
+  // cpp depends on Trait.
+  require [Trait];
+}
+mixset PhpGenerator { }
+mixset Uigu2Generator {  }
+mixset SqlGenerator {  }
+mixset UmpleSelfGenerator {  }
+mixset USEGenerator { }
+mixset EcoreGenerator {  }
+mixset TestGenerator { }
+mixset PapyrusGenerator{  }
+mixset XmiGenerator{ }
+mixset TextUmlGenerator{ }
+mixset ScxmlGenerator{  }
+mixset SimulateGenerator{ }
+mixset YumlGenerator{}
+mixset XtextGenerator{  }
+mixset JsonGenerator{  }
+mixset JsonMixedGenerator{  }
+mixset SuperCodeGeneratorGenerator{ }
+mixset SuperGvGeneratorGenerator{ }
+mixset HtmlGenerator{ }
+mixset UmpleModelWalkerGenerator{ }
+mixset CodeAnalysisGenerator{ }
+
+
+mixset Structure {
+  // Fragment source file: Master.ump
+  // Line : 59
+  use src/strcture/Structure.ump;
+  use Structure_StateMachine;
+  
+  // Fragment source file: UmpleInternalParser_Code.ump
+  // Line : 530
+  use src/strcture/UmpleInternalParser_CodeStructure.ump;
+  
+  use Template_Strcture;
+  
+  use src/strcture/Structure_refactored.ump ;
+  
+}
+// good
+
+
+mixset Trace {
+  // Fragment source file: GeneratorHelper_Code.ump
+  // Line : 66
+  use src/generators/GeneratorHelper_CodeTrace.ump;
+  // Fragment source file: Master.ump
+  // Line : 56
+  use src/trace/Trace.ump;
+  // Fragment source file: UmpleInternalParser_Code.ump
+  // Line : 541
+  use src/trace/UmpleInternalParser_CodeTrace.ump;
+  
+  use src/trace/Trace_refactored.ump ;
+  
+  mixset StateMachine {
+    use src/stateMachine/UmpleInternalParser_CodeTraceStateMachine.ump;
+  }
+  
+}
+
+
+
+
+mixset StateMachine {
+  use src/stateMachine/stateAnnotative.ump;
+  use src/stateMachine/StateMachine_refactored.ump ;
+}
+
+mixset Trait{
+  use src/trait/traitAnnotative.ump;
+}
+
+mixset Filter {
+  // Fragment source file: Umple_Code.ump
+  // Line : 865
+  use src/filter/Umple_Code_Filter.ump;
+  // Fragment source file: UmpleInternalParser_Code.ump
+  // Line : 548
+  use src/filter/UmpleInternalParser_CodeFilter.ump;
+  
+  use src/filter/Filter_refactored.ump ;
+  
+  
+}
+
+mixset Template {
+  use src/template/templateAnnotative.ump;
+  use src/template/Template_refactored.ump ;
+  
+}
+
+mixset Mixset {
+  // Fragment source file: Umple.ump
+  // Line : 1324
+  use src/mixset/Mixset.ump;
+  
+  // Fragment source file: UmpleInternalParser_Code.ump
+  // Line : 553
+  use src/mixset/UmpleInternalParser_CodeMixset.ump;
+  use src/mixset/Mixset_refactored.ump ;
+  
+}
+
+
+mixset FIXML {
+  // Fragment source file: UmpleInternalParser_CodeTrait.ump
+  // Line : 2057
+  use src/fixml/UmpleInternalParser_FIXML.ump;
+  use src/fixml/FIXML_refactored.ump ;
+  
+  
+}
+
+mixset Layout {
+  // Fragment source file: UmpleInternalParser_Code.ump
+  // Line : 544
+  use src/layout/UmpleInternalParser_CodeLayout.ump;
+  
+}
+
+mixset Class {
+  // Fragment source file: UmpleInternalParser_Code.ump
+  // Line : 521
+  use src/class/UmpleInternalParser_CodeClass.ump;
+  use src/class/Attribute_refactored.ump ;
+  use src/class/Association_refactored.ump ;
+  use src/class/Class_refactored.ump ;
+  
+  
+  
+  
+  
+}
+
+mixset FeatureModel {
+  // Fragment source file: Umple.ump
+  // Line : 1327
+  use src/feature/FeatureModel.ump;
+  
+  // Fragment source file: UmpleInternalParser_Code.ump
+  // Line : 556
+  use src/UmpleInternalParser_CodeRequireStatement.ump;
+  
+}
+
+mixset AspectInjection{
+  // Fragment source file: UmpleInternalParser_Code.ump
+  // Line : 560
+  use src/class/UmpleInternalPraser_CodeInjection.ump;
+  use src/class/AspectInjection_refactored.ump ;
+  
+}
+
+
+mixset SuperCodeGeneratorGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 123
+  use src/generators/Generator_SuperCodeGenerator.ump;
+}
+
+mixset CodeGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 88
+  use src/generators/Generator_Code.ump;
+}
+
+mixset UmpleGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 89
+  use src/generators/Generator_CodeUmple.ump;
+}
+
+mixset RubyGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 91
+  use src/generators/Generator_CodeRuby.ump;
+  use RubyGeneratorIntMixset;
+  use src/generators/RubyGeneratorIntMixset_refactored.ump ;
+  
+}
+
+mixset JavaGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 94
+  use src/generators/Generator_CodeJava.ump;
+}
+
+mixset RTCppGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 95
+  use src/generators/Generator_CodeRTCpp.ump;
+}
+
+mixset PhpGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 96
+  use src/generators/Generator_CodePhp.ump;
+}
+
+mixset Uigu2Generator {
+  // Fragment source file: Generator.ump
+  // Line : 97
+  use src/generators/Generator_CodeUigu2.ump;
+}
+
+mixset SqlGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 98
+  use src/generators/Generator_CodeSql.ump;
+}
+
+mixset UmpleSelfGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 99
+  use src/generators/Generator_CodeUmpleSelf.ump;
+}
+
+mixset USEGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 100
+  use src/generators/Generator_CodeUSE.ump;
+}
+
+mixset EcoreGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 101
+  use src/generators/ecoreGenerator/ecoreGeneratorConfig.ump;
+}
+
+mixset TestGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 102
+  use src/generators/Generator_CodeTest.ump;
+}
+
+mixset PapyrusGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 103
+  use src/generators/papyrus/Generator_CodePapyrus.ump;
+}
+
+mixset XmiGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 104
+  use src/generators/xmi/Generator_CodeXmi.ump;
+}
+
+mixset TextUmlGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 105
+  use src/generators/Generator_CodeTextUml.ump;
+}
+
+mixset ScxmlGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 106
+  use src/generators/Generator_CodeScxml.ump;
+}
+
+mixset CodeGvClassTraitDiagramGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 112
+  use src/generators/Generator_CodeGvClassTraitDiagram.ump;
+}
+
+mixset EventSequenceGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 109
+  use src/generators/Generator_CodeEventSequence.ump;
+}
+
+mixset FeatureDiagramCo {
+  // Fragment source file: Generator.ump
+  // Line : 113
+  use src/generators/featureDiagramGenerator/FeatureDiagramConfig.ump;
+}
+
+mixset EntityRelationshipCon {
+  // Fragment source file: Generator.ump
+  // Line : 114
+  use src/generators/entityRelationshipDiagramGenerator/entityRelationshipConfig.ump;
+  
+}
+
+mixset SimulateGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 117
+  use src/generators/Generator_CodeSimulate.ump;
+}
+
+mixset YumlGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 118
+  use src/generators/Generator_CodeYuml.ump;
+}
+
+mixset XtextGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 119
+  use src/generators/Generator_CodeXtext.ump;
+}
+
+mixset JsonGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 120
+  use src/generators/Generator_CodeJson.ump;
+}
+
+mixset JsonMixedGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 121
+  use src/generators/Generator_CodeJsonMixed.ump;
+}
+
+mixset StructureDiagramGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 122
+  use src/generators/Generator_CodeStructureDiagram.ump;
+}
+
+mixset GvStateDiagramGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 107
+  use src/generators/statemachineDiagramGenerator/stateMachineDiagramConfig.ump;
+}
+
+mixset StateTableGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 108
+  use src/generators/Generator_CodeStateTables.ump;
+}
+
+mixset SuperGvGeneratorGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 124
+  use src/generators/Generator_SuperGvGenerator.ump;
+}
+
+mixset HtmlGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 125
+  use src/generators/Generator_Html.ump;
+}
+
+mixset UmpleModelWalkerGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 126
+  use src/generators/Generator_UmpleModelWalker.ump;
+}
+
+mixset CodeAnalysisGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 127
+  use src/generators/Generator_CodeAnalysis.ump;
+}
+
+mixset AlloyGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 115
+  use src/generators/alloy/Generator_CodeAlloy.ump;
+}
+
+mixset NuSMVGenerators {
+  // Fragment source file: Generator.ump
+  // Line : 116
+  use src/generators/NuSMV/nusmvGeneratorConfig.ump;
+}
+
+mixset NuSMVGenerator {
+  // Fragment source file: nusmvGeneratorConfig.ump
+  // Line : 9
+  use src/generators/NuSMV/Generator_CodeNuSMV.ump;
+}
+
+mixset NuSMVOptimizerGenerator {
+  // Fragment source file: nusmvGeneratorConfig.ump
+  // Line : 11
+  use src/generators/NuSMV/Generator_CodeNuSMVOptimizer.ump;
+}
+
+
+mixset SimpleMetricsGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 110
+  use src/generators/Generator_CodeSimpleMetrics.ump;
+}
+
+mixset CodeGvClassDiagramGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 111
+  use src/generators/Generator_CodeGvClassDiagram.ump;
+}
+
+
+mixset UmpleAnnotaiveToCompositionGenerator {
+  // Fragment source file: Generator.ump
+  // Line : 128
+  use src/generators/Generator_CodeAnnotaiveToComposition.ump;
+}
+
+mixset EoreGenerator {
+  use src/generators/ecoreGenerator/ecoreGeneratorConfig.ump;
+  use src/generators/ecoreGenerator/Generator_CodeEcore.ump;
+  
+}
+
+
+mixset StateDiagramGenerator {
+  // Fragment source file: stateMachineDiagramConfig.ump
+  // Line : 7
+  use src/generators/statemachineDiagramGenerator/Generator_CodeGvStateDiagram.ump;
+
+  
+}
+
+mixset FeatureDiagramGenerator {
+  // Fragment source file: FeatureDiagramConfig.ump
+  // Line : 9
+  use src/generators/featureDiagramGenerator/Generator_CodeGvFeatureDiagram.ump;
+  
+  
+}
+
+mixset EntityRelationshipGenerator {
+  // Fragment source file: entityRelationshipConfig.ump
+  // Line : 7
+  use src/generators/entityRelationshipDiagramGenerator/Generator_CodeGvEntityRelationshipDiagram.ump;
+}
+
+*/
+
+
+//
+use StateMachine ;
+use Trace ;
+use Template ;
+use FeatureModel ;
+use Structure;
+use Template_Strcture ;
+use Structure_StateMachine;
+use Trait ;
+use Mixset;
+use Association ;
+use Layout ;
+use Template ;
+use FIXML ;
+use Constraint ;
+use Filter;
+
+
+use CodeGenerator ;
+use UmpleGenerator ;
+use RubyGenerator ;
+use JavaGenerator ;
+use RTCppGenerator ;
+use PhpGenerator ;
+use Uigu2Generator ;
+use SqlGenerator ;
+use UmpleSelfGenerator ;
+use USEGenerator ;
+use EcoreGenerator ;
+use TestGenerator ;
+use PapyrusGenerator;
+use XmiGenerator;
+use TextUmlGenerator;
+use ScxmlGenerator;
+use GvStateDiagramGenerator ;
+use StateTableGenerator;
+use EventSequenceGenerator;
+use SimpleMetricsGenerator;
+use CodeGvClassDiagramGenerator;
+use CodeGvClassTraitDiagramGenerator;
+use FeatureDiagramCo;
+use EntityRelationshipCon;
+use AlloyGenerator;
+use NuSMVGenerators;
+use SimulateGenerator;
+use YumlGenerator;
+use XtextGenerator;
+use JsonGenerator;
+use JsonMixedGenerator;
+use StructureDiagramGenerator;
+use SuperCodeGeneratorGenerator;
+use SuperGvGeneratorGenerator;
+use HtmlGenerator;
+use UmpleModelWalkerGenerator;
+use CodeAnalysisGenerator;
+use UmpleAnnotaiveToCompositionGenerator ;
+
+use AspectInjection;
+
+use Method ; // Interaction between Method and Attribute
+use Class ;
+use Attribute ;
+use RubyGeneratorIntuse ;
+use FeatureDiagramGenerator;
+use NuSMVGenerator;
+use NuSMVOptimizerGenerator;
+use StateDiagramGenerator ;
+use EntityRelationshipGenerator;
+
+/*
+use Structure;
+use Trace;
+use Coordinate ;
+use Constraint;
+use StateMachine; 
+use Trait; 
+use Filter;
+use Mixset;
+use Template;
+use FIXML;
+use Layout;
+use Class; use Attribute; 
+use Method;
+use Association;
+use FeatureModel;
+use AspectInjection;
+*/

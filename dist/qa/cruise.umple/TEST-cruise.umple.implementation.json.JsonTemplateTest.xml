@@ -1,0 +1,1619 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="Abdulazizs-MacBook-Pro.local" name="cruise.umple.implementation.json.JsonTemplateTest" skipped="0" tests="23" time="0.13" timestamp="2021-10-26T14:28:09">
+  <properties>
+    <property name="ant.library.dir" value="/usr/local/Cellar/ant/1.10.9/libexec/lib" />
+    <property name="env.TERM" value="xterm-256color" />
+    <property name="java.specification.version" value="15" />
+    <property name="ant.project.name" value="UmpleCore" />
+    <property name="ant.file.type.UmpleCore" value="file" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="ant.file.type.LocalBuildProperties" value="file" />
+    <property name="env.SDKMAN_CANDIDATES_API" value="https://api.sdkman.io/2" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="dist.umple.docs.jar.prev" value="umpledocs-1.31.1.5860.78bb27cc6.jar" />
+    <property name="rake_cmd" value="rake" />
+    <property name="showJunitOutput" value="false" />
+    <property name="umple.deps.dir" value="/Users/abdulaziz/tmp/umple/dist/libs" />
+    <property name="java.vendor.url" value="https://openjdk.java.net/" />
+    <property name="dist.libs.dir" value="/Users/abdulaziz/tmp/umple/dist/libs" />
+    <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home/lib" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=/Users/abdulaziz/tmp/umple/junittestcases9945622084601822128.properties skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/abdulaziz/tmp/umple/dist/qa/cruise.umple/IGNORETHIS.xml crashfile=/Users/abdulaziz/tmp/umple/junitvmwatcher11280979461299836288.properties propsfile=/Users/abdulaziz/tmp/umple/junit10838995335343066243.properties" />
+    <property name="jdk.debug" value="release" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="test.output.path" value="/Users/abdulaziz/tmp/umple/dist/qa/cruise.umple" />
+    <property name="env.JAVA_HOME" value="/usr/local/opt/openjdk" />
+    <property name="java.version.date" value="2020-10-20" />
+    <property name="java.home" value="/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home" />
+    <property name="basedir" value="/Users/abdulaziz/tmp/umple" />
+    <property name="file.separator" value="/" />
+    <property name="java.vm.compressedOopsMode" value="Zero based" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="ivy.jar.file" value="/Users/abdulaziz/.ant/lib/ivy-2.4.0.jar" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.file.Template" value="/Users/abdulaziz/tmp/umple/build/_template.xml" />
+    <property name="dist.umple.stats.jar" value="umplestats-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ivyRetrieveLogLevel" value="quiet" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="java.runtime.version" value="15.0.1+9" />
+    <property name="env.TERM_PROGRAM_VERSION" value="440" />
+    <property name="user.name" value="abdulaziz" />
+    <property name="env.PATH" value="/Users/abdulaziz/.sdkman/candidates/gradle/current/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands" />
+    <property name="env.LOGNAME" value="abdulaziz" />
+    <property name="env.XPC_FLAGS" value="0x0" />
+    <property name="env.__CF_USER_TEXT_ENCODING" value="0x1F5:0x0:0x0" />
+    <property name="file.encoding" value="UTF-8" />
+    <property name="env.__CFBundleIdentifier" value="com.apple.Terminal" />
+    <property name="env.TERM_SESSION_ID" value="20D2790F-0FEC-4CCB-A10B-030C8F4ED298" />
+    <property name="umple.stable.jar" value="/Users/abdulaziz/tmp/umple/dist/libs/umple-1.31.1.5860.78bb27cc6.jar" />
+    <property name="haltonfailure" value="false" />
+    <property name="connectionTimeout" value="30" />
+    <property name="env.SHLVL" value="1" />
+    <property name="dist.dir" value="/Users/abdulaziz/tmp/umple/dist" />
+    <property name="dist.path" value="/Users/abdulaziz/tmp/umple/dist/cruise.umple" />
+    <property name="java.io.tmpdir" value="/var/folders/fm/7tjk7l8154x840c6vvrs49p40000gn/T/" />
+    <property name="umple.ivy.dep.file" value="/Users/abdulaziz/tmp/umple/build/ivy.xml" />
+    <property name="dist.umple.run.jar.prev" value="umplerun-1.31.1.5860.78bb27cc6.jar" />
+    <property name="dist.umple.jar" value="umple-1.31.1.5860.78bb27cc6.jar" />
+    <property name="java.version" value="15.0.1" />
+    <property name="env.SSH_AUTH_SOCK" value="/private/tmp/com.apple.launchd.qK4l0KXsgu/Listeners" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.home" value="/usr/local/Cellar/ant/1.10.9/libexec" />
+    <property name="ant.file.type.UmpleDeps" value="file" />
+    <property name="env.SDKMAN_DIR" value="/Users/abdulaziz/.sdkman" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.10.9 compiled on September 27 2020" />
+    <property name="env.TMPDIR" value="/var/folders/fm/7tjk7l8154x840c6vvrs49p40000gn/T/" />
+    <property name="env.SDKMAN_PLATFORM" value="darwinx64" />
+    <property name="java.library.path" value="/Users/abdulaziz/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
+    <property name="java.vendor" value="N/A" />
+    <property name="shouldPackageUmpleOnline" value="false" />
+    <property name="dist.umple.validator.jar" value="umplevalidator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="sun.io.unicode.encoding" value="UnicodeBig" />
+    <property name="jopt-simple.install.version" value="4.4" />
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="env.SDKMAN_CANDIDATES_DIR" value="/Users/abdulaziz/.sdkman/candidates" />
+    <property name="env.TERM_PROGRAM" value="Apple_Terminal" />
+    <property name="vendors.path" value="/Users/abdulaziz/tmp/umple/dist/libs/vendors" />
+    <property name="env.PWD" value="/Users/abdulaziz/tmp/umple/build" />
+    <property name="ant.file.type" value="file" />
+    <property name="last.version" value="1.31.1.5860.78bb27cc6" />
+    <property name="env.LANG" value="en_CA.UTF-8" />
+    <property name="ant.file.type.VersionLast" value="file" />
+    <property name="java.class.path" value="/Users/abdulaziz/tmp/umple/cruise.umple/bin:/Users/abdulaziz/tmp/umple/dist/libs/core/ant-launcher.jar:/Users/abdulaziz/tmp/umple/dist/libs/core/ant.jar:/Users/abdulaziz/tmp/umple/dist/libs/core/jopt-simple.jar:/Users/abdulaziz/tmp/umple/dist/libs/test/hamcrest-core.jar:/Users/abdulaziz/tmp/umple/dist/libs/test/junit.jar:/Users/abdulaziz/.ant/lib/junit.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-launcher.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-junit.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-junit4.jar" />
+    <property name="env.HOME" value="/Users/abdulaziz" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="env.GRADLE_HOME" value="/Users/abdulaziz/.sdkman/candidates/gradle/current" />
+    <property name="xtext.project.path" value="cruise.umple.xtext" />
+    <property name="ant.file.type.Template" value="file" />
+    <property name="user.timezone" value="America/Toronto" />
+    <property name="project.path" value="cruise.umple" />
+    <property name="ant.file.UmpleDeps" value="/Users/abdulaziz/tmp/umple/build/build.deps.xml" />
+    <property name="java.vm.specification.version" value="15" />
+    <property name="os.name" value="Mac OS X" />
+    <property name="env.DISPLAY" value="/private/tmp/com.apple.launchd.8VZUm1G4zQ/org.xquartz:0" />
+    <property name="dist.umple.sync.jar" value="umplesync-1.31.1.5860.78bb27cc6.jar" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="user.country" value="CA" />
+    <property name="dist.umple.run.jar" value="umplerun-1.31.1.5860.78bb27cc6.jar" />
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="user.home" value="/Users/abdulaziz" />
+    <property name="user.language" value="en" />
+    <property name="ivy.install.version" value="2.4.0" />
+    <property name="ant.java.version" value="15" />
+    <property name="ant.file.type.Umple" value="file" />
+    <property name="showJunitSummary" value="false" />
+    <property name="bin.path" value="cruise.umple/bin" />
+    <property name="umple.version" value="1.31.1.5860.78bb27cc6" />
+    <property name="dist.umple.sync.jar.prev" value="umplesync-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ivyResolveLogLevel" value="download-only" />
+    <property name="env.XPC_SERVICE_NAME" value="0" />
+    <property name="user.home.ant" value="/Users/abdulaziz/.ant/lib" />
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="is.osx" value="true" />
+    <property name="dist.umple.stats.jar.prev" value="umplestats-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ant.file" value="/Users/abdulaziz/tmp/umple/build/build.umple.xml" />
+    <property name="path.separator" value=":" />
+    <property name="dist.umple.umplificator.jar.prev" value="umpleumplificator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="os.version" value="11.6" />
+    <property name="ant.file.VersionLast" value="/Users/abdulaziz/tmp/umple/build/_versionLast.xml" />
+    <property name="ant.file.Umple" value="/Users/abdulaziz/tmp/umple/build/build.xml" />
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+    <property name="dist.umple.docs.jar" value="umpledocs-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ant.project.invoked-targets" value="template.test" />
+    <property name="dist.umple.umplificator.jar" value="umpleumplificator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM" />
+    <property name="ant.file.LocalBuildProperties" value="/Users/abdulaziz/tmp/umple/build/_local.xml" />
+    <property name="env.SHELL" value="/bin/zsh" />
+    <property name="ant.core.lib" value="/usr/local/Cellar/ant/1.10.9/libexec/lib/ant.jar" />
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/" />
+    <property name="junit" value="*Test" />
+    <property name="user.dir" value="/Users/abdulaziz/tmp/umple/build" />
+    <property name="os.arch" value="x86_64" />
+    <property name="env.SDKMAN_VERSION" value="5.11.5+713" />
+    <property name="shouldDeploy" value="false" />
+    <property name="dist.umple.validator.jar.prev" value="umplevalidator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="java.vm.info" value="mixed mode, sharing" />
+    <property name="java.vm.version" value="15.0.1+9" />
+    <property name="ant.file.UmpleCore" value="/Users/abdulaziz/tmp/umple/build/build.umple.xml" />
+    <property name="online" value="true" />
+    <property name="myenv" value="local" />
+    <property name="umple.deps.manual.dir" value="/Users/abdulaziz/tmp/umple/dist/libs/manual" />
+    <property name="env.USER" value="abdulaziz" />
+    <property name="java.class.version" value="59.0" />
+    <property name="first.build" value="false" />
+    <property name="dist.umple.jar.prev" value="umple-1.31.1.5860.78bb27cc6.jar" />
+    <property name="env.JAVA_MAIN_CLASS_3280" value="org.apache.tools.ant.launch.Launcher" />
+    <property name="ant.project.default-target" value="build" />
+  </properties>
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="TraceColorAssociation" time="0.01" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="Attributes" time="0.003" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="AssociationClass" time="0.015" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="AssociationTrait" time="0.01" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="SymmetricReflexiveAssociation" time="0.004" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="defaultPosition" time="0.007" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="AttributesConst" time="0.004" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="defaultAssociationPosition" time="0.018" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="AbstractTest" time="0.005" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="AttributesTraced" time="0.003" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="InterfaceClassAssociationTest" time="0.004" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="AssociationUnidirectional" time="0.004" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="InterfaceWithMethodTest" time="0.002" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="FilterTest" time="0.005" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="Generalization" time="0.003" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="AssociationTraitPositionsSeparate" time="0.008" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="AssociationClassPositionsSeparate" time="0.005" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="Position" time="0.003" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="Association" time="0.004" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="JsonLanguage" time="0.002" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="MultipleClasses" time="0.002" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="InterfacesTest" time="0.002" />
+  <testcase classname="cruise.umple.implementation.json.JsonTemplateTest" name="avoidJunitError" time="0.001" />
+  <system-out><![CDATA[{"umpleClasses":[{
+"position": {
+"x": 50,
+ "y": 30,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "A",
+ "name": "A",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 50,
+ "y": 130,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "B",
+ "name": "B",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}],
+ "umpleAssociations":[{
+"offsetOnePosition": {
+"x": 30,
+ "y": 45,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 30,
+ "y": 0,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_0",
+ "classOneId": "A",
+ "classTwoId": "B",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "*",
+ "name": "A__B:assoc",
+ "roleOne": "",
+ "roleTwo": "assoc",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"red"}] }
+{"umpleClasses":[{
+"position": {
+"x": 193,
+ "y": 66,
+ "width": 0,
+ "height": 0},
+ "attributes": [{
+ "type" : "String",
+ "name" : "name",
+ "modifier" : "",
+ "traceColor" : "black" }, {
+ "type" : "Integer",
+ "name" : "id",
+ "modifier" : "",
+ "traceColor" : "black" }],
+"methods": [],
+ "id": "NewClass",
+ "name": "NewClass",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}],
+ "umpleAssociations":[] }
+{"umpleClasses":[{
+"position": {
+"x": 1,
+ "y": 2,
+ "width": 3,
+ "height": 4},
+ "attributes": [],
+"methods": [],
+ "id": "Relationship",
+ "name": "Relationship",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 5,
+ "y": 6,
+ "width": 7,
+ "height": 8},
+ "attributes": [],
+"methods": [],
+ "id": "Student",
+ "name": "Student",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 9,
+ "y": 10,
+ "width": 11,
+ "height": 12},
+ "attributes": [],
+"methods": [],
+ "id": "Mentor",
+ "name": "Mentor",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}],
+ "umpleAssociations":[{
+"offsetOnePosition": {
+"x": 3,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 0,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_0",
+ "classOneId": "Relationship",
+ "classTwoId": "Mentor",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "1",
+ "name": "Mentor__Relationship",
+ "roleOne": "",
+ "roleTwo": "",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}, {
+"offsetOnePosition": {
+"x": 3,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 0,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_1",
+ "classOneId": "Relationship",
+ "classTwoId": "Student",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "1",
+ "name": "Relationship__Student",
+ "roleOne": "",
+ "roleTwo": "",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}] }
+{"umpleClasses":[{
+"position": {
+"x": 50,
+ "y": 30,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "B",
+ "name": "B",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 50,
+ "y": 130,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "A",
+ "name": "A",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}],
+ "umpleAssociations":[{
+"offsetOnePosition": {
+"x": 30,
+ "y": 0,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 30,
+ "y": 45,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_0",
+ "classOneId": "A",
+ "classTwoId": "B",
+ "multiplicityOne": "0..1",
+ "multiplicityTwo": "*",
+ "name": "asc",
+ "roleOne": "a",
+ "roleTwo": "asc",
+ "isLeftNavigable":"false",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}] }
+{"umpleClasses":[{
+"position": {
+"x": 193,
+ "y": 66,
+ "width": 0,
+ "height": 0},
+ "attributes": [],
+"methods": [],
+ "id": "TesterClass",
+ "name": "TesterClass",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}],
+ "umpleAssociations":[{
+"offsetOnePosition": {
+"x": 15,
+ "y": 0,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 0,
+ "y": -15,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_0",
+ "classOneId": "TesterClass",
+ "classTwoId": "TesterClass",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "*",
+ "name": "TesterClass__TesterClass:roleName",
+ "roleOne": "roleName",
+ "roleTwo": "",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"true",
+ "isTraced":"black"}] }
+{"umpleClasses":[{
+"position": {
+"x": 50,
+ "y": 30,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "A",
+ "name": "A",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 50,
+ "y": 130,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "B",
+ "name": "B",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 1,
+ "y": 2,
+ "width": 3,
+ "height": 4},
+ "attributes": [],
+"methods": [],
+ "id": "ExplicitlyDefined",
+ "name": "ExplicitlyDefined",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 50,
+ "y": 330,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "C",
+ "name": "C",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 50,
+ "y": 430,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "D",
+ "name": "D",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 250,
+ "y": 30,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "E",
+ "name": "E",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 250,
+ "y": 130,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "F",
+ "name": "F",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 250,
+ "y": 230,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "G",
+ "name": "G",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 250,
+ "y": 330,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "H",
+ "name": "H",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 5,
+ "y": 6,
+ "width": 7,
+ "height": 8},
+ "attributes": [],
+"methods": [],
+ "id": "ExplicitlyDefinedToo",
+ "name": "ExplicitlyDefinedToo",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 450,
+ "y": 30,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "I",
+ "name": "I",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 450,
+ "y": 130,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "J",
+ "name": "J",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 450,
+ "y": 230,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "K",
+ "name": "K",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 450,
+ "y": 330,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "L",
+ "name": "L",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 450,
+ "y": 430,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "M",
+ "name": "M",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}],
+ "umpleAssociations":[] }
+{"umpleClasses":[{
+"position": {
+"x": 193,
+ "y": 66,
+ "width": 0,
+ "height": 0},
+ "attributes": [{
+ "type" : "String",
+ "name" : "NAME",
+ "modifier" : "const",
+ "traceColor" : "black" }, {
+ "type" : "Integer",
+ "name" : "id",
+ "modifier" : "",
+ "traceColor" : "black" }],
+"methods": [],
+ "id": "NewClass",
+ "name": "NewClass",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}],
+ "umpleAssociations":[] }
+{"umpleClasses":[{
+"position": {
+"x": 219,
+ "y": 184,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "Central",
+ "name": "Central",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 69,
+ "y": 66,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "A",
+ "name": "A",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 241,
+ "y": 65,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "B",
+ "name": "B",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 425,
+ "y": 77,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "C",
+ "name": "C",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 428,
+ "y": 190,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "D",
+ "name": "D",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 428,
+ "y": 307,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "E",
+ "name": "E",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 259,
+ "y": 319,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "F",
+ "name": "F",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 82,
+ "y": 341,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "G",
+ "name": "G",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 38,
+ "y": 221,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "H",
+ "name": "H",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}],
+ "umpleAssociations":[{
+"offsetOnePosition": {
+"x": 0,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 109,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_0",
+ "classOneId": "Central",
+ "classTwoId": "A",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "*",
+ "name": "A__Central",
+ "roleOne": "",
+ "roleTwo": "",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}, {
+"offsetOnePosition": {
+"x": 30,
+ "y": 0,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 30,
+ "y": 45,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_1",
+ "classOneId": "Central",
+ "classTwoId": "B",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "*",
+ "name": "B__Central",
+ "roleOne": "",
+ "roleTwo": "",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}, {
+"offsetOnePosition": {
+"x": 109,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 0,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_2",
+ "classOneId": "Central",
+ "classTwoId": "C",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "*",
+ "name": "C__Central",
+ "roleOne": "",
+ "roleTwo": "",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}, {
+"offsetOnePosition": {
+"x": 109,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 0,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_3",
+ "classOneId": "Central",
+ "classTwoId": "D",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "*",
+ "name": "Central__D",
+ "roleOne": "",
+ "roleTwo": "",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}, {
+"offsetOnePosition": {
+"x": 109,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 0,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_4",
+ "classOneId": "Central",
+ "classTwoId": "E",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "*",
+ "name": "Central__E",
+ "roleOne": "",
+ "roleTwo": "",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}, {
+"offsetOnePosition": {
+"x": 30,
+ "y": 45,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 30,
+ "y": 0,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_5",
+ "classOneId": "Central",
+ "classTwoId": "F",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "*",
+ "name": "Central__F:f1",
+ "roleOne": "",
+ "roleTwo": "f1",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}, {
+"offsetOnePosition": {
+"x": 60,
+ "y": 45,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 60,
+ "y": 0,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_6",
+ "classOneId": "Central",
+ "classTwoId": "F",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "*",
+ "name": "Central:ct__F:f2",
+ "roleOne": "ct",
+ "roleTwo": "f2",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}, {
+"offsetOnePosition": {
+"x": 0,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 109,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_7",
+ "classOneId": "Central",
+ "classTwoId": "G",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "*",
+ "name": "Central__G",
+ "roleOne": "",
+ "roleTwo": "",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}, {
+"offsetOnePosition": {
+"x": 0,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 109,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_8",
+ "classOneId": "Central",
+ "classTwoId": "H",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "*",
+ "name": "Central__H",
+ "roleOne": "",
+ "roleTwo": "",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}, {
+"offsetOnePosition": {
+"x": 15,
+ "y": 45,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 0,
+ "y": 30,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_9",
+ "classOneId": "A",
+ "classTwoId": "A",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "*",
+ "name": "A__A:ref1",
+ "roleOne": "",
+ "roleTwo": "ref1",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}, {
+"offsetOnePosition": {
+"x": 94,
+ "y": 45,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 109,
+ "y": 30,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_10",
+ "classOneId": "A",
+ "classTwoId": "A",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "*",
+ "name": "A:a2__A:ref2",
+ "roleOne": "a2",
+ "roleTwo": "ref2",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}, {
+"offsetOnePosition": {
+"x": 94,
+ "y": 0,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 109,
+ "y": 15,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_11",
+ "classOneId": "A",
+ "classTwoId": "A",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "*",
+ "name": "A:a3__A:ref3",
+ "roleOne": "a3",
+ "roleTwo": "ref3",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}, {
+"offsetOnePosition": {
+"x": 15,
+ "y": 0,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 0,
+ "y": 15,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_12",
+ "classOneId": "A",
+ "classTwoId": "A",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "*",
+ "name": "A:a4__A:ref4",
+ "roleOne": "a4",
+ "roleTwo": "ref4",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}] }
+{"umpleClasses":[{
+"position": {
+"x": 50,
+ "y": 30,
+ "width": 109,
+ "height": 45},
+ "attributes": [{
+ "type" : "String",
+ "name" : "var",
+ "modifier" : "",
+ "traceColor" : "black" }],
+"methods": [{
+ "type" : "void",
+ "name" : "test",
+ "parameters" : "",
+ "visibility" : "",
+ "isAbstract" : "true"}],
+ "id": "AAA",
+ "name": "AAA",
+ "isAbstract": "true",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 50,
+ "y": 130,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [{
+ "type" : "void",
+ "name" : "test",
+ "parameters" : "",
+ "visibility" : "",
+ "isAbstract" : "false"}],
+ "id": "BBB",
+ "name": "BBB",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "extendsClass": "AAA",
+ "isInterface": "false"}, {
+"position": {
+"x": 50,
+ "y": 230,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "CCC",
+ "name": "CCC",
+ "isAbstract": "true",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 268,
+ "y": 30,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [{
+ "type" : "void",
+ "name" : "testTwo",
+ "parameters" : "",
+ "visibility" : "",
+ "isAbstract" : "false"}],
+ "id": "FFF",
+ "name": "FFF",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "true"}],
+ "umpleAssociations":[] }
+{"umpleClasses":[{
+"position": {
+"x": 193,
+ "y": 66,
+ "width": 0,
+ "height": 0},
+ "attributes": [{
+ "type" : "String",
+ "name" : "name",
+ "modifier" : "",
+ "traceColor" : "red" }, {
+ "type" : "Integer",
+ "name" : "id",
+ "modifier" : "",
+ "traceColor" : "black" }],
+"methods": [],
+ "id": "NewClass",
+ "name": "NewClass",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}],
+ "umpleAssociations":[] }
+{"umpleClasses":[{
+"position": {
+"x": 50,
+ "y": 30,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "C1",
+ "name": "C1",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 268,
+ "y": 30,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "I",
+ "name": "I",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "true"}],
+ "umpleAssociations":[{
+"offsetOnePosition": {
+"x": -1,
+ "y": -1,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": -1,
+ "y": -1,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_0",
+ "classOneId": "C1",
+ "classTwoId": "I",
+ "multiplicityOne": "0..1",
+ "multiplicityTwo": "*",
+ "name": "C1__I",
+ "roleOne": "",
+ "roleTwo": "",
+ "isLeftNavigable":"false",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}] }
+{"umpleClasses":[{
+"position": {
+"x": 268,
+ "y": 30,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [{
+ "type" : "void",
+ "name" : "m1",
+ "parameters" : "",
+ "visibility" : "",
+ "isAbstract" : "false"}],
+ "id": "X",
+ "name": "X",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "true"}],
+ "umpleAssociations":[] }
+{"umpleClasses":[{
+"position": {
+"x": 50,
+ "y": 30,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "Student",
+ "name": "Student",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 50,
+ "y": 130,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "Mentor",
+ "name": "Mentor",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 50,
+ "y": 230,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "School",
+ "name": "School",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}],
+ "umpleAssociations":[{
+"offsetOnePosition": {
+"x": 30,
+ "y": 45,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 30,
+ "y": 0,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_0",
+ "classOneId": "Student",
+ "classTwoId": "Mentor",
+ "multiplicityOne": "0..1",
+ "multiplicityTwo": "0..1",
+ "name": "Mentor__Student",
+ "roleOne": "",
+ "roleTwo": "",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}, {
+"offsetOnePosition": {
+"x": 30,
+ "y": 0,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 30,
+ "y": 45,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_1",
+ "classOneId": "School",
+ "classTwoId": "Mentor",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "*",
+ "name": "Mentor__School",
+ "roleOne": "",
+ "roleTwo": "",
+ "isLeftNavigable":"false",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}, {
+"offsetOnePosition": {
+"x": 30,
+ "y": 0,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 30,
+ "y": 45,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_2",
+ "classOneId": "School",
+ "classTwoId": "Student",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "*",
+ "name": "School__Student",
+ "roleOne": "",
+ "roleTwo": "",
+ "isLeftNavigable":"false",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}] }
+{"umpleClasses":[{
+"position": {
+"x": 100,
+ "y": 100,
+ "width": 109,
+ "height": 41},
+ "attributes": [],
+"methods": [],
+ "id": "Student",
+ "name": "Student",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "extendsClass": "Mentor",
+ "isInterface": "false"}, {
+"position": {
+"x": 100,
+ "y": 100,
+ "width": 109,
+ "height": 41},
+ "attributes": [],
+"methods": [],
+ "id": "Mentor",
+ "name": "Mentor",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}],
+ "umpleAssociations":[] }
+{"umpleClasses":[{
+"position": {
+"x": 5,
+ "y": 6,
+ "width": 7,
+ "height": 8},
+ "attributes": [],
+"methods": [],
+ "id": "B",
+ "name": "B",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 1,
+ "y": 2,
+ "width": 3,
+ "height": 4},
+ "attributes": [],
+"methods": [],
+ "id": "A",
+ "name": "A",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}],
+ "umpleAssociations":[{
+"offsetOnePosition": {
+"x": 3,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 0,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_0",
+ "classOneId": "A",
+ "classTwoId": "B",
+ "multiplicityOne": "0..1",
+ "multiplicityTwo": "*",
+ "name": "asc",
+ "roleOne": "a",
+ "roleTwo": "asc",
+ "isLeftNavigable":"false",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}] }
+{"umpleClasses":[{
+"position": {
+"x": 1,
+ "y": 2,
+ "width": 3,
+ "height": 4},
+ "attributes": [],
+"methods": [],
+ "id": "Relationship",
+ "name": "Relationship",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 5,
+ "y": 6,
+ "width": 7,
+ "height": 8},
+ "attributes": [],
+"methods": [],
+ "id": "Student",
+ "name": "Student",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 9,
+ "y": 10,
+ "width": 11,
+ "height": 12},
+ "attributes": [],
+"methods": [],
+ "id": "Mentor",
+ "name": "Mentor",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}],
+ "umpleAssociations":[{
+"offsetOnePosition": {
+"x": 1,
+ "y": 2,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 3,
+ "y": 4,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_0",
+ "classOneId": "Relationship",
+ "classTwoId": "Mentor",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "1",
+ "name": "Mentor__Relationship",
+ "roleOne": "",
+ "roleTwo": "",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}, {
+"offsetOnePosition": {
+"x": 5,
+ "y": 6,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 7,
+ "y": 8,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_1",
+ "classOneId": "Relationship",
+ "classTwoId": "Student",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "1",
+ "name": "Relationship__Student",
+ "roleOne": "",
+ "roleTwo": "",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}] }
+{"umpleClasses":[{
+"position": {
+"x": 10,
+ "y": 20,
+ "width": 30,
+ "height": 40},
+ "attributes": [],
+"methods": [],
+ "id": "Student",
+ "name": "Student",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 1,
+ "y": 2,
+ "width": 3,
+ "height": 4},
+ "attributes": [],
+"methods": [],
+ "id": "Mentor",
+ "name": "Mentor",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}, {
+"position": {
+"x": 5,
+ "y": 6,
+ "width": 7,
+ "height": 8},
+ "attributes": [],
+"methods": [],
+ "id": "Relationship",
+ "name": "Relationship",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}],
+ "umpleAssociations":[{
+"offsetOnePosition": {
+"x": 0,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 3,
+ "y": 10,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_0",
+ "classOneId": "Relationship",
+ "classTwoId": "Mentor",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "1",
+ "name": "Mentor__Relationship",
+ "roleOne": "",
+ "roleTwo": "",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}, {
+"offsetOnePosition": {
+"x": 30,
+ "y": 8,
+ "width": 0,
+ "height": 0},
+ "offsetTwoPosition": {
+"x": 30,
+ "y": 0,
+ "width": 0,
+ "height": 0},
+ "id": "umpleAssociation_1",
+ "classOneId": "Relationship",
+ "classTwoId": "Student",
+ "multiplicityOne": "*",
+ "multiplicityTwo": "1",
+ "name": "Relationship__Student",
+ "roleOne": "",
+ "roleTwo": "",
+ "isLeftNavigable":"true",
+ "isRightNavigable":"true",
+ "isLeftComposition":"false",
+ "isRightComposition":"false",
+ "isSymmetricReflexive":"false",
+ "isTraced":"black"}] }
+{"umpleClasses":[{
+"position": {
+"x": 193,
+ "y": 66,
+ "width": 10,
+ "height": 20},
+ "attributes": [],
+"methods": [],
+ "id": "NewClass",
+ "name": "NewClass",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false"}],
+ "umpleAssociations":[] }
+{"umpleClasses":[{
+"position": {
+"x": 50,
+ "y": 30,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "Mentor",
+ "name": "Mentor",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "false",
+ "implementedInterfaces": [ { "interfacesName": "BBB" }, { "interfacesName": "AAA" } ]}, {
+"position": {
+"x": 268,
+ "y": 30,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "AAA",
+ "name": "AAA",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "true"}, {
+"position": {
+"x": 268,
+ "y": 130,
+ "width": 109,
+ "height": 45},
+ "attributes": [],
+"methods": [],
+ "id": "BBB",
+ "name": "BBB",
+ "isAbstract": "false",
+ "displayColor": "" ,
+ "isInterface": "true"}],
+ "umpleAssociations":[] }
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

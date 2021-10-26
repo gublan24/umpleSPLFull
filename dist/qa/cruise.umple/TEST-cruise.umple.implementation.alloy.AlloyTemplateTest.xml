@@ -1,0 +1,1374 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="Abdulazizs-MacBook-Pro.local" name="cruise.umple.implementation.alloy.AlloyTemplateTest" skipped="1" tests="21" time="0.094" timestamp="2021-10-26T14:28:08">
+  <properties>
+    <property name="ant.library.dir" value="/usr/local/Cellar/ant/1.10.9/libexec/lib" />
+    <property name="env.TERM" value="xterm-256color" />
+    <property name="java.specification.version" value="15" />
+    <property name="ant.project.name" value="UmpleCore" />
+    <property name="ant.file.type.UmpleCore" value="file" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="ant.file.type.LocalBuildProperties" value="file" />
+    <property name="env.SDKMAN_CANDIDATES_API" value="https://api.sdkman.io/2" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="dist.umple.docs.jar.prev" value="umpledocs-1.31.1.5860.78bb27cc6.jar" />
+    <property name="rake_cmd" value="rake" />
+    <property name="showJunitOutput" value="false" />
+    <property name="umple.deps.dir" value="/Users/abdulaziz/tmp/umple/dist/libs" />
+    <property name="java.vendor.url" value="https://openjdk.java.net/" />
+    <property name="dist.libs.dir" value="/Users/abdulaziz/tmp/umple/dist/libs" />
+    <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home/lib" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=/Users/abdulaziz/tmp/umple/junittestcases9945622084601822128.properties skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/abdulaziz/tmp/umple/dist/qa/cruise.umple/IGNORETHIS.xml crashfile=/Users/abdulaziz/tmp/umple/junitvmwatcher11280979461299836288.properties propsfile=/Users/abdulaziz/tmp/umple/junit10838995335343066243.properties" />
+    <property name="jdk.debug" value="release" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="test.output.path" value="/Users/abdulaziz/tmp/umple/dist/qa/cruise.umple" />
+    <property name="env.JAVA_HOME" value="/usr/local/opt/openjdk" />
+    <property name="java.version.date" value="2020-10-20" />
+    <property name="java.home" value="/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home" />
+    <property name="basedir" value="/Users/abdulaziz/tmp/umple" />
+    <property name="file.separator" value="/" />
+    <property name="java.vm.compressedOopsMode" value="Zero based" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="ivy.jar.file" value="/Users/abdulaziz/.ant/lib/ivy-2.4.0.jar" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.file.Template" value="/Users/abdulaziz/tmp/umple/build/_template.xml" />
+    <property name="dist.umple.stats.jar" value="umplestats-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ivyRetrieveLogLevel" value="quiet" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="java.runtime.version" value="15.0.1+9" />
+    <property name="env.TERM_PROGRAM_VERSION" value="440" />
+    <property name="user.name" value="abdulaziz" />
+    <property name="env.PATH" value="/Users/abdulaziz/.sdkman/candidates/gradle/current/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands" />
+    <property name="env.LOGNAME" value="abdulaziz" />
+    <property name="env.XPC_FLAGS" value="0x0" />
+    <property name="env.__CF_USER_TEXT_ENCODING" value="0x1F5:0x0:0x0" />
+    <property name="file.encoding" value="UTF-8" />
+    <property name="env.__CFBundleIdentifier" value="com.apple.Terminal" />
+    <property name="env.TERM_SESSION_ID" value="20D2790F-0FEC-4CCB-A10B-030C8F4ED298" />
+    <property name="umple.stable.jar" value="/Users/abdulaziz/tmp/umple/dist/libs/umple-1.31.1.5860.78bb27cc6.jar" />
+    <property name="haltonfailure" value="false" />
+    <property name="connectionTimeout" value="30" />
+    <property name="env.SHLVL" value="1" />
+    <property name="dist.dir" value="/Users/abdulaziz/tmp/umple/dist" />
+    <property name="dist.path" value="/Users/abdulaziz/tmp/umple/dist/cruise.umple" />
+    <property name="java.io.tmpdir" value="/var/folders/fm/7tjk7l8154x840c6vvrs49p40000gn/T/" />
+    <property name="umple.ivy.dep.file" value="/Users/abdulaziz/tmp/umple/build/ivy.xml" />
+    <property name="dist.umple.run.jar.prev" value="umplerun-1.31.1.5860.78bb27cc6.jar" />
+    <property name="dist.umple.jar" value="umple-1.31.1.5860.78bb27cc6.jar" />
+    <property name="java.version" value="15.0.1" />
+    <property name="env.SSH_AUTH_SOCK" value="/private/tmp/com.apple.launchd.qK4l0KXsgu/Listeners" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.home" value="/usr/local/Cellar/ant/1.10.9/libexec" />
+    <property name="ant.file.type.UmpleDeps" value="file" />
+    <property name="env.SDKMAN_DIR" value="/Users/abdulaziz/.sdkman" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.10.9 compiled on September 27 2020" />
+    <property name="env.TMPDIR" value="/var/folders/fm/7tjk7l8154x840c6vvrs49p40000gn/T/" />
+    <property name="env.SDKMAN_PLATFORM" value="darwinx64" />
+    <property name="java.library.path" value="/Users/abdulaziz/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
+    <property name="java.vendor" value="N/A" />
+    <property name="shouldPackageUmpleOnline" value="false" />
+    <property name="dist.umple.validator.jar" value="umplevalidator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="sun.io.unicode.encoding" value="UnicodeBig" />
+    <property name="jopt-simple.install.version" value="4.4" />
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="env.SDKMAN_CANDIDATES_DIR" value="/Users/abdulaziz/.sdkman/candidates" />
+    <property name="env.TERM_PROGRAM" value="Apple_Terminal" />
+    <property name="vendors.path" value="/Users/abdulaziz/tmp/umple/dist/libs/vendors" />
+    <property name="env.PWD" value="/Users/abdulaziz/tmp/umple/build" />
+    <property name="ant.file.type" value="file" />
+    <property name="last.version" value="1.31.1.5860.78bb27cc6" />
+    <property name="env.LANG" value="en_CA.UTF-8" />
+    <property name="ant.file.type.VersionLast" value="file" />
+    <property name="java.class.path" value="/Users/abdulaziz/tmp/umple/cruise.umple/bin:/Users/abdulaziz/tmp/umple/dist/libs/core/ant-launcher.jar:/Users/abdulaziz/tmp/umple/dist/libs/core/ant.jar:/Users/abdulaziz/tmp/umple/dist/libs/core/jopt-simple.jar:/Users/abdulaziz/tmp/umple/dist/libs/test/hamcrest-core.jar:/Users/abdulaziz/tmp/umple/dist/libs/test/junit.jar:/Users/abdulaziz/.ant/lib/junit.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-launcher.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-junit.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-junit4.jar" />
+    <property name="env.HOME" value="/Users/abdulaziz" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="env.GRADLE_HOME" value="/Users/abdulaziz/.sdkman/candidates/gradle/current" />
+    <property name="xtext.project.path" value="cruise.umple.xtext" />
+    <property name="ant.file.type.Template" value="file" />
+    <property name="user.timezone" value="America/Toronto" />
+    <property name="project.path" value="cruise.umple" />
+    <property name="ant.file.UmpleDeps" value="/Users/abdulaziz/tmp/umple/build/build.deps.xml" />
+    <property name="java.vm.specification.version" value="15" />
+    <property name="os.name" value="Mac OS X" />
+    <property name="env.DISPLAY" value="/private/tmp/com.apple.launchd.8VZUm1G4zQ/org.xquartz:0" />
+    <property name="dist.umple.sync.jar" value="umplesync-1.31.1.5860.78bb27cc6.jar" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="user.country" value="CA" />
+    <property name="dist.umple.run.jar" value="umplerun-1.31.1.5860.78bb27cc6.jar" />
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="user.home" value="/Users/abdulaziz" />
+    <property name="user.language" value="en" />
+    <property name="ivy.install.version" value="2.4.0" />
+    <property name="ant.java.version" value="15" />
+    <property name="ant.file.type.Umple" value="file" />
+    <property name="showJunitSummary" value="false" />
+    <property name="bin.path" value="cruise.umple/bin" />
+    <property name="umple.version" value="1.31.1.5860.78bb27cc6" />
+    <property name="dist.umple.sync.jar.prev" value="umplesync-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ivyResolveLogLevel" value="download-only" />
+    <property name="env.XPC_SERVICE_NAME" value="0" />
+    <property name="user.home.ant" value="/Users/abdulaziz/.ant/lib" />
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="is.osx" value="true" />
+    <property name="dist.umple.stats.jar.prev" value="umplestats-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ant.file" value="/Users/abdulaziz/tmp/umple/build/build.umple.xml" />
+    <property name="path.separator" value=":" />
+    <property name="dist.umple.umplificator.jar.prev" value="umpleumplificator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="os.version" value="11.6" />
+    <property name="ant.file.VersionLast" value="/Users/abdulaziz/tmp/umple/build/_versionLast.xml" />
+    <property name="ant.file.Umple" value="/Users/abdulaziz/tmp/umple/build/build.xml" />
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+    <property name="dist.umple.docs.jar" value="umpledocs-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ant.project.invoked-targets" value="template.test" />
+    <property name="dist.umple.umplificator.jar" value="umpleumplificator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM" />
+    <property name="ant.file.LocalBuildProperties" value="/Users/abdulaziz/tmp/umple/build/_local.xml" />
+    <property name="env.SHELL" value="/bin/zsh" />
+    <property name="ant.core.lib" value="/usr/local/Cellar/ant/1.10.9/libexec/lib/ant.jar" />
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/" />
+    <property name="junit" value="*Test" />
+    <property name="user.dir" value="/Users/abdulaziz/tmp/umple/build" />
+    <property name="os.arch" value="x86_64" />
+    <property name="env.SDKMAN_VERSION" value="5.11.5+713" />
+    <property name="shouldDeploy" value="false" />
+    <property name="dist.umple.validator.jar.prev" value="umplevalidator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="java.vm.info" value="mixed mode, sharing" />
+    <property name="java.vm.version" value="15.0.1+9" />
+    <property name="ant.file.UmpleCore" value="/Users/abdulaziz/tmp/umple/build/build.umple.xml" />
+    <property name="online" value="true" />
+    <property name="myenv" value="local" />
+    <property name="umple.deps.manual.dir" value="/Users/abdulaziz/tmp/umple/dist/libs/manual" />
+    <property name="env.USER" value="abdulaziz" />
+    <property name="java.class.version" value="59.0" />
+    <property name="first.build" value="false" />
+    <property name="dist.umple.jar.prev" value="umple-1.31.1.5860.78bb27cc6.jar" />
+    <property name="env.JAVA_MAIN_CLASS_3280" value="org.apache.tools.ant.launch.Launcher" />
+    <property name="ant.project.default-target" value="build" />
+  </properties>
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="Shapes" time="0.015" />
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="FiniteSat" time="0.004" />
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="AlloyAssociations" time="0.008" />
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="singleton" time="0.002" />
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="UmpleClass" time="0.001" />
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="oneToManyAssociation" time="0.002" />
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="BankingSystem" time="0.012" />
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="isARelationship" time="0.004" />
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="AlloyReflexiveRelation" time="0.003" />
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="temp" time="0.0">
+    <skipped />
+  </testcase>
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="AlloyGenHierarchy" time="0.004" />
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="oneToOneAssociation" time="0.002" />
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="abstractSingleton" time="0.002" />
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="AlloySymmetricReflexive" time="0.002" />
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="AssociationWithNumericBounds" time="0.002" />
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="AlloySophisticatedAssociations" time="0.003" />
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="RealEstateSystem" time="0.011" />
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="Association" time="0.004" />
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="Example1" time="0.003" />
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="unidirectional" time="0.002" />
+  <testcase classname="cruise.umple.implementation.alloy.AlloyTemplateTest" name="avoidJunitError" time="0.001" />
+  <system-out><![CDATA[
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AlloyShapes.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class Shape2D
+sig Shape2D {
+  center : one Point
+}
+
+-- Defines a signature for class Point
+sig Point {
+  x : Int,
+  y : Int
+}
+
+-- Defines a signature for class EllipticalShape
+sig EllipticalShape extends Shape2D {
+  semiMajorAxis : String
+}
+
+-- Defines a signature for class Polygon
+sig Polygon extends Shape2D { }
+
+-- Defines a signature for class Circle
+sig Circle extends EllipticalShape { }
+
+-- Defines a signature for class Ellipse
+sig Ellipse extends EllipticalShape { }
+
+-- Defines a signature for class SimplePolygon
+sig SimplePolygon extends Polygon { }
+
+-- Defines a signature for class ArbitraryPolygon
+sig ArbitraryPolygon extends Polygon {
+  points : Int
+}
+
+-- Defines a signature for class Rectangle
+sig Rectangle extends SimplePolygon {
+  height : Int,
+  width : Int
+}
+
+-- Defines a signature for class RegularPolygon
+sig RegularPolygon extends SimplePolygon {
+  numPoints : Int,
+  radius : Int
+}
+
+
+-- Defines constraints on association between Shape2D and Point
+fact AssociationFact {
+  Shape2D <: center in (Shape2D) one -> one (Point)
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from FiniteSat.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class Academic
+sig Academic {
+  students : some Graduate
+}
+
+-- Defines a signature for class Graduate
+sig Graduate {
+  advisor : one Academic
+}
+
+
+-- Defines constraints on association between Graduate and Academic
+fact AssociationFact {
+  Graduate <: advisor in (Graduate) some -> some (Academic)
+}
+
+-- Defines bidirectionality rule between class Academic and class Graduate
+fact BidirectionalityRule {
+  all academic_1 : Academic, graduate_1 : Graduate |
+    academic_1 in advisor[graduate_1] <=> graduate_1 in students[academic_1]
+}
+
+-- Defines numeric bound rule for class Academic
+fact NumericBoundFact {
+  no academic_1 : Academic |
+    #academic_1.students != 2
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AlloyAssociations.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class A
+sig A {
+  b : one B,
+  c : lone C,
+  ds : some D,
+  es : set E
+}
+
+-- Defines a signature for class B
+sig B {
+  c : one C,
+  d : lone D,
+  es : some E,
+  fs : set F,
+  a : one A
+}
+
+-- Defines a signature for class C
+sig C {
+  d : one D,
+  e : lone E,
+  fs : some F,
+  gs : set G,
+  a : one A,
+  b : lone B
+}
+
+-- Defines a signature for class D
+sig D {
+  e : one E,
+  f : lone F,
+  gs : some G,
+  a : one A,
+  b : lone B,
+  cs : some C
+}
+
+-- Defines a signature for class E
+sig E {
+  a : one A,
+  b : lone B,
+  cs : some C,
+  ds : set D
+}
+
+-- Defines a signature for class F
+sig F {
+  b : lone B,
+  cs : some C,
+  ds : set D
+}
+
+-- Defines a signature for class G
+sig G {
+  cs : some C,
+  ds : set D
+}
+
+-- Defines a signature for class H
+sig H { }
+
+
+-- Defines constraints on association between B and A
+fact AssociationFact {
+  B <: a in (B) one -> one (A)
+}
+
+-- Defines constraints on association between C and A
+fact AssociationFact {
+  C <: a in (C) lone -> lone (A)
+}
+
+-- Defines constraints on association between D and A
+fact AssociationFact {
+  D <: a in (D) some -> some (A)
+}
+
+-- Defines constraints on association between E and A
+fact AssociationFact {
+  E <: a in (E) set -> set (A)
+}
+
+-- Defines constraints on association between C and B
+fact AssociationFact {
+  C <: b in (C) one -> one (B)
+}
+
+-- Defines constraints on association between D and B
+fact AssociationFact {
+  D <: b in (D) lone -> lone (B)
+}
+
+-- Defines constraints on association between E and B
+fact AssociationFact {
+  E <: b in (E) some -> some (B)
+}
+
+-- Defines constraints on association between F and B
+fact AssociationFact {
+  F <: b in (F) set -> set (B)
+}
+
+-- Defines constraints on association between D and C
+fact AssociationFact {
+  D <: cs in (D) one -> one (C)
+}
+
+-- Defines constraints on association between E and C
+fact AssociationFact {
+  E <: cs in (E) lone -> lone (C)
+}
+
+-- Defines constraints on association between F and C
+fact AssociationFact {
+  F <: cs in (F) some -> some (C)
+}
+
+-- Defines constraints on association between G and C
+fact AssociationFact {
+  G <: cs in (G) set -> set (C)
+}
+
+-- Defines constraints on association between E and D
+fact AssociationFact {
+  E <: ds in (E) one -> one (D)
+}
+
+-- Defines constraints on association between F and D
+fact AssociationFact {
+  F <: ds in (F) lone -> lone (D)
+}
+
+-- Defines constraints on association between G and D
+fact AssociationFact {
+  G <: ds in (G) some -> some (D)
+}
+
+-- Defines bidirectionality rule between class A and class B
+fact BidirectionalityRule {
+  all a_1 : A, b_1 : B |
+    a_1 in a[b_1] <=> b_1 in b[a_1]
+}
+
+-- Defines bidirectionality rule between class A and class C
+fact BidirectionalityRule {
+  all a_1 : A, c_1 : C |
+    a_1 in a[c_1] <=> c_1 in c[a_1]
+}
+
+-- Defines bidirectionality rule between class A and class D
+fact BidirectionalityRule {
+  all a_1 : A, d_1 : D |
+    a_1 in a[d_1] <=> d_1 in ds[a_1]
+}
+
+-- Defines bidirectionality rule between class A and class E
+fact BidirectionalityRule {
+  all a_1 : A, e_1 : E |
+    a_1 in a[e_1] <=> e_1 in es[a_1]
+}
+
+-- Defines bidirectionality rule between class B and class C
+fact BidirectionalityRule {
+  all b_1 : B, c_1 : C |
+    b_1 in b[c_1] <=> c_1 in c[b_1]
+}
+
+-- Defines bidirectionality rule between class B and class D
+fact BidirectionalityRule {
+  all b_1 : B, d_1 : D |
+    b_1 in b[d_1] <=> d_1 in d[b_1]
+}
+
+-- Defines bidirectionality rule between class B and class E
+fact BidirectionalityRule {
+  all b_1 : B, e_1 : E |
+    b_1 in b[e_1] <=> e_1 in es[b_1]
+}
+
+-- Defines bidirectionality rule between class B and class F
+fact BidirectionalityRule {
+  all b_1 : B, f_1 : F |
+    b_1 in b[f_1] <=> f_1 in fs[b_1]
+}
+
+-- Defines bidirectionality rule between class C and class D
+fact BidirectionalityRule {
+  all c_1 : C, d_1 : D |
+    c_1 in cs[d_1] <=> d_1 in d[c_1]
+}
+
+-- Defines bidirectionality rule between class C and class E
+fact BidirectionalityRule {
+  all c_1 : C, e_1 : E |
+    c_1 in cs[e_1] <=> e_1 in e[c_1]
+}
+
+-- Defines bidirectionality rule between class C and class F
+fact BidirectionalityRule {
+  all c_1 : C, f_1 : F |
+    c_1 in cs[f_1] <=> f_1 in fs[c_1]
+}
+
+-- Defines bidirectionality rule between class C and class G
+fact BidirectionalityRule {
+  all c_1 : C, g_1 : G |
+    c_1 in cs[g_1] <=> g_1 in gs[c_1]
+}
+
+-- Defines bidirectionality rule between class D and class E
+fact BidirectionalityRule {
+  all d_1 : D, e_1 : E |
+    d_1 in ds[e_1] <=> e_1 in e[d_1]
+}
+
+-- Defines bidirectionality rule between class D and class F
+fact BidirectionalityRule {
+  all d_1 : D, f_1 : F |
+    d_1 in ds[f_1] <=> f_1 in f[d_1]
+}
+
+-- Defines bidirectionality rule between class D and class G
+fact BidirectionalityRule {
+  all d_1 : D, g_1 : G |
+    d_1 in ds[g_1] <=> g_1 in gs[d_1]
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from singleton.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class A
+one sig A { }
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from UmpleClass.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class A
+sig A { }
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from Alloy_AssociationOneToMany.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class A
+sig A {
+  bs : set B,
+  a : Int
+}
+
+-- Defines a signature for class B
+sig B {
+  a : one A
+}
+
+
+-- Defines constraints on association between B and A
+fact AssociationFact {
+  B <: a in (B) set -> set (A)
+}
+
+-- Defines bidirectionality rule between class A and class B
+fact BidirectionalityRule {
+  all a_1 : A, b_1 : B |
+    a_1 in a[b_1] <=> b_1 in bs[a_1]
+}
+module BankingSystem/core/humanResources
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from BankingSystem.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class PersonRole
+sig PersonRole {
+  person : one Person
+}
+
+-- Defines a signature for class Person
+sig Person {
+  personRoles : set PersonRole,
+  name : String,
+  address : String,
+  phoneNumber : String
+}
+
+-- Defines a signature for class Employee
+sig Employee extends PersonRole {
+  manager : lone Manager,
+  division : one Division
+}
+
+-- Defines a signature for class Client
+sig Client extends PersonRole {
+  accounts : some Account,
+  name : String,
+  address : String,
+  phoneNumber : String
+}
+
+-- Defines a signature for class Manager
+sig Manager extends Employee {
+  employees : set Employee
+}
+
+-- Defines a signature for class Account
+sig Account {
+  accountType : one AccountType,
+  clients : some Client,
+  branch : one Branch,
+  accountNumber : Int,
+  balance : Int,
+  creditLimit : Int
+}
+
+-- Defines a signature for class AccountType
+sig AccountType {
+  privileges : set Privilege,
+  monthlyFee : Int,
+  interestRate : Int
+}
+
+-- Defines a signature for class Privilege
+sig Privilege {
+  accountTypes : set AccountType,
+  description : String
+}
+
+-- Defines a signature for class CreditCardAccount
+sig CreditCardAccount extends Account {
+  cards : some Card,
+  expiryDate : String
+}
+
+-- Defines a signature for class MortgageAccount
+sig MortgageAccount extends Account {
+  collateral : String
+}
+
+-- Defines a signature for class Card
+sig Card {
+  creditCardAccount : one CreditCardAccount,
+  holderName : String
+}
+
+-- Defines a signature for class Branch
+sig Branch extends Division {
+  accounts : set Account,
+  address : String,
+  branchNumber : String
+}
+
+-- Defines a signature for class Division
+sig Division {
+  employees : set Employee,
+  subDivision : set Division,
+  name : String
+}
+
+
+-- Defines constraints on association between PersonRole and Person
+fact AssociationFact {
+  PersonRole <: person in (PersonRole) set -> set (Person)
+}
+
+-- Defines constraints on association between Account and Client
+fact AssociationFact {
+  Account <: clients in (Account) some -> some (Client)
+}
+
+-- Defines constraints on association between Employee and Manager
+fact AssociationFact {
+  Employee <: manager in (Employee) set -> set (Manager)
+}
+
+-- Defines constraints on association between Account and AccountType
+fact AssociationFact {
+  Account <: accountType in (Account) set -> one (AccountType)
+}
+
+-- Defines constraints on association between Privilege and AccountType
+fact AssociationFact {
+  Privilege <: accountTypes in (Privilege) set -> set (AccountType)
+}
+
+-- Defines constraints on association between Card and CreditCardAccount
+fact AssociationFact {
+  Card <: creditCardAccount in (Card) some -> some (CreditCardAccount)
+}
+
+-- Defines constraints on association between Account and Branch
+fact AssociationFact {
+  Account <: branch in (Account) set -> set (Branch)
+}
+
+-- Defines constraints on association between Employee and Division
+fact AssociationFact {
+  Employee <: division in (Employee) set -> set (Division)
+}
+
+-- Defines non-reflexive rule for class Division
+fact NonReflexiveRule {
+  no division_1 : Division |
+    division_1 in subDivision[division_1]
+}
+
+-- Defines symmetric rule for class Division
+fact SymmetricRelation {
+  all division_1, division_2 : Division |
+    division_1 in subDivision[division_2] <=> division_2 in subDivision[division_1]
+}
+
+-- Defines non-reflexive rule for class Division
+fact NonReflexiveRule {
+  no division_1 : Division |
+    division_1 in subDivision[division_1]
+}
+
+-- Defines symmetric rule for class Division
+fact SymmetricRelation {
+  all division_1, division_2 : Division |
+    division_1 in subDivision[division_2] <=> division_2 in subDivision[division_1]
+}
+
+-- Defines bidirectionality rule between class Person and class PersonRole
+fact BidirectionalityRule {
+  all person_1 : Person, personrole_1 : PersonRole |
+    person_1 in person[personrole_1] <=> personrole_1 in personRoles[person_1]
+}
+
+-- Defines bidirectionality rule between class Client and class Account
+fact BidirectionalityRule {
+  all client_1 : Client, account_1 : Account |
+    client_1 in clients[account_1] <=> account_1 in accounts[client_1]
+}
+
+-- Defines numeric bound rule for class Account
+fact NumericBoundFact {
+  no account_1 : Account |
+    #account_1.clients < 1 || #account_1.clients > 2
+}
+
+-- Defines bidirectionality rule between class Manager and class Employee
+fact BidirectionalityRule {
+  all manager_1 : Manager, employee_1 : Employee |
+    manager_1 in manager[employee_1] <=> employee_1 in employees[manager_1]
+}
+
+-- Defines bidirectionality rule between class AccountType and class Privilege
+fact BidirectionalityRule {
+  all accounttype_1 : AccountType, privilege_1 : Privilege |
+    accounttype_1 in accountTypes[privilege_1] <=> privilege_1 in privileges[accounttype_1]
+}
+
+-- Defines bidirectionality rule between class CreditCardAccount and class Card
+fact BidirectionalityRule {
+  all creditcardaccount_1 : CreditCardAccount, card_1 : Card |
+    creditcardaccount_1 in creditCardAccount[card_1] <=> card_1 in cards[creditcardaccount_1]
+}
+
+-- Defines bidirectionality rule between class Branch and class Account
+fact BidirectionalityRule {
+  all branch_1 : Branch, account_1 : Account |
+    branch_1 in branch[account_1] <=> account_1 in accounts[branch_1]
+}
+
+-- Defines bidirectionality rule between class Division and class Employee
+fact BidirectionalityRule {
+  all division_1 : Division, employee_1 : Employee |
+    division_1 in division[employee_1] <=> employee_1 in employees[division_1]
+}
+
+-- Defines generalization hierarchy rule between class Employee and Manager
+fact GenHierarchyFact {
+  no manager_1 : Manager |
+    manager_1.employees = manager_1
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from isARelationship.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class A
+sig A { }
+
+-- Defines a signature for class B
+sig B extends A { }
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AlloyReflexiveRelation.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class Person
+sig Person {
+  children : set Person
+}
+
+
+-- Defines no self relation rule for class Person
+fact NoSelfRelation {
+  no person_1 : Person |
+    person_1 in person_1.^children
+}
+
+-- Defines no extended relation rule for class Person
+fact NoExtendedRelation {
+  no disj person_1, person_2, person_3 : Person |
+    person_1 in children[person_2] && person_1 in children[person_3]
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AlloyGenHierarchy.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class Employee
+sig Employee {
+  manager : lone Manager
+}
+
+-- Defines a signature for class Secretary
+sig Secretary extends Employee { }
+
+-- Defines a signature for class Technician
+sig Technician extends Employee { }
+
+-- Defines a signature for class Manager
+sig Manager extends Employee {
+  supervises : set Employee
+}
+
+
+-- Defines constraints on association between Employee and Manager
+fact AssociationFact {
+  Employee <: manager in (Employee) set -> set (Manager)
+}
+
+-- Defines bidirectionality rule between class Manager and class Employee
+fact BidirectionalityRule {
+  all manager_1 : Manager, employee_1 : Employee |
+    manager_1 in manager[employee_1] <=> employee_1 in supervises[manager_1]
+}
+
+-- Defines generalization hierarchy rule between class Employee and Manager
+fact GenHierarchyFact {
+  no manager_1 : Manager |
+    manager_1.supervises = manager_1
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from Alloy_AssociationOneToOne.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class A
+sig A {
+  b : one B
+}
+
+-- Defines a signature for class B
+sig B {
+  a : one A
+}
+
+
+-- Defines constraints on association between B and A
+fact AssociationFact {
+  B <: a in (B) one -> one (A)
+}
+
+-- Defines bidirectionality rule between class A and class B
+fact BidirectionalityRule {
+  all a_1 : A, b_1 : B |
+    a_1 in a[b_1] <=> b_1 in b[a_1]
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from abstractSingleton.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class A
+abstract one sig A { }
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AlloySymmetricReflexive.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class Course
+sig Course {
+  mutuallyExclusiveWith : set Course
+}
+
+
+-- Defines non-reflexive rule for class Course
+fact NonReflexiveRule {
+  no course_1 : Course |
+    course_1 in mutuallyExclusiveWith[course_1]
+}
+
+-- Defines symmetric rule for class Course
+fact SymmetricRelation {
+  all course_1, course_2 : Course |
+    course_1 in mutuallyExclusiveWith[course_2] <=> course_2 in mutuallyExclusiveWith[course_1]
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AssociationWithNumericBounds.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class Man
+sig Man {
+  children : some Child
+}
+
+-- Defines a signature for class Child
+sig Child {
+  father : lone Man
+}
+
+
+-- Defines constraints on association between Child and Man
+fact AssociationFact {
+  Child <: father in (Child) some -> some (Man)
+}
+
+-- Defines bidirectionality rule between class Man and class Child
+fact BidirectionalityRule {
+  all man_1 : Man, child_1 : Child |
+    man_1 in father[child_1] <=> child_1 in children[man_1]
+}
+
+-- Defines numeric bound rule for class Man
+fact NumericBoundFact {
+  no man_1 : Man |
+    #man_1.children != 5
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AlloySophisticatedAssociations.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class A
+sig A {
+  bs : set B,
+  cs : some C
+}
+
+-- Defines a signature for class B
+sig B {
+  cs : some C,
+  a : lone A
+}
+
+-- Defines a signature for class C
+sig C {
+  as_ : some A,
+  b : one B,
+  d : one D
+}
+
+-- Defines a signature for class D
+sig D {
+  cs : some C
+}
+
+
+-- Defines constraints on association between B and A
+fact AssociationFact {
+  B <: a in (B) set -> set (A)
+}
+
+-- Defines constraints on association between C and B
+fact AssociationFact {
+  C <: b in (C) some -> some (B)
+}
+
+-- Defines constraints on association between A and C
+fact AssociationFact {
+  A <: cs in (A) some -> some (C)
+}
+
+-- Defines constraints on association between C and D
+fact AssociationFact {
+  C <: d in (C) some -> some (D)
+}
+
+-- Defines bidirectionality rule between class A and class B
+fact BidirectionalityRule {
+  all a_1 : A, b_1 : B |
+    a_1 in a[b_1] <=> b_1 in bs[a_1]
+}
+
+-- Defines numeric bound rule for class A
+fact NumericBoundFact {
+  no a_1 : A |
+    #a_1.bs > 2
+}
+
+-- Defines bidirectionality rule between class B and class C
+fact BidirectionalityRule {
+  all b_1 : B, c_1 : C |
+    b_1 in b[c_1] <=> c_1 in cs[b_1]
+}
+
+-- Defines numeric bound rule for class B
+fact NumericBoundFact {
+  no b_1 : B |
+    #b_1.cs < 1 || #b_1.cs > 3
+}
+
+-- Defines bidirectionality rule between class C and class A
+fact BidirectionalityRule {
+  all c_1 : C, a_1 : A |
+    c_1 in cs[a_1] <=> a_1 in as_[c_1]
+}
+
+-- Defines numeric bound rule for class A
+fact NumericBoundFact {
+  no a_1 : A |
+    #a_1.cs < 3 || #a_1.cs > 5
+}
+
+-- Defines numeric bound rule for class C
+fact NumericBoundFact {
+  no c_1 : C |
+    #c_1.as_ < 3 || #c_1.as_ > 7
+}
+
+-- Defines bidirectionality rule between class D and class C
+fact BidirectionalityRule {
+  all d_1 : D, c_1 : C |
+    d_1 in d[c_1] <=> c_1 in cs[d_1]
+}
+
+-- Defines numeric bound rule for class D
+fact NumericBoundFact {
+  no d_1 : D |
+    #d_1.cs != 4
+}
+module realestate
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AlloyRealEstateSystem.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class Address
+sig Address {
+  numberOnStreet : Int,
+  apartmentOrUnit : Int,
+  street : String,
+  city : String,
+  postalCode : String
+}
+
+-- Defines a signature for class GPSCoord
+sig GPSCoord {
+  lattitude : Int,
+  longitude : Int
+}
+
+-- Defines a signature for class Property
+sig Property {
+  neighbourhood : one Neighbourhood,
+  propertySales : set PropertySale,
+  propertyForSales : set PropertyForSale,
+  propertyAddress : Address,
+  numberBedrooms : Int,
+  numberBathrooms : Int,
+  squareFeet : Int,
+  numFloors : Int,
+  gpsCoord : GPSCoord
+}
+
+-- Defines a signature for class Neighbourhood
+sig Neighbourhood {
+  properties : set Property,
+  agents : set Agent,
+  description : String,
+  gpsCoordsOfBoundary : set GPSCoord
+}
+
+-- Defines a signature for class PropertySale
+sig PropertySale {
+  property : one Property,
+  propertyForSale : lone PropertyForSale,
+  salePrice : Int,
+  seller : String,
+  buyer : String
+}
+
+-- Defines a signature for class OpenHouse
+sig OpenHouse {
+  propertyForSale : one PropertyForSale,
+  agentInCharge : lone Agent,
+  date : String,
+  startTime : String,
+  endTime : String
+}
+
+-- Defines a signature for class Agent
+sig Agent {
+  specializingNeighbourhoods : set Neighbourhood,
+  openHouses : set OpenHouse,
+  propertyForSales : set PropertyForSale,
+  name : String,
+  licenseNumber : String,
+  emailAddress : String,
+  officePhoneNumber : String,
+  cellPhoneNumber : String,
+  officeAddress : Address
+}
+
+-- Defines a signature for class PropertyForSale
+sig PropertyForSale {
+  listedProperty : one Property,
+  listingAgent : lone Agent,
+  propertySale : lone PropertySale,
+  openHouses : set OpenHouse,
+  listingNumber : Int,
+  askingPrice : Int,
+  dateListedForSale : String
+}
+
+
+-- Defines constraints on association between Neighbourhood and Property
+fact AssociationFact {
+  Neighbourhood <: properties in (Neighbourhood) one -> one (Property)
+}
+
+-- Defines constraints on association between Property and PropertySale
+fact AssociationFact {
+  Property <: propertySales in (Property) one -> one (PropertySale)
+}
+
+-- Defines constraints on association between PropertyForSale and OpenHouse
+fact AssociationFact {
+  PropertyForSale <: openHouses in (PropertyForSale) one -> one (OpenHouse)
+}
+
+-- Defines constraints on association between Agent and OpenHouse
+fact AssociationFact {
+  Agent <: openHouses in (Agent) lone -> lone (OpenHouse)
+}
+
+-- Defines constraints on association between Neighbourhood and Agent
+fact AssociationFact {
+  Neighbourhood <: agents in (Neighbourhood) set -> set (Agent)
+}
+
+-- Defines constraints on association between Property and PropertyForSale
+fact AssociationFact {
+  Property <: propertyForSales in (Property) one -> one (PropertyForSale)
+}
+
+-- Defines constraints on association between Agent and PropertyForSale
+fact AssociationFact {
+  Agent <: propertyForSales in (Agent) lone -> lone (PropertyForSale)
+}
+
+-- Defines constraints on association between PropertySale and PropertyForSale
+fact AssociationFact {
+  PropertySale <: propertyForSale in (PropertySale) lone -> lone (PropertyForSale)
+}
+
+-- Defines bidirectionality rule between class Property and class Neighbourhood
+fact BidirectionalityRule {
+  all property_1 : Property, neighbourhood_1 : Neighbourhood |
+    property_1 in properties[neighbourhood_1] <=> neighbourhood_1 in neighbourhood[property_1]
+}
+
+-- Defines bidirectionality rule between class PropertySale and class Property
+fact BidirectionalityRule {
+  all propertysale_1 : PropertySale, property_1 : Property |
+    propertysale_1 in propertySales[property_1] <=> property_1 in property[propertysale_1]
+}
+
+-- Defines bidirectionality rule between class OpenHouse and class PropertyForSale
+fact BidirectionalityRule {
+  all openhouse_1 : OpenHouse, propertyforsale_1 : PropertyForSale |
+    openhouse_1 in openHouses[propertyforsale_1] <=> propertyforsale_1 in propertyForSale[openhouse_1]
+}
+
+-- Defines bidirectionality rule between class OpenHouse and class Agent
+fact BidirectionalityRule {
+  all openhouse_1 : OpenHouse, agent_1 : Agent |
+    openhouse_1 in openHouses[agent_1] <=> agent_1 in agentInCharge[openhouse_1]
+}
+
+-- Defines bidirectionality rule between class Agent and class Neighbourhood
+fact BidirectionalityRule {
+  all agent_1 : Agent, neighbourhood_1 : Neighbourhood |
+    agent_1 in agents[neighbourhood_1] <=> neighbourhood_1 in specializingNeighbourhoods[agent_1]
+}
+
+-- Defines bidirectionality rule between class PropertyForSale and class Property
+fact BidirectionalityRule {
+  all propertyforsale_1 : PropertyForSale, property_1 : Property |
+    propertyforsale_1 in propertyForSales[property_1] <=> property_1 in listedProperty[propertyforsale_1]
+}
+
+-- Defines bidirectionality rule between class PropertyForSale and class Agent
+fact BidirectionalityRule {
+  all propertyforsale_1 : PropertyForSale, agent_1 : Agent |
+    propertyforsale_1 in propertyForSales[agent_1] <=> agent_1 in listingAgent[propertyforsale_1]
+}
+
+-- Defines bidirectionality rule between class PropertyForSale and class PropertySale
+fact BidirectionalityRule {
+  all propertyforsale_1 : PropertyForSale, propertysale_1 : PropertySale |
+    propertyforsale_1 in propertyForSale[propertysale_1] <=> propertysale_1 in propertySale[propertyforsale_1]
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AlloyAssociation.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class Man
+sig Man {
+  wives : some Woman,
+  children : some Child
+}
+
+-- Defines a signature for class Woman
+sig Woman {
+  husband : one Man
+}
+
+-- Defines a signature for class Child
+sig Child {
+  father : lone Man
+}
+
+
+-- Defines constraints on association between Woman and Man
+fact AssociationFact {
+  Woman <: husband in (Woman) some -> some (Man)
+}
+
+-- Defines constraints on association between Child and Man
+fact AssociationFact {
+  Child <: father in (Child) some -> some (Man)
+}
+
+-- Defines bidirectionality rule between class Man and class Woman
+fact BidirectionalityRule {
+  all man_1 : Man, woman_1 : Woman |
+    man_1 in husband[woman_1] <=> woman_1 in wives[man_1]
+}
+
+-- Defines numeric bound rule for class Man
+fact NumericBoundFact {
+  no man_1 : Man |
+    #man_1.wives != 2
+}
+
+-- Defines bidirectionality rule between class Man and class Child
+fact BidirectionalityRule {
+  all man_1 : Man, child_1 : Child |
+    man_1 in father[child_1] <=> child_1 in children[man_1]
+}
+
+-- Defines numeric bound rule for class Man
+fact NumericBoundFact {
+  no man_1 : Man |
+    #man_1.children < 1 || #man_1.children > 5
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from AlloyExample1.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class Employee
+sig Employee {
+  worksIn : some Address
+}
+
+-- Defines a signature for class Address
+sig Address {
+  employees : some Employee
+}
+
+
+-- Defines constraints on association between Address and Employee
+fact AssociationFact {
+  Address <: employees in (Address) some -> some (Employee)
+}
+
+-- Defines bidirectionality rule between class Employee and class Address
+fact BidirectionalityRule {
+  all employee_1 : Employee, address_1 : Address |
+    employee_1 in employees[address_1] <=> address_1 in worksIn[employee_1]
+}
+
+-- Defines numeric bound rule for class Address
+fact NumericBoundFact {
+  no address_1 : Address |
+    #address_1.employees != 5
+}
+
+-- Defines numeric bound rule for class Employee
+fact NumericBoundFact {
+  no employee_1 : Employee |
+    #employee_1.worksIn != 4
+}
+
+
+------------------------------------------------------------------------------------------------------------------
+
+-- This Alloy file is generated using Umple from Alloy_Unidirectional.ump
+
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Defines a signature for class A
+sig A {
+  bs : set B
+}
+
+-- Defines a signature for class B
+sig B { }
+
+-- Defines a signature for class C
+sig C {
+  b : one B
+}
+
+
+-- Defines constraints on association between A and B
+fact AssociationFact {
+  A <: bs in (A) one -> set (B)
+}
+
+-- Defines constraints on association between C and B
+fact AssociationFact {
+  C <: b in (C) set -> set (B)
+}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

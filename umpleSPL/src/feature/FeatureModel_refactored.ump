@@ -1,0 +1,23 @@
+
+// Code for mixset FeatureModel : 
+
+
+class UmpleInternalParser { 
+    before Label_FeatureModel_51:analyze(boolean)
+  {
+        analyzeFeatureModel(); // lastly to analyze the feature model after all mixsets are added to umple model. 
+      }  }
+
+class UmpleInternalParser { 
+    before Label_FeatureModel_63:analyzeToken(Token,int)
+  {
+      analyzeRequireStatement(t, analysisStep);
+    }  }
+
+class UmpleInternalParser { 
+    before parseMixsetNotUsedToken(Token)
+  {
+      //parse require statments. 
+      analyzeRequireStatement(token, 2);
+    }  
+}

@@ -1,0 +1,194 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from UmpleParserStateMachineTest</title>
+    </head>
+    <body>
+        <pre>[ROOT:][classDefinition][name:BooleanGuards][attribute][type][baseType:Boolean][name:result][stateMachine][inlineStateMachine][name:status][state][stateName:s0][transition][event:go][guard][stringExpr][stringComplexExpression][constraintName][name:result][equalsOp:==][stringComplexExpression][constraintName][name:true][stateName:s1][state][stateName:s1][transition][event:go][guard][stringExpr][stringComplexExpression][constraintName][name:result][notequalsOp:!=][stringComplexExpression][constraintName][name:true][stateName:s2][state][stateName:s2][transition][event:go][guard][stringExpr][stringComplexExpression][constraintName][name:result][equalsOp:==][stringComplexExpression][constraintName][name:false][stateName:s3][state][stateName:s3][transition][event:go][guard][stringExpr][stringComplexExpression][constraintName][name:result][notequalsOp:!=][stringComplexExpression][constraintName][name:false][stateName:s4][state][stateName:s4][transition][event:go][guard][stringExpr][stringComplexExpression][constraintName][name:true][equalsOp:==][stringComplexExpression][constraintName][name:result][stateName:s5][state][stateName:s5][transition][event:go][guard][stringExpr][stringComplexExpression][constraintName][name:false][equalsOp:==][stringComplexExpression][constraintName][name:result][stateName:s6][state][stateName:s6][transition][event:go][guard][loneBoolean][negativeConstraint][stringExpr][stringComplexExpression][negativeConstraint][constraintName][name:result][notequalsOp:!=][stringComplexExpression][constraintName][name:false][stateName:s7][state][stateName:s7][transition][event:go][guard][stringExpr][stringComplexExpression][negativeConstraint][constraintName][name:result][notequalsOp:!=][stringComplexExpression][constraintName][name:true][stateName:s0]
+[ROOT:][classDefinition][name:Course][stateMachine][inlineStateMachine][queued:queued][name:sm][state][stateName:register][state][stateName:full]
+&gt;&gt;16
+[ROOT:][classDefinition][name:Course][stateMachine][inlineStateMachine][pooled:pooled][name:sm][state][stateName:register][state][stateName:full]
+&gt;&gt;16
+[ROOT:][classDefinition][name:LightFixture][stateMachine][inlineStateMachine][queued:queued][name:bulb][state][stateName:On][state][stateName:Off]
+&gt;&gt;24
+[ROOT:][classDefinition][name:LightFixture][stateMachine][inlineStateMachine][pooled:pooled][name:bulb][state][stateName:On][state][stateName:Off]
+&gt;&gt;24
+[ROOT:][classDefinition][name:Test][stateMachine][inlineStateMachine][name:sm][state][stateName:start][state][stateName:n1][autoTransition][stateName:s2][autoTransition][stateName:s3][state][stateName:s2][state][stateName:s3]
+&gt;&gt;62
+[ROOT:][classDefinition][name:MicrowaveOven][stateMachine][inlineStateMachine][queued:queued][name:timeProcesser][state][stateName:time0][transition][event:startTime][guard][loneBoolean][constraintName][name:isTimerMode0][stateName:time1][state][stateName:time1][entryOrExitAction][type:entry][code:display("Timer: " + time);][transition][timer:1][guard][numExpr][constraintName][name:time][greaterOp:&gt;=][number:1][action][code:time--;][stateName:time1][inlineComment:after(1)  [time&gt;=1]/ {time--;} -&gt; timeOn;][transition][event:openedDoor][guard][loneBoolean][constraintName][name:isTimerMode][stateName:time2][transition][timer:2][guard][numExpr][constraintName][name:time][greaterOp:&gt;=][number:1][action][code:time--;][stateName:time3][transition][timer:1][guard][numExpr][constraintName][name:time][greaterOp:&gt;=][number:2][action][code:time--;][stateName:time4][transition][timer:3][guard][numExpr][constraintName][name:time][greaterOp:&gt;=][number:3][action][code:time--;][stateName:time5][transition][event:openedDoor][guard][loneBoolean][constraintName][name:isTimerMode2][stateName:time6][state][stateName:time2][state][stateName:time3][state][stateName:time4][state][stateName:time5][state][stateName:time6]
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][state][stateName:ss1][transition][event:e1][stateName:ss2][state][stateName:ss2][transition][event:e2][stateName:s2][state][stateName:s2][transition][event:e3][stateName:s1.s1]
+&gt;&gt;120
+[ROOT:][classDefinition][name:LightFixture][attribute][type][baseType:boolean][name:flag][value:false][attribute][type][baseType:boolean][name:x][value:true][stateMachine][inlineStateMachine][name:status][state][stateName:on][transition][event:turnOff][guard][loneBoolean][negativeConstraint][constraintName][name:flag][stateName:off][state][stateName:off][transition][event:turnOn0][guard][loneBoolean][negativeConstraint][loneBoolean][negativeConstraint][loneBoolean][negativeConstraint][constraintBody][loneBoolean][constraintName][name:flag][andOp:&amp;&amp;][linkingOpBody][loneBoolean][constraintName][name:flag][stateName:on][transition][event:turnOn1][guard][loneBoolean][negativeConstraint][constraintBody][loneBoolean][negativeConstraint][constraintName][name:flag][andOp:&amp;&amp;][linkingOpBody][loneBoolean][negativeConstraint][constraintName][name:flag][stateName:on][transition][event:turnOn2][guard][loneBoolean][negativeConstraint][constraintBody][numExpr][constraintName][name:flag][lessOp:&lt;=][constraintName][name:flag][stateName:on][transition][event:turnOn3][guard][loneBoolean][negativeConstraint][constraintBody][constraintBody][stringExpr][stringComplexExpression][constraintName][name:flag][equalsOp:==][stringComplexExpression][constraintName][name:flag][andOp:&amp;&amp;][linkingOpBody][constraintBody][loneBoolean][negativeConstraint][constraintName][name:flag][andOp:&amp;&amp;][linkingOpBody][loneBoolean][negativeConstraint][constraintName][name:flag][stateName:on][transition][event:turnOn4][guard][loneBoolean][negativeConstraint][constraintBody][constraintBody][loneBoolean][negativeConstraint][constraintName][name:flag][andOp:&amp;&amp;][linkingOpBody][loneBoolean][constraintName][name:x][orOp:||][linkingOpBody][constraintBody][loneBoolean][negativeConstraint][constraintName][name:x][andOp:&amp;&amp;][linkingOpBody][loneBoolean][negativeConstraint][constraintName][name:x][stateName:on]
+[ROOT:][classDefinition][name:CarWindowController][stateMachine][inlineStateMachine][name:CarWindow][state][stateName:Open][extraCode:up[x.y -&gt; Closing;]
+&gt;&gt;58
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][state][stateName:ss1][transition][event:e1][stateName:ss2][state][stateName:ss2][transition][event:e2][stateName:s2.ss1][state][stateName:s2][state][stateName:ss1][transition][event:e4][stateName:s2.ss2][state][stateName:ss2][transition][event:e3][stateName:s1.ss1]
+&gt;&gt;44
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][state][stateName:sb][autoTransition][stateName:s3.sa]
+&gt;&gt;57
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][state][stateName:sb][transition][event:e][stateName:s3.s2.sa]
+&gt;&gt;57
+[ROOT:][classDefinition][name:Test][stateMachine][inlineStateMachine][name:sm][state][stateName:start][autoTransition][activity][code:System.out.println("Activity 1");][stateName:s2][autoTransition][activity][code:System.out.println("Activity 2");][stateName:s3][state][stateName:s2][state][stateName:s3]
+&gt;&gt;89
+On
+Off
+Amber
+test1
+test2
+s1
+s2
+On
+Off
+Test
+On
+Off
+Amber
+S1
+S2
+S3
+s1
+s1
+[ROOT:][classDefinition][name:PooledSMwithUnspecifiedReception][stateMachine][inlineStateMachine][pooled:pooled][name:sm][state][stateName:s1][transition][event:e1][stateName:s2][transition][event:unspecified][stateName:error1][state][stateName:s1][state][stateName:error1][autoTransition][stateName:s1]
+&gt;&gt;84
+[ROOT:][classDefinition][name:OtherClass][inlineAssociation][inlineAssociationEnd][bound:*][arrow:-&gt;][associationEnd][bound:1][type:Another][attribute][type][baseType:Integer][name:row][attribute][type][baseType:Integer][name:row2][classDefinition][name:Another][attribute][type][baseType:Integer][name:junk][classDefinition][name:Statemachine][inlineAssociation][inlineAssociationEnd][bound:*][arrow:-&gt;][associationEnd][bound:1][type:OtherClass][roleName:other][attribute][type][baseType:Boolean][name:cond][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][transition][event:event1][guard][numExpr][constraintName][name:other][constraintScopeOperator][constraintName][name:another][constraintScopeOperator][constraintName][name:junk][equalsOp:==][number:3][stateName:s3][transition][event:event1][guard][numExpr][constraintName][name:other][constraintScopeOperator][constraintName][name:another][constraintScopeOperator][constraintName][name:junk][equalsOp:==][number:3][stateName:s1][transition][event:event1][guard][loneBoolean][constraintName][name:cond][andOp:&amp;&amp;][linkingOpBody][numExpr][constraintName][name:other][constraintScopeOperator][constraintName][name:row][moreOp:&gt;][number:4][stateName:s2][transition][event:event1][guard][loneBoolean][constraintName][name:cond][andOp:&amp;&amp;][linkingOpBody][numExpr][constraintName][name:other][constraintScopeOperator][constraintName][name:row][equalsOp:==][number:3][stateName:s3][transition][event:event1][guard][loneBoolean][constraintName][name:cond][andOp:&amp;&amp;][linkingOpBody][numExpr][constraintName][name:other][constraintScopeOperator][constraintName][name:row][equalsOp:==][number:3][stateName:s1][state][stateName:s3]
+&gt;&gt;243
+[ROOT:][classDefinition][name:OtherClass][inlineAssociation][inlineAssociationEnd][bound:*][arrow:-&gt;][associationEnd][bound:1][type:Another][attribute][type][baseType:Integer][name:row][attribute][type][baseType:Integer][name:row2][classDefinition][name:Another][attribute][type][baseType:Integer][name:junk][classDefinition][name:Statemachine][inlineAssociation][inlineAssociationEnd][bound:*][arrow:-&gt;][associationEnd][bound:1][type:OtherClass][roleName:other][attribute][type][baseType:Boolean][name:cond][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][transition][event:event1][guard][numExpr][constraintName][name:other][constraintScopeOperator][constraintName][name:another][constraintScopeOperator][constraintName][name:junk][equalsOp:==][number:3][stateName:s3][transition][event:event1][guard][numExpr][constraintName][name:other][constraintScopeOperator][constraintName][name:another][constraintScopeOperator][constraintName][name:junk][equalsOp:==][number:3][stateName:s1][transition][event:event1][guard][loneBoolean][constraintName][name:cond][andOp:&amp;&amp;][linkingOpBody][numExpr][constraintName][name:other][constraintScopeOperator][constraintName][name:row][moreOp:&gt;][number:4][stateName:s2][transition][event:event1][guard][loneBoolean][constraintName][name:cond][andOp:&amp;&amp;][linkingOpBody][numExpr][constraintName][name:other][constraintScopeOperator][constraintName][name:row][equalsOp:==][number:3][stateName:s3][transition][event:event1][guard][loneBoolean][constraintName][name:cond][andOp:&amp;&amp;][linkingOpBody][numExpr][constraintName][name:other][constraintScopeOperator][constraintName][name:row][equalsOp:==][number:3][stateName:s1][state][stateName:s3]
+&gt;&gt;375
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:state1][transition][event:e1][stateName:state2][state][stateName:state2][transition][event:e2][stateName:state1][transition][event:e2][stateName:state1]
+&gt;&gt;95
+[ROOT:][classDefinition][name:X][attribute][type][baseType:Integer][name:b][value:0][stateMachine][inlineStateMachine][name:sm][state][stateName:state1][transition][event:e1][stateName:state2][state][stateName:state2][transition][event:e2][stateName:state1][transition][event:e2][guard][numExpr][constraintName][name:b][smallerOp:&lt;][number:1][stateName:state1]
+&gt;&gt;111
+[ROOT:][classDefinition][name:X][attribute][type][baseType:Integer][name:b][value:0][stateMachine][inlineStateMachine][name:sm][state][stateName:state1][transition][event:e1][stateName:state2][state][stateName:state2][transition][event:e2][guard][numExpr][constraintName][name:b][smallerOp:&lt;][number:1][stateName:state1][transition][event:e2][stateName:state1]
+[ROOT:][classDefinition][name:X][attribute][type][baseType:Integer][name:b][value:0][stateMachine][inlineStateMachine][name:sm][state][stateName:state1][state][stateName:substate1][transition][event:e][guard][numExpr][constraintName][name:b][moreOp:&gt;][number:1][stateName:state2][transition][event:e][stateName:state3][state][stateName:state2][transition][event:e][stateName:state1][state][stateName:state3][transition][event:e][stateName:state2]
+&gt;&gt;79
+[ROOT:][classDefinition][name:X][attribute][type][baseType:Integer][name:b][value:0][stateMachine][inlineStateMachine][name:sm][state][stateName:state1][transition][event:e][stateName:state3][state][stateName:substate1][transition][event:e][stateName:state2][state][stateName:substate2][transition][event:e][stateName:state2][state][stateName:state2][transition][event:e][stateName:state1][state][stateName:state3][transition][event:e][stateName:state2]
+&gt;&gt;92
+[ROOT:][classDefinition][name:X][attribute][type][baseType:Integer][name:b][value:0][stateMachine][inlineStateMachine][name:sm][state][stateName:state1][state][stateName:substate1][transition][event:e][stateName:state2][state][stateName:substate2][transition][event:e][stateName:state2][transition][event:e][stateName:state3][state][stateName:state2][transition][event:e][stateName:state1][state][stateName:state3][transition][event:e][stateName:state2]
+&gt;&gt;73
+[ROOT:][classDefinition][name:X][attribute][type][baseType:Integer][name:b][value:0][stateMachine][inlineStateMachine][name:sm][state][stateName:state1][transition][event:e][guard][numExpr][constraintName][name:b][moreOp:&gt;][number:1][stateName:state3][state][stateName:substate1][transition][event:e][stateName:state2][state][stateName:state2][transition][event:e][stateName:state1][state][stateName:state3][transition][event:e][stateName:state2]
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][transition][timer:2][stateName:s2][transition][event:e1][stateName:s1][state][stateName:s2][transition][event:e2][stateName:s1]
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][state][stateName:sa][autoTransition][stateName:sb][state][stateName:sb][transition][event:e1][stateName:sa][transition][event:e2][stateName:sa]
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][transition][event:e][stateName:s3][autoTransition][stateName:s2][autoTransition][stateName:s3][state][stateName:s2][state][stateName:s3]
+&gt;&gt;62
+[ROOT:][classDefinition][name:Authorizer][stateMachine][inlineStateMachine][name:validatingPINSM][state][stateName:waitingForDigit][state][stateName:waitingDigit][transition][event:digit][parameterList][parameter][type][baseType:List][name:d][action][code:authenticate(d);][stateName:waitingForDigit][transition][timer:10][action][code:System.out.println("TIMEOUT");][stateName:waitingForDigit]
+S1
+S2
+cruise.umple.compiler.Transition@80e4204e[isInternal:false,autoTransition:false]
+  position=[9,2]
+  event = 6c2c1385
+  fromState = 7582ff54
+  nextState = 67545b57
+  guard = null
+  action = 5f354bcf
+cruise.umple.compiler.Transition@58a892de[isInternal:false,autoTransition:false]
+  position=[11,2]
+  event = 3daf7722
+  fromState = 67545b57
+  nextState = 7582ff54
+  guard = null
+  action = null
+S1
+S2
+e2
+e1
+S1
+S2
+e2
+e1
+S1
+S2
+e1
+e2
+S1
+S2
+__autotransition12__
+__autotransition13__
+[ROOT:][classDefinition][name:C][stateMachine][inlineStateMachine][name:stateMachineName][standAloneTransition][event:e2][fromState:S8][toState:S6]
+&gt;&gt;33
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][state][stateName:t1][transition][event:goT2][stateName:t2][state][stateName:t2][||:||][state][stateName:t3][transition][event:goT4][stateName:t4][state][stateName:t4]
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][state][stateName:ss1][transition][event:e1][stateName:ss2][state][stateName:ss2][transition][event:e2][stateName:s2][state][stateName:s2][transition][event:e3][stateName:s1.ss1]
+[ROOT:][classDefinition][name:BigStateMachineTest][stateMachine][inlineStateMachine][name:sm][state][stateName:Zxab][state][stateName:Zx][state][stateName:Z][transition][event:e3][stateName:X][transition][event:e2][stateName:A][state][stateName:X][transition][event:e5][stateName:G][state][stateName:A][transition][event:e5][stateName:D][transition][event:e3][stateName:B][state][stateName:B][transition][event:e3][stateName:Ge][transition][event:e1][stateName:E][transition][event:e4][stateName:Ge][state][stateName:D][transition][event:e5][stateName:X][transition][event:e2][stateName:E][state][stateName:Ge][state][stateName:G][transition][event:e1][stateName:B][state][stateName:E][transition][event:e1][stateName:G][transition][event:e2][stateName:G]
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][transition][event:e][stateName:s2][transition][event:e4][stateName:s4][state][stateName:s1][transition][event:e1][stateName:s2][state][stateName:s2][state][stateName:s3][transition][event:e6][stateName:s1][state][stateName:s3][state][stateName:s1][transition][event:e7][stateName:s2][stateMachine][inlineStateMachine][name:sm][state][stateName:s8][transition][event:e9][stateName:s9][state][stateName:s9][classDefinition][name:X][attribute][name:a][stateMachine][inlineStateMachine][name:sm][state][stateName:s4][state][stateName:s5]
+&gt;&gt;140
+Transition to 's1' has multiple possible destinations. Please use dot notation to clarify what state the transition should go to
+State 's1' from StateMachine 's2' is non-reachable.
+State 's8' from StateMachine 'sm' is non-reachable.
+State 's9' from StateMachine 'sm' is non-reachable.
+State 's5' from StateMachine 'sm' is non-reachable.
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][state][stateName:s1a][transition][event:e][stateName:s2a][state][stateName:s1b][state][stateName:s2][state][stateName:s2a][state][stateName:s2b][transition][event:e][stateName:s1b]
+&gt;&gt;52
+State 's1b' from StateMachine 's1' is non-reachable.
+State 's2b' from StateMachine 's2' is non-reachable.
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][state][stateName:s1a][transition][event:e1][stateName:s1a][state][stateName:s1b][state][stateName:s2][state][stateName:s2a][state][stateName:s2b]
+&gt;&gt;52
+State 's1b' from StateMachine 's1' is non-reachable.
+State 's2' from StateMachine 'sm' is non-reachable.
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][state][stateName:s2]
+[ROOT:][classDefinition][name:LightFixture][stateMachine][inlineStateMachine][name:bulb][state][stateName:On][state][stateName:A][transition][event:ea][stateName:B][state][stateName:B][state][stateName:B1][state][stateName:B2][||:||][state][stateName:C][transition][event:eb][stateName:D2][state][stateName:D][state][stateName:D1][state][stateName:D2][||:||][state][stateName:E][state][stateName:E1][state][stateName:E2][transition][event:ee][stateName:F1][state][stateName:F][state][stateName:F1][transition][event:ef][stateName:F2][state][stateName:F2][||:||][state][stateName:G][state][stateName:G1][transition][event:eg][stateName:G2][state][stateName:G2][transition][event:eg2][stateName:I][state][stateName:I][state][stateName:I1][transition][event:eg3][stateName:I2][state][stateName:I2]
+&gt;&gt;106
+State 'B2' from StateMachine 'B' is non-reachable.
+State 'D1' from StateMachine 'D' is non-reachable.
+State 'E2' from StateMachine 'E' is non-reachable.
+State 'F' from StateMachine 'E' is non-reachable.
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][state][stateName:s1a][state][stateName:s2][state][stateName:s1b]
+&gt;&gt;56
+State 's2' from StateMachine 'sm' is non-reachable.
+[ROOT:][inlineComment:Xholon Digital Watch UML state machine written in Umple][inlineComment:From Empir Software Eng (2009) 14:685&ndash;719 DOI 10.1007/s10664-009-9106-z][inlineComment:By Cruz-Lemus, Genero, Manso, Morasca and Piattini][inlineComment:This is the nested version of the state machine][classDefinition][name:DigitalWatch][inlineComment:sx indicates that button X has been pressed][inlineComment:notSx indicates button x has been released][stateMachine][inlineStateMachine][name:sm][inlineComment:Main state displaying time][state][stateName:regular][state][stateName:time][transition][event:s1][stateName:date][transition][event:s2][stateName:alarmStatus][transition][event:s3][stateName:chronometer][transition][event:s3during2Secs][stateName:alarmTime][state][stateName:date][transition][event:notS1][stateName:time][state][stateName:update][transition][event:s3][stateName:time][inlineComment:States related to time update][state][stateName:second][transition][event:s1][stateName:minute][transition][event:s2][action][code:secondzero();][stateName:second][state][stateName:minute][transition][event:s1][stateName:hour][transition][event:s2][action][code:minute++;][stateName:minute][state][stateName:hour][transition][event:s1][stateName:month][transition][event:s2][action][code:hour++;][stateName:hour][state][stateName:month][transition][event:s1][stateName:day][transition][event:s2][action][code:month++;][stateName:month][state][stateName:day][transition][event:s1][stateName:year][transition][event:s2][action][code:day++;][stateName:day][state][stateName:year][transition][event:s1][stateName:second][transition][event:s2][action][code:year++;][stateName:year][inlineComment:States related to timer][state][stateName:chronometer][transition][event:s3][stateName:time][state][stateName:chronoNormal][state][stateName:paused][transition][event:s1][stateName:running][transition][event:s2][action][code:zero();][stateName:paused][state][stateName:running][transition][event:s1][stateName:paused][transition][event:s2][stateName:lapRunning][state][stateName:lapRunning][transition][event:s1][stateName:lapPaused][transition][event:s2][stateName:running][state][stateName:lapPaused][transition][event:s1][stateName:lapRunning][transition][event:s2][stateName:paused][inlineComment:States related to turning on and off charm or chime][state][stateName:alarmStatus][transition][event:notS2][stateName:time][state][stateName:bothOff][transition][event:s1][stateName:chimeOn][state][stateName:chimeOn][transition][event:s1][stateName:bothOn][state][stateName:bothOn][transition][event:s1][stateName:alarmOn][state][stateName:alarmOn][transition][event:s1][stateName:bothOff][inlineComment:States related to alarm update][state][stateName:alarmUpdate][transition][event:s3][stateName:second][state][stateName:alarmTime][transition][event:s1][stateName:alarmMinute][transition][event:s2][action][code:alarmHour++;][stateName:alarmHour][state][stateName:hourMinuteUpdate][state][stateName:alarmHour][transition][event:s1][stateName:alarmMinute][transition][event:s2][action][code:alarmHour++;][stateName:alarmHour][state][stateName:alarmMinute][transition][event:s1][stateName:alarmHour][transition][event:s2][action][code:alarmMinute++;][stateName:alarmMinute][attribute][type][baseType:Integer][name:day][value:0][attribute][type][baseType:Integer][name:month][value:0][attribute][type][baseType:Integer][name:year][value:2014][attribute][type][baseType:Integer][name:hour][value:0][attribute][type][baseType:Integer][name:minute][value:0][attribute][type][baseType:Integer][name:second][value:0][attribute][type][baseType:Integer][name:alarmHour][value:0][attribute][type][baseType:Integer][name:alarmMinute][value:0][attribute][type][baseType:Integer][name:alarmSecond][value:0][attribute][type][baseType:Integer][name:timer][value:0][concreteMethodDeclaration][type:void][methodDeclarator][methodName:secondzero][parameterList][code:setSecond(0);][concreteMethodDeclaration][type:void][methodDeclarator][methodName:zero][parameterList][code:setTimer(0);]
+[ROOT:][classDefinition][name:Test][stateMachine][inlineStateMachine][name:sm][state][stateName:a][transition][event:e][stateName:s1][state][stateName:s1][state][stateName:x][state][stateName:y][state][stateName:s1][state][stateName:s2][state][stateName:b][transition][event:e][stateName:s1][state][stateName:s1][state][stateName:s2][state][stateName:c][state][stateName:a][state][stateName:s1][transition][event:e][stateName:s1]
+&gt;&gt;25
+[ROOT:][classDefinition][name:Test][stateMachine][inlineStateMachine][name:sm][state][stateName:start][autoTransition][stateName:s2][autoTransition][stateName:s3][state][stateName:s2][state][stateName:s3]
+&gt;&gt;48
+[ROOT:][classDefinition][name:X][attribute][name:attr][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][transition][event:e][stateName:sa][state][stateName:s2][transition][event:f][stateName:s1][state][stateName:sa][transition][event:g][stateName:sb][state][stateName:sb][transition][event:h][stateName:sa][state][stateName:s3][state][stateName:sa][transition][event:g][stateName:s1][transition][event:h][stateName:sc][state][stateName:sb][state][stateName:sc][transition][event:k][stateName:sa]
+&gt;&gt;44
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][entryOrExitAction][type:entry][guardCode][code:condition][code:System.out.println("s1 entry!");][transition][event:hh][stateName:s2][entryOrExitAction][type:exit][guardCode][code:!condition2][code:System.out.println("s1 exit!");][state][stateName:s2][entryOrExitAction][type:entry][guardCode][code:condition3][code:System.out.println("s2 entry!");][transition][event:hhh][stateName:s1][entryOrExitAction][type:exit][guardCode][code:condition4][code:System.out.println("s2 exit!");]
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:status][state][stateName:on][transition][event:turnoff][stateName:off][transition][event:powerOff][stateName:FINAL][state][stateName:off][transition][event:turnOn][stateName:on][state][final:final][stateName:FINAL][activity][code:exe();]
+&gt;&gt;67
+Removed do activities, exit actions, transitions, and/or nested state machines from final State 'FINAL' of StateMachine 'status'
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:status][state][stateName:on][transition][event:turnoff][stateName:off][transition][event:powerOff][stateName:FINAL][state][stateName:off][transition][event:turnOn][stateName:on][state][final:final][stateName:FINAL][entryOrExitAction][type:exit][code:exit();]
+&gt;&gt;67
+Removed do activities, exit actions, transitions, and/or nested state machines from final State 'FINAL' of StateMachine 'status'
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:status][state][stateName:on][transition][event:turnoff][stateName:off][transition][event:powerOff][stateName:FINAL][state][stateName:off][transition][event:turnOn][stateName:on][state][final:final][stateName:FINAL][transition][event:reboot][stateName:on]
+&gt;&gt;67
+Removed do activities, exit actions, transitions, and/or nested state machines from final State 'FINAL' of StateMachine 'status'
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:status][state][stateName:on][transition][event:turnoff][stateName:off][transition][event:powerOff][stateName:FINAL][state][stateName:off][transition][event:turnOn][stateName:on][state][final:final][stateName:FINAL][state][stateName:nestedSm][state][stateName:s1][autoTransition][stateName:s2][state][stateName:s2]
+&gt;&gt;67
+Removed do activities, exit actions, transitions, and/or nested state machines from final State 'FINAL' of StateMachine 'status'
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:status][state][stateName:on][transition][event:turnoff][stateName:off][transition][event:powerOff][stateName:FINAL][state][stateName:off][transition][event:turnOn][stateName:on][state][final:final][stateName:FINAL][entryOrExitAction][type:entry][code:entry();]
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:status][state][stateName:on][transition][event:turnoff][stateName:off][transition][event:powerOff][stateName:FINAL][state][stateName:off][transition][event:turnOn][stateName:on][state][final:final][stateName:FINAL]
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][state][stateName:ss1][transition][event:e][stateName:s2.ss1.H][transition][event:e2][stateName:sss1][transition][event:e3][stateName:s2.ss2][transition][event:e4][stateName:s1.ss2][transition][event:e5][stateName:sss2][state][stateName:ss2][transition][event:e1][stateName:s2.ss2][state][stateName:s2][state][stateName:ss1][state][stateName:sss1][state][stateName:sss2][state][stateName:ss2]
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:s1][transition][event:e1][stateName:a][state][stateName:a][entryOrExitAction][type:entry][code:System.out.println("entering a");][transition][timer:1][stateName:b][transition][event:e3][stateName:c][state][stateName:b][entryOrExitAction][type:entry][code:System.out.println("entering b");][transition][event:e2][stateName:c][state][stateName:c][entryOrExitAction][type:entry][code:System.out.println("entering c");][concreteMethodDeclaration][modifier:public][static:static][type:void][methodDeclarator][methodName:main][parameterList][parameter][type][baseType:String][list:[ ]][name:args][code:X x = new X();
+    x.e1();
+    x.e2();]
+[ROOT:][inlineComment:UML state machine diagram of a traffic light system, written in Umple][classDefinition][name:IntersectionTimerDriven][inlineComment:Traffic lights are green for 25s in one direction][inlineComment:and 20s in the other.][attribute][type][baseType:Integer][name:directionOneGoTime][value:25000][attribute][type][baseType:Integer][name:directionTwoGoTime][value:20000][inlineComment:Lights are yellow for 5s][attribute][type][baseType:Integer][name:yellowTime][value:5000][inlineComment:Pedestrians have 10s extra warning][attribute][type][baseType:Integer][name:extraPedestrianWarning][value:10000][stateMachine][inlineStateMachine][name:flow][state][stateName:FourWayStop][entryOrExitAction][type:entry][code:direction_One_Light = DirectionOneLight.FlashingRed; direction_Two_Light = directionOneLight.FlashingRed;][transition][event:initiateRegularOperation][stateName:DirectionOneGo][state][stateName:DirectionOneGo][entryOrExitAction][type:entry][code:directionOneLight = directionOneLight.Green; directionTwoLight = directionTwoLight.Red;][transition][timer:directionOneGoTime][stateName:DirectionOneHalting][transition][event:detectMalfunction][stateName:FourWayStop][state][stateName:DirectionOneHalting][entryOrExitAction][type:entry][code:directionOneLight = directionOneLight.Yellow;][transition][timer:yellowTime][stateName:DirectionTwoGo][transition][event:detectMalfunction][stateName:FourWayStop][state][stateName:DirectionTwoGo][entryOrExitAction][type:entry][code:directionOneLight = directionOneLight.Red; directionTwoLight = directionTwoLight.Green;][transition][timer:directionOneGoTime][stateName:DirectionTwoHalting][transition][event:detectMalfunction][stateName:FourWayStop][state][stateName:DirectionTwoHalting][entryOrExitAction][type:entry][code:directionTwoLight = directionTwoLight.Yellow;][transition][timer:yellowTime][stateName:DirectionOneGo][transition][event:detectMalfunction][stateName:FourWayStop][stateMachine][inlineStateMachine][name:pedestrianFlow][state][stateName:FourWayStop][entryOrExitAction][type:entry][code:P1Light = P1Light.DoNotWalk;  P2Light = P2Light.DoNotWalk;][transition][event:initiateRegularOperation][stateName:P2Go][state][stateName:P1Go][entryOrExitAction][type:entry][code:P1Light = P1Light.Walk;][transition][timer:directionOneGoTime-extraPedestrianWarning][stateName:P1Halting][transition][event:detectMalfunction][stateName:FourWayStop][state][stateName:P1Halting][entryOrExitAction][type:entry][code:P1Light = P1Light.FlashingP1Light;][transition][timer:extraPedestrianWarning+yellowTime][stateName:P2Go][transition][event:detectMalfunction][stateName:FourWayStop][state][stateName:P2Go][entryOrExitAction][type:entry][code:P2Light = P2Light.Walk;][transition][timer:directionTwoGoTime-extraPedestrianWarning][stateName:P2Halting][transition][event:detectMalfunction][stateName:FourWayStop][state][stateName:P2Halting][entryOrExitAction][type:entry][code:P2Light = P2Light.Flashing;][transition][timer:extraPedestrianWarning+yellowTime][stateName:P1Go][transition][event:detectMalfunction][stateName:FourWayStop][stateMachine][inlineStateMachine][name:directionOneLight][state][stateName:FlashingRed][state][stateName:Red][state][stateName:Yellow][state][stateName:Green][stateMachine][inlineStateMachine][name:directionTwoLight][state][stateName:FlashingRed][state][stateName:Red][state][stateName:Yellow][state][stateName:Green][stateMachine][inlineStateMachine][name:P1Light][state][stateName:DoNotWalk][state][stateName:Flashing][state][stateName:Walk][stateMachine][inlineStateMachine][name:P2Light][state][stateName:DoNotWalk][state][stateName:Flashing][state][stateName:Walk]
+[ROOT:][classDefinition][name:BadSM][attribute][type][baseType:boolean][name:someValue][value:false][stateMachine][inlineStateMachine][name:sm][state][stateName:state1][entryOrExitAction][type:entry][code:someValue = true;][extraCode:transition &gt; state2;
+      exit / {someValue = false;}][state][stateName:state2][transition][event:transition][guard][loneBoolean][negativeConstraint][constraintName][name:isGuarded][constraintParameterList][stateName:state1]
+&gt;&gt;106
+[ROOT:][classDefinition][name:BadSM][exception][malformedStatemachine1][stuff:sm][innerstuff:boolean someValue = false;
+    state1
+    {
+      entry / {someValue = true;}
+      transition -&gt; state2;
+      exit / {someValue = false;}
+    }
+    state2
+    {
+      transition [!isGuarded()] -&gt; state1;
+    }]
+&gt;&gt;16
+[ROOT:][classDefinition][name:BadSM][attribute][type][baseType:boolean][name:someValue][value:false][stateMachine][inlineStateMachine][name:sm][state][stateName:state1][entryOrExitAction][type:entry][code:someValue = true;][transition][event:transition][stateName:state2][entryOrExitAction][type:exit][code:someValue = false;][state][stateName:state2][extraCode:transition -&gt;  [!isGuarded()] state1;]
+&gt;&gt;191
+[ROOT:][classDefinition][name:BadSM][attribute][type][baseType:boolean][name:someValue][value:false][stateMachine][inlineStateMachine][name:sm][state][stateName:state1][state][stateName:entry][extraCode:someValue = true;][transition][event:transition][stateName:state2][entryOrExitAction][type:exit][code:someValue = false;][state][stateName:state2][transition][event:transition][guard][loneBoolean][negativeConstraint][constraintName][name:isGuarded][constraintParameterList][stateName:state1]
+&gt;&gt;79
+[ROOT:][classDefinition][name:BadSM][attribute][type][baseType:boolean][name:someValue][value:false][stateMachine][inlineStateMachine][name:sm][state][stateName:state1][entryOrExitAction][type:entry][code:someValue = true;][extraCode:transition -&gt; state2
+      exit / {someValue = false;}][state][stateName:state2][transition][event:transition][guard][loneBoolean][negativeConstraint][constraintName][name:isGuarded][constraintParameterList][stateName:state1]
+&gt;&gt;106
+[ROOT:][classDefinition][name:BadSM][attribute][type][baseType:boolean][name:someValue][value:false][stateMachine][inlineStateMachine][name:sm][state][stateName:state1][entryOrExitAction][type:entry][code:someValue = true;][transition][event:transition][stateName:state2][entryOrExitAction][type:exit][code:someValue = false;][state][stateName:state2][extraCode:transition !isGuarded()] -&gt; state1;]
+&gt;&gt;191
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:state1][transition][event:e1][stateName:state2][state][stateName:state2][transition][event:e2][stateName:state3]
+&gt;&gt;75
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:state1][transition][event:e1][stateName:state2][state][stateName:state2][transition][event:e2][stateName:state4][state][stateName:state3][transition][event:e3][stateName:state4]
+&gt;&gt;75
+[ROOT:][classDefinition][name:X][stateMachine][inlineStateMachine][name:sm][state][stateName:state1][transition][event:e1][stateName:state2][state][stateName:state2][transition][event:e2][stateName:state4][state][stateName:state3][transition][event:e3][stateName:state4]
+&gt;&gt;113
+</pre>
+    </body>
+</html>

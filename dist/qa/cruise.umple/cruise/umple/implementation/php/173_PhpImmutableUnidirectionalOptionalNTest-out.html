@@ -1,0 +1,182 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from PhpImmutableUnidirectionalOptionalNTest</title>
+    </head>
+    <body>
+        <pre>&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private $number;
+
+  //Student Associations
+  private $mentors;
+
+  //Helper Variables
+  private $canSetMentors;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aNumber, $allMentors)
+  {
+    $this-&gt;number = $aNumber;
+    $this-&gt;canSetMentors = true;
+    $this-&gt;mentors = array();
+    $didAddMentors = $this-&gt;setMentors($allMentors);
+    if (!$didAddMentors)
+    {
+      throw new Exception("Unable to create Student, must have 3 or fewer mentors, no duplicates. See http://manual.umple.org?RE001ViolationofImmutability.html");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getNumber()
+  {
+    return $this-&gt;number;
+  }
+
+  public function getMentor_index($index)
+  {
+    $aMentor = $this-&gt;mentors[$index];
+    return $aMentor;
+  }
+
+  public function getMentors()
+  {
+    $newMentors = $this-&gt;mentors;
+    return $newMentors;
+  }
+
+  public function numberOfMentors()
+  {
+    $number = count($this-&gt;mentors);
+    return $number;
+  }
+
+  public function hasMentors()
+  {
+    $has = $this-&gt;numberOfMentors() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfMentor($aMentor)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;mentors as $mentor)
+    {
+      if ($mentor-&gt;equals($aMentor))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public static function minimumNumberOfMentors()
+  {
+    return 0;
+  }
+
+  public static function maximumNumberOfMentors()
+  {
+    return 3;
+  }
+
+  private function setMentors($newMentors)
+  {
+    $wasSet = false;
+    if (!$this-&gt;canSetMentors) { return false; }
+    $this-&gt;canSetMentors = false;
+    $verifiedMentors = array();
+    foreach ($newMentors as $aMentor)
+    {
+      if (array_search($aMentor,$verifiedMentors) !== false)
+      {
+        continue;
+      }
+      $verifiedMentors[] = $aMentor;
+    }
+
+    if (count($verifiedMentors) != count($newMentors) || count($verifiedMentors) &gt; self::maximumNumberOfMentors())
+    {
+      return $wasSet;
+    }
+
+    $this-&gt;mentors = $verifiedMentors;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private $name;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aName)
+  {
+    $this-&gt;name = $aName;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getName()
+  {
+    return $this-&gt;name;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+</pre>
+    </body>
+</html>

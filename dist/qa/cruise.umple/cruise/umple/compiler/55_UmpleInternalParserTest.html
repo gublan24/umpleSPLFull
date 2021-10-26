@@ -1,0 +1,1302 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Unit Test Results: cruise.umple.compiler.UmpleInternalParserTest</title>
+        <link rel="stylesheet" type="text/css" title="Style" href="../../../stylesheet.css">
+        <script type="text/javascript" language="JavaScript">
+        var TestCases = new Array();
+        var cur;
+        
+    cur = TestCases['cruise.umple.compiler.UmpleInternalParserTest'] = new Array();
+    
+        cur['ant.core.lib'] = '/usr/local/Cellar/ant/1.10.9/libexec/lib/ant.jar';
+    
+        cur['ant.file'] = '/Users/abdulaziz/tmp/umple/build/build.umple.xml';
+    
+        cur['ant.file.LocalBuildProperties'] = '/Users/abdulaziz/tmp/umple/build/_local.xml';
+    
+        cur['ant.file.Template'] = '/Users/abdulaziz/tmp/umple/build/_template.xml';
+    
+        cur['ant.file.type'] = 'file';
+    
+        cur['ant.file.type.LocalBuildProperties'] = 'file';
+    
+        cur['ant.file.type.Template'] = 'file';
+    
+        cur['ant.file.type.Umple'] = 'file';
+    
+        cur['ant.file.type.UmpleCore'] = 'file';
+    
+        cur['ant.file.type.UmpleDeps'] = 'file';
+    
+        cur['ant.file.type.VersionLast'] = 'file';
+    
+        cur['ant.file.Umple'] = '/Users/abdulaziz/tmp/umple/build/build.xml';
+    
+        cur['ant.file.UmpleCore'] = '/Users/abdulaziz/tmp/umple/build/build.umple.xml';
+    
+        cur['ant.file.UmpleDeps'] = '/Users/abdulaziz/tmp/umple/build/build.deps.xml';
+    
+        cur['ant.file.VersionLast'] = '/Users/abdulaziz/tmp/umple/build/_versionLast.xml';
+    
+        cur['ant.home'] = '/usr/local/Cellar/ant/1.10.9/libexec';
+    
+        cur['ant.java.version'] = '15';
+    
+        cur['ant.library.dir'] = '/usr/local/Cellar/ant/1.10.9/libexec/lib';
+    
+        cur['ant.project.default-target'] = 'build';
+    
+        cur['ant.project.invoked-targets'] = 'template.test';
+    
+        cur['ant.project.name'] = 'UmpleCore';
+    
+        cur['ant.version'] = 'Apache Ant(TM) version 1.10.9 compiled on September 27 2020';
+    
+        cur['basedir'] = '/Users/abdulaziz/tmp/umple';
+    
+        cur['bin.path'] = 'cruise.umple/bin';
+    
+        cur['connectionTimeout'] = '30';
+    
+        cur['dist.dir'] = '/Users/abdulaziz/tmp/umple/dist';
+    
+        cur['dist.libs.dir'] = '/Users/abdulaziz/tmp/umple/dist/libs';
+    
+        cur['dist.path'] = '/Users/abdulaziz/tmp/umple/dist/cruise.umple';
+    
+        cur['dist.umple.docs.jar'] = 'umpledocs-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.docs.jar.prev'] = 'umpledocs-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.jar'] = 'umple-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.jar.prev'] = 'umple-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.run.jar'] = 'umplerun-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.run.jar.prev'] = 'umplerun-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.stats.jar'] = 'umplestats-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.stats.jar.prev'] = 'umplestats-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.sync.jar'] = 'umplesync-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.sync.jar.prev'] = 'umplesync-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.umplificator.jar'] = 'umpleumplificator-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.umplificator.jar.prev'] = 'umpleumplificator-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.validator.jar'] = 'umplevalidator-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.validator.jar.prev'] = 'umplevalidator-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['env.__CF_USER_TEXT_ENCODING'] = '0x1F5:0x0:0x0';
+    
+        cur['env.__CFBundleIdentifier'] = 'com.apple.Terminal';
+    
+        cur['env.DISPLAY'] = '/private/tmp/com.apple.launchd.8VZUm1G4zQ/org.xquartz:0';
+    
+        cur['env.GRADLE_HOME'] = '/Users/abdulaziz/.sdkman/candidates/gradle/current';
+    
+        cur['env.HOME'] = '/Users/abdulaziz';
+    
+        cur['env.JAVA_HOME'] = '/usr/local/opt/openjdk';
+    
+        cur['env.JAVA_MAIN_CLASS_3280'] = 'org.apache.tools.ant.launch.Launcher';
+    
+        cur['env.LANG'] = 'en_CA.UTF-8';
+    
+        cur['env.LOGNAME'] = 'abdulaziz';
+    
+        cur['env.PATH'] = '/Users/abdulaziz/.sdkman/candidates/gradle/current/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands';
+    
+        cur['env.PWD'] = '/Users/abdulaziz/tmp/umple/build';
+    
+        cur['env.SDKMAN_CANDIDATES_API'] = 'https://api.sdkman.io/2';
+    
+        cur['env.SDKMAN_CANDIDATES_DIR'] = '/Users/abdulaziz/.sdkman/candidates';
+    
+        cur['env.SDKMAN_DIR'] = '/Users/abdulaziz/.sdkman';
+    
+        cur['env.SDKMAN_PLATFORM'] = 'darwinx64';
+    
+        cur['env.SDKMAN_VERSION'] = '5.11.5+713';
+    
+        cur['env.SHELL'] = '/bin/zsh';
+    
+        cur['env.SHLVL'] = '1';
+    
+        cur['env.SSH_AUTH_SOCK'] = '/private/tmp/com.apple.launchd.qK4l0KXsgu/Listeners';
+    
+        cur['env.TERM'] = 'xterm-256color';
+    
+        cur['env.TERM_PROGRAM'] = 'Apple_Terminal';
+    
+        cur['env.TERM_PROGRAM_VERSION'] = '440';
+    
+        cur['env.TERM_SESSION_ID'] = '20D2790F-0FEC-4CCB-A10B-030C8F4ED298';
+    
+        cur['env.TMPDIR'] = '/var/folders/fm/7tjk7l8154x840c6vvrs49p40000gn/T/';
+    
+        cur['env.USER'] = 'abdulaziz';
+    
+        cur['env.XPC_FLAGS'] = '0x0';
+    
+        cur['env.XPC_SERVICE_NAME'] = '0';
+    
+        cur['file.encoding'] = 'UTF-8';
+    
+        cur['file.separator'] = '/';
+    
+        cur['first.build'] = 'false';
+    
+        cur['ftp.nonProxyHosts'] = 'local|*.local|169.254/16|*.169.254/16';
+    
+        cur['haltonfailure'] = 'false';
+    
+        cur['http.nonProxyHosts'] = 'local|*.local|169.254/16|*.169.254/16';
+    
+        cur['is.osx'] = 'true';
+    
+        cur['ivy.install.version'] = '2.4.0';
+    
+        cur['ivy.jar.file'] = '/Users/abdulaziz/.ant/lib/ivy-2.4.0.jar';
+    
+        cur['ivyResolveLogLevel'] = 'download-only';
+    
+        cur['ivyRetrieveLogLevel'] = 'quiet';
+    
+        cur['java.class.path'] = '/Users/abdulaziz/tmp/umple/cruise.umple/bin:/Users/abdulaziz/tmp/umple/dist/libs/core/ant-launcher.jar:/Users/abdulaziz/tmp/umple/dist/libs/core/ant.jar:/Users/abdulaziz/tmp/umple/dist/libs/core/jopt-simple.jar:/Users/abdulaziz/tmp/umple/dist/libs/test/hamcrest-core.jar:/Users/abdulaziz/tmp/umple/dist/libs/test/junit.jar:/Users/abdulaziz/.ant/lib/junit.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-launcher.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-junit.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-junit4.jar';
+    
+        cur['java.class.version'] = '59.0';
+    
+        cur['java.home'] = '/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home';
+    
+        cur['java.io.tmpdir'] = '/var/folders/fm/7tjk7l8154x840c6vvrs49p40000gn/T/';
+    
+        cur['java.library.path'] = '/Users/abdulaziz/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.';
+    
+        cur['java.runtime.name'] = 'OpenJDK Runtime Environment';
+    
+        cur['java.runtime.version'] = '15.0.1+9';
+    
+        cur['java.specification.name'] = 'Java Platform API Specification';
+    
+        cur['java.specification.vendor'] = 'Oracle Corporation';
+    
+        cur['java.specification.version'] = '15';
+    
+        cur['java.vendor'] = 'N/A';
+    
+        cur['java.vendor.url'] = 'https://openjdk.java.net/';
+    
+        cur['java.vendor.url.bug'] = 'https://bugreport.java.com/bugreport/';
+    
+        cur['java.version'] = '15.0.1';
+    
+        cur['java.version.date'] = '2020-10-20';
+    
+        cur['java.vm.compressedOopsMode'] = 'Zero based';
+    
+        cur['java.vm.info'] = 'mixed mode, sharing';
+    
+        cur['java.vm.name'] = 'OpenJDK 64-Bit Server VM';
+    
+        cur['java.vm.specification.name'] = 'Java Virtual Machine Specification';
+    
+        cur['java.vm.specification.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vm.specification.version'] = '15';
+    
+        cur['java.vm.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vm.version'] = '15.0.1+9';
+    
+        cur['jdk.debug'] = 'release';
+    
+        cur['jopt-simple.install.version'] = '4.4';
+    
+        cur['junit'] = '*Test';
+    
+        cur['last.version'] = '1.31.1.5860.78bb27cc6';
+    
+        cur['line.separator'] = '\n';
+    
+        cur['myenv'] = 'local';
+    
+        cur['online'] = 'true';
+    
+        cur['os.arch'] = 'x86_64';
+    
+        cur['os.name'] = 'Mac OS X';
+    
+        cur['os.version'] = '11.6';
+    
+        cur['path.separator'] = ':';
+    
+        cur['project.path'] = 'cruise.umple';
+    
+        cur['rake_cmd'] = 'rake';
+    
+        cur['shouldDeploy'] = 'false';
+    
+        cur['shouldPackageUmpleOnline'] = 'false';
+    
+        cur['showJunitOutput'] = 'false';
+    
+        cur['showJunitSummary'] = 'false';
+    
+        cur['socksNonProxyHosts'] = 'local|*.local|169.254/16|*.169.254/16';
+    
+        cur['sun.arch.data.model'] = '64';
+    
+        cur['sun.boot.library.path'] = '/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home/lib';
+    
+        cur['sun.cpu.endian'] = 'little';
+    
+        cur['sun.io.unicode.encoding'] = 'UnicodeBig';
+    
+        cur['sun.java.command'] = 'org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=/Users/abdulaziz/tmp/umple/junittestcases9945622084601822128.properties skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/abdulaziz/tmp/umple/dist/qa/cruise.umple/IGNORETHIS.xml crashfile=/Users/abdulaziz/tmp/umple/junitvmwatcher11280979461299836288.properties propsfile=/Users/abdulaziz/tmp/umple/junit10838995335343066243.properties';
+    
+        cur['sun.java.launcher'] = 'SUN_STANDARD';
+    
+        cur['sun.jnu.encoding'] = 'UTF-8';
+    
+        cur['sun.management.compiler'] = 'HotSpot 64-Bit Tiered Compilers';
+    
+        cur['test.output.path'] = '/Users/abdulaziz/tmp/umple/dist/qa/cruise.umple';
+    
+        cur['umple.deps.dir'] = '/Users/abdulaziz/tmp/umple/dist/libs';
+    
+        cur['umple.deps.manual.dir'] = '/Users/abdulaziz/tmp/umple/dist/libs/manual';
+    
+        cur['umple.ivy.dep.file'] = '/Users/abdulaziz/tmp/umple/build/ivy.xml';
+    
+        cur['umple.stable.jar'] = '/Users/abdulaziz/tmp/umple/dist/libs/umple-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['umple.version'] = '1.31.1.5860.78bb27cc6';
+    
+        cur['user.country'] = 'CA';
+    
+        cur['user.dir'] = '/Users/abdulaziz/tmp/umple/build';
+    
+        cur['user.home'] = '/Users/abdulaziz';
+    
+        cur['user.home.ant'] = '/Users/abdulaziz/.ant/lib';
+    
+        cur['user.language'] = 'en';
+    
+        cur['user.name'] = 'abdulaziz';
+    
+        cur['user.timezone'] = 'America/Toronto';
+    
+        cur['vendors.path'] = '/Users/abdulaziz/tmp/umple/dist/libs/vendors';
+    
+        cur['xtext.project.path'] = 'cruise.umple.xtext';
+    </script><script type="text/javascript" language="JavaScript">
+        function displayProperties (name) {
+          var win = window.open('','JUnitSystemProperties','scrollbars=1,resizable=1');
+          var doc = win.document;
+          doc.open();
+          doc.write("<html><head><title>Properties of " + name + "</title>");
+          doc.write("<style type=\"text/css\">");
+          doc.write("body {font:normal 68% verdana,arial,helvetica; color:#000000; }");
+          doc.write("table tr td, table tr th { font-size: 68%; }");
+          doc.write("table.properties { border-collapse:collapse; border-left:solid 1 #cccccc; border-top:solid 1 #cccccc; padding:5px; }");
+          doc.write("table.properties th { text-align:left; border-right:solid 1 #cccccc; border-bottom:solid 1 #cccccc; background-color:#eeeeee; }");
+          doc.write("table.properties td { font:normal; text-align:left; border-right:solid 1 #cccccc; border-bottom:solid 1 #cccccc; background-color:#fffffff; }");
+          doc.write("h3 { margin-bottom: 0.5em; font: bold 115% verdana,arial,helvetica }");
+          doc.write("</style>");
+          doc.write("</head><body>");
+          doc.write("<h3>Properties of " + name + "</h3>");
+          doc.write("<div align=\"right\"><a href=\"javascript:window.close();\">Close</a></div>");
+          doc.write("<table class='properties'>");
+          doc.write("<tr><th>Name</th><th>Value</th></tr>");
+          for (prop in TestCases[name]) {
+            doc.write("<tr><th>" + prop + "</th><td>" + TestCases[name][prop] + "</td></tr>");
+          }
+          doc.write("</table>");
+          doc.write("</body></html>");
+          doc.close();
+          win.focus();
+        }
+      
+      </script>
+    </head>
+    <body>
+        <h1>Unit Test Results.</h1>
+        <table width="100%">
+            <tr>
+                <td align="left"></td><td align="right">Designed for use with <a href="https://www.junit.org/">JUnit</a> and <a href="https://ant.apache.org/">Ant</a>.</td>
+            </tr>
+        </table>
+        <hr size="1">
+        <h3>Class cruise.umple.compiler.UmpleInternalParserTest</h3>
+        <table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
+            <tr valign="top">
+                <th width="80%">Name</th><th>Tests</th><th>Errors</th><th>Failures</th><th>Skipped</th><th nowrap>Time(s)</th><th nowrap>Time Stamp</th><th>Host</th>
+            </tr>
+            <tr valign="top" class="Pass">
+                <td><a title="Display all tests" href="55_UmpleInternalParserTest.html">UmpleInternalParserTest</a></td><td><a title="Display all tests" href="55_UmpleInternalParserTest.html">305</a></td><td>0</td><td>0</td><td><a title="Display only skipped tests" href="55_UmpleInternalParserTest-skipped.html">8</a></td><td>93.091</td><td>2021-10-26T14:23:05</td><td>Abdulazizs-MacBook-Pro.local</td>
+            </tr>
+        </table>
+        <h2>Tests</h2>
+        <table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
+            <tr valign="top">
+                <th>Name</th><th>Status</th><th width="80%">Type</th><th nowrap>Time(s)</th>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="warningConstantDeprecated"></a>warningConstantDeprecated</td><td>Success</td><td></td><td>0.200</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="externalDefinitionAndClassDefinitionCodeGeneration_externalLast"></a>externalDefinitionAndClassDefinitionCodeGeneration_externalLast</td><td>Success</td><td></td><td>0.202</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associationByItself"></a>associationByItself</td><td>Success</td><td></td><td>0.208</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attribute_ContainerType"></a>attribute_ContainerType</td><td>Success</td><td></td><td>0.189</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associationWithUnknownClass"></a>associationWithUnknownClass</td><td>Success</td><td></td><td>0.193</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="parseUmpleEnumerationDefinedInClass"></a>parseUmpleEnumerationDefinedInClass</td><td>Success</td><td></td><td>0.190</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="compositionParseTest_leftVarNames"></a>compositionParseTest_leftVarNames</td><td>Success</td><td></td><td>0.188</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="abstractClass"></a>abstractClass</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="propagateImmutabilityToAllRelationships"></a>propagateImmutabilityToAllRelationships</td><td>Success</td><td></td><td>0.201</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associationClassMultipleDefinitions"></a>associationClassMultipleDefinitions</td><td>Success</td><td></td><td>0.195</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="interfaceWithPosition"></a>interfaceWithPosition</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attributeFixml"></a>attributeFixml</td><td>Skipped</td><td>N/A
+                    <br>
+                    <br>
+                    <code></code></td><td>0.000</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="enumerationConflictsWithStateMachine"></a>enumerationConflictsWithStateMachine</td><td>Success</td><td></td><td>0.373</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="singletonWithConst"></a>singletonWithConst</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attribute_Type"></a>attribute_Type</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attribute_list"></a>attribute_list</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="is_A_NonExistingExtendsClass"></a>is_A_NonExistingExtendsClass</td><td>Success</td><td></td><td>0.732</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="toplevelExtracodeNoCodeLang"></a>toplevelExtracodeNoCodeLang</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="interfaceWithMultipleMembers"></a>interfaceWithMultipleMembers</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="toplevelBeforeForMultiClasses"></a>toplevelBeforeForMultiClasses</td><td>Success</td><td></td><td>0.185</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="classCanNotBeChangedToImmutableWithInvalidAssociations"></a>classCanNotBeChangedToImmutableWithInvalidAssociations</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="TestReservedRoleNameError32"></a>TestReservedRoleNameError32</td><td>Success</td><td></td><td>0.187</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multipleAssociationComments"></a>multipleAssociationComments</td><td>Success</td><td></td><td>0.202</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="association_nonZeroReflexiveAssociation"></a>association_nonZeroReflexiveAssociation</td><td>Success</td><td></td><td>0.188</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="warningClassNameCapitalLetter"></a>warningClassNameCapitalLetter</td><td>Success</td><td></td><td>0.185</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="methodDetection"></a>methodDetection</td><td>Success</td><td></td><td>0.184</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="nestedGenericTypes"></a>nestedGenericTypes</td><td>Success</td><td></td><td>0.369</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="twoCharacterMethod"></a>twoCharacterMethod</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attribute_autounique"></a>attribute_autounique</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="parseUmpleEnumerationDefinedAtTopLevel"></a>parseUmpleEnumerationDefinedAtTopLevel</td><td>Success</td><td></td><td>0.188</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attributeSharedName"></a>attributeSharedName</td><td>Success</td><td></td><td>0.914</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="isA_MultipleInterfacesAndClassesV2"></a>isA_MultipleInterfacesAndClassesV2</td><td>Success</td><td></td><td>0.184</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="methodParameterAmbiguityCausedByEnumeration"></a>methodParameterAmbiguityCausedByEnumeration</td><td>Success</td><td></td><td>0.554</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="isAttributeLazyRedundant"></a>isAttributeLazyRedundant</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="abstractInheritanceClass"></a>abstractInheritanceClass</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="invalidNamespace_noName"></a>invalidNamespace_noName</td><td>Success</td><td></td><td>0.179</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="interfaceWithMethodAndNOTParameters"></a>interfaceWithMethodAndNOTParameters</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="templateInexistentReference"></a>templateInexistentReference</td><td>Success</td><td></td><td>0.380</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="isA_MultipleTimesInTheSameLine"></a>isA_MultipleTimesInTheSameLine</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="operationNotFound"></a>operationNotFound</td><td>Success</td><td></td><td>0.365</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attribute_assignedValue"></a>attribute_assignedValue</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="interfaceImplementation"></a>interfaceImplementation</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="duplicateNamespace"></a>duplicateNamespace</td><td>Skipped</td><td>N/A
+                    <br>
+                    <br>
+                    <code></code></td><td>0.000</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multipleExtraCodeDoubleDeclaration"></a>multipleExtraCodeDoubleDeclaration</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="symmetricReflexiveAssociationError19"></a>symmetricReflexiveAssociationError19</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="symmetricReflexiveAssociationError23"></a>symmetricReflexiveAssociationError23</td><td>Success</td><td></td><td>0.185</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="singleton"></a>singleton</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="invalidClassNameStart"></a>invalidClassNameStart</td><td>Success</td><td></td><td>1.095</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="AssociationClassKeyNoWarnings"></a>AssociationClassKeyNoWarnings</td><td>Success</td><td></td><td>0.193</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multipleClasses"></a>multipleClasses</td><td>Success</td><td></td><td>0.184</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multipleMethodBodyWarning"></a>multipleMethodBodyWarning</td><td>Success</td><td></td><td>0.185</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="invalidClassNamePart"></a>invalidClassNamePart</td><td>Success</td><td></td><td>1.100</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="outputLanguagePathOverride"></a>outputLanguagePathOverride</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multivaluedAttributeInitialization"></a>multivaluedAttributeInitialization</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="autoGeneratedGetSetConstAttribute"></a>autoGeneratedGetSetConstAttribute</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="reflexiveMandatoryAssociationMayNotBeImmutable"></a>reflexiveMandatoryAssociationMayNotBeImmutable</td><td>Success</td><td></td><td>1.309</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="unknownClass"></a>unknownClass</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="validClassName"></a>validClassName</td><td>Success</td><td></td><td>1.079</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="depend"></a>depend</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="unknownInterface"></a>unknownInterface</td><td>Success</td><td></td><td>0.363</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multivaluedAttributeAssignment"></a>multivaluedAttributeAssignment</td><td>Success</td><td></td><td>0.370</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="nestedClassCyclicInheritance"></a>nestedClassCyclicInheritance</td><td>Success</td><td></td><td>1.087</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="assertSetFailedPosition"></a>assertSetFailedPosition</td><td>Success</td><td></td><td>0.741</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="extraCodeInterfaces"></a>extraCodeInterfaces</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="isA_ComplexCycle"></a>isA_ComplexCycle</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="generateSuboption"></a>generateSuboption</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="toplevelAspectsForMixset"></a>toplevelAspectsForMixset</td><td>Success</td><td></td><td>0.190</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="rubyLanguage"></a>rubyLanguage</td><td>Success</td><td></td><td>0.188</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="externalAssociationWithUnknownClassSecondPosition"></a>externalAssociationWithUnknownClassSecondPosition</td><td>Success</td><td></td><td>0.187</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="immutableOtherWayInternalAssociation"></a>immutableOtherWayInternalAssociation</td><td>Success</td><td></td><td>0.188</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attributeLooksLikeAssociation"></a>attributeLooksLikeAssociation</td><td>Success</td><td></td><td>0.364</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="warningUninitializedConstClass"></a>warningUninitializedConstClass</td><td>Success</td><td></td><td>0.186</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="validInterfaceName"></a>validInterfaceName</td><td>Success</td><td></td><td>1.094</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="whitespaceCharacter"></a>whitespaceCharacter</td><td>Skipped</td><td>N/A
+                    <br>
+                    <br>
+                    <code></code></td><td>0.000</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="AssociationClassCreatesKeyIfMissing"></a>AssociationClassCreatesKeyIfMissing</td><td>Success</td><td></td><td>0.189</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="interfaceWithSingleIsA"></a>interfaceWithSingleIsA</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineandAttributeNameClashing"></a>stateMachineandAttributeNameClashing</td><td>Success</td><td></td><td>0.185</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="referencedPackages"></a>referencedPackages</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="invalidInterfaceNamePart"></a>invalidInterfaceNamePart</td><td>Success</td><td></td><td>1.080</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="emptyClass"></a>emptyClass</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="association_invalidMultiplicityOutOfOrder"></a>association_invalidMultiplicityOutOfOrder</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associationClass2"></a>associationClass2</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="emptyMultiLineCommentWithSpaces"></a>emptyMultiLineCommentWithSpaces</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="immutableExternalOtherWayAssociation"></a>immutableExternalOtherWayAssociation</td><td>Success</td><td></td><td>0.186</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="invalidAssociationsForImmutableClass_independentlyDefined"></a>invalidAssociationsForImmutableClass_independentlyDefined</td><td>Success</td><td></td><td>0.548</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="abstractInterfaceExtends"></a>abstractInterfaceExtends</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="toplevelAfterAsteriskKeyword"></a>toplevelAfterAsteriskKeyword</td><td>Success</td><td></td><td>0.189</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="inlineComments"></a>inlineComments</td><td>Success</td><td></td><td>0.184</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attributeComplexAssigned"></a>attributeComplexAssigned</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="isA_SimpleCycle"></a>isA_SimpleCycle</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="symmetricReflexiveAssociation"></a>symmetricReflexiveAssociation</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associationMultilineComment"></a>associationMultilineComment</td><td>Success</td><td></td><td>0.184</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multipleIsA_MultipleClass_Inheritance"></a>multipleIsA_MultipleClass_Inheritance</td><td>Success</td><td></td><td>0.189</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="beforeKeyword"></a>beforeKeyword</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="keyCannotHaveDuplicateAttributes"></a>keyCannotHaveDuplicateAttributes</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="parseInterfaceCode"></a>parseInterfaceCode</td><td>Success</td><td></td><td>0.179</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="internalAttributeGetterMethod"></a>internalAttributeGetterMethod</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associationClass"></a>associationClass</td><td>Success</td><td></td><td>1.091</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attribute_defaultedWithoutAValue"></a>attribute_defaultedWithoutAValue</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="autoGeneratedGetSetLazyImmutableAttribute"></a>autoGeneratedGetSetLazyImmutableAttribute</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="notUsedNamespace"></a>notUsedNamespace</td><td>Success</td><td></td><td>0.718</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="autoGeneratedGetSetAutouniqueAttribute"></a>autoGeneratedGetSetAutouniqueAttribute</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associationsForMutableClassesParseSuccessfully"></a>associationsForMutableClassesParseSuccessfully</td><td>Success</td><td></td><td>0.189</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="toplevelExtracode"></a>toplevelExtracode</td><td>Success</td><td></td><td>0.186</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="isA_MultipleInterfacesAndClasses"></a>isA_MultipleInterfacesAndClasses</td><td>Success</td><td></td><td>0.185</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="isA_SimpleCycle_WithKey"></a>isA_SimpleCycle_WithKey</td><td>Success</td><td></td><td>0.186</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="duplicateAttributesNames"></a>duplicateAttributesNames</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attributeAndAssociationNameClashingUnidirectional"></a>attributeAndAssociationNameClashingUnidirectional</td><td>Success</td><td></td><td>2.730</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associationClassPosition"></a>associationClassPosition</td><td>Success</td><td></td><td>0.185</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="duplicateEnumsInClass"></a>duplicateEnumsInClass</td><td>Success</td><td></td><td>0.189</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="toplevelBeforeKeywordAtBegining"></a>toplevelBeforeKeywordAtBegining</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="interfaceWithMultipleIsA"></a>interfaceWithMultipleIsA</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="validAssociationsForImmutableClass_independentlyDefined"></a>validAssociationsForImmutableClass_independentlyDefined</td><td>Success</td><td></td><td>0.735</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attributeAndAssociationNameClashingBidirectional"></a>attributeAndAssociationNameClashingBidirectional</td><td>Success</td><td></td><td>1.657</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associationInlineComment"></a>associationInlineComment</td><td>Success</td><td></td><td>0.185</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="is_A_SimpleCycle_Interface"></a>is_A_SimpleCycle_Interface</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="filterWithAttributeInTrait"></a>filterWithAttributeInTrait</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="parseUmpleEnumerationDefinedAtTopLevelAndInClass"></a>parseUmpleEnumerationDefinedAtTopLevelAndInClass</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="nestedUseStatements"></a>nestedUseStatements</td><td>Success</td><td></td><td>0.185</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="commentsBeforeClasses"></a>commentsBeforeClasses</td><td>Success</td><td></td><td>0.184</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="enumAttributeEmpty"></a>enumAttributeEmpty</td><td>Success</td><td></td><td>0.184</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="autoGeneratedGetSetBasicAttribute"></a>autoGeneratedGetSetBasicAttribute</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="queuedMethods"></a>queuedMethods</td><td>Success</td><td></td><td>0.362</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multiInject"></a>multiInject</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="invalidAssociationsForImmutableClass"></a>invalidAssociationsForImmutableClass</td><td>Success</td><td></td><td>0.733</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associationClassMissingLeft"></a>associationClassMissingLeft</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="classAndNamespaces"></a>classAndNamespaces</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="glossary"></a>glossary</td><td>Success</td><td></td><td>0.188</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="reflexiveAndError21CasesNonDirected"></a>reflexiveAndError21CasesNonDirected</td><td>Success</td><td></td><td>0.729</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="warningUninitializedConstObjectClass"></a>warningUninitializedConstObjectClass</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="upperCaseAssociationKey"></a>upperCaseAssociationKey</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="externalDefinitionAndClassDefinitionCodeGeneration_externalMiddle"></a>externalDefinitionAndClassDefinitionCodeGeneration_externalMiddle</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="afterKeyword"></a>afterKeyword</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multipleEmptyCommentsWithSpaces"></a>multipleEmptyCommentsWithSpaces</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="phpLanguage"></a>phpLanguage</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multLanguageImplementation"></a>multLanguageImplementation</td><td>Success</td><td></td><td>1.269</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="classPosition_default"></a>classPosition_default</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="keyWithInitializedAttribute"></a>keyWithInitializedAttribute</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="superclassCanNotBeChangedToImmutableWithInvalidAssociationsInSubclass"></a>superclassCanNotBeChangedToImmutableWithInvalidAssociationsInSubclass</td><td>Success</td><td></td><td>0.184</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="emptyMultiLineComment"></a>emptyMultiLineComment</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="commentsInClass"></a>commentsInClass</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="isA_MultipleInterfaces"></a>isA_MultipleInterfaces</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="immutableAssociationMayNotHaveMutableClassAtDirectedEnd"></a>immutableAssociationMayNotHaveMutableClassAtDirectedEnd</td><td>Success</td><td></td><td>1.294</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="immutableClassMayNotContainStateMachines"></a>immutableClassMayNotContainStateMachines</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineConcurrencyBetweenStates"></a>stateMachineConcurrencyBetweenStates</td><td>Success</td><td></td><td>0.184</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associationClassNewSyntax"></a>associationClassNewSyntax</td><td>Success</td><td></td><td>0.186</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="singletonAttributeNotLazy"></a>singletonAttributeNotLazy</td><td>Success</td><td></td><td>0.184</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attribute_Unique"></a>attribute_Unique</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="generateSuboptionOverride"></a>generateSuboptionOverride</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="invalidInterfaceNameStart"></a>invalidInterfaceNameStart</td><td>Success</td><td></td><td>1.083</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="mixin_redefiningAMethod"></a>mixin_redefiningAMethod</td><td>Success</td><td></td><td>2.029</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="noDefaultNamespace"></a>noDefaultNamespace</td><td>Success</td><td></td><td>0.586</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="conflictingModifiersForStateDependentMethods"></a>conflictingModifiersForStateDependentMethods</td><td>Success</td><td></td><td>0.186</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="toplevelAfterGlobClassName"></a>toplevelAfterGlobClassName</td><td>Success</td><td></td><td>0.369</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="association"></a>association</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="compositionParseTest_DoubleDefinition"></a>compositionParseTest_DoubleDefinition</td><td>Success</td><td></td><td>0.179</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="interfaceWithConstants"></a>interfaceWithConstants</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associationWithClassAndInterface"></a>associationWithClassAndInterface</td><td>Success</td><td></td><td>0.555</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="positionUnknownAssociation"></a>positionUnknownAssociation</td><td>Success</td><td></td><td>0.187</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="codeBlockMultiLanguage"></a>codeBlockMultiLanguage</td><td>Success</td><td></td><td>0.185</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attribute_derived"></a>attribute_derived</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="toplevelAfterGlobOperationNameOnTrait"></a>toplevelAfterGlobOperationNameOnTrait</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="key"></a>key</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="test"></a>test</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="validAssociationsForImmutableClass"></a>validAssociationsForImmutableClass</td><td>Success</td><td></td><td>0.733</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="classWithImplementedMethods"></a>classWithImplementedMethods</td><td>Success</td><td></td><td>0.188</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="enumLongHandSyntax"></a>enumLongHandSyntax</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associationClassAdditionalAssociations"></a>associationClassAdditionalAssociations</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="enumerationInBidirectionalAssoc"></a>enumerationInBidirectionalAssoc</td><td>Success</td><td></td><td>0.363</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="toplevelInjectMultipleMethods"></a>toplevelInjectMultipleMethods</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="debugKeyword"></a>debugKeyword</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="interfaceWithExtraCode"></a>interfaceWithExtraCode</td><td>Success</td><td></td><td>0.179</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="javaLanguage"></a>javaLanguage</td><td>Success</td><td></td><td>0.179</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="empty"></a>empty</td><td>Success</td><td></td><td>0.178</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="positionAssociationClass_NoAssociation"></a>positionAssociationClass_NoAssociation</td><td>Skipped</td><td>N/A
+                    <br>
+                    <br>
+                    <code></code></td><td>0.000</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="enumerationInUnidirectionalAssoc"></a>enumerationInUnidirectionalAssoc</td><td>Success</td><td></td><td>0.543</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="invalidClassKeyword"></a>invalidClassKeyword</td><td>Success</td><td></td><td>0.179</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="methodConflictWithAutoGeneratedGetterAndSetterAndNoUserGeneratedMethodBody"></a>methodConflictWithAutoGeneratedGetterAndSetterAndNoUserGeneratedMethodBody</td><td>Success</td><td></td><td>0.363</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associationClassMissingRight"></a>associationClassMissingRight</td><td>Success</td><td></td><td>0.179</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="immutableExternalAssociation"></a>immutableExternalAssociation</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="externalDefinitionAndClassDefinitionCodeGeneration_externalFirst"></a>externalDefinitionAndClassDefinitionCodeGeneration_externalFirst</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="duplicateConstantNameInterface"></a>duplicateConstantNameInterface</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="languageDefault"></a>languageDefault</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="filenamePropogation"></a>filenamePropogation</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="emptyCommentWithSpaces"></a>emptyCommentWithSpaces</td><td>Success</td><td></td><td>0.179</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="Singleton_Class_Extended"></a>Singleton_Class_Extended</td><td>Success</td><td></td><td>0.364</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="immutableTwoWayAssociationsAreNotAllowed"></a>immutableTwoWayAssociationsAreNotAllowed</td><td>Success</td><td></td><td>0.362</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="positionAssociationClass_Mixin"></a>positionAssociationClass_Mixin</td><td>Skipped</td><td>N/A
+                    <br>
+                    <br>
+                    <code></code></td><td>0.000</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="isA_OnlyOne"></a>isA_OnlyOne</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="isABlahAttribute"></a>isABlahAttribute</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="singletonToOneAssociation"></a>singletonToOneAssociation</td><td>Success</td><td></td><td>0.186</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="mixDifferentFiles"></a>mixDifferentFiles</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attributeInvalidTypeName"></a>attributeInvalidTypeName</td><td>Success</td><td></td><td>0.360</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="oneCharacterMethod"></a>oneCharacterMethod</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associationClassSeveralAssociationsAttributes"></a>associationClassSeveralAssociationsAttributes</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="toplevelAfterOnTrait"></a>toplevelAfterOnTrait</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="classWithMethods"></a>classWithMethods</td><td>Skipped</td><td>N/A
+                    <br>
+                    <br>
+                    <code></code></td><td>0.000</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="toplevelAfterGlobOperationName"></a>toplevelAfterGlobOperationName</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="methodInlineComment"></a>methodInlineComment</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="methodNameConflictUsingDefaulted"></a>methodNameConflictUsingDefaulted</td><td>Success</td><td></td><td>0.557</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attribute_simple"></a>attribute_simple</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="inputModifierCheck"></a>inputModifierCheck</td><td>Success</td><td></td><td>0.179</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="singleIsA_MultipleClass_Inheritance"></a>singleIsA_MultipleClass_Inheritance</td><td>Success</td><td></td><td>0.179</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="duplicateAssociationNamesClassHierarchy"></a>duplicateAssociationNamesClassHierarchy</td><td>Success</td><td></td><td>0.912</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multipleConstraintMethodBody"></a>multipleConstraintMethodBody</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="duplicateEnumerationsError"></a>duplicateEnumerationsError</td><td>Success</td><td></td><td>0.184</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="autoGeneratedGetSetLazyAttribute"></a>autoGeneratedGetSetLazyAttribute</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="otherWayAssociation"></a>otherWayAssociation</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="immutableClass"></a>immutableClass</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="autoGeneratedGetSetImmutableAttribute"></a>autoGeneratedGetSetImmutableAttribute</td><td>Success</td><td></td><td>0.179</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="abstractClassAssociation"></a>abstractClassAssociation</td><td>Success</td><td></td><td>0.729</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attributeInKeyNotDefinedInClass"></a>attributeInKeyNotDefinedInClass</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multilineComments"></a>multilineComments</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="parseUmpleEnumerationDefinedInAssociationClass"></a>parseUmpleEnumerationDefinedInAssociationClass</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="reflexiveAndError21CasesDirected"></a>reflexiveAndError21CasesDirected</td><td>Success</td><td></td><td>0.728</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="methodBodyGenerationMultiLanguage"></a>methodBodyGenerationMultiLanguage</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="typeIsAccessSpecifier"></a>typeIsAccessSpecifier</td><td>Success</td><td></td><td>0.548</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="innerClass"></a>innerClass</td><td>Success</td><td></td><td>0.185</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multipleExtraCodeInterfaces"></a>multipleExtraCodeInterfaces</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="externalAssociationWithUnknownClass"></a>externalAssociationWithUnknownClass</td><td>Success</td><td></td><td>0.361</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="duplicateAssociationNames"></a>duplicateAssociationNames</td><td>Success</td><td></td><td>2.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineandAssociationNameClashing"></a>stateMachineandAssociationNameClashing</td><td>Success</td><td></td><td>0.739</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="autoGeneratedGetSetInternalAttribute"></a>autoGeneratedGetSetInternalAttribute</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="enumerationInComposition"></a>enumerationInComposition</td><td>Success</td><td></td><td>0.557</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="graphVizLiteralGuards"></a>graphVizLiteralGuards</td><td>Success</td><td></td><td>0.185</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="mixin_namespaces"></a>mixin_namespaces</td><td>Success</td><td></td><td>0.546</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="emptyComment"></a>emptyComment</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multipleMethodComments"></a>multipleMethodComments</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multipleEmptyComments"></a>multipleEmptyComments</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multipleSymmetricReflexiveAssociations"></a>multipleSymmetricReflexiveAssociations</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="autoGeneratedConstructorRemoveAttribute"></a>autoGeneratedConstructorRemoveAttribute</td><td>Success</td><td></td><td>0.184</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="warningUninitializedConstInterface"></a>warningUninitializedConstInterface</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="commentsBeforeMultipleClasses"></a>commentsBeforeMultipleClasses</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="validCodeInjection"></a>validCodeInjection</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="namingConflictBetweenEnumerationAndClass"></a>namingConflictBetweenEnumerationAndClass</td><td>Success</td><td></td><td>0.551</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="warningInterfaceNameCapitalLetter"></a>warningInterfaceNameCapitalLetter</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="namingConflictBetweenEnumerationAndTrait"></a>namingConflictBetweenEnumerationAndTrait</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="mixingRegularAndDerivedAttributes_bug201"></a>mixingRegularAndDerivedAttributes_bug201</td><td>Success</td><td></td><td>0.184</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="nestedClassMultipleInheritance"></a>nestedClassMultipleInheritance</td><td>Success</td><td></td><td>0.546</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="isA_ComplexCycle_WithKey"></a>isA_ComplexCycle_WithKey</td><td>Success</td><td></td><td>0.184</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="methodMultilineComment"></a>methodMultilineComment</td><td>Success</td><td></td><td>0.184</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="compositionType"></a>compositionType</td><td>Success</td><td></td><td>0.186</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attributeAndAssociationNameClashingSeparate"></a>attributeAndAssociationNameClashingSeparate</td><td>Success</td><td></td><td>0.908</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="autoGeneratedGetterAndSetter"></a>autoGeneratedGetterAndSetter</td><td>Success</td><td></td><td>0.360</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="autoGeneratedGetSetDefaultedAttribute"></a>autoGeneratedGetSetDefaultedAttribute</td><td>Success</td><td></td><td>0.179</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="portPrefixAttributeNameAssignment"></a>portPrefixAttributeNameAssignment</td><td>Success</td><td></td><td>0.179</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="autoGeneratedGetSetInputAttribute"></a>autoGeneratedGetSetInputAttribute</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attributeMultilineComment"></a>attributeMultilineComment</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attributeInlineComment"></a>attributeInlineComment</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="immutableOneWayInternalAssociation"></a>immutableOneWayInternalAssociation</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="invalidMultiplicity"></a>invalidMultiplicity</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="namespace"></a>namespace</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="inheritedKeys"></a>inheritedKeys</td><td>Success</td><td></td><td>0.374</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="removeAllAutogeneratedMethods"></a>removeAllAutogeneratedMethods</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attributesAndAssocations"></a>attributesAndAssocations</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="implementsInterface"></a>implementsInterface</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="reflexiveCasesNoError21"></a>reflexiveCasesNoError21</td><td>Success</td><td></td><td>1.452</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="outputLanguagePathOverrideAll"></a>outputLanguagePathOverrideAll</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multiple_Class_Inheritance"></a>multiple_Class_Inheritance</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="sameLineComments"></a>sameLineComments</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="compositionParseTest"></a>compositionParseTest</td><td>Success</td><td></td><td>0.373</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="complexClassWithAssociationsCannotBeAttribute"></a>complexClassWithAssociationsCannotBeAttribute</td><td>Skipped</td><td>N/A
+                    <br>
+                    <br>
+                    <code></code></td><td>0.000</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="association_attribute"></a>association_attribute</td><td>Success</td><td></td><td>0.185</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attributeAndAssociationNameClashingBackwardsUnidirectional"></a>attributeAndAssociationNameClashingBackwardsUnidirectional</td><td>Success</td><td></td><td>2.724</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="interfaceWithMethodAndParameters"></a>interfaceWithMethodAndParameters</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="commentsWayBeforeClass"></a>commentsWayBeforeClass</td><td>Success</td><td></td><td>0.193</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multipleClassBlockInheritance"></a>multipleClassBlockInheritance</td><td>Success</td><td></td><td>0.373</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="eventParameterAmbiguityCausedByEnumeration"></a>eventParameterAmbiguityCausedByEnumeration</td><td>Success</td><td></td><td>0.547</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="testSemicolonUnicode"></a>testSemicolonUnicode</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attributeInvalidName"></a>attributeInvalidName</td><td>Success</td><td></td><td>0.540</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="constructorExtraCode"></a>constructorExtraCode</td><td>Skipped</td><td>N/A
+                    <br>
+                    <br>
+                    <code></code></td><td>0.000</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="warningUninitializedConstObjectInterface"></a>warningUninitializedConstObjectInterface</td><td>Success</td><td></td><td>0.190</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multipleEmptyMultiLineCommentsWithSpaces"></a>multipleEmptyMultiLineCommentsWithSpaces</td><td>Success</td><td></td><td>0.196</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="removeAutogeneratedMethodsForAttribute"></a>removeAutogeneratedMethodsForAttribute</td><td>Success</td><td></td><td>0.210</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="is_A_ComplexCycle_Interface"></a>is_A_ComplexCycle_Interface</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="positionAssociation"></a>positionAssociation</td><td>Success</td><td></td><td>0.184</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multipleAttributeComments"></a>multipleAttributeComments</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="isA_ListForm"></a>isA_ListForm</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="internalConst"></a>internalConst</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="toplevelAround"></a>toplevelAround</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="toplevelBefore"></a>toplevelBefore</td><td>Success</td><td></td><td>0.179</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="toplevelAndInclassAspects"></a>toplevelAndInclassAspects</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="redefineNamespace"></a>redefineNamespace</td><td>Success</td><td></td><td>0.540</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="interfaceBodyWithComments"></a>interfaceBodyWithComments</td><td>Success</td><td></td><td>0.363</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="commentInAssociation"></a>commentInAssociation</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="classPosition"></a>classPosition</td><td>Success</td><td></td><td>0.178</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="cannotHaveDuplicateKeys"></a>cannotHaveDuplicateKeys</td><td>Success</td><td></td><td>0.358</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="otherLanguage"></a>otherLanguage</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attributeConflictImmutableAndAutounique"></a>attributeConflictImmutableAndAutounique</td><td>Success</td><td></td><td>0.184</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="autoGeneratedAPIMethods"></a>autoGeneratedAPIMethods</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="cannotHaveKeyAndDefaultKey"></a>cannotHaveKeyAndDefaultKey</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="autoGeneratedConstructor"></a>autoGeneratedConstructor</td><td>Success</td><td></td><td>0.185</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="abstractMethod"></a>abstractMethod</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="association_external"></a>association_external</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="isA_Grouped"></a>isA_Grouped</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="AssociationClassIncompletKeyWarning"></a>AssociationClassIncompletKeyWarning</td><td>Success</td><td></td><td>0.183</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="namingConflictBetweenEnumerationAndInterface"></a>namingConflictBetweenEnumerationAndInterface</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="outputLanguagePath"></a>outputLanguagePath</td><td>Success</td><td></td><td>0.184</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associationName"></a>associationName</td><td>Success</td><td></td><td>0.186</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="enumShortHandSyntax"></a>enumShortHandSyntax</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multipleExtraCode"></a>multipleExtraCode</td><td>Success</td><td></td><td>0.180</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="interfaceClassDepend"></a>interfaceClassDepend</td><td>Success</td><td></td><td>0.182</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="oneWayAssociation"></a>oneWayAssociation</td><td>Success</td><td></td><td>0.181</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attributeProperNamingStyle"></a>attributeProperNamingStyle</td><td>Success</td><td></td><td>0.362</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="TypeValueMismatchWarning"></a>TypeValueMismatchWarning</td><td>Success</td><td></td><td>0.363</td>
+            </tr>
+        </table>
+        <div class="Properties">
+            <a href="javascript:displayProperties('cruise.umple.compiler.UmpleInternalParserTest');">
+                    Properties &raquo;
+                </a>
+        </div>
+        <div class="Properties">
+            <a href="./55_UmpleInternalParserTest-out.html">
+                        System.out &raquo;
+                    </a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,118 @@
+  class UmpleInternalParser { 
+    before Label_Trace_58:analyzeToken(Token,int)
+  {
+      analyzeTraceToken(t,analysisStep);
+    }  
+} 
+
+  class UmpleInternalParser { 
+    before Label_Trace_69:analyzeDependentTokens(Token,UmpleClass,int)
+  {
+      analyzeTraceToken(t,aClass);
+    }  
+} 
+  class UmpleInternalParser { 
+    before Label_Trace_72:postTokenAnalysis
+  { 
+      if (getParseResult().getWasSuccess())
+      {
+        postTokenTraceAnalysis();
+      }
+    } 
+ } 
+
+
+// Fragment source file: Umple.ump
+// Line : 1004
+ class Attribute { before delete { 
+      if (traceRecords == null) {
+        traceRecords = new ArrayList<TraceRecord>();
+      }
+    } 
+} 
+
+
+// Fragment source file: Generator.ump
+// Line : 53
+interface CodeTranslator
+  {
+    String translate(String id, TraceItem traceItem);
+  }
+
+
+// Fragment source file: Generator_SuperCodeGenerator.ump
+// Line : 47
+ class SuperCodeGenerator { 
+   public String translate(String keyName, TraceItem ti)
+    {
+      if (keyName.length()>5&&"trace".equals(keyName.substring(0,5)))
+      {
+        return TraceLookupMap.get(keyName.substring(5).toLowerCase());
+      }
+      else 
+      {
+        return "INVALID KEYNAME IN TRANSLATE";
+      }
+    } } 
+
+
+// Fragment source file: Umple_CodeClass.ump
+// Line : 162
+ class UmpleClass { 
+   public List<TraceDirective> getAllTraceDirectives(){
+    ArrayList<TraceDirective> all = new ArrayList<TraceDirective>();
+    all.addAll(getTraceDirectives());
+
+    for(TraceCase tc : getTraceCases())
+      if( tc.getActivation() ==  true )
+        for(TraceDirective td : tc.getTraceDirectives())
+          all.add(td);
+
+    return all;
+  } } 
+
+
+
+  class UmpleGenerator { 
+    before Label_Trace_11:initializeParser
+  {
+      parser.addGrammarFile("/trace/umple_traces.grammar");
+    }  
+} 
+
+
+//File: stateMachine/UmpleInternalParser_CodeStateMachine.ump:967: 
+mixset StateMachine {
+  class UmpleInternalParser { 
+    before Label_Trace_128:populateStateMachine(Token,StateMachine,UmpleClassifier)
+  {
+        if(stateToken.is("trace"))
+        {
+          if (uClassifier instanceof UmpleClass) {
+          analyzeTraceStatement((UmpleClass)uClassifier,stateToken); 
+        } else {
+          //TODO--- trait's functionality for trace;
+        }
+        }
+      } 
+}
+} 
+
+
+
+  class GeneratorHelper { 
+    before Label_Trace_2:postpare(UmpleModel)
+  {
+      postpareTrace(model);
+    }  
+} 
+
+
+
+  class GeneratorHelper { 
+    before Label_Trace_4:postpare(UmpleClass)
+  {
+      postpareTrace(aClass);
+    } 
+} 
+ 

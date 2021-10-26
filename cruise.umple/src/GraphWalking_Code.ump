@@ -1,0 +1,37 @@
+/*
+
+Copyright: All contributers to the Umple Project
+
+This file is made available subject to the open source license found at:
+http://umple.org/license
+
+Graph Walking extensions
+
+*/
+
+namespace cruise.umple.compiler;
+
+class Graph 
+{
+  public boolean hasNext () 
+  {
+    if (this.stack == null && this.queue == null) return false;
+    if (this.isDepthFirst) return ! stack.isEmpty();
+    return ! this.queue.isEmpty();
+  }
+
+  public boolean isDepthFirst()
+  {
+    return this.isDepthFirst;
+  }
+
+  // TODO this should be abstract but because of issue $$$ it makes child classes abstract.
+  public Node nextNode(){ return null; }
+
+  // TODO same as above. should be abstract.
+  public void clearNodes(){ return; }
+}
+
+
+
+

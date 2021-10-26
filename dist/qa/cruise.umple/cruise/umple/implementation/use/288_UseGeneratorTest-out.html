@@ -1,0 +1,40 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from UseGeneratorTest</title>
+    </head>
+    <body>
+        <pre>model OneToManyTest
+
+class Mentor
+  attributes
+    name : String
+end
+
+class Student
+  attributes
+    number : String
+end
+
+class Bank
+  attributes
+    name : String
+end
+
+class BankOfStuff
+  attributes
+    number : String
+end
+
+association Mentor__Student between 
+  Mentor[1] 
+  Student[*]
+end
+
+association Bank__BankOfStuff between 
+  Bank[1] 
+  BankOfStuff[*]
+end
+</pre>
+    </body>
+</html>

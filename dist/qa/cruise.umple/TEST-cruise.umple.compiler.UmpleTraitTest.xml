@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="Abdulazizs-MacBook-Pro.local" name="cruise.umple.compiler.UmpleTraitTest" skipped="0" tests="244" time="1.309" timestamp="2021-10-26T14:26:25">
+  <properties>
+    <property name="ant.library.dir" value="/usr/local/Cellar/ant/1.10.9/libexec/lib" />
+    <property name="env.TERM" value="xterm-256color" />
+    <property name="java.specification.version" value="15" />
+    <property name="ant.project.name" value="UmpleCore" />
+    <property name="ant.file.type.UmpleCore" value="file" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="ant.file.type.LocalBuildProperties" value="file" />
+    <property name="env.SDKMAN_CANDIDATES_API" value="https://api.sdkman.io/2" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="dist.umple.docs.jar.prev" value="umpledocs-1.31.1.5860.78bb27cc6.jar" />
+    <property name="rake_cmd" value="rake" />
+    <property name="showJunitOutput" value="false" />
+    <property name="umple.deps.dir" value="/Users/abdulaziz/tmp/umple/dist/libs" />
+    <property name="java.vendor.url" value="https://openjdk.java.net/" />
+    <property name="dist.libs.dir" value="/Users/abdulaziz/tmp/umple/dist/libs" />
+    <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home/lib" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=/Users/abdulaziz/tmp/umple/junittestcases9945622084601822128.properties skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/abdulaziz/tmp/umple/dist/qa/cruise.umple/IGNORETHIS.xml crashfile=/Users/abdulaziz/tmp/umple/junitvmwatcher11280979461299836288.properties propsfile=/Users/abdulaziz/tmp/umple/junit10838995335343066243.properties" />
+    <property name="jdk.debug" value="release" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="test.output.path" value="/Users/abdulaziz/tmp/umple/dist/qa/cruise.umple" />
+    <property name="env.JAVA_HOME" value="/usr/local/opt/openjdk" />
+    <property name="java.version.date" value="2020-10-20" />
+    <property name="java.home" value="/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home" />
+    <property name="basedir" value="/Users/abdulaziz/tmp/umple" />
+    <property name="file.separator" value="/" />
+    <property name="java.vm.compressedOopsMode" value="Zero based" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="ivy.jar.file" value="/Users/abdulaziz/.ant/lib/ivy-2.4.0.jar" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.file.Template" value="/Users/abdulaziz/tmp/umple/build/_template.xml" />
+    <property name="dist.umple.stats.jar" value="umplestats-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ivyRetrieveLogLevel" value="quiet" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="java.runtime.version" value="15.0.1+9" />
+    <property name="env.TERM_PROGRAM_VERSION" value="440" />
+    <property name="user.name" value="abdulaziz" />
+    <property name="env.PATH" value="/Users/abdulaziz/.sdkman/candidates/gradle/current/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands" />
+    <property name="env.LOGNAME" value="abdulaziz" />
+    <property name="env.XPC_FLAGS" value="0x0" />
+    <property name="env.__CF_USER_TEXT_ENCODING" value="0x1F5:0x0:0x0" />
+    <property name="file.encoding" value="UTF-8" />
+    <property name="env.__CFBundleIdentifier" value="com.apple.Terminal" />
+    <property name="env.TERM_SESSION_ID" value="20D2790F-0FEC-4CCB-A10B-030C8F4ED298" />
+    <property name="umple.stable.jar" value="/Users/abdulaziz/tmp/umple/dist/libs/umple-1.31.1.5860.78bb27cc6.jar" />
+    <property name="haltonfailure" value="false" />
+    <property name="connectionTimeout" value="30" />
+    <property name="env.SHLVL" value="1" />
+    <property name="dist.dir" value="/Users/abdulaziz/tmp/umple/dist" />
+    <property name="dist.path" value="/Users/abdulaziz/tmp/umple/dist/cruise.umple" />
+    <property name="java.io.tmpdir" value="/var/folders/fm/7tjk7l8154x840c6vvrs49p40000gn/T/" />
+    <property name="umple.ivy.dep.file" value="/Users/abdulaziz/tmp/umple/build/ivy.xml" />
+    <property name="dist.umple.run.jar.prev" value="umplerun-1.31.1.5860.78bb27cc6.jar" />
+    <property name="dist.umple.jar" value="umple-1.31.1.5860.78bb27cc6.jar" />
+    <property name="java.version" value="15.0.1" />
+    <property name="env.SSH_AUTH_SOCK" value="/private/tmp/com.apple.launchd.qK4l0KXsgu/Listeners" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.home" value="/usr/local/Cellar/ant/1.10.9/libexec" />
+    <property name="ant.file.type.UmpleDeps" value="file" />
+    <property name="env.SDKMAN_DIR" value="/Users/abdulaziz/.sdkman" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.10.9 compiled on September 27 2020" />
+    <property name="env.TMPDIR" value="/var/folders/fm/7tjk7l8154x840c6vvrs49p40000gn/T/" />
+    <property name="env.SDKMAN_PLATFORM" value="darwinx64" />
+    <property name="java.library.path" value="/Users/abdulaziz/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
+    <property name="java.vendor" value="N/A" />
+    <property name="shouldPackageUmpleOnline" value="false" />
+    <property name="dist.umple.validator.jar" value="umplevalidator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="sun.io.unicode.encoding" value="UnicodeBig" />
+    <property name="jopt-simple.install.version" value="4.4" />
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="env.SDKMAN_CANDIDATES_DIR" value="/Users/abdulaziz/.sdkman/candidates" />
+    <property name="env.TERM_PROGRAM" value="Apple_Terminal" />
+    <property name="vendors.path" value="/Users/abdulaziz/tmp/umple/dist/libs/vendors" />
+    <property name="env.PWD" value="/Users/abdulaziz/tmp/umple/build" />
+    <property name="ant.file.type" value="file" />
+    <property name="last.version" value="1.31.1.5860.78bb27cc6" />
+    <property name="env.LANG" value="en_CA.UTF-8" />
+    <property name="ant.file.type.VersionLast" value="file" />
+    <property name="java.class.path" value="/Users/abdulaziz/tmp/umple/cruise.umple/bin:/Users/abdulaziz/tmp/umple/dist/libs/core/ant-launcher.jar:/Users/abdulaziz/tmp/umple/dist/libs/core/ant.jar:/Users/abdulaziz/tmp/umple/dist/libs/core/jopt-simple.jar:/Users/abdulaziz/tmp/umple/dist/libs/test/hamcrest-core.jar:/Users/abdulaziz/tmp/umple/dist/libs/test/junit.jar:/Users/abdulaziz/.ant/lib/junit.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-launcher.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-junit.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-junit4.jar" />
+    <property name="env.HOME" value="/Users/abdulaziz" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="env.GRADLE_HOME" value="/Users/abdulaziz/.sdkman/candidates/gradle/current" />
+    <property name="xtext.project.path" value="cruise.umple.xtext" />
+    <property name="ant.file.type.Template" value="file" />
+    <property name="user.timezone" value="America/Toronto" />
+    <property name="project.path" value="cruise.umple" />
+    <property name="ant.file.UmpleDeps" value="/Users/abdulaziz/tmp/umple/build/build.deps.xml" />
+    <property name="java.vm.specification.version" value="15" />
+    <property name="os.name" value="Mac OS X" />
+    <property name="env.DISPLAY" value="/private/tmp/com.apple.launchd.8VZUm1G4zQ/org.xquartz:0" />
+    <property name="dist.umple.sync.jar" value="umplesync-1.31.1.5860.78bb27cc6.jar" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="user.country" value="CA" />
+    <property name="dist.umple.run.jar" value="umplerun-1.31.1.5860.78bb27cc6.jar" />
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="user.home" value="/Users/abdulaziz" />
+    <property name="user.language" value="en" />
+    <property name="ivy.install.version" value="2.4.0" />
+    <property name="ant.java.version" value="15" />
+    <property name="ant.file.type.Umple" value="file" />
+    <property name="showJunitSummary" value="false" />
+    <property name="bin.path" value="cruise.umple/bin" />
+    <property name="umple.version" value="1.31.1.5860.78bb27cc6" />
+    <property name="dist.umple.sync.jar.prev" value="umplesync-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ivyResolveLogLevel" value="download-only" />
+    <property name="env.XPC_SERVICE_NAME" value="0" />
+    <property name="user.home.ant" value="/Users/abdulaziz/.ant/lib" />
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="is.osx" value="true" />
+    <property name="dist.umple.stats.jar.prev" value="umplestats-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ant.file" value="/Users/abdulaziz/tmp/umple/build/build.umple.xml" />
+    <property name="path.separator" value=":" />
+    <property name="dist.umple.umplificator.jar.prev" value="umpleumplificator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="os.version" value="11.6" />
+    <property name="ant.file.VersionLast" value="/Users/abdulaziz/tmp/umple/build/_versionLast.xml" />
+    <property name="ant.file.Umple" value="/Users/abdulaziz/tmp/umple/build/build.xml" />
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+    <property name="dist.umple.docs.jar" value="umpledocs-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ant.project.invoked-targets" value="template.test" />
+    <property name="dist.umple.umplificator.jar" value="umpleumplificator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM" />
+    <property name="ant.file.LocalBuildProperties" value="/Users/abdulaziz/tmp/umple/build/_local.xml" />
+    <property name="env.SHELL" value="/bin/zsh" />
+    <property name="ant.core.lib" value="/usr/local/Cellar/ant/1.10.9/libexec/lib/ant.jar" />
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/" />
+    <property name="junit" value="*Test" />
+    <property name="user.dir" value="/Users/abdulaziz/tmp/umple/build" />
+    <property name="os.arch" value="x86_64" />
+    <property name="env.SDKMAN_VERSION" value="5.11.5+713" />
+    <property name="shouldDeploy" value="false" />
+    <property name="dist.umple.validator.jar.prev" value="umplevalidator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="java.vm.info" value="mixed mode, sharing" />
+    <property name="java.vm.version" value="15.0.1+9" />
+    <property name="ant.file.UmpleCore" value="/Users/abdulaziz/tmp/umple/build/build.umple.xml" />
+    <property name="online" value="true" />
+    <property name="myenv" value="local" />
+    <property name="umple.deps.manual.dir" value="/Users/abdulaziz/tmp/umple/dist/libs/manual" />
+    <property name="env.USER" value="abdulaziz" />
+    <property name="java.class.version" value="59.0" />
+    <property name="first.build" value="false" />
+    <property name="dist.umple.jar.prev" value="umple-1.31.1.5860.78bb27cc6.jar" />
+    <property name="env.JAVA_MAIN_CLASS_3280" value="org.apache.tools.ant.launch.Launcher" />
+    <property name="ant.project.default-target" value="build" />
+  </properties>
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="compositionTraitClassRule10Test" time="0.011" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="compositionTraitClassRule11Test" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="compositionTraitClassRule12Test" time="0.012" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="TypeParameterTest00" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="TypeParameterTest01" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="TypeParameterTest02" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="TypeParameterTest03" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="TypeParameterTest04" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="TypeParameterTest05" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="TypeParameterTest06" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="TypeParameterTest07" time="0.001" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="RequiredInterfaces001" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="RequiredInterfaces002" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="RequiredInterfaces003" time="0.008" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="RequiredInterfaces004" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="associationTraits000Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits005Test" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits006Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits007Test" time="0.012" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits008Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits009Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits010Test" time="0.011" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits011Test" time="0.008" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits012Test" time="0.009" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits013Test" time="0.007" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits014Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits015Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits016Test" time="0.007" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits017Test" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits018Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits019Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRule10Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRule11Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRule12Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRule13Test" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRule14Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRule15Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits020Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits021Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits022Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="extraCodeTraitsTest" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits023Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits024Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits025Test" time="0.012" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits026Test" time="0.007" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits027Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits028Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits029Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits030Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits031Test" time="0.014" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits032Test" time="0.008" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits033Test" time="0.009" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits034Test" time="0.007" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits035Test" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits036Test" time="0.008" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits037Test" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits038Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits039Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits040Test" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits041Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits042Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits043Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits044Test" time="0.008" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits045Test" time="0.011" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits046Test" time="0.007" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits047Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits048Test" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits049Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits050Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits051Test" time="0.01" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits052Test" time="0.01" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits053Test" time="0.007" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits054Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits055Test" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits056Test" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits057Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits058Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits059Test" time="0.014" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits060Test" time="0.007" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits061Test" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits062Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits063Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits064Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits065Test" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits067Test" time="0.016" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits068Test" time="0.007" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits069Test" time="0.011" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits070Test" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits071Test" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits072Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits073Test" time="0.01" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits074Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits075Test" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits076Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits077Test" time="0.01" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits078Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits079Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits080Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits081Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits082Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits083Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits084Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits085Test" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits086Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits087Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits088Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits089Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits090Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits091Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits092Test" time="0.015" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits093Test" time="0.013" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits094Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits095Test" time="0.008" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="multipleInheritanceTraitsTest" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="associationTraitsTest" time="0.009" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="mixin001" time="0.017" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="attributeDetectionTest" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="traitDetectionTest" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="methodsTest" time="0.001" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraitsTest" time="0.007" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="checkUniqueNameTest02" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraitsExtra001Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="singletonTest" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits100Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits101Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits102Test" time="0.007" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits103Test" time="0.012" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits104Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits105Test" time="0.015" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits106Test" time="0.02" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits107Test" time="0.008" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits108Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits109Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits110Test" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits0111Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits0112Test" time="0.008" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits0113Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits0114Test" time="0.008" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits0115Test" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits0116Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits0117Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits0118Test" time="0.007" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits0119Test" time="0.017" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits0120Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits0121Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits0122Test" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits0123Test" time="0.01" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits0124Test" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits0125Test" time="0.007" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits0126Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits0127Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits0128Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="stateMachineTraits0129Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="checkDuplicatedMethods1Test" time="0.009" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="checkDuplicatedMethods2Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="selfInheritanceTest" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="templateInCode01Test" time="0.008" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="templateInCode02Test" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="templateInCode03Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="templateInCode04Test" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="checkUniqueNameTest" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates001" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates002" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates003" time="0.008" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates004" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates005" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates006" time="0.006" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates007" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates008" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates009" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates010" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates011" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates012" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates013" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates014" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates015" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates016" time="0.007" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates017" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates018" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates019" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates020" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates021" time="0.007" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="InterfaceForTemplates022" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRuleVisibility1Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRuleVisibility2Test" time="0.007" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRuleVisibility3Test" time="0.007" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRuleVisibility4Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="associations001Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="associations002Test" time="0.008" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="associations003Test" time="0.007" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="associations004Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="associations005Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="associations006Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="associations007Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRuleAlias10Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="semanticAnalysisTemplateRestriction001" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="semanticAnalysisTemplateRestriction002" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="semanticAnalysisTemplateRestriction003" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="compositionTraitClassRule1Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="compositionTraitClassRule2Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="compositionTraitClassRule3Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="compositionTraitClassRule4Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="compositionTraitClassRule5Test" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="compositionTraitClassRule6Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="compositionTraitClassRule7Test" time="0.008" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="compositionTraitClassRule8Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="compositionTraitClassRule9Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="cyclicInheritanceTest" time="0.007" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="checkRequiredMethodTest1" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="checkRequiredMethodTest2" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="checkRequiredMethodTest3" time="0.007" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="generalRule1Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="Attribute01Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="Attribute02Test" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="Attribute03Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="Attribute04Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="Attribute05Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="Attribute06Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="Attribute07Test" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="Attribute08Test" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="Attribute09Test" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="Attribute10Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRuleAlias2Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRuleAlias3Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRuleAlias4Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRuleAlias5Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRuleAlias6Test" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRuleAlias7Test" time="0.005" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRuleAlias8Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRuleAlias9Test" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRule1Test" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRule2Test" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRule3Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRule4Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRule5Test" time="0.008" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRule6Test" time="0.003" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRule7Test" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRule8Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="includeExcludeRule9Test" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="checkValidNameTest" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="depTest" time="0.002" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="traitInheritanceTest" time="0.001" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="codeInjectTraitsTest" time="0.004" />
+  <testcase classname="cruise.umple.compiler.UmpleTraitTest" name="constraintTest" time="0.002" />
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

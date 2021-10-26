@@ -1,0 +1,308 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from UmpleSelfGeneratorTest</title>
+    </head>
+    <body>
+        <pre>
+class X
+{
+}
+
+class X1
+{
+  isA X;
+}
+
+class X2
+{
+  const Integer MAX = 100;
+  const Integer MIN = -99;
+  const HELLO = "Hello";
+  immutable String str;
+  lazy immutable String str2;
+  lazy String someName;
+  lazy Double lDoub;
+  lazy Boolean lBool;
+  lazy String name = "Johannes";
+  Date d;
+  internal Time t = new Time();
+  Integer i;
+  Integer derivedTwiceI = i*2;
+  autounique x;
+  defaulted p = "robot";
+  q = "chicken";
+  defaulted r = "";
+  immutable String s = "123";
+  Date tt = "1978-12-25";
+  Time u = "12:13:14";
+  defaulted Date v = "1978-12-26";
+  defaulted Time w = "12:59:59";
+  before setStr { if (!canSetStr) { return false; } }
+  before setStr2 { if (!canSetStr2) { return false; } }
+  before setS { if (!canSetS) { return false; } }
+}
+
+
+class X0
+{
+  Bulb {
+  }
+}
+
+class X
+{
+  Status {
+    A {    }
+    B {    }
+    C {    }
+  }
+}
+
+class X2
+{
+  Status {
+    On {
+    e -&gt; Off;
+    }
+    Off {    }
+  }
+}
+
+class X4
+{
+  Status {
+    On {
+    press -&gt; Off;
+    }
+    Off {
+    exit / { if (doActivityStatusOffThread != null) { doActivityStatusOffThread.interrupt(); } }
+    entry / { doActivityStatusOffThread = new DoActivityThread(this,"doActivityStatusOff"); }
+    do { keepDoing };
+    }
+  }
+}
+
+class X5
+{
+  Bulb {
+    On {
+    push -&gt; / { blabla } On;
+    }
+  }
+}
+
+class X7
+{
+  Bulb {
+    On {
+    entry / { doOn }
+    exit / { "a"; }
+    }
+  }
+
+  public void doOn() {
+  }
+}
+
+class X8
+{
+  Integer dimmer = 0;
+  Integer brightness = 0;
+  Bulb {
+    Off {
+    turnDimmer(Integer lightval) -&gt; / { setBrightness(lightval) } Off;
+    flipSwitch -&gt; Dimmed;
+    }
+    Dimmed {
+    [getDimmer()&gt;99] entry -&gt; On;
+    flipSwitch -&gt; Off;
+    turnDimmer(Integer lightval) -&gt; / { setBrightness(lightval) } Dimmed;
+    }
+    On {
+    flipSwitch -&gt; Off;
+    turnDimmer(Integer lightval) -&gt; / { setBrightness(lightval) } Dimmed;
+    }
+  }
+}
+
+class X9
+{
+  Integer brightness = 0;
+  Bulb {
+    On {
+    [getBrightness()&lt;1] push -&gt; Off;
+    }
+    Off {    }
+  }
+}
+
+class X10
+{
+  Integer brightness = 0;
+  Bulb {
+    On {
+    [getBrightness()&lt;1] push -&gt; Off;
+    }
+    Off {    }
+  }
+}
+
+class X11
+{
+  Status {
+    On {
+    press -&gt; Off;
+    }
+    Off {
+    exit / { if (doActivityStatusOffThread != null) { doActivityStatusOffThread.interrupt(); } }
+    entry / { doActivityStatusOffThread = new DoActivityThread(this,"doActivityStatusOff"); }
+    do { keepDoing; } -&gt; On;
+    }
+  }
+}
+
+class X12
+{
+  Bulb {
+    On {
+    entry / { blahblah }
+    entry / { blahblah2 }
+    exit / { blahblahexit }
+    }
+  }
+}
+
+class X14
+{
+  Bulb {
+    On {
+    flip -&gt; Off;
+    }
+    Off {
+    flip -&gt; On;
+    }
+  }
+  AnotherBulb {
+    On {
+    flip -&gt; Off;
+    }
+    Off {
+    flip -&gt; On;
+    }
+  }
+}
+
+class X15
+{
+  Integer brightness = 0;
+  Bulb {
+    On {
+    [getBrightness()&lt;1] push -&gt; / { blabla } Off;
+    }
+    Off {    }
+  }
+}
+
+class X3
+{
+  Status {
+    On {
+    exit / { exitStatusOn(); }
+    entry / { if (statusOn == StatusOn.Null) { setStatusOn(StatusOn.Play); } }
+    off -&gt; Off;
+        Play {
+        exit / { setStatusOn(StatusOn.Null); }
+        p -&gt; Pause;
+        }
+        Pause {
+        exit / { setStatusOn(StatusOn.Null); }
+        p -&gt; Play;
+        }
+    }
+    Off {    }
+  }
+}
+
+class X16
+{
+  Fixture {
+    On {
+    push -&gt; Off;
+    }
+    Off {
+    push -&gt; On;
+    }
+  }
+}
+
+class X17
+{
+  Status {
+    S1 {
+    exit / { exitStatusS1(); }
+    entry / { if (statusS1 == StatusS1.Null) { setStatusS1(StatusS1.S1A); } }
+    e1 -&gt; S1A;
+        S1A {
+        exit / { setStatusS1(StatusS1.Null); }
+        }
+    }
+  }
+}
+
+class X18
+{
+  Status {
+    Off {
+    turnOn -&gt; On;
+    }
+    On {
+    exit / { exitStatusOnMotorIdle(); }
+    exit / { exitStatusOnFanIdle(); }
+    entry / { if (statusOnMotorIdle == StatusOnMotorIdle.Null) { setStatusOnMotorIdle(StatusOnMotorIdle.MotorIdle); } }
+    entry / { if (statusOnFanIdle == StatusOnFanIdle.Null) { setStatusOnFanIdle(StatusOnFanIdle.FanIdle); } }
+        MotorIdle {
+        exit / { setStatusOnMotorIdle(StatusOnMotorIdle.Null); }
+        flip -&gt; MotorRunning;
+        }
+        MotorRunning {
+        exit / { setStatusOnMotorIdle(StatusOnMotorIdle.Null); }
+        flip -&gt; MotorIdle;
+        }
+    ||
+        FanIdle {
+        exit / { setStatusOnFanIdle(StatusOnFanIdle.Null); }
+        flop -&gt; FanRunning;
+        }
+        FanRunning {
+        exit / { setStatusOnFanIdle(StatusOnFanIdle.Null); }
+        flop -&gt; FanIdle;
+        }
+    }
+  }
+}
+
+
+class Student
+{
+  * b -- 1 Mentor n;
+  1 c -- 3 Mentor o;
+  3..5 d -- * Mentor p;
+  before addO { if (o.contains(aO)) { return false; } }
+  before addP { if (p.contains(aP)) { return false; } }
+  before addM { if (m.contains(aM)) { return false; } }
+}
+
+class Mentor
+{
+  before addB { if (b.contains(aB)) { return false; } }
+  before addD { if (d.contains(aD)) { return false; } }
+}
+
+association Supervisor
+{
+  0..1 a Student -- 0..4 Mentor m;
+}
+</pre>
+    </body>
+</html>

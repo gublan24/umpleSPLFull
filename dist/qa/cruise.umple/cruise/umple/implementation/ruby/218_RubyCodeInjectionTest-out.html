@@ -1,0 +1,1540 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from RubyCodeInjectionTest</title>
+    </head>
+    <body>
+        <pre># PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Example &lt; Mentor
+
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_attr)
+    super(a_attr)
+    @initialized = false
+    @deleted = false
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def get_attr
+    // line 12 "RubyCodeInjectionTestSubclass.ump"
+    #before getAttr
+    // END OF UMPLE BEFORE INJECTION
+    a_attr = super
+    // line 17 "RubyCodeInjectionTestSubclass.ump"
+    #after getAttr
+    // END OF UMPLE AFTER INJECTION
+    a_attr
+  end
+  
+  def get_derivedAttr
+    // line 13 "RubyCodeInjectionTestSubclass.ump"
+    #before getDerivedAttr
+    // END OF UMPLE BEFORE INJECTION
+    a_derivedAttr = super
+    // line 18 "RubyCodeInjectionTestSubclass.ump"
+    #after getDerivedAttr
+    // END OF UMPLE AFTER INJECTION
+    a_derivedAttr
+  end
+  
+  def get_listAttr(index)
+    // line 14 "RubyCodeInjectionTestSubclass.ump"
+    #before getListAttr
+    // END OF UMPLE BEFORE INJECTION
+    a_listAttr = super(index)
+    // line 19 "RubyCodeInjectionTestSubclass.ump"
+    #after getListAttr
+    // END OF UMPLE AFTER INJECTION
+    a_listAttr
+  end
+
+  def get_defaultedAttr
+    // line 15 "RubyCodeInjectionTestSubclass.ump"
+    #before getDefaultedAttr
+    // END OF UMPLE BEFORE INJECTION
+    a_defaultedAttr = super
+    // line 20 "RubyCodeInjectionTestSubclass.ump"
+    #after getDefaultedAttr
+    // END OF UMPLE AFTER INJECTION
+    a_defaultedAttr
+  end
+  
+  def delete
+    @deleted = true
+    super
+  end
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+class Student
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Student Attributes - for documentation purposes
+  #attr_reader :firstName, :lastName
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_firstName, a_lastName)
+    @initialized = false
+    @deleted = false
+    @firstName = a_firstName
+    @lastName = a_lastName
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def set_firstName(a_firstName)
+    was_set = false
+    @firstName = a_firstName
+    was_set = true
+    was_set
+  end
+
+  def set_lastName(a_lastName)
+    was_set = false
+    @lastName = a_lastName
+    was_set = true
+    was_set
+  end
+
+  def get_firstName
+    // line 8 "../CodeInjectionWildCardTest.ump"
+    print "before";
+    // END OF UMPLE BEFORE INJECTION
+    @firstName
+  end
+
+  def get_lastName
+    // line 8 "../CodeInjectionWildCardTest.ump"
+    print "before";
+    // END OF UMPLE BEFORE INJECTION
+    @lastName
+  end
+
+  def delete
+    @deleted = true
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Student11
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Student11 Attributes - for documentation purposes
+  #attr_reader :name, :b
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_name, a_b)
+    @initialized = false
+    @deleted = false
+    @name = a_name
+    @b = a_b
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def set_name(a_name)
+    was_set = false
+    @name = a_name
+    was_set = true
+    // line 24 "toplevelCodeInjectionTest.ump"
+    //doSomething1();
+    // END OF UMPLE AFTER INJECTION
+    was_set
+  end
+
+  def set_b(a_b)
+    was_set = false
+    @b = a_b
+    was_set = true
+    // line 24 "toplevelCodeInjectionTest.ump"
+    //doSomething1();
+    // END OF UMPLE AFTER INJECTION
+    // line 49 "toplevelCodeInjectionTest.ump"
+    //doSomething2();
+    // END OF UMPLE AFTER INJECTION
+    was_set
+  end
+
+  def get_name
+    @name
+  end
+
+  def get_b
+    @b
+  end
+
+  def delete
+    @deleted = true
+  end
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+class Student
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Student Attributes - for documentation purposes
+  #attr_reader :id, :name, :type, :roles, :injBool
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_name, a_injBool)
+    @initialized = false
+    @deleted = false
+    // line 21 "../CodeInjectionTest.ump"
+    print "before constructor";
+    // END OF UMPLE BEFORE INJECTION
+    @id = nil
+    @can_set_id = true
+    @name = a_name
+    reset_type
+    @roles = []
+    @injBool = a_injBool
+    // line 22 "../CodeInjectionTest.ump"
+    print "after constructor";
+    // END OF UMPLE AFTER INJECTION
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def set_id(a_id)
+    was_set = false
+    // line 29 "../CodeInjectionTest.ump"
+    print "start setId";
+    // END OF UMPLE BEFORE INJECTION
+    return false unless @can_set_id
+    @can_set_id = false
+    @id = a_id
+    was_set = true
+    // line 30 "../CodeInjectionTest.ump"
+    print "end setId";
+    // END OF UMPLE AFTER INJECTION
+    was_set
+  end
+
+  def set_name(a_name)
+    was_set = false
+    // line 34 "../CodeInjectionTest.ump"
+    print "start setName";
+    // END OF UMPLE BEFORE INJECTION
+    // line 35 "../CodeInjectionTest.ump"
+    print "start setName2";
+    // END OF UMPLE BEFORE INJECTION
+    @name = a_name
+    was_set = true
+    // line 36 "../CodeInjectionTest.ump"
+    print "end setName";
+    // END OF UMPLE AFTER INJECTION
+    was_set
+  end
+
+  def set_type(a_type)
+    was_set = false
+    // line 40 "../CodeInjectionTest.ump"
+    print "start setType";
+    // END OF UMPLE BEFORE INJECTION
+    @type = a_type
+    was_set = true
+    // line 41 "../CodeInjectionTest.ump"
+    print "end setType";
+    // END OF UMPLE AFTER INJECTION
+    was_set
+  end
+
+  def reset_type
+    wasReset = false
+    // line 46 "../CodeInjectionTest.ump"
+    print "start resetType";
+    // END OF UMPLE BEFORE INJECTION
+    @type = get_default_type
+    wasReset = true
+    // line 47 "../CodeInjectionTest.ump"
+    print "end resetType";
+    // END OF UMPLE AFTER INJECTION
+    wasReset
+  end
+
+  def add_role(a_role)
+    was_added = false
+    // line 49 "../CodeInjectionTest.ump"
+    print "start add";
+    // END OF UMPLE BEFORE INJECTION
+    was_added = roles &lt;&lt; a_role
+    // line 50 "../CodeInjectionTest.ump"
+    print "end add";
+    // END OF UMPLE AFTER INJECTION
+    was_added
+  end
+
+  def remove_role(a_role)
+    was_removed = false
+    // line 51 "../CodeInjectionTest.ump"
+    print "start remove";
+    // END OF UMPLE BEFORE INJECTION
+    was_removed = roles.delete(a_role)
+    // line 52 "../CodeInjectionTest.ump"
+    print "end remove";
+    // END OF UMPLE AFTER INJECTION
+    was_removed
+  end
+
+  def set_injBool(a_injBool)
+    was_set = false
+    @injBool = a_injBool
+    was_set = true
+    was_set
+  end
+
+  def get_id
+    // line 31 "../CodeInjectionTest.ump"
+    print "start getId";
+    // END OF UMPLE BEFORE INJECTION
+    a_id = @id
+    // line 32 "../CodeInjectionTest.ump"
+    print "end getId";
+    // END OF UMPLE AFTER INJECTION
+    a_id
+  end
+
+  def get_name
+    // line 37 "../CodeInjectionTest.ump"
+    print "start getName";
+    // END OF UMPLE BEFORE INJECTION
+    a_name = @name
+    // line 38 "../CodeInjectionTest.ump"
+    print "end getName";
+    // END OF UMPLE AFTER INJECTION
+    a_name
+  end
+
+  def get_type
+    // line 42 "../CodeInjectionTest.ump"
+    print "start getType";
+    // END OF UMPLE BEFORE INJECTION
+    a_type = @type
+    // line 43 "../CodeInjectionTest.ump"
+    print "end getType";
+    // END OF UMPLE AFTER INJECTION
+    a_type
+  end
+
+  def get_default_type
+    // line 44 "../CodeInjectionTest.ump"
+    print "start getDefaultType";
+    // END OF UMPLE BEFORE INJECTION
+    a_type = "None"
+    // line 45 "../CodeInjectionTest.ump"
+    print "end getDefaultType";
+    // END OF UMPLE AFTER INJECTION
+    a_type
+  end
+
+  def get_role(index)
+    // line 53 "../CodeInjectionTest.ump"
+    print "start getRole";
+    // END OF UMPLE BEFORE INJECTION
+    a_role = roles[index]
+    // line 54 "../CodeInjectionTest.ump"
+    print "end getRole";
+    // END OF UMPLE AFTER INJECTION
+    a_role
+  end
+
+  def get_roles
+    // line 55 "../CodeInjectionTest.ump"
+    print "start getRoles";
+    // END OF UMPLE BEFORE INJECTION
+    String[] new_roles = roles.toArray(new String[roles.size])
+    // line 56 "../CodeInjectionTest.ump"
+    print "end getRoles";
+    // END OF UMPLE AFTER INJECTION
+    new_roles
+  end
+
+  def number_of_roles
+    // line 57 "../CodeInjectionTest.ump"
+    print "start numberOfRoles";
+    // END OF UMPLE BEFORE INJECTION
+    number = roles.size
+    // line 58 "../CodeInjectionTest.ump"
+    print "end numberOfRoles";
+    // END OF UMPLE AFTER INJECTION
+    number;
+  end
+
+  def has_roles
+    has = roles.size &gt; 0
+    has
+  end
+
+  def index_of_role(a_role)
+    // line 59 "../CodeInjectionTest.ump"
+    print "start indexOfRole";
+    // END OF UMPLE BEFORE INJECTION
+    index = roles.index(a_role)
+    index = -1 if index.nil?
+    // line 60 "../CodeInjectionTest.ump"
+    print "end indexOfRole";
+    // END OF UMPLE AFTER INJECTION
+    index
+  end
+
+  def get_funName
+    // line 24 "../CodeInjectionTest.ump"
+    print "start funName";
+    // END OF UMPLE BEFORE INJECTION
+    a_funName = name + "sillypans"
+    // line 25 "../CodeInjectionTest.ump"
+    print "end funName";
+    // END OF UMPLE AFTER INJECTION
+    a_funName
+  end
+
+  def get_otherFunName
+    // line 27 "../CodeInjectionTest.ump"
+    print "This was so much fun";
+    // END OF UMPLE BEFORE INJECTION
+    name + "Other Fun"
+  end
+
+  def get_injBool
+    @injBool
+  end
+
+  def get_dInjBool
+    2/3
+  end
+
+  def is_injBool?
+    // line 15 "../CodeInjectionTest.ump"
+    print "before injBool";
+    // END OF UMPLE BEFORE INJECTION
+    a_injBool = @injBool
+    // line 16 "../CodeInjectionTest.ump"
+    print "after injBool";
+    // END OF UMPLE AFTER INJECTION
+    a_injBool
+  end
+
+  def is_dInjBool?
+    // line 18 "../CodeInjectionTest.ump"
+    print "before dInjBool";
+    // END OF UMPLE BEFORE INJECTION
+    a_dInjBool = 2/3
+    // line 19 "../CodeInjectionTest.ump"
+    print "after dInjBool";
+    // END OF UMPLE AFTER INJECTION
+    a_dInjBool
+  end
+
+  def delete
+    @deleted = true
+    // line 62 "../CodeInjectionTest.ump"
+    print "start delete";
+    // END OF UMPLE BEFORE INJECTION
+    // line 63 "../CodeInjectionTest.ump"
+    print "after delete";
+    // END OF UMPLE AFTER INJECTION
+  end
+
+  def foo (a)
+    System.out.println("This is great " + " I will return to this");
+    if(a == 3)      
+      // line 65 "../CodeInjectionTest.ump"
+      print "Such fun!"
+      // END OF UMPLE AFTER INJECTION
+      return "4";
+    //Testing inline return
+    
+    // inject before return    
+    // line 65 "../CodeInjectionTest.ump"
+    print "Such fun!"
+    // END OF UMPLE AFTER INJECTION
+    return "";
+
+  end
+
+
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+
+
+class Example
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Example State Machines
+  enum UNKNOWN ID: type { UNKNOWN ID: listStates }
+  private UNKNOWN ID: type light;
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize()
+    @initialized = false
+    @deleted = false
+    set_light(UNKNOWN ID: type.LightOn)
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  public UNKNOWN ID: type get_light
+    UNKNOWN ID: stateOne
+  end
+
+  def flip
+  {
+    wasEventProcessed = false;
+
+    switch (light)
+    {
+      case LightOn:
+        set_light(UNKNOWN ID: type.LightOff);
+        wasEventProcessed = true
+        break;
+      case LightOff:
+        set_light(UNKNOWN ID: type.LightOn);
+        wasEventProcessed = true
+        break;
+    }
+
+    return wasEventProcessed;
+  }
+
+  private void set_light(UNKNOWN ID: type a_light)
+  {
+    light = a_light
+  }
+
+  def delete
+    @deleted = true
+  end
+
+end
+
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+class Student
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Student Associations - for documentation purposes
+  #attr_reader :m1, :m2, :m3s, :m4s, :m5s, :m6s
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_m2, all_m3s, all_m4s, all_m5s)
+    @initialized = false
+    @deleted = false
+    @m1 = nil
+    @m2 = nil
+    did_add_m2 = set_m2(a_m2)
+    raise "Unable to create two due to @m2. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html" unless did_add_m2
+    @m3s = []
+    did_add_m3s = set_m3s(all_m3s)
+    raise "Unable to create Student, must have 1 to 3 @m3s. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html" unless did_add_m3s
+    @m4s = []
+    did_add_m4s = set_m4s(all_m4s)
+    raise "Unable to create Student, must have 4 to 7 @m4s. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html" unless did_add_m4s
+    @m5s = []
+    did_add_m5s = set_m5s(all_m5s)
+    raise "Unable to create Student, must have at least 2 @m5s. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html" unless did_add_m5s
+    @m6s = []
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def get_m1
+    // line 13 "../CodeInjectionAssociationTest.ump"
+    print "getM1";
+    // END OF UMPLE BEFORE INJECTION
+    a_m1 = @m1
+    // line 57 "../CodeInjectionAssociationTest.ump"
+    print "after getM1";
+    // END OF UMPLE AFTER INJECTION
+    // line 57 "../CodeInjectionAssociationTest.ump"
+    print "after getM1";
+    // END OF UMPLE AFTER INJECTION
+    a_m1
+  end
+
+  def has_m1
+    has = !@m1.nil?
+    has
+  end
+
+  def get_m2
+    // line 14 "../CodeInjectionAssociationTest.ump"
+    print "getM2";
+    // END OF UMPLE BEFORE INJECTION
+    a_m2 = @m2
+    // line 58 "../CodeInjectionAssociationTest.ump"
+    print "after getM2";
+    // END OF UMPLE AFTER INJECTION
+    // line 58 "../CodeInjectionAssociationTest.ump"
+    print "after getM2";
+    // END OF UMPLE AFTER INJECTION
+    a_m2
+  end
+
+  def get_m3(index)
+    // line 15 "../CodeInjectionAssociationTest.ump"
+    print "getM3";
+    // END OF UMPLE BEFORE INJECTION
+    a_m3 = @m3s[index]
+    // line 59 "../CodeInjectionAssociationTest.ump"
+    print "after getM3";
+    // END OF UMPLE AFTER INJECTION
+    a_m3
+  end
+
+  def get_m3s
+    // line 16 "../CodeInjectionAssociationTest.ump"
+    print "getM3s";
+    // END OF UMPLE BEFORE INJECTION
+    new_m3s = @m3s.dup
+    // line 60 "../CodeInjectionAssociationTest.ump"
+    print "after getM3s";
+    // END OF UMPLE AFTER INJECTION
+    new_m3s
+  end
+
+  def number_of_m3s
+    // line 17 "../CodeInjectionAssociationTest.ump"
+    print "numberOfM3s";
+    // END OF UMPLE BEFORE INJECTION
+    number = @m3s.size
+    // line 61 "../CodeInjectionAssociationTest.ump"
+    print "after numberOfM3s";
+    // END OF UMPLE AFTER INJECTION
+    number
+  end
+
+  def has_m3s
+    // line 18 "../CodeInjectionAssociationTest.ump"
+    print "hasM3s";
+    // END OF UMPLE BEFORE INJECTION
+    has = @m3s.size &gt; 0
+    // line 62 "../CodeInjectionAssociationTest.ump"
+    print "after hasM3s";
+    // END OF UMPLE AFTER INJECTION
+    has
+  end
+
+  def index_of_m3(a_m3)
+    // line 19 "../CodeInjectionAssociationTest.ump"
+    print "indexOfM3";
+    // END OF UMPLE BEFORE INJECTION
+    index = @m3s.index(a_m3)
+    index = -1 if index.nil?
+    // line 63 "../CodeInjectionAssociationTest.ump"
+    print "after indexOfM3";
+    // END OF UMPLE AFTER INJECTION
+    index
+  end
+
+  def get_m4(index)
+    // line 20 "../CodeInjectionAssociationTest.ump"
+    print "getM4";
+    // END OF UMPLE BEFORE INJECTION
+    a_m4 = @m4s[index]
+    // line 64 "../CodeInjectionAssociationTest.ump"
+    print "after getM4";
+    // END OF UMPLE AFTER INJECTION
+    a_m4
+  end
+
+  def get_m4s
+    // line 21 "../CodeInjectionAssociationTest.ump"
+    print "getM4s";
+    // END OF UMPLE BEFORE INJECTION
+    new_m4s = @m4s.dup
+    // line 65 "../CodeInjectionAssociationTest.ump"
+    print "after getM4s";
+    // END OF UMPLE AFTER INJECTION
+    new_m4s
+  end
+
+  def number_of_m4s
+    // line 22 "../CodeInjectionAssociationTest.ump"
+    print "numberOfM4s";
+    // END OF UMPLE BEFORE INJECTION
+    number = @m4s.size
+    // line 66 "../CodeInjectionAssociationTest.ump"
+    print "after numberOfM4s";
+    // END OF UMPLE AFTER INJECTION
+    number
+  end
+
+  def has_m4s
+    // line 23 "../CodeInjectionAssociationTest.ump"
+    print "hasM4s";
+    // END OF UMPLE BEFORE INJECTION
+    has = @m4s.size &gt; 0
+    // line 67 "../CodeInjectionAssociationTest.ump"
+    print "after hasM4s";
+    // END OF UMPLE AFTER INJECTION
+    has
+  end
+
+  def index_of_m4(a_m4)
+    // line 24 "../CodeInjectionAssociationTest.ump"
+    print "indexOfM4";
+    // END OF UMPLE BEFORE INJECTION
+    index = @m4s.index(a_m4)
+    index = -1 if index.nil?
+    // line 68 "../CodeInjectionAssociationTest.ump"
+    print "after indexOfM4";
+    // END OF UMPLE AFTER INJECTION
+    index
+  end
+
+  def get_m5(index)
+    // line 25 "../CodeInjectionAssociationTest.ump"
+    print "getM5";
+    // END OF UMPLE BEFORE INJECTION
+    a_m5 = @m5s[index]
+    // line 69 "../CodeInjectionAssociationTest.ump"
+    print "after getM5";
+    // END OF UMPLE AFTER INJECTION
+    a_m5
+  end
+
+  def get_m5s
+    // line 26 "../CodeInjectionAssociationTest.ump"
+    print "getM5s";
+    // END OF UMPLE BEFORE INJECTION
+    new_m5s = @m5s.dup
+    // line 70 "../CodeInjectionAssociationTest.ump"
+    print "after getM5s";
+    // END OF UMPLE AFTER INJECTION
+    new_m5s
+  end
+
+  def number_of_m5s
+    // line 27 "../CodeInjectionAssociationTest.ump"
+    print "numberOfM5s";
+    // END OF UMPLE BEFORE INJECTION
+    number = @m5s.size
+    // line 71 "../CodeInjectionAssociationTest.ump"
+    print "after numberOfM5s";
+    // END OF UMPLE AFTER INJECTION
+    number
+  end
+
+  def has_m5s
+    // line 28 "../CodeInjectionAssociationTest.ump"
+    print "hasM5s";
+    // END OF UMPLE BEFORE INJECTION
+    has = @m5s.size &gt; 0
+    // line 72 "../CodeInjectionAssociationTest.ump"
+    print "after hasM5s";
+    // END OF UMPLE AFTER INJECTION
+    has
+  end
+
+  def index_of_m5(a_m5)
+    // line 29 "../CodeInjectionAssociationTest.ump"
+    print "indexOfM5";
+    // END OF UMPLE BEFORE INJECTION
+    index = @m5s.index(a_m5)
+    index = -1 if index.nil?
+    // line 73 "../CodeInjectionAssociationTest.ump"
+    print "after indexOfM5";
+    // END OF UMPLE AFTER INJECTION
+    index
+  end
+
+  def get_m6(index)
+    // line 30 "../CodeInjectionAssociationTest.ump"
+    print "getM6";
+    // END OF UMPLE BEFORE INJECTION
+    a_m6 = @m6s[index]
+    // line 74 "../CodeInjectionAssociationTest.ump"
+    print "after getM6";
+    // END OF UMPLE AFTER INJECTION
+    a_m6
+  end
+
+  def get_m6s
+    // line 31 "../CodeInjectionAssociationTest.ump"
+    print "getM6s";
+    // END OF UMPLE BEFORE INJECTION
+    new_m6s = @m6s.dup
+    // line 75 "../CodeInjectionAssociationTest.ump"
+    print "after getM6s";
+    // END OF UMPLE AFTER INJECTION
+    new_m6s
+  end
+
+  def number_of_m6s
+    // line 32 "../CodeInjectionAssociationTest.ump"
+    print "numberOfM6s";
+    // END OF UMPLE BEFORE INJECTION
+    number = @m6s.size
+    // line 76 "../CodeInjectionAssociationTest.ump"
+    print "after numberOfM6s";
+    // END OF UMPLE AFTER INJECTION
+    number
+  end
+
+  def has_m6s
+    // line 33 "../CodeInjectionAssociationTest.ump"
+    print "hasM6s";
+    // END OF UMPLE BEFORE INJECTION
+    has = @m6s.size &gt; 0
+    // line 77 "../CodeInjectionAssociationTest.ump"
+    print "after hasM6s";
+    // END OF UMPLE AFTER INJECTION
+    has
+  end
+
+  def index_of_m6(a_m6)
+    // line 34 "../CodeInjectionAssociationTest.ump"
+    print "indexOfM6";
+    // END OF UMPLE BEFORE INJECTION
+    index = @m6s.index(a_m6)
+    index = -1 if index.nil?
+    // line 78 "../CodeInjectionAssociationTest.ump"
+    print "after indexOfM6";
+    // END OF UMPLE AFTER INJECTION
+    index
+  end
+
+  def set_m1(a_m1)
+    was_set = false
+    // line 35 "../CodeInjectionAssociationTest.ump"
+    print "setM1";
+    // END OF UMPLE BEFORE INJECTION
+    existing_m1 = @m1
+    @m1 = a_m1
+    if !existing_m1.nil? and !existing_m1.eql?(a_m1)
+      existing_m1.remove_one(self)
+    end
+    unless a_m1.nil?
+      a_m1.add_one(self)
+    end
+    was_set = true
+    // line 79 "../CodeInjectionAssociationTest.ump"
+    print "after setM1";
+    // END OF UMPLE AFTER INJECTION
+    was_set
+  end
+
+  def set_m2(a_m2)
+    was_set = false
+    // line 36 "../CodeInjectionAssociationTest.ump"
+    print "setM2";
+    // END OF UMPLE BEFORE INJECTION
+    if a_m2.nil?
+      // line 80 "../CodeInjectionAssociationTest.ump"
+      print "after setM2";
+      // END OF UMPLE AFTER INJECTION
+      return was_set
+    end
+
+    existing_m2 = @m2
+    @m2 = a_m2
+    if !existing_m2.nil? and !existing_m2.eql?(a_m2)
+      existing_m2.remove_two(self)
+    end
+    @m2.add_two(self)
+    was_set = true
+    // line 80 "../CodeInjectionAssociationTest.ump"
+    print "after setM2";
+    // END OF UMPLE AFTER INJECTION
+    was_set
+  end
+
+  def is_number_of_m3s_valid
+    // line 37 "../CodeInjectionAssociationTest.ump"
+    print "isNumberOfM3sValid";
+    // END OF UMPLE BEFORE INJECTION
+    is_valid = number_of_m3s &gt;= Student.minimum_number_of_m3s and number_of_m3s &lt;= Student.maximum_number_of_m3s
+    // line 81 "../CodeInjectionAssociationTest.ump"
+    print "after isNumberOfM3sValid";
+    // END OF UMPLE AFTER INJECTION
+    is_valid
+  end
+
+  def self.minimum_number_of_m3s
+    // line 38 "../CodeInjectionAssociationTest.ump"
+    print "minimumNumberOfM3s";
+    // END OF UMPLE BEFORE INJECTION
+    minimum = 1
+    // line 82 "../CodeInjectionAssociationTest.ump"
+    print "after minimumNumberOfM3s";
+    // END OF UMPLE AFTER INJECTION
+    minimum
+  end
+
+  def self.maximum_number_of_m3s
+    // line 39 "../CodeInjectionAssociationTest.ump"
+    print "maximumNumberOfM3s";
+    // END OF UMPLE BEFORE INJECTION
+    maximum = 3
+    // line 83 "../CodeInjectionAssociationTest.ump"
+    print "after maximumNumberOfM3s";
+    // END OF UMPLE AFTER INJECTION
+    maximum
+  end
+
+  def add_m3(a_m3)
+    was_added = false
+    // line 40 "../CodeInjectionAssociationTest.ump"
+    print "addM3";
+    // END OF UMPLE BEFORE INJECTION
+    return false if index_of_m3(a_m3) != -1
+    if number_of_m3s &gt;= Student.maximum_number_of_m3s
+      // line 84 "../CodeInjectionAssociationTest.ump"
+      print "after addM3";
+      // END OF UMPLE AFTER INJECTION
+      return was_added
+    end
+
+    @m3s &lt;&lt; a_m3
+    if a_m3.index_of_three(self) != -1
+      was_added = true
+    else
+      was_added = a_m3.add_three(self)
+      unless was_added
+        @m3s.delete(a_m3)
+      end
+    end
+    // line 84 "../CodeInjectionAssociationTest.ump"
+    print "after addM3";
+    // END OF UMPLE AFTER INJECTION
+    was_added
+  end
+
+  def remove_m3(a_m3)
+    was_removed = false
+    // line 41 "../CodeInjectionAssociationTest.ump"
+    print "before removeM3";
+    // END OF UMPLE BEFORE INJECTION
+    unless @m3s.include?(a_m3)
+      // line 85 "../CodeInjectionAssociationTest.ump"
+      print "after removeM3";
+      // END OF UMPLE AFTER INJECTION
+      return was_removed
+    end
+
+    if number_of_m3s &lt;= Student.minimum_number_of_m3s
+      // line 85 "../CodeInjectionAssociationTest.ump"
+      print "after removeM3";
+      // END OF UMPLE AFTER INJECTION
+      return was_removed
+    end
+
+    oldIndex = @m3s.index(a_m3)
+    @m3s.delete_at(oldIndex)
+    if a_m3.index_of_three(self) == -1
+      was_removed = true
+    else
+      was_removed = a_m3.remove_three(self)
+      @m3s.insert(oldIndex,a_m3) unless was_removed
+    end
+    // line 85 "../CodeInjectionAssociationTest.ump"
+    print "after removeM3";
+    // END OF UMPLE AFTER INJECTION
+    was_removed
+  end
+
+  def set_m3s(new_m3s)
+    was_set = false
+    // line 42 "../CodeInjectionAssociationTest.ump"
+    print "setM3s";
+    // END OF UMPLE BEFORE INJECTION
+    verified_m3s = []
+    new_m3s.each do |a_m3|
+      next if (verified_m3s.include?(a_m3)) 
+      verified_m3s &lt;&lt; a_m3
+    end
+
+    if verified_m3s.size != new_m3s.length or verified_m3s.size &lt; Student.minimum_number_of_m3s or verified_m3s.size() &gt; Student.maximum_number_of_m3s
+      // line 86 "../CodeInjectionAssociationTest.ump"
+      print "after setM3s";
+      // END OF UMPLE AFTER INJECTION
+      return was_set
+    end
+
+    old_m3s = @m3s.dup
+    @m3s.clear
+    verified_m3s.each do |a_new_m3|
+      @m3s &lt;&lt; a_new_m3
+      if old_m3s.include?(a_new_m3)
+        old_m3s.delete(a_new_m3)
+      else
+        a_new_m3.add_three(self)
+      end
+    end
+
+    old_m3s.each do |an_old_m3|
+      an_old_m3.remove_three(self)
+    end
+    was_set = true
+    // line 86 "../CodeInjectionAssociationTest.ump"
+    print "after setM3s";
+    // END OF UMPLE AFTER INJECTION
+    was_set
+  end
+
+  def add_m3_at(a_m3, index)
+    was_added = false
+    if add_m3(a_m3)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_m3s())
+        index = number_of_m3s() - 1
+      end
+      @m3s.delete(a_m3)
+      @m3s.insert(index, a_m3)
+      was_added = true
+    end
+    was_added
+  end
+
+  def add_or_move_m3_at(a_m3, index)
+    was_added = false
+    if @m3s.include?(a_m3)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_m3s())
+        index = number_of_m3s() - 1
+      end
+      @m3s.delete(a_m3)
+      @m3s.insert(index, a_m3)
+      was_added = true
+    else
+      was_added = add_m3_at(a_m3, index)
+    end
+    was_added
+  end
+
+  def is_number_of_m4s_valid
+    // line 43 "../CodeInjectionAssociationTest.ump"
+    print "isNumberOfM4sValid";
+    // END OF UMPLE BEFORE INJECTION
+    is_valid = number_of_m4s &gt;= Student.minimum_number_of_m4s and number_of_m4s &lt;= Student.maximum_number_of_m4s
+    // line 87 "../CodeInjectionAssociationTest.ump"
+    print "after isNumberOfM4sValid";
+    // END OF UMPLE AFTER INJECTION
+    is_valid
+  end
+
+  def self.minimum_number_of_m4s
+    // line 44 "../CodeInjectionAssociationTest.ump"
+    print "minimumNumberOfM4s";
+    // END OF UMPLE BEFORE INJECTION
+    minimum = 4
+    // line 88 "../CodeInjectionAssociationTest.ump"
+    print "after minimumNumberOfM4s";
+    // END OF UMPLE AFTER INJECTION
+    minimum
+  end
+
+  def self.maximum_number_of_m4s
+    // line 45 "../CodeInjectionAssociationTest.ump"
+    print "maximumNumberOfM4s";
+    // END OF UMPLE BEFORE INJECTION
+    maximum = 7
+    // line 89 "../CodeInjectionAssociationTest.ump"
+    print "after maximumNumberOfM4s";
+    // END OF UMPLE AFTER INJECTION
+    maximum
+  end
+
+  def add_m4(a_m4)
+    was_added = false
+    // line 46 "../CodeInjectionAssociationTest.ump"
+    print "addM4";
+    // END OF UMPLE BEFORE INJECTION
+    return false if index_of_m4(a_m4) != -1
+    if number_of_m4s &gt;= Student.maximum_number_of_m4s
+      // line 90 "../CodeInjectionAssociationTest.ump"
+      print "after addM4";
+      // END OF UMPLE AFTER INJECTION
+      return was_added
+    end
+
+    @m4s &lt;&lt; a_m4
+    if a_m4.index_of_four(self) != -1
+      was_added = true
+    else
+      was_added = a_m4.add_four(self)
+      unless was_added
+        @m4s.delete(a_m4)
+      end
+    end
+    // line 90 "../CodeInjectionAssociationTest.ump"
+    print "after addM4";
+    // END OF UMPLE AFTER INJECTION
+    was_added
+  end
+
+  def remove_m4(a_m4)
+    was_removed = false
+    // line 47 "../CodeInjectionAssociationTest.ump"
+    print "removeM4";
+    // END OF UMPLE BEFORE INJECTION
+    unless @m4s.include?(a_m4)
+      // line 91 "../CodeInjectionAssociationTest.ump"
+      print "after removeM4";
+      // END OF UMPLE AFTER INJECTION
+      return was_removed
+    end
+
+    if number_of_m4s &lt;= Student.minimum_number_of_m4s
+      // line 91 "../CodeInjectionAssociationTest.ump"
+      print "after removeM4";
+      // END OF UMPLE AFTER INJECTION
+      return was_removed
+    end
+
+    oldIndex = @m4s.index(a_m4)
+    @m4s.delete_at(oldIndex)
+    if a_m4.index_of_four(self) == -1
+      was_removed = true
+    else
+      was_removed = a_m4.remove_four(self)
+      @m4s.insert(oldIndex,a_m4) unless was_removed
+    end
+    // line 91 "../CodeInjectionAssociationTest.ump"
+    print "after removeM4";
+    // END OF UMPLE AFTER INJECTION
+    was_removed
+  end
+
+  def set_m4s(new_m4s)
+    was_set = false
+    // line 48 "../CodeInjectionAssociationTest.ump"
+    print "setM4s";
+    // END OF UMPLE BEFORE INJECTION
+    verified_m4s = []
+    new_m4s.each do |a_m4|
+      next if (verified_m4s.include?(a_m4)) 
+      verified_m4s &lt;&lt; a_m4
+    end
+
+    if verified_m4s.size != new_m4s.length or verified_m4s.size &lt; Student.minimum_number_of_m4s or verified_m4s.size() &gt; Student.maximum_number_of_m4s
+      // line 92 "../CodeInjectionAssociationTest.ump"
+      print "after setM4s";
+      // END OF UMPLE AFTER INJECTION
+      return was_set
+    end
+
+    old_m4s = @m4s.dup
+    @m4s.clear
+    verified_m4s.each do |a_new_m4|
+      @m4s &lt;&lt; a_new_m4
+      if old_m4s.include?(a_new_m4)
+        old_m4s.delete(a_new_m4)
+      else
+        a_new_m4.add_four(self)
+      end
+    end
+
+    old_m4s.each do |an_old_m4|
+      an_old_m4.remove_four(self)
+    end
+    was_set = true
+    // line 92 "../CodeInjectionAssociationTest.ump"
+    print "after setM4s";
+    // END OF UMPLE AFTER INJECTION
+    was_set
+  end
+
+  def add_m4_at(a_m4, index)
+    was_added = false
+    if add_m4(a_m4)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_m4s())
+        index = number_of_m4s() - 1
+      end
+      @m4s.delete(a_m4)
+      @m4s.insert(index, a_m4)
+      was_added = true
+    end
+    was_added
+  end
+
+  def add_or_move_m4_at(a_m4, index)
+    was_added = false
+    if @m4s.include?(a_m4)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_m4s())
+        index = number_of_m4s() - 1
+      end
+      @m4s.delete(a_m4)
+      @m4s.insert(index, a_m4)
+      was_added = true
+    else
+      was_added = add_m4_at(a_m4, index)
+    end
+    was_added
+  end
+
+  def is_number_of_m5s_valid
+    // line 49 "../CodeInjectionAssociationTest.ump"
+    print "isNumberOfM5sValid";
+    // END OF UMPLE BEFORE INJECTION
+    is_valid = number_of_m5s &gt;= Student.minimum_number_of_m5s
+    // line 93 "../CodeInjectionAssociationTest.ump"
+    print "after isNumberOfM5sValid";
+    // END OF UMPLE AFTER INJECTION
+    is_valid
+  end
+
+  def self.minimum_number_of_m5s
+    // line 50 "../CodeInjectionAssociationTest.ump"
+    print "minimumNumberOfM5s";
+    // END OF UMPLE BEFORE INJECTION
+    minimum = 2
+    // line 94 "../CodeInjectionAssociationTest.ump"
+    print "after minimumNumberOfM5s";
+    // END OF UMPLE AFTER INJECTION
+    minimum
+  end
+
+  def add_m5(a_m5)
+    was_added = false
+    // line 51 "../CodeInjectionAssociationTest.ump"
+    print "addM5";
+    // END OF UMPLE BEFORE INJECTION
+    return false if index_of_m5(a_m5) != -1
+    @m5s &lt;&lt; a_m5
+    if a_m5.index_of_five(self) != -1
+      was_added = true
+    else
+      was_added = a_m5.add_five(self)
+      unless was_added
+        @m5s.delete(a_m5)
+      end
+    end
+    // line 95 "../CodeInjectionAssociationTest.ump"
+    print "after addM5";
+    // END OF UMPLE AFTER INJECTION
+    was_added
+  end
+
+  def remove_m5(a_m5)
+    was_removed = false
+    // line 52 "../CodeInjectionAssociationTest.ump"
+    print "removeM5";
+    // END OF UMPLE BEFORE INJECTION
+    unless @m5s.include?(a_m5)
+      // line 96 "../CodeInjectionAssociationTest.ump"
+      print "after removeM5";
+      // END OF UMPLE AFTER INJECTION
+      return was_removed
+    end
+
+    if number_of_m5s &lt;= Student.minimum_number_of_m5s
+      // line 96 "../CodeInjectionAssociationTest.ump"
+      print "after removeM5";
+      // END OF UMPLE AFTER INJECTION
+      return was_removed
+    end
+
+    oldIndex = @m5s.index(a_m5)
+    @m5s.delete_at(oldIndex)
+    if a_m5.index_of_five(self) == -1
+      was_removed = true
+    else
+      was_removed = a_m5.remove_five(self)
+      @m5s.insert(oldIndex,a_m5) unless was_removed
+    end
+    // line 96 "../CodeInjectionAssociationTest.ump"
+    print "after removeM5";
+    // END OF UMPLE AFTER INJECTION
+    was_removed
+  end
+
+  def set_m5s(new_m5s)
+    was_set = false
+    // line 53 "../CodeInjectionAssociationTest.ump"
+    print "setM5s";
+    // END OF UMPLE BEFORE INJECTION
+    verified_m5s = []
+    new_m5s.each do |a_m5|
+      next if (verified_m5s.include?(a_m5))
+      verified_m5s &lt;&lt; a_m5
+    end
+
+    if verified_m5s.size != new_m5s.size or verified_m5s.size &lt; Student.minimum_number_of_m5s
+      // line 97 "../CodeInjectionAssociationTest.ump"
+      print "after setM5s";
+      // END OF UMPLE AFTER INJECTION
+      return was_set
+    end
+
+    old_m5s = @m5s.dup
+    @m5s.clear
+    verified_m5s.each do |a_new_m5|
+      @m5s &lt;&lt; a_new_m5
+      if old_m5s.include?(a_new_m5)
+        old_m5s.delete(a_new_m5)
+      else
+        a_new_m5.add_five(self)
+      end
+    end
+
+    old_m5s.each do |an_old_m5|
+      an_old_m5.remove_five(self)
+    end
+    was_set = true
+    // line 97 "../CodeInjectionAssociationTest.ump"
+    print "after setM5s";
+    // END OF UMPLE AFTER INJECTION
+    was_set
+  end
+
+  def add_m5_at(a_m5, index)
+    was_added = false
+    if add_m5(a_m5)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_m5s())
+        index = number_of_m5s() - 1
+      end
+      @m5s.delete(a_m5)
+      @m5s.insert(index, a_m5)
+      was_added = true
+    end
+    was_added
+  end
+
+  def add_or_move_m5_at(a_m5, index)
+    was_added = false
+    if @m5s.include?(a_m5)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_m5s())
+        index = number_of_m5s() - 1
+      end
+      @m5s.delete(a_m5)
+      @m5s.insert(index, a_m5)
+      was_added = true
+    else
+      was_added = add_m5_at(a_m5, index)
+    end
+    was_added
+  end
+
+  def self.minimum_number_of_m6s
+    0
+  end
+
+  def add_m6(a_m6)
+    was_added = false
+    // line 54 "../CodeInjectionAssociationTest.ump"
+    print "addM6";
+    // END OF UMPLE BEFORE INJECTION
+    return false if index_of_m6(a_m6) != -1
+    @m6s &lt;&lt; a_m6
+    if a_m6.index_of_six(self) != -1
+      was_added = true
+    else
+      was_added = a_m6.add_six(self)
+      unless was_added
+        @m6s.delete(a_m6)
+      end
+    end
+    // line 98 "../CodeInjectionAssociationTest.ump"
+    print "after addM6";
+    // END OF UMPLE AFTER INJECTION
+    was_added
+  end
+
+  def remove_m6(a_m6)
+    was_removed = false
+    // line 55 "../CodeInjectionAssociationTest.ump"
+    print "removeM6";
+    // END OF UMPLE BEFORE INJECTION
+    unless @m6s.include?(a_m6)
+      // line 99 "../CodeInjectionAssociationTest.ump"
+      print "after removeM6";
+      // END OF UMPLE AFTER INJECTION
+      return was_removed
+    end
+
+    oldIndex = @m6s.index(a_m6)
+    @m6s.delete_at(oldIndex)
+    if a_m6.index_of_six(self) == -1
+      was_removed = true
+    else
+      was_removed = a_m6.remove_six(self)
+      @m6s.insert(oldIndex,a_m6) unless was_removed
+    end
+    // line 99 "../CodeInjectionAssociationTest.ump"
+    print "after removeM6";
+    // END OF UMPLE AFTER INJECTION
+    was_removed
+  end
+
+  def add_m6_at(a_m6, index)
+    was_added = false
+    if add_m6(a_m6)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_m6s())
+        index = number_of_m6s() - 1
+      end
+      @m6s.delete(a_m6)
+      @m6s.insert(index, a_m6)
+      was_added = true
+    end
+    was_added
+  end
+
+  def add_or_move_m6_at(a_m6, index)
+    was_added = false
+    if @m6s.include?(a_m6)
+      if(index &lt; 0)
+        index = 0
+      end
+      if(index &gt; number_of_m6s())
+        index = number_of_m6s() - 1
+      end
+      @m6s.delete(a_m6)
+      @m6s.insert(index, a_m6)
+      was_added = true
+    else
+      was_added = add_m6_at(a_m6, index)
+    end
+    was_added
+  end
+
+  def delete
+    @deleted = true
+    unless @m1.nil?
+      @m1.remove_one(self)
+    end
+    @placeholder_m2 = @m2
+    @m2 = nil
+    @placeholder_m2.remove_two(self)
+    copy_of_m3s = @m3s.dup
+    @m3s.clear
+    copy_of_m3s.each do |a_m3|
+      a_m3.remove_three(self)
+    end
+    copy_of_m4s = @m4s.dup
+    @m4s.clear
+    copy_of_m4s.each do |a_m4|
+      a_m4.remove_four(self)
+    end
+    copy_of_m5s = @m5s.dup
+    @m5s.clear
+    copy_of_m5s.each do |a_m5|
+      a_m5.remove_five(self)
+    end
+    copy_of_m6s = @m6s.dup
+    @m6s.clear
+    copy_of_m6s.each do |a_m6|
+      a_m6.remove_six(self)
+    end
+  end
+
+end
+end
+</pre>
+    </body>
+</html>

@@ -1,0 +1,427 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from RubyReflexiveAssociationTest</title>
+    </head>
+    <body>
+        <pre># PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+class OneToMany
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #OneToMany Associations - for documentation purposes
+  #attr_reader :oneToMany
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_oneToMany)
+    @initialized = false
+    @deleted = false
+    unless set_oneToMany(a_oneToMany)
+      raise "Unable to create OneToMany due to a_oneToMany. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html" 
+    end
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def get_oneToMany
+    @oneToMany
+  end
+
+  def set_oneToMany(a_new_oneToMany)
+    was_set = false
+    unless a_new_oneToMany.nil?
+      @oneToMany = a_new_oneToMany
+      was_set = true
+    end
+    was_set
+  end
+
+  def delete
+    @deleted = true
+    @oneToMany = nil
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+class Student
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Student Attributes - for documentation purposes
+  #attr_reader :number
+
+  #Student Associations - for documentation purposes
+  #attr_reader :pupil, :ta
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_number)
+    @initialized = false
+    @deleted = false
+    @number = a_number
+    @pupil = nil
+    @ta = nil
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def set_number(a_number)
+    was_set = false
+    @number = a_number
+    was_set = true
+    was_set
+  end
+
+  def get_number
+    @number
+  end
+
+  def get_pupil
+    @pupil
+  end
+
+  def has_pupil
+    has = !@pupil.nil?
+    has
+  end
+
+  def get_ta
+    @ta
+  end
+
+  def has_ta
+    has = !@ta.nil?
+    has
+  end
+
+  def set_pupil(a_new_pupil)
+    was_set = false
+    if a_new_pupil.nil?
+      existing_pupil = @pupil
+      @pupil = nil
+      
+      if !existing_pupil.nil? and !existing_pupil.get_ta.nil?
+        existing_pupil.set_ta(nil)
+      end
+      was_set = true
+      return was_set
+    end
+
+    current_pupil = self.get_pupil
+    if !current_pupil.nil? and !current_pupil.eql?(a_new_pupil)
+      current_pupil.set_ta(nil)
+    end
+
+    @pupil = a_new_pupil
+    existing_ta = a_new_pupil.get_ta
+
+    unless self.eql?(existing_ta)
+      a_new_pupil.set_ta(self)
+    end
+    was_set = true
+    was_set
+  end
+
+  def set_ta(a_new_ta)
+    was_set = false
+    if a_new_ta.nil?
+      existing_ta = @ta
+      @ta = nil
+      
+      if !existing_ta.nil? and !existing_ta.get_pupil.nil?
+        existing_ta.set_pupil(nil)
+      end
+      was_set = true
+      return was_set
+    end
+
+    current_ta = self.get_ta
+    if !current_ta.nil? and !current_ta.eql?(a_new_ta)
+      current_ta.set_pupil(nil)
+    end
+
+    @ta = a_new_ta
+    existing_pupil = a_new_ta.get_pupil
+
+    unless self.eql?(existing_pupil)
+      a_new_ta.set_pupil(self)
+    end
+    was_set = true
+    was_set
+  end
+
+  def delete
+    @deleted = true
+    unless @pupil.nil?
+      @pupil.set_ta(nil)
+    end
+    unless @ta.nil?
+      @ta.set_pupil(nil)
+    end
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+class OneSymmetric
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #OneSymmetric Attributes - for documentation purposes
+  #attr_reader :name, :number
+
+  #OneSymmetric Associations - for documentation purposes
+  #attr_reader :friend
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_name, a_number, a_friend)
+    @initialized = false
+    @deleted = false
+    @name = a_name
+    @number = a_number
+    @friend = nil
+    unless a_friend.nil?
+      @friend = a_friend
+      a_friend.instance_variable_set("@friend",self)
+    end
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def set_name(a_name)
+    was_set = false
+    raise "Mandatory relationship with friend not satisfied" if (@initialized and !@deleted and @friend.nil?)
+    @name = a_name
+    was_set = true
+    was_set
+  end
+
+  def set_number(a_number)
+    was_set = false
+    raise "Mandatory relationship with friend not satisfied" if (@initialized and !@deleted and @friend.nil?)
+    @number = a_number
+    was_set = true
+    was_set
+  end
+
+  def get_name
+    raise "Mandatory relationship with friend not satisfied" if (@initialized and !@deleted and @friend.nil?)
+    @name
+  end
+
+  def get_number
+    raise "Mandatory relationship with friend not satisfied" if (@initialized and !@deleted and @friend.nil?)
+    @number
+  end
+
+  def get_friend
+    raise "Mandatory relationship with friend not satisfied" if (@initialized and !@deleted and @friend.nil?)
+    @friend
+  end
+
+  def delete
+    @deleted = true
+    raise "Mandatory relationship with friend not satisfied" if (@initialized and !@deleted and @friend.nil?)
+    existing_friend = @friend
+    @friend = nil
+    unless existing_friend.nil?
+      existing_friend.delete
+    end
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+class OneSymmetricNoParam
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #OneSymmetricNoParam Associations - for documentation purposes
+  #attr_reader :friend
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_friend)
+    @initialized = false
+    @deleted = false
+    @friend = nil
+    unless a_friend.nil?
+      @friend = a_friend
+      a_friend.instance_variable_set("@friend",self)
+    end
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def get_friend
+    raise "Mandatory relationship with friend not satisfied" if (@initialized and !@deleted and @friend.nil?)
+    @friend
+  end
+
+  def delete
+    @deleted = true
+    raise "Mandatory relationship with friend not satisfied" if (@initialized and !@deleted and @friend.nil?)
+    existing_friend = @friend
+    @friend = nil
+    unless existing_friend.nil?
+      existing_friend.delete
+    end
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+class Mentor
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Mentor Attributes - for documentation purposes
+  #attr_reader :name
+
+  #Mentor Associations - for documentation purposes
+  #attr_reader :superMentor
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_name)
+    @initialized = false
+    @deleted = false
+    @name = a_name
+    @superMentor = nil
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def set_name(a_name)
+    was_set = false
+    @name = a_name
+    was_set = true
+    was_set
+  end
+
+  def get_name
+    @name
+  end
+
+  def get_superMentor
+    @superMentor
+  end
+
+  def has_superMentor
+    has = !@superMentor.nil?
+    has
+  end
+
+  def set_superMentor(a_new_superMentor)
+    was_set = false
+    if a_new_superMentor.nil?
+      existing_superMentor = @superMentor
+      @superMentor = nil
+      
+      if !existing_superMentor.nil? and !existing_superMentor.get_superMentor.nil?
+        existing_superMentor.set_superMentor(nil)
+      end
+      was_set = true
+      return was_set
+    end
+
+    current_superMentor = self.get_superMentor
+    if !current_superMentor.nil? and !current_superMentor.eql?(a_new_superMentor)
+      current_superMentor.set_superMentor(nil)
+    end
+
+    @superMentor = a_new_superMentor
+    existing_superMentor = a_new_superMentor.get_superMentor
+
+    unless self.eql?(existing_superMentor)
+      a_new_superMentor.set_superMentor(self)
+    end
+    was_set = true
+    was_set
+  end
+
+  def delete
+    @deleted = true
+    unless @superMentor.nil?
+      @superMentor.set_superMentor(nil)
+    end
+  end
+
+end
+end
+</pre>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+
+// Code for mixset Constraint : 
+
+
+class UmpleInternalParser { 
+    before Label_Constraint_48:init
+  {
+      parser.addGrammarFile("/constraint/umple_constraints.grammar");  // TODO Under development
+    }  }
+
+class UmpleInternalParser { 
+    before Label_Constraint_67:analyzeDependentTokens(Token,UmpleClass,int)
+  {
+      if (t.is("modelConstraintBody"))
+      {
+        analyzeModelConstraint(t,aClass);
+      }
+    }  }
+
+class UmpleInternalParser { 
+    before Label_Constraint_77:postTokenAnalysis
+  {
+      if (getParseResult().getWasSuccess())
+      {
+        postTokenModelConstraintAnalysis();
+      }
+    }  }

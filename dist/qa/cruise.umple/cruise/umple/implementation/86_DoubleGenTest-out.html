@@ -1,0 +1,187 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from DoubleGenTest</title>
+    </head>
+    <body>
+        <pre>/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 3 "../DoubleGenTest.ump"
+public class Person
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Person Attributes
+  private String name;
+  private int age;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Person(String aName, int aAge)
+  {
+    name = aName;
+    age = aAge;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setName(String aName)
+  {
+    boolean wasSet = false;
+    name = aName;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setAge(int aAge)
+  {
+    boolean wasSet = false;
+    age = aAge;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getName()
+  {
+    return name;
+  }
+
+  public int getAge()
+  {
+    return age;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "name" + ":" + getName()+ "," +
+            "age" + ":" + getAge()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 8 "../DoubleGenTest.ump"
+public class Mentor extends Person
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private String class;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Mentor(String aName, int aAge, String aClass)
+  {
+    super(aName, aAge);
+    class = aClass;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setClass(String aClass)
+  {
+    boolean wasSet = false;
+    class = aClass;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getClass()
+  {
+    return class;
+  }
+
+  public void delete()
+  {
+    super.delete();
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "class" + ":" + getClass()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 13 "../DoubleGenTest.ump"
+public class Student extends Person
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private int locker;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student(String aName, int aAge, int aLocker)
+  {
+    super(aName, aAge);
+    locker = aLocker;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setLocker(int aLocker)
+  {
+    boolean wasSet = false;
+    locker = aLocker;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public int getLocker()
+  {
+    return locker;
+  }
+
+  public void delete()
+  {
+    super.delete();
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "locker" + ":" + getLocker()+ "]";
+  }
+}
+</pre>
+    </body>
+</html>

@@ -1,0 +1,122 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from PhpImmutableUnidirectionalOptionalOneTest</title>
+    </head>
+    <body>
+        <pre>&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private $number;
+
+  //Student Associations
+  private $mentor;
+
+  //Helper Variables
+  private $canSetMentor;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aNumber, $aMentor)
+  {
+    $this-&gt;number = $aNumber;
+    $this-&gt;canSetMentor = true;
+    $this-&gt;setMentor($aMentor);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getNumber()
+  {
+    return $this-&gt;number;
+  }
+
+  public function getMentor()
+  {
+    return $this-&gt;mentor;
+  }
+
+  public function hasMentor()
+  {
+    $has = $this-&gt;mentor != null;
+    return $has;
+  }
+
+  private function setMentor($aNewMentor)
+  {
+    $wasSet = false;
+    if (!$this-&gt;canSetMentor) { return false; }
+    $this-&gt;canSetMentor = false;
+    $this-&gt;mentor = $aNewMentor;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private $name;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aName)
+  {
+    $this-&gt;name = $aName;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getName()
+  {
+    return $this-&gt;name;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+</pre>
+    </body>
+</html>

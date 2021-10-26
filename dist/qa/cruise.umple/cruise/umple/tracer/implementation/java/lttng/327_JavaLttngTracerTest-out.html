@@ -1,0 +1,324 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from JavaLttngTracerTest</title>
+    </head>
+    <body>
+        <pre>/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+import org.lttng.ust.LTTngUst;
+
+// line 5 "../LttngTest1.ump"
+public class Tracer
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Tracer Attributes
+  private String x;
+  private int y;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Tracer(String aX, int aY)
+  {
+    x = aX;
+    y = aY;
+    LTTngUst.init();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setX(String aX)
+  {
+    boolean wasSet = false;
+    LTTngUst.tracepointInt( System.currentTimeMillis()+","+Thread.currentThread().getId()+",LttngTest1.ump,9,Tracer,"+System.identityHashCode(this)+",at_s,x,"+x+","+(""+aX).toString().replace("\n","").replace(",",";"), Thread.currentThread().getId() );
+    x = aX;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setY(int aY)
+  {
+    boolean wasSet = false;
+    LTTngUst.tracepointInt( System.currentTimeMillis()+","+Thread.currentThread().getId()+",LttngTest1.ump,10,Tracer,"+System.identityHashCode(this)+",at_s,y,"+y+","+(""+aY).toString().replace("\n","").replace(",",";"), Thread.currentThread().getId() );
+    y = aY;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getX()
+  {
+    return x;
+  }
+
+  public int getY()
+  {
+    return y;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "x" + ":" + getX()+ "," +
+            "y" + ":" + getY()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+import org.lttng.ust.LTTngUst;
+
+// line 5 "../LttngTest2.ump"
+public class Tracer
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Tracer Attributes
+  private String str;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Tracer(String aStr)
+  {
+    str = aStr;
+    LTTngUst.init();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setStr(String aStr)
+  {
+    boolean wasSet = false;
+    LTTngUst.tracepointInt( System.currentTimeMillis()+","+Thread.currentThread().getId()+",LttngTest2.ump,14,Tracer,"+System.identityHashCode(this)+",at_s,str,"+str+","+(""+aStr).toString().replace("\n","").replace(",",";"), Thread.currentThread().getId() );
+    str = aStr;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getStr()
+  {
+    return str;
+  }
+
+  public void delete()
+  {}
+
+  // line 10 "../LttngTest2.ump"
+   public static  void main(String [] args){
+    LTTngUst.tracepointInt( System.currentTimeMillis()+","+Thread.currentThread().getId()+",LttngTest2.ump,15,Tracer,"+System.identityHashCode(this)+",me_e,main", Thread.currentThread().getId() );
+    Thread.currentThread().setUncaughtExceptionHandler(new UmpleExceptionHandler());
+    Thread.setDefaultUncaughtExceptionHandler(new UmpleExceptionHandler());
+    Tracer t = new Tracer(null);
+    t.setStr("testing lttng tracer");
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "str" + ":" + getStr()+ "]";
+  }
+  public static class UmpleExceptionHandler implements Thread.UncaughtExceptionHandler
+  {
+    public void uncaughtException(Thread t, Throwable e)
+    {
+      translate(e);
+      if(e.getCause()!=null)
+      {
+        translate(e.getCause());
+      }
+      e.printStackTrace();
+    }
+    public void translate(Throwable e)
+    {
+      java.util.List&lt;StackTraceElement&gt; result = new java.util.ArrayList&lt;StackTraceElement&gt;();
+      StackTraceElement[] elements = e.getStackTrace();
+      try
+      {
+        for(StackTraceElement element:elements)
+        {
+          String className = element.getClassName();
+          String methodName = element.getMethodName();
+          boolean methodFound = false;
+          int index = className.lastIndexOf('.')+1;
+          try {
+            java.lang.reflect.Method query = this.getClass().getMethod(className.substring(index)+"_"+methodName,new Class[]{});
+            UmpleSourceData sourceInformation = (UmpleSourceData)query.invoke(this,new Object[]{});
+            for(int i=0;i&lt;sourceInformation.size();++i)
+            {
+              // To compensate for any offsets caused by injected code we need to loop through the other references to this function
+              //  and adjust the start / length of the function.
+              int functionStart = sourceInformation.getJavaLine(i) + (("main".equals(methodName))?3:1);
+              int functionEnd = functionStart + sourceInformation.getLength(i);
+              int afterInjectionLines = 0;
+              //  We can leverage the fact that all inject statements are added to the uncaught exception list 
+              //   before the functions that they are within
+              for (int j = 0; j &lt; i; j++) {
+                if (sourceInformation.getJavaLine(j) - 1 &gt;= functionStart &amp;&amp;
+                    sourceInformation.getJavaLine(j) - 1 &lt;= functionEnd &amp;&amp;
+                    sourceInformation.getJavaLine(j) - 1 &lt;= element.getLineNumber()) {
+                    // A before injection, +2 for the comments surrounding the injected code
+                    if (sourceInformation.getJavaLine(j) - 1 == functionStart) {
+                        functionStart += sourceInformation.getLength(j) + 2;
+                        functionEnd += sourceInformation.getLength(j) + 2;
+                    } else {
+                        // An after injection
+                        afterInjectionLines += sourceInformation.getLength(j) + 2;
+                        functionEnd += sourceInformation.getLength(j) + 2;
+                    }
+                }
+              }
+              int distanceFromStart = element.getLineNumber() - functionStart - afterInjectionLines;
+              if(distanceFromStart&gt;=0&amp;&amp;distanceFromStart&lt;=sourceInformation.getLength(i))
+              {
+                result.add(new StackTraceElement(element.getClassName(),element.getMethodName(),sourceInformation.getFileName(i),sourceInformation.getUmpleLine(i)+distanceFromStart));
+                methodFound = true;
+                break;
+              }
+            }
+          }
+          catch (Exception e2){}
+          if(!methodFound)
+          {
+            result.add(element);
+          }
+        }
+      }
+      catch (Exception e1)
+      {
+        e1.printStackTrace();
+      }
+      e.setStackTrace(result.toArray(new StackTraceElement[0]));
+    }
+  //The following methods Map Java lines back to their original Umple file / line    
+    public UmpleSourceData Tracer_main(){ return new UmpleSourceData().setFileNames("LttngTest2.ump").setUmpleLines(9).setJavaLines(49).setLengths(2);}
+
+  }
+  public static class UmpleSourceData
+  {
+    String[] umpleFileNames;
+    Integer[] umpleLines;
+    Integer[] umpleJavaLines;
+    Integer[] umpleLengths;
+    
+    public UmpleSourceData(){
+    }
+    public String getFileName(int i){
+      return umpleFileNames[i];
+    }
+    public Integer getUmpleLine(int i){
+      return umpleLines[i];
+    }
+    public Integer getJavaLine(int i){
+      return umpleJavaLines[i];
+    }
+    public Integer getLength(int i){
+      return umpleLengths[i];
+    }
+    public UmpleSourceData setFileNames(String... filenames){
+      umpleFileNames = filenames;
+      return this;
+    }
+    public UmpleSourceData setUmpleLines(Integer... umplelines){
+      umpleLines = umplelines;
+      return this;
+    }
+    public UmpleSourceData setJavaLines(Integer... javalines){
+      umpleJavaLines = javalines;
+      return this;
+    }
+    public UmpleSourceData setLengths(Integer... lengths){
+      umpleLengths = lengths;
+      return this;
+    }
+    public int size(){
+      return umpleFileNames.length;
+    }
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+import java.util.logging.*;
+import org.lttng.ust.agent.LTTngAgent;
+
+// line 5 "../LttngTest3.ump"
+public class Tracer
+{
+
+  //------------------------
+  // STATIC VARIABLES
+  //------------------------
+
+  public static final Logger logger = Logger.getLogger(Tracer.class.getName());
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Tracer Attributes
+  private String x;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Tracer(String aX)
+  {
+    x = aX;
+    LTTngAgent lttngAgent = LTTngAgent.getLTTngAgent();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setX(String aX)
+  {
+    boolean wasSet = false;
+    logger.info( System.currentTimeMillis()+","+Thread.currentThread().getId()+",LttngTest3.ump,8,Tracer,"+System.identityHashCode(this)+",at_s,x,"+x+","+(""+aX).toString().replace("\n","").replace(",",";") );
+    x = aX;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getX()
+  {
+    return x;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "x" + ":" + getX()+ "]";
+  }
+}
+</pre>
+    </body>
+</html>

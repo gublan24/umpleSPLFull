@@ -1,0 +1,979 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from PhpEqualsTest</title>
+    </head>
+    <body>
+        <pre>&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Associations
+  private $mentors;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;mentors = array();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getMentor_index($index)
+  {
+    $aMentor = $this-&gt;mentors[$index];
+    return $aMentor;
+  }
+
+  public function getMentors()
+  {
+    $newMentors = $this-&gt;mentors;
+    return $newMentors;
+  }
+
+  public function numberOfMentors()
+  {
+    $number = count($this-&gt;mentors);
+    return $number;
+  }
+
+  public function hasMentors()
+  {
+    $has = $this-&gt;numberOfMentors() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfMentor($aMentor)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;mentors as $mentor)
+    {
+      if ($mentor-&gt;equals($aMentor))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public static function minimumNumberOfMentors()
+  {
+    return 0;
+  }
+
+  public function addMentor($aMentor)
+  {
+    $wasAdded = false;
+    if ($this-&gt;indexOfMentor($aMentor) !== -1) { return false; }
+    $this-&gt;mentors[] = $aMentor;
+    if ($aMentor-&gt;indexOfStudent($this) != -1)
+    {
+      $wasAdded = true;
+    }
+    else
+    {
+      $wasAdded = $aMentor-&gt;addStudent($this);
+      if (!$wasAdded)
+      {
+        array_pop($this-&gt;mentors);
+      }
+    }
+    return $wasAdded;
+  }
+
+  public function removeMentor($aMentor)
+  {
+    $wasRemoved = false;
+    if ($this-&gt;indexOfMentor($aMentor) == -1)
+    {
+      return $wasRemoved;
+    }
+
+    $oldIndex = $this-&gt;indexOfMentor($aMentor);
+    unset($this-&gt;mentors[$oldIndex]);
+    if ($aMentor-&gt;indexOfStudent($this) == -1)
+    {
+      $wasRemoved = true;
+    }
+    else
+    {
+      $wasRemoved = $aMentor-&gt;removeStudent($this);
+      if (!$wasRemoved)
+      {
+        $this-&gt;mentors[$oldIndex] = $aMentor;
+        ksort($this-&gt;mentors);
+      }
+    }
+    $this-&gt;mentors = array_values($this-&gt;mentors);
+    return $wasRemoved;
+  }
+
+  public function addMentorAt($aMentor, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addMentor($aMentor))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfMentors()) { $index = $this-&gt;numberOfMentors() - 1; }
+      array_splice($this-&gt;mentors, $this-&gt;indexOfMentor($aMentor), 1);
+      array_splice($this-&gt;mentors, $index, 0, array($aMentor));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveMentorAt($aMentor, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfMentor($aMentor) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfMentors()) { $index = $this-&gt;numberOfMentors() - 1; }
+      array_splice($this-&gt;mentors, $this-&gt;indexOfMentor($aMentor), 1);
+      array_splice($this-&gt;mentors, $index, 0, array($aMentor));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addMentorAt($aMentor, $index);
+    }
+    return $wasAdded;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $copyOfMentors = $this-&gt;mentors;
+    $this-&gt;mentors = array();
+    foreach ($copyOfMentors as $aMentor)
+    {
+      $aMentor-&gt;removeStudent($this);
+    }
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Associations
+  private $mentors;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;mentors = array();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getMentor_index($index)
+  {
+    $aMentor = $this-&gt;mentors[$index];
+    return $aMentor;
+  }
+
+  public function getMentors()
+  {
+    $newMentors = $this-&gt;mentors;
+    return $newMentors;
+  }
+
+  public function numberOfMentors()
+  {
+    $number = count($this-&gt;mentors);
+    return $number;
+  }
+
+  public function hasMentors()
+  {
+    $has = $this-&gt;numberOfMentors() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfMentor($aMentor)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;mentors as $mentor)
+    {
+      if ($mentor-&gt;equals($aMentor))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public static function minimumNumberOfMentors()
+  {
+    return 0;
+  }
+
+  public function addMentor($aMentor)
+  {
+    $wasAdded = false;
+    if ($this-&gt;indexOfMentor($aMentor) !== -1) { return false; }
+    $this-&gt;mentors[] = $aMentor;
+    if ($aMentor-&gt;indexOfStudent($this) != -1)
+    {
+      $wasAdded = true;
+    }
+    else
+    {
+      $wasAdded = $aMentor-&gt;addStudent($this);
+      if (!$wasAdded)
+      {
+        array_pop($this-&gt;mentors);
+      }
+    }
+    return $wasAdded;
+  }
+
+  public function removeMentor($aMentor)
+  {
+    $wasRemoved = false;
+    if ($this-&gt;indexOfMentor($aMentor) == -1)
+    {
+      return $wasRemoved;
+    }
+
+    $oldIndex = $this-&gt;indexOfMentor($aMentor);
+    unset($this-&gt;mentors[$oldIndex]);
+    if ($aMentor-&gt;indexOfStudent($this) == -1)
+    {
+      $wasRemoved = true;
+    }
+    else
+    {
+      $wasRemoved = $aMentor-&gt;removeStudent($this);
+      if (!$wasRemoved)
+      {
+        $this-&gt;mentors[$oldIndex] = $aMentor;
+        ksort($this-&gt;mentors);
+      }
+    }
+    $this-&gt;mentors = array_values($this-&gt;mentors);
+    return $wasRemoved;
+  }
+
+  public function addMentorAt($aMentor, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addMentor($aMentor))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfMentors()) { $index = $this-&gt;numberOfMentors() - 1; }
+      array_splice($this-&gt;mentors, $this-&gt;indexOfMentor($aMentor), 1);
+      array_splice($this-&gt;mentors, $index, 0, array($aMentor));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveMentorAt($aMentor, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfMentor($aMentor) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfMentors()) { $index = $this-&gt;numberOfMentors() - 1; }
+      array_splice($this-&gt;mentors, $this-&gt;indexOfMentor($aMentor), 1);
+      array_splice($this-&gt;mentors, $index, 0, array($aMentor));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addMentorAt($aMentor, $index);
+    }
+    return $wasAdded;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $copyOfMentors = $this-&gt;mentors;
+    $this-&gt;mentors = array();
+    foreach ($copyOfMentors as $aMentor)
+    {
+      $aMentor-&gt;removeStudent($this);
+    }
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private $intId;
+  private $doubleId;
+  private $booleanId;
+  private $stringId;
+  private $stringListIds;
+
+  //Helper Variables
+  private $cachedHashCode;
+  private $canSetIntId;
+  private $canSetDoubleId;
+  private $canSetBooleanId;
+  private $canSetStringId;
+  private $canSetStringListIds;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aIntId, $aDoubleId, $aBooleanId, $aStringId)
+  {
+    $this-&gt;cachedHashCode = -1;
+    $this-&gt;canSetIntId = true;
+    $this-&gt;canSetDoubleId = true;
+    $this-&gt;canSetBooleanId = true;
+    $this-&gt;canSetStringId = true;
+    $this-&gt;canSetStringListIds = true;
+    $this-&gt;intId = $aIntId;
+    $this-&gt;doubleId = $aDoubleId;
+    $this-&gt;booleanId = $aBooleanId;
+    $this-&gt;stringId = $aStringId;
+    $this-&gt;stringListIds = array();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setIntId($aIntId)
+  {
+    $wasSet = false;
+    if (!$this-&gt;canSetIntId) { return false; }
+    $this-&gt;intId = $aIntId;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setDoubleId($aDoubleId)
+  {
+    $wasSet = false;
+    if (!$this-&gt;canSetDoubleId) { return false; }
+    $this-&gt;doubleId = $aDoubleId;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setBooleanId($aBooleanId)
+  {
+    $wasSet = false;
+    if (!$this-&gt;canSetBooleanId) { return false; }
+    $this-&gt;booleanId = $aBooleanId;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setStringId($aStringId)
+  {
+    $wasSet = false;
+    if (!$this-&gt;canSetStringId) { return false; }
+    $this-&gt;stringId = $aStringId;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function addStringListId($aStringListId)
+  {
+    $wasAdded = false;
+    if (!$this-&gt;canSetStringListIds) { return false; }
+    $this-&gt;stringListIds[] = $aStringListId;
+    $wasAdded = true;
+    return $wasAdded;
+  }
+
+  public function removeStringListId($aStringListId)
+  {
+    $wasRemoved = false;
+    if (!$this-&gt;canSetStringListIds) { return false; }
+    unset($this-&gt;stringListIds[$this-&gt;indexOfStringListId($aStringListId)]);
+    $this-&gt;stringListIds = array_values($this-&gt;stringListIds);
+    $wasRemoved = true;
+    return $wasRemoved;
+  }
+
+  public function getIntId()
+  {
+    return $this-&gt;intId;
+  }
+
+  public function getDoubleId()
+  {
+    return $this-&gt;doubleId;
+  }
+
+  public function getBooleanId()
+  {
+    return $this-&gt;booleanId;
+  }
+
+  public function getStringId()
+  {
+    return $this-&gt;stringId;
+  }
+
+  public function getStringListId($index)
+  {
+    $aStringListId = $this-&gt;stringListIds[$index];
+    return $aStringListId;
+  }
+
+  public function getStringListIds()
+  {
+    $newStringListIds = $this-&gt;stringListIds;
+    return $newStringListIds;
+  }
+
+  public function numberOfStringListIds()
+  {
+    $number = count($this-&gt;stringListIds);
+    return $number;
+  }
+
+  public function hasStringListIds()
+  {
+    $has = stringListIds.size() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfStringListId($aStringListId)
+  {
+    $rawAnswer = array_search($aStringListId,$this-&gt;stringListIds);
+    $index = $rawAnswer == null &amp;&amp; $rawAnswer !== 0 ? -1 : $rawAnswer;
+    return $index;
+  }
+
+  public function isBooleanId()
+  {
+    return $this-&gt;booleanId;
+  }
+
+  public function equals($compareTo)
+  {
+    if ($compareTo == null) { return false; }
+    if (get_class($this) != get_class($compareTo)) { return false; }
+
+    if ($this-&gt;intId != $compareTo-&gt;intId)
+    {
+      return false;
+    }
+
+    if ($this-&gt;doubleId != $compareTo-&gt;doubleId)
+    {
+      return false;
+    }
+
+    if ($this-&gt;booleanId != $compareTo-&gt;booleanId)
+    {
+      return false;
+    }
+
+    if ($this-&gt;stringId != $compareTo-&gt;stringId)
+    {
+      return false;
+    }
+
+    if ($this-&gt;stringListIds != $compareTo-&gt;stringListIds)
+    {
+      return false;
+    }
+
+    return true;
+  }
+
+  public function hashCode()
+  {
+    if ($this-&gt;cachedHashCode != -1)
+    {
+      return $this-&gt;cachedHashCode;
+    }
+    $this-&gt;cachedHashCode = 17;
+    $this-&gt;cachedHashCode = $this-&gt;cachedHashCode * 23 + $this-&gt;intId;
+
+    $this-&gt;cachedHashCode = $this-&gt;cachedHashCode * 23 + $this-&gt;doubleId;
+
+    $this-&gt;cachedHashCode = $this-&gt;cachedHashCode * 23 + ($this-&gt;booleanId ? 1 : 0);
+
+    if ($this-&gt;stringId != null)
+    {
+      $this-&gt;cachedHashCode = $this-&gt;cachedHashCode * 23 + spl_object_hash($this-&gt;stringId);
+    }
+    else
+    {
+      $this-&gt;cachedHashCode = $this-&gt;cachedHashCode * 23;
+    }
+
+    if ($this-&gt;stringListIds != null)
+    {
+      $this-&gt;cachedHashCode = $this-&gt;cachedHashCode * 23 + spl_object_hash($this-&gt;stringListIds);
+    }
+    else
+    {
+      $this-&gt;cachedHashCode = $this-&gt;cachedHashCode * 23;
+    }
+
+    $this-&gt;canSetIntId = false;
+    $this-&gt;canSetDoubleId = false;
+    $this-&gt;canSetBooleanId = false;
+    $this-&gt;canSetStringId = false;
+    $this-&gt;canSetStringListIds = false;
+    return $this-&gt;cachedHashCode;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private $intId;
+  private $doubleId;
+  private $booleanId;
+  private $stringId;
+
+  //Helper Variables
+  private $cachedHashCode;
+  private $canSetIntId;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aDoubleId, $aBooleanId, $aStringId)
+  {
+    $this-&gt;cachedHashCode = -1;
+    $this-&gt;canSetIntId = true;
+    $this-&gt;doubleId = $aDoubleId;
+    $this-&gt;booleanId = $aBooleanId;
+    $this-&gt;stringId = $aStringId;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setIntId($aIntId)
+  {
+    $wasSet = false;
+    if (!$this-&gt;canSetIntId) { return false; }
+    $this-&gt;canSetIntId = false;
+    $this-&gt;intId = $aIntId;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getIntId()
+  {
+    return $this-&gt;intId;
+  }
+
+  public function getDoubleId()
+  {
+    return $this-&gt;doubleId;
+  }
+
+  public function getBooleanId()
+  {
+    return $this-&gt;booleanId;
+  }
+
+  public function getStringId()
+  {
+    return $this-&gt;stringId;
+  }
+
+  public function isBooleanId()
+  {
+    return $this-&gt;booleanId;
+  }
+
+  public function equals($compareTo)
+  {
+    if ($compareTo == null) { return false; }
+    if (get_class($this) != get_class($compareTo)) { return false; }
+
+    if ($this-&gt;intId != $compareTo-&gt;intId)
+    {
+      return false;
+    }
+
+    if ($this-&gt;doubleId != $compareTo-&gt;doubleId)
+    {
+      return false;
+    }
+
+    if ($this-&gt;booleanId != $compareTo-&gt;booleanId)
+    {
+      return false;
+    }
+
+    if ($this-&gt;stringId != $compareTo-&gt;stringId)
+    {
+      return false;
+    }
+
+    return true;
+  }
+
+  public function hashCode()
+  {
+    if ($this-&gt;cachedHashCode != -1)
+    {
+      return $this-&gt;cachedHashCode;
+    }
+    $this-&gt;cachedHashCode = 17;
+    $this-&gt;cachedHashCode = $this-&gt;cachedHashCode * 23 + $this-&gt;intId;
+
+    $this-&gt;cachedHashCode = $this-&gt;cachedHashCode * 23 + $this-&gt;doubleId;
+
+    $this-&gt;cachedHashCode = $this-&gt;cachedHashCode * 23 + ($this-&gt;booleanId ? 1 : 0);
+
+    if ($this-&gt;stringId != null)
+    {
+      $this-&gt;cachedHashCode = $this-&gt;cachedHashCode * 23 + spl_object_hash($this-&gt;stringId);
+    }
+    else
+    {
+      $this-&gt;cachedHashCode = $this-&gt;cachedHashCode * 23;
+    }
+
+    $this-&gt;canSetIntId = false;
+    $this-&gt;canSetDoubleId = false;
+    $this-&gt;canSetBooleanId = false;
+    $this-&gt;canSetStringId = false;
+    return $this-&gt;cachedHashCode;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Associations
+  private $main;
+  private $secondaries;
+
+  //Helper Variables
+  private $cachedHashCode;
+  private $canSetMain;
+  private $canSetSecondaries;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;cachedHashCode = -1;
+    $this-&gt;canSetMain = true;
+    $this-&gt;canSetSecondaries = true;
+    $this-&gt;secondaries = array();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getMain()
+  {
+    return $this-&gt;main;
+  }
+
+  public function hasMain()
+  {
+    $has = $this-&gt;main != null;
+    return $has;
+  }
+
+  public function getSecondary_index($index)
+  {
+    $aSecondary = $this-&gt;secondaries[$index];
+    return $aSecondary;
+  }
+
+  public function getSecondaries()
+  {
+    $newSecondaries = $this-&gt;secondaries;
+    return $newSecondaries;
+  }
+
+  public function numberOfSecondaries()
+  {
+    $number = count($this-&gt;secondaries);
+    return $number;
+  }
+
+  public function hasSecondaries()
+  {
+    $has = $this-&gt;numberOfSecondaries() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfSecondary($aSecondary)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;secondaries as $secondary)
+    {
+      if ($secondary-&gt;equals($aSecondary))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public function setMain($aNewMain)
+  {
+    $wasSet = false;
+    if (!$this-&gt;canSetMain) { return false; }
+    if ($aNewMain == null)
+    {
+      $existingMain = $this-&gt;main;
+      $this-&gt;main = null;
+      
+      if ($existingMain != null &amp;&amp; $existingMain-&gt;getMentorMain() != null)
+      {
+        $existingMain-&gt;setMentorMain(null);
+      }
+      $wasSet = true;
+      return $wasSet;
+    }
+    
+    $currentMain = $this-&gt;getMain();
+    if ($currentMain != null &amp;&amp; $currentMain != $aNewMain)
+    {
+      $currentMain-&gt;setMentorMain(null);
+    }
+    
+    $this-&gt;main = $aNewMain;
+    $existingMentorMain = $aNewMain-&gt;getMentorMain();
+    
+    if ($this != $existingMentorMain)
+    {
+      $aNewMain-&gt;setMentorMain($this);
+    }
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public static function minimumNumberOfSecondaries()
+  {
+    return 0;
+  }
+
+  public function addSecondary($aSecondary)
+  {
+    $wasAdded = false;
+    if (!$this-&gt;canSetSecondaries) { return false; }
+    if ($this-&gt;indexOfSecondary($aSecondary) !== -1) { return false; }
+    $existingMentorSecondary = $aSecondary-&gt;getMentorSecondary();
+    if ($existingMentorSecondary == null)
+    {
+      $aSecondary-&gt;setMentorSecondary($this);
+    }
+    elseif ($this !== $existingMentorSecondary)
+    {
+      $existingMentorSecondary-&gt;removeSecondary($aSecondary);
+      $this-&gt;addSecondary($aSecondary);
+    }
+    else
+    {
+      $this-&gt;secondaries[] = $aSecondary;
+    }
+    $wasAdded = true;
+    return $wasAdded;
+  }
+
+  public function removeSecondary($aSecondary)
+  {
+    $wasRemoved = false;
+    if (!$this-&gt;canSetSecondaries) { return false; }
+    if ($this-&gt;indexOfSecondary($aSecondary) != -1)
+    {
+      unset($this-&gt;secondaries[$this-&gt;indexOfSecondary($aSecondary)]);
+      $this-&gt;secondaries = array_values($this-&gt;secondaries);
+      if ($this === $aSecondary-&gt;getMentorSecondary())
+      {
+        $aSecondary-&gt;setMentorSecondary(null);
+      }
+      $wasRemoved = true;
+    }
+    return $wasRemoved;
+  }
+
+  public function addSecondaryAt($aSecondary, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addSecondary($aSecondary))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfSecondaries()) { $index = $this-&gt;numberOfSecondaries() - 1; }
+      array_splice($this-&gt;secondaries, $this-&gt;indexOfSecondary($aSecondary), 1);
+      array_splice($this-&gt;secondaries, $index, 0, array($aSecondary));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveSecondaryAt($aSecondary, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfSecondary($aSecondary) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfSecondaries()) { $index = $this-&gt;numberOfSecondaries() - 1; }
+      array_splice($this-&gt;secondaries, $this-&gt;indexOfSecondary($aSecondary), 1);
+      array_splice($this-&gt;secondaries, $index, 0, array($aSecondary));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addSecondaryAt($aSecondary, $index);
+    }
+    return $wasAdded;
+  }
+
+  public function equals($compareTo)
+  {
+    if ($compareTo == null) { return false; }
+    if (get_class($this) != get_class($compareTo)) { return false; }
+
+    if ($this-&gt;main != $compareTo-&gt;main)
+    {
+      return false;
+    }
+
+    if ($this-&gt;secondaries != $compareTo-&gt;secondaries)
+    {
+      return false;
+    }
+
+    return true;
+  }
+
+  public function hashCode()
+  {
+    if ($this-&gt;cachedHashCode != -1)
+    {
+      return $this-&gt;cachedHashCode;
+    }
+    $this-&gt;cachedHashCode = 17;
+    if ($this-&gt;main != null)
+    {
+      $this-&gt;cachedHashCode = $this-&gt;cachedHashCode * 23 + spl_object_hash($this-&gt;main);
+    }
+    else
+    {
+      $this-&gt;cachedHashCode = $this-&gt;cachedHashCode * 23;
+    }
+    if ($this-&gt;secondaries != null)
+    {
+      $this-&gt;cachedHashCode = $this-&gt;cachedHashCode * 23 + spl_object_hash($this-&gt;secondaries);
+    }
+    else
+    {
+      $this-&gt;cachedHashCode = $this-&gt;cachedHashCode * 23;
+    }
+
+    $this-&gt;canSetMain = false;
+    $this-&gt;canSetSecondaries = false;
+    return $this-&gt;cachedHashCode;
+  }
+
+  public function delete()
+  {
+    if ($this-&gt;main != null)
+    {
+      $this-&gt;main-&gt;setMentorMain(null);
+    }
+    foreach ($this-&gt;secondaries as $aSecondary)
+    {
+      $aSecondary-&gt;setMentorSecondary(null);
+    }
+  }
+
+}
+?&gt;
+</pre>
+    </body>
+</html>

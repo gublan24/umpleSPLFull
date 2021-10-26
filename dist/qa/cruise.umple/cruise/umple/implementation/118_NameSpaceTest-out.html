@@ -1,0 +1,841 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from NameSpaceTest</title>
+    </head>
+    <body>
+        <pre>/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "nameSpaceDefaultTest1.ump"
+public class A
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public A()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 4 "nameSpaceDefaultTest1.ump"
+// line 9 "nameSpaceDefaultTest1.ump"
+public class B
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public B()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 7 "nameSpaceDefaultTest1.ump"
+public class C
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public C()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+// line 2 "nameSpaceDefaultTest1.ump"
+// line 5 "nameSpaceDefaultTest1.ump"
+// line 1 "nameSpaceDefaultTest1.ump"
+public interface I
+{
+  
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+import java.util.*;
+
+// line 3 "nameSpaceDefaultTest2.ump"
+public class X implements J
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X Associations
+  private List&lt;Y&gt; ies;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public X()
+  {
+    ies = new ArrayList&lt;Y&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+  /* Code from template association_GetMany */
+  public Y getY(int index)
+  {
+    Y aY = ies.get(index);
+    return aY;
+  }
+
+  public List&lt;Y&gt; getIes()
+  {
+    List&lt;Y&gt; newIes = Collections.unmodifiableList(ies);
+    return newIes;
+  }
+
+  public int numberOfIes()
+  {
+    int number = ies.size();
+    return number;
+  }
+
+  public boolean hasIes()
+  {
+    boolean has = ies.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfY(Y aY)
+  {
+    int index = ies.indexOf(aY);
+    return index;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfIes()
+  {
+    return 0;
+  }
+  /* Code from template association_AddManyToManyMethod */
+  public boolean addY(Y aY)
+  {
+    boolean wasAdded = false;
+    if (ies.contains(aY)) { return false; }
+    ies.add(aY);
+    if (aY.indexOfX(this) != -1)
+    {
+      wasAdded = true;
+    }
+    else
+    {
+      wasAdded = aY.addX(this);
+      if (!wasAdded)
+      {
+        ies.remove(aY);
+      }
+    }
+    return wasAdded;
+  }
+  /* Code from template association_RemoveMany */
+  public boolean removeY(Y aY)
+  {
+    boolean wasRemoved = false;
+    if (!ies.contains(aY))
+    {
+      return wasRemoved;
+    }
+
+    int oldIndex = ies.indexOf(aY);
+    ies.remove(oldIndex);
+    if (aY.indexOfX(this) == -1)
+    {
+      wasRemoved = true;
+    }
+    else
+    {
+      wasRemoved = aY.removeX(this);
+      if (!wasRemoved)
+      {
+        ies.add(oldIndex,aY);
+      }
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addYAt(Y aY, int index)
+  {  
+    boolean wasAdded = false;
+    if(addY(aY))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfIes()) { index = numberOfIes() - 1; }
+      ies.remove(aY);
+      ies.add(index, aY);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveYAt(Y aY, int index)
+  {
+    boolean wasAdded = false;
+    if(ies.contains(aY))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfIes()) { index = numberOfIes() - 1; }
+      ies.remove(aY);
+      ies.add(index, aY);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addYAt(aY, index);
+    }
+    return wasAdded;
+  }
+
+  public void delete()
+  {
+    ArrayList&lt;Y&gt; copyOfIes = new ArrayList&lt;Y&gt;(ies);
+    ies.clear();
+    for(Y aY : copyOfIes)
+    {
+      aY.removeX(this);
+    }
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+import java.util.*;
+
+// line 5 "nameSpaceDefaultTest2.ump"
+// line 1 "nameSpaceDefaultTest2.ump"
+public class Y
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Y Associations
+  private List&lt;X&gt; xs;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Y()
+  {
+    xs = new ArrayList&lt;X&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+  /* Code from template association_GetMany */
+  public X getX(int index)
+  {
+    X aX = xs.get(index);
+    return aX;
+  }
+
+  public List&lt;X&gt; getXs()
+  {
+    List&lt;X&gt; newXs = Collections.unmodifiableList(xs);
+    return newXs;
+  }
+
+  public int numberOfXs()
+  {
+    int number = xs.size();
+    return number;
+  }
+
+  public boolean hasXs()
+  {
+    boolean has = xs.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfX(X aX)
+  {
+    int index = xs.indexOf(aX);
+    return index;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfXs()
+  {
+    return 0;
+  }
+  /* Code from template association_AddManyToManyMethod */
+  public boolean addX(X aX)
+  {
+    boolean wasAdded = false;
+    if (xs.contains(aX)) { return false; }
+    xs.add(aX);
+    if (aX.indexOfY(this) != -1)
+    {
+      wasAdded = true;
+    }
+    else
+    {
+      wasAdded = aX.addY(this);
+      if (!wasAdded)
+      {
+        xs.remove(aX);
+      }
+    }
+    return wasAdded;
+  }
+  /* Code from template association_RemoveMany */
+  public boolean removeX(X aX)
+  {
+    boolean wasRemoved = false;
+    if (!xs.contains(aX))
+    {
+      return wasRemoved;
+    }
+
+    int oldIndex = xs.indexOf(aX);
+    xs.remove(oldIndex);
+    if (aX.indexOfY(this) == -1)
+    {
+      wasRemoved = true;
+    }
+    else
+    {
+      wasRemoved = aX.removeY(this);
+      if (!wasRemoved)
+      {
+        xs.add(oldIndex,aX);
+      }
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addXAt(X aX, int index)
+  {  
+    boolean wasAdded = false;
+    if(addX(aX))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfXs()) { index = numberOfXs() - 1; }
+      xs.remove(aX);
+      xs.add(index, aX);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveXAt(X aX, int index)
+  {
+    boolean wasAdded = false;
+    if(xs.contains(aX))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfXs()) { index = numberOfXs() - 1; }
+      xs.remove(aX);
+      xs.add(index, aX);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addXAt(aX, index);
+    }
+    return wasAdded;
+  }
+
+  public void delete()
+  {
+    ArrayList&lt;X&gt; copyOfXs = new ArrayList&lt;X&gt;(xs);
+    xs.clear();
+    for(X aX : copyOfXs)
+    {
+      aX.removeY(this);
+    }
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+// line 1 "nameSpaceDefaultTest2.ump"
+public interface I
+{
+  
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+// line 2 "nameSpaceDefaultTest2.ump"
+public interface J extends I
+{
+  
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package n;
+
+// line 4 "../nameSpaceRedefinedTest1.ump"
+// line 8 "../nameSpaceRedefinedTest1.ump"
+public class A
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public A()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public void delete()
+  {}
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package m;
+
+// line 5 "../nameSpaceRedefinedTest1.ump"
+// line 1 "../nameSpaceRedefinedTest1.ump"
+public class B
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //B Attributes
+  private String x;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public B(String aX)
+  {
+    x = aX;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setX(String aX)
+  {
+    boolean wasSet = false;
+    x = aX;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getX()
+  {
+    return x;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "x" + ":" + getX()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+package n;
+// line 1 "../nameSpaceRedefinedTest1.ump"
+// line 3 "../nameSpaceRedefinedTest1.ump"
+// line 7 "../nameSpaceRedefinedTest1.ump"
+public interface I
+{
+  
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package m;
+import java.util.*;
+
+// line 3 "../nameSpaceRedefinedTest2.ump"
+public class X implements J
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X Associations
+  private List&lt;Y&gt; ies;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public X()
+  {
+    ies = new ArrayList&lt;Y&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+  /* Code from template association_GetMany */
+  public Y getY(int index)
+  {
+    Y aY = ies.get(index);
+    return aY;
+  }
+
+  public List&lt;Y&gt; getIes()
+  {
+    List&lt;Y&gt; newIes = Collections.unmodifiableList(ies);
+    return newIes;
+  }
+
+  public int numberOfIes()
+  {
+    int number = ies.size();
+    return number;
+  }
+
+  public boolean hasIes()
+  {
+    boolean has = ies.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfY(Y aY)
+  {
+    int index = ies.indexOf(aY);
+    return index;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfIes()
+  {
+    return 0;
+  }
+  /* Code from template association_AddManyToManyMethod */
+  public boolean addY(Y aY)
+  {
+    boolean wasAdded = false;
+    if (ies.contains(aY)) { return false; }
+    ies.add(aY);
+    if (aY.indexOfX(this) != -1)
+    {
+      wasAdded = true;
+    }
+    else
+    {
+      wasAdded = aY.addX(this);
+      if (!wasAdded)
+      {
+        ies.remove(aY);
+      }
+    }
+    return wasAdded;
+  }
+  /* Code from template association_RemoveMany */
+  public boolean removeY(Y aY)
+  {
+    boolean wasRemoved = false;
+    if (!ies.contains(aY))
+    {
+      return wasRemoved;
+    }
+
+    int oldIndex = ies.indexOf(aY);
+    ies.remove(oldIndex);
+    if (aY.indexOfX(this) == -1)
+    {
+      wasRemoved = true;
+    }
+    else
+    {
+      wasRemoved = aY.removeX(this);
+      if (!wasRemoved)
+      {
+        ies.add(oldIndex,aY);
+      }
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addYAt(Y aY, int index)
+  {  
+    boolean wasAdded = false;
+    if(addY(aY))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfIes()) { index = numberOfIes() - 1; }
+      ies.remove(aY);
+      ies.add(index, aY);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveYAt(Y aY, int index)
+  {
+    boolean wasAdded = false;
+    if(ies.contains(aY))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfIes()) { index = numberOfIes() - 1; }
+      ies.remove(aY);
+      ies.add(index, aY);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addYAt(aY, index);
+    }
+    return wasAdded;
+  }
+
+  public void delete()
+  {
+    ArrayList&lt;Y&gt; copyOfIes = new ArrayList&lt;Y&gt;(ies);
+    ies.clear();
+    for(Y aY : copyOfIes)
+    {
+      aY.removeX(this);
+    }
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package m;
+import java.util.*;
+
+// line 1 "../nameSpaceRedefinedTest2.ump"
+public class Y
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Y Associations
+  private List&lt;X&gt; xs;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Y()
+  {
+    xs = new ArrayList&lt;X&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+  /* Code from template association_GetMany */
+  public X getX(int index)
+  {
+    X aX = xs.get(index);
+    return aX;
+  }
+
+  public List&lt;X&gt; getXs()
+  {
+    List&lt;X&gt; newXs = Collections.unmodifiableList(xs);
+    return newXs;
+  }
+
+  public int numberOfXs()
+  {
+    int number = xs.size();
+    return number;
+  }
+
+  public boolean hasXs()
+  {
+    boolean has = xs.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfX(X aX)
+  {
+    int index = xs.indexOf(aX);
+    return index;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfXs()
+  {
+    return 0;
+  }
+  /* Code from template association_AddManyToManyMethod */
+  public boolean addX(X aX)
+  {
+    boolean wasAdded = false;
+    if (xs.contains(aX)) { return false; }
+    xs.add(aX);
+    if (aX.indexOfY(this) != -1)
+    {
+      wasAdded = true;
+    }
+    else
+    {
+      wasAdded = aX.addY(this);
+      if (!wasAdded)
+      {
+        xs.remove(aX);
+      }
+    }
+    return wasAdded;
+  }
+  /* Code from template association_RemoveMany */
+  public boolean removeX(X aX)
+  {
+    boolean wasRemoved = false;
+    if (!xs.contains(aX))
+    {
+      return wasRemoved;
+    }
+
+    int oldIndex = xs.indexOf(aX);
+    xs.remove(oldIndex);
+    if (aX.indexOfY(this) == -1)
+    {
+      wasRemoved = true;
+    }
+    else
+    {
+      wasRemoved = aX.removeY(this);
+      if (!wasRemoved)
+      {
+        xs.add(oldIndex,aX);
+      }
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addXAt(X aX, int index)
+  {  
+    boolean wasAdded = false;
+    if(addX(aX))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfXs()) { index = numberOfXs() - 1; }
+      xs.remove(aX);
+      xs.add(index, aX);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveXAt(X aX, int index)
+  {
+    boolean wasAdded = false;
+    if(xs.contains(aX))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfXs()) { index = numberOfXs() - 1; }
+      xs.remove(aX);
+      xs.add(index, aX);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addXAt(aX, index);
+    }
+    return wasAdded;
+  }
+
+  public void delete()
+  {
+    ArrayList&lt;X&gt; copyOfXs = new ArrayList&lt;X&gt;(xs);
+    xs.clear();
+    for(X aX : copyOfXs)
+    {
+      aX.removeY(this);
+    }
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+package m;
+// line 1 "../nameSpaceRedefinedTest2.ump"
+public interface I
+{
+  
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+package m;
+// line 2 "../nameSpaceRedefinedTest2.ump"
+public interface J extends I
+{
+  
+}
+</pre>
+    </body>
+</html>

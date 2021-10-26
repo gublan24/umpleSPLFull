@@ -1,0 +1,1812 @@
+  class UmpleInternalParser {
+    before Label_StateMachine_142:postTokenClassEnumerationAnalysis(UmpleClass)
+    {
+      // Check if the enumeration conflicts with any state machines, and if the enumeration is used as
+      // event parameters
+      for (StateMachine sm : uClass.getStateMachines()) {
+        if (uEnum.hasSameName(sm.getName())) {
+          // Enumeration Conflicts with State Machine Error
+          getParseResult().addErrorMessage(new ErrorMessage(97,
+                                                            uEnum.getPosition(),
+                                                            uEnum.getName(),
+                                                            "" + uEnum.getPosition().getLineNumber(),
+                                                            sm.getName(),
+                                                            uClass.getName()));
+          return;
+        }
+        for (Event e : sm.getAllEvents()) {
+          for (MethodParameter p : e.getParams()) {
+            if (uEnum.hasSameName(p.getType()) && otherClass != null) {
+              // Event Parameter Ambiguity Warning
+              getParseResult().addErrorMessage(new ErrorMessage(103,
+                                                                uEnum.getPosition(),
+                                                                uEnum.getName(),
+                                                                "" + uEnum.getPosition().getLineNumber(),
+                                                                p.getName(),
+                                                                e.getName(),
+                                                                sm.getName(),
+                                                                otherClass.getName()));
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+  class UmpleInternalParser {
+    before Label_StateMachine_143:analyzeModelEnumInClass(UmpleClass,UmpleEnumeration)
+    {
+      // Check if the class's state machines conflict with the enumeration, and if any of its state
+      // machine's events use the enumeration in their parameters
+      for (StateMachine sm : uClass.getStateMachines()) {
+        if (classUsesEnum) {
+          if (uEnum.hasSameName(sm.getName())) {
+            // Enumeration Conflicts with State Machine Error
+            getParseResult().addErrorMessage(new ErrorMessage(97,
+                                                              uEnum.getPosition(),
+                                                              uEnum.getName(),
+                                                              "" + uEnum.getPosition().getLineNumber(),
+                                                              sm.getName(),
+                                                              uClass.getName()));
+            return;
+          }
+        }
+        for (Event e : sm.getAllEvents()) {
+          for (MethodParameter p : e.getParams()) {
+            if (uEnum.hasSameName(p.getType())) {
+              if (!classUsesEnum && uEnum.hasSameName(sm.getName())) {
+                // Enumeration Conflicts with State Machine Error
+                getParseResult().addErrorMessage(new ErrorMessage(97,
+                                                                 uEnum.getPosition(),
+                                                                 uEnum.getName(),
+                                                                 "" + uEnum.getPosition().getLineNumber(),
+                                                                 sm.getName(),
+                                                                 uClass.getName()));
+                return;
+              }
+              else {
+                classUsesEnum = true;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  class UmpleInternalParser { 
+    before Label_StateMachine_49:analyze(boolean)
+  {
+        secondPostTokenAnalysis();
+      }  
+  } 
+
+  class UmpleInternalParser { 
+    before Label_StateMachine_56:analyzeToken(Token,int)
+  {
+      analyzeStateMachineToken(t,analysisStep);
+    }  } 
+
+
+  class UmpleInternalParser { 
+    before Label_StateMachine_66:analyzeToken(Token,UmpleClass,int)
+  {
+      analyzeStateMachineToken(t,aClass,analysisStep);
+    }  } 
+
+
+// File UmpleAnalysis.ump:
+  class GuardAnalyzer
+  {
+    isA Analyzer;
+    depend cruise.umple.parser.analysis.Analyzer;
+    depend cruise.umple.parser.Token;
+    depend cruise.umple.compiler.*;
+    depend java.util.*;
+    ConstraintTree rawLine = new ConstraintTree();
+    lazy UmpleClassifier uClassifier;
+    lazy Transition t;
+    
+    void analyze(Token token)
+    {
+      Guard constraint = new Guard();
+      constraint.addElementAll(rawLine.getRoot());
+      constraint.setPosition(token.getPosition());
+      constraint.setEndPosition(token.getEndPosition());
+
+      t.setGuard(constraint);
+      rawLine = new ConstraintTree();
+    }
+  }
+
+// File UmpleAnalysis.ump:
+
+class StatemachineExprAnalyzer
+{
+  isA Analyzer;
+  depend cruise.umple.parser.analysis.Analyzer;
+  depend cruise.umple.parser.Token;
+  depend cruise.umple.compiler.*;
+  depend java.util.*;
+  lazy ConstraintTree rawLine;
+  lazy UmpleClassifier uClassifier;
+  ConstraintTree cv = null;
+  boolean isStateMachine = true;
+  public void prepare(Token token)
+  {
+    cv = rawLine.createNew();
+  }
+}
+
+class StatemachineExprStateNameAnalyzer
+{
+  isA Analyzer;
+  depend cruise.umple.parser.analysis.Analyzer;
+  depend cruise.umple.parser.Token;
+  depend cruise.umple.compiler.*;
+  depend java.util.*;
+  lazy UmpleClassifier uClassifier;  
+  lazy ConstraintTree cv;
+  ConstraintTree rawLine = null;
+
+  public void prepare(Token token)
+  {
+    rawLine = cv.createNew();
+  }
+  public void analyze(Token token)
+  {
+    StateMachine stateMachine = null;
+    while(!(cv.getRoot() instanceof ConstraintStateMachine))
+    {
+      if(cv.getRoot()!=null&&(cv.getRoot() instanceof ConstraintOperator))
+      {
+        ConstraintOperator operator = (ConstraintOperator)cv.getRoot();
+        if(operator.getLeft()!=null&&(operator.getLeft() instanceof ConstraintTree))
+        {
+          cv = (ConstraintTree)operator.getLeft();
+        }
+        else break;
+      }
+      else break;
+    }
+    if(cv.getRoot() instanceof ConstraintStateMachine)
+    {
+      State state = ((ConstraintStateMachine)cv.getRoot()).getStateMachine().findState(token.getValue());
+      ConstraintState var = new ConstraintState(state);
+      rawLine.addElement(var);
+    }
+    else
+    {
+      //TODO: add error
+    }
+  }
+
+}
+
+
+  class ConstraintNameNameAnalyzer { 
+    before Label_StateMachine_43:generateConstraintName(UmpleClassifier,String,Boolean)
+  {
+        StateMachine stateMachine = null;
+        if(uClassifier instanceof UmpleClass)
+        {
+          stateMachine = ((UmpleClass)uClassifier).getStateMachine(value);
+        }
+        }  
+} 
+
+class ConstraintNameNameAnalyzer { 
+    before Label_StateMachine_45:generateConstraintName(UmpleClassifier,String,Boolean)
+  {
+        if(stateMachine!=null)
+        {
+          ConstraintStateMachine name = new ConstraintStateMachine(stateMachine);
+          return name;
+        }
+        }  } 
+} 
+
+
+
+// Fragment source file: Umple.ump
+// Line : 111
+ class UmpleModel { 1 -> * StateMachine stateMachineDefinitions; } 
+
+// Fragment source file: Umple.ump
+// Line : 519
+ class ConstraintState { State state;
+      key { state } } 
+
+// Fragment source file: Umple.ump
+// Line : 530
+ class ConstraintStateMachine { StateMachine stateMachine;
+      key { stateMachine } } 
+
+// Fragment source file: Umple.ump
+// Line : 757
+ class UmpleClass { before addStateMachine { if (isImmutable()) { return false; } } } 
+
+// Fragment source file: Umple.ump
+// Line : 841
+ class UmpleTrait { before addStateMachine { if (isImmutable()) { return false; } } } 
+
+// Fragment source file: Umple.ump
+// Line : 866
+ class GeneralTPApplied { 1 -> * StateMachineTemplateSignature;
+	1 -> * StateMachineModifier; } 
+
+// Fragment source file: Umple.ump
+// Line : 878
+class StateMachineTemplateSignature{
+	modifier;
+	srcStateMachine;
+	desStateMachine;
+	String[] srcStates;
+	String[] desStates;
+	0..1 -> 0..1 MethodTemplateSignature;
+	alias;
+}
+
+
+// File GraphWalking.ump:
+
+  class StateMachineGraph 
+  {
+    depend cruise.umple.util.*;
+    depend java.util.*;
+    isA Graph;
+    smName;
+    boolean isNested;
+  }
+
+
+  // File GraphWalking_Code.ump:
+  class StateMachineGraph 
+  {
+    // Constructor for Nested state machines
+    public StateMachineGraph(Node startNode, String smName, boolean isDepthFirst) 
+    {
+      if (startNode != null)
+      {
+        this.startNode = startNode;
+        this.startNode.visit();
+      }
+      this.smName = smName;
+      this.isDepthFirst = isDepthFirst;
+      this.isNested = true;
+
+      if(isDepthFirst) 
+      {
+        this.stack = new Stack<Node>();
+        this.stack.push(this.startNode);
+      }
+      else
+      {
+        this.queue = new LinkedList<Node>();
+        this.queue.addFirst(this.startNode);
+      }
+    }
+
+    // Constructor for flat state machines
+    public StateMachineGraph(Node startNode, boolean isDepthFirst)
+    {
+      if (startNode != null)
+      {
+        this.startNode = startNode;
+        this.startNode.visit();
+      }
+
+      this.isDepthFirst = isDepthFirst;
+      this.isNested = false;
+
+      if(isDepthFirst)
+      {
+        this.stack = new Stack<Node>();
+        this.stack.push(this.startNode);
+      }
+      else
+      {
+        this.queue = new LinkedList<Node>();
+        this.queue.addFirst(this.startNode);
+      }
+    }
+
+    public Node nextNode() 
+    {
+      if (startNode == null) return null;
+      if (this.isDepthFirst) return walkDFS();
+      return walkBFS();
+    }
+
+    public void clearNodes()
+    {
+      if (startNode == null) return;
+
+      HashSet<Node> visited = new HashSet<Node>();
+      Stack<Node> nodes = new Stack<Node>();
+      nodes.push(startNode);
+      visited.add(startNode);
+
+      while (! nodes.isEmpty())
+      {
+        State state = (State) nodes.pop();
+        
+        for (Transition transition: state.getTransitions()) 
+        {
+          State nextState = (State) transition.getNextState();
+          StateMachine sm = nextState.getStateMachine();
+
+          if ((! visited.contains(nextState)) && (!isNested || sm.getName().equals(this.smName)))
+          {
+            visited.add(nextState);
+            nextState.clear();
+            nodes.push(nextState) ;
+          }
+        }
+      }
+      if (this.isDepthFirst)
+      {
+        this.stack.clear();
+        this.stack.push(this.startNode);
+      }
+      else
+      {
+        this.queue.clear();
+        this.queue.addFirst(this.startNode);
+      }
+    }
+
+    private Node walkDFS () 
+    { 
+      if (stack == null || stack.isEmpty()) return null;
+      State state = (State) stack.pop();
+      
+      for (Transition transition: state.getTransitions()) 
+      {
+        State nextState = (State) transition.getNextState();
+        StateMachine sm = nextState.getStateMachine();
+
+        if ((! nextState.getIsVisited()) && (!isNested || sm.getName().equals(this.smName)))
+        {
+          nextState.visit();
+          stack.push(nextState) ;
+        }
+      }
+
+      return state;
+    }
+
+    private Node walkBFS () 
+    {
+      if (queue == null || queue.isEmpty()) return null;
+      State state = (State) queue.pollLast();
+      state.visit();
+
+      for (Transition transition: state.getTransitions()) 
+      {
+        State nextState = (State) transition.getNextState();
+        StateMachine sm = nextState.getStateMachine();
+        if ((! nextState.getIsVisited()) && (!isNested || sm.getName().equals(this.smName)))
+        {
+          nextState.visit();
+          queue.addFirst(nextState);
+        }
+      }
+
+      return state;
+    }
+  }
+
+// Fragment source file: Generator.ump
+// Line : 44
+interface CodeTranslator {
+    String translate(String id, StateMachine stm);
+    String translate(String id, State st);
+    String translate(String id, Event e);
+    String translate(String id, Activity a);
+  }
+
+// Fragment source file: Umple.ump
+class StateMachineModifier{
+  modifier;
+  srcStateMachine;
+  alias;
+}
+
+//This is used to remove and rename a state.
+class StateModifier{
+  isA StateMachineModifier;
+  String[] srcStates;
+}
+
+//This is used to remove an event or a transition.
+class EventModifier{
+  isA StateModifier;
+  0..1 -> 0..1 Method;
+  0..1 -> 0..1 Guard;
+//  Token guardToken = null;
+}
+
+//This is used to extend a state with a state machine.
+class ExtendStateByStateMachine{
+  isA StateMachineModifier;
+  String[] desStates;
+}
+
+
+
+
+
+// Fragment source file: Umple_Code_Trait.ump
+// Line : 295
+ class UmpleTrait { public StateMachine getStateMachine(String name){
+    for (StateMachine sm : stateMachines)
+    {
+      if (sm.getName().equals(name))
+      {
+        return sm;
+      }
+    }
+    return null; 
+  } } 
+
+// Fragment source file: Umple_Code_Trait.ump
+// Line : 498
+ class GeneralTPApplied { boolean hasStateMachineTemplateSignature(StateMachineTemplateSignature inSMTSignature) {
+   for (StateMachineTemplateSignature smTSignature : getStateMachineTemplateSignatures()) {
+      if (smTSignature.getSrcStateMachine().equals(inSMTSignature.getSrcStateMachine()) && smTSignature.numberOfSrcStates()==inSMTSignature.numberOfSrcStates()){
+        boolean find = true;
+      for (int  i = 0; i<smTSignature.numberOfSrcStates() ;i++) {
+        if (!smTSignature.getSrcState(i).equals(inSMTSignature.getSrcState(i))) {
+          find = false;
+          break;
+        }
+      }
+      if (!find) continue;
+      //TODO I can raise a different error for each of the following conditions
+        if (smTSignature.getModifier().equals("-") && inSMTSignature.getModifier().equals("+")) return true;
+        if (smTSignature.getModifier().equals("+") && inSMTSignature.getModifier().equals("-")) return true;
+        if (smTSignature.getModifier().equals("-") && !inSMTSignature.getAlias().equals("")) return true;
+        if (!smTSignature.getAlias().equals("")     && inSMTSignature.getModifier().equals("-")) return true;
+        if (!smTSignature.getDesStateMachine().equals(inSMTSignature.getDesStateMachine()) && smTSignature.numberOfDesStates()==0 && inSMTSignature.numberOfDesStates()==0) return true;
+        if (smTSignature.getMethodTemplateSignature()==null && inSMTSignature.getMethodTemplateSignature()==null){
+          if (smTSignature.getAlias().equals(inSMTSignature.getAlias())){
+            if ((smTSignature.getModifier().equals("+")&&inSMTSignature.getModifier().equals("+"))||(smTSignature.getModifier().equals("-")&&inSMTSignature.getModifier().equals("-")) ){
+              return true;
+            }
+          }
+          if (!smTSignature.getAlias().equals(inSMTSignature.getAlias()) && !smTSignature.getAlias().equals("") && !inSMTSignature.getAlias().equals("")) return true; 
+          if (smTSignature.getDesStateMachine().equals(inSMTSignature.getDesStateMachine())) return true;     
+        }
+        if (smTSignature.getMethodTemplateSignature()!=null && inSMTSignature.getMethodTemplateSignature()!=null){
+          if (smTSignature.getMethodTemplateSignature().getMethod().compareWithTheMethod(inSMTSignature.getMethodTemplateSignature().getMethod())){
+            if (smTSignature.getAlias().equals(inSMTSignature.getAlias())){
+              if ((smTSignature.getModifier().equals("+")&&inSMTSignature.getModifier().equals("+"))||(smTSignature.getModifier().equals("-")&&inSMTSignature.getModifier().equals("-")) ){
+                return true;
+              }
+            } else return true;
+          }        
+      }     
+      }
+    }
+    return false;
+	}
+//---------------------------------end----------------------------------------
+//----------------------------------------------------------------------------
+//---------------------------------Start--------------------------------------
+	Boolean hasStateMachineModifier(StateMachineModifier inSMModifier) {
+	  for (StateMachineModifier smModifier : getStateMachineModifiers()) {  
+      if(inSMModifier instanceof EventModifier && smModifier instanceof EventModifier) {
+        if (inSMModifier.getModifier().equals(smModifier.getModifier())){
+          if( inSMModifier.getSrcStateMachine().equals(smModifier.getSrcStateMachine()) && Arrays.equals(  ((EventModifier)inSMModifier).getSrcStates(), ((EventModifier)smModifier).getSrcStates() ) && ((EventModifier)inSMModifier).getMethod().compareWithTheMethod(((EventModifier)smModifier).getMethod())  ) {
+            if (((EventModifier)inSMModifier).getGuard().isEqualTo(((EventModifier)smModifier).getGuard())){
+              //raise a warning that they are equal.
+              return true;
+            }
+          }
+        } else if( inSMModifier.getSrcStateMachine().equals(smModifier.getSrcStateMachine()) && Arrays.equals(  ((EventModifier)inSMModifier).getSrcStates(), ((EventModifier)smModifier).getSrcStates() ) && ((EventModifier)inSMModifier).getMethod().compareWithTheMethod(((EventModifier)smModifier).getMethod())  ) {
+          if (((EventModifier)inSMModifier).getGuard().isEqualTo(((EventModifier)smModifier).getGuard())){
+            //raise a error that they two operations cannot be applied to one state.
+            return true;         
+          }
+        }  
+      //---------------------------------------------------------------------------------------     
+      } else if(inSMModifier instanceof StateModifier && smModifier instanceof StateModifier) {
+        if (inSMModifier.getModifier().equals(smModifier.getModifier())){
+          if( inSMModifier.getSrcStateMachine().equals(smModifier.getSrcStateMachine()) && Arrays.equals(  ((StateModifier)inSMModifier).getSrcStates(), ((StateModifier)smModifier).getSrcStates()  )  ) {
+            //raise a warning that they are equal.
+            return true;
+          }
+        } else if( inSMModifier.getSrcStateMachine().equals(smModifier.getSrcStateMachine()) && Arrays.equals(  ((StateModifier)inSMModifier).getSrcStates(), ((StateModifier)smModifier).getSrcStates()  )  ){
+          //raise a error that they two operations cannot be applied to one state.
+          return true;
+        }
+      //---------------------------------------------------------------------------------------
+      } else if (inSMModifier instanceof StateMachineModifier && smModifier instanceof StateMachineModifier){
+        if (inSMModifier.getModifier().equals(smModifier.getModifier())){
+          if (inSMModifier.getSrcStateMachine().equals(smModifier.getSrcStateMachine())){
+            //raise a warning that they are equal.
+            return true;
+          }
+        } else if (inSMModifier.getSrcStateMachine().equals(smModifier.getSrcStateMachine())){
+          //raise a error that they two operations cannot be applied to one state.
+          return true;
+        }
+      //---------------------------------------------------------------------------------------  
+      } else if(inSMModifier instanceof ExtendStateByStateMachine && smModifier instanceof ExtendStateByStateMachine) {
+        //TODO: Explore this case more.
+      }
+    }
+	  return false;
+	} } 
+
+
+// Fragment source file: Umple_Code_Trait.ump
+// Line : 627
+ class GeneralTPApplied { public String getAssignedStateMachineNewName(String srName){
+    for (StateMachineTemplateSignature smTSignature : getStateMachineTemplateSignatures()) {
+      if (smTSignature.getSrcStateMachine().equals(srName) && smTSignature.getSrcStates().length==0 && smTSignature.getAlias()!="" ) return smTSignature.getAlias();
+    }
+    return "";
+  } 
+  
+  } 
+
+mixset Trace 
+{
+
+// Fragment source file: Trace.ump
+// Line : 102
+ class TraceDirective { 1 -- * StateMachineTraceItem; } 
+
+// Fragment source file: Trace.ump
+// Line : 184
+/*
+ * An element of a trace directive that indicates to trace one or more state machines
+ * or transitions
+ */
+class StateMachineTraceItem
+  {
+    depend cruise.umple.parser.Position;
+
+    isA TraceItem;
+
+    ConstraintTree constraint = null;
+    tracerType = {getTraceDirective().getTracerType()}
+
+    boolean isIn = false;
+    boolean isOut = false;
+
+    boolean entry = false;
+    boolean exit = false;
+
+    int level = -1;
+    
+    boolean traceStateMachineFlag = false;
+    * -- 0..1 StateMachine;
+    * -- 0..1 State;
+    * -- 0..1 Transition;
+
+    Position position = null;
+    periodClause = null;
+
+    Boolean conditionallyWhere = true;
+    conditionType = "where";
+  }
+
+// Fragment source file: Trace.ump
+// Line : 297
+ class TraceRecord { * -- * StateMachine; } 
+
+// Fragment source file: Trace_Code.ump
+// Line : 54
+class State
+	{
+		/*
+		* Retrieve the StateMachineTraceItem associated with this State
+		* @params method: for example entry or entry or normal, each specifying the context to call the gotten trace item
+		* @params uClass: the umple class to look within for the trace item
+		* @return StateMachine_Traceitem for this UmpleVariable(either association or attribute); 
+		*/
+		public TraceItem getTraced(String method, UmpleClass uClass){
+			//go through all the trace directives of uClass
+			for(TraceDirective td: uClass.getAllTraceDirectives())
+			{
+				//for all the statemachine trace items
+				for(StateMachineTraceItem smti: td.getStateMachineTraceItems())
+				{
+					StateMachine sm = smti.getStateMachine();
+					Transition  tsn = smti.getTransition();
+					State st = smti.getState();
+					if( smti.getTraceStateMachineFlag() ) continue;
+					if( method.equals("activity") && st.equals(this) && st.hasActivities() )
+						return smti;
+					if(!(smti.getExit()||smti.getEntry())){
+						if(tsn!=null&&method.equals("transition"))
+						{
+							if(smti.getIsOut()&&smti.getIsIn()){
+								if(tsn.getFromState().equals(this)||tsn.getNextState().equals(this)){
+									return smti;
+								}
+							}
+							else if(smti.getIsOut()){
+								if(tsn.getNextState().equals(this)){
+									return smti;
+								}
+							}
+							else if(smti.getIsIn()){
+								if(tsn.getFromState().equals(this)){
+									return smti;
+								}
+							}
+							else {
+								if(tsn.getFromState().equals(this)||tsn.getNextState().equals(this)){
+									return smti;
+								}
+							}
+						}
+						else if(sm==null)
+						{
+							//if the trace item is not for a transition, and does not contain a state machine, return null
+							return null;
+						}
+						else if(sm!=null&&smti.getTraceStateMachineFlag())
+						{ 
+							return smti;
+						}
+						else if(method.equals("transition"))
+						{
+							if(smti.getIsOut()){
+								if(this.equals(st))
+								{
+									return smti;
+								}
+								if(smti.getLevel()>0||smti.getLevel()==-1)
+								{
+									StateMachine root = this.getStateMachine();
+									State parent = this;
+									int level = -1;
+									//System.out.println("start");
+									while (parent != null)
+									{
+										level+=parent.getName().equals("Null")?0:1;
+										if(st.getName().equals(parent.getName())&&(level<=smti.getLevel()||smti.getLevel()==-1))
+										{
+											//System.out.println(this.getName()+" "+level);
+											return smti;
+										}
+										//System.out.println(parent.getName());
+										root = parent.getStateMachine();
+										parent = root.getParentState();
+									}
+									//System.out.println("end");
+								}
+							}
+
+							if(smti.getIsIn())
+							{            
+								for(Transition t:getTransitions())
+								{
+									if(t.getNextState().equals(st))
+									{
+										return smti;
+									}              
+								}
+							}
+						}
+					}
+					if((method.equals("exit")&&smti.getExit())||(method.equals("entry")&&smti.getEntry()))
+					{
+						if(this.equals(st))
+						{
+							return smti;
+						}
+					}
+
+				}
+			}
+
+			return null;
+		}
+
+		public StateMachineTraceItem getTrace(String method, UmpleClass uClass, Transition t){
+			State nextState = t.getNextState();
+
+			for( TraceDirective td : uClass.getAllTraceDirectives() )
+				for( StateMachineTraceItem smti : td.getStateMachineTraceItems() )
+					if( ! smti.getTraceStateMachineFlag() )
+					{
+						State traceState = smti.getState();
+
+						if(method.equals("entry"))
+						{
+							if( traceState.getName().equals(nextState.getName()) && smti.getEntry() )
+								return smti;
+						}
+						if(method.equals("exit"))
+						{
+							if( traceState.getName().equals(this.getName()) && smti.getExit() )
+								return smti;
+						}
+						if(method.equals("state") && smti.getTransition() == null )
+						{
+							if( (traceState.getName().equals(this.getName()) ||  traceState.getName().equals(nextState.getName()) )
+									&& (smti.getEntry()==false && smti.getExit()==false) )
+								return smti;
+							if(isNested(smti, t))
+							{
+								return smti;
+							}
+						}
+						if(method.equals("transition") && smti.getTransition() != null)
+						{
+							if( smti.getTransition().getEvent().equals(t.getEvent()) )
+								return smti;
+						}
+					}
+					else if( smti.getTraceStateMachineFlag() )
+					{
+						if( method.equals("transition") )
+							return smti;
+					}
+
+			return null;
+		}
+
+
+		// method to trace state and its desired nested states
+		private boolean isNested(StateMachineTraceItem smti, Transition tsn){
+
+			boolean isNested = false;
+			State nextState = tsn.getNextState();
+			StateMachine root = this.getStateMachine();
+			State parent = this;
+			int level = 0;
+
+			root = parent.getStateMachine();
+			parent = root.getParentState();
+
+			while (parent != null)
+			{
+				level+=parent.getName().equals("Null")?0:1;
+				if(smti.getState().getName().equals(parent.getName())&&(level<smti.getLevel()||smti.getLevel()==-1)&& !this.getName().equals("Null") && !nextState.getName().equals("Null"))
+				{
+					return true;
+				}
+				root = parent.getStateMachine();
+				parent = root.getParentState();
+			}
+
+			return isNested;
+		}
+
+	}
+
+// Fragment source file: Trace_Code.ump
+// Line : 428
+class StateMachineTraceItem
+	{
+		depend cruise.umple.util.*;
+		depend java.util.*;
+
+		accessor = "";
+		concatinator = " + ";
+
+		public Boolean getIsPre(){
+			return conditionallyWhere;
+		}
+		public Boolean getIsPost(){
+			return !conditionallyWhere;
+		}
+		/*
+		* @params gen: A code transator
+		* @params o: the current context(i.e.state being traced)
+		* @params methodname: what to call this trace
+		* @params uClass: the current umple class uClass
+		* @params args: if the string is equal to "", the format will be {methodname} {attribute name} to {parameter name}, no argument only returns the argument name, or else the string is passed in the form {methodname} {passed string} to {attribute}
+		* @return the message for the trace 
+		*/
+		public String trace(CodeTranslator gen, Object o, String methodname, UmpleClass uClass, String... args)
+		{
+			String name = "";
+			String extra = "";
+			String obj = "";
+			String accessor = gen.translate("traceAccessor",this);
+			String concatinator = gen.translate("traceConcatinator",this);
+			String comma = concatinator+"\",\""+concatinator;
+			String tracerName = Character.toUpperCase(getTracerType().charAt(0)) + getTracerType().substring(1);
+			String messageLayout = "{0}"+comma+"{1}"+concatinator+"\",{2},{3},{4},\""+concatinator+"{5}"+concatinator+"\",{6},{7},{8}";
+
+			if(o instanceof Transition)
+			{
+				Transition aTransition = (Transition)o;
+				name = aTransition.getEvent().getName();
+				obj = aTransition.getFromState().getName();
+				extra = "," + aTransition.getNextState().getName()+"\"";
+				for(MethodParameter param : aTransition.getEvent().getParams())
+				{
+					extra += concatinator + "\"," + param.getName()+"=\"";
+					extra += concatinator + param.getName();
+				}
+			}
+// delete mixset Def for StateMachine.
+				else if(o instanceof State)
+				{
+					State state = (State)o;
+					name = getStateMachine().getName()+"\"";
+					obj = state.getName();
+					for( Action a : ((State) o).getActions() )
+					{
+						if( this.getEntry() && a.getActionType().equals("entry") )
+							obj += ",actionUmpleLine=" + a.getPosition().getLineNumber();
+						if( this.getExit() && a.getActionType().equals("exit") )
+							obj += ",actionUmpleLine=" + a.getPosition().getLineNumber();
+					}
+					}
+				else if(o instanceof Activity)
+				{
+					Activity act = (Activity)o;
+					State state = act.getState();
+					name = getStateMachine().getName()+"\"";
+					obj = state.getName();
+					if( methodname.equals("sm_da"))
+						obj += ",doActivitedStarted";
+					else if(methodname.equals("sm_di"))
+						obj += ",doActivitedInterrupted";
+				}
+			
+			if(getTraceDirective().getTraceRecord()!=null)
+			{
+				for(Attribute record:getTraceDirective().getTraceRecord().getAttributes())
+				{
+					extra+=comma+gen.translate("attribute"+(record.getIsList()?"Many":"One"),record);
+				}
+				if(getTraceDirective().getTraceRecord().numberOfRecord()>0)
+				{
+					extra+= concatinator+"\"";
+					for(String record:getTraceDirective().getTraceRecord().getRecord())
+					{
+						extra+=","+record.replace("\"","");
+					}
+					extra+= "\"";
+				}
+			}
+			for(String str: args){
+				extra+=comma+str;
+			}
+
+			String message = messageLayout+extra;
+			message = StringFormatter.format(
+					message,gen.translate("traceTimestamp",this),
+					gen.translate("traceThread",this),
+					getPosition().getFilename().replace("\\","\\\\"),
+					getPosition().getLineNumber(),
+					uClass.getName(),
+					StringFormatter.format(gen.translate("traceIdentifier",this),gen.translate("traceSelf",this)),
+					methodname,
+					obj,
+					name      		
+					);
+
+			message = TraceItemUtil.prepareTraceMessage(getTraceDirective(),gen,this,message);
+
+			message = StringFormatter.format(getExtremities(gen, name),message);
+			message = GeneratorHelper.doIndent(message,gen.translate("traceIndent",this));
+			if(getTraceDirective().getPostfix().getExecuteClause()!=null)
+			{
+				String execute = getTraceDirective().getPostfix().getExecuteClause();
+				execute = GeneratorHelper.doIndent(execute,gen.translate("traceIndent",this));
+				message += "\n" + execute;
+			}
+			return message;
+		}
+		/* Gets and returns the if statement enclosing this trace item. The name is not used, but is required from the signature of TraceItem
+		* @return the if statement for the trace if one exists
+		*/
+		public String getExtremities(CodeTranslator gen, String name)
+		{
+			return gen.translate("Closed",constraint);
+		}
+	}
+}
+// Fragment source file: UmpleAnalysis.ump
+// Line : 14
+class GuardAnalyzer
+  {
+    isA Analyzer;
+    depend cruise.umple.parser.analysis.Analyzer;
+    depend cruise.umple.parser.Token;
+    depend cruise.umple.compiler.*;
+    depend java.util.*;
+    ConstraintTree rawLine = new ConstraintTree();
+    lazy UmpleClassifier uClassifier;
+    lazy Transition t;
+    
+    void analyze(Token token)
+    {
+      Guard constraint = new Guard();
+      constraint.addElementAll(rawLine.getRoot());
+      constraint.setPosition(token.getPosition());
+      constraint.setEndPosition(token.getEndPosition());
+
+      t.setGuard(constraint);
+      rawLine = new ConstraintTree();
+    }
+  }
+
+// Fragment source file: UmpleAnalysis.ump
+// Line : 391
+class StatemachineExprAnalyzer
+{
+  isA Analyzer;
+  depend cruise.umple.parser.analysis.Analyzer;
+  depend cruise.umple.parser.Token;
+  depend cruise.umple.compiler.*;
+  depend java.util.*;
+  lazy ConstraintTree rawLine;
+  lazy UmpleClassifier uClassifier;
+  ConstraintTree cv = null;
+  boolean isStateMachine = true;
+  public void prepare(Token token)
+  {
+    cv = rawLine.createNew();
+  }
+}
+
+// Fragment source file: UmpleAnalysis.ump
+// Line : 724
+class StatemachineExprStateNameAnalyzer
+{
+  isA Analyzer;
+  depend cruise.umple.parser.analysis.Analyzer;
+  depend cruise.umple.parser.Token;
+  depend cruise.umple.compiler.*;
+  depend java.util.*;
+  lazy UmpleClassifier uClassifier;  
+  lazy ConstraintTree cv;
+  ConstraintTree rawLine = null;
+
+  public void prepare(Token token)
+  {
+    rawLine = cv.createNew();
+  }
+  // deleted def for  StateMachine
+  public void analyze(Token token)
+  {
+    StateMachine stateMachine = null;
+    while(!(cv.getRoot() instanceof ConstraintStateMachine))
+    {
+      if(cv.getRoot()!=null&&(cv.getRoot() instanceof ConstraintOperator))
+      {
+        ConstraintOperator operator = (ConstraintOperator)cv.getRoot();
+        if(operator.getLeft()!=null&&(operator.getLeft() instanceof ConstraintTree))
+        {
+          cv = (ConstraintTree)operator.getLeft();
+        }
+        else break;
+      }
+      else break;
+    }
+    if(cv.getRoot() instanceof ConstraintStateMachine)
+    {
+      State state = ((ConstraintStateMachine)cv.getRoot()).getStateMachine().findState(token.getValue());
+      ConstraintState var = new ConstraintState(state);
+      rawLine.addElement(var);
+    }
+    else
+    {
+      //TODO: add error
+    }
+  }
+
+}
+
+
+
+// Fragment source file: UmpleAnalysis.ump
+// Line : 740
+ class StatemachineExprStateNameAnalyzer { public void analyze(Token token)
+  {
+    StateMachine stateMachine = null;
+    while(!(cv.getRoot() instanceof ConstraintStateMachine))
+    {
+      if(cv.getRoot()!=null&&(cv.getRoot() instanceof ConstraintOperator))
+      {
+        ConstraintOperator operator = (ConstraintOperator)cv.getRoot();
+        if(operator.getLeft()!=null&&(operator.getLeft() instanceof ConstraintTree))
+        {
+          cv = (ConstraintTree)operator.getLeft();
+        }
+        else break;
+      }
+      else break;
+    }
+    if(cv.getRoot() instanceof ConstraintStateMachine)
+    {
+      State state = ((ConstraintStateMachine)cv.getRoot()).getStateMachine().findState(token.getValue());
+      ConstraintState var = new ConstraintState(state);
+      rawLine.addElement(var);
+    }
+    else
+    {
+      //TODO: add error
+    }
+  } } 
+
+
+
+// -- 
+// Fragment source file: UmpleInternalParser_CodeClass.ump
+// Line : 794
+ class UmpleInternalParser { //Issue 492
+  private void checkNonReachableStates()
+  {
+    List<State> lStates = new ArrayList<State>();
+    List<State> lParentStates = new ArrayList<State>();
+    
+    for (UmpleClass uClass:  model.getUmpleClasses())
+    { 
+      for (StateMachine sm: uClass.getStateMachines())
+      {
+        //Enum check
+        if(((sm.getAllEvents().size() > 0) && (sm.getAllTransitions().size() > 0)) || (sm.getNestedStateMachines().size() >0))
+        {
+          lStates = new ArrayList<State>();
+          
+          State state  = sm.getStartState();
+          
+          checkReachableStates(state, lStates, lParentStates);
+          
+          for(State sp : lParentStates)
+          {
+            if(!lStates.contains(sp))
+            {
+              lStates.add(sp);
+            }
+          }
+          
+          raiseWarningUnreachable(sm, lStates);
+        }
+      }
+    }
+  }
+   
+   //Issue 492
+  private void checkReachableStates(State s, List<State> ls, List<State> lp)
+  {
+    if(s == null)
+      return;
+    
+    if(!ls.contains(s))
+        ls.add(s);
+    
+    for ( Transition transition: s.getTransitions())
+    {
+      if(!ls.contains(transition.getNextState()))
+        checkReachableStates(transition.getNextState(), ls, lp);
+    }
+    
+    if(s.hasNestedStateMachines())
+    {
+      for(StateMachine nestedSm: s.getNestedStateMachines())
+      {
+        checkReachableStates(nestedSm.getStartState(), ls, lp);
+      } 
+    }
+    
+    StateMachine aux = s.getStateMachine();
+    State fatherState = null;
+    
+    while(aux.getParentState() != null)
+    {
+      fatherState = aux.getParentState();
+      if(!lp.contains(fatherState))
+      {
+          lp.add(fatherState);
+          
+          for ( Transition transition: fatherState.getTransitions())
+          {
+            if(!ls.contains(transition.getNextState()))
+              checkReachableStates(transition.getNextState(), ls, lp);
+          }
+      }
+      
+      if (fatherState.getStateMachine() == null)
+        return;
+      
+      aux = fatherState.getStateMachine();
+    }
+  }
+  
+  private void raiseWarningUnreachable(StateMachine sm, List<State> lStates)
+  {
+    boolean error = false;
+    
+    if(!sm.hasStates())
+      return;
+    
+    for(State s : sm.getStates())
+    {
+      
+      if(!lStates.contains(s))
+      {
+          if(s.getPosition() != null)
+        {
+          getParseResult().addErrorMessage(new ErrorMessage(67,s.getPosition(),s.getName(), sm.getName()));      
+            error = true;
+          }
+      }
+      
+      if (s.hasNestedStateMachines() && !error)
+      {
+        for(StateMachine sm2 : s.getNestedStateMachines())
+          raiseWarningUnreachable(sm2, lStates);
+      }
+    }
+  } } 
+
+
+// Fragment source file: UmpleInternalParser_CodeClass.ump
+// Line : 1757
+ class UmpleInternalParser { private void addAutogeneratedMethodsForStateMachines()
+  {
+    for (UmpleClass aClass : getModel().getUmpleClasses())
+    {
+      for(StateMachine sm : aClass.getStateMachines())
+      {
+        addAPIMethodsForStateMachine(sm);
+      }
+    }
+  } } 
+
+// Fragment source file: UmpleInternalParser_CodeClass.ump
+// Line : 4882
+ class UmpleInternalParser { private void addAPIMethodsForStateMachine(StateMachine sm)
+  {
+    UmpleClass aClass = sm.getUmpleClass();
+    String name = sm.getName();
+    if(sm.numberOfStates() > 0)
+    {
+      String smCapitalName = Character.toUpperCase(sm.getName().charAt(0)) + sm.getName().substring(1);
+      
+      for (State s : sm.getStates())
+      {
+        String sCapitalName = Character.toUpperCase(s.getName().charAt(0)) + s.getName().substring(1);
+        
+        String fullName = smCapitalName + sCapitalName;
+        
+        //Issue 962: Needs to add the appropriate get methods for states
+        //addGetMethod(fullName, fullName, aClass, false);
+      }
+    }
+    
+    addGetMethod(name, name, aClass, false);
+    addGetMethod(name+"FullName", "String", aClass, false);
+  } } 
+
+
+// Fragment source file: UmpleInternalParser_CodeTrait.ump
+// Line : 1511
+ class UmpleInternalParser { private StateMachineModifier obtainStateMachineModifier(Token inToken) {
+        StateMachineModifier smModifier = null;
+      String modifier=inToken.getValue("modifier");
+      String smName = inToken.getValue("smName");
+      if (inToken.getValue("StateNames")==null){
+       smModifier = new StateMachineModifier(modifier,smName,"");
+      } else {
+        List<String> states = new ArrayList<String>();      
+        String eventName="";
+        Token t = inToken;        
+        while(t!=null && t.getSubToken("StateNames")!=null){      
+          if(t.getSubToken("StateNames").getSubToken("StateNamesPassing")!=null){
+            states.add(t.getSubToken("StateNames").getValue("sName"));
+          }else{
+            if( inToken.getSubToken("iEParameterList")!=null)
+                 eventName = t.getSubToken("StateNames").getValue("sName");
+            else
+             states.add(t.getSubToken("StateNames").getValue("sName"));   
+          }
+          t =  t.getSubToken("StateNames").getSubToken("StateNamesPassing");
+        }  
+        if (eventName.equals("") && states.size() >0 && inToken.getSubToken("guardOption")==null){
+           smModifier = new StateModifier(modifier,smName,"");
+           for(String state:states)  ((StateModifier)smModifier).addSrcState(state);
+        } else {
+            smModifier = new EventModifier(modifier,smName,"");
+            for(String state:states)  ((EventModifier)smModifier).addSrcState(state);
+            Method method = new Method("", eventName, "Boolean", false);
+            extractIEParameters(inToken, method);
+            ((EventModifier)smModifier).setMethod(method);
+            if (inToken.getSubToken("guardOption")!=null){
+                Token guardToken = inToken.getSubToken("guardOption").getSubToken("guard");
+                if (guardToken != null)
+                {
+                  //01 is a dummy name
+                  StateMachine tempSM = new StateMachine("01");
+                  UmpleClass tempClass = new UmpleClass("01");
+                  tempClass.addStateMachine(tempSM);
+                  State s1 = new State("s1", tempSM);
+                  State s2 = new State("s2", tempSM);
+                  Transition t1 = new Transition(s1, s2); 
+                  ((GuardAnalyzer)model.getAnalyzer("guard")).setUClassifier(tempClass);
+                  ((GuardAnalyzer)model.getAnalyzer("guard")).setT(t1);
+                  model.getAnalyzer("guard").analyzeToken(guardToken);
+                  ((EventModifier)smModifier).setGuard(t1.getGuard());
+                  tempSM.delete();
+                  tempClass.delete();
+                }
+            }
+        }
+        
+      } 
+      return smModifier;
+  } } 
+
+
+// Fragment source file: UmpleInternalParser_CodeTrait.ump
+// Line : 1598
+ class UmpleInternalParser { private StateMachineTemplateSignature obtainStateMachineTemplateSignature(Token inToken){
+  	String iEStateMachineModifier="",stateMachineAliasName ="";
+	 	String smName = inToken.getValue("smName");
+	 	String smDesName = "";
+		if (inToken.getValue("iEStateMachineModifier") != null) iEStateMachineModifier = inToken.getValue("iEStateMachineModifier");
+	 	if (inToken.getValue("smDesName") != null) stateMachineAliasName = inToken.getValue("smDesName");
+	 	Token smDesNameToken = inToken.getSubToken("DesStateNames");
+	 	if (smDesNameToken!=null){
+	 		smDesName = stateMachineAliasName;
+	 		stateMachineAliasName="";
+	 	}
+		StateMachineTemplateSignature smTSignature = new StateMachineTemplateSignature(iEStateMachineModifier, smName, smDesName, stateMachineAliasName);	 
+	 	extractStatesFromTemplateSignature(inToken,smTSignature,"src");
+	 	extractStatesFromTemplateSignature(smDesNameToken,smTSignature,"des"); 	
+ 		return smTSignature;
+	}
+//---------------------------------end----------------------------------------
+//----------------------------------------------------------------------------   
+//---------------------------------Start--------------------------------------
+	private void extractStatesFromTemplateSignature(Token inToken,StateMachineTemplateSignature inStateMachineTemplateSignature,String type){
+		while(inToken!=null && inToken.getSubToken("StateNames")!=null){  		
+			if (type=="src")	{
+				inStateMachineTemplateSignature.addSrcState(inToken.getSubToken("StateNames").getValue("sName"));
+			}	else if (type=="des"){
+				inStateMachineTemplateSignature.addDesState(inToken.getSubToken("StateNames").getValue("sName"));
+			}
+		inToken =  inToken.getSubToken("StateNames").getSubToken("StateNamesPassing");
+		}  	
+ 	}
+//---------------------------------end----------------------------------------
+//----------------------------------------------------------------------------   
+//---------------------------------Start--------------------------------------
+	private StateMachineTemplateSignature obtainStateMachineTemplateSignatureForTransitions(Token inToken) {
+     String smPattern="";
+     String stateMachineAliasName =inToken.getValue("aliasName");
+     String smName = "";
+     String modifier = "";
+     String eventName = inToken.getValue("methodName");
+     MethodTemplateSignature mtSignature = null;
+     if (inToken.getValue("smName") != null) smName = inToken.getValue("smName");
+     if (inToken.getValue("smPattern") != null) smPattern = inToken.getValue("smPattern"); 
+     if (inToken.getValue("modifier") != null) modifier = inToken.getValue("modifier");          
+     Method method = new Method("public", eventName, "", false); 
+     if (inToken.getSubToken("iEParameterList") != null){
+      for (Token subToken : inToken.getSubToken("iEParameterList").getSubTokens()) {
+        if (subToken.is("parameter")) {
+            method.addMethodParameter(new MethodParameter("", subToken.getValue(), "", "", false));
+        }
+      }
+     }
+     StateMachineTemplateSignature smTSignature = new StateMachineTemplateSignature(modifier, smName,"", stateMachineAliasName);
+     mtSignature = new MethodTemplateSignature(smPattern,stateMachineAliasName,method);
+     smTSignature.setMethodTemplateSignature(mtSignature);
+     return smTSignature;
+	} } 
+
+
+
+
+
+// Fragment source file: UmpleInternalParser_CodeStructure.ump
+// Line : 1410
+ class CompositeStructureTokenAnalyzer { private ConstraintTree analyzeStateMachineConstraintExpression(Token statemachineExpressionToken, UmpleClassifier uClassifier)
+	{
+		ConstraintTree rawLine = new ConstraintTree();
+		List<Token> numberExpressionSubtokens = statemachineExpressionToken.getSubTokens();
+		StateMachine stateMachine = null;
+		for(Token sub : numberExpressionSubtokens)
+		{
+
+			if(sub.is("constraintName"))
+			{
+				ConstraintVariable cv = analyzeConstraintName(sub,uClassifier,true);
+				rawLine.addElement(cv);
+
+			}
+			else if(sub.is("isInOp"))
+			{
+				ConstraintVariable cv = new ConstraintOperator("in==");
+				rawLine.addElement(cv);
+			}
+			else if(sub.is("isNotInOp"))
+			{
+				ConstraintVariable cv = new ConstraintOperator("in!=");
+				rawLine.addElement(cv);
+			}
+		}
+		return rawLine;
+	} } 
+
+
+
+// Fragment source file: UmpleInternalParser_CodeTrace.ump
+// Line : 510
+ class UmpleInternalParser { // checks if traced state was deeply nested
+    private int checkNestedStateMachine(String value, State s){
+      int traceItemType = -1;
+      for( StateMachine stm : s.getNestedStateMachines())
+      {
+        for( State ss : stm.getStates() )
+        {
+          if( value.equals(ss.getName()) )
+            return 2;
+          if(s.hasNestedStateMachines())
+            traceItemType = checkNestedStateMachine(value, ss);
+        }
+      }
+      return traceItemType;
+    } } 
+
+mixset Trace
+{
+  // Fragment source file: UmpleInternalParser_CodeTrace.ump
+  // Line : 596
+  use stateMachine/UmpleInternalParser_CodeTraceStateMachine.ump;
+}
+
+// Fragment source file: UmpleInternalParser_CodeMixset.ump
+// Line : 65
+ class UmpleInternalParser { // prepare mixsets that are inside a state machine. 
+    private void analyzeMixsetDefinition(List<Token> tokenList , StateMachine stateMachine)
+    {  
+      if (tokenList.size() < 1)
+      return;
+      
+      for(Token aToken : tokenList)
+      {
+        if(stateMachine.getUmpleClass().getName() == null)
+        return;
+        //otherwise
+        analyzeMixsetBodyToken(aToken);
+      }  
+    } } 
+
+// STOP HERE : TO DELETE
+
+// fine:
+// GeneratorHelper_Code.ump:
+mixset StateMachine {
+  class GeneratorHelper { 
+    before Label_StateMachine_1:postpare(UmpleModel)
+  {
+      postpareStateMachine(model);
+    }  } 
+}
+
+
+//File  GeneratorHelper_Code.ump:
+mixset StateMachine { 
+  class GeneratorHelper { 
+    before Label_StateMachine_3:postpare(UmpleClass)
+  {
+      postpareStateMachine(aClass);
+    }  } 
+} 
+
+//./generators/Generator_CodeUmple.ump:597:
+mixset StateMachine { 
+  class UmpleGenerator { 
+    before Label_StateMachine_10:initializeParser
+  {
+      parser.addGrammarFile("/stateMachine/umple_state_machines.grammar");
+    }  } 
+} 
+
+//./generators/Generator_SuperCodeGenerator.ump:55
+mixset StateMachine { 
+  class SuperCodeGenerator { 
+    before Label_StateMachine_17:testForPrimitiveInConstraint(ConstraintVariable)
+  {
+      if(variable instanceof ConstraintStateMachine)
+      {
+        return false;
+      }
+    }  } 
+} 
+
+//./generators/Generator_SuperCodeGenerator.ump:305: 
+mixset StateMachine { 
+  class SuperCodeGenerator { 
+    before Label_StateMachine_18:translate(String,ConstraintVariable,boolean)
+  {
+      else if("state".equals(id))
+      {
+        return translate("stateOne", ((ConstraintState)cv).getState());
+      }
+      else if("statemachine".equals(id))
+      {
+        return translate("getFullMethod",((ConstraintStateMachine)cv).getStateMachine())+"()";
+      }
+    }  } 
+} 
+
+
+mixset Class { 
+  class UmpleClass { 
+    before Label_StateMachine_19:getMethodNames
+  {
+      for(StateMachine sm : this.getStateMachines())
+      {
+        String stateMachineName = sm.getName().substring(0, 1).toUpperCase() + sm.getName().substring(1);
+        methodNames.add("set" + stateMachineName);
+        methodNames.add("get" + stateMachineName);
+
+        for(Event ev : sm.getEvents())
+        {
+          methodNames.add(ev.getName());
+        }
+      }
+    }  } 
+} 
+
+
+mixset Class { 
+  class UmpleClass { 
+    before Label_StateMachine_20:hasImplementedMethodIncludingWithinParentClasses(Method)
+  {
+    if (numberOfStateMachines()>0){
+    	for(StateMachine sm : getStateMachines()){
+    		if (sm.getEventByMethod(comparedMethod)!=null){
+    			return true;
+    		}
+    	}
+    }
+    }  } 
+} 
+
+
+mixset Class { 
+  class UmpleClass { 
+    before Label_StateMachine_21:propagateImmutabilityToAllRelationships(boolean)
+  {
+      if (this.hasStateMachines()) { return false; }
+      }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleTrait { 
+    before Label_StateMachine_27:propagateImmutabilityToAllRelationships(boolean)
+  {
+	      if (this.hasStateMachines()) { return false; } 
+        }  } 
+} 
+
+
+mixset Trait { 
+  class GeneralTPApplied { 
+    before Label_StateMachine_29:GeneralTPApplied(GeneralTPApplied)
+  {
+      stateMachineModifiers = new ArrayList<>(another.getStateMachineModifiers());
+    }  } 
+} 
+
+
+mixset Trait { 
+  class GeneralTPApplied { 
+    before Label_StateMachine_30:GeneralTPApplied(GeneralTPApplied)
+  {
+      stateMachineTemplateSignatures = new ArrayList<>(another.getStateMachineTemplateSignatures());
+    }  } 
+} 
+
+mixset StateMachine { 
+  class StateMachineTraceItem { 
+    before Label_StateMachine_34:trace(CodeTranslator,Object,String,UmpleClass,String...)
+  {
+				else if(o instanceof State)
+				{
+					State state = (State)o;
+					name = getStateMachine().getName()+"\"";
+					obj = state.getName();
+					for( Action a : ((State) o).getActions() )
+					{
+						if( this.getEntry() && a.getActionType().equals("entry") )
+							obj += ",actionUmpleLine=" + a.getPosition().getLineNumber();
+						if( this.getExit() && a.getActionType().equals("exit") )
+							obj += ",actionUmpleLine=" + a.getPosition().getLineNumber();
+					}
+					}
+				else if(o instanceof Activity)
+				{
+					Activity act = (Activity)o;
+					State state = act.getState();
+					name = getStateMachine().getName()+"\"";
+					obj = state.getName();
+					if( methodname.equals("sm_da"))
+						obj += ",doActivitedStarted";
+					else if(methodname.equals("sm_di"))
+						obj += ",doActivitedInterrupted";
+				}
+			}  } 
+} 
+
+
+mixset Class { 
+  class UmpleInternalParser { 
+    before Label_StateMachine_80:postTokenClassAnalysis
+  {
+      addAutogeneratedMethodsForStateMachines();
+      }  } 
+} 
+
+mixset Class { 
+  class UmpleInternalParser { 
+    before Label_StateMachine_84:analyzeClass(Token)
+  {
+    //Reset number of activeObjects with each class definition
+    this.numberOfActiveObjects = 1;
+    }  } 
+} 
+
+mixset Class { 
+  class UmpleInternalParser { 
+    before Label_StateMachine_89:addUnlinkedKeys
+  {          
+            if(c.hasStateMachines())  
+            {
+                for(StateMachine aStateMachine : c.getStateMachines())
+                {
+                    if(aStateMachine.getName().equals(tokenVal))
+                    {
+                        tokenMatch = true;
+                        break;
+                    }
+                }
+            }
+            }  } 
+} 
+
+
+mixset Class { 
+  class UmpleInternalParser { 
+    before Label_StateMachine_97:analyzeMethod(Token,UmpleElement,boolean)
+  {
+        if (uClass.getStateDependentMethods().contains(aMethod) && !aMethod.isIsAbstract()) {
+          uClass.addStateDependentMethod(aMethod, null);
+        }
+        else
+        }  } 
+} 
+
+
+mixset Class { 
+  class UmpleInternalParser { 
+    before Label_StateMachine_98:analyzeMethod(Token,UmpleElement,boolean)
+  {
+        stateDependentMethodsflag = !uClass.getStateDependentMethods().contains(aMethod);
+        }  } 
+} 
+
+
+mixset Class { 
+  class UmpleInternalParser { 
+    before Label_StateMachine_100:checkCodeInjectionValidity(Token,UmpleClass,String)
+  {
+          stateDependentMethodsFlag = uClass.getStateDependentMethods().stream().anyMatch(m -> m.getName().equals(operationFinal));
+        }  } 
+} 
+
+mixset Class { 
+  class UmpleInternalParser { 
+    before Label_StateMachine_102:analyzeExtraCode(Token,UmpleClass)
+  {
+
+    //This is a catch all and will be used less often as the grammar gets updated.
+    if(extraCodeIsMalformedStateMachine(token)) setFailedPosition(token.getPosition(), 1006, "");
+    }  } 
+} 
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Label_StateMachine_105:analyzeToken(Token,UmpleTrait,int)
+  {
+      analyzeStateMachineToken(t,aTrait,analysisStep);
+    }  } 
+} 
+
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Label_StateMachine_108:analyzeExtraCode(Token,UmpleTrait)
+  {
+      if(extraCodeIsMalformedStateMachine(token)) setFailedPosition(token.getPosition(), 1006, "");
+    }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Label_StateMachine_109:analyzeException(Token,UmpleTrait)
+  {
+    else if(sub.is("malformedStatemachine1")||sub.is("malformedStatemachine2"))
+    {
+      String extraCode = "";
+      for(Token token:sub.getSubTokens())
+      {
+        if(token.is("stuff"))
+        {
+          if(!"".equals(token.getValue())&&!token.getValue().contains(" ")&&!Token.isValidIdentifier(token.getValue()))
+          {
+            setFailedPosition(token.getPosition(), 150, token.getValue("name"));
+          }
+          extraCode += token.getValue()+ " ";
+        }
+      }
+      extraCode += "\n  {\n    "+sub.getValue("innerstuff")+"\n  }";
+      aTrait.appendExtraCode("// line " + exception.getPosition().getLineNumber() + " " + aTrait.getRelativePath(exception.getPosition().getFilename(),"Java"));
+      aTrait.appendExtraCode("  "+extraCode+"\n");
+      setFailedPosition(sub.getPosition(), 1006, sub.getValue("name"));
+    }
+    else if(sub.is("malformedMethod"))
+    {
+      String extraCode = "";
+      for(Token token:sub.getSubTokens())
+      {
+        if(token.is("stuff"))
+        {
+          extraCode += token.getValue()+ " ";
+        }
+      }
+      extraCode += "\n  {\n    "+sub.getValue("innerstuff")+"\n  }";
+      aTrait.appendExtraCode("// line " + exception.getPosition().getLineNumber() + " " + aTrait.getRelativePath(exception.getPosition().getFilename(),"Java"));
+      aTrait.appendExtraCode("  "+extraCode+"\n");
+      setFailedPosition(sub.getPosition(), 1008, sub.getValue("name"));
+    }
+    }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Label_StateMachine_113:applyTraits
+  {
+          if (getParseResult().getWasSuccess()) copyStateMachinesFromTraiToClass(uClass);
+          }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Label_StateMachine_116:processGTemplateParameterAssignment(Token,UmpleClassifier,String)
+  {
+          else if (subToken.is("StateMachineAliasName")){ 
+              StateMachineTemplateSignature stTSignature = obtainStateMachineTemplateSignature(subToken);
+              if (! aGeneralTPApplied.hasStateMachineTemplateSignature(stTSignature)){  
+                aGeneralTPApplied.addStateMachineTemplateSignature(stTSignature);
+              } else {
+                getParseResult().addErrorMessage(new ErrorMessage(229,subToken.getPosition(),aGeneralTPApplied.getInheritanceName(),stTSignature.getSrcStateMachine()));
+                return;
+              } 
+          } else if (subToken.is("iEStateMachine")){ 
+              StateMachineModifier stTSignature = obtainStateMachineModifier(subToken);
+              if (! aGeneralTPApplied.hasStateMachineModifier(stTSignature)){  
+                aGeneralTPApplied.addStateMachineModifier(stTSignature);
+              } else {
+                getParseResult().addErrorMessage(new ErrorMessage(229,subToken.getPosition(),aGeneralTPApplied.getInheritanceName(),stTSignature.getSrcStateMachine()));
+                return;
+              } 
+          } 
+        }  } 
+} 
+
+mixset Trace { 
+  class UmpleInternalParser { 
+    before Label_StateMachine_133:analyzeTraceItem(Token)
+  {
+      if( traceItemType == 2 )
+      {
+        analyzeStateMachineTraceItem(traceToken);
+      }
+    }  } 
+} 
+
+
+mixset Trace { 
+  class UmpleInternalParser { 
+    before Label_StateMachine_136:traceItemType(Token)
+  {
+      // --- check if state machine
+      for( StateMachine sVar : aClass.getStateMachines() )
+      {
+        if( traceToken.getValue("traceEntity").equals(sVar.getName()))
+        {
+          traceItemType = 2;
+        }
+        for( State s : sVar.getStates() )
+        {
+          if( traceToken.getValue("traceEntity").equals(s.getName()) || traceToken.getValue("traceEntity").equals(sVar.getName()+"."+s.getName()) )
+          {
+            traceItemType = 2;
+          }
+          for( Transition t : s.getTransitions() )
+            if( traceToken.getValue("traceEntity").equals(t.getEvent().getName()))
+            {
+              traceItemType = 2;
+            }
+          // check if traced state is already found
+          // no need to check nested states
+          if( traceItemType == 2 ) return traceItemType;
+          if(s.hasNestedStateMachines())
+          {
+            traceItemType = checkNestedStateMachine(traceToken.getValue("traceEntity"),s);	
+          }
+        }
+      }
+    }  } 
+} 
+
+
+mixset Mixset { 
+  class UmpleInternalParser { 
+    before Label_StateMachine_145:getMixsetFragmentWithEnclosingElement(Token,String)
+  {
+      else if (token.is("state"))
+      {
+        tokenKey = "stateName";
+      }
+      else if (token.is("inlineStateMachine"))
+      {
+        tokenKey =  "name";
+      }
+    }  } 
+} 
+
+
+mixset Structure { 
+  class CompositeStructureTokenAnalyzer { 
+    before Label_StateMachine_153:analyzeConstraint(Token,UmpleClassifier)
+  {
+	     else if (invariantToken.is("statemachineExpr"))
+	     {
+		   rawLine.addElementAll(analyzeStateMachineConstraintExpression(invariantToken,uClassifier));
+	     }
+	   }  } 
+} 
+
+mixset Structure { 
+  class CompositeStructureTokenAnalyzer { 
+    before Label_StateMachine_156:analyzeInvariantConstraint(Token)
+  {
+			     else if (invariantToken.is("statemachineExpr"))
+			     {
+				   rawLine.addElementAll(analyzeStateMachineConstraintExpression(invariantToken,null));
+			     }
+			   }  } 
+} 
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Label_StateMachine_115:processGTemplateParameterAssignment(Token,UmpleClassifier,String)
+  {
+                StateMachineTemplateSignature stTSignature = obtainStateMachineTemplateSignatureForTransitions(subToken);
+                if (! aGeneralTPApplied.hasStateMachineTemplateSignature(stTSignature)){  
+                  aGeneralTPApplied.addStateMachineTemplateSignature(stTSignature);
+                } else {
+                  getParseResult().addErrorMessage(new ErrorMessage(229,subToken.getPosition(),aGeneralTPApplied.getInheritanceName(),stTSignature.getSrcStateMachine()));
+                  return;
+                }
+            }  } 
+} 

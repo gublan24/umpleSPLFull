@@ -1,0 +1,127 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from ImmutableUnidirectionalOneTest</title>
+    </head>
+    <body>
+        <pre>/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 3 "../ImmutableUnidirectionalOneTest.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private String number;
+
+  //Student Associations
+  private Mentor mentor;
+
+  //Helper Variables
+  private boolean canSetMentor;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student(String aNumber, Mentor aMentor)
+  {
+    number = aNumber;
+    canSetMentor = true;
+    if (!setMentor(aMentor))
+    {
+      throw new RuntimeException("Unable to create Student due to aMentor. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public String getNumber()
+  {
+    return number;
+  }
+  /* Code from template association_GetOne */
+  public Mentor getMentor()
+  {
+    return mentor;
+  }
+  /* Code from template association_SetUnidirectionalOne */
+  private boolean setMentor(Mentor aNewMentor)
+  {
+    boolean wasSet = false;
+    if (!canSetMentor) { return false; }
+    canSetMentor = false;
+    if (aNewMentor != null)
+    {
+      mentor = aNewMentor;
+      wasSet = true;
+    }
+    return wasSet;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "number" + ":" + getNumber()+ "]" + System.getProperties().getProperty("line.separator") +
+            "  " + "mentor = "+(getMentor()!=null?Integer.toHexString(System.identityHashCode(getMentor())):"null");
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 9 "../ImmutableUnidirectionalOneTest.ump"
+public class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private String name;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Mentor(String aName)
+  {
+    name = aName;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public String getName()
+  {
+    return name;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "name" + ":" + getName()+ "]";
+  }
+}
+</pre>
+    </body>
+</html>

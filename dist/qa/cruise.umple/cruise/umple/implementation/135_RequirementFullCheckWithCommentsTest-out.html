@@ -1,0 +1,301 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from RequirementFullCheckWithCommentsTest</title>
+    </head>
+    <body>
+        <pre>/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+import java.util.*;
+
+/**
+ * R1: There should be a class called X
+ */
+// line 19 "RequirementFullCheckWithComments.ump"
+public class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X Attributes
+  private String a;
+  private String b;
+
+  //X Associations
+  private List&lt;Y&gt; ies;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public X(String aA, String aB)
+  {
+    a = aA;
+    b = aB;
+    ies = new ArrayList&lt;Y&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setA(String aA)
+  {
+    boolean wasSet = false;
+    a = aA;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setB(String aB)
+  {
+    boolean wasSet = false;
+    b = aB;
+    wasSet = true;
+    return wasSet;
+  }
+
+  /**
+   * R1a: The reason it should be called X is because it is secret
+   * R2: Class X should have several attribites
+   */
+  public String getA()
+  {
+    return a;
+  }
+
+  /**
+   * This is another attribute
+   * R2: Class X should have several attribites
+   */
+  public String getB()
+  {
+    return b;
+  }
+  /* Code from template association_GetMany */
+  public Y getY(int index)
+  {
+    Y aY = ies.get(index);
+    return aY;
+  }
+
+  public List&lt;Y&gt; getIes()
+  {
+    List&lt;Y&gt; newIes = Collections.unmodifiableList(ies);
+    return newIes;
+  }
+
+  public int numberOfIes()
+  {
+    int number = ies.size();
+    return number;
+  }
+
+  public boolean hasIes()
+  {
+    boolean has = ies.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfY(Y aY)
+  {
+    int index = ies.indexOf(aY);
+    return index;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfIes()
+  {
+    return 0;
+  }
+  /* Code from template association_AddManyToOne */
+  public Y addY(String aC)
+  {
+    return new Y(aC, this);
+  }
+
+  public boolean addY(Y aY)
+  {
+    boolean wasAdded = false;
+    if (ies.contains(aY)) { return false; }
+    X existingX = aY.getX();
+    boolean isNewX = existingX != null &amp;&amp; !this.equals(existingX);
+    if (isNewX)
+    {
+      aY.setX(this);
+    }
+    else
+    {
+      ies.add(aY);
+    }
+    wasAdded = true;
+    return wasAdded;
+  }
+
+  public boolean removeY(Y aY)
+  {
+    boolean wasRemoved = false;
+    //Unable to remove aY, as it must always have a x
+    if (!this.equals(aY.getX()))
+    {
+      ies.remove(aY);
+      wasRemoved = true;
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addYAt(Y aY, int index)
+  {  
+    boolean wasAdded = false;
+    if(addY(aY))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfIes()) { index = numberOfIes() - 1; }
+      ies.remove(aY);
+      ies.add(index, aY);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveYAt(Y aY, int index)
+  {
+    boolean wasAdded = false;
+    if(ies.contains(aY))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfIes()) { index = numberOfIes() - 1; }
+      ies.remove(aY);
+      ies.add(index, aY);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addYAt(aY, index);
+    }
+    return wasAdded;
+  }
+
+  public void delete()
+  {
+    for(int i=ies.size(); i &gt; 0; i--)
+    {
+      Y aY = ies.get(i - 1);
+      aY.delete();
+    }
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "a" + ":" + getA()+ "," +
+            "b" + ":" + getB()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+/**
+ * This is class Y
+ * R3: There must be a class called Y
+ */
+// line 32 "RequirementFullCheckWithComments.ump"
+public class Y
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Y Attributes
+  private String c;
+
+  //Y Associations
+  private X x;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Y(String aC, X aX)
+  {
+    c = aC;
+    boolean didAddX = setX(aX);
+    if (!didAddX)
+    {
+      throw new RuntimeException("Unable to create y due to x. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setC(String aC)
+  {
+    boolean wasSet = false;
+    c = aC;
+    wasSet = true;
+    return wasSet;
+  }
+
+  /**
+   * This is an important attribute
+   * R5: A Y should have a c
+   */
+  public String getC()
+  {
+    return c;
+  }
+  /* Code from template association_GetOne */
+  public X getX()
+  {
+    return x;
+  }
+  /* Code from template association_SetOneToMany */
+  public boolean setX(X aX)
+  {
+    boolean wasSet = false;
+    if (aX == null)
+    {
+      return wasSet;
+    }
+
+    X existingX = x;
+    x = aX;
+    if (existingX != null &amp;&amp; !existingX.equals(aX))
+    {
+      existingX.removeY(this);
+    }
+    x.addY(this);
+    wasSet = true;
+    return wasSet;
+  }
+
+  public void delete()
+  {
+    X placeholderX = x;
+    this.x = null;
+    if(placeholderX != null)
+    {
+      placeholderX.removeY(this);
+    }
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "c" + ":" + getC()+ "]" + System.getProperties().getProperty("line.separator") +
+            "  " + "x = "+(getX()!=null?Integer.toHexString(System.identityHashCode(getX())):"null");
+  }
+}
+</pre>
+    </body>
+</html>

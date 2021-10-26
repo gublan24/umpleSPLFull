@@ -1,0 +1,270 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from PhpOptionalOneToManyTest</title>
+    </head>
+    <body>
+        <pre>&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private $name;
+
+  //Mentor Associations
+  private $students;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aName)
+  {
+    $this-&gt;name = $aName;
+    $this-&gt;students = array();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setName($aName)
+  {
+    $wasSet = false;
+    $this-&gt;name = $aName;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getName()
+  {
+    return $this-&gt;name;
+  }
+
+  public function getStudent_index($index)
+  {
+    $aStudent = $this-&gt;students[$index];
+    return $aStudent;
+  }
+
+  public function getStudents()
+  {
+    $newStudents = $this-&gt;students;
+    return $newStudents;
+  }
+
+  public function numberOfStudents()
+  {
+    $number = count($this-&gt;students);
+    return $number;
+  }
+
+  public function hasStudents()
+  {
+    $has = $this-&gt;numberOfStudents() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfStudent($aStudent)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;students as $student)
+    {
+      if ($student-&gt;equals($aStudent))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public static function minimumNumberOfStudents()
+  {
+    return 0;
+  }
+
+  public function addStudent($aStudent)
+  {
+    $wasAdded = false;
+    if ($this-&gt;indexOfStudent($aStudent) !== -1) { return false; }
+    $existingMentor = $aStudent-&gt;getMentor();
+    if ($existingMentor == null)
+    {
+      $aStudent-&gt;setMentor($this);
+    }
+    elseif ($this !== $existingMentor)
+    {
+      $existingMentor-&gt;removeStudent($aStudent);
+      $this-&gt;addStudent($aStudent);
+    }
+    else
+    {
+      $this-&gt;students[] = $aStudent;
+    }
+    $wasAdded = true;
+    return $wasAdded;
+  }
+
+  public function removeStudent($aStudent)
+  {
+    $wasRemoved = false;
+    if ($this-&gt;indexOfStudent($aStudent) != -1)
+    {
+      unset($this-&gt;students[$this-&gt;indexOfStudent($aStudent)]);
+      $this-&gt;students = array_values($this-&gt;students);
+      if ($this === $aStudent-&gt;getMentor())
+      {
+        $aStudent-&gt;setMentor(null);
+      }
+      $wasRemoved = true;
+    }
+    return $wasRemoved;
+  }
+
+  public function addStudentAt($aStudent, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addStudent($aStudent))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfStudents()) { $index = $this-&gt;numberOfStudents() - 1; }
+      array_splice($this-&gt;students, $this-&gt;indexOfStudent($aStudent), 1);
+      array_splice($this-&gt;students, $index, 0, array($aStudent));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveStudentAt($aStudent, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfStudent($aStudent) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfStudents()) { $index = $this-&gt;numberOfStudents() - 1; }
+      array_splice($this-&gt;students, $this-&gt;indexOfStudent($aStudent), 1);
+      array_splice($this-&gt;students, $index, 0, array($aStudent));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addStudentAt($aStudent, $index);
+    }
+    return $wasAdded;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    foreach ($this-&gt;students as $aStudent)
+    {
+      $aStudent-&gt;setMentor(null);
+    }
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private $number;
+
+  //Student Associations
+  private $mentor;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aNumber)
+  {
+    $this-&gt;number = $aNumber;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setNumber($aNumber)
+  {
+    $wasSet = false;
+    $this-&gt;number = $aNumber;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getNumber()
+  {
+    return $this-&gt;number;
+  }
+
+  public function getMentor()
+  {
+    return $this-&gt;mentor;
+  }
+
+  public function hasMentor()
+  {
+    $has = $this-&gt;mentor != null;
+    return $has;
+  }
+
+  public function setMentor($aMentor)
+  {
+    $wasSet = false;
+    $existingMentor = $this-&gt;mentor;
+    $this-&gt;mentor = $aMentor;
+    if ($existingMentor != null &amp;&amp; $existingMentor !== $aMentor)
+    {
+      $existingMentor-&gt;removeStudent($this);
+    }
+    if ($aMentor != null &amp;&amp; $aMentor !== $existingMentor)
+    {
+      $aMentor-&gt;addStudent($this);
+    }
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    if ($this-&gt;mentor != null)
+    {
+      $this-&gt;mentor-&gt;removeStudent($this);
+    }
+  }
+
+}
+?&gt;
+</pre>
+    </body>
+</html>

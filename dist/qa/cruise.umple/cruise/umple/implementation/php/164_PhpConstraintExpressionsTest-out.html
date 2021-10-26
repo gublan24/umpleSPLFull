@@ -1,0 +1,731 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from PhpConstraintExpressionsTest</title>
+    </head>
+    <body>
+        <pre>&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X Attributes
+  private $d;
+  private $e;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aD, $aE)
+  {
+    $this-&gt;d = $aD;
+    $this-&gt;e = $aE;
+    if (strtotime($aD)&lt;=strtotime($aE))
+    {
+      throw new RuntimeException("Please provide a valid d and e [d&gt;e]");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setD($aD)
+  {
+    $wasSet = false;
+    if (strtotime($aD)&gt;strtotime($this-&gt;getE()))
+    {
+    $this-&gt;d = $aD;
+    $wasSet = true;
+    }
+    return $wasSet;
+  }
+
+  public function setE($aE)
+  {
+    $wasSet = false;
+    if (strtotime($this-&gt;getD())&gt;strtotime($aE))
+    {
+    $this-&gt;e = $aE;
+    $wasSet = true;
+    }
+    return $wasSet;
+  }
+
+  public function getD()
+  {
+    return $this-&gt;d;
+  }
+
+  public function getE()
+  {
+    return $this-&gt;e;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Client
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Client Attributes
+  private $minAge;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aMinAge)
+  {
+    $this-&gt;minAge = $aMinAge;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setMinAge($aMinAge)
+  {
+    $wasSet = false;
+    $this-&gt;minAge = $aMinAge;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getMinAge()
+  {
+    return $this-&gt;minAge;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+  public function someMethod($arg)
+  {
+    $result = someMethodOriginal($arg);
+    if ($this-&gt;arg&lt;=5)
+    {
+        throw new RuntimeException("Please provide a valid arg");
+    }
+    return $result;
+  }
+
+  public function someMethodOriginal($arg)
+  {
+    // rest of stuff that we don't interpret
+   return 0;
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Client
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Client Attributes
+  private $minAge;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aMinAge)
+  {
+    $this-&gt;minAge = $aMinAge;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setMinAge($aMinAge)
+  {
+    $wasSet = false;
+    $this-&gt;minAge = $aMinAge;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getMinAge()
+  {
+    return $this-&gt;minAge;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+  public function someMethod($arg)
+  {
+
+    if ($this-&gt;arg&lt;=5)
+    {
+        throw new RuntimeException("Please provide a valid arg");
+    }
+    if ($this-&gt;getMinAge()&gt;=8)
+    {
+        throw new RuntimeException("Please provide a valid minAge");
+    }
+    // rest of stuff that we don't interpret
+    return 0;
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class MultipleConstraints
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //MultipleConstraints Attributes
+  private $i;
+  private $j;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aI, $aJ)
+  {
+    $this-&gt;i = $aI;
+    $this-&gt;j = $aJ;
+    if ($aI&lt;0)
+    {
+      throw new RuntimeException("Please provide a valid i [i&gt;=0]");
+    }
+    if ($aJ&lt;0)
+    {
+      throw new RuntimeException("Please provide a valid j [j&gt;=0]");
+    }
+    if ($aI&lt;$aJ)
+    {
+      throw new RuntimeException("Please provide a valid i and j [i&gt;=j]");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setI($aI)
+  {
+    $wasSet = false;
+    if ($aI&gt;=$this-&gt;getJ())
+    {
+    if ($aI&gt;=0)
+    {
+    $this-&gt;i = $aI;
+    $wasSet = true;
+    }
+    }
+    return $wasSet;
+  }
+
+  public function setJ($aJ)
+  {
+    $wasSet = false;
+    if ($aJ&gt;=0)
+    {
+    if ($this-&gt;getI()&gt;=$aJ)
+    {
+    $this-&gt;j = $aJ;
+    $wasSet = true;
+    }
+    }
+    return $wasSet;
+  }
+
+  public function getI()
+  {
+    return $this-&gt;i;
+  }
+
+  public function getJ()
+  {
+    return $this-&gt;j;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //student Attributes
+  private $age;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aAge)
+  {
+    $this-&gt;age = $aAge;
+    if ($aAge&lt;=18)
+    {
+      throw new RuntimeException("Please provide a valid age [age&gt;18]");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setAge($aAge)
+  {
+    $wasSet = false;
+    if ($aAge&gt;18)
+    {
+    $this-&gt;age = $aAge;
+    $wasSet = true;
+    }
+    return $wasSet;
+  }
+
+  public function getAge()
+  {
+    return $this-&gt;age;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+// attributes on both sides of the constraint's boolean expression
+class Client
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Client Attributes
+  private $minAge;
+  private $age;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aMinAge, $aAge)
+  {
+    $this-&gt;minAge = $aMinAge;
+    $this-&gt;age = $aAge;
+    if ($aAge&lt;=$aMinAge)
+    {
+      throw new RuntimeException("Please provide a valid age and minAge [age&gt;minAge]");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setMinAge($aMinAge)
+  {
+    $wasSet = false;
+    if ($this-&gt;getAge()&gt;$aMinAge)
+    {
+    $this-&gt;minAge = $aMinAge;
+    $wasSet = true;
+    }
+    return $wasSet;
+  }
+
+  public function setAge($aAge)
+  {
+    $wasSet = false;
+    if ($aAge&gt;$this-&gt;getMinAge())
+    {
+    $this-&gt;age = $aAge;
+    $wasSet = true;
+    }
+    return $wasSet;
+  }
+
+  public function getMinAge()
+  {
+    return $this-&gt;minAge;
+  }
+
+  public function getAge()
+  {
+    return $this-&gt;age;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //student Attributes
+  private $age;
+  private $weight;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aAge, $aWeight)
+  {
+    $this-&gt;age = $aAge;
+    $this-&gt;weight = $aWeight;
+    if ($aWeight&gt;=3||$aAge&lt;=18)
+    {
+      throw new RuntimeException("Please provide a valid age and weight [weight&lt;3&amp;&amp;age&gt;18]");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setAge($aAge)
+  {
+    $wasSet = false;
+    if ($this-&gt;getWeight()&lt;3&amp;&amp;$aAge&gt;18)
+    {
+    $this-&gt;age = $aAge;
+    $wasSet = true;
+    }
+    return $wasSet;
+  }
+
+  public function setWeight($aWeight)
+  {
+    $wasSet = false;
+    if ($aWeight&lt;3&amp;&amp;$this-&gt;getAge()&gt;18)
+    {
+    $this-&gt;weight = $aWeight;
+    $wasSet = true;
+    }
+    return $wasSet;
+  }
+
+  public function getAge()
+  {
+    return $this-&gt;age;
+  }
+
+  public function getWeight()
+  {
+    return $this-&gt;weight;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //student Attributes
+  private $age;
+  private $weight;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aAge, $aWeight)
+  {
+    $this-&gt;age = $aAge;
+    $this-&gt;weight = $aWeight;
+    if ($aWeight&gt;=3&amp;&amp;$aAge&lt;=18)
+    {
+      throw new RuntimeException("Please provide a valid age and weight [weight&lt;3||age&gt;18]");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setAge($aAge)
+  {
+    $wasSet = false;
+    if ($this-&gt;getWeight()&lt;3||$aAge&gt;18)
+    {
+    $this-&gt;age = $aAge;
+    $wasSet = true;
+    }
+    return $wasSet;
+  }
+
+  public function setWeight($aWeight)
+  {
+    $wasSet = false;
+    if ($aWeight&lt;3||$this-&gt;getAge()&gt;18)
+    {
+    $this-&gt;weight = $aWeight;
+    $wasSet = true;
+    }
+    return $wasSet;
+  }
+
+  public function getAge()
+  {
+    return $this-&gt;age;
+  }
+
+  public function getWeight()
+  {
+    return $this-&gt;weight;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //student Attributes
+  private $age;
+  private $weight;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aAge, $aWeight)
+  {
+    $this-&gt;age = $aAge;
+    $this-&gt;weight = $aWeight;
+    if (($aAge&gt;18))
+    {
+      throw new RuntimeException("Please provide a valid age [age&lt;=18]");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setAge($aAge)
+  {
+    $wasSet = false;
+    if (($aAge&lt;=18))
+    {
+    $this-&gt;age = $aAge;
+    $wasSet = true;
+    }
+    return $wasSet;
+  }
+
+  public function setWeight($aWeight)
+  {
+    $wasSet = false;
+    $this-&gt;weight = $aWeight;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getAge()
+  {
+    return $this-&gt;age;
+  }
+
+  public function getWeight()
+  {
+    return $this-&gt;weight;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //student Attributes
+  private $age;
+  private $weight;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aAge, $aWeight)
+  {
+    $this-&gt;age = $aAge;
+    $this-&gt;weight = $aWeight;
+    if ($aAge&gt;=10||($aAge&gt;=10))
+    {
+      throw new RuntimeException("Please provide a valid age [age&lt;10&amp;&amp;age&lt;10]");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setAge($aAge)
+  {
+    $wasSet = false;
+    if ($aAge&lt;10&amp;&amp;($aAge&lt;10))
+    {
+    $this-&gt;age = $aAge;
+    $wasSet = true;
+    }
+    return $wasSet;
+  }
+
+  public function setWeight($aWeight)
+  {
+    $wasSet = false;
+    $this-&gt;weight = $aWeight;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getAge()
+  {
+    return $this-&gt;age;
+  }
+
+  public function getWeight()
+  {
+    return $this-&gt;weight;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+</pre>
+    </body>
+</html>

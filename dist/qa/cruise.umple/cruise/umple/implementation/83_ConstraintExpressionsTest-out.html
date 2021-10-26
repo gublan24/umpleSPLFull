@@ -1,0 +1,761 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from ConstraintExpressionsTest</title>
+    </head>
+    <body>
+        <pre>/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+import java.sql.Date;
+
+// line 2 "DateConstraint1.ump"
+public class X
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //X Attributes
+  private Date d;
+  private Date e;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public X(Date aD, Date aE)
+  {
+    d = aD;
+    e = aE;
+    if (aD.getTime()&lt;=aE.getTime())
+    {
+      throw new RuntimeException("Please provide a valid d and e [d&gt;e]");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setD(Date aD)
+  {
+    boolean wasSet = false;
+    if (aD.getTime()&gt;getE().getTime())
+    {
+    d = aD;
+    wasSet = true;
+    }
+    return wasSet;
+  }
+
+  public boolean setE(Date aE)
+  {
+    boolean wasSet = false;
+    if (getD().getTime()&gt;aE.getTime())
+    {
+    e = aE;
+    wasSet = true;
+    }
+    return wasSet;
+  }
+
+  public Date getD()
+  {
+    return d;
+  }
+
+  public Date getE()
+  {
+    return e;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+ "]" + System.getProperties().getProperty("line.separator") +
+            "  " + "d" + "=" + (getD() != null ? !getD().equals(this)  ? getD().toString().replaceAll("  ","    ") : "this" : "null") + System.getProperties().getProperty("line.separator") +
+            "  " + "e" + "=" + (getE() != null ? !getE().equals(this)  ? getE().toString().replaceAll("  ","    ") : "this" : "null");
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "BasicPostCondition1.ump"
+public class Client
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Client Attributes
+  private int minAge;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Client(int aMinAge)
+  {
+    minAge = aMinAge;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setMinAge(int aMinAge)
+  {
+    boolean wasSet = false;
+    minAge = aMinAge;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public int getMinAge()
+  {
+    return minAge;
+  }
+
+  public void delete()
+  {}
+
+  // line 7 "BasicPostCondition1.ump"
+  // line 7 "BasicPostCondition1.ump"
+  public int someMethod(Integer arg){
+    int result = someMethod_Original(arg);
+    if (arg&lt;=5)
+    {
+        throw new RuntimeException("Please provide a valid arg");
+    }
+    return result;
+  }
+
+  public int someMethod_Original(Integer arg){
+    // rest of stuff that we don't interpret
+   return 0;
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "minAge" + ":" + getMinAge()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "BasicPrecondition1.ump"
+public class Client
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Client Attributes
+  private int minAge;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Client(int aMinAge)
+  {
+    minAge = aMinAge;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setMinAge(int aMinAge)
+  {
+    boolean wasSet = false;
+    minAge = aMinAge;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public int getMinAge()
+  {
+    return minAge;
+  }
+
+  public void delete()
+  {}
+
+  // line 8 "BasicPrecondition1.ump"
+  public int someMethod(Integer arg){
+
+    if (arg&lt;=5)
+    {
+        throw new RuntimeException("Please provide a valid arg");
+    }
+    if (getMinAge()&gt;=8)
+    {
+        throw new RuntimeException("Please provide a valid minAge");
+    }
+    // rest of stuff that we don't interpret
+    return 0;
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "minAge" + ":" + getMinAge()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "MultipleConstraints.ump"
+public class MultipleConstraints
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //MultipleConstraints Attributes
+  private int i;
+  private int j;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public MultipleConstraints(int aI, int aJ)
+  {
+    i = aI;
+    j = aJ;
+    if (aI&lt;0)
+    {
+      throw new RuntimeException("Please provide a valid i [i&gt;=0]");
+    }
+    if (aJ&lt;0)
+    {
+      throw new RuntimeException("Please provide a valid j [j&gt;=0]");
+    }
+    if (aI&lt;aJ)
+    {
+      throw new RuntimeException("Please provide a valid i and j [i&gt;=j]");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setI(int aI)
+  {
+    boolean wasSet = false;
+    if (aI&gt;=getJ())
+    {
+    if (aI&gt;=0)
+    {
+    i = aI;
+    wasSet = true;
+    }
+    }
+    return wasSet;
+  }
+
+  public boolean setJ(int aJ)
+  {
+    boolean wasSet = false;
+    if (aJ&gt;=0)
+    {
+    if (getI()&gt;=aJ)
+    {
+    j = aJ;
+    wasSet = true;
+    }
+    }
+    return wasSet;
+  }
+
+  public int getI()
+  {
+    return i;
+  }
+
+  public int getJ()
+  {
+    return j;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "i" + ":" + getI()+ "," +
+            "j" + ":" + getJ()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "BasicConstraint1.ump"
+public class student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //student Attributes
+  private int age;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public student(int aAge)
+  {
+    age = aAge;
+    if (aAge&lt;=18)
+    {
+      throw new RuntimeException("Please provide a valid age [age&gt;18]");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setAge(int aAge)
+  {
+    boolean wasSet = false;
+    if (aAge&gt;18)
+    {
+    age = aAge;
+    wasSet = true;
+    }
+    return wasSet;
+  }
+
+  public int getAge()
+  {
+    return age;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "age" + ":" + getAge()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+/**
+ * attributes on both sides of the constraint's boolean expression
+ */
+// line 2 "BasicConstraint3.ump"
+public class Client
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Client Attributes
+  private int minAge;
+  private int age;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Client(int aMinAge, int aAge)
+  {
+    minAge = aMinAge;
+    age = aAge;
+    if (aAge&lt;=aMinAge)
+    {
+      throw new RuntimeException("Please provide a valid age and minAge [age&gt;minAge]");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setMinAge(int aMinAge)
+  {
+    boolean wasSet = false;
+    if (getAge()&gt;aMinAge)
+    {
+    minAge = aMinAge;
+    wasSet = true;
+    }
+    return wasSet;
+  }
+
+  public boolean setAge(int aAge)
+  {
+    boolean wasSet = false;
+    if (aAge&gt;getMinAge())
+    {
+    age = aAge;
+    wasSet = true;
+    }
+    return wasSet;
+  }
+
+  public int getMinAge()
+  {
+    return minAge;
+  }
+
+  public int getAge()
+  {
+    return age;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "minAge" + ":" + getMinAge()+ "," +
+            "age" + ":" + getAge()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "BasicConstraint5.ump"
+public class student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //student Attributes
+  private int age;
+  private int weight;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public student(int aAge, int aWeight)
+  {
+    age = aAge;
+    weight = aWeight;
+    if (aWeight&gt;=3||aAge&lt;=18)
+    {
+      throw new RuntimeException("Please provide a valid age and weight [weight&lt;3&amp;&amp;age&gt;18]");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setAge(int aAge)
+  {
+    boolean wasSet = false;
+    if (getWeight()&lt;3&amp;&amp;aAge&gt;18)
+    {
+    age = aAge;
+    wasSet = true;
+    }
+    return wasSet;
+  }
+
+  public boolean setWeight(int aWeight)
+  {
+    boolean wasSet = false;
+    if (aWeight&lt;3&amp;&amp;getAge()&gt;18)
+    {
+    weight = aWeight;
+    wasSet = true;
+    }
+    return wasSet;
+  }
+
+  public int getAge()
+  {
+    return age;
+  }
+
+  public int getWeight()
+  {
+    return weight;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "age" + ":" + getAge()+ "," +
+            "weight" + ":" + getWeight()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "BasicConstraint6.ump"
+public class student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //student Attributes
+  private int age;
+  private int weight;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public student(int aAge, int aWeight)
+  {
+    age = aAge;
+    weight = aWeight;
+    if (aWeight&gt;=3&amp;&amp;aAge&lt;=18)
+    {
+      throw new RuntimeException("Please provide a valid age and weight [weight&lt;3||age&gt;18]");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setAge(int aAge)
+  {
+    boolean wasSet = false;
+    if (getWeight()&lt;3||aAge&gt;18)
+    {
+    age = aAge;
+    wasSet = true;
+    }
+    return wasSet;
+  }
+
+  public boolean setWeight(int aWeight)
+  {
+    boolean wasSet = false;
+    if (aWeight&lt;3||getAge()&gt;18)
+    {
+    weight = aWeight;
+    wasSet = true;
+    }
+    return wasSet;
+  }
+
+  public int getAge()
+  {
+    return age;
+  }
+
+  public int getWeight()
+  {
+    return weight;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "age" + ":" + getAge()+ "," +
+            "weight" + ":" + getWeight()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "BasicConstraint7.ump"
+public class student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //student Attributes
+  private int age;
+  private int weight;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public student(int aAge, int aWeight)
+  {
+    age = aAge;
+    weight = aWeight;
+    if ((aAge&gt;18))
+    {
+      throw new RuntimeException("Please provide a valid age [age&lt;=18]");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setAge(int aAge)
+  {
+    boolean wasSet = false;
+    if ((aAge&lt;=18))
+    {
+    age = aAge;
+    wasSet = true;
+    }
+    return wasSet;
+  }
+
+  public boolean setWeight(int aWeight)
+  {
+    boolean wasSet = false;
+    weight = aWeight;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public int getAge()
+  {
+    return age;
+  }
+
+  public int getWeight()
+  {
+    return weight;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "age" + ":" + getAge()+ "," +
+            "weight" + ":" + getWeight()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+
+// line 1 "BasicConstraint8.ump"
+public class student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //student Attributes
+  private int age;
+  private int weight;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public student(int aAge, int aWeight)
+  {
+    age = aAge;
+    weight = aWeight;
+    if (aAge&gt;=10||(aAge&gt;=10))
+    {
+      throw new RuntimeException("Please provide a valid age [age&lt;10&amp;&amp;age&lt;10]");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setAge(int aAge)
+  {
+    boolean wasSet = false;
+    if (aAge&lt;10&amp;&amp;(aAge&lt;10))
+    {
+    age = aAge;
+    wasSet = true;
+    }
+    return wasSet;
+  }
+
+  public boolean setWeight(int aWeight)
+  {
+    boolean wasSet = false;
+    weight = aWeight;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public int getAge()
+  {
+    return age;
+  }
+
+  public int getWeight()
+  {
+    return weight;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "age" + ":" + getAge()+ "," +
+            "weight" + ":" + getWeight()+ "]";
+  }
+}
+</pre>
+    </body>
+</html>

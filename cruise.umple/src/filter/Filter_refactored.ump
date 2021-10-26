@@ -1,0 +1,23 @@
+  class UmpleModel { 
+    before Label_Filter_22:generate
+    {
+      applyFilter(null);
+    }  
+  } 
+
+
+  class UmpleInternalParser { 
+    before Label_Filter_59:analyzeToken(Token,int)
+  {
+      analyzeFilterToken(t,analysisStep);
+    }  } 
+
+
+//src/generators/Generator_CodeUmple.ump
+mixset Filter { 
+  class UmpleGenerator { 
+    before Label_Filter_15:initializeParser
+  {
+      parser.addGrammarFile("/filter/umple_filter.grammar"); // TODO Under development
+    }  } 
+} 

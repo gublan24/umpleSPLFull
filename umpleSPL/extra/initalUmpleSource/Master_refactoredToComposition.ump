@@ -1,0 +1,5549 @@
+/* 
+Annotaive fragments are refactored into composition fragments. 
+Total mixsts definitions: 64
+*/ 
+//*** 
+//Coarse-grained variability : 
+
+mixset Structure { 
+// Fragment source file: Master.ump
+// Line : 59
+use strcture/Structure.ump;
+  use Structure_StateMachine;
+
+// Fragment source file: UmpleInternalParser_Code.ump
+// Line : 530
+use strcture/UmpleInternalParser_CodeStructure.ump;
+  use Template_Strcture;
+
+}
+
+mixset Trace { 
+// Fragment source file: Generator.ump
+// Line : 53
+interface CodeTranslator
+  {
+    String translate(String id, TraceItem traceItem);
+  }
+
+// Fragment source file: GeneratorHelper_Code.ump
+// Line : 66
+use generators/GeneratorHelper_CodeTrace.ump;
+
+// Fragment source file: Generator_SuperCodeGenerator.ump
+// Line : 47
+ class SuperCodeGenerator { public String translate(String keyName, TraceItem ti)
+    {
+      if (keyName.length()>5&&"trace".equals(keyName.substring(0,5)))
+      {
+        return TraceLookupMap.get(keyName.substring(5).toLowerCase());
+      }
+      else 
+      {
+        return "INVALID KEYNAME IN TRANSLATE";
+      }
+    } } 
+
+// Fragment source file: Umple.ump
+// Line : 1004
+ class Attribute { before delete { 
+      if (traceRecords == null) {
+        traceRecords = new ArrayList<TraceRecord>();
+      }
+    } } 
+
+// Fragment source file: Umple_CodeClass.ump
+// Line : 162
+ class UmpleClass { public List<TraceDirective> getAllTraceDirectives(){
+    ArrayList<TraceDirective> all = new ArrayList<TraceDirective>();
+    all.addAll(getTraceDirectives());
+
+    for(TraceCase tc : getTraceCases())
+      if( tc.getActivation() ==  true )
+        for(TraceDirective td : tc.getTraceDirectives())
+          all.add(td);
+
+    return all;
+  } } 
+
+// Fragment source file: Master.ump
+// Line : 56
+use trace/Trace.ump;
+
+// Fragment source file: UmpleInternalParser_Code.ump
+// Line : 541
+use trace/UmpleInternalParser_CodeTrace.ump;
+
+}
+
+mixset Coordinate { 
+// Fragment source file: Umple_CodeCoordinate.ump
+// Line : 101
+// Fragment source file: Umple_Code.ump
+// Line : 360
+ class UmpleModel {
+    public Coordinate getDefaultClassPosition(int numDefaults)
+    {
+      int xIndex  = 0;
+      int yIndex = 0;
+      int yOffset = 0;
+      int xOffset = 0;
+
+      xIndex = (numDefaults-1) / (maxYLevels);
+      yIndex = (numDefaults-1) % (maxYLevels);
+      yOffset = (yIndex * levelOffset.getY()) + initialOffset.getY();
+      xOffset = (xIndex * levelOffset.getX()) + initialOffset.getX();
+
+      return new Coordinate(xOffset,yOffset,classSize.getWidth(),classSize.getHeight());
+    }
+
+    public Coordinate getDefaultInterfacePosition(int numDefaults)
+    {
+      int xIndex  = 0;
+      int yIndex = 0;
+      int yOffset = 0;
+      int xOffset = 0;
+
+      xIndex = (numDefaults-1) / (maxYLevels);
+      yIndex = (numDefaults-1) % (maxYLevels);
+      yOffset = (yIndex * levelOffset.getY()) + initialOffset.getY();
+      xOffset = (xIndex * levelOffset.getX()) + initialOffset.getX() + 2*classSize.getWidth();
+
+      return new Coordinate(xOffset,yOffset,classSize.getWidth(),classSize.getHeight());
+    }
+
+    public Coordinate[] getDefaultAssociationPosition(Association a)
+    {
+      Coordinate[] defaults = new Coordinate[2];
+      int offsetY = offsetFromEdge.getX();
+      int offsetX = offsetFromEdge.getY();
+
+      String classOne = a.getEnd(0).getClassName();
+      String classTwo = a.getEnd(1).getClassName();
+
+      mixset Trait {
+        if(getUmpleTraitTypeParameter(classOne) || getUmpleTrait(classOne)!=null) return null;
+        if(getUmpleTraitTypeParameter(classTwo) || getUmpleTrait(classTwo)!=null) return null;
+      }
+      Coordinate classOnePos = getUmpleClass(classOne).getCoordinates();
+      Coordinate classTwoPos = getUmpleClass(classTwo).getCoordinates();
+
+      if (classOne.equals(classTwo))
+      {
+        return getDefaultReflexiveAssociationPosition(a);
+      }
+
+      int num = 1;
+      String tempClass1 = "";
+      String tempClass2 = "";
+      for (Association temp : getAssociations())
+      {
+        tempClass1 = temp.getEnd(0).getClassName();
+        tempClass2 = temp.getEnd(1).getClassName();
+
+        if (temp.getName().equals(a.getName()) &&
+            tempClass1.equals(classOne)        &&
+            tempClass2.equals(classTwo))
+        {
+          break;
+        }
+
+        if (tempClass1.equals(classOne) && tempClass2.equals(classTwo)){ ++num; break; }
+        else if (tempClass1.equals(classTwo) && tempClass2.equals(classOne)){ ++num; break; }
+      }
+
+      Coordinate classOneNoX = new Coordinate(classOnePos.getX(),classOnePos.getY(),classOnePos.getWidth(),classOnePos.getHeight());
+      Coordinate classTwoNoX = new Coordinate(classTwoPos.getX(),classTwoPos.getY(),classTwoPos.getWidth(),classTwoPos.getHeight());
+      Coordinate classOneNoY = new Coordinate(classOnePos.getX(),classOnePos.getY(),classOnePos.getWidth(),classOnePos.getHeight());
+      Coordinate classTwoNoY = new Coordinate(classTwoPos.getX(),classTwoPos.getY(),classTwoPos.getWidth(),classTwoPos.getHeight());
+      classOneNoX.setX(0);
+      classTwoNoX.setX(0);
+      classOneNoY.setY(0);
+      classTwoNoY.setY(0);
+      String whereVert = classOneNoX.whereIs(classTwoNoX);
+      String whereHorz = classOneNoY.whereIs(classTwoNoY);
+
+      // alternative 1: left/right wall of class one to left/right wall of class two
+      int offsetOneX = whereHorz.equals("right")? classOnePos.getWidth() : 0;
+      int offsetTwoX = whereHorz.equals("right")? 0 : classTwoPos.getWidth();
+      int offsetOneY = num > 1 ? (num+1)*offsetY : offsetY;
+      int offsetTwoY = num > 1 ? (num+1)*offsetY : offsetY;
+      Coordinate offsetOne = new Coordinate(offsetOneX, offsetOneY, 0, 0);
+      Coordinate offsetTwo = new Coordinate(offsetTwoX, offsetTwoY, 0, 0);
+      Coordinate start = new Coordinate(classOnePos.getX() + offsetOne.getX(),
+          classOnePos.getY() + offsetOne.getY(),
+          0,0);
+      Coordinate end = new Coordinate(  classTwoPos.getX() + offsetTwo.getX(),
+          classTwoPos.getY() + offsetTwo.getY(),
+          0,0);
+
+      int distance = start.distanceTo(end);
+
+      // alternative 2: top/bottom wall of class one to top/bottom wall of class two
+      int altXOne = num*offsetX;
+      int altXTwo = num*offsetX;
+      int altYOne = whereVert.equals("top")? 0 : classOnePos.getHeight();
+      int altYTwo = whereVert.equals("top")? classTwoPos.getHeight() : 0;
+      Coordinate altOffsetOne = new Coordinate(altXOne, altYOne, 0, 0);
+      Coordinate altOffsetTwo = new Coordinate(altXTwo, altYTwo, 0, 0);
+      Coordinate altStart = new Coordinate(classOnePos.getX() + altOffsetOne.getX(),
+          classOnePos.getY() + altOffsetOne.getY(),
+          0,0);
+      Coordinate altEnd = new Coordinate(  classTwoPos.getX() + altOffsetTwo.getX(),
+          classTwoPos.getY() + altOffsetTwo.getY(),
+          0,0);
+
+      int altDistance = altStart.distanceTo(altEnd);
+
+      // choose alternative that generates the shortest line
+      if (altDistance < distance)
+      {
+        defaults[0] = altOffsetOne;
+        defaults[1] = altOffsetTwo;
+      }
+      else
+      {
+        defaults[0] = offsetOne;
+        defaults[1] = offsetTwo;
+      }
+
+      return defaults;
+    }
+
+    private Coordinate[] getDefaultReflexiveAssociationPosition(Association a)
+    {
+      Coordinate[] defaults = new Coordinate[2];
+      String name  = a.getEnd(0).getClassName();
+      Coordinate position = getUmpleClass(name).getCoordinates();
+
+      // determine which corner the association should be positioned at
+      int index = 0;
+      for (int i=0; i < numberOfAssociations(); i++)
+      {
+        Association current = getAssociation(i);
+        if (current.getEnd(0).getClassName().equals(name) && current.getEnd(1).getClassName().equals(name))
+        {
+          if (current.numberOfPositions() > 0)
+          {
+            if (current.getPosition(0).getStatus().equals(Coordinate.Status.Defaulted))
+            {
+              index += 1;
+            }
+          }
+        }
+      }
+
+      Coordinate offsetOne = new Coordinate(0,0,0,0);
+      Coordinate offsetTwo = new Coordinate(0,0,0,0);
+
+      if (index % 4 == 0)
+      {
+        offsetOne.setX(reflexiveSegmentLength);
+        offsetOne.setY(position.getHeight());
+        offsetTwo.setX(0);
+        offsetTwo.setY(position.getHeight() - reflexiveSegmentLength);
+      }
+      else if (index % 4 == 1)
+      {
+        offsetOne.setX(position.getWidth() - reflexiveSegmentLength);
+        offsetOne.setY(position.getHeight());
+        offsetTwo.setX(position.getWidth());
+        offsetTwo.setY(position.getHeight() - reflexiveSegmentLength);
+      }
+      else if (index % 4 == 2)
+      {
+        offsetOne.setX(position.getWidth() - reflexiveSegmentLength);
+        offsetOne.setY(0);
+        offsetTwo.setX(position.getWidth());
+        offsetTwo.setY(reflexiveSegmentLength);
+      }
+      else
+      {
+        offsetOne.setX(reflexiveSegmentLength);
+        offsetOne.setY(0);
+        offsetTwo.setX(0);
+        offsetTwo.setY(reflexiveSegmentLength);
+      }
+
+      defaults[0] = offsetOne;
+      defaults[1] = offsetTwo;
+
+      return defaults;
+    } }
+
+}
+
+mixset Constraint { 
+// Fragment source file: Umple_Code.ump
+// Line : 854
+use constraint/Umple_CodeConstraint.ump;
+
+// Fragment source file: UmpleInternalParser_Code.ump
+// Line : 527
+use constraint/UmpleInternalParser_CodeConstraints.ump;
+
+}
+
+mixset StateMachine { 
+// Fragment source file: Generator.ump
+// Line : 44
+interface CodeTranslator {
+    String translate(String id, StateMachine stm);
+    String translate(String id, State st);
+    String translate(String id, Event e);
+    String translate(String id, Activity a);
+  }
+
+// Fragment source file: GeneratorHelper_Code.ump
+// Line : 63
+use generators/GeneratorHelper_CodeStateMachine.ump;
+
+// Fragment source file: Master.ump
+// Line : 49
+use stateMachine/StateMachine.ump;
+  use Structure_StateMachine;
+
+// Fragment source file: Umple.ump
+// Line : 111
+ class UmpleModel { 1 -> * StateMachine stateMachineDefinitions; } 
+
+// Fragment source file: Umple.ump
+// Line : 519
+ class ConstraintState { State state;
+      key { state } } 
+
+// Fragment source file: Umple.ump
+// Line : 530
+ class ConstraintStateMachine { StateMachine stateMachine;
+      key { stateMachine } } 
+
+// Fragment source file: Umple.ump
+// Line : 757
+ class UmpleClass { before addStateMachine { if (isImmutable()) { return false; } } } 
+
+// Fragment source file: Umple.ump
+// Line : 841
+ class UmpleTrait { before addStateMachine { if (isImmutable()) { return false; } } } 
+
+// Fragment source file: Umple.ump
+// Line : 866
+ class GeneralTPApplied { 1 -> * StateMachineTemplateSignature;
+	1 -> * StateMachineModifier; } 
+
+// Fragment source file: Umple.ump
+// Line : 878
+class StateMachineTemplateSignature{
+	modifier;
+	srcStateMachine;
+	desStateMachine;
+	String[] srcStates;
+	String[] desStates;
+	0..1 -> 0..1 MethodTemplateSignature;
+	alias;
+}
+
+
+class StateMachineModifier{
+  modifier;
+  srcStateMachine;
+  alias;
+}
+
+//This is used to remove and rename a state.
+class StateModifier{
+  isA StateMachineModifier;
+  String[] srcStates;
+}
+
+//This is used to remove an event or a transition.
+class EventModifier{
+  isA StateModifier;
+  0..1 -> 0..1 Method;
+  0..1 -> 0..1 Guard;
+//  Token guardToken = null;
+}
+
+//This is used to extend a state with a state machine.
+class ExtendStateByStateMachine{
+  isA StateMachineModifier;
+  String[] desStates;
+}
+
+// Fragment source file: Umple_CodeConstraint.ump
+// Line : 764
+class ConstraintState
+  {
+    String getName()
+    {
+      return state==null?null:state.getName();
+    }
+    public String getType() { return "state"; }
+  }
+
+  class ConstraintStateMachine
+  {
+    String getName()
+    {
+      return stateMachine==null?null:stateMachine.getName();
+    }
+    public String getType(){ return "statemachine"; }
+  }
+
+// Fragment source file: Umple_Code.ump
+// Line : 862
+use stateMachine/Umple_Code_StateMachine.ump;
+
+// Fragment source file: Umple_Code_Trait.ump
+// Line : 295
+ class UmpleTrait { public StateMachine getStateMachine(String name){
+    for (StateMachine sm : stateMachines)
+    {
+      if (sm.getName().equals(name))
+      {
+        return sm;
+      }
+    }
+    return null; 
+  } } 
+
+// Fragment source file: Umple_Code_Trait.ump
+// Line : 498
+ class GeneralTPApplied { boolean hasStateMachineTemplateSignature(StateMachineTemplateSignature inSMTSignature) {
+   for (StateMachineTemplateSignature smTSignature : getStateMachineTemplateSignatures()) {
+      if (smTSignature.getSrcStateMachine().equals(inSMTSignature.getSrcStateMachine()) && smTSignature.numberOfSrcStates()==inSMTSignature.numberOfSrcStates()){
+        boolean find = true;
+      for (int  i = 0; i<smTSignature.numberOfSrcStates() ;i++) {
+        if (!smTSignature.getSrcState(i).equals(inSMTSignature.getSrcState(i))) {
+          find = false;
+          break;
+        }
+      }
+      if (!find) continue;
+      //TODO I can raise a different error for each of the following conditions
+        if (smTSignature.getModifier().equals("-") && inSMTSignature.getModifier().equals("+")) return true;
+        if (smTSignature.getModifier().equals("+") && inSMTSignature.getModifier().equals("-")) return true;
+        if (smTSignature.getModifier().equals("-") && !inSMTSignature.getAlias().equals("")) return true;
+        if (!smTSignature.getAlias().equals("")     && inSMTSignature.getModifier().equals("-")) return true;
+        if (!smTSignature.getDesStateMachine().equals(inSMTSignature.getDesStateMachine()) && smTSignature.numberOfDesStates()==0 && inSMTSignature.numberOfDesStates()==0) return true;
+        if (smTSignature.getMethodTemplateSignature()==null && inSMTSignature.getMethodTemplateSignature()==null){
+          if (smTSignature.getAlias().equals(inSMTSignature.getAlias())){
+            if ((smTSignature.getModifier().equals("+")&&inSMTSignature.getModifier().equals("+"))||(smTSignature.getModifier().equals("-")&&inSMTSignature.getModifier().equals("-")) ){
+              return true;
+            }
+          }
+          if (!smTSignature.getAlias().equals(inSMTSignature.getAlias()) && !smTSignature.getAlias().equals("") && !inSMTSignature.getAlias().equals("")) return true; 
+          if (smTSignature.getDesStateMachine().equals(inSMTSignature.getDesStateMachine())) return true;     
+        }
+        if (smTSignature.getMethodTemplateSignature()!=null && inSMTSignature.getMethodTemplateSignature()!=null){
+          if (smTSignature.getMethodTemplateSignature().getMethod().compareWithTheMethod(inSMTSignature.getMethodTemplateSignature().getMethod())){
+            if (smTSignature.getAlias().equals(inSMTSignature.getAlias())){
+              if ((smTSignature.getModifier().equals("+")&&inSMTSignature.getModifier().equals("+"))||(smTSignature.getModifier().equals("-")&&inSMTSignature.getModifier().equals("-")) ){
+                return true;
+              }
+            } else return true;
+          }        
+      }     
+      }
+    }
+    return false;
+	}
+//---------------------------------end----------------------------------------
+//----------------------------------------------------------------------------
+//---------------------------------Start--------------------------------------
+	Boolean hasStateMachineModifier(StateMachineModifier inSMModifier) {
+	  for (StateMachineModifier smModifier : getStateMachineModifiers()) {  
+      if(inSMModifier instanceof EventModifier && smModifier instanceof EventModifier) {
+        if (inSMModifier.getModifier().equals(smModifier.getModifier())){
+          if( inSMModifier.getSrcStateMachine().equals(smModifier.getSrcStateMachine()) && Arrays.equals(  ((EventModifier)inSMModifier).getSrcStates(), ((EventModifier)smModifier).getSrcStates() ) && ((EventModifier)inSMModifier).getMethod().compareWithTheMethod(((EventModifier)smModifier).getMethod())  ) {
+            if (((EventModifier)inSMModifier).getGuard().isEqualTo(((EventModifier)smModifier).getGuard())){
+              //raise a warning that they are equal.
+              return true;
+            }
+          }
+        } else if( inSMModifier.getSrcStateMachine().equals(smModifier.getSrcStateMachine()) && Arrays.equals(  ((EventModifier)inSMModifier).getSrcStates(), ((EventModifier)smModifier).getSrcStates() ) && ((EventModifier)inSMModifier).getMethod().compareWithTheMethod(((EventModifier)smModifier).getMethod())  ) {
+          if (((EventModifier)inSMModifier).getGuard().isEqualTo(((EventModifier)smModifier).getGuard())){
+            //raise a error that they two operations cannot be applied to one state.
+            return true;         
+          }
+        }  
+      //---------------------------------------------------------------------------------------     
+      } else if(inSMModifier instanceof StateModifier && smModifier instanceof StateModifier) {
+        if (inSMModifier.getModifier().equals(smModifier.getModifier())){
+          if( inSMModifier.getSrcStateMachine().equals(smModifier.getSrcStateMachine()) && Arrays.equals(  ((StateModifier)inSMModifier).getSrcStates(), ((StateModifier)smModifier).getSrcStates()  )  ) {
+            //raise a warning that they are equal.
+            return true;
+          }
+        } else if( inSMModifier.getSrcStateMachine().equals(smModifier.getSrcStateMachine()) && Arrays.equals(  ((StateModifier)inSMModifier).getSrcStates(), ((StateModifier)smModifier).getSrcStates()  )  ){
+          //raise a error that they two operations cannot be applied to one state.
+          return true;
+        }
+      //---------------------------------------------------------------------------------------
+      } else if (inSMModifier instanceof StateMachineModifier && smModifier instanceof StateMachineModifier){
+        if (inSMModifier.getModifier().equals(smModifier.getModifier())){
+          if (inSMModifier.getSrcStateMachine().equals(smModifier.getSrcStateMachine())){
+            //raise a warning that they are equal.
+            return true;
+          }
+        } else if (inSMModifier.getSrcStateMachine().equals(smModifier.getSrcStateMachine())){
+          //raise a error that they two operations cannot be applied to one state.
+          return true;
+        }
+      //---------------------------------------------------------------------------------------  
+      } else if(inSMModifier instanceof ExtendStateByStateMachine && smModifier instanceof ExtendStateByStateMachine) {
+        //TODO: Explore this case more.
+      }
+    }
+	  return false;
+	} } 
+
+// Fragment source file: Umple_Code_Trait.ump
+// Line : 627
+ class GeneralTPApplied { public String getAssignedStateMachineNewName(String srName){
+    for (StateMachineTemplateSignature smTSignature : getStateMachineTemplateSignatures()) {
+      if (smTSignature.getSrcStateMachine().equals(srName) && smTSignature.getSrcStates().length==0 && smTSignature.getAlias()!="" ) return smTSignature.getAlias();
+    }
+    return "";
+  } } 
+
+// Fragment source file: Trace.ump
+// Line : 102
+ class TraceDirective { 1 -- * StateMachineTraceItem; } 
+
+// Fragment source file: Trace.ump
+// Line : 184
+class StateMachineTraceItem
+  {
+    depend cruise.umple.parser.Position;
+
+    isA TraceItem;
+
+    ConstraintTree constraint = null;
+    tracerType = {getTraceDirective().getTracerType()}
+
+    boolean isIn = false;
+    boolean isOut = false;
+
+    boolean entry = false;
+    boolean exit = false;
+
+    int level = -1;
+    
+    boolean traceStateMachineFlag = false;
+    * -- 0..1 StateMachine;
+    * -- 0..1 State;
+    * -- 0..1 Transition;
+
+    Position position = null;
+    periodClause = null;
+
+    Boolean conditionallyWhere = true;
+    conditionType = "where";
+  }
+
+// Fragment source file: Trace.ump
+// Line : 297
+ class TraceRecord { * -- * StateMachine; } 
+
+// Fragment source file: Trace_Code.ump
+// Line : 54
+class State
+	{
+		/*
+		* Retrieve the StateMachineTraceItem associated with this State
+		* @params method: for example entry or entry or normal, each specifying the context to call the gotten trace item
+		* @params uClass: the umple class to look within for the trace item
+		* @return StateMachine_Traceitem for this UmpleVariable(either association or attribute); 
+		*/
+		public TraceItem getTraced(String method, UmpleClass uClass){
+			//go through all the trace directives of uClass
+			for(TraceDirective td: uClass.getAllTraceDirectives())
+			{
+				//for all the statemachine trace items
+				for(StateMachineTraceItem smti: td.getStateMachineTraceItems())
+				{
+					StateMachine sm = smti.getStateMachine();
+					Transition  tsn = smti.getTransition();
+					State st = smti.getState();
+					if( smti.getTraceStateMachineFlag() ) continue;
+					if( method.equals("activity") && st.equals(this) && st.hasActivities() )
+						return smti;
+					if(!(smti.getExit()||smti.getEntry())){
+						if(tsn!=null&&method.equals("transition"))
+						{
+							if(smti.getIsOut()&&smti.getIsIn()){
+								if(tsn.getFromState().equals(this)||tsn.getNextState().equals(this)){
+									return smti;
+								}
+							}
+							else if(smti.getIsOut()){
+								if(tsn.getNextState().equals(this)){
+									return smti;
+								}
+							}
+							else if(smti.getIsIn()){
+								if(tsn.getFromState().equals(this)){
+									return smti;
+								}
+							}
+							else {
+								if(tsn.getFromState().equals(this)||tsn.getNextState().equals(this)){
+									return smti;
+								}
+							}
+						}
+						else if(sm==null)
+						{
+							//if the trace item is not for a transition, and does not contain a state machine, return null
+							return null;
+						}
+						else if(sm!=null&&smti.getTraceStateMachineFlag())
+						{ 
+							return smti;
+						}
+						else if(method.equals("transition"))
+						{
+							if(smti.getIsOut()){
+								if(this.equals(st))
+								{
+									return smti;
+								}
+								if(smti.getLevel()>0||smti.getLevel()==-1)
+								{
+									StateMachine root = this.getStateMachine();
+									State parent = this;
+									int level = -1;
+									//System.out.println("start");
+									while (parent != null)
+									{
+										level+=parent.getName().equals("Null")?0:1;
+										if(st.getName().equals(parent.getName())&&(level<=smti.getLevel()||smti.getLevel()==-1))
+										{
+											//System.out.println(this.getName()+" "+level);
+											return smti;
+										}
+										//System.out.println(parent.getName());
+										root = parent.getStateMachine();
+										parent = root.getParentState();
+									}
+									//System.out.println("end");
+								}
+							}
+
+							if(smti.getIsIn())
+							{            
+								for(Transition t:getTransitions())
+								{
+									if(t.getNextState().equals(st))
+									{
+										return smti;
+									}              
+								}
+							}
+						}
+					}
+					if((method.equals("exit")&&smti.getExit())||(method.equals("entry")&&smti.getEntry()))
+					{
+						if(this.equals(st))
+						{
+							return smti;
+						}
+					}
+
+				}
+			}
+
+			return null;
+		}
+
+		public StateMachineTraceItem getTrace(String method, UmpleClass uClass, Transition t){
+			State nextState = t.getNextState();
+
+			for( TraceDirective td : uClass.getAllTraceDirectives() )
+				for( StateMachineTraceItem smti : td.getStateMachineTraceItems() )
+					if( ! smti.getTraceStateMachineFlag() )
+					{
+						State traceState = smti.getState();
+
+						if(method.equals("entry"))
+						{
+							if( traceState.getName().equals(nextState.getName()) && smti.getEntry() )
+								return smti;
+						}
+						if(method.equals("exit"))
+						{
+							if( traceState.getName().equals(this.getName()) && smti.getExit() )
+								return smti;
+						}
+						if(method.equals("state") && smti.getTransition() == null )
+						{
+							if( (traceState.getName().equals(this.getName()) ||  traceState.getName().equals(nextState.getName()) )
+									&& (smti.getEntry()==false && smti.getExit()==false) )
+								return smti;
+							if(isNested(smti, t))
+							{
+								return smti;
+							}
+						}
+						if(method.equals("transition") && smti.getTransition() != null)
+						{
+							if( smti.getTransition().getEvent().equals(t.getEvent()) )
+								return smti;
+						}
+					}
+					else if( smti.getTraceStateMachineFlag() )
+					{
+						if( method.equals("transition") )
+							return smti;
+					}
+
+			return null;
+		}
+
+
+		// method to trace state and its desired nested states
+		private boolean isNested(StateMachineTraceItem smti, Transition tsn){
+
+			boolean isNested = false;
+			State nextState = tsn.getNextState();
+			StateMachine root = this.getStateMachine();
+			State parent = this;
+			int level = 0;
+
+			root = parent.getStateMachine();
+			parent = root.getParentState();
+
+			while (parent != null)
+			{
+				level+=parent.getName().equals("Null")?0:1;
+				if(smti.getState().getName().equals(parent.getName())&&(level<smti.getLevel()||smti.getLevel()==-1)&& !this.getName().equals("Null") && !nextState.getName().equals("Null"))
+				{
+					return true;
+				}
+				root = parent.getStateMachine();
+				parent = root.getParentState();
+			}
+
+			return isNested;
+		}
+
+	}
+
+// Fragment source file: Trace_Code.ump
+// Line : 428
+class StateMachineTraceItem
+	{
+		depend cruise.umple.util.*;
+		depend java.util.*;
+
+		accessor = "";
+		concatinator = " + ";
+
+		public Boolean getIsPre(){
+			return conditionallyWhere;
+		}
+		public Boolean getIsPost(){
+			return !conditionallyWhere;
+		}
+		/*
+		* @params gen: A code transator
+		* @params o: the current context(i.e.state being traced)
+		* @params methodname: what to call this trace
+		* @params uClass: the current umple class uClass
+		* @params args: if the string is equal to "", the format will be {methodname} {attribute name} to {parameter name}, no argument only returns the argument name, or else the string is passed in the form {methodname} {passed string} to {attribute}
+		* @return the message for the trace 
+		*/
+		public String trace(CodeTranslator gen, Object o, String methodname, UmpleClass uClass, String... args)
+		{
+			String name = "";
+			String extra = "";
+			String obj = "";
+			String accessor = gen.translate("traceAccessor",this);
+			String concatinator = gen.translate("traceConcatinator",this);
+			String comma = concatinator+"\",\""+concatinator;
+			String tracerName = Character.toUpperCase(getTracerType().charAt(0)) + getTracerType().substring(1);
+			String messageLayout = "{0}"+comma+"{1}"+concatinator+"\",{2},{3},{4},\""+concatinator+"{5}"+concatinator+"\",{6},{7},{8}";
+
+			if(o instanceof Transition)
+			{
+				Transition aTransition = (Transition)o;
+				name = aTransition.getEvent().getName();
+				obj = aTransition.getFromState().getName();
+				extra = "," + aTransition.getNextState().getName()+"\"";
+				for(MethodParameter param : aTransition.getEvent().getParams())
+				{
+					extra += concatinator + "\"," + param.getName()+"=\"";
+					extra += concatinator + param.getName();
+				}
+			}
+			mixset StateMachine {
+				else if(o instanceof State)
+				{
+					State state = (State)o;
+					name = getStateMachine().getName()+"\"";
+					obj = state.getName();
+					for( Action a : ((State) o).getActions() )
+					{
+						if( this.getEntry() && a.getActionType().equals("entry") )
+							obj += ",actionUmpleLine=" + a.getPosition().getLineNumber();
+						if( this.getExit() && a.getActionType().equals("exit") )
+							obj += ",actionUmpleLine=" + a.getPosition().getLineNumber();
+					}
+					}
+				else if(o instanceof Activity)
+				{
+					Activity act = (Activity)o;
+					State state = act.getState();
+					name = getStateMachine().getName()+"\"";
+					obj = state.getName();
+					if( methodname.equals("sm_da"))
+						obj += ",doActivitedStarted";
+					else if(methodname.equals("sm_di"))
+						obj += ",doActivitedInterrupted";
+				}
+			}
+			if(getTraceDirective().getTraceRecord()!=null)
+			{
+				for(Attribute record:getTraceDirective().getTraceRecord().getAttributes())
+				{
+					extra+=comma+gen.translate("attribute"+(record.getIsList()?"Many":"One"),record);
+				}
+				if(getTraceDirective().getTraceRecord().numberOfRecord()>0)
+				{
+					extra+= concatinator+"\"";
+					for(String record:getTraceDirective().getTraceRecord().getRecord())
+					{
+						extra+=","+record.replace("\"","");
+					}
+					extra+= "\"";
+				}
+			}
+			for(String str: args){
+				extra+=comma+str;
+			}
+
+			String message = messageLayout+extra;
+			message = StringFormatter.format(
+					message,gen.translate("traceTimestamp",this),
+					gen.translate("traceThread",this),
+					getPosition().getFilename().replace("\\","\\\\"),
+					getPosition().getLineNumber(),
+					uClass.getName(),
+					StringFormatter.format(gen.translate("traceIdentifier",this),gen.translate("traceSelf",this)),
+					methodname,
+					obj,
+					name      		
+					);
+
+			message = TraceItemUtil.prepareTraceMessage(getTraceDirective(),gen,this,message);
+
+			message = StringFormatter.format(getExtremities(gen, name),message);
+			message = GeneratorHelper.doIndent(message,gen.translate("traceIndent",this));
+			if(getTraceDirective().getPostfix().getExecuteClause()!=null)
+			{
+				String execute = getTraceDirective().getPostfix().getExecuteClause();
+				execute = GeneratorHelper.doIndent(execute,gen.translate("traceIndent",this));
+				message += "\n" + execute;
+			}
+			return message;
+		}
+		/* Gets and returns the if statement enclosing this trace item. The name is not used, but is required from the signature of TraceItem
+		* @return the if statement for the trace if one exists
+		*/
+		public String getExtremities(CodeTranslator gen, String name)
+		{
+			return gen.translate("Closed",constraint);
+		}
+	}
+
+// Fragment source file: UmpleAnalysis.ump
+// Line : 14
+class GuardAnalyzer
+  {
+    isA Analyzer;
+    depend cruise.umple.parser.analysis.Analyzer;
+    depend cruise.umple.parser.Token;
+    depend cruise.umple.compiler.*;
+    depend java.util.*;
+    ConstraintTree rawLine = new ConstraintTree();
+    lazy UmpleClassifier uClassifier;
+    lazy Transition t;
+    
+    void analyze(Token token)
+    {
+      Guard constraint = new Guard();
+      constraint.addElementAll(rawLine.getRoot());
+      constraint.setPosition(token.getPosition());
+      constraint.setEndPosition(token.getEndPosition());
+
+      t.setGuard(constraint);
+      rawLine = new ConstraintTree();
+    }
+  }
+
+// Fragment source file: UmpleAnalysis.ump
+// Line : 391
+class StatemachineExprAnalyzer
+{
+  isA Analyzer;
+  depend cruise.umple.parser.analysis.Analyzer;
+  depend cruise.umple.parser.Token;
+  depend cruise.umple.compiler.*;
+  depend java.util.*;
+  lazy ConstraintTree rawLine;
+  lazy UmpleClassifier uClassifier;
+  ConstraintTree cv = null;
+  boolean isStateMachine = true;
+  public void prepare(Token token)
+  {
+    cv = rawLine.createNew();
+  }
+}
+
+// Fragment source file: UmpleAnalysis.ump
+// Line : 724
+class StatemachineExprStateNameAnalyzer
+{
+  isA Analyzer;
+  depend cruise.umple.parser.analysis.Analyzer;
+  depend cruise.umple.parser.Token;
+  depend cruise.umple.compiler.*;
+  depend java.util.*;
+  lazy UmpleClassifier uClassifier;  
+  lazy ConstraintTree cv;
+  ConstraintTree rawLine = null;
+
+  public void prepare(Token token)
+  {
+    rawLine = cv.createNew();
+  }
+  mixset StateMachine {
+  public void analyze(Token token)
+  {
+    StateMachine stateMachine = null;
+    while(!(cv.getRoot() instanceof ConstraintStateMachine))
+    {
+      if(cv.getRoot()!=null&&(cv.getRoot() instanceof ConstraintOperator))
+      {
+        ConstraintOperator operator = (ConstraintOperator)cv.getRoot();
+        if(operator.getLeft()!=null&&(operator.getLeft() instanceof ConstraintTree))
+        {
+          cv = (ConstraintTree)operator.getLeft();
+        }
+        else break;
+      }
+      else break;
+    }
+    if(cv.getRoot() instanceof ConstraintStateMachine)
+    {
+      State state = ((ConstraintStateMachine)cv.getRoot()).getStateMachine().findState(token.getValue());
+      ConstraintState var = new ConstraintState(state);
+      rawLine.addElement(var);
+    }
+    else
+    {
+      //TODO: add error
+    }
+  }
+}
+}
+
+// Fragment source file: Master.ump
+// Line : 740
+ class StatemachineExprStateNameAnalyzer { public void analyze(Token token)
+  {
+    StateMachine stateMachine = null;
+    while(!(cv.getRoot() instanceof ConstraintStateMachine))
+    {
+      if(cv.getRoot()!=null&&(cv.getRoot() instanceof ConstraintOperator))
+      {
+        ConstraintOperator operator = (ConstraintOperator)cv.getRoot();
+        if(operator.getLeft()!=null&&(operator.getLeft() instanceof ConstraintTree))
+        {
+          cv = (ConstraintTree)operator.getLeft();
+        }
+        else break;
+      }
+      else break;
+    }
+    if(cv.getRoot() instanceof ConstraintStateMachine)
+    {
+      State state = ((ConstraintStateMachine)cv.getRoot()).getStateMachine().findState(token.getValue());
+      ConstraintState var = new ConstraintState(state);
+      rawLine.addElement(var);
+    }
+    else
+    {
+      //TODO: add error
+    }
+  } } 
+
+// Fragment source file: UmpleInternalParser_CodeClass.ump
+// Line : 794
+ class UmpleInternalParser { //Issue 492
+  private void checkNonReachableStates()
+  {
+    List<State> lStates = new ArrayList<State>();
+    List<State> lParentStates = new ArrayList<State>();
+    
+    for (UmpleClass uClass:  model.getUmpleClasses())
+    { 
+      for (StateMachine sm: uClass.getStateMachines())
+      {
+        //Enum check
+        if(((sm.getAllEvents().size() > 0) && (sm.getAllTransitions().size() > 0)) || (sm.getNestedStateMachines().size() >0))
+        {
+          lStates = new ArrayList<State>();
+          
+          State state  = sm.getStartState();
+          
+          checkReachableStates(state, lStates, lParentStates);
+          
+          for(State sp : lParentStates)
+          {
+            if(!lStates.contains(sp))
+            {
+              lStates.add(sp);
+            }
+          }
+          
+          raiseWarningUnreachable(sm, lStates);
+        }
+      }
+    }
+  }
+   
+   //Issue 492
+  private void checkReachableStates(State s, List<State> ls, List<State> lp)
+  {
+    if(s == null)
+      return;
+    
+    if(!ls.contains(s))
+        ls.add(s);
+    
+    for ( Transition transition: s.getTransitions())
+    {
+      if(!ls.contains(transition.getNextState()))
+        checkReachableStates(transition.getNextState(), ls, lp);
+    }
+    
+    if(s.hasNestedStateMachines())
+    {
+      for(StateMachine nestedSm: s.getNestedStateMachines())
+      {
+        checkReachableStates(nestedSm.getStartState(), ls, lp);
+      } 
+    }
+    
+    StateMachine aux = s.getStateMachine();
+    State fatherState = null;
+    
+    while(aux.getParentState() != null)
+    {
+      fatherState = aux.getParentState();
+      if(!lp.contains(fatherState))
+      {
+          lp.add(fatherState);
+          
+          for ( Transition transition: fatherState.getTransitions())
+          {
+            if(!ls.contains(transition.getNextState()))
+              checkReachableStates(transition.getNextState(), ls, lp);
+          }
+      }
+      
+      if (fatherState.getStateMachine() == null)
+        return;
+      
+      aux = fatherState.getStateMachine();
+    }
+  }
+  
+  private void raiseWarningUnreachable(StateMachine sm, List<State> lStates)
+  {
+    boolean error = false;
+    
+    if(!sm.hasStates())
+      return;
+    
+    for(State s : sm.getStates())
+    {
+      
+      if(!lStates.contains(s))
+      {
+          if(s.getPosition() != null)
+        {
+          getParseResult().addErrorMessage(new ErrorMessage(67,s.getPosition(),s.getName(), sm.getName()));      
+            error = true;
+          }
+      }
+      
+      if (s.hasNestedStateMachines() && !error)
+      {
+        for(StateMachine sm2 : s.getNestedStateMachines())
+          raiseWarningUnreachable(sm2, lStates);
+      }
+    }
+  } } 
+
+// Fragment source file: UmpleInternalParser_CodeClass.ump
+// Line : 1757
+ class UmpleInternalParser { private void addAutogeneratedMethodsForStateMachines()
+  {
+    for (UmpleClass aClass : getModel().getUmpleClasses())
+    {
+      for(StateMachine sm : aClass.getStateMachines())
+      {
+        addAPIMethodsForStateMachine(sm);
+      }
+    }
+  } } 
+
+// Fragment source file: UmpleInternalParser_CodeClass.ump
+// Line : 4882
+ class UmpleInternalParser { private void addAPIMethodsForStateMachine(StateMachine sm)
+  {
+    UmpleClass aClass = sm.getUmpleClass();
+    String name = sm.getName();
+    if(sm.numberOfStates() > 0)
+    {
+      String smCapitalName = Character.toUpperCase(sm.getName().charAt(0)) + sm.getName().substring(1);
+      
+      for (State s : sm.getStates())
+      {
+        String sCapitalName = Character.toUpperCase(s.getName().charAt(0)) + s.getName().substring(1);
+        
+        String fullName = smCapitalName + sCapitalName;
+        
+        //Issue 962: Needs to add the appropriate get methods for states
+        //addGetMethod(fullName, fullName, aClass, false);
+      }
+    }
+    
+    addGetMethod(name, name, aClass, false);
+    addGetMethod(name+"FullName", "String", aClass, false);
+  } } 
+
+// Fragment source file: UmpleInternalParser_CodeTrait.ump
+// Line : 1511
+ class UmpleInternalParser { private StateMachineModifier obtainStateMachineModifier(Token inToken) {
+        StateMachineModifier smModifier = null;
+      String modifier=inToken.getValue("modifier");
+      String smName = inToken.getValue("smName");
+      if (inToken.getValue("StateNames")==null){
+       smModifier = new StateMachineModifier(modifier,smName,"");
+      } else {
+        List<String> states = new ArrayList<String>();      
+        String eventName="";
+        Token t = inToken;        
+        while(t!=null && t.getSubToken("StateNames")!=null){      
+          if(t.getSubToken("StateNames").getSubToken("StateNamesPassing")!=null){
+            states.add(t.getSubToken("StateNames").getValue("sName"));
+          }else{
+            if( inToken.getSubToken("iEParameterList")!=null)
+                 eventName = t.getSubToken("StateNames").getValue("sName");
+            else
+             states.add(t.getSubToken("StateNames").getValue("sName"));   
+          }
+          t =  t.getSubToken("StateNames").getSubToken("StateNamesPassing");
+        }  
+        if (eventName.equals("") && states.size() >0 && inToken.getSubToken("guardOption")==null){
+           smModifier = new StateModifier(modifier,smName,"");
+           for(String state:states)  ((StateModifier)smModifier).addSrcState(state);
+        } else {
+            smModifier = new EventModifier(modifier,smName,"");
+            for(String state:states)  ((EventModifier)smModifier).addSrcState(state);
+            Method method = new Method("", eventName, "Boolean", false);
+            extractIEParameters(inToken, method);
+            ((EventModifier)smModifier).setMethod(method);
+            if (inToken.getSubToken("guardOption")!=null){
+                Token guardToken = inToken.getSubToken("guardOption").getSubToken("guard");
+                if (guardToken != null)
+                {
+                  //01 is a dummy name
+                  StateMachine tempSM = new StateMachine("01");
+                  UmpleClass tempClass = new UmpleClass("01");
+                  tempClass.addStateMachine(tempSM);
+                  State s1 = new State("s1", tempSM);
+                  State s2 = new State("s2", tempSM);
+                  Transition t1 = new Transition(s1, s2); 
+                  ((GuardAnalyzer)model.getAnalyzer("guard")).setUClassifier(tempClass);
+                  ((GuardAnalyzer)model.getAnalyzer("guard")).setT(t1);
+                  model.getAnalyzer("guard").analyzeToken(guardToken);
+                  ((EventModifier)smModifier).setGuard(t1.getGuard());
+                  tempSM.delete();
+                  tempClass.delete();
+                }
+            }
+        }
+        
+      } 
+      return smModifier;
+  } } 
+
+// Fragment source file: UmpleInternalParser_CodeTrait.ump
+// Line : 1598
+ class UmpleInternalParser { private StateMachineTemplateSignature obtainStateMachineTemplateSignature(Token inToken){
+  	String iEStateMachineModifier="",stateMachineAliasName ="";
+	 	String smName = inToken.getValue("smName");
+	 	String smDesName = "";
+		if (inToken.getValue("iEStateMachineModifier") != null) iEStateMachineModifier = inToken.getValue("iEStateMachineModifier");
+	 	if (inToken.getValue("smDesName") != null) stateMachineAliasName = inToken.getValue("smDesName");
+	 	Token smDesNameToken = inToken.getSubToken("DesStateNames");
+	 	if (smDesNameToken!=null){
+	 		smDesName = stateMachineAliasName;
+	 		stateMachineAliasName="";
+	 	}
+		StateMachineTemplateSignature smTSignature = new StateMachineTemplateSignature(iEStateMachineModifier, smName, smDesName, stateMachineAliasName);	 
+	 	extractStatesFromTemplateSignature(inToken,smTSignature,"src");
+	 	extractStatesFromTemplateSignature(smDesNameToken,smTSignature,"des"); 	
+ 		return smTSignature;
+	}
+//---------------------------------end----------------------------------------
+//----------------------------------------------------------------------------   
+//---------------------------------Start--------------------------------------
+	private void extractStatesFromTemplateSignature(Token inToken,StateMachineTemplateSignature inStateMachineTemplateSignature,String type){
+		while(inToken!=null && inToken.getSubToken("StateNames")!=null){  		
+			if (type=="src")	{
+				inStateMachineTemplateSignature.addSrcState(inToken.getSubToken("StateNames").getValue("sName"));
+			}	else if (type=="des"){
+				inStateMachineTemplateSignature.addDesState(inToken.getSubToken("StateNames").getValue("sName"));
+			}
+		inToken =  inToken.getSubToken("StateNames").getSubToken("StateNamesPassing");
+		}  	
+ 	}
+//---------------------------------end----------------------------------------
+//----------------------------------------------------------------------------   
+//---------------------------------Start--------------------------------------
+	private StateMachineTemplateSignature obtainStateMachineTemplateSignatureForTransitions(Token inToken) {
+     String smPattern="";
+     String stateMachineAliasName =inToken.getValue("aliasName");
+     String smName = "";
+     String modifier = "";
+     String eventName = inToken.getValue("methodName");
+     MethodTemplateSignature mtSignature = null;
+     if (inToken.getValue("smName") != null) smName = inToken.getValue("smName");
+     if (inToken.getValue("smPattern") != null) smPattern = inToken.getValue("smPattern"); 
+     if (inToken.getValue("modifier") != null) modifier = inToken.getValue("modifier");          
+     Method method = new Method("public", eventName, "", false); 
+     if (inToken.getSubToken("iEParameterList") != null){
+      for (Token subToken : inToken.getSubToken("iEParameterList").getSubTokens()) {
+        if (subToken.is("parameter")) {
+            method.addMethodParameter(new MethodParameter("", subToken.getValue(), "", "", false));
+        }
+      }
+     }
+     StateMachineTemplateSignature smTSignature = new StateMachineTemplateSignature(modifier, smName,"", stateMachineAliasName);
+     mtSignature = new MethodTemplateSignature(smPattern,stateMachineAliasName,method);
+     smTSignature.setMethodTemplateSignature(mtSignature);
+     return smTSignature;
+	} } 
+
+// Fragment source file: UmpleInternalParser_CodeTrait.ump
+// Line : 2060
+use stateMachine/UmpleInternalParser_CodeTrait_StateMachine.ump;
+
+// Fragment source file: UmpleInternalParser_CodeStructure.ump
+// Line : 1410
+ class CompositeStructureTokenAnalyzer { private ConstraintTree analyzeStateMachineConstraintExpression(Token statemachineExpressionToken, UmpleClassifier uClassifier)
+	{
+		ConstraintTree rawLine = new ConstraintTree();
+		List<Token> numberExpressionSubtokens = statemachineExpressionToken.getSubTokens();
+		StateMachine stateMachine = null;
+		for(Token sub : numberExpressionSubtokens)
+		{
+
+			if(sub.is("constraintName"))
+			{
+				ConstraintVariable cv = analyzeConstraintName(sub,uClassifier,true);
+				rawLine.addElement(cv);
+
+			}
+			else if(sub.is("isInOp"))
+			{
+				ConstraintVariable cv = new ConstraintOperator("in==");
+				rawLine.addElement(cv);
+			}
+			else if(sub.is("isNotInOp"))
+			{
+				ConstraintVariable cv = new ConstraintOperator("in!=");
+				rawLine.addElement(cv);
+			}
+		}
+		return rawLine;
+	} } 
+
+// Fragment source file: UmpleInternalParser_Code.ump
+// Line : 538
+use stateMachine/UmpleInternalParser_CodeStateMachine.ump;
+
+// Fragment source file: UmpleInternalParser_CodeTrace.ump
+// Line : 510
+ class UmpleInternalParser { // checks if traced state was deeply nested
+    private int checkNestedStateMachine(String value, State s){
+      int traceItemType = -1;
+      for( StateMachine stm : s.getNestedStateMachines())
+      {
+        for( State ss : stm.getStates() )
+        {
+          if( value.equals(ss.getName()) )
+            return 2;
+          if(s.hasNestedStateMachines())
+            traceItemType = checkNestedStateMachine(value, ss);
+        }
+      }
+      return traceItemType;
+    } } 
+
+// Fragment source file: UmpleInternalParser_CodeTrace.ump
+// Line : 596
+use stateMachine/UmpleInternalParser_CodeTraceStateMachine.ump;
+
+// Fragment source file: UmpleInternalParser_CodeMixset.ump
+// Line : 65
+ class UmpleInternalParser { // prepare mixsets that are inside a state machine. 
+    private void analyzeMixsetDefinition(List<Token> tokenList , StateMachine stateMachine)
+    {  
+      if (tokenList.size() < 1)
+      return;
+      
+      for(Token aToken : tokenList)
+      {
+        if(stateMachine.getUmpleClass().getName() == null)
+        return;
+        //otherwise
+        analyzeMixsetBodyToken(aToken);
+      }  
+    } } 
+
+// Fragment source file: GraphWalking.ump
+// Line : 62
+class StateMachineGraph 
+  {
+    depend cruise.umple.util.*;
+    depend java.util.*;
+    isA Graph;
+    smName;
+    boolean isNested;
+  }
+
+// Fragment source file: GraphWalking_Code.ump
+// Line : 36
+class StateMachineGraph 
+  {
+    // Constructor for Nested state machines
+    public StateMachineGraph(Node startNode, String smName, boolean isDepthFirst) 
+    {
+      if (startNode != null)
+      {
+        this.startNode = startNode;
+        this.startNode.visit();
+      }
+      this.smName = smName;
+      this.isDepthFirst = isDepthFirst;
+      this.isNested = true;
+
+      if(isDepthFirst) 
+      {
+        this.stack = new Stack<Node>();
+        this.stack.push(this.startNode);
+      }
+      else
+      {
+        this.queue = new LinkedList<Node>();
+        this.queue.addFirst(this.startNode);
+      }
+    }
+
+    // Constructor for flat state machines
+    public StateMachineGraph(Node startNode, boolean isDepthFirst)
+    {
+      if (startNode != null)
+      {
+        this.startNode = startNode;
+        this.startNode.visit();
+      }
+
+      this.isDepthFirst = isDepthFirst;
+      this.isNested = false;
+
+      if(isDepthFirst)
+      {
+        this.stack = new Stack<Node>();
+        this.stack.push(this.startNode);
+      }
+      else
+      {
+        this.queue = new LinkedList<Node>();
+        this.queue.addFirst(this.startNode);
+      }
+    }
+
+    public Node nextNode() 
+    {
+      if (startNode == null) return null;
+      if (this.isDepthFirst) return walkDFS();
+      return walkBFS();
+    }
+
+    public void clearNodes()
+    {
+      if (startNode == null) return;
+
+      HashSet<Node> visited = new HashSet<Node>();
+      Stack<Node> nodes = new Stack<Node>();
+      nodes.push(startNode);
+      visited.add(startNode);
+
+      while (! nodes.isEmpty())
+      {
+        State state = (State) nodes.pop();
+        
+        for (Transition transition: state.getTransitions()) 
+        {
+          State nextState = (State) transition.getNextState();
+          StateMachine sm = nextState.getStateMachine();
+
+          if ((! visited.contains(nextState)) && (!isNested || sm.getName().equals(this.smName)))
+          {
+            visited.add(nextState);
+            nextState.clear();
+            nodes.push(nextState) ;
+          }
+        }
+      }
+      if (this.isDepthFirst)
+      {
+        this.stack.clear();
+        this.stack.push(this.startNode);
+      }
+      else
+      {
+        this.queue.clear();
+        this.queue.addFirst(this.startNode);
+      }
+    }
+
+    private Node walkDFS () 
+    { 
+      if (stack == null || stack.isEmpty()) return null;
+      State state = (State) stack.pop();
+      
+      for (Transition transition: state.getTransitions()) 
+      {
+        State nextState = (State) transition.getNextState();
+        StateMachine sm = nextState.getStateMachine();
+
+        if ((! nextState.getIsVisited()) && (!isNested || sm.getName().equals(this.smName)))
+        {
+          nextState.visit();
+          stack.push(nextState) ;
+        }
+      }
+
+      return state;
+    }
+
+    private Node walkBFS () 
+    {
+      if (queue == null || queue.isEmpty()) return null;
+      State state = (State) queue.pollLast();
+      state.visit();
+
+      for (Transition transition: state.getTransitions()) 
+      {
+        State nextState = (State) transition.getNextState();
+        StateMachine sm = nextState.getStateMachine();
+        if ((! nextState.getIsVisited()) && (!isNested || sm.getName().equals(this.smName)))
+        {
+          nextState.visit();
+          queue.addFirst(nextState);
+        }
+      }
+
+      return state;
+    }
+  }
+
+}
+
+mixset Trait { 
+// Fragment source file: StateMachine.ump
+// Line : 29
+ class StateMachine { * -- 0..1 UmpleTrait; } 
+
+// Fragment source file: StateMachine.ump
+// Line : 37
+ class StateMachine { before setUmpleTrait { if (aUmpleTrait != null && aUmpleTrait.isImmutable()) { return false; } } } 
+
+// Fragment source file: Umple.ump
+// Line : 102
+ class UmpleModel { 1 -> * UmpleTrait; } 
+
+// Fragment source file: Umple.ump
+// Line : 166
+ class UmpleElement { boolean isUmpleTrait() {return false;} } 
+
+// Fragment source file: Umple_CodeClass.ump
+// Line : 119
+ class UmpleClass { public boolean hasMethodInTraits (Method aMethod) {
+	  for (UmpleTrait uTrait : getExtendsTraits()) {
+		  if (uTrait.hasCascadeMethod(aMethod,true) || uTrait.hasCascadeMethod(aMethod,false)) {
+			  return true;
+		  }
+	}
+	  return false;
+  } } 
+
+// Fragment source file: Umple_Code_StateMachine.ump
+// Line : 21
+class CodeBlock { 
+      /*
+    * @author Vahdat
+    * The following part of code may not generate proper code-style code generation.
+    * Currently, we deal with code style at the code generation level (UmpleTemplate Language);
+    */
+    public void findKeywordAndReplace(String keyword, CodeBlock cBlock, StateMachine inStateMachine){
+      if(keyword==null || keyword=="") return;
+        for (String language : codes.keySet()) {
+          String replacement=System.lineSeparator()+"\t\t//This part of code comes from the trait '"+inStateMachine.getRootStateMachine().getUmpleTrait().getName()+"' -> begins"+System.lineSeparator()+"\t\t";
+          replacement = replacement+cBlock.codes.get(language).replace(keyword, "");
+          replacement=replacement+System.lineSeparator()+"\t\t//The code coming from trait '"+inStateMachine.getRootStateMachine().getUmpleTrait().getName()+"' ends here"+System.lineSeparator()+"\t\t";
+          codes.put(language,codes.get(language).replace(keyword,replacement+keyword)) ;
+        }
+      } 
+    
+  }
+
+// Fragment source file: Umple_Code.ump
+// Line : 868
+use trait/Umple_Code_Trait.ump;
+
+// Fragment source file: UmpleInternalParser_CodeClass.ump
+// Line : 1734
+ class UmpleInternalParser { private boolean associationIsBetweenClassAndTrait(Association a){
+      AssociationEnd myEnd = a.getEnd(0);
+         AssociationEnd yourEnd = a.getEnd(1);
+         
+         UmpleTrait myClass = model.getUmpleTrait(myEnd.getClassName());
+          UmpleClass yourClass = model.getUmpleClass(yourEnd.getClassName());
+         
+         if (myClass != null && yourClass != null ){ //association is between class and interface
+           return true;
+         }
+         
+         return false;
+    } } 
+
+// Fragment source file: UmpleInternalParser_Code.ump
+// Line : 524
+use trait/UmpleInternalParser_CodeTrait.ump;
+
+}
+
+mixset Filter { 
+// Fragment source file: Umple_Code.ump
+// Line : 865
+use filter/Umple_Code_Filter.ump;
+
+// Fragment source file: UmpleInternalParser_Code.ump
+// Line : 548
+use filter/UmpleInternalParser_CodeFilter.ump;
+
+}
+
+mixset Mixset { 
+// Fragment source file: Umple.ump
+// Line : 1324
+use mixset/Mixset.ump;
+
+// Fragment source file: UmpleInternalParser_Code.ump
+// Line : 553
+use mixset/UmpleInternalParser_CodeMixset.ump;
+
+}
+
+mixset Template { 
+// Fragment source file: Master.ump
+// Line : 63
+use template/Template.ump;
+
+// Fragment source file: UmpleInternalParser_Code.ump
+// Line : 534
+use template/UmpleInternalParser_CodeTemplate.ump;
+  use Template_Strcture;
+
+// Fragment source file: UmpleInternalParser_CodeMixset.ump
+// Line : 585
+class TemplateDefinitionWalker {
+    depend java.util.ArrayList;
+    
+    private void handleTemplateTokenContainMixset(Token codeToken) {
+      if (codeToken != null) 
+      {
+        String codeToLookAt = codeToken.getValue();
+        ArrayList<MixsetInMethod> mixsetWithinTemplate = MethodBody.getMixsetsFromCode(codeToLookAt);
+        if (mixsetWithinTemplate.size() > 0) {
+          for (MixsetInMethod inlineMixsetFragment : mixsetWithinTemplate) {
+            codeToLookAt = MethodBody.handelMixsetInsideMethod(this.getParser().getModel(), inlineMixsetFragment,codeToLookAt);
+            codeToken.setValue(codeToLookAt);
+          }
+        }
+      }
+    }
+    
+    private void processInlineMixset(Token aToken) {
+      Token templateTextContentToken = null;
+      Token templateAttributeToken = aToken.getSubToken("templateAttribute");
+      for (Token templateAttributeSubToken : templateAttributeToken.getSubTokens()) 
+      {
+        Token templateCodeBlock = templateAttributeSubToken.getSubToken("templateCodeBlock");
+        if (templateCodeBlock != null) 
+        {
+          // handle inline mixsets within Template CodeBlock
+          Token templateLanguageCodeToken = templateCodeBlock.getSubToken("templateLanguageCode");
+          handleTemplateTokenContainMixset(templateLanguageCodeToken);
+        }
+        // handle inline mixsets within Template templateTextContent
+        if (templateAttributeSubToken == null || templateAttributeSubToken.getSubTokens().size() < 1)
+        continue;
+        Token templateTextContent_sub = templateAttributeSubToken.getSubToken("templateTextContent");
+        if (templateTextContent_sub != null) 
+        {
+          templateTextContentToken = templateAttributeSubToken.getSubToken("templateTextContent");
+          if (templateTextContentToken == null)
+          continue;
+          //else
+          handleTemplateTokenContainMixset(templateTextContentToken);
+        }
+      }
+    }
+    
+  }
+  
+  class MethodBody {
+    public static String handelMixsetInsideMethod(UmpleModel umodel, MixsetInMethod mixsetInMethod, String  sourceCodeBody)
+    {
+      Mixset mixset = umodel.getMixset(mixsetInMethod.getMixsetName());
+      boolean mixsetIsUsed = false;
+      try {
+        if(mixset != null) // the mixset has been used. 
+        {
+         if(mixset.getUseUmpleFile() != null)
+         {
+           mixsetIsUsed = true;
+           //first process children
+           for(MixsetInMethod childMixsetInMethod : mixsetInMethod.getChildMixsets())
+             sourceCodeBody = handelMixsetInsideMethod(umodel, childMixsetInMethod, sourceCodeBody);
+           //Then ...
+           String methodCode = sourceCodeBody;
+           Pattern labelPatternToMatch = Pattern.compile("mixset\\s+\\S+\\s+\\{");
+           Matcher matcher = labelPatternToMatch.matcher(methodCode);
+           // below code, to delete mixset def. and its closing bracket.
+           if (matcher.find()) {
+             String mixsetDefPlusAfterCode = methodCode.substring(matcher.start());
+             int indexOfMixsetClosingBracket = matcher.start() + MethodBody.indexOfMixsetClosingBracket(mixsetDefPlusAfterCode) - 1 ;
+             String methodCodeRemovedMixset = methodCode.substring(0,indexOfMixsetClosingBracket) + " " ; // remove closing bracket 
+             if(indexOfMixsetClosingBracket + 1 < methodCode.length())
+             methodCodeRemovedMixset = methodCodeRemovedMixset + methodCode.substring(indexOfMixsetClosingBracket +1); 
+             methodCodeRemovedMixset = methodCodeRemovedMixset.substring(0,matcher.start()) + methodCodeRemovedMixset.substring(matcher.end()+1); // remove mixset def.
+             sourceCodeBody = methodCodeRemovedMixset;
+           }
+         }
+       }
+     }
+     finally
+     {
+       if(!mixsetIsUsed)
+       {
+         // delete body of unused mixsets  
+         String mixsetInMethodCode = mixsetInMethod.getMixsetFragment();
+         String code = sourceCodeBody.replace(mixsetInMethodCode, "");
+         sourceCodeBody = code;
+       }
+     }
+     return sourceCodeBody; // after processing
+    }
+  }
+
+}
+
+mixset FIXML { 
+// Fragment source file: UmpleInternalParser_CodeTrait.ump
+// Line : 2057
+use fixml/UmpleInternalParser_FIXML.ump;
+
+}
+
+mixset Layout { 
+// Fragment source file: UmpleInternalParser_Code.ump
+// Line : 544
+use layout/UmpleInternalParser_CodeLayout.ump;
+
+}
+
+mixset Class { 
+// Fragment source file: UmpleInternalParser_Code.ump
+// Line : 521
+use class/UmpleInternalParser_CodeClass.ump;
+
+}
+
+mixset Attribute { 
+// Fragment source file: UmpleInternalParser_CodeClass.ump
+// Line : 5855
+ class UmpleInternalParser { mixset Method {
+      void checkDefaultedNameConflict(){
+        Map<String, CodeTranslator> allTranslators = model.getAllTranslators();
+        HashSet<String> generatedMethods = new HashSet<String>();
+        for(String langName : allTranslators.keySet()){
+          CodeTranslator t = allTranslators.get(langName);
+
+          for(UmpleClass aClass : model.getUmpleClasses()){
+            generatedMethods.clear();
+
+            for(Attribute aAttr : aClass.getAttributes()){
+              String modifier = aAttr.getModifier();
+
+              // Can add more!
+              if(!"internal".equals(modifier)){
+                addToGeneratedMethodMap(generatedMethods, aClass.getName(), t, "getMethod", aAttr);
+                addToGeneratedMethodMap(generatedMethods, aClass.getName(), t, "setMethod", aAttr);
+              }
+
+              if("defaulted".equals(modifier)){
+                addToGeneratedMethodMap(generatedMethods, aClass.getName(), t, "getDefaultMethod", aAttr);
+              }
+            }
+          }
+        }
+      }
+
+      boolean addToGeneratedMethodMap(HashSet<String> generatedMethods, String className, CodeTranslator t, String translatingLabel, Attribute aAttr){
+        String generatedMethodName = t.translate(translatingLabel, aAttr);
+
+        if(generatedMethodName != null && !"".equals(generatedMethodName) && !generatedMethodName.startsWith("UNKNOWN ID")){
+
+          boolean success = generatedMethods.add(generatedMethodName);
+          if(!success){
+            getParseResult().addErrorMessage(new ErrorMessage(48,aAttr.getPosition(), aAttr.getName(), className, generatedMethodName));
+            return false;
+          }
+
+        }
+        return true;
+      }
+
+    } } 
+
+}
+
+mixset Method { 
+// Fragment source file: Master.ump
+// Line : 5856
+ class UmpleInternalParser { void checkDefaultedNameConflict(){
+        Map<String, CodeTranslator> allTranslators = model.getAllTranslators();
+        HashSet<String> generatedMethods = new HashSet<String>();
+        for(String langName : allTranslators.keySet()){
+          CodeTranslator t = allTranslators.get(langName);
+
+          for(UmpleClass aClass : model.getUmpleClasses()){
+            generatedMethods.clear();
+
+            for(Attribute aAttr : aClass.getAttributes()){
+              String modifier = aAttr.getModifier();
+
+              // Can add more!
+              if(!"internal".equals(modifier)){
+                addToGeneratedMethodMap(generatedMethods, aClass.getName(), t, "getMethod", aAttr);
+                addToGeneratedMethodMap(generatedMethods, aClass.getName(), t, "setMethod", aAttr);
+              }
+
+              if("defaulted".equals(modifier)){
+                addToGeneratedMethodMap(generatedMethods, aClass.getName(), t, "getDefaultMethod", aAttr);
+              }
+            }
+          }
+        }
+      }
+
+      boolean addToGeneratedMethodMap(HashSet<String> generatedMethods, String className, CodeTranslator t, String translatingLabel, Attribute aAttr){
+        String generatedMethodName = t.translate(translatingLabel, aAttr);
+
+        if(generatedMethodName != null && !"".equals(generatedMethodName) && !generatedMethodName.startsWith("UNKNOWN ID")){
+
+          boolean success = generatedMethods.add(generatedMethodName);
+          if(!success){
+            getParseResult().addErrorMessage(new ErrorMessage(48,aAttr.getPosition(), aAttr.getName(), className, generatedMethodName));
+            return false;
+          }
+
+        }
+        return true;
+      } } 
+
+}
+
+mixset Association { 
+// Fragment source file: Umple_CodeConstraint.ump
+// Line : 680
+class ConstraintAssociation
+  {
+    String getName()
+    {
+      return association==null?null:association.getName();
+    }
+    /*
+    * A method for conveniently getting the contained association's container class.
+    */
+    UmpleClassifier retrieveClassifier(){
+      UmpleClass containerClass = association.getUmpleClass();
+      if(containerClass==null)
+      {
+        UmpleTrait containerTrait = association.getUmpleTrait();
+        return containerTrait;
+      }
+      else
+      {
+        return containerClass;
+      }
+    }
+    public String getType(){ return numberOf?"associationNumberOf":index==-1?"associationList":"associationGet"; }
+  }
+
+// Fragment source file: Umple_CodeConstraint.ump
+// Line : 823
+ class ModelConstraint { public void addAssociationEnd(Multiplicity multiplicity)
+    {
+      if(getModelConstraint(numberOfModelConstraints()-1) instanceof ModelConstraintAssociation)
+      {
+        getModelConstraint(numberOfModelConstraints()-1).addAssociationEnd(multiplicity);
+      }
+    }
+    public void setAssociationType(String type)
+    {
+      if(getModelConstraint(numberOfModelConstraints()-1) instanceof ModelConstraintAssociation)
+      {
+        getModelConstraint(numberOfModelConstraints()-1).setAssociationType(type);
+      }
+    } } 
+
+// Fragment source file: Umple_CodeConstraint.ump
+// Line : 879
+class ModelConstraintAssociation
+  {
+    isA ModelConstraint;
+    depend cruise.umple.compiler.*;
+    depend cruise.umple.parser.Position;
+
+    Multiplicity leftHandMultiplicity = new Multiplicity();
+    Multiplicity rightHandMultiplicity = new Multiplicity();
+    type = "--";
+    boolean left = true;
+    after constructor { leftHandMultiplicity.setBound("*"); }
+    after constructor { rightHandMultiplicity.setBound("*"); }
+    public void addAssociationEnd(Multiplicity multiplicity)
+    {
+      if(left)
+      {
+        leftHandMultiplicity = multiplicity;
+      }
+      else
+      {
+        rightHandMultiplicity = multiplicity;
+      }
+      left = false;
+    }
+    public void setAssociationType(String aType)
+    {
+      type = aType;
+      left = false;
+    }
+
+    public ModelConstraintResult evaluate(UmpleClassifier uClassifier)
+    {
+      ModelConstraintResult evaluation = super.evaluate(uClassifier);
+      if(!evaluation.equals(ModelConstraint.SUCCESS))
+      {
+        return evaluation;
+      }
+
+      if("this".equals(getSource()))
+      {
+        setSource(uClassifier.getName());
+      }
+      if(type.equals("<-"))
+      {
+        String temp = getSource();
+        setSource(getTarget());
+        setTarget(temp);
+        Multiplicity tempMultiplicity = rightHandMultiplicity;
+        rightHandMultiplicity = leftHandMultiplicity;
+        leftHandMultiplicity = tempMultiplicity;
+      }
+      if(uClassifier instanceof UmpleClass)
+      {
+        UmpleClass uClass = null;
+        uClass = ((UmpleClass)uClassifier).getSourceModel().getUmpleClass(getSource());
+
+        if(uClass == null)
+        {
+          return new ModelConstraintResult(getPosition(),94,getTarget(),getSource());
+        }
+        mixset Association {
+        for(Association association:uClass.getAssociations())
+        {
+          AssociationEnd theirs = null;
+          AssociationEnd mine = null;
+          if(association.getEnd(0).getClassName().equals(uClass.getName()))
+          {
+            theirs = association.getEnd(1);
+            mine = association.getEnd(0);
+          }
+          else if(association.getEnd(1).getClassName().equals(uClass.getName()))
+          {
+            theirs = association.getEnd(0);
+            mine = association.getEnd(1);
+          }
+
+          if(!theirs.getClassName().equals(getTarget()))
+          {
+            boolean isNotMyConcern = true;
+            UmpleClass child = ((UmpleClass)uClassifier).getSourceModel().getUmpleClass(theirs.getClassName());
+
+            if(child!=null)
+            {
+              UmpleClass parent = child.getExtendsClass();
+              while(child!=null)
+              {
+                if(child.getName().equals(getTarget()))
+                {
+                  isNotMyConcern = false;
+                }
+                UmpleClass temp = parent;
+                parent = child.getExtendsClass();
+                child = temp;
+              }
+            }
+            if(isNotMyConcern)
+            {
+              continue;
+            }
+          }
+
+          String tBound = theirs.getMultiplicity().getBound();
+
+          Integer rMax = 0;
+          Integer rMin = 0;
+
+          if(rightHandMultiplicity.getBound()!=null)
+          {
+            rMax = Integer.parseInt(rightHandMultiplicity.getBound().replace("*",""+Integer.MAX_VALUE));
+            rMin = Integer.parseInt(rightHandMultiplicity.getBound().replace("*","0"));
+          }
+          else
+          {
+            rMax = Integer.parseInt(rightHandMultiplicity.getMaximum().replace("*",""+Integer.MAX_VALUE));
+            rMin = Integer.parseInt(rightHandMultiplicity.getMinimum().replace("*","0"));
+          }
+
+          if("*".equals(rightHandMultiplicity.getBound()))
+          {
+          }
+          else if(tBound==null)
+          {
+            Integer tMin = Integer.parseInt(theirs.getMultiplicity().getMinimum().replace("*","0"));
+            Integer tMax = Integer.parseInt(theirs.getMultiplicity().getMaximum().replace("*",""+Integer.MAX_VALUE));
+
+            if(tMax>rMax||tMin<rMin)
+            {
+              continue;
+            }
+          }
+          else
+          {
+            Integer itBound = Integer.parseInt(tBound.replace("*","0"));
+            if(itBound>rMax||itBound<rMin)
+            {
+              continue;
+            }
+          }
+
+          tBound = mine.getMultiplicity().getBound();
+
+          Integer lMax = 0;
+          Integer lMin = 0;
+
+          if(leftHandMultiplicity.getBound()!=null)
+          {
+            lMax = Integer.parseInt(leftHandMultiplicity.getBound().replace("*",""+Integer.MAX_VALUE));
+            lMin = Integer.parseInt(leftHandMultiplicity.getBound().replace("*","0"));
+          }
+          else
+          {
+            lMax = Integer.parseInt(leftHandMultiplicity.getMaximum().replace("*",""+Integer.MAX_VALUE));
+            lMin = Integer.parseInt(leftHandMultiplicity.getMinimum().replace("*","0"));
+          }
+
+          if("*".equals(leftHandMultiplicity.getBound()))
+          {
+          }
+          else if(tBound==null)
+          {
+            Integer tMin = Integer.parseInt(mine.getMultiplicity().getMinimum().replace("*","0"));
+            Integer tMax = Integer.parseInt(mine.getMultiplicity().getMaximum().replace("*",""+Integer.MAX_VALUE));
+
+            if(tMax>lMax||tMin<lMin)
+            {
+              continue;
+            }
+          }
+          else
+          {
+            Integer itBound = Integer.parseInt(tBound.replace("*","0"));
+            if(itBound>lMax||itBound<lMin)
+            {
+              continue;
+            }
+          }
+          return ModelConstraint.SUCCESS;
+        }
+        }
+        
+        return new ModelConstraintResult(getPosition(),94,getTarget(),getSource());
+      }
+      return ModelConstraint.SUCCESS;
+    }
+  }
+
+// Fragment source file: Umple_CodeClass.ump
+// Line : 46
+ class UmpleModel { public Association getAssociation(String name)
+      {
+        for (Association a : associations)
+        {
+          if (a.getName().equals(name))
+          {
+            return a;
+          }
+        }
+        return null;
+      }
+
+      public AssociationClass addAssociationClass(String className)
+      {
+        AssociationClass newClass = (AssociationClass) getUmpleClass(className);
+        if (newClass == null)
+        {
+          newClass = new AssociationClass(className);
+          addUmpleClass(newClass);
+        }
+        return newClass;
+      } } 
+
+// Fragment source file: Umple_CodeClass.ump
+// Line : 72
+ class UmpleModel { /*
+ */
+  class AssociationClass
+  {
+    public AssociationClass(String name)
+    {
+      this(name, null);
+    }
+
+    public void addMissingKeyIfNeeded()
+    {
+      Key key = getKey();
+      if (!key.isProvided())
+      {
+        key = new Key();
+
+        for(Association associatedTo: getAssociatedTo())
+        {
+          key.addMember(associatedTo.getEnd(1).getRoleName());
+        }
+
+        key.setIsInternal(true);
+        setKey(key);
+      }
+      }
+    } } 
+
+// Fragment source file: Umple_Code_Filter.ump
+// Line : 153
+ class Filter { public boolean hasAssociation()
+	  {
+	    return getAssociationCount() > 0;
+	  } } 
+
+// Fragment source file: Umple_Code_Filter.ump
+// Line : 207
+ class UmpleModel { private void markRelatedClass(int asso)
+    {
+      ArrayList<String> names = new ArrayList<String>();
+      for(int i = 0; i<asso; i++)
+      {
+        for(UmpleClass clazz : umpleClasses)
+        {
+          if(clazz.getFilteredin())
+          {
+            addRelatedClassName(clazz,names);
+          }
+        } 
+        markClassByName(names);
+        names = new ArrayList<String>();
+      }
+    }
+    private void addRelatedClassName(UmpleClass c, ArrayList<String> names)
+    {
+      for(AssociationVariable a : c.getAssociationVariables())
+      {
+        names.add(a.getType());
+      }  
+    } } 
+
+// Fragment source file: Umple_Code_Trait.ump
+// Line : 80
+ class UmpleTrait { public AssociationVariable getAssociationVariable(String name){
+    for (AssociationVariable av : associationVariables)
+    {
+      if (av.getName().equals(name))
+      {
+        return av;
+      }
+    }
+    return null;
+    } } 
+
+// Fragment source file: Umple_Code_Trait.ump
+// Line : 127
+ class UmpleTrait { protected boolean immutabilityAssociationRulesSatisfied(AssociationVariable myAV, boolean myTraitImmutable){
+    AssociationVariable relatedAV = myAV.getRelatedAssociation();
+    UmpleTrait relatedTrait = (relatedAV == null) ? null : relatedAV.getUmpleTrait();
+    boolean relatedTraitImmutable = (relatedTrait == null) ? false : ((relatedTrait == this) ? myTraitImmutable : relatedTrait.isImmutable());
+
+    return immutabilityAssociationRulesSatisfied(myAV, this, myTraitImmutable, relatedAV, relatedTrait, relatedTraitImmutable);
+  } 	
+
+   protected static  boolean immutabilityAssociationRulesSatisfied(AssociationVariable myAV, UmpleTrait myTrait, boolean myTraitImmutable, AssociationVariable yourAV, UmpleTrait yourTrait, boolean yourTraitImmutable){
+    boolean satisfied = false;
+    if (myAV == null || yourAV == null)
+    {
+      satisfied = true;
+    }
+    else if (!myTraitImmutable && !yourTraitImmutable && !"immutable".equals(myAV.getModifier()) && !"immutable".equals(yourAV.getModifier()))
+    {
+      satisfied = true;
+    } 
+    else if (myAV.getIsNavigable() && yourAV.getIsNavigable())
+    {
+      //satisfied = false;
+    }
+    else if (myTrait == null && yourTrait == null)
+    {
+      satisfied = true;
+    }
+    else if (!yourAV.getIsNavigable() && (yourTrait == null || yourTraitImmutable))
+    {
+      if (yourTrait != null && yourTrait == myTrait && myAV.isMandatory())
+      {
+        // reflexive associations may not be mandatory:
+        //satisfied = false
+      }
+      else
+      {
+        satisfied = true;
+      }
+    }
+    else if (!myAV.getIsNavigable() && (myTrait == null || myTraitImmutable))
+    {
+      if (myTrait != null && yourTrait == myTrait && yourAV.isMandatory())
+      {
+        // reflexive associations may not be mandatory:
+        //satisfied = false
+      }
+      else
+      {
+        satisfied = true;
+      }
+    }
+    return satisfied;
+  } } 
+
+// Fragment source file: Trace.ump
+// Line : 217
+class AssociationTraceItem
+  {
+    depend cruise.umple.parser.Position;
+
+    isA TraceItem;
+    
+    ConstraintTree constraint = null;
+    tracerType = {getTraceDirective().getTracerType()}
+
+    * -> * AssociationVariable;
+    * -> * Association;
+
+    //default case tracing Cardinality
+    boolean traceCardinality = true;
+    boolean traceAdd = false;
+    boolean traceRemove = false;
+
+    Position position = null;
+    periodClause = null;
+    Boolean conditionallyWhere = false; 
+    conditionType = "where";
+  }
+
+// Fragment source file: UmpleInternalParser_CodeTrait.ump
+// Line : 536
+ class UmpleInternalParser { private void analyzeinlineAssociation(Token inlineAssociationToken, UmpleTrait aTrait){
+    
+    Association association = analyzeAssociation(inlineAssociationToken,aTrait.getName());
+
+    if (!getParseResult().getWasSuccess())
+    {
+      return;
+    }
+
+    AssociationEnd myEnd = association.getEnd(0);
+    AssociationEnd yourEnd = association.getEnd(1);
+
+    AssociationVariable myAs = new AssociationVariable(myEnd.getRoleName(),myEnd.getClassName(),myEnd.getModifier(),null,myEnd.getMultiplicity(),association.getIsLeftNavigable());
+    myAs.setIsComposition(association.getIsLeftComposition());
+    AssociationVariable yourAs = new AssociationVariable(yourEnd.getRoleName(),yourEnd.getClassName(),yourEnd.getModifier(),null,yourEnd.getMultiplicity(),association.getIsRightNavigable());
+    yourAs.setIsComposition(association.getIsRightComposition());
+
+    myAs.setRelatedAssociation(yourAs);
+    
+    if(!"".equals(myEnd.getPriority())) { myAs.setPriority(myEnd.getPriority()); }
+    if(!"".equals(yourEnd.getPriority())) { yourAs.setPriority(yourEnd.getPriority()); }
+    
+    if (association.isImmutable())
+    {
+      boolean set = myAs.setImmutable();
+      if (set)
+      {
+        yourAs.setImmutable();
+      }
+      else
+      {
+      	//TODO traits' errors
+        setFailedPosition(inlineAssociationToken.getPosition(),17);
+      }
+    }
+
+    // Add comments above the association to the association.
+    for (Comment c : lastComments)
+    {
+      yourAs.addComment(c);
+    }
+    
+    // set last association made to be yourAs. clear lastattr.
+    lastassoc = yourAs;
+    lastassocPosition = inlineAssociationToken.getPosition();
+    lastattr = null;
+    
+
+    boolean added = aTrait.addAssociationVariable(yourAs);
+    if (added)
+    {
+      unlinkedAssociationVariables.add(yourAs);
+      aTrait.addAssociation(association);
+    }
+    else
+    {
+      if (aTrait.isImmutable()) {
+      	//TODO traits' errors
+      	setFailedPosition(inlineAssociationToken.getPosition(),17);
+      } else {
+      	//TODO traits' errors
+      	setFailedPosition(inlineAssociationToken.getPosition(),13);
+      }
+    }
+    
+  }
+
+
+//---------------------------------end----------------------------------------
+//----------------------------------------------------------------------------   
+//---------------------------------Start--------------------------------------
+   private void analyzeSymmetricReflexiveAssociation(Token symmetricReflexiveAssociationToken, UmpleTrait aTrait){
+    /*
+    String myName = symmetricReflexiveAssociationToken.getValue("roleName");
+    String myType = aTrait.getName();
+    String myModifier = "symmetricreflexive";
+    String myBound = symmetricReflexiveAssociationToken.getValue("bound");
+    String myLowerBound = symmetricReflexiveAssociationToken.getValue("lowerBound");
+    String myUpperBound = symmetricReflexiveAssociationToken.getValue("upperBound");
+    Multiplicity myMult = new Multiplicity();
+    myMult.setBound(myBound);
+    myMult.setRange(myLowerBound,myUpperBound);
+
+    AssociationVariable myAs = new AssociationVariable(myName,myType,myModifier,null,myMult,true);
+    AssociationVariable yourAs = new AssociationVariable(myName,myType,myModifier,null,myMult,true);
+
+    myAs.setRelatedAssociation(yourAs);
+    aTrait.addAssociationVariable(yourAs);
+    
+    AssociationEnd leftEnd = new AssociationEnd(null,myType,myModifier,myType,myMult);
+    AssociationEnd rightEnd = new AssociationEnd(myName,myType,myModifier,myType,myMult);
+    Association assoc = new Association(false, true, false, false, leftEnd, rightEnd);
+    aTrait.addAssociation(assoc);
+    */
+  } } 
+
+// Fragment source file: UmpleInternalParser_CodeTrait.ump
+// Line : 1002
+ class UmpleInternalParser { private void ApplyTypeParametersToAssociation(AssociationVariable inAssociationVariable, GeneralTPApplied inGeneralTPApplied,UmpleClass inClass, UmpleTrait inTrait) {  
+    String rawRName = "";
+    String rName = "";
+    boolean bidirectional = inAssociationVariable.getRelatedAssociation().getIsNavigable();
+    if (inGeneralTPApplied != null || inTrait.getGeneralTemplateParameters().size()>0) {
+      for (GeneralTemplateParameter gtp : inTrait.getGeneralTemplateParameters()){
+        String newName = (inGeneralTPApplied!=null && inGeneralTPApplied.getParameterMapping().containsKey(gtp.getName())) ? inGeneralTPApplied.getParameterMapping().get(gtp.getName()) : gtp.getDefaultValue();
+        if (inAssociationVariable.getType().equals(gtp.getName())){
+              //----------------------------------------------------------------
+             String tempOldName = StringFormatter.toCamelCase(gtp.getName());
+             String oldName = inAssociationVariable.getMultiplicity().isMany() ? model.getGlossary().getPlural(tempOldName) : tempOldName;
+              if (inAssociationVariable.getName().equals(oldName)){
+                rawRName = StringFormatter.toCamelCase(newName);
+                rName = inAssociationVariable.getMultiplicity().isMany() ? model.getGlossary().getPlural(rawRName) : rawRName;  
+                inAssociationVariable.setName(rName);
+              } else{
+                rawRName = StringFormatter.toCamelCase(inAssociationVariable.getName());
+                rName = inAssociationVariable.getMultiplicity().isMany() ? model.getGlossary().getPlural(rawRName) : rawRName;                      
+              }
+              
+              inAssociationVariable.setType(newName);
+              if (getModel().getUmpleClass(newName)==null){
+                  if (getModel().getUmpleInterface(newName)!=null){
+                      if (bidirectional){
+                        setFailedPosition(inTrait.getPosition(0), 213, "trait "+inTrait.getName());
+                        return;
+                      }
+                  } 
+              }
+              return;     
+        }
+      }
+    }
+    if (getModel().getUmpleClass(inAssociationVariable.getType())==null){
+        if (getModel().getUmpleInterface(inAssociationVariable.getType())!=null && bidirectional){
+            setFailedPosition(inTrait.getPosition(0), 213, "trait "+inTrait.getName());
+            return;
+        }
+    }
+  }
+//---------------------------------end----------------------------------------
+//----------------------------------------------------------------------------   
+//---------------------------------Start-------------------------------------- 
+  private void addAssociation(String lName, String rName, AssociationVariable inAssociationVariable, UmpleClass inClass, UmpleClass relatedClass) {	
+        AssociationEnd leftEnd = new AssociationEnd(lName, inClass.getName(), inAssociationVariable.getRelatedAssociation().getModifier(), inClass.getName(), inAssociationVariable.getRelatedAssociation().getMultiplicity());
+		AssociationEnd rightEnd = new AssociationEnd(rName,relatedClass.getName(), inAssociationVariable.getModifier(),relatedClass.getName(),inAssociationVariable.getMultiplicity());		
+		Association aAssociation = new Association(inAssociationVariable.getRelatedAssociation().getIsNavigable(), inAssociationVariable.getIsNavigable(),false,false,leftEnd,rightEnd);
+		aAssociation.setName(rName);
+		getModel().addAssociation(aAssociation);	    
+		AssociationEnd myEnd = aAssociation.getEnd(0);
+	    AssociationEnd yourEnd = aAssociation.getEnd(1);
+	    AssociationVariable myAs = new AssociationVariable(myEnd.getRoleName(),myEnd.getClassName(),myEnd.getModifier(),null,myEnd.getMultiplicity(),aAssociation.getIsLeftNavigable());
+              myAs.setIsComposition(aAssociation.getIsLeftComposition());
+	    AssociationVariable yourAs = new AssociationVariable(yourEnd.getRoleName(),yourEnd.getClassName(),yourEnd.getModifier(),null,yourEnd.getMultiplicity(),aAssociation.getIsRightNavigable());
+	    yourAs.setIsComposition(aAssociation.getIsRightComposition());
+
+	    myAs.setRelatedAssociation(yourAs); 
+	    boolean added = inClass.addAssociationVariable(yourAs);
+	    if (added)
+	    {
+		    relatedClass.addAssociationVariable(myAs);
+		    aAssociation.setSource(Association.Source.fTrait);
+	    	inClass.addAssociation(aAssociation);
+	    }
+} } 
+
+// Fragment source file: UmpleInternalParser_CodeTrait.ump
+// Line : 1681
+ class UmpleInternalParser { private void copyAssociationsFromTraitToClass(UmpleClass inClass) {
+    Map<UmpleTrait, List<AssociationVariable>> traiAssociationVariables = new HashMap<UmpleTrait, List<AssociationVariable>>();
+	Map<UmpleTrait, List<AssociationVariable>> tempTraitAssociationVariables = new HashMap<UmpleTrait, List<AssociationVariable>>();
+	for (UmpleTrait uTrait : inClass.getExtendsTraits()) {
+		tempTraitAssociationVariables = gatherAssociations(uTrait,inClass.getGeneralTPAppliedByName(uTrait.getName()),inClass);
+		if ( ! getParseResult().getWasSuccess() ) return;
+		//checkMethodComeFromTraitsIsAvaiableInClass(tempTraitAssociations,inClass);
+		//if (CheckMethodComeFromTraitsIsAvaialbleInOtherTraits(traitMethods,tempTraitAssociations,inClass)) return;
+		AddAssociationMapToAnother(traiAssociationVariables,tempTraitAssociationVariables);
+	}
+	for (UmpleTrait t1 : traiAssociationVariables.keySet()) {
+		for (AssociationVariable associationVariable : traiAssociationVariables.get(t1)) {
+            AssociationVariable relAsso = associationVariable.getRelatedAssociation();
+            String tempOldName = StringFormatter.toCamelCase(relAsso.getType());
+            String oldName = relAsso.getMultiplicity().isMany() ? model.getGlossary().getPlural(tempOldName) : tempOldName;
+             if (relAsso.getName().equals(oldName)){
+                 String rawRName = StringFormatter.toCamelCase(inClass.getName());
+                 relAsso.setName(relAsso.getMultiplicity().isMany() ? model.getGlossary().getPlural(rawRName) : rawRName);
+             }
+  
+             if (model.getUmpleClass(associationVariable.getType())!=null){
+                 addAssociation(relAsso.getName(), associationVariable.getName(), associationVariable,inClass, model.getUmpleClass(associationVariable.getType()));
+                 if (associationVariable.getIsNavigable())
+                   {                  
+                       inClass.addReferencedPackage(model.getUmpleClass(associationVariable.getType()).getPackageName());
+                   }
+                   if (associationVariable.getRelatedAssociation().getIsNavigable())
+                   {
+                       model.getUmpleClass(associationVariable.getType()).addReferencedPackage(inClass.getPackageName());
+                   }        
+             } else if (model.getUmpleInterface(associationVariable.getType())!=null){
+                 
+                 addAssociation(relAsso.getName(), associationVariable.getName(), associationVariable,inClass, new UmpleClass(associationVariable.getType()));
+                 if (associationVariable.getRelatedAssociation().getIsNavigable())
+                   {
+                       inClass.addReferencedPackage(model.getUmpleInterface(associationVariable.getType()).getPackageName());
+                   }     
+             }  		
+		}
+	}	
+  } } 
+
+// Fragment source file: UmpleInternalParser_CodeTrait.ump
+// Line : 1756
+ class UmpleInternalParser { private Map<UmpleTrait, List<AssociationVariable>> gatherAssociations(UmpleTrait inTrait, GeneralTPApplied inGTPApplied, UmpleClass inClass) {
+     Map<UmpleTrait, List<AssociationVariable>> traitAssociationVariables = new HashMap<UmpleTrait, List<AssociationVariable>>(); 
+ 	 Map<UmpleTrait, List<AssociationVariable>> tempTraitAssociationVariables = new HashMap<UmpleTrait, List<AssociationVariable>>();
+ 	 //----------------------------------------------------------------------------------------
+ 	 List<AssociationVariable> associationVariables = new ArrayList<AssociationVariable>();	  
+ 	 for (AssociationVariable associationVariable : inTrait.getAssociationVariables()) {
+ 		 	AssociationVariable newAssociationVariable = new AssociationVariable(associationVariable);
+ 		 	AssociationVariable tempAssociationVariable = new AssociationVariable(associationVariable.getRelatedAssociation());
+ 		 	newAssociationVariable.setRelatedAssociation(tempAssociationVariable);
+    	 	ApplyTypeParametersToAssociation(newAssociationVariable,inGTPApplied,inClass, inTrait);
+    	 	associationVariables.add(newAssociationVariable);
+	 }
+ 	traitAssociationVariables.put(inTrait,associationVariables);
+     //----------------------------------------------------------------------------------------
+     for (UmpleTrait uTrait : inTrait.getExtendsTraits()) {
+       GeneralTPApplied newGTParameter = inTrait.getGeneralTPAppliedByName(uTrait.getName())!=null ? new GeneralTPApplied(inTrait.getGeneralTPAppliedByName(uTrait.getName())) : null;     
+       if (newGTParameter!=null){
+         ApplyTypeParametersToTypeParameters(newGTParameter, inGTPApplied,inTrait);       
+    	   tempTraitAssociationVariables = gatherAssociations(uTrait,newGTParameter,inClass);   
+    	 }	 
+    	 if ( ! getParseResult().getWasSuccess() ) return traitAssociationVariables;
+//    	 if (CheckAssociationsComeFromTraitsIsAvaialbleInOtherTraits(traitAssociations,tempTraitAssociations,inTrait)) return traitAssociations;
+    	 AddAssociationMapToAnother(traitAssociationVariables,tempTraitAssociationVariables);
+	 }
+     return traitAssociationVariables;
+} } 
+
+// Fragment source file: UmpleInternalParser_CodeTrait.ump
+// Line : 1953
+ class UmpleInternalParser { private void AddAssociationMapToAnother(Map<UmpleTrait, List<AssociationVariable>> inTraitAssociations,Map<UmpleTrait, List<AssociationVariable>> inTempTraitAssociations) {
+    for (UmpleTrait uTrait : inTempTraitAssociations.keySet()) {
+		if (inTraitAssociations.containsKey(uTrait)){
+			for (AssociationVariable associationVariable : inTraitAssociations.get(uTrait)) {
+				inTraitAssociations.get(uTrait).add(associationVariable);
+        }
+      } else{
+        inTraitAssociations.put(uTrait, inTempTraitAssociations.get(uTrait));
+      }	
+	  }	
+  } } 
+
+// Fragment source file: UmpleInternalParser_FIXML.ump
+// Line : 7
+ class UmpleInternalParser { Map<Association,List<Token>> afixmlLastIntilialization = new HashMap<Association, List<Token>>();
+     Map<Association,Integer> afixmlAttributeCount = new HashMap<Association, Integer>(); } 
+
+// Fragment source file: UmpleInternalParser_FIXML.ump
+// Line : 326
+ class UmpleInternalParser { private void addAssociation(UmpleClass uClass, UmpleClass rUClass, Token mainToken){
+    Multiplicity m = new Multiplicity();
+		Association aAss = getModel().getAssociation(rUClass.getName()+"_Object");
+		if ( aAss != null) {			
+			Integer bound = Integer.parseInt(getModel().getAssociation(rUClass.getName()+"_Object").getEnd(1).getMultiplicity().getBound());
+			bound++;
+			m.setBound( bound.toString());
+			getModel().getAssociation(rUClass.getName()+"_Object").getEnd(1).setMultiplicity(m);
+			for (AssociationVariable yourAs : uClass.getAssociationVariables()) {
+				if (yourAs.getName().equals(rUClass.getName()+"_Object")) {
+					yourAs.setMultiplicity(m);
+				}
+			}
+		    List <Token> listOfToken = afixmlLastIntilialization.get(aAss);
+		    listOfToken.add(mainToken);
+		    afixmlLastIntilialization.put(aAss, listOfToken);
+			
+		} else {
+			m.setBound("1");
+			AssociationEnd leftEnd = new AssociationEnd(uClass.getName()+"_Object",uClass.getName(), "",uClass.getName(), m);
+			AssociationEnd rightEnd = new AssociationEnd(rUClass.getName()+"_Object",rUClass.getName(), "",rUClass.getName(), m);		
+			Association aAssociation = new Association(false, true,false,false,leftEnd,rightEnd);
+			aAssociation.setName(rUClass.getName()+"_Object");
+			getModel().addAssociation(aAssociation);	    
+			AssociationEnd myEnd = aAssociation.getEnd(0);
+		    AssociationEnd yourEnd = aAssociation.getEnd(1);
+		    AssociationVariable myAs = new AssociationVariable(myEnd.getRoleName(),myEnd.getClassName(),myEnd.getModifier(),null,myEnd.getMultiplicity(),aAssociation.getIsLeftNavigable());
+                    myAs.setIsComposition(aAssociation.getIsLeftComposition());
+		    AssociationVariable yourAs = new AssociationVariable(yourEnd.getRoleName(),yourEnd.getClassName(),yourEnd.getModifier(),null,yourEnd.getMultiplicity(),aAssociation.getIsRightNavigable());
+                    yourAs.setIsComposition(aAssociation.getIsRightComposition());
+
+		    myAs.setRelatedAssociation(yourAs);
+		    boolean added = uClass.addAssociationVariable(yourAs);
+		    if (added)
+		    {
+		      unlinkedAssociationVariables.add(yourAs);
+		      uClass.addAssociation(aAssociation);
+		    }
+		    List <Token> listOfToken = new ArrayList<>();
+		    listOfToken.add(mainToken);
+		    afixmlLastIntilialization.put(aAssociation, listOfToken);
+		}
+   }
+//---------------------------------end----------------------------------------
+//----------------------------------------------------------------------------   
+//---------------------------------Start--------------------------------------
+   private void assignAssociationInitialValues(){
+    String value = "";
+	for (Association	aa : getModel().getAssociations()) {
+		UmpleClass mainClass = getModel().getUmpleClass(aa.getEnd(0).getClassName());
+		UmpleClass uClass = getModel().getUmpleClass(aa.getEnd(1).getClassName());
+		if (Integer.parseInt(aa.getEnd(1).getMultiplicity().getBound()) >1) {
+			for (Token rootToken : afixmlLastIntilialization.get(aa)) {
+				value = "new "+uClass.getName()+"(";
+				Map<String,String> db = new HashMap<String,String>();
+				for (Token subToken : rootToken.getSubTokens()) {
+					if (subToken.is("tagDefinition")) {
+						   String attname = subToken.getSubToken(0).getValue();
+						   //   String attType = "String";
+						   String attValue = subToken.getSubToken(3).getValue();	
+						   db.put(attname, attValue);  	
+					}
+				}			
+				for (Attribute aAttribute : uClass.getAttributes()) {
+					if (db.containsKey(aAttribute.getName())){
+						String attValue = db.get(aAttribute.getName());
+						   if  ( isStringInteger(attValue) && aAttribute.getType().equals("Integer")) {
+							  // attType="Integer";
+						   } else if (isStringDuble(attValue) && aAttribute.getType().equals("Double")) {
+							   //attType = "Double";
+						   } else if (aAttribute.getType().equals("String")) {
+							   attValue = "\""+attValue+"\"";
+						   } else {
+							   attValue = "\""+attValue+"\"";
+						   }
+						value = value + attValue +", ";
+					} else {
+					   if  ( aAttribute.getType().equals("Integer") ) {
+						   value = value+"0"+", ";
+					   } else if (aAttribute.getType().equals("Double")) {
+						   value = value+"0.0"+", ";
+					   } else if (aAttribute.getType().equals("String")){
+						   value = value+"\"\""+", ";
+					   }
+					}	
+				}
+				
+				for (Association aAssociation : uClass.getAssociations()) {
+					List<Token> aToken = afixmlLastIntilialization.get(aAssociation);
+					if (aToken.size() >1) {
+
+					} else {
+						if (!hasThisObject(rootToken,aAssociation.getEnd(1).getClassName())) {
+							 value = value+"null"+", ";
+						} else {
+							value = value+getAssociationConstructorInConstructor(aAssociation.getEnd(1).getClassName(),aToken.get(0))+", ";
+						}
+					}
+				}
+				
+				value = value.subSequence(0, value.length()-2) + ")";
+				String valueG = aa.getEnd(1).getRoleName()+".add("+value+");";	
+				String valuep= "$this->"+aa.getEnd(1).getRoleName()+"[] = "+value+";";
+				CodeBlock cb1 = new CodeBlock();
+				cb1.setCode("", valueG);
+				cb1.setCode("Php", valuep);
+				CodeInjection injection = new CodeInjection("after","emptyConstructor",cb1,mainClass);
+				mainClass.addCodeInjection(injection);
+			}
+		} else {
+			value = "new "+uClass.getName()+"(";
+			value = value+")"; //t.getSubToken(3).getValue();
+			value = "set"+aa.getEnd(1).getRoleName()+"("+value+");";
+			CodeInjection injection = new CodeInjection("after","emptyConstructor",value,mainClass);
+			mainClass.addCodeInjection(injection);
+		}
+
+	}
+   }
+//---------------------------------end----------------------------------------
+//----------------------------------------------------------------------------   
+//---------------------------------Start--------------------------------------
+   private String getAssociationConstructorInConstructor(String inName, Token inToken){	  
+    Map<String,String> db = new HashMap<String,String>();
+		String value = "new "+inName+"("; //t.getSubToken(3).getValue();	
+		for (Token subToken : inToken.getSubTokens()) {
+			if (subToken.getName().equals("tagDefinition")) {
+				   String attname = subToken.getSubToken(0).getValue();
+				   //String attType = "String";
+				   String attValue = subToken.getSubToken(3).getValue();
+				   db.put(attname, attValue);  	
+				 }
+			}  
+	for (Attribute aAttribute : getModel().getUmpleClass(inName).getAttributes()) {
+		if (db.containsKey(aAttribute.getName())){
+			String attValue = db.get(aAttribute.getName());
+			   if  ( isStringInteger(attValue) && aAttribute.getType().equals("Integer")) {
+				  // attType="Integer";
+			   } else if (isStringDuble(attValue) && aAttribute.getType().equals("Double")) {
+				   //attType = "Double";
+			   } else if (aAttribute.getType().equals("String")) {
+				   attValue = "\""+attValue+"\"";
+			   } else {
+				   attValue = "\""+attValue+"\"";
+			   }
+			value = value + attValue+", ";
+		} else {
+		   if  ( aAttribute.getType().equals("Integer") ) {
+			   value = value+"0"+", ";
+		   } else if (aAttribute.getType().equals("Double")) {
+			   value = value+"0.0"+", ";
+		   } else if (aAttribute.getType().equals("String")){
+			   value = value+"\"\""+", ";
+		   }
+		}
+		
+	}		  
+	for (Association aAssociation : getModel().getUmpleClass(inName).getAssociations()) {
+		List<Token> aToken = afixmlLastIntilialization.get(aAssociation);
+		if (aToken.size() >1) {
+
+		} else {
+			if (!hasThisObject(inToken,aAssociation.getEnd(1).getClassName())) {
+				 value = value+"null"+", ";
+			} else {
+				value = value+getAssociationConstructorInConstructor(aAssociation.getEnd(1).getClassName(),aToken.get(0));
+			}
+		}
+	}
+	  value = value.subSequence(0, value.length()-2) + ")";	
+	  return value;
+   } } 
+
+// Fragment source file: UmpleInternalParser_CodeStructure.ump
+// Line : 1260
+ class CompositeStructureTokenAnalyzer { private ConstraintTree analyzeAssociationLiteralConstraintExpression(Token literalToken, UmpleClassifier uClassifier, boolean cardinal, boolean all, boolean firstName, ConstraintTree subject, ConstraintOperator operator)
+	{
+		ConstraintTree rawLine = new ConstraintTree();
+		for(Token sub:literalToken.getSubTokens())
+		{
+			if(sub.is("associationLit"))
+			{
+				rawLine.addElementAll(analyzeAssociationLiteralConstraintExpression(sub, uClassifier, cardinal, all, firstName, subject, operator));
+				firstName = false;
+			}
+			else if(sub.is("constraintName"))
+			{
+				if(!firstName)
+				{
+					if(all&&!cardinal)
+					{
+						rawLine.addElement(new ConstraintOperator("&&"));
+					}
+					else
+					{
+						rawLine.addElement(new ConstraintOperator("||"));
+					}
+				}
+				else
+				{
+					firstName = false;
+				}
+				rawLine.addElementAll(subject);
+				rawLine.addElement(operator);
+				rawLine.addElement(analyzeConstraintName(sub,uClassifier,true));
+			}
+			else if(sub.is("elements"))
+			{
+				if(!cardinal)
+				{
+					operator.setValue("cardinality==");
+				}
+			}
+			else if(sub.is("number"))
+			{
+				if(!firstName)
+				{
+					if(all&&!cardinal)
+					{
+						rawLine.addElement(new ConstraintOperator("&&"));
+					}
+					else
+					{
+						rawLine.addElement(new ConstraintOperator("||"));
+					}
+				}
+				else
+				{
+					firstName = false;
+				}
+				rawLine.addElementAll(subject);
+				rawLine.addElement(operator);
+				rawLine.addElement(analyzeConstraintNumber(sub));
+				firstName = false;
+			}
+		}
+		return rawLine;
+	}
+
+	private ConstraintTree analyzeAssociationConstraintExpression(Token associationExpressionToken , UmpleClassifier uClassifier)
+	{
+		List<Token> associationExpressionSubtokens = associationExpressionToken.getSubTokens();
+		ConstraintTree rawLine = new ConstraintTree();
+		ConstraintTree subject = new ConstraintTree();
+		boolean card = associationExpressionToken.getValue("firstOp").equals("cardinality");
+		boolean all = false;
+		ConstraintOperator operator = new ConstraintOperator(associationExpressionToken.getValue("firstOp"));
+		for(Token sub : associationExpressionSubtokens)
+		{
+			if(sub.is("constraintName"))
+			{
+				subject.addElement(analyzeConstraintName(sub,uClassifier,true));
+			}
+			mixset Association {
+			  else if(sub.is("associationLit"))
+			  {
+				rawLine.addElementAll(analyzeAssociationLiteralConstraintExpression(sub,uClassifier,card,all,true,subject,operator));
+			  }
+			}
+			else if(sub.is("all"))
+			{
+				if(!card)
+				{
+					operator.setValue("hasAll");
+					all = true;
+				}
+				else
+				{
+					//warning that cardinality all is not supported
+				}
+			}
+			else if(sub.is("moreOp"))
+			{
+				if(!card)
+				{
+					card = true;
+				}
+				operator.setValue("cardinality>");
+			}
+			else if(sub.is("smallerOp"))
+			{
+				if(!card)
+				{
+					card = true;
+				}
+				operator.setValue("cardinality<");
+			}
+			else if(sub.is("greaterOp"))
+			{
+				if(!card)
+				{
+					card = true;
+				}
+				operator.setValue("cardinality>=");
+			}
+			else if(sub.is("lessOp"))
+			{
+				if(!card)
+				{
+					card = true;
+				}
+				operator.setValue("cardinality<=");
+			}
+			else if(sub.is("equalsOp"))
+			{
+				if(!card)
+				{
+					card = true;
+				}
+				operator.setValue("cardinality==");
+			}
+			else if(sub.is("notequalsOp"))
+			{
+				if(!card)
+				{
+					card = true;
+				}
+				operator.setValue("cardinality!=");
+			}
+		}
+		return rawLine;
+	} } 
+
+// Fragment source file: UmpleFilterModel.ump
+// Line : 15
+ class Filter { Integer associationCount = -1; } 
+
+// Fragment source file: UmpleInternalParser_CodeFilter.ump
+// Line : 108
+ class UmpleInternalParser { private void addAssociationValue(Filter f, Token t)
+    {
+      for(Token nt : t.getSubTokens())
+      {
+        if("associationNum".equals(nt.getName()))
+        {
+          int associationNum = Integer.parseInt(nt.getValue("associationNum"));
+          f.setAssociationCount(associationNum);
+        }
+      }
+    } } 
+
+}
+
+mixset FeatureModel { 
+// Fragment source file: Umple.ump
+// Line : 1327
+use feature/FeatureModel.ump;
+
+// Fragment source file: UmpleInternalParser_Code.ump
+// Line : 556
+use UmpleInternalParser_CodeRequireStatement.ump;
+
+// Fragment source file: Master.ump
+// Line : 86
+require [Mixset];
+
+}
+
+mixset AspectInjection { 
+// Fragment source file: Umple_CodeMethod.ump
+// Line : 338
+class CodeInjection
+  {
+    public CodeInjection(String a, String b, String c, UmpleClassifier d)
+    {
+      this(a,b,new CodeBlock(c), d);
+    }
+    public void setCode(String str)
+    {
+      snippet.setCode(str);
+    }
+    public String getCode()
+    {
+      return snippet.getCode();
+    }
+    public String getConstraintCode(CodeTranslator gen)
+    {
+      return StringFormatter.format(gen.translate("Closed",constraintTree),getCode());
+    }
+    public void setCode(String lang, String code)
+    {
+      snippet.setCode(lang, code);
+    }
+    public String getCode(String lang)
+    {
+      return snippet.getCode(lang);
+    }
+  }
+
+// Fragment source file: UmpleInternalParser_CodeMixset.ump
+// Line : 483
+class CodeInjection{
+    String injectionlabel = "";
+    boolean codeBlockProcessed = false;
+
+    boolean hasCodeLabel()
+    {
+      return ! injectionlabel.equals("");
+    }
+  }
+
+  class CodeBlock{
+    depend java.util.regex.Matcher;
+    depend java.util.regex.Pattern;
+
+    public ArrayList<String> getCodeWithLabels(String codesKey) {
+      ArrayList <String> codeLabels = new ArrayList<String>();
+      String codeToLockAt = getCode(codesKey);
+      ArrayList<String> codeWithLabels = new ArrayList<String>();
+      Pattern labelPatternToMatch = Pattern.compile("(\\S+):");
+      Matcher matcher = labelPatternToMatch.matcher(codeToLockAt);
+      int lastMatchedIndex=0;
+      while (matcher.find()) {
+        String codeBeforeLabel = codeToLockAt.substring(lastMatchedIndex, matcher.start());
+        if(!codeBeforeLabel.equals(""))
+          codeWithLabels.add(codeBeforeLabel);
+        codeWithLabels.add(matcher.group()); //add the label itself to the source code.
+        codeLabels.add(matcher.group().replaceFirst(":","")); // remove colon and add it the list of labels 
+        lastMatchedIndex = matcher.end();
+      }
+      // This for last label, to add the code after last matched label 
+      String codeAfterLastLabel =codeToLockAt.substring(lastMatchedIndex); 
+      codeWithLabels.add(codeAfterLastLabel);
+      return codeWithLabels;
+    }
+
+  }
+
+  class MethodBody
+  {
+    depend java.util.regex.Matcher;
+    depend java.util.regex.Pattern;
+
+    public static int indexOfMixsetClosingBracket(String strInput) {
+    int closeIndex = 0;
+    int numOfclosingBracket=0;
+    for(int i = 0; i< strInput.length();i++)
+    {
+      char currentChar = strInput.charAt(i);
+      if(currentChar =='{')
+      numOfclosingBracket++;
+      else if(currentChar == '}')
+        {
+          numOfclosingBracket--;
+          if(numOfclosingBracket==0)
+            {
+              closeIndex = i+1;
+              break;
+            }
+        }	
+    }
+    return closeIndex;
+  }
+  public  ArrayList<MixsetInMethod> getMixsetsWithinMethod(){
+    return getMixsetsFromCode(this.getCodeblock().getCode());
+  }
+  public static ArrayList<MixsetInMethod> getMixsetsFromCode(String codeToLockAt){
+    ArrayList<MixsetInMethod> mixsetInsideMethodList = new ArrayList<MixsetInMethod>();
+    Pattern labelPatternToMatch = Pattern.compile("mixset\\s+\\S+\\s+\\{"); // to detect mixset def.
+    Matcher matcher = labelPatternToMatch.matcher(codeToLockAt);
+    while (matcher.find()) {
+      String mixsetDefPlusAfterCode = codeToLockAt.substring(matcher.start());
+      // mixset def. + the code after the mixset def.
+      int indexOfMixsetClosingBracket = matcher.start() + indexOfMixsetClosingBracket(mixsetDefPlusAfterCode);
+      String mixsetBodyWithDef = codeToLockAt.substring(matcher.start(),indexOfMixsetClosingBracket);
+      // get the name of the mixset
+      String mixsetName = matcher.group().replace("mixset", "").replace("{", "").trim(); 
+      MixsetInMethod mixsetInsideMethod = new MixsetInMethod(mixsetName,matcher.start(),indexOfMixsetClosingBracket,mixsetBodyWithDef);
+      
+      // place inner method in their right position.
+      for(MixsetInMethod tempMixsetInMethod:mixsetInsideMethodList)
+      {
+        if(mixsetInsideMethod.getStartPositionIndex() > tempMixsetInMethod.getStartPositionIndex()
+            & mixsetInsideMethod.getEndPositionIndex() < tempMixsetInMethod.getEndPositionIndex())
+        { 
+          // a nested mixset should be bounded by its close parent mixset 
+          mixsetInsideMethod.setParentInnerMixset(tempMixsetInMethod);
+          tempMixsetInMethod.addChildMixset(mixsetInsideMethod);
+        }
+      }
+      // a nested mixset should not add here. 
+      if(mixsetInsideMethod.getParentInnerMixset() == null) // its not bounded by another mixset 
+      {
+        mixsetInsideMethodList.add(mixsetInsideMethod);
+      }
+    }
+    return mixsetInsideMethodList;
+  }
+  }
+
+// Fragment source file: UmpleInternalParser_Code.ump
+// Line : 560
+use class/UmpleInternalPraser_CodeInjection.ump;
+
+}
+
+mixset SuperCodeGeneratorGenerator { 
+// Fragment source file: Generator.ump
+// Line : 123
+use generators/Generator_SuperCodeGenerator.ump;
+
+}
+
+mixset CodeGenerator { 
+// Fragment source file: Generator.ump
+// Line : 88
+use generators/Generator_Code.ump;
+
+}
+
+mixset UmpleGenerator { 
+// Fragment source file: Generator.ump
+// Line : 89
+use generators/Generator_CodeUmple.ump;
+
+}
+
+mixset RubyGenerator { 
+// Fragment source file: Generator.ump
+// Line : 91
+use generators/Generator_CodeRuby.ump; 
+  use RubyGeneratorIntMixset;
+
+}
+
+mixset JavaGenerator { 
+// Fragment source file: Generator.ump
+// Line : 94
+use generators/Generator_CodeJava.ump;
+
+}
+
+mixset RTCppGenerator { 
+// Fragment source file: Generator.ump
+// Line : 95
+use generators/Generator_CodeRTCpp.ump;
+
+}
+
+mixset PhpGenerator { 
+// Fragment source file: Generator.ump
+// Line : 96
+use generators/Generator_CodePhp.ump;
+
+}
+
+mixset Uigu2Generator { 
+// Fragment source file: Generator.ump
+// Line : 97
+use generators/Generator_CodeUigu2.ump;
+
+}
+
+mixset SqlGenerator { 
+// Fragment source file: Generator.ump
+// Line : 98
+use generators/Generator_CodeSql.ump;
+
+}
+
+mixset UmpleSelfGenerator { 
+// Fragment source file: Generator.ump
+// Line : 99
+use generators/Generator_CodeUmpleSelf.ump;
+
+}
+
+mixset USEGenerator { 
+// Fragment source file: Generator.ump
+// Line : 100
+use generators/Generator_CodeUSE.ump;
+
+}
+
+mixset EcoreGenerator { 
+// Fragment source file: Generator.ump
+// Line : 101
+use generators/ecoreGenerator/ecoreGeneratorConfig.ump;
+
+}
+
+mixset TestGenerator { 
+// Fragment source file: Generator.ump
+// Line : 102
+use generators/Generator_CodeTest.ump;
+
+}
+
+mixset PapyrusGenerator { 
+// Fragment source file: Generator.ump
+// Line : 103
+use generators/papyrus/Generator_CodePapyrus.ump;
+
+}
+
+mixset XmiGenerator { 
+// Fragment source file: Generator.ump
+// Line : 104
+use generators/xmi/Generator_CodeXmi.ump;
+
+}
+
+mixset TextUmlGenerator { 
+// Fragment source file: Generator.ump
+// Line : 105
+use generators/Generator_CodeTextUml.ump;
+
+}
+
+mixset ScxmlGenerator { 
+// Fragment source file: Generator.ump
+// Line : 106
+use generators/Generator_CodeScxml.ump;
+
+}
+
+mixset CodeGvClassTraitDiagramGenerator { 
+// Fragment source file: Generator.ump
+// Line : 112
+use generators/Generator_CodeGvClassTraitDiagram.ump;
+
+}
+
+mixset EventSequenceGenerator { 
+// Fragment source file: Generator.ump
+// Line : 109
+use generators/Generator_CodeEventSequence.ump;
+
+}
+
+mixset FeatureDiagramCo { 
+// Fragment source file: Generator.ump
+// Line : 113
+use generators/featureDiagramGenerator/FeatureDiagramConfig.ump;
+
+}
+
+mixset EntityRelationshipCon { 
+// Fragment source file: Generator.ump
+// Line : 114
+use generators/entityRelationshipDiagramGenerator/entityRelationshipConfig.ump
+
+}
+
+mixset SimulateGenerator { 
+// Fragment source file: Generator.ump
+// Line : 117
+use generators/Generator_CodeSimulate.ump;
+
+}
+
+mixset YumlGenerator { 
+// Fragment source file: Generator.ump
+// Line : 118
+use generators/Generator_CodeYuml.ump;
+
+}
+
+mixset XtextGenerator { 
+// Fragment source file: Generator.ump
+// Line : 119
+use generators/Generator_CodeXtext.ump;
+
+}
+
+mixset JsonGenerator { 
+// Fragment source file: Generator.ump
+// Line : 120
+use generators/Generator_CodeJson.ump;
+
+}
+
+mixset JsonMixedGenerator { 
+// Fragment source file: Generator.ump
+// Line : 121
+use generators/Generator_CodeJsonMixed.ump;
+
+}
+
+mixset StructureDiagramGenerator { 
+// Fragment source file: Generator.ump
+// Line : 122
+use generators/Generator_CodeStructureDiagram.ump;
+
+}
+
+mixset GvStateDiagramGenerator { 
+// Fragment source file: Generator.ump
+// Line : 107
+use generators/statemachineDiagramGenerator/stateMachineDiagramConfig.ump;
+
+}
+
+mixset StateTableGenerator { 
+// Fragment source file: Generator.ump
+// Line : 108
+use generators/Generator_CodeStateTables.ump;
+
+}
+
+mixset SuperGvGeneratorGenerator { 
+// Fragment source file: Generator.ump
+// Line : 124
+use generators/Generator_SuperGvGenerator.ump;
+
+}
+
+mixset HtmlGenerator { 
+// Fragment source file: Generator.ump
+// Line : 125
+use generators/Generator_Html.ump;
+
+}
+
+mixset UmpleModelWalkerGenerator { 
+// Fragment source file: Generator.ump
+// Line : 126
+use generators/Generator_UmpleModelWalker.ump;
+
+}
+
+mixset CodeAnalysisGenerator { 
+// Fragment source file: Generator.ump
+// Line : 127
+use generators/Generator_CodeAnalysis.ump;
+
+}
+
+mixset AlloyGenerator { 
+// Fragment source file: Generator.ump
+// Line : 115
+use generators/alloy/Generator_CodeAlloy.ump;
+
+}
+
+mixset NuSMVGenerators { 
+// Fragment source file: Generator.ump
+// Line : 116
+use generators/NuSMV/nusmvGeneratorConfig.ump;
+
+}
+
+mixset NuSMVGenerator { 
+// Fragment source file: nusmvGeneratorConfig.ump
+// Line : 9
+use generators/NuSMV/Generator_CodeNuSMV.ump;
+
+}
+
+mixset NuSMVOptimizerGenerator { 
+// Fragment source file: nusmvGeneratorConfig.ump
+// Line : 11
+use generators/NuSMV/Generator_CodeNuSMVOptimizer.ump;
+
+}
+
+mixset SimpleMetricsGenerator { 
+// Fragment source file: Generator.ump
+// Line : 110
+use generators/Generator_CodeSimpleMetrics.ump;
+
+}
+
+mixset CodeGvClassDiagramGenerator { 
+// Fragment source file: Generator.ump
+// Line : 111
+use generators/Generator_CodeGvClassDiagram.ump;
+
+}
+
+mixset UmpleAnnotaiveToCompositionGenerator { 
+// Fragment source file: Generator.ump
+// Line : 128
+use generators/Generator_CodeAnnotaiveToComposition.ump;
+
+}
+
+mixset RubyGeneratorIntMixset { 
+}
+
+mixset EoreGenerator { 
+// Fragment source file: ecoreGeneratorConfig.ump
+// Line : 7
+class EcoreGenerator
+{
+  isA CodeGeneratorWithSubptions;
+  depend java.io.*;
+  depend java.util.*;
+  depend cruise.umple.util.*;
+  depend cruise.umple.compiler.exceptions.*;
+
+  // Contains various aspects from an Umple file (.ump), such as classes, attributes, associations and methods.  Generated output is based
+  // off of what's contained in here.
+  UmpleModel model = null;
+  EcoreGenModel genModel = null;
+  String output = "";
+}
+
+use generators/ecoreGenerator/Generator_CodeEcore.ump;
+
+}
+
+mixset StateDiagramGenerator { 
+// Fragment source file: stateMachineDiagramConfig.ump
+// Line : 7
+use generators/statemachineDiagramGenerator/Generator_CodeGvStateDiagram.ump
+  
+  class GvStateDiagramGenerator
+  {
+    isA CodeGeneratorWithSubptions;
+    depend java.io.*;
+    depend java.util.*;
+    depend cruise.umple.util.*;
+    depend cruise.umple.compiler.exceptions.*;
+
+  // Contains various aspects from an Umple file (.ump), such as classes, attributes, associations and methods.  Generated output is based
+  // off of what's contained in here.
+    UmpleModel model = null;
+    String output = "";
+  }
+
+}
+
+mixset FeatureDiagramGenerator { 
+// Fragment source file: FeatureDiagramConfig.ump
+// Line : 9
+use generators/featureDiagramGenerator/Generator_CodeGvFeatureDiagram.ump;
+
+  class GvFeatureDiagramGenerator
+  {
+    isA CodeGeneratorWithSubptions;
+    depend java.io.*;
+    depend java.util.*;
+    depend cruise.umple.util.*;
+    depend cruise.umple.compiler.exceptions.*;
+  }
+
+}
+
+mixset EntityRelationshipGenerator { 
+// Fragment source file: entityRelationshipConfig.ump
+// Line : 7
+use generators/entityRelationshipDiagramGenerator/Generator_CodeGvEntityRelationshipDiagram.ump;
+
+class GvEntityRelationshipDiagramGenerator
+{
+  isA SuperGvGenerator;
+  depend java.io.*;
+  depend java.util.*;
+  depend cruise.umple.util.*;
+  depend cruise.umple.compiler.exceptions.*;
+}
+
+}
+
+mixset Structure_StateMachine { 
+// Fragment source file: Umple_CodeConstraint.ump
+// Line : 785
+class ConstraintPort
+{
+  String getName()
+  {
+    return port==null?null:port.getName();
+  }
+  public String getType(){ return "port"; }
+}
+
+}
+
+mixset Template_Strcture { 
+// Fragment source file: UmpleInternalParser_Code.ump
+// Line : 510
+ class UmpleInternalParser { // This MIXSET contains common code used by Template & Strcture.
+    public boolean reAnalyze() {
+      return shouldProcessAgain;
+    }
+    public void reAnalyze(boolean re) {
+  	shouldProcessAgain = re;
+    } } 
+
+}
+//*** 
+//Fine-grained variability : 
+mixset StateMachine { 
+  class GeneratorHelper { 
+    before Lable_StateMachine_1:postpare(UmpleModel)
+  {
+      postpareStateMachine(model);
+    }  } 
+} 
+
+
+mixset Trace { 
+  class GeneratorHelper { 
+    before Lable_Trace_2:postpare(UmpleModel)
+  {
+      postpareTrace(model);
+    }  } 
+} 
+
+
+mixset StateMachine { 
+  class GeneratorHelper { 
+    before Lable_StateMachine_3:postpare(UmpleClass)
+  {
+      postpareStateMachine(aClass);
+    }  } 
+} 
+
+
+mixset Trace { 
+  class GeneratorHelper { 
+    before Lable_Trace_4:postpare(UmpleClass)
+  {
+      postpareTrace(aClass);
+    }  } 
+} 
+
+
+mixset Mixset { 
+  class GeneratorHelper { 
+    before Lable_Mixset_5:toCode(List<CodeInjection>)
+  {
+	      if(inject.hasCodeLabel())
+          continue;// handle the case when labels are used. // Do nothing  
+        }  } 
+} 
+
+
+mixset RubyGeneratorIntMixset { 
+  class GeneratorHelper { 
+    before Lable_RubyGeneratorIntMixset_6:toCode(List<CodeInjection>)
+  {
+          comment = RubyGenerator.class.isInstance(generator)?"#":"//";
+        }  } 
+} 
+
+
+mixset Class { 
+  class UmpleGenerator { 
+    before Lable_Class_7:initializeParser
+  {
+      parser.addGrammarFile("/class/umple_classes.grammar");
+    }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleGenerator { 
+    before Lable_Trait_8:initializeParser
+  {
+      parser.addGrammarFile("/trait/umple_traits.grammar");
+    }  } 
+} 
+
+
+mixset FIXML { 
+  class UmpleGenerator { 
+    before Lable_FIXML_9:initializeParser
+  {
+      parser.addGrammarFile("/fixml/umple_fixml.grammar");
+    }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleGenerator { 
+    before Lable_StateMachine_10:initializeParser
+  {
+      parser.addGrammarFile("/stateMachine/umple_state_machines.grammar");
+    }  } 
+} 
+
+
+mixset Trace { 
+  class UmpleGenerator { 
+    before Lable_Trace_11:initializeParser
+  {
+      parser.addGrammarFile("/trace/umple_traces.grammar");
+    }  } 
+} 
+
+
+mixset Template { 
+  class UmpleGenerator { 
+    before Lable_Template_12:initializeParser
+  {
+      parser.addGrammarFile("/template/umple_template.grammar");
+    }  } 
+} 
+
+
+mixset Structure { 
+  class UmpleGenerator { 
+    before Lable_Structure_13:initializeParser
+  {
+      parser.addGrammarFile("/strcture/umple_structure.grammar");
+    }  } 
+} 
+
+
+mixset Layout { 
+  class UmpleGenerator { 
+    before Lable_Layout_14:initializeParser
+  {
+       parser.addGrammarFile("/layout/umple_layout.grammar");
+    }  } 
+} 
+
+
+mixset Filter { 
+  class UmpleGenerator { 
+    before Lable_Filter_15:initializeParser
+  {
+      parser.addGrammarFile("/filter/umple_filter.grammar"); // TODO Under development
+    }  } 
+} 
+
+
+mixset Mixset { 
+  class UmpleGenerator { 
+    before Lable_Mixset_16:initializeParser
+  {
+      parser.addGrammarFile("/mixset/umple_mixsets.grammar");
+    }  } 
+} 
+
+
+mixset StateMachine { 
+  class SuperCodeGenerator { 
+    before Lable_StateMachine_17:testForPrimitiveInConstraint(ConstraintVariable)
+  {
+      if(variable instanceof ConstraintStateMachine)
+      {
+        return false;
+      }
+    }  } 
+} 
+
+
+mixset StateMachine { 
+  class SuperCodeGenerator { 
+    before Lable_StateMachine_18:translate(String,ConstraintVariable,boolean)
+  {
+      else if("state".equals(id))
+      {
+        return translate("stateOne", ((ConstraintState)cv).getState());
+      }
+      else if("statemachine".equals(id))
+      {
+        return translate("getFullMethod",((ConstraintStateMachine)cv).getStateMachine())+"()";
+      }
+    }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleClass { 
+    before Lable_StateMachine_19:getMethodNames
+  {
+      for(StateMachine sm : this.getStateMachines())
+      {
+        String stateMachineName = sm.getName().substring(0, 1).toUpperCase() + sm.getName().substring(1);
+        methodNames.add("set" + stateMachineName);
+        methodNames.add("get" + stateMachineName);
+
+        for(Event ev : sm.getEvents())
+        {
+          methodNames.add(ev.getName());
+        }
+      }
+    }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleClass { 
+    before Lable_StateMachine_20:hasImplementedMethodIncludingWithinParentClasses(Method)
+  {
+    if (numberOfStateMachines()>0){
+    	for(StateMachine sm : getStateMachines()){
+    		if (sm.getEventByMethod(comparedMethod)!=null){
+    			return true;
+    		}
+    	}
+    }
+    }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleClass { 
+    before Lable_StateMachine_21:propagateImmutabilityToAllRelationships(boolean)
+  {
+      if (this.hasStateMachines()) { return false; }
+      }  } 
+} 
+
+
+mixset Filter { 
+  class UmpleModel { 
+    before Lable_Filter_22:generate
+  {
+      applyFilter(null);
+    }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleModel { 
+    before Lable_Trait_23:getDefaultAssociationPosition(Association)
+  {
+        if(getUmpleTraitTypeParameter(classOne) || getUmpleTrait(classOne)!=null) return null;
+        if(getUmpleTraitTypeParameter(classTwo) || getUmpleTrait(classTwo)!=null) return null;
+      }  } 
+} 
+
+
+mixset Association { 
+  class UmpleModel { 
+    before Lable_Association_24:markIncludedClasses(Filter)
+  {
+          if(f.hasAssociation())
+          {
+            markRelatedClass(f.getAssociationCount());
+          }
+        }  } 
+} 
+
+
+mixset Association { 
+  class UmpleModel { 
+    before Lable_Association_25:filterOutClasses
+  {
+            // Chop out it and its associations
+            for(Association a : clazz.getAssociations())
+            {      
+            clazz.removeAssociation(a); // Remove from this end
+            
+            // Find the other end(s) and remove references too
+            for (AssociationEnd ae : a.getEnds())
+            {
+                String endClassName = ae.getClassName();
+                if(!endClassName.equals(clazz.getName()))
+                {
+                UmpleClass otherClass = getUmpleClass(endClassName);
+                if(otherClass != null) {
+                    otherClass.removeAssociation(a);
+                }
+                }
+            }
+            
+            removeAssociation(a); // from model
+            a.delete();
+            }
+            Object[] avs = clazz.getAssociationVariables().toArray();
+            for(Object avo:  avs)
+            {
+            AssociationVariable av = (AssociationVariable)avo;
+            AssociationVariable otherAv = av.getRelatedAssociation();
+            if(otherAv != null) {
+                otherAv.delete();
+            }
+            av.delete();
+            }
+            removeUmpleClass(clazz);
+            clazz.delete();
+
+          }  } 
+} 
+
+
+mixset Association { 
+  class ConstraintOperator { 
+    before Lable_Association_26:correctForCardinality(ConstraintVariable)
+  {
+      else if((variable instanceof ConstraintAssociation)&&value.contains("cardinality"))
+      {
+        ((ConstraintAssociation)variable).setNumberOf(true);
+      }
+    }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleTrait { 
+    before Lable_StateMachine_27:propagateImmutabilityToAllRelationships(boolean)
+  {
+	      if (this.hasStateMachines()) { return false; } 
+        }  } 
+} 
+
+
+mixset Association { 
+  class UmpleTrait { 
+    before Lable_Association_28:propagateImmutabilityToAllRelationships(boolean)
+  {
+          for (AssociationVariable av : associationVariables)
+          {
+            if (!immutabilityAssociationRulesSatisfied(av, true)) { return false; }
+          }
+        }  } 
+} 
+
+
+mixset StateMachine { 
+  class GeneralTPApplied { 
+    before Lable_StateMachine_29:GeneralTPApplied(GeneralTPApplied)
+  {
+      stateMachineModifiers = new ArrayList<>(another.getStateMachineModifiers());
+    }  } 
+} 
+
+
+mixset StateMachine { 
+  class GeneralTPApplied { 
+    before Lable_StateMachine_30:GeneralTPApplied(GeneralTPApplied)
+  {
+      stateMachineTemplateSignatures = new ArrayList<>(another.getStateMachineTemplateSignatures());
+    }  } 
+} 
+
+
+mixset Association { 
+  class AssociationVariable { 
+    before Lable_Association_31:getTraced(String,UmpleClass)
+  {
+				for(AssociationTraceItem ast: td.getAssociationTraceItems())
+				{
+					if(( (method.equals("associationAdd")||method.equals("associationRemove")) && ast.getTraceCardinality()))
+					{
+						for(AssociationVariable variable: ast.getAssociationVariables())
+						{
+							if(variable.getName().equals(this.getName()))
+								traceItems.add(ast);
+						}
+
+					}
+					if((method.equals("associationAdd") && ast.getTraceAdd()))
+					{
+						for(AssociationVariable variable: ast.getAssociationVariables())
+						{
+							if(variable.getName().equals(this.getName()))
+								traceItems.add(ast);
+						}
+					}
+					if((method.equals("associationRemove") && ast.getTraceRemove()))
+					{
+						for(AssociationVariable variable: ast.getAssociationVariables())
+						{
+							if(variable.getName().equals(this.getName()))
+								traceItems.add(ast);
+						}
+					}
+				}
+			}  } 
+} 
+
+
+mixset Association { 
+  class ModelConstraintAssociation { 
+    before Lable_Association_32:evaluate(UmpleClassifier)
+  {
+        for(Association association:uClass.getAssociations())
+        {
+          AssociationEnd theirs = null;
+          AssociationEnd mine = null;
+          if(association.getEnd(0).getClassName().equals(uClass.getName()))
+          {
+            theirs = association.getEnd(1);
+            mine = association.getEnd(0);
+          }
+          else if(association.getEnd(1).getClassName().equals(uClass.getName()))
+          {
+            theirs = association.getEnd(0);
+            mine = association.getEnd(1);
+          }
+
+          if(!theirs.getClassName().equals(getTarget()))
+          {
+            boolean isNotMyConcern = true;
+            UmpleClass child = ((UmpleClass)uClassifier).getSourceModel().getUmpleClass(theirs.getClassName());
+
+            if(child!=null)
+            {
+              UmpleClass parent = child.getExtendsClass();
+              while(child!=null)
+              {
+                if(child.getName().equals(getTarget()))
+                {
+                  isNotMyConcern = false;
+                }
+                UmpleClass temp = parent;
+                parent = child.getExtendsClass();
+                child = temp;
+              }
+            }
+            if(isNotMyConcern)
+            {
+              continue;
+            }
+          }
+
+          String tBound = theirs.getMultiplicity().getBound();
+
+          Integer rMax = 0;
+          Integer rMin = 0;
+
+          if(rightHandMultiplicity.getBound()!=null)
+          {
+            rMax = Integer.parseInt(rightHandMultiplicity.getBound().replace("*",""+Integer.MAX_VALUE));
+            rMin = Integer.parseInt(rightHandMultiplicity.getBound().replace("*","0"));
+          }
+          else
+          {
+            rMax = Integer.parseInt(rightHandMultiplicity.getMaximum().replace("*",""+Integer.MAX_VALUE));
+            rMin = Integer.parseInt(rightHandMultiplicity.getMinimum().replace("*","0"));
+          }
+
+          if("*".equals(rightHandMultiplicity.getBound()))
+          {
+          }
+          else if(tBound==null)
+          {
+            Integer tMin = Integer.parseInt(theirs.getMultiplicity().getMinimum().replace("*","0"));
+            Integer tMax = Integer.parseInt(theirs.getMultiplicity().getMaximum().replace("*",""+Integer.MAX_VALUE));
+
+            if(tMax>rMax||tMin<rMin)
+            {
+              continue;
+            }
+          }
+          else
+          {
+            Integer itBound = Integer.parseInt(tBound.replace("*","0"));
+            if(itBound>rMax||itBound<rMin)
+            {
+              continue;
+            }
+          }
+
+          tBound = mine.getMultiplicity().getBound();
+
+          Integer lMax = 0;
+          Integer lMin = 0;
+
+          if(leftHandMultiplicity.getBound()!=null)
+          {
+            lMax = Integer.parseInt(leftHandMultiplicity.getBound().replace("*",""+Integer.MAX_VALUE));
+            lMin = Integer.parseInt(leftHandMultiplicity.getBound().replace("*","0"));
+          }
+          else
+          {
+            lMax = Integer.parseInt(leftHandMultiplicity.getMaximum().replace("*",""+Integer.MAX_VALUE));
+            lMin = Integer.parseInt(leftHandMultiplicity.getMinimum().replace("*","0"));
+          }
+
+          if("*".equals(leftHandMultiplicity.getBound()))
+          {
+          }
+          else if(tBound==null)
+          {
+            Integer tMin = Integer.parseInt(mine.getMultiplicity().getMinimum().replace("*","0"));
+            Integer tMax = Integer.parseInt(mine.getMultiplicity().getMaximum().replace("*",""+Integer.MAX_VALUE));
+
+            if(tMax>lMax||tMin<lMin)
+            {
+              continue;
+            }
+          }
+          else
+          {
+            Integer itBound = Integer.parseInt(tBound.replace("*","0"));
+            if(itBound>lMax||itBound<lMin)
+            {
+              continue;
+            }
+          }
+          return ModelConstraint.SUCCESS;
+        }
+        }  } 
+} 
+
+
+mixset Association { 
+  class AttributeTraceItem { 
+    before Lable_Association_33:trace(CodeTranslator,Object,String,UmpleClass,String...)
+  {
+				  else if(o instanceof AssociationVariable)
+				  {
+					name = gen.translate("associationMany",(AssociationVariable)o);
+				  }
+				}  } 
+} 
+
+
+mixset StateMachine { 
+  class StateMachineTraceItem { 
+    before Lable_StateMachine_34:trace(CodeTranslator,Object,String,UmpleClass,String...)
+  {
+				else if(o instanceof State)
+				{
+					State state = (State)o;
+					name = getStateMachine().getName()+"\"";
+					obj = state.getName();
+					for( Action a : ((State) o).getActions() )
+					{
+						if( this.getEntry() && a.getActionType().equals("entry") )
+							obj += ",actionUmpleLine=" + a.getPosition().getLineNumber();
+						if( this.getExit() && a.getActionType().equals("exit") )
+							obj += ",actionUmpleLine=" + a.getPosition().getLineNumber();
+					}
+					}
+				else if(o instanceof Activity)
+				{
+					Activity act = (Activity)o;
+					State state = act.getState();
+					name = getStateMachine().getName()+"\"";
+					obj = state.getName();
+					if( methodname.equals("sm_da"))
+						obj += ",doActivitedStarted";
+					else if(methodname.equals("sm_di"))
+						obj += ",doActivitedInterrupted";
+				}
+			}  } 
+} 
+
+
+mixset Association { 
+  class AssociationTraceItem { 
+    before Lable_Association_35:trace(CodeTranslator,Object,String,UmpleClass,String...)
+  {
+		for(AssociationVariable ass: uClass.getAssociationVariables())
+		{
+			if(ass.equals(o))
+			{
+				String type = ((AssociationVariable)o).getType();
+				String name = "";
+				String extra = "";
+				String obj = "";
+				String accessor = gen.translate("traceAccessor",this);
+				String concatinator = gen.translate("traceConcatinator",this);
+				String comma = concatinator+"\",\""+concatinator;
+				String tracerName = Character.toUpperCase(getTracerType().charAt(0)) + getTracerType().substring(1);
+				String messageLayout = "{0}"+comma+"{1}"+concatinator+"\",{2},{3},{4},\""+concatinator+"{5}"+concatinator+"\",{6},{7},\"";
+				mixset Association {
+				  if(o instanceof AssociationVariable)
+				  {
+					name = gen.translate("associationMany",(AssociationVariable)o);
+			  	  }
+				}
+
+				//         if(type==null||"".equals(type)||"Boolean".equals(type)||"boolean".equals(type)||"String".equals(type)||"int".equals(type)||"Integer".equals(type)||"float".equals(type)||"Float".equals(type)||"double".equals(type)||"Double".equals(type)||"Time".equals(type)||"Date".equals(type))
+				//         {
+				//           obj = name;
+				//         }
+				//         else
+				//         {
+				//           obj = name+"(\"+"+StringFormatter.format(gen.translate("traceIdentifier",this),name)+"+\")";
+				//           name += gen.translate("traceFormatNonPrimitive",this);
+				//         }
+
+				for(String str: args){
+					extra+=concatinator+str;
+				}
+				if(getTraceDirective().getTraceRecord()!=null)
+				{
+					for(Attribute record:getTraceDirective().getTraceRecord().getAttributes())
+					{
+						extra+=comma+gen.translate("attribute"+(record.getIsList()?"Many":"One"),record);
+					}
+					if(getTraceDirective().getTraceRecord().numberOfRecord()>0)
+					{
+						extra+= concatinator+"\"";
+						for(String record:getTraceDirective().getTraceRecord().getRecord())
+						{
+							extra+=","+record.replace("\"","");
+						}
+						extra+= "\"";
+					}
+				}
+				String message = messageLayout+extra;
+				message = StringFormatter.format(
+						message,gen.translate("traceTimestamp",this),
+						gen.translate("traceThread",this),
+						getPosition().getFilename().replace("\\","\\\\"),
+						getPosition().getLineNumber(),
+						uClass.getName()+"+"+type,
+						StringFormatter.format(gen.translate("traceIdentifier",this),gen.translate("traceSelf",this)),
+						methodname,
+						name        
+						);
+
+				message = TraceItemUtil.prepareTraceMessage(getTraceDirective(),gen,this,message);
+
+				message = StringFormatter.format(getExtremities(gen, name),message);
+				message = GeneratorHelper.doIndent(message,gen.translate("traceIndent",this));
+				if(getTraceDirective().getPostfix().getExecuteClause()!=null)
+				{
+					String execute = getTraceDirective().getPostfix().getExecuteClause();
+					execute = GeneratorHelper.doIndent(execute,gen.translate("traceIndent",this));
+					message += "\n" + execute;
+				}
+				return message;
+			}
+		}
+		}  } 
+} 
+
+
+mixset Trait { 
+  class PreconditionAnalyzer { 
+    before Lable_Trait_36:analyze(Token)
+  {
+    else if (uClassifier instanceof UmpleTrait)
+    {
+      ((UmpleTrait)(uClassifier)).addPreCond((Precondition)rawLine);  
+    }  
+    }  } 
+} 
+
+
+mixset Trait { 
+  class PostconditionAnalyzer { 
+    before Lable_Trait_37:analyze(Token)
+  {
+      else if (uClassifier instanceof UmpleTrait)
+      {
+        ((UmpleTrait)(uClassifier)).addPostCond((Postcondition)rawLine);  
+      }
+    }  } 
+} 
+
+
+mixset Trait { 
+  class InvariantAnalyzer { 
+    before Lable_Trait_38:analyze(Token)
+  {
+      else if (uClassifier instanceof UmpleTrait)
+      {
+        ((UmpleTrait)uClassifier).addConstraintTree(rawLine);  
+      }
+    }  } 
+} 
+
+
+mixset Trait { 
+  class ConstraintNameNameAnalyzer { 
+    before Lable_Trait_39:retrieveClass(ConstraintTree,UmpleClassifier)
+  {
+              uClass = previouslyFoundAttribute.getAttribute().getUmpleTrait();
+              UmpleModel model = ((UmpleTrait)uClass).getSourceModel();
+              uClass = model.getUmpleClass(previouslyFoundAttribute.getAttribute().getType());
+              }  } 
+} 
+
+
+mixset Trait { 
+  class ConstraintNameNameAnalyzer { 
+    before Lable_Trait_40:retrieveClass(ConstraintTree,UmpleClassifier)
+  {
+              uClass = previouslyFoundAssociation.getAssociation().getUmpleTrait();
+              UmpleModel model = ((UmpleTrait)uClass).getSourceModel();
+              uClass = model.getUmpleClass(previouslyFoundAssociation.getAssociation().getType());
+              }  } 
+} 
+
+
+mixset Trait { 
+  class ConstraintNameNameAnalyzer { 
+    before Lable_Trait_41:generateConstraintName(UmpleClassifier,String,Boolean)
+  {
+        attribute = ((UmpleTrait)(uClassifier)).getAttribute(value);
+      }  } 
+} 
+
+
+mixset Trait { 
+  class ConstraintNameNameAnalyzer { 
+    before Lable_Trait_42:generateConstraintName(UmpleClassifier,String,Boolean)
+  {
+          association = ((UmpleTrait)(uClassifier)).getAssociationVariable(value);
+        }  } 
+} 
+
+
+mixset StateMachine { 
+  class ConstraintNameNameAnalyzer { 
+    before Lable_StateMachine_43:generateConstraintName(UmpleClassifier,String,Boolean)
+  {
+        StateMachine stateMachine = null;
+        if(uClassifier instanceof UmpleClass)
+        {
+          stateMachine = ((UmpleClass)uClassifier).getStateMachine(value);
+        }
+        }  } 
+} 
+
+
+mixset Trait { 
+  class ConstraintNameNameAnalyzer { 
+    before Lable_Trait_44:generateConstraintName(UmpleClassifier,String,Boolean)
+  {
+          mixset StateMachine {
+            else if(uClassifier instanceof UmpleTrait)
+            {
+              stateMachine = ((UmpleTrait)uClassifier).getStateMachine(value);
+            }
+          }
+        }  } 
+} 
+
+
+mixset StateMachine { 
+  class ConstraintNameNameAnalyzer { 
+    before Lable_StateMachine_45:generateConstraintName(UmpleClassifier,String,Boolean)
+  {
+        if(stateMachine!=null)
+        {
+          ConstraintStateMachine name = new ConstraintStateMachine(stateMachine);
+          return name;
+        }
+        }  } 
+} 
+
+
+mixset Structure { 
+  class ConstraintNameNameAnalyzer { 
+    before Lable_Structure_46:generateConstraintName(UmpleClassifier,String,Boolean)
+  {
+            Port port = null;
+            if (uClassifier instanceof UmpleClass)
+            {
+              port = ((UmpleClass)(uClassifier)).getPort(value);
+            }
+            if(port!=null)
+            {
+              ConstraintPort name = new ConstraintPort(port);
+              return name;
+            }
+        }  } 
+} 
+
+
+mixset Trait { 
+  class ConstraintNameNameAnalyzer { 
+    before Lable_Trait_47:generateConstraintName(UmpleClassifier,String,Boolean)
+  {
+    else if(uClassifier instanceof UmpleTrait)
+    {
+      for(UmpleTrait uTrait:((UmpleTrait)uClassifier).getExtendsTraits())
+      {
+        ConstraintVariable var = generateConstraintName(uTrait,value,hasParameter);
+        if(!(var instanceof ConstraintUnassignedName))
+        {
+          return var;
+        }
+      }
+    }      
+    }  } 
+} 
+
+
+mixset Constraint { 
+  class UmpleInternalParser { 
+    before Lable_Constraint_48:init
+  {
+      parser.addGrammarFile("/constraint/umple_constraints.grammar");  // TODO Under development
+    }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_49:analyze(boolean)
+  {
+        secondPostTokenAnalysis();
+      }  } 
+} 
+
+
+mixset Attribute { 
+  class UmpleInternalParser { 
+    before Lable_Attribute_50:analyze(boolean)
+  {
+        mixset Method {
+          checkDefaultedNameConflict();
+        }
+      }  } 
+} 
+
+
+mixset FeatureModel { 
+  class UmpleInternalParser { 
+    before Lable_FeatureModel_51:analyze(boolean)
+  {
+        analyzeFeatureModel(); // lastly to analyze the feature model after all mixsets are added to umple model. 
+      }  } 
+} 
+
+
+mixset Mixset { 
+  class UmpleInternalParser { 
+    before Lable_Mixset_52:analyzeToken(Token,int)
+  {
+      analyzeMixsetUseStatement(t, analysisStep);
+    }  } 
+} 
+
+
+mixset Class { 
+  class UmpleInternalParser { 
+    before Lable_Class_53:analyzeToken(Token,int)
+  {
+      analyzeClassToken(t,analysisStep);
+    }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_54:analyzeToken(Token,int)
+  {
+      analyzeTraitToken(t,analysisStep);
+    }  } 
+} 
+
+
+mixset Template { 
+  class UmpleInternalParser { 
+    before Lable_Template_55:analyzeToken(Token,int)
+  {
+      analyzeTemplateToken(t,analysisStep);
+    }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_56:analyzeToken(Token,int)
+  {
+      analyzeStateMachineToken(t,analysisStep);
+    }  } 
+} 
+
+
+mixset Structure { 
+  class UmpleInternalParser { 
+    before Lable_Structure_57:analyzeToken(Token,int)
+  {
+      analyzeComponentToken(t,analysisStep);
+    }  } 
+} 
+
+
+mixset Trace { 
+  class UmpleInternalParser { 
+    before Lable_Trace_58:analyzeToken(Token,int)
+  {
+      analyzeTraceToken(t,analysisStep);
+    }  } 
+} 
+
+
+mixset Filter { 
+  class UmpleInternalParser { 
+    before Lable_Filter_59:analyzeToken(Token,int)
+  {
+      analyzeFilterToken(t,analysisStep);
+    }  } 
+} 
+
+
+mixset Layout { 
+  class UmpleInternalParser { 
+    before Lable_Layout_60:analyzeToken(Token,int)
+  {
+      analyzeLayoutToken(t,analysisStep);
+    }  } 
+} 
+
+
+mixset FIXML { 
+  class UmpleInternalParser { 
+    before Lable_FIXML_61:analyzeToken(Token,int)
+  {
+      analyzeFIXML(t, analysisStep);
+    }  } 
+} 
+
+
+mixset Mixset { 
+  class UmpleInternalParser { 
+    before Lable_Mixset_62:analyzeToken(Token,int)
+  {
+      analyzeMixsetToken(t, analysisStep);
+    }  } 
+} 
+
+
+mixset FeatureModel { 
+  class UmpleInternalParser { 
+    before Lable_FeatureModel_63:analyzeToken(Token,int)
+  {
+      analyzeRequireStatement(t, analysisStep);
+    }  } 
+} 
+
+
+mixset AspectInjection { 
+  class UmpleInternalParser { 
+    before Lable_AspectInjection_64:analyzeToken(Token,int)
+  {
+      analyzeInjectionToken(t, analysisStep);
+    }  } 
+} 
+
+
+mixset Class { 
+  class UmpleInternalParser { 
+    before Lable_Class_65:analyzeToken(Token,UmpleClass,int)
+  {
+      analyzeClassToken(t,aClass,analysisStep);
+    }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_66:analyzeToken(Token,UmpleClass,int)
+  {
+      analyzeStateMachineToken(t,aClass,analysisStep);
+    }  } 
+} 
+
+
+mixset Constraint { 
+  class UmpleInternalParser { 
+    before Lable_Constraint_67:analyzeDependentTokens(Token,UmpleClass,int)
+  {
+      if (t.is("modelConstraintBody"))
+      {
+        analyzeModelConstraint(t,aClass);
+      }
+    }  } 
+} 
+
+
+mixset AspectInjection { 
+  class UmpleInternalParser { 
+    before Lable_AspectInjection_68:analyzeDependentTokens(Token,UmpleClass,int)
+  {
+      else if (t.is("beforeCode") || t.is("afterCode"))
+      {
+        analyzeInjectionCode(t,aClass);
+      }
+    }  } 
+} 
+
+
+mixset Trace { 
+  class UmpleInternalParser { 
+    before Lable_Trace_69:analyzeDependentTokens(Token,UmpleClass,int)
+  {
+      analyzeTraceToken(t,aClass);
+    }  } 
+} 
+
+
+mixset Layout { 
+  class UmpleInternalParser { 
+    before Lable_Layout_70:analyzeDependentTokens(Token,UmpleClass,int)
+  {
+      analyzeLayoutToken(t,aClass,analysisStep);
+    }  } 
+} 
+
+
+mixset Class { 
+  class UmpleInternalParser { 
+    before Lable_Class_71:postTokenAnalysis
+  {
+      if (getParseResult().getWasSuccess())
+      {
+        postTokenClassAnalysis();
+      }
+    }  } 
+} 
+
+
+mixset Trace { 
+  class UmpleInternalParser { 
+    before Lable_Trace_72:postTokenAnalysis
+  { 
+      if (getParseResult().getWasSuccess())
+      {
+        postTokenTraceAnalysis();
+      }
+    }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_73:postTokenAnalysis
+  {
+      if (getParseResult().getWasSuccess())
+      {
+        postTokenTraitAnalysis();
+      }  
+      if (getParseResult().getWasSuccess())
+      {
+        applyTraits();
+        //Issue 686
+        checkCodeInjections();
+      } 
+     }  } 
+} 
+
+
+mixset Layout { 
+  class UmpleInternalParser { 
+    before Lable_Layout_74:postTokenAnalysis
+  {
+      if (getParseResult().getWasSuccess())
+      {
+        postTokenLayoutAnalysis();
+      }
+    }  } 
+} 
+
+
+mixset Template { 
+  class UmpleInternalParser { 
+    before Lable_Template_75:postTokenAnalysis
+  {
+      if (getParseResult().getWasSuccess()) {
+        postTokenTemplateAnalysis();
+      }
+    }  } 
+} 
+
+
+mixset Structure { 
+  class UmpleInternalParser { 
+    before Lable_Structure_76:postTokenAnalysis
+  {
+      if (getParseResult().getWasSuccess()) {
+        postTokenComponentAnalysis();
+      }
+    }  } 
+} 
+
+
+mixset Constraint { 
+  class UmpleInternalParser { 
+    before Lable_Constraint_77:postTokenAnalysis
+  {
+      if (getParseResult().getWasSuccess())
+      {
+        postTokenModelConstraintAnalysis();
+      }
+    }  } 
+} 
+
+
+mixset Mixset { 
+  class UmpleInternalParser { 
+    before Lable_Mixset_78:analyzeClassToken(Token,int)
+  {
+      // add parsed files to parsedUmpfiles hashMap.
+      String umpFileName = t.getSubToken("use").getValue();
+      if(! parsedUmpfiles.keySet().contains(umpFileName))
+      parsedUmpfiles.put(umpFileName, true);
+      }  } 
+} 
+
+
+mixset Mixset { 
+  class UmpleInternalParser { 
+    before Lable_Mixset_79:analyzeClassToken(Token,UmpleClass,int)
+  {
+      else if (token.getValue("mixsetDefinition") != null)  {
+        analyzeMixsetBodyToken(token);
+      }
+    }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_80:postTokenClassAnalysis
+  {
+      addAutogeneratedMethodsForStateMachines();
+      }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_81:checkAssociationsForDistributed
+  { 
+         if (associationIsBetweenClassAndTrait(association)){continue;} 
+       }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_82:checkAssociationsForDistributed
+  {
+      if(getModel().getUmpleTraitTypeParameter(myEnd.getClassName()) || getModel().getUmpleTrait(myEnd.getClassName())!=null) return ;
+      if(getModel().getUmpleTraitTypeParameter(yourEnd.getClassName()) || getModel().getUmpleTrait(yourEnd.getClassName())!=null) return ;
+      }  } 
+} 
+
+
+mixset Mixset { 
+  class UmpleInternalParser { 
+    before Lable_Mixset_83:analyzeAllAssociations(Token)
+  {
+        if (token.is("mixsetDefinition"))
+        {
+          analyzeMixsetBodyToken(token);
+        } 
+      }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_84:analyzeClass(Token)
+  {
+    //Reset number of activeObjects with each class definition
+    this.numberOfActiveObjects = 1;
+    }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_85:addExtendsTo(Token,UmpleClassifier,Map<UmpleClassifier,List<String>>,Map<UmpleClassifier,List<Token>>)
+  {
+          processGTemplateParameterAssignment(extendsToken, aClassifier, extendName);
+        }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_86:verifyClassesInUse
+  {
+        boolean isTraitTypeParameter = model.getUmpleTraitTypeParameter(e.getValue());
+        boolean isATrait = model.getUmpleTrait(e.getValue()) != null;
+        condToCheck = condToCheck && !isATrait && !isTraitTypeParameter;
+      }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_87:addUnlinkedExtends
+  {
+          isTraitCheck = isUmpleTrait(extendName);
+        }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_88:addUnlinkedExtends
+  {
+              UmpleTrait parent = model.getUmpleTrait(extendName);     
+              boolean wasSet = child.addExtendsTrait(parent);
+              if (!wasSet)
+              {
+                Position pos;
+                try
+                {
+                  pos = extendsToken.get(i).getPosition();
+                }
+                catch(Exception e)
+                {
+                  pos = new Position("",0,0,0);
+                }
+                // TODO 1: the error code should be chnaged.            
+                setFailedPosition(pos, 16, child.getName(), parent.getName());
+                return;
+              }
+            }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_89:addUnlinkedKeys
+  {          
+            if(c.hasStateMachines())  
+            {
+                for(StateMachine aStateMachine : c.getStateMachines())
+                {
+                    if(aStateMachine.getName().equals(tokenVal))
+                    {
+                        tokenMatch = true;
+                        break;
+                    }
+                }
+            }
+            }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_90:addImplementedMethodsFromInterface(List<UmpleInterface>,UmpleClass)
+  {
+            hasMethodTraitsCheck = !(uClass.hasMethodInTraits(aMethod));
+          }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_91:createSpecializedLinks
+  {
+        if (model.getUmpleTrait(aLeftEnd.getClassName()) != null || model.getUmpleTrait(aRightEnd.getClassName()) != null)
+        {
+          continue;
+        }
+      }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_92:createSpecializedLinks
+  {
+          if (model.getUmpleTrait(bLeftEnd.getClassName()) != null || model.getUmpleTrait(bRightEnd.getClassName()) != null)
+          {
+            continue;
+          }
+       }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_93:checkSingletonAssociations
+  { 
+        if (associationIsBetweenClassAndTrait(association)){continue;} 
+      }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_94:checkSingletonAssociations
+  {
+        if(getModel().getUmpleTraitTypeParameter(myEnd.getClassName()) || getModel().getUmpleTrait(myEnd.getClassName())!=null) return ;
+        if(getModel().getUmpleTraitTypeParameter(yourEnd.getClassName()) || getModel().getUmpleTrait(yourEnd.getClassName())!=null) return ;
+      }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_95:addUnlinkedAssociations
+  { 
+         if (associationIsBetweenClassAndTrait(association)){continue;}
+       }  } 
+} 
+
+
+mixset Mixset { 
+  class UmpleInternalParser { 
+    before Lable_Mixset_96:analyzeMethod(Token,UmpleElement,boolean)
+  {
+              methodCode = processInlineMixset(token.getValue(), meth);
+            }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_97:analyzeMethod(Token,UmpleElement,boolean)
+  {
+        if (uClass.getStateDependentMethods().contains(aMethod) && !aMethod.isIsAbstract()) {
+          uClass.addStateDependentMethod(aMethod, null);
+        }
+        else
+        }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_98:analyzeMethod(Token,UmpleElement,boolean)
+  {
+        stateDependentMethodsflag = !uClass.getStateDependentMethods().contains(aMethod);
+        }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_99:analyzeMethod(Token,UmpleElement,boolean)
+  {
+    else if (uElement instanceof UmpleTrait)
+    {
+        UmpleTrait uTrait = (UmpleTrait) uElement;
+        if (method.is("abstractMethodDeclaration")) aMethod.setIsAbstract(true);
+        
+        // Add Getter/Setter/Constructor to Class
+     //   boolean shouldAddMethod = isConstructorOrGetSet(uClass, aMethod);
+        if (!uTrait.hasMethod(aMethod)) // && shouldAddMethod)
+        {
+          String msg = "Please do not modify the following method.";
+      aMethod.addCommentAt(new Comment(msg),0);
+          msg = "The following method comes from trait "+uTrait.getName()+".";
+      aMethod.addCommentAt(new Comment(msg),1);
+      msg = "Trait "+uTrait.getName()+" has been used in classes: ";
+      aMethod.addCommentAt(new Comment(msg),2);
+          uTrait.addMethod(aMethod); 
+        } 
+
+        // Make class abstract if an abstract method was added
+        if(uTrait.hasMethod(aMethod) && aMethod.getIsAbstract()) 
+        {
+          uTrait.setIsAbstract(true);
+          uTrait.addUnimplementedMethod(aMethod);
+        }
+
+        // If method not added to class, add it to list of
+        // unimplemented methods
+        if(!uTrait.hasMethod(aMethod)) 
+        {
+          uTrait.addUnimplementedMethod(aMethod);
+        }     
+    }
+    }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_100:checkCodeInjectionValidity(Token,UmpleClass,String)
+  {
+          stateDependentMethodsFlag = uClass.getStateDependentMethods().stream().anyMatch(m -> m.getName().equals(operationFinal));
+        }  } 
+} 
+
+
+mixset Mixset { 
+  class UmpleInternalParser { 
+    before Lable_Mixset_101:makeCodeInject(Token,CodeInjection,CodeBlock,UmpleClassifier)
+  {
+        aspectCode = processInlineMixset(sub.getValue(), null);
+        }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_102:analyzeExtraCode(Token,UmpleClass)
+  {
+
+    //This is a catch all and will be used less often as the grammar gets updated.
+    if(extraCodeIsMalformedStateMachine(token)) setFailedPosition(token.getPosition(), 1006, "");
+    }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_103:fixImportFromDefaultPackage
+  { 
+             if (associationIsBetweenClassAndTrait(association)){continue;} 
+           }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_104:fixImportFromDefaultPackage
+  {
+            if(getModel().getUmpleTraitTypeParameter(myEnd.getClassName()) || getModel().getUmpleTrait(myEnd.getClassName())!=null) return ;
+            if(getModel().getUmpleTraitTypeParameter(yourEnd.getClassName()) || getModel().getUmpleTrait(yourEnd.getClassName())!=null) return ;
+          }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_105:analyzeToken(Token,UmpleTrait,int)
+  {
+      analyzeStateMachineToken(t,aTrait,analysisStep);
+    }  } 
+} 
+
+
+mixset Mixset { 
+  class UmpleInternalParser { 
+    before Lable_Mixset_106:analyzeTraitToken(Token,UmpleTrait,int)
+  {
+      else if (token.is("mixsetDefinition"))
+      {
+        analyzeMixsetBodyToken(token);
+    
+      }
+    }  } 
+} 
+
+
+mixset Association { 
+  class UmpleInternalParser { 
+    before Lable_Association_107:analyzeTraitToken(Token,UmpleTrait,int)
+  {
+      else if (token.is("inlineAssociation"))
+      {
+        analyzeinlineAssociation(token,aTrait);
+      }
+      else if (token.is("symmetricReflexiveAssociation"))
+      {
+        analyzeSymmetricReflexiveAssociation(token,aTrait);
+      }
+    }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_108:analyzeExtraCode(Token,UmpleTrait)
+  {
+      if(extraCodeIsMalformedStateMachine(token)) setFailedPosition(token.getPosition(), 1006, "");
+    }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_109:analyzeException(Token,UmpleTrait)
+  {
+    else if(sub.is("malformedStatemachine1")||sub.is("malformedStatemachine2"))
+    {
+      String extraCode = "";
+      for(Token token:sub.getSubTokens())
+      {
+        if(token.is("stuff"))
+        {
+          if(!"".equals(token.getValue())&&!token.getValue().contains(" ")&&!Token.isValidIdentifier(token.getValue()))
+          {
+            setFailedPosition(token.getPosition(), 150, token.getValue("name"));
+          }
+          extraCode += token.getValue()+ " ";
+        }
+      }
+      extraCode += "\n  {\n    "+sub.getValue("innerstuff")+"\n  }";
+      aTrait.appendExtraCode("// line " + exception.getPosition().getLineNumber() + " " + aTrait.getRelativePath(exception.getPosition().getFilename(),"Java"));
+      aTrait.appendExtraCode("  "+extraCode+"\n");
+      setFailedPosition(sub.getPosition(), 1006, sub.getValue("name"));
+    }
+    else if(sub.is("malformedMethod"))
+    {
+      String extraCode = "";
+      for(Token token:sub.getSubTokens())
+      {
+        if(token.is("stuff"))
+        {
+          extraCode += token.getValue()+ " ";
+        }
+      }
+      extraCode += "\n  {\n    "+sub.getValue("innerstuff")+"\n  }";
+      aTrait.appendExtraCode("// line " + exception.getPosition().getLineNumber() + " " + aTrait.getRelativePath(exception.getPosition().getFilename(),"Java"));
+      aTrait.appendExtraCode("  "+extraCode+"\n");
+      setFailedPosition(sub.getPosition(), 1008, sub.getValue("name"));
+    }
+    }  } 
+} 
+
+
+mixset AspectInjection { 
+  class UmpleInternalParser { 
+    before Lable_AspectInjection_110:analyzeDependentTokens(Token,UmpleTrait,int)
+  {
+      else if (t.is("beforeCode") || t.is("afterCode"))
+      {
+      //TODO should applied for traits
+        analyzeInjectionCode(t,inTrait);
+      }
+    }  } 
+} 
+
+
+mixset Layout { 
+  class UmpleInternalParser { 
+    before Lable_Layout_111:analyzeDependentTokens(Token,UmpleTrait,int)
+  {
+      analyzeLayoutToken(t,inTrait,analysisStep);
+    }  } 
+} 
+
+
+mixset Association { 
+  class UmpleInternalParser { 
+    before Lable_Association_112:applyTraits
+  {
+            if (getParseResult().getWasSuccess()) copyAssociationsFromTraitToClass(uClass);
+          }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_113:applyTraits
+  {
+          if (getParseResult().getWasSuccess()) copyStateMachinesFromTraiToClass(uClass);
+          }  } 
+} 
+
+
+mixset AspectInjection { 
+  class UmpleInternalParser { 
+    before Lable_AspectInjection_114:applyTraitProperties(UmpleClass,UmpleTrait)
+  {
+       // copy injection codes
+       for (CodeInjection cj : inTrait.getCodeInjections()) {
+               cj.setUmpleClassifier(inClass);
+               inClass.addCodeInjection(cj);
+       }
+    }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_115:processGTemplateParameterAssignment(Token,UmpleClassifier,String)
+  {
+                StateMachineTemplateSignature stTSignature = obtainStateMachineTemplateSignatureForTransitions(subToken);
+                if (! aGeneralTPApplied.hasStateMachineTemplateSignature(stTSignature)){  
+                  aGeneralTPApplied.addStateMachineTemplateSignature(stTSignature);
+                } else {
+                  getParseResult().addErrorMessage(new ErrorMessage(229,subToken.getPosition(),aGeneralTPApplied.getInheritanceName(),stTSignature.getSrcStateMachine()));
+                  return;
+                }
+            }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_116:processGTemplateParameterAssignment(Token,UmpleClassifier,String)
+  {
+          else if (subToken.is("StateMachineAliasName")){ 
+              StateMachineTemplateSignature stTSignature = obtainStateMachineTemplateSignature(subToken);
+              if (! aGeneralTPApplied.hasStateMachineTemplateSignature(stTSignature)){  
+                aGeneralTPApplied.addStateMachineTemplateSignature(stTSignature);
+              } else {
+                getParseResult().addErrorMessage(new ErrorMessage(229,subToken.getPosition(),aGeneralTPApplied.getInheritanceName(),stTSignature.getSrcStateMachine()));
+                return;
+              } 
+          } else if (subToken.is("iEStateMachine")){ 
+              StateMachineModifier stTSignature = obtainStateMachineModifier(subToken);
+              if (! aGeneralTPApplied.hasStateMachineModifier(stTSignature)){  
+                aGeneralTPApplied.addStateMachineModifier(stTSignature);
+              } else {
+                getParseResult().addErrorMessage(new ErrorMessage(229,subToken.getPosition(),aGeneralTPApplied.getInheritanceName(),stTSignature.getSrcStateMachine()));
+                return;
+              } 
+          } 
+        }  } 
+} 
+
+
+mixset Association { 
+  class UmpleInternalParser { 
+    before Lable_Association_117:analyzeFIXMLDefinition(Token)
+  {
+				  assignAssociationInitialValues(); // based-on-single-associations
+				}  } 
+} 
+
+
+mixset addAssociation { 
+  class UmpleInternalParser { 
+    before Lable_addAssociation_118:analyzeFIXMLextendedContentContetnt(Token)
+  {
+				  addAssociation(uClass, rUClass,subToken); // based-on-single-associations
+				}  } 
+} 
+
+
+mixset Association { 
+  class UmpleInternalParser { 
+    before Lable_Association_119:analyzeFIXMLextendedContentContetnt(Token)
+  {
+				  addAssociation(uClass, rUClass,subToken); // based-on-single-associations
+				}  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_120:analyzeStateMachineToken(Token,UmpleClassifier,int)
+  {
+      else if (uClassifier instanceof UmpleTrait) {
+        if (((UmpleTrait)uClassifier).isImmutable())
+        {
+          //TODO--- trait's code	
+            setFailedPosition(token.getPosition(), 15, uClassifier.getName());
+            return;
+        }	
+	    }
+    }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_121:analyzedReferencedStateMachine(Token,UmpleClassifier)
+  {
+      if (uClassifier instanceof UmpleTrait){
+        sm.setUmpleTrait((UmpleTrait)uClassifier);
+      }
+    }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_122:analyzedReferencedStateMachine(Token,UmpleClassifier)
+  {
+        else if (uClassifier instanceof UmpleTrait) {
+        wasSet = sm.setUmpleTrait((UmpleTrait)uClassifier);
+      }
+    }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_123:analyzedReferencedStateMachine(Token,UmpleClassifier)
+  {
+        else if (uClassifier instanceof UmpleTrait) {
+          //TODO --Trait's code
+          setFailedPosition(stateMachineToken.getPosition(), 15, uClassifier.getName());
+        }
+      }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_124:analyzeStateMachine(Token,UmpleClassifier)
+  {
+            if (uClassifier instanceof UmpleTrait){
+            sm.setUmpleTrait((UmpleTrait)uClassifier);
+          } 
+        }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_125:analyzeStateMachine(Token,UmpleClassifier)
+  {
+       if (uClassifier instanceof UmpleTrait) {
+    	wasSet = sm.setUmpleTrait((UmpleTrait)uClassifier);
+     }
+    }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_126:analyzeStateMachine(Token,UmpleClassifier)
+  {
+          if (uClassifier instanceof UmpleTrait) {
+          //TODO --Trait's code
+          setFailedPosition(stateMachineToken.getPosition(), 15, uClassifier.getName());
+        }
+      }  } 
+} 
+
+
+mixset Mixset { 
+  class UmpleInternalParser { 
+    before Lable_Mixset_127:analyzeStateMachine(Token,UmpleClassifier)
+  {
+      analyzeMixsetDefinition(innerMixsetTokens, sm);
+    }  } 
+} 
+
+
+mixset Trace { 
+  class UmpleInternalParser { 
+    before Lable_Trace_128:populateStateMachine(Token,StateMachine,UmpleClassifier)
+  {
+        if(stateToken.is("trace"))
+        {
+          if (uClassifier instanceof UmpleClass) {
+          analyzeTraceStatement((UmpleClass)uClassifier,stateToken); 
+        } else {
+          //TODO--- trait's functionality for trace;
+        }
+        }
+      }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_129:analyzeTransition(boolean,Token,State,String)
+  {
+        if (fromState.getStateMachine().getRootStateMachine().getUmpleClass()==null){
+    		uClassifier = fromState.getStateMachine().getRootStateMachine().getUmpleTrait();
+    	  }
+      }  } 
+} 
+
+
+mixset Association { 
+  class UmpleInternalParser { 
+    before Lable_Association_130:analyzeTraceStatement(UmpleClass,Token)
+  {
+    tracedAssoc = new AssociationTraceItem(traceDirective);
+    }  } 
+} 
+
+
+mixset Association { 
+  class UmpleInternalParser { 
+    before Lable_Association_131:analyzeTraceStatement(UmpleClass,Token)
+  {
+          tracedAssoc.setConstraint(constraint);
+          }  } 
+} 
+
+
+mixset Association { 
+  class UmpleInternalParser { 
+    before Lable_Association_132:analyzeTraceStatement(UmpleClass,Token)
+  {
+          attr = traceDirective.getUmpleClass().getAssociationVariable(token.getValue("LHS"));
+          }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_133:analyzeTraceItem(Token)
+  {
+      if( traceItemType == 2 )
+      {
+        analyzeStateMachineTraceItem(traceToken);
+      }
+    }  } 
+} 
+
+
+mixset Association { 
+  class UmpleInternalParser { 
+    before Lable_Association_134:anaylzeTraceWildCard(Token)
+  {
+    //------------- trace all associations [wildcard]
+    if( traceToken.getValue("traceEntity").toLowerCase().equals("allassociations") )
+    {
+      for( AssociationVariable assoc : uClass.getAssociationVariables() )
+      {
+      	tracedAssoc.setPosition(traceToken.getPosition());
+      	tracedAssoc.addAssociationVariable(assoc);
+      	tracedAssoc.setTraceAdd(true);
+      	tracedAssoc.setTraceRemove(true);
+      }
+    }
+    }  } 
+} 
+
+
+mixset Association { 
+  class UmpleInternalParser { 
+    before Lable_Association_135:traceItemType(Token)
+  {  
+    attr = attr==null?aClass.getAssociationVariable(traceToken.getValue("traceEntity")):attr;
+    }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_136:traceItemType(Token)
+  {
+      // --- check if state machine
+      for( StateMachine sVar : aClass.getStateMachines() )
+      {
+        if( traceToken.getValue("traceEntity").equals(sVar.getName()))
+        {
+          traceItemType = 2;
+        }
+        for( State s : sVar.getStates() )
+        {
+          if( traceToken.getValue("traceEntity").equals(s.getName()) || traceToken.getValue("traceEntity").equals(sVar.getName()+"."+s.getName()) )
+          {
+            traceItemType = 2;
+          }
+          for( Transition t : s.getTransitions() )
+            if( traceToken.getValue("traceEntity").equals(t.getEvent().getName()))
+            {
+              traceItemType = 2;
+            }
+          // check if traced state is already found
+          // no need to check nested states
+          if( traceItemType == 2 ) return traceItemType;
+          if(s.hasNestedStateMachines())
+          {
+            traceItemType = checkNestedStateMachine(traceToken.getValue("traceEntity"),s);	
+          }
+        }
+      }
+    }  } 
+} 
+
+
+mixset Association { 
+  class UmpleInternalParser { 
+    before Lable_Association_137:traceItemType(Token)
+  {
+    // --- check if association
+    for( AssociationVariable aVar : aClass.getAssociationVariables() )
+    {
+      if( traceToken.getValue("traceEntity").equals(aVar.getName()))
+      {
+        traceItemType = 3;
+      }
+    }
+
+    for( Association a : aClass.getAssociations() )
+    {
+      if( a.getName().contains(traceToken.getValue("traceEntity") ))
+      {
+        traceItemType = 3;
+      }
+    }
+    }  } 
+} 
+
+
+mixset Association { 
+  class UmpleInternalParser { 
+    before Lable_Association_138:analyzeLayoutToken(Token,UmpleClassifier,int)
+  {
+      else if (token.is("associationPosition"))
+      {
+        String name = token.getValue("name");
+        Association assoc = model.getAssociation(name);
+
+        if (assoc != null)
+        {
+          assoc.setName(name);
+          for(Token position : token.getSubTokens())
+          {
+            if (position.is("coordinate"))
+            {
+              assoc.addPosition(new Coordinate(position.getIntValue("x"),position.getIntValue("y"),0,0));
+            }
+          }
+        }
+      }
+    }  } 
+} 
+
+
+mixset Association { 
+  class UmpleInternalParser { 
+    before Lable_Association_139:layoutNewElements
+  {
+      // Layout associations
+      for (int i=0; i<model.numberOfAssociations(); i++)
+      {
+        Association a = model.getAssociation(i);
+        
+        if (associationIsBetweenClassAndInterface (a)){continue;}
+        if (associationIsBetweenClassAndTrait (a)){continue;}
+        
+        int numberOfPositions = a.numberOfPositions();
+
+        if (numberOfPositions < 2)
+        {
+          Coordinate[] defaults = model.getDefaultAssociationPosition(a);
+      if (defaults==null) continue;
+          a.addPosition(defaults[0]);
+          a.addPosition(defaults[1]);
+          a.getPosition(0).setStatus(Coordinate.Status.Defaulted);
+          a.getPosition(1).setStatus(Coordinate.Status.Defaulted);
+        }
+      }
+    }  } 
+} 
+
+
+mixset Association { 
+  class UmpleInternalParser { 
+    before Lable_Association_140:analyzeFilterToken(Token,int)
+  {
+            if(t.is("association"))
+	        {
+	          addAssociationValue(f,t);
+          	}
+          }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_141:postTokenModelEnumerationAnalysis
+  {      
+      // Check that the enumeration doesn't conflict with any traits
+      for (UmpleTrait uT : model.getUmpleTraits()) {
+        if (uEnum.hasSameName(uT.getName())) {
+          // Enumeration Naming Conflict
+          getParseResult().addErrorMessage(new ErrorMessage(96,
+                                                            uEnum.getPosition(), 
+                                                            uEnum.getName(), 
+                                                            "" + uEnum.getPosition().getLineNumber(),
+                                                            "" + uT.getPosition(0).getLineNumber()));
+          return;
+        }
+      }
+      }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_142:postTokenClassEnumerationAnalysis(UmpleClass)
+  {
+      // Check if the enumeration conflicts with any state machines, and if the enumeration is used as
+      // event parameters
+      for (StateMachine sm : uClass.getStateMachines()) {
+        if (uEnum.hasSameName(sm.getName())) {
+          // Enumeration Conflicts with State Machine Error
+          getParseResult().addErrorMessage(new ErrorMessage(97, 
+                                                            uEnum.getPosition(), 
+                                                            uEnum.getName(), 
+                                                            "" + uEnum.getPosition().getLineNumber(),
+                                                            sm.getName(),
+                                                            uClass.getName()));
+          return;
+        }
+        for (Event e : sm.getAllEvents()) {
+          for (MethodParameter p : e.getParams()) {
+            if (uEnum.hasSameName(p.getType()) && otherClass != null) {
+              // Event Parameter Ambiguity Warning
+              getParseResult().addErrorMessage(new ErrorMessage(103, 
+                                                                uEnum.getPosition(), 
+                                                                uEnum.getName(), 
+                                                                "" + uEnum.getPosition().getLineNumber(),
+                                                                p.getName(),
+                                                                e.getName(),
+                                                                sm.getName(),
+                                                                otherClass.getName()));
+            }
+          }
+        }
+      }
+      }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_143:analyzeModelEnumInClass(UmpleClass,UmpleEnumeration)
+  {   
+     // Check if the class's state machines conflict with the enumeration, and if any of its state 
+     // machine's events use the enumeration in their parameters
+     for (StateMachine sm : uClass.getStateMachines()) {
+       if (classUsesEnum) {
+         if (uEnum.hasSameName(sm.getName())) {
+           // Enumeration Conflicts with State Machine Error
+           getParseResult().addErrorMessage(new ErrorMessage(97, 
+                                                             uEnum.getPosition(), 
+                                                             uEnum.getName(), 
+                                                             "" + uEnum.getPosition().getLineNumber(),
+                                                             sm.getName(),
+                                                             uClass.getName()));
+           return;
+         }
+       }
+       for (Event e : sm.getAllEvents()) {
+         for (MethodParameter p : e.getParams()) {
+           if (uEnum.hasSameName(p.getType())) {
+             if (!classUsesEnum && uEnum.hasSameName(sm.getName())) {
+               // Enumeration Conflicts with State Machine Error
+               getParseResult().addErrorMessage(new ErrorMessage(97, 
+                                                                uEnum.getPosition(), 
+                                                                uEnum.getName(), 
+                                                                "" + uEnum.getPosition().getLineNumber(),
+                                                                sm.getName(),
+                                                                uClass.getName()));
+               return;
+             } else {
+               classUsesEnum = true;
+           }
+         }
+       }
+      }
+     }
+    }  } 
+} 
+
+
+mixset Class { 
+  class UmpleInternalParser { 
+    before Lable_Class_144:getMixsetFragmentWithEnclosingElement(Token,String)
+  {
+      if (token.is("classDefinition"))
+      {
+        tokenKey = "name"; 
+        prefix ="class";
+        returnMixsetBody= true;
+      }
+    }  } 
+} 
+
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Lable_StateMachine_145:getMixsetFragmentWithEnclosingElement(Token,String)
+  {
+      else if (token.is("state"))
+      {
+        tokenKey = "stateName";
+      }
+      else if (token.is("inlineStateMachine"))
+      {
+        tokenKey =  "name";
+      }
+    }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_146:getMixsetFragmentWithEnclosingElement(Token,String)
+  {
+      else if (token.is("traitDefinition"))
+      {
+        tokenKey = "name"; 
+        prefix ="trait";
+        returnMixsetBody= true;
+      }
+    }  } 
+} 
+
+
+mixset Association { 
+  class UmpleInternalParser { 
+    before Lable_Association_147:getMixsetFragmentWithEnclosingElement(Token,String)
+  {
+      else if (token.is("associationDefinition"))
+      {
+        tokenKey = "name"; 
+        prefix ="association";
+      }
+    }  } 
+} 
+
+
+mixset FeatureModel { 
+  class UmpleInternalParser { 
+    before Lable_FeatureModel_148:parseMixsetNotUsedToken(Token)
+  {
+      //parse require statments. 
+      analyzeRequireStatement(token, 2);
+    }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_149:analyzeToplevelInjectionCode(Token,int,String)
+  {
+              traitNames = (ArrayList<String>) mapElement.getValue();
+              ArrayList<String> newTraitNames = (ArrayList<String>) traitNames.clone();
+              for (String traitName : traitNames)
+              {
+                if (model.getUmpleTrait(traitName) == null)
+                {
+                  newTraitNames.remove(traitName);
+                }
+              } 
+              traitNames = newTraitNames;
+            }  } 
+} 
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Lable_Trait_150:analyzeToplevelInjectionCode(Token,int,String)
+  {
+          for (String umpleTraitName:traitNames)
+          {
+            for (Method m : model.getUmpleTrait(umpleTraitName).getMethods())
+            {
+              methodNames.add(m.getName());
+            }
+          }
+        }  } 
+} 
+
+
+mixset Mixset { 
+  class UmpleInternalParser { 
+    before Lable_Mixset_151:analyzeInjectionCode(Token,UmpleClassifier)
+  {
+      // check if the aspect needs to be injected before/after a label.
+      if(codeLabelToken != null)
+      injection.setInjectionlabel(codeLabelToken.getValue());
+    }  } 
+} 
+
+
+mixset Association { 
+  class CompositeStructureTokenAnalyzer { 
+    before Lable_Association_152:analyzeConstraint(Token,UmpleClassifier)
+  {
+		else if (invariantToken.is("associationExpr"))
+		{
+			rawLine.addElementAll(analyzeAssociationConstraintExpression(invariantToken,uClassifier));
+		}
+	   }  } 
+} 
+
+
+mixset StateMachine { 
+  class CompositeStructureTokenAnalyzer { 
+    before Lable_StateMachine_153:analyzeConstraint(Token,UmpleClassifier)
+  {
+	     else if (invariantToken.is("statemachineExpr"))
+	     {
+		   rawLine.addElementAll(analyzeStateMachineConstraintExpression(invariantToken,uClassifier));
+	     }
+	   }  } 
+} 
+
+
+mixset Association { 
+  class CompositeStructureTokenAnalyzer { 
+    before Lable_Association_154:analyzeAssociationConstraintExpression(Token,UmpleClassifier)
+  {
+			  else if(sub.is("associationLit"))
+			  {
+				rawLine.addElementAll(analyzeAssociationLiteralConstraintExpression(sub,uClassifier,card,all,true,subject,operator));
+			  }
+			}  } 
+} 
+
+
+mixset Association { 
+  class CompositeStructureTokenAnalyzer { 
+    before Lable_Association_155:analyzeInvariantConstraint(Token)
+  {
+			     else if (invariantToken.is("associationExpr"))
+			     {
+				   rawLine.addElementAll(analyzeAssociationConstraintExpression(invariantToken,null));
+			     }
+			   }  } 
+} 
+
+
+mixset StateMachine { 
+  class CompositeStructureTokenAnalyzer { 
+    before Lable_StateMachine_156:analyzeInvariantConstraint(Token)
+  {
+			     else if (invariantToken.is("statemachineExpr"))
+			     {
+				   rawLine.addElementAll(analyzeStateMachineConstraintExpression(invariantToken,null));
+			     }
+			   }  } 
+} 
+
+
+mixset Mixset { 
+  class TemplateDefinitionWalker { 
+    before Lable_Mixset_157:analyzeToken(Token,TemplateTokenAnalyzer,int)
+  {
+          processInlineMixset(aToken);
+        }  } 
+} 
+
+
+

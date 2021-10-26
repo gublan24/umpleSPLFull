@@ -1,0 +1,10 @@
+
+// Code for mixset Attribute : 
+
+
+class UmpleInternalParser { 
+    before Label_Attribute_50:analyze(boolean)
+  {
+          checkDefaultedNameConflict();   
+  }      
+}

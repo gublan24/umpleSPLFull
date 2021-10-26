@@ -1,0 +1,132 @@
+class UmpleInternalParser { 
+    before Label_Mixset_52:analyzeToken(Token,int)
+  {
+      analyzeMixsetUseStatement(t, analysisStep);
+  }  
+} 
+
+
+  class UmpleInternalParser { 
+    before Label_Mixset_62:analyzeToken(Token,int)
+  {
+      analyzeMixsetToken(t, analysisStep);
+    }  } 
+//Done
+
+//src/generators/Generator_CodeUmple.ump
+mixset Mixset { 
+  class UmpleGenerator { 
+    before Label_Mixset_16:initializeParser
+  {
+      parser.addGrammarFile("/mixset/umple_mixsets.grammar");
+    }  } 
+}
+
+
+
+
+// <<mixsetClass <<>>
+mixset AspectInjection { 
+  class GeneratorHelper { 
+    before Label_Mixset_5:toCode(List<CodeInjection>)
+  {
+	      if(inject.hasCodeLabel())
+          continue;// handle the case when labels are used. // Do nothing  
+        }  } 
+} 
+
+
+
+mixset Class { 
+  class UmpleInternalParser { 
+    before Label_Mixset_78:analyzeClassToken(Token,int)
+  {
+      // add parsed files to parsedUmpfiles hashMap.
+      String umpFileName = t.getSubToken("use").getValue();
+      if(! parsedUmpfiles.keySet().contains(umpFileName))
+      parsedUmpfiles.put(umpFileName, true);
+      }  } 
+} 
+
+
+mixset Class { 
+  class UmpleInternalParser { 
+    before Label_Mixset_79:analyzeClassToken(Token,UmpleClass,int)
+  {
+      else if (token.getValue("mixsetDefinition") != null)  {
+        analyzeMixsetBodyToken(token);
+      }
+    }  } 
+}
+
+mixset Assocation { 
+  class UmpleInternalParser { 
+    before Label_Mixset_83:analyzeAllAssociations(Token)
+  {
+        if (token.is("mixsetDefinition"))
+        {
+          analyzeMixsetBodyToken(token);
+        } 
+      }  } 
+} 
+
+
+mixset Class { 
+  class UmpleInternalParser { 
+    before Label_Mixset_96:analyzeMethod(Token,UmpleElement,boolean)
+  {
+              methodCode = processInlineMixset(token.getValue(), meth);
+            }  } 
+} 
+
+
+//MixsetAspectInjection
+mixset Method { 
+  class UmpleInternalParser { 
+    before Label_Mixset_101:makeCodeInject(Token,CodeInjection,CodeBlock,UmpleClassifier)
+  {
+        aspectCode = processInlineMixset(sub.getValue(), null);
+        }  } 
+} 
+
+
+
+
+mixset Trait { 
+  class UmpleInternalParser { 
+    before Label_Mixset_106:analyzeTraitToken(Token,UmpleTrait,int)
+  {
+      else if (token.is("mixsetDefinition"))
+      {
+        analyzeMixsetBodyToken(token);
+    
+      }
+    }  } 
+}
+
+mixset StateMachine { 
+  class UmpleInternalParser { 
+    before Label_Mixset_127:analyzeStateMachine(Token,UmpleClassifier)
+  {
+      analyzeMixsetDefinition(innerMixsetTokens, sm);
+    }  } 
+} 
+
+mixset AspectInjection { 
+  class UmpleInternalParser { 
+    before Label_Mixset_151:analyzeInjectionCode(Token,UmpleClassifier)
+  {
+      // check if the aspect needs to be injected before/after a label.
+      if(codeLabelToken != null)
+      injection.setInjectionlabel(codeLabelToken.getValue());
+    }  } 
+} 
+
+mixset Template { 
+  class TemplateDefinitionWalker { 
+    before Label_Mixset_157:analyzeToken(Token,TemplateTokenAnalyzer,int)
+  {
+          processInlineMixset(aToken);
+        }  } 
+} 
+

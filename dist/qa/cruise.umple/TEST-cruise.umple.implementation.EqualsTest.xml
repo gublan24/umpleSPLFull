@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="Abdulazizs-MacBook-Pro.local" name="cruise.umple.implementation.EqualsTest" skipped="0" tests="4" time="0.063" timestamp="2021-10-26T14:28:07">
+  <properties>
+    <property name="ant.library.dir" value="/usr/local/Cellar/ant/1.10.9/libexec/lib" />
+    <property name="env.TERM" value="xterm-256color" />
+    <property name="java.specification.version" value="15" />
+    <property name="ant.project.name" value="UmpleCore" />
+    <property name="ant.file.type.UmpleCore" value="file" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="ant.file.type.LocalBuildProperties" value="file" />
+    <property name="env.SDKMAN_CANDIDATES_API" value="https://api.sdkman.io/2" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="dist.umple.docs.jar.prev" value="umpledocs-1.31.1.5860.78bb27cc6.jar" />
+    <property name="rake_cmd" value="rake" />
+    <property name="showJunitOutput" value="false" />
+    <property name="umple.deps.dir" value="/Users/abdulaziz/tmp/umple/dist/libs" />
+    <property name="java.vendor.url" value="https://openjdk.java.net/" />
+    <property name="dist.libs.dir" value="/Users/abdulaziz/tmp/umple/dist/libs" />
+    <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home/lib" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=/Users/abdulaziz/tmp/umple/junittestcases9945622084601822128.properties skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/abdulaziz/tmp/umple/dist/qa/cruise.umple/IGNORETHIS.xml crashfile=/Users/abdulaziz/tmp/umple/junitvmwatcher11280979461299836288.properties propsfile=/Users/abdulaziz/tmp/umple/junit10838995335343066243.properties" />
+    <property name="jdk.debug" value="release" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="test.output.path" value="/Users/abdulaziz/tmp/umple/dist/qa/cruise.umple" />
+    <property name="env.JAVA_HOME" value="/usr/local/opt/openjdk" />
+    <property name="java.version.date" value="2020-10-20" />
+    <property name="java.home" value="/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home" />
+    <property name="basedir" value="/Users/abdulaziz/tmp/umple" />
+    <property name="file.separator" value="/" />
+    <property name="java.vm.compressedOopsMode" value="Zero based" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="ivy.jar.file" value="/Users/abdulaziz/.ant/lib/ivy-2.4.0.jar" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.file.Template" value="/Users/abdulaziz/tmp/umple/build/_template.xml" />
+    <property name="dist.umple.stats.jar" value="umplestats-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ivyRetrieveLogLevel" value="quiet" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="java.runtime.version" value="15.0.1+9" />
+    <property name="env.TERM_PROGRAM_VERSION" value="440" />
+    <property name="user.name" value="abdulaziz" />
+    <property name="env.PATH" value="/Users/abdulaziz/.sdkman/candidates/gradle/current/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands" />
+    <property name="env.LOGNAME" value="abdulaziz" />
+    <property name="env.XPC_FLAGS" value="0x0" />
+    <property name="env.__CF_USER_TEXT_ENCODING" value="0x1F5:0x0:0x0" />
+    <property name="file.encoding" value="UTF-8" />
+    <property name="env.__CFBundleIdentifier" value="com.apple.Terminal" />
+    <property name="env.TERM_SESSION_ID" value="20D2790F-0FEC-4CCB-A10B-030C8F4ED298" />
+    <property name="umple.stable.jar" value="/Users/abdulaziz/tmp/umple/dist/libs/umple-1.31.1.5860.78bb27cc6.jar" />
+    <property name="haltonfailure" value="false" />
+    <property name="connectionTimeout" value="30" />
+    <property name="env.SHLVL" value="1" />
+    <property name="dist.dir" value="/Users/abdulaziz/tmp/umple/dist" />
+    <property name="dist.path" value="/Users/abdulaziz/tmp/umple/dist/cruise.umple" />
+    <property name="java.io.tmpdir" value="/var/folders/fm/7tjk7l8154x840c6vvrs49p40000gn/T/" />
+    <property name="umple.ivy.dep.file" value="/Users/abdulaziz/tmp/umple/build/ivy.xml" />
+    <property name="dist.umple.run.jar.prev" value="umplerun-1.31.1.5860.78bb27cc6.jar" />
+    <property name="dist.umple.jar" value="umple-1.31.1.5860.78bb27cc6.jar" />
+    <property name="java.version" value="15.0.1" />
+    <property name="env.SSH_AUTH_SOCK" value="/private/tmp/com.apple.launchd.qK4l0KXsgu/Listeners" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.home" value="/usr/local/Cellar/ant/1.10.9/libexec" />
+    <property name="ant.file.type.UmpleDeps" value="file" />
+    <property name="env.SDKMAN_DIR" value="/Users/abdulaziz/.sdkman" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.10.9 compiled on September 27 2020" />
+    <property name="env.TMPDIR" value="/var/folders/fm/7tjk7l8154x840c6vvrs49p40000gn/T/" />
+    <property name="env.SDKMAN_PLATFORM" value="darwinx64" />
+    <property name="java.library.path" value="/Users/abdulaziz/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
+    <property name="java.vendor" value="N/A" />
+    <property name="shouldPackageUmpleOnline" value="false" />
+    <property name="dist.umple.validator.jar" value="umplevalidator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="sun.io.unicode.encoding" value="UnicodeBig" />
+    <property name="jopt-simple.install.version" value="4.4" />
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="env.SDKMAN_CANDIDATES_DIR" value="/Users/abdulaziz/.sdkman/candidates" />
+    <property name="env.TERM_PROGRAM" value="Apple_Terminal" />
+    <property name="vendors.path" value="/Users/abdulaziz/tmp/umple/dist/libs/vendors" />
+    <property name="env.PWD" value="/Users/abdulaziz/tmp/umple/build" />
+    <property name="ant.file.type" value="file" />
+    <property name="last.version" value="1.31.1.5860.78bb27cc6" />
+    <property name="env.LANG" value="en_CA.UTF-8" />
+    <property name="ant.file.type.VersionLast" value="file" />
+    <property name="java.class.path" value="/Users/abdulaziz/tmp/umple/cruise.umple/bin:/Users/abdulaziz/tmp/umple/dist/libs/core/ant-launcher.jar:/Users/abdulaziz/tmp/umple/dist/libs/core/ant.jar:/Users/abdulaziz/tmp/umple/dist/libs/core/jopt-simple.jar:/Users/abdulaziz/tmp/umple/dist/libs/test/hamcrest-core.jar:/Users/abdulaziz/tmp/umple/dist/libs/test/junit.jar:/Users/abdulaziz/.ant/lib/junit.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-launcher.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-junit.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-junit4.jar" />
+    <property name="env.HOME" value="/Users/abdulaziz" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="env.GRADLE_HOME" value="/Users/abdulaziz/.sdkman/candidates/gradle/current" />
+    <property name="xtext.project.path" value="cruise.umple.xtext" />
+    <property name="ant.file.type.Template" value="file" />
+    <property name="user.timezone" value="America/Toronto" />
+    <property name="project.path" value="cruise.umple" />
+    <property name="ant.file.UmpleDeps" value="/Users/abdulaziz/tmp/umple/build/build.deps.xml" />
+    <property name="java.vm.specification.version" value="15" />
+    <property name="os.name" value="Mac OS X" />
+    <property name="env.DISPLAY" value="/private/tmp/com.apple.launchd.8VZUm1G4zQ/org.xquartz:0" />
+    <property name="dist.umple.sync.jar" value="umplesync-1.31.1.5860.78bb27cc6.jar" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="user.country" value="CA" />
+    <property name="dist.umple.run.jar" value="umplerun-1.31.1.5860.78bb27cc6.jar" />
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="user.home" value="/Users/abdulaziz" />
+    <property name="user.language" value="en" />
+    <property name="ivy.install.version" value="2.4.0" />
+    <property name="ant.java.version" value="15" />
+    <property name="ant.file.type.Umple" value="file" />
+    <property name="showJunitSummary" value="false" />
+    <property name="bin.path" value="cruise.umple/bin" />
+    <property name="umple.version" value="1.31.1.5860.78bb27cc6" />
+    <property name="dist.umple.sync.jar.prev" value="umplesync-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ivyResolveLogLevel" value="download-only" />
+    <property name="env.XPC_SERVICE_NAME" value="0" />
+    <property name="user.home.ant" value="/Users/abdulaziz/.ant/lib" />
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="is.osx" value="true" />
+    <property name="dist.umple.stats.jar.prev" value="umplestats-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ant.file" value="/Users/abdulaziz/tmp/umple/build/build.umple.xml" />
+    <property name="path.separator" value=":" />
+    <property name="dist.umple.umplificator.jar.prev" value="umpleumplificator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="os.version" value="11.6" />
+    <property name="ant.file.VersionLast" value="/Users/abdulaziz/tmp/umple/build/_versionLast.xml" />
+    <property name="ant.file.Umple" value="/Users/abdulaziz/tmp/umple/build/build.xml" />
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+    <property name="dist.umple.docs.jar" value="umpledocs-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ant.project.invoked-targets" value="template.test" />
+    <property name="dist.umple.umplificator.jar" value="umpleumplificator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM" />
+    <property name="ant.file.LocalBuildProperties" value="/Users/abdulaziz/tmp/umple/build/_local.xml" />
+    <property name="env.SHELL" value="/bin/zsh" />
+    <property name="ant.core.lib" value="/usr/local/Cellar/ant/1.10.9/libexec/lib/ant.jar" />
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/" />
+    <property name="junit" value="*Test" />
+    <property name="user.dir" value="/Users/abdulaziz/tmp/umple/build" />
+    <property name="os.arch" value="x86_64" />
+    <property name="env.SDKMAN_VERSION" value="5.11.5+713" />
+    <property name="shouldDeploy" value="false" />
+    <property name="dist.umple.validator.jar.prev" value="umplevalidator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="java.vm.info" value="mixed mode, sharing" />
+    <property name="java.vm.version" value="15.0.1+9" />
+    <property name="ant.file.UmpleCore" value="/Users/abdulaziz/tmp/umple/build/build.umple.xml" />
+    <property name="online" value="true" />
+    <property name="myenv" value="local" />
+    <property name="umple.deps.manual.dir" value="/Users/abdulaziz/tmp/umple/dist/libs/manual" />
+    <property name="env.USER" value="abdulaziz" />
+    <property name="java.class.version" value="59.0" />
+    <property name="first.build" value="false" />
+    <property name="dist.umple.jar.prev" value="umple-1.31.1.5860.78bb27cc6.jar" />
+    <property name="env.JAVA_MAIN_CLASS_3280" value="org.apache.tools.ant.launch.Launcher" />
+    <property name="ant.project.default-target" value="build" />
+  </properties>
+  <testcase classname="cruise.umple.implementation.EqualsTest" name="Attributes" time="0.039" />
+  <testcase classname="cruise.umple.implementation.EqualsTest" name="AlreadyImmutable" time="0.008" />
+  <testcase classname="cruise.umple.implementation.EqualsTest" name="Associations" time="0.014" />
+  <testcase classname="cruise.umple.implementation.EqualsTest" name="avoidJunitError" time="0.001" />
+  <system-out><![CDATA[/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+import java.util.*;
+
+// line 3 "../EqualsTest.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private int intId;
+  private double doubleId;
+  private boolean booleanId;
+  private String stringId;
+  private List<String> stringListIds;
+
+  //Helper Variables
+  private int cachedHashCode;
+  private boolean canSetIntId;
+  private boolean canSetDoubleId;
+  private boolean canSetBooleanId;
+  private boolean canSetStringId;
+  private boolean canSetStringListIds;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student(int aIntId, double aDoubleId, boolean aBooleanId, String aStringId)
+  {
+    cachedHashCode = -1;
+    canSetIntId = true;
+    canSetDoubleId = true;
+    canSetBooleanId = true;
+    canSetStringId = true;
+    canSetStringListIds = true;
+    intId = aIntId;
+    doubleId = aDoubleId;
+    booleanId = aBooleanId;
+    stringId = aStringId;
+    stringListIds = new ArrayList<String>();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setIntId(int aIntId)
+  {
+    boolean wasSet = false;
+    if (!canSetIntId) { return false; }
+    intId = aIntId;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setDoubleId(double aDoubleId)
+  {
+    boolean wasSet = false;
+    if (!canSetDoubleId) { return false; }
+    doubleId = aDoubleId;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setBooleanId(boolean aBooleanId)
+  {
+    boolean wasSet = false;
+    if (!canSetBooleanId) { return false; }
+    booleanId = aBooleanId;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setStringId(String aStringId)
+  {
+    boolean wasSet = false;
+    if (!canSetStringId) { return false; }
+    stringId = aStringId;
+    wasSet = true;
+    return wasSet;
+  }
+  /* Code from template attribute_SetMany */
+  public boolean addStringListId(String aStringListId)
+  {
+    boolean wasAdded = false;
+    if (!canSetStringListIds) { return false; }
+    wasAdded = stringListIds.add(aStringListId);
+    return wasAdded;
+  }
+
+  public boolean removeStringListId(String aStringListId)
+  {
+    boolean wasRemoved = false;
+    if (!canSetStringListIds) { return false; }
+    wasRemoved = stringListIds.remove(aStringListId);
+    return wasRemoved;
+  }
+
+  public int getIntId()
+  {
+    return intId;
+  }
+
+  public double getDoubleId()
+  {
+    return doubleId;
+  }
+
+  public boolean getBooleanId()
+  {
+    return booleanId;
+  }
+
+  public String getStringId()
+  {
+    return stringId;
+  }
+  /* Code from template attribute_GetMany */
+  public String getStringListId(int index)
+  {
+    String aStringListId = stringListIds.get(index);
+    return aStringListId;
+  }
+
+  public String[] getStringListIds()
+  {
+    String[] newStringListIds = stringListIds.toArray(new String[stringListIds.size()]);
+    return newStringListIds;
+  }
+
+  public int numberOfStringListIds()
+  {
+    int number = stringListIds.size();
+    return number;
+  }
+
+  public boolean hasStringListIds()
+  {
+    boolean has = stringListIds.size() > 0;
+    return has;
+  }
+
+  public int indexOfStringListId(String aStringListId)
+  {
+    int index = stringListIds.indexOf(aStringListId);
+    return index;
+  }
+  /* Code from template attribute_IsBoolean */
+  public boolean isBooleanId()
+  {
+    return booleanId;
+  }
+
+  public boolean equals(Object obj)
+  {
+    if (obj == null) { return false; }
+    if (!getClass().equals(obj.getClass())) { return false; }
+
+    Student compareTo = (Student)obj;
+  
+    if (getIntId() != compareTo.getIntId())
+    {
+      return false;
+    }
+
+    if (getDoubleId() != compareTo.getDoubleId())
+    {
+      return false;
+    }
+
+    if (getBooleanId() != compareTo.getBooleanId())
+    {
+      return false;
+    }
+
+    if (getStringId() == null && compareTo.getStringId() != null)
+    {
+      return false;
+    }
+    else if (getStringId() != null && !getStringId().equals(compareTo.getStringId()))
+    {
+      return false;
+    }
+
+    if (getStringListIds().length != compareTo.getStringListIds().length)
+    {
+      return false;
+    }
+
+    for (int i=0; i<getStringListIds().length; i++)
+    {
+      String me = getStringListIds()[i];
+      String them = compareTo.getStringListIds()[i];
+      if (me == null && them != null)
+      {
+       return false;
+      }
+      else if (me != null && !me.equals(them))
+      {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  public int hashCode()
+  {
+    if (cachedHashCode != -1)
+    {
+      return cachedHashCode;
+    }
+    cachedHashCode = 17;
+    cachedHashCode = cachedHashCode * 23 + getIntId();
+
+    cachedHashCode = cachedHashCode * 23 + (Double.valueOf(getDoubleId())).hashCode();
+
+    cachedHashCode = cachedHashCode * 23 + (getBooleanId() ? 1 : 0);
+
+    if (getStringId() != null)
+    {
+      cachedHashCode = cachedHashCode * 23 + getStringId().hashCode();
+    }
+    else
+    {
+      cachedHashCode = cachedHashCode * 23;
+    }
+
+    if (getStringListIds() != null)
+    {
+      cachedHashCode = cachedHashCode * 23 + getStringListIds().hashCode();
+    }
+    else
+    {
+      cachedHashCode = cachedHashCode * 23;
+    }
+
+    canSetIntId = false;
+    canSetDoubleId = false;
+    canSetBooleanId = false;
+    canSetStringId = false;
+    canSetStringListIds = false;
+    return cachedHashCode;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "stringId" + ":" + getStringId()+ "," +
+            "booleanId" + ":" + getBooleanId()+ "," +
+            "doubleId" + ":" + getDoubleId()+ "," +
+            "intId" + ":" + getIntId()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 3 "../EqualsTest_AlreadyImmutable.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private int intId;
+  private double doubleId;
+  private boolean booleanId;
+  private String stringId;
+
+  //Helper Variables
+  private int cachedHashCode;
+  private boolean canSetIntId;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student(double aDoubleId, boolean aBooleanId, String aStringId)
+  {
+    cachedHashCode = -1;
+    canSetIntId = true;
+    doubleId = aDoubleId;
+    booleanId = aBooleanId;
+    stringId = aStringId;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+  /* Code from template attribute_SetImmutable */
+  public boolean setIntId(int aIntId)
+  {
+    boolean wasSet = false;
+    if (!canSetIntId) { return false; }
+    canSetIntId = false;
+    intId = aIntId;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public int getIntId()
+  {
+    return intId;
+  }
+
+  public double getDoubleId()
+  {
+    return doubleId;
+  }
+
+  public boolean getBooleanId()
+  {
+    return booleanId;
+  }
+
+  public String getStringId()
+  {
+    return stringId;
+  }
+  /* Code from template attribute_IsBoolean */
+  public boolean isBooleanId()
+  {
+    return booleanId;
+  }
+
+  public boolean equals(Object obj)
+  {
+    if (obj == null) { return false; }
+    if (!getClass().equals(obj.getClass())) { return false; }
+
+    Student compareTo = (Student)obj;
+  
+    if (getIntId() != compareTo.getIntId())
+    {
+      return false;
+    }
+
+    if (getDoubleId() != compareTo.getDoubleId())
+    {
+      return false;
+    }
+
+    if (getBooleanId() != compareTo.getBooleanId())
+    {
+      return false;
+    }
+
+    if (getStringId() == null && compareTo.getStringId() != null)
+    {
+      return false;
+    }
+    else if (getStringId() != null && !getStringId().equals(compareTo.getStringId()))
+    {
+      return false;
+    }
+
+    return true;
+  }
+
+  public int hashCode()
+  {
+    if (cachedHashCode != -1)
+    {
+      return cachedHashCode;
+    }
+    cachedHashCode = 17;
+    cachedHashCode = cachedHashCode * 23 + getIntId();
+
+    cachedHashCode = cachedHashCode * 23 + (Double.valueOf(getDoubleId())).hashCode();
+
+    cachedHashCode = cachedHashCode * 23 + (getBooleanId() ? 1 : 0);
+
+    if (getStringId() != null)
+    {
+      cachedHashCode = cachedHashCode * 23 + getStringId().hashCode();
+    }
+    else
+    {
+      cachedHashCode = cachedHashCode * 23;
+    }
+
+    canSetIntId = false;
+    return cachedHashCode;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "stringId" + ":" + getStringId()+ "," +
+            "booleanId" + ":" + getBooleanId()+ "," +
+            "doubleId" + ":" + getDoubleId()+ "," +
+            "intId" + ":" + getIntId()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+import java.util.*;
+
+// line 15 "../EqualsTest.ump"
+public class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Associations
+  private Course main;
+  private List<Course> secondaries;
+
+  //Helper Variables
+  private int cachedHashCode;
+  private boolean canSetMain;
+  private boolean canSetSecondaries;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Mentor()
+  {
+    cachedHashCode = -1;
+    canSetMain = true;
+    canSetSecondaries = true;
+    secondaries = new ArrayList<Course>();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+  /* Code from template association_GetOne */
+  public Course getMain()
+  {
+    return main;
+  }
+
+  public boolean hasMain()
+  {
+    boolean has = main != null;
+    return has;
+  }
+  /* Code from template association_GetMany */
+  public Course getSecondary(int index)
+  {
+    Course aSecondary = secondaries.get(index);
+    return aSecondary;
+  }
+
+  public List<Course> getSecondaries()
+  {
+    List<Course> newSecondaries = Collections.unmodifiableList(secondaries);
+    return newSecondaries;
+  }
+
+  public int numberOfSecondaries()
+  {
+    int number = secondaries.size();
+    return number;
+  }
+
+  public boolean hasSecondaries()
+  {
+    boolean has = secondaries.size() > 0;
+    return has;
+  }
+
+  public int indexOfSecondary(Course aSecondary)
+  {
+    int index = secondaries.indexOf(aSecondary);
+    return index;
+  }
+  /* Code from template association_SetOptionalOneToOptionalOne */
+  public boolean setMain(Course aNewMain)
+  {
+    boolean wasSet = false;
+    if (!canSetMain) { return false; }
+    if (aNewMain == null)
+    {
+      Course existingMain = main;
+      main = null;
+      
+      if (existingMain != null && existingMain.getMentorMain() != null)
+      {
+        existingMain.setMentorMain(null);
+      }
+      wasSet = true;
+      return wasSet;
+    }
+
+    Course currentMain = getMain();
+    if (currentMain != null && !currentMain.equals(aNewMain))
+    {
+      currentMain.setMentorMain(null);
+    }
+
+    main = aNewMain;
+    Mentor existingMentorMain = aNewMain.getMentorMain();
+
+    if (!equals(existingMentorMain))
+    {
+      aNewMain.setMentorMain(this);
+    }
+    wasSet = true;
+    return wasSet;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfSecondaries()
+  {
+    return 0;
+  }
+  /* Code from template association_AddManyToOptionalOne */
+  public boolean addSecondary(Course aSecondary)
+  {
+    boolean wasAdded = false;
+    if (!canSetSecondaries) { return false; }
+    if (secondaries.contains(aSecondary)) { return false; }
+    Mentor existingMentorSecondary = aSecondary.getMentorSecondary();
+    if (existingMentorSecondary == null)
+    {
+      aSecondary.setMentorSecondary(this);
+    }
+    else if (!this.equals(existingMentorSecondary))
+    {
+      existingMentorSecondary.removeSecondary(aSecondary);
+      addSecondary(aSecondary);
+    }
+    else
+    {
+      secondaries.add(aSecondary);
+    }
+    wasAdded = true;
+    return wasAdded;
+  }
+
+  public boolean removeSecondary(Course aSecondary)
+  {
+    boolean wasRemoved = false;
+    if (!canSetSecondaries) { return false; }
+    if (secondaries.contains(aSecondary))
+    {
+      secondaries.remove(aSecondary);
+      aSecondary.setMentorSecondary(null);
+      wasRemoved = true;
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addSecondaryAt(Course aSecondary, int index)
+  {  
+    boolean wasAdded = false;
+    if(addSecondary(aSecondary))
+    {
+      if(index < 0 ) { index = 0; }
+      if(index > numberOfSecondaries()) { index = numberOfSecondaries() - 1; }
+      secondaries.remove(aSecondary);
+      secondaries.add(index, aSecondary);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveSecondaryAt(Course aSecondary, int index)
+  {
+    boolean wasAdded = false;
+    if(secondaries.contains(aSecondary))
+    {
+      if(index < 0 ) { index = 0; }
+      if(index > numberOfSecondaries()) { index = numberOfSecondaries() - 1; }
+      secondaries.remove(aSecondary);
+      secondaries.add(index, aSecondary);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addSecondaryAt(aSecondary, index);
+    }
+    return wasAdded;
+  }
+
+  public boolean equals(Object obj)
+  {
+    if (obj == null) { return false; }
+    if (!getClass().equals(obj.getClass())) { return false; }
+
+    Mentor compareTo = (Mentor)obj;
+  
+    if (getMain() == null && compareTo.getMain() != null)
+    {
+      return false;
+    }
+    else if (getMain() != null && !getMain().equals(compareTo.getMain()))
+    {
+      return false;
+    }
+
+    if (getSecondaries().size() != compareTo.getSecondaries().size())
+    {
+      return false;
+    }
+
+    for (int i=0; i<getSecondaries().size(); i++)
+    {
+      Course me = getSecondaries().get(i);
+      Course them = compareTo.getSecondaries().get(i);
+      if (me == null && them != null)
+      {
+       return false;
+      }
+      else if (me != null && !me.equals(them))
+      {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  public int hashCode()
+  {
+    if (cachedHashCode != -1)
+    {
+      return cachedHashCode;
+    }
+    cachedHashCode = 17;
+    if (getMain() != null)
+    {
+      cachedHashCode = cachedHashCode * 23 + getMain().hashCode();
+    }
+    else
+    {
+      cachedHashCode = cachedHashCode * 23;
+    }
+    if (getSecondaries() != null)
+    {
+      cachedHashCode = cachedHashCode * 23 + getSecondaries().hashCode();
+    }
+    else
+    {
+      cachedHashCode = cachedHashCode * 23;
+    }
+
+    canSetMain = false;
+    canSetSecondaries = false;
+    return cachedHashCode;
+  }
+
+  public void delete()
+  {
+    if (main != null)
+    {
+      main.setMentorMain(null);
+    }
+    while( !secondaries.isEmpty() )
+    {
+      secondaries.get(0).setMentorSecondary(null);
+    }
+  }
+
+}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

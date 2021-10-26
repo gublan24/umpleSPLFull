@@ -1,0 +1,361 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from AssociationSortedWithNameSpace</title>
+    </head>
+    <body>
+        <pre>/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+import java.util.*;
+import java.io.Serializable;
+
+// line 1 "AssociationSortedWithNameSpace.ump"
+public class Student implements java.io.Serializable
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private int id;
+  private transient Comparator&lt;Mentor&gt; ProfsPriority;
+
+  //Student Associations
+  private List&lt;Mentor&gt; Profs;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student(int aId)
+  {
+    id = aId;
+    ProfsPriority = 
+      Comparator.comparing(Mentor::getName);
+    Profs = new ArrayList&lt;Mentor&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setId(int aId)
+  {
+    boolean wasSet = false;
+    id = aId;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setProfsPriority(Comparator&lt;Mentor&gt; aProfsPriority)
+  {
+    boolean wasSet = false;
+    ProfsPriority = aProfsPriority;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public int getId()
+  {
+    return id;
+  }
+
+  public Comparator&lt;Mentor&gt; getProfsPriority()
+  {
+    return ProfsPriority;
+  }
+  /* Code from template association_GetMany */
+  public Mentor getProf(int index)
+  {
+    Mentor aProf = Profs.get(index);
+    return aProf;
+  }
+
+  public List&lt;Mentor&gt; getProfs()
+  {
+    List&lt;Mentor&gt; newProfs = Collections.unmodifiableList(Profs);
+    return newProfs;
+  }
+
+  public int numberOfProfs()
+  {
+    int number = Profs.size();
+    return number;
+  }
+
+  public boolean hasProfs()
+  {
+    boolean has = Profs.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfProf(Mentor aProf)
+  {
+    int index = Profs.indexOf(aProf);
+    return index;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfProfs()
+  {
+    return 0;
+  }
+  /* Code from template association_AddManyToManyMethod */
+  public boolean addProf(Mentor aProf)
+  {
+    boolean wasAdded = false;
+    if (Profs.contains(aProf)) { return false; }
+    Profs.add(aProf);
+    if (aProf.indexOfMyStudent(this) != -1)
+    {
+      wasAdded = true;
+    }
+    else
+    {
+      wasAdded = aProf.addMyStudent(this);
+      if (!wasAdded)
+      {
+        Profs.remove(aProf);
+      }
+    }
+    if(wasAdded)
+        Collections.sort(Profs, ProfsPriority);
+    
+    return wasAdded;
+  }
+  /* Code from template association_RemoveMany */
+  public boolean removeProf(Mentor aProf)
+  {
+    boolean wasRemoved = false;
+    if (!Profs.contains(aProf))
+    {
+      return wasRemoved;
+    }
+
+    int oldIndex = Profs.indexOf(aProf);
+    Profs.remove(oldIndex);
+    if (aProf.indexOfMyStudent(this) == -1)
+    {
+      wasRemoved = true;
+    }
+    else
+    {
+      wasRemoved = aProf.removeMyStudent(this);
+      if (!wasRemoved)
+      {
+        Profs.add(oldIndex,aProf);
+      }
+    }
+    return wasRemoved;
+  }
+
+
+  /* Code from template association_sorted_serializable_readObject */ 
+  private void readObject(java.io.ObjectInputStream in)
+  throws Exception
+  {
+    in.defaultReadObject();
+
+    ProfsPriority = 
+      Comparator.comparing(Mentor::getName);
+  }
+  
+  public void delete()
+  {
+    ArrayList&lt;Mentor&gt; copyOfProfs = new ArrayList&lt;Mentor&gt;(Profs);
+    Profs.clear();
+    for(Mentor aProf : copyOfProfs)
+    {
+      aProf.removeMyStudent(this);
+    }
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "id" + ":" + getId()+ "]" + System.getProperties().getProperty("line.separator") +
+            "  " + "ProfsPriority" + "=" + (getProfsPriority() != null ? !getProfsPriority().equals(this)  ? getProfsPriority().toString().replaceAll("  ","    ") : "this" : "null");
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+
+import java.util.*;
+import java.io.Serializable;
+
+// line 5 "AssociationSortedWithNameSpace.ump"
+public class Mentor implements java.io.Serializable
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private String name;
+  private transient Comparator&lt;Student&gt; myStudentsPriority;
+
+  //Mentor Associations
+  private List&lt;Student&gt; myStudents;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Mentor(String aName)
+  {
+    name = aName;
+    myStudentsPriority = 
+      Comparator.comparing(Student::getId);
+    myStudents = new ArrayList&lt;Student&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setName(String aName)
+  {
+    boolean wasSet = false;
+    name = aName;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setMyStudentsPriority(Comparator&lt;Student&gt; aMyStudentsPriority)
+  {
+    boolean wasSet = false;
+    myStudentsPriority = aMyStudentsPriority;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getName()
+  {
+    return name;
+  }
+
+  public Comparator&lt;Student&gt; getMyStudentsPriority()
+  {
+    return myStudentsPriority;
+  }
+  /* Code from template association_GetMany */
+  public Student getMyStudent(int index)
+  {
+    Student aMyStudent = myStudents.get(index);
+    return aMyStudent;
+  }
+
+  public List&lt;Student&gt; getMyStudents()
+  {
+    List&lt;Student&gt; newMyStudents = Collections.unmodifiableList(myStudents);
+    return newMyStudents;
+  }
+
+  public int numberOfMyStudents()
+  {
+    int number = myStudents.size();
+    return number;
+  }
+
+  public boolean hasMyStudents()
+  {
+    boolean has = myStudents.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfMyStudent(Student aMyStudent)
+  {
+    int index = myStudents.indexOf(aMyStudent);
+    return index;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfMyStudents()
+  {
+    return 0;
+  }
+  /* Code from template association_AddManyToManyMethod */
+  public boolean addMyStudent(Student aMyStudent)
+  {
+    boolean wasAdded = false;
+    if (myStudents.contains(aMyStudent)) { return false; }
+    myStudents.add(aMyStudent);
+    if (aMyStudent.indexOfProf(this) != -1)
+    {
+      wasAdded = true;
+    }
+    else
+    {
+      wasAdded = aMyStudent.addProf(this);
+      if (!wasAdded)
+      {
+        myStudents.remove(aMyStudent);
+      }
+    }
+    if(wasAdded)
+        Collections.sort(myStudents, myStudentsPriority);
+    
+    return wasAdded;
+  }
+  /* Code from template association_RemoveMany */
+  public boolean removeMyStudent(Student aMyStudent)
+  {
+    boolean wasRemoved = false;
+    if (!myStudents.contains(aMyStudent))
+    {
+      return wasRemoved;
+    }
+
+    int oldIndex = myStudents.indexOf(aMyStudent);
+    myStudents.remove(oldIndex);
+    if (aMyStudent.indexOfProf(this) == -1)
+    {
+      wasRemoved = true;
+    }
+    else
+    {
+      wasRemoved = aMyStudent.removeProf(this);
+      if (!wasRemoved)
+      {
+        myStudents.add(oldIndex,aMyStudent);
+      }
+    }
+    return wasRemoved;
+  }
+
+
+  /* Code from template association_sorted_serializable_readObject */ 
+  private void readObject(java.io.ObjectInputStream in)
+  throws Exception
+  {
+    in.defaultReadObject();
+
+    myStudentsPriority = 
+      Comparator.comparing(Student::getId);
+  }
+  
+  public void delete()
+  {
+    ArrayList&lt;Student&gt; copyOfMyStudents = new ArrayList&lt;Student&gt;(myStudents);
+    myStudents.clear();
+    for(Student aMyStudent : copyOfMyStudents)
+    {
+      aMyStudent.removeProf(this);
+    }
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "name" + ":" + getName()+ "]" + System.getProperties().getProperty("line.separator") +
+            "  " + "myStudentsPriority" + "=" + (getMyStudentsPriority() != null ? !getMyStudentsPriority().equals(this)  ? getMyStudentsPriority().toString().replaceAll("  ","    ") : "this" : "null");
+  }
+}
+</pre>
+    </body>
+</html>

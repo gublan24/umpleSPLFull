@@ -1,0 +1,62 @@
+
+// Code for mixset Structure : 
+
+
+class UmpleGenerator { 
+    before Label_Structure_13:initializeParser
+  {
+      parser.addGrammarFile("/strcture/umple_structure.grammar");
+    }  }
+
+class ConstraintNameNameAnalyzer { 
+    before Label_Structure_46:generateConstraintName(UmpleClassifier,String,Boolean)
+  {
+            Port port = null;
+            if (uClassifier instanceof UmpleClass)
+            {
+              port = ((UmpleClass)(uClassifier)).getPort(value);
+            }
+            if(port!=null)
+            {
+              ConstraintPort name = new ConstraintPort(port);
+              return name;
+            }
+        }  }
+
+class UmpleInternalParser { 
+
+    mixset Template_Strcture {
+    // This MIXSET contains common code used by Template & Strcture.
+    public boolean reAnalyze() {
+      return shouldProcessAgain;
+    }
+    public void reAnalyze(boolean re) {
+  	shouldProcessAgain = re;
+    }
+  }
+
+    before Label_Structure_57:analyzeToken(Token,int)
+  {
+      analyzeComponentToken(t,analysisStep);
+    }  }
+
+class UmpleInternalParser { 
+    before Label_Structure_76:postTokenAnalysis
+  {
+      if (getParseResult().getWasSuccess()) {
+        postTokenComponentAnalysis();
+      }
+    }  }
+
+// Interaction between Structure & StateMachine
+mixset Structure_StateMachine 
+{
+class ConstraintPort
+{
+  String getName()
+  {
+    return port==null?null:port.getName();
+  }
+  public String getType(){ return "port"; }
+}
+}

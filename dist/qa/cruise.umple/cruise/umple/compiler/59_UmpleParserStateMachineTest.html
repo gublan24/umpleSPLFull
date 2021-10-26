@@ -1,0 +1,734 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Unit Test Results: cruise.umple.compiler.UmpleParserStateMachineTest</title>
+        <link rel="stylesheet" type="text/css" title="Style" href="../../../stylesheet.css">
+        <script type="text/javascript" language="JavaScript">
+        var TestCases = new Array();
+        var cur;
+        
+    cur = TestCases['cruise.umple.compiler.UmpleParserStateMachineTest'] = new Array();
+    
+        cur['ant.core.lib'] = '/usr/local/Cellar/ant/1.10.9/libexec/lib/ant.jar';
+    
+        cur['ant.file'] = '/Users/abdulaziz/tmp/umple/build/build.umple.xml';
+    
+        cur['ant.file.LocalBuildProperties'] = '/Users/abdulaziz/tmp/umple/build/_local.xml';
+    
+        cur['ant.file.Template'] = '/Users/abdulaziz/tmp/umple/build/_template.xml';
+    
+        cur['ant.file.type'] = 'file';
+    
+        cur['ant.file.type.LocalBuildProperties'] = 'file';
+    
+        cur['ant.file.type.Template'] = 'file';
+    
+        cur['ant.file.type.Umple'] = 'file';
+    
+        cur['ant.file.type.UmpleCore'] = 'file';
+    
+        cur['ant.file.type.UmpleDeps'] = 'file';
+    
+        cur['ant.file.type.VersionLast'] = 'file';
+    
+        cur['ant.file.Umple'] = '/Users/abdulaziz/tmp/umple/build/build.xml';
+    
+        cur['ant.file.UmpleCore'] = '/Users/abdulaziz/tmp/umple/build/build.umple.xml';
+    
+        cur['ant.file.UmpleDeps'] = '/Users/abdulaziz/tmp/umple/build/build.deps.xml';
+    
+        cur['ant.file.VersionLast'] = '/Users/abdulaziz/tmp/umple/build/_versionLast.xml';
+    
+        cur['ant.home'] = '/usr/local/Cellar/ant/1.10.9/libexec';
+    
+        cur['ant.java.version'] = '15';
+    
+        cur['ant.library.dir'] = '/usr/local/Cellar/ant/1.10.9/libexec/lib';
+    
+        cur['ant.project.default-target'] = 'build';
+    
+        cur['ant.project.invoked-targets'] = 'template.test';
+    
+        cur['ant.project.name'] = 'UmpleCore';
+    
+        cur['ant.version'] = 'Apache Ant(TM) version 1.10.9 compiled on September 27 2020';
+    
+        cur['basedir'] = '/Users/abdulaziz/tmp/umple';
+    
+        cur['bin.path'] = 'cruise.umple/bin';
+    
+        cur['connectionTimeout'] = '30';
+    
+        cur['dist.dir'] = '/Users/abdulaziz/tmp/umple/dist';
+    
+        cur['dist.libs.dir'] = '/Users/abdulaziz/tmp/umple/dist/libs';
+    
+        cur['dist.path'] = '/Users/abdulaziz/tmp/umple/dist/cruise.umple';
+    
+        cur['dist.umple.docs.jar'] = 'umpledocs-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.docs.jar.prev'] = 'umpledocs-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.jar'] = 'umple-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.jar.prev'] = 'umple-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.run.jar'] = 'umplerun-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.run.jar.prev'] = 'umplerun-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.stats.jar'] = 'umplestats-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.stats.jar.prev'] = 'umplestats-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.sync.jar'] = 'umplesync-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.sync.jar.prev'] = 'umplesync-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.umplificator.jar'] = 'umpleumplificator-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.umplificator.jar.prev'] = 'umpleumplificator-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.validator.jar'] = 'umplevalidator-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.validator.jar.prev'] = 'umplevalidator-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['env.__CF_USER_TEXT_ENCODING'] = '0x1F5:0x0:0x0';
+    
+        cur['env.__CFBundleIdentifier'] = 'com.apple.Terminal';
+    
+        cur['env.DISPLAY'] = '/private/tmp/com.apple.launchd.8VZUm1G4zQ/org.xquartz:0';
+    
+        cur['env.GRADLE_HOME'] = '/Users/abdulaziz/.sdkman/candidates/gradle/current';
+    
+        cur['env.HOME'] = '/Users/abdulaziz';
+    
+        cur['env.JAVA_HOME'] = '/usr/local/opt/openjdk';
+    
+        cur['env.JAVA_MAIN_CLASS_3280'] = 'org.apache.tools.ant.launch.Launcher';
+    
+        cur['env.LANG'] = 'en_CA.UTF-8';
+    
+        cur['env.LOGNAME'] = 'abdulaziz';
+    
+        cur['env.PATH'] = '/Users/abdulaziz/.sdkman/candidates/gradle/current/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands';
+    
+        cur['env.PWD'] = '/Users/abdulaziz/tmp/umple/build';
+    
+        cur['env.SDKMAN_CANDIDATES_API'] = 'https://api.sdkman.io/2';
+    
+        cur['env.SDKMAN_CANDIDATES_DIR'] = '/Users/abdulaziz/.sdkman/candidates';
+    
+        cur['env.SDKMAN_DIR'] = '/Users/abdulaziz/.sdkman';
+    
+        cur['env.SDKMAN_PLATFORM'] = 'darwinx64';
+    
+        cur['env.SDKMAN_VERSION'] = '5.11.5+713';
+    
+        cur['env.SHELL'] = '/bin/zsh';
+    
+        cur['env.SHLVL'] = '1';
+    
+        cur['env.SSH_AUTH_SOCK'] = '/private/tmp/com.apple.launchd.qK4l0KXsgu/Listeners';
+    
+        cur['env.TERM'] = 'xterm-256color';
+    
+        cur['env.TERM_PROGRAM'] = 'Apple_Terminal';
+    
+        cur['env.TERM_PROGRAM_VERSION'] = '440';
+    
+        cur['env.TERM_SESSION_ID'] = '20D2790F-0FEC-4CCB-A10B-030C8F4ED298';
+    
+        cur['env.TMPDIR'] = '/var/folders/fm/7tjk7l8154x840c6vvrs49p40000gn/T/';
+    
+        cur['env.USER'] = 'abdulaziz';
+    
+        cur['env.XPC_FLAGS'] = '0x0';
+    
+        cur['env.XPC_SERVICE_NAME'] = '0';
+    
+        cur['file.encoding'] = 'UTF-8';
+    
+        cur['file.separator'] = '/';
+    
+        cur['first.build'] = 'false';
+    
+        cur['ftp.nonProxyHosts'] = 'local|*.local|169.254/16|*.169.254/16';
+    
+        cur['haltonfailure'] = 'false';
+    
+        cur['http.nonProxyHosts'] = 'local|*.local|169.254/16|*.169.254/16';
+    
+        cur['is.osx'] = 'true';
+    
+        cur['ivy.install.version'] = '2.4.0';
+    
+        cur['ivy.jar.file'] = '/Users/abdulaziz/.ant/lib/ivy-2.4.0.jar';
+    
+        cur['ivyResolveLogLevel'] = 'download-only';
+    
+        cur['ivyRetrieveLogLevel'] = 'quiet';
+    
+        cur['java.class.path'] = '/Users/abdulaziz/tmp/umple/cruise.umple/bin:/Users/abdulaziz/tmp/umple/dist/libs/core/ant-launcher.jar:/Users/abdulaziz/tmp/umple/dist/libs/core/ant.jar:/Users/abdulaziz/tmp/umple/dist/libs/core/jopt-simple.jar:/Users/abdulaziz/tmp/umple/dist/libs/test/hamcrest-core.jar:/Users/abdulaziz/tmp/umple/dist/libs/test/junit.jar:/Users/abdulaziz/.ant/lib/junit.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-launcher.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-junit.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-junit4.jar';
+    
+        cur['java.class.version'] = '59.0';
+    
+        cur['java.home'] = '/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home';
+    
+        cur['java.io.tmpdir'] = '/var/folders/fm/7tjk7l8154x840c6vvrs49p40000gn/T/';
+    
+        cur['java.library.path'] = '/Users/abdulaziz/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.';
+    
+        cur['java.runtime.name'] = 'OpenJDK Runtime Environment';
+    
+        cur['java.runtime.version'] = '15.0.1+9';
+    
+        cur['java.specification.name'] = 'Java Platform API Specification';
+    
+        cur['java.specification.vendor'] = 'Oracle Corporation';
+    
+        cur['java.specification.version'] = '15';
+    
+        cur['java.vendor'] = 'N/A';
+    
+        cur['java.vendor.url'] = 'https://openjdk.java.net/';
+    
+        cur['java.vendor.url.bug'] = 'https://bugreport.java.com/bugreport/';
+    
+        cur['java.version'] = '15.0.1';
+    
+        cur['java.version.date'] = '2020-10-20';
+    
+        cur['java.vm.compressedOopsMode'] = 'Zero based';
+    
+        cur['java.vm.info'] = 'mixed mode, sharing';
+    
+        cur['java.vm.name'] = 'OpenJDK 64-Bit Server VM';
+    
+        cur['java.vm.specification.name'] = 'Java Virtual Machine Specification';
+    
+        cur['java.vm.specification.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vm.specification.version'] = '15';
+    
+        cur['java.vm.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vm.version'] = '15.0.1+9';
+    
+        cur['jdk.debug'] = 'release';
+    
+        cur['jopt-simple.install.version'] = '4.4';
+    
+        cur['junit'] = '*Test';
+    
+        cur['last.version'] = '1.31.1.5860.78bb27cc6';
+    
+        cur['line.separator'] = '\n';
+    
+        cur['myenv'] = 'local';
+    
+        cur['online'] = 'true';
+    
+        cur['os.arch'] = 'x86_64';
+    
+        cur['os.name'] = 'Mac OS X';
+    
+        cur['os.version'] = '11.6';
+    
+        cur['path.separator'] = ':';
+    
+        cur['project.path'] = 'cruise.umple';
+    
+        cur['rake_cmd'] = 'rake';
+    
+        cur['shouldDeploy'] = 'false';
+    
+        cur['shouldPackageUmpleOnline'] = 'false';
+    
+        cur['showJunitOutput'] = 'false';
+    
+        cur['showJunitSummary'] = 'false';
+    
+        cur['socksNonProxyHosts'] = 'local|*.local|169.254/16|*.169.254/16';
+    
+        cur['sun.arch.data.model'] = '64';
+    
+        cur['sun.boot.library.path'] = '/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home/lib';
+    
+        cur['sun.cpu.endian'] = 'little';
+    
+        cur['sun.io.unicode.encoding'] = 'UnicodeBig';
+    
+        cur['sun.java.command'] = 'org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=/Users/abdulaziz/tmp/umple/junittestcases9945622084601822128.properties skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/abdulaziz/tmp/umple/dist/qa/cruise.umple/IGNORETHIS.xml crashfile=/Users/abdulaziz/tmp/umple/junitvmwatcher11280979461299836288.properties propsfile=/Users/abdulaziz/tmp/umple/junit10838995335343066243.properties';
+    
+        cur['sun.java.launcher'] = 'SUN_STANDARD';
+    
+        cur['sun.jnu.encoding'] = 'UTF-8';
+    
+        cur['sun.management.compiler'] = 'HotSpot 64-Bit Tiered Compilers';
+    
+        cur['test.output.path'] = '/Users/abdulaziz/tmp/umple/dist/qa/cruise.umple';
+    
+        cur['umple.deps.dir'] = '/Users/abdulaziz/tmp/umple/dist/libs';
+    
+        cur['umple.deps.manual.dir'] = '/Users/abdulaziz/tmp/umple/dist/libs/manual';
+    
+        cur['umple.ivy.dep.file'] = '/Users/abdulaziz/tmp/umple/build/ivy.xml';
+    
+        cur['umple.stable.jar'] = '/Users/abdulaziz/tmp/umple/dist/libs/umple-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['umple.version'] = '1.31.1.5860.78bb27cc6';
+    
+        cur['user.country'] = 'CA';
+    
+        cur['user.dir'] = '/Users/abdulaziz/tmp/umple/build';
+    
+        cur['user.home'] = '/Users/abdulaziz';
+    
+        cur['user.home.ant'] = '/Users/abdulaziz/.ant/lib';
+    
+        cur['user.language'] = 'en';
+    
+        cur['user.name'] = 'abdulaziz';
+    
+        cur['user.timezone'] = 'America/Toronto';
+    
+        cur['vendors.path'] = '/Users/abdulaziz/tmp/umple/dist/libs/vendors';
+    
+        cur['xtext.project.path'] = 'cruise.umple.xtext';
+    </script><script type="text/javascript" language="JavaScript">
+        function displayProperties (name) {
+          var win = window.open('','JUnitSystemProperties','scrollbars=1,resizable=1');
+          var doc = win.document;
+          doc.open();
+          doc.write("<html><head><title>Properties of " + name + "</title>");
+          doc.write("<style type=\"text/css\">");
+          doc.write("body {font:normal 68% verdana,arial,helvetica; color:#000000; }");
+          doc.write("table tr td, table tr th { font-size: 68%; }");
+          doc.write("table.properties { border-collapse:collapse; border-left:solid 1 #cccccc; border-top:solid 1 #cccccc; padding:5px; }");
+          doc.write("table.properties th { text-align:left; border-right:solid 1 #cccccc; border-bottom:solid 1 #cccccc; background-color:#eeeeee; }");
+          doc.write("table.properties td { font:normal; text-align:left; border-right:solid 1 #cccccc; border-bottom:solid 1 #cccccc; background-color:#fffffff; }");
+          doc.write("h3 { margin-bottom: 0.5em; font: bold 115% verdana,arial,helvetica }");
+          doc.write("</style>");
+          doc.write("</head><body>");
+          doc.write("<h3>Properties of " + name + "</h3>");
+          doc.write("<div align=\"right\"><a href=\"javascript:window.close();\">Close</a></div>");
+          doc.write("<table class='properties'>");
+          doc.write("<tr><th>Name</th><th>Value</th></tr>");
+          for (prop in TestCases[name]) {
+            doc.write("<tr><th>" + prop + "</th><td>" + TestCases[name][prop] + "</td></tr>");
+          }
+          doc.write("</table>");
+          doc.write("</body></html>");
+          doc.close();
+          win.focus();
+        }
+      
+      </script>
+    </head>
+    <body>
+        <h1>Unit Test Results.</h1>
+        <table width="100%">
+            <tr>
+                <td align="left"></td><td align="right">Designed for use with <a href="https://www.junit.org/">JUnit</a> and <a href="https://ant.apache.org/">Ant</a>.</td>
+            </tr>
+        </table>
+        <hr size="1">
+        <h3>Class cruise.umple.compiler.UmpleParserStateMachineTest</h3>
+        <table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
+            <tr valign="top">
+                <th width="80%">Name</th><th>Tests</th><th>Errors</th><th>Failures</th><th>Skipped</th><th nowrap>Time(s)</th><th nowrap>Time Stamp</th><th>Host</th>
+            </tr>
+            <tr valign="top" class="Pass">
+                <td><a title="Display all tests" href="59_UmpleParserStateMachineTest.html">UmpleParserStateMachineTest</a></td><td><a title="Display all tests" href="59_UmpleParserStateMachineTest.html">122</a></td><td>0</td><td>0</td><td>0</td><td>1.064</td><td>2021-10-26T14:24:38</td><td>Abdulazizs-MacBook-Pro.local</td>
+            </tr>
+        </table>
+        <h2>Tests</h2>
+        <table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
+            <tr valign="top">
+                <th>Name</th><th>Status</th><th width="80%">Type</th><th nowrap>Time(s)</th>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="activeBlock_MultiLanguagePositions"></a>activeBlock_MultiLanguagePositions</td><td>Success</td><td></td><td>0.015</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="sameEvent_TwoStates"></a>sameEvent_TwoStates</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="twoState_StateMachineGraph_BFS"></a>twoState_StateMachineGraph_BFS</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="twoState_StateMachineGraph_DFS"></a>twoState_StateMachineGraph_DFS</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachine_unspecifiedReception"></a>stateMachine_unspecifiedReception</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="walkGraphTwice_StateMachineGraph_ClearNodes"></a>walkGraphTwice_StateMachineGraph_ClearNodes</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="nested_StateMachineGraph_ClearNodes"></a>nested_StateMachineGraph_ClearNodes</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="handleBooleanValueComparisonGuard"></a>handleBooleanValueComparisonGuard</td><td>Success</td><td></td><td>0.011</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="twoStateMachinesSameEvent"></a>twoStateMachinesSameEvent</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="transitionAction"></a>transitionAction</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="finalState"></a>finalState</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="Nested_TwoStatesComplex"></a>Nested_TwoStatesComplex</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="queuedStateMachine_pooledStateMachine_noEvents"></a>queuedStateMachine_pooledStateMachine_noEvents</td><td>Success</td><td></td><td>0.011</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="activeBlock_NamingOverMultiClasses"></a>activeBlock_NamingOverMultiClasses</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="emptyAndNonEmptyStates"></a>emptyAndNonEmptyStates</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="conflictingAutoTransitionsToStatesNested"></a>conflictingAutoTransitionsToStatesNested</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="Nested_realExample2"></a>Nested_realExample2</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="eventWithArgument"></a>eventWithArgument</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="unreachableState_StateMachineGraph_BFS"></a>unreachableState_StateMachineGraph_BFS</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="unreachableState_StateMachineGraph_DFS"></a>unreachableState_StateMachineGraph_DFS</td><td>Success</td><td></td><td>0.000</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="Concurrent_OneSm"></a>Concurrent_OneSm</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="Concurrent_TwoSm"></a>Concurrent_TwoSm</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateNameIsFinal"></a>stateNameIsFinal</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="oneStateNoEventStateMachine"></a>oneStateNoEventStateMachine</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="oneState_StateMachineGraph_BFS"></a>oneState_StateMachineGraph_BFS</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="oneState_StateMachineGraph_DFS"></a>oneState_StateMachineGraph_DFS</td><td>Success</td><td></td><td>0.000</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineComments"></a>stateMachineComments</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="activeBlock_ActivityPositions"></a>activeBlock_ActivityPositions</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="smAfterWithGuard"></a>smAfterWithGuard</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="eventsWithInconsistentArguments"></a>eventsWithInconsistentArguments</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="activeBlock_supportingLanguageSpecific"></a>activeBlock_supportingLanguageSpecific</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="pooledStateMachines_and_EmptyRegularStateMachine"></a>pooledStateMachines_and_EmptyRegularStateMachine</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="concurrentFinals"></a>concurrentFinals</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="dotNotationInvalid"></a>dotNotationInvalid</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="handleBangInGuard2"></a>handleBangInGuard2</td><td>Success</td><td></td><td>0.205</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="addEvent"></a>addEvent</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="c6_StateMachineGraph_ClearNodes"></a>c6_StateMachineGraph_ClearNodes</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="transitionNextState"></a>transitionNextState</td><td>Success</td><td></td><td>0.000</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="c6_StateMachineGraph_BFS"></a>c6_StateMachineGraph_BFS</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="c6_StateMachineGraph_DFS"></a>c6_StateMachineGraph_DFS</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="activeBlock"></a>activeBlock</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="finalStateWithAction"></a>finalStateWithAction</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="Nested_oneState"></a>Nested_oneState</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="transitionWithInvalidGuard"></a>transitionWithInvalidGuard</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="finalStateReservedWord"></a>finalStateReservedWord</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="invalidHistoryStateTransition"></a>invalidHistoryStateTransition</td><td>Success</td><td></td><td>0.011</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="dotNotationAtLevelAbove"></a>dotNotationAtLevelAbove</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateWithInvalidName"></a>stateWithInvalidName</td><td>Success</td><td></td><td>0.022</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="nullStartState_StateMachineGraph_DFS"></a>nullStartState_StateMachineGraph_DFS</td><td>Success</td><td></td><td>0.000</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="oneStateOneGuardBefore"></a>oneStateOneGuardBefore</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="semicolonStateMachine"></a>semicolonStateMachine</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="queuedStateMachines_and_EmptyRegularStateMachine"></a>queuedStateMachines_and_EmptyRegularStateMachine</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="nested_StateMachineGraph_BFS"></a>nested_StateMachineGraph_BFS</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="nested_StateMachineGraph_DFS"></a>nested_StateMachineGraph_DFS</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="transitionToUnknownState"></a>transitionToUnknownState</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="oneStateOneExit"></a>oneStateOneExit</td><td>Success</td><td></td><td>0.000</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="doubleNested_twoLevels_StateMachineGraph_ClearNodes"></a>doubleNested_twoLevels_StateMachineGraph_ClearNodes</td><td>Success</td><td></td><td>0.017</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="finalStateInOneConcurrentRegion"></a>finalStateInOneConcurrentRegion</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="removeEvent"></a>removeEvent</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="conflictingAutoTransitionsToStatesAfterDo"></a>conflictingAutoTransitionsToStatesAfterDo</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="OnOffTimer"></a>OnOffTimer</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="oneStateManyEntry"></a>oneStateManyEntry</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="removeState"></a>removeState</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="twoStateLoop_StateMachineGraph_BFS"></a>twoStateLoop_StateMachineGraph_BFS</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="twoStateLoop_StateMachineGraph_DFS"></a>twoStateLoop_StateMachineGraph_DFS</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="doubleNested_twoLevels_StateMachineGraph_BFS"></a>doubleNested_twoLevels_StateMachineGraph_BFS</td><td>Success</td><td></td><td>0.011</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="doubleNested_twoLevels_StateMachineGraph_DFS"></a>doubleNested_twoLevels_StateMachineGraph_DFS</td><td>Success</td><td></td><td>0.020</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="autoTransition_existingEntryAction"></a>autoTransition_existingEntryAction</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="mixStateMachine"></a>mixStateMachine</td><td>Success</td><td></td><td>0.019</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineDefinition"></a>stateMachineDefinition</td><td>Success</td><td></td><td>0.000</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="pooledStateMachine_UnspecifiedReception"></a>pooledStateMachine_UnspecifiedReception</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="twoStateNoEventStateMachine"></a>twoStateNoEventStateMachine</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="transitionWithGuardAndAction"></a>transitionWithGuardAndAction</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="verifyDuplicateGuards"></a>verifyDuplicateGuards</td><td>Success</td><td></td><td>0.030</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="doubleNested_StateMachineGraph_BFS"></a>doubleNested_StateMachineGraph_BFS</td><td>Success</td><td></td><td>0.012</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="doubleNested_StateMachineGraph_DFS"></a>doubleNested_StateMachineGraph_DFS</td><td>Success</td><td></td><td>0.010</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="handleBangInGuard"></a>handleBangInGuard</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="Nested_TwoStates"></a>Nested_TwoStates</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="tree_StateMachineGraph_BFS"></a>tree_StateMachineGraph_BFS</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="tree_StateMachineGraph_DFS"></a>tree_StateMachineGraph_DFS</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineManyTransitionsToUndefinedStates"></a>stateMachineManyTransitionsToUndefinedStates</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineDefinition_reference"></a>stateMachineDefinition_reference</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="reusingEventsInNestedStateMachines"></a>reusingEventsInNestedStateMachines</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="duplicateEvents"></a>duplicateEvents</td><td>Success</td><td></td><td>0.027</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="standAloneTransitions"></a>standAloneTransitions</td><td>Success</td><td></td><td>0.014</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="duplicateParallelStateMachineName"></a>duplicateParallelStateMachineName</td><td>Success</td><td></td><td>0.016</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="dotNotationAtSameLevel"></a>dotNotationAtSameLevel</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="transitionAfterDo"></a>transitionAfterDo</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="finalStateNoAction"></a>finalStateNoAction</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="testOfNotTwoOrMoreTypesOFStateMachineInSameClass"></a>testOfNotTwoOrMoreTypesOFStateMachineInSameClass</td><td>Success</td><td></td><td>0.008</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="ordering_StateMachineGraph_BFS"></a>ordering_StateMachineGraph_BFS</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="ordering_StateMachineGraph_DFS"></a>ordering_StateMachineGraph_DFS</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="nonReachableState"></a>nonReachableState</td><td>Success</td><td></td><td>0.173</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multipleDoActivity"></a>multipleDoActivity</td><td>Success</td><td></td><td>0.027</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="pooledStateMachine"></a>pooledStateMachine</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="queuedStateMachine"></a>queuedStateMachine</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="unclearTransitionToState"></a>unclearTransitionToState</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="conflictingAutoTransitionsToStates"></a>conflictingAutoTransitionsToStates</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="Concurrent_NoSm"></a>Concurrent_NoSm</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="unclearTransitionToStateNested"></a>unclearTransitionToStateNested</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="handleBangInAttribute"></a>handleBangInAttribute</td><td>Success</td><td></td><td>0.012</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="guardsOnEntryAndExit"></a>guardsOnEntryAndExit</td><td>Success</td><td></td><td>0.008</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="k5_StateMachineGraph_BFS"></a>k5_StateMachineGraph_BFS</td><td>Success</td><td></td><td>0.009</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="k5_StateMachineGraph_DFS"></a>k5_StateMachineGraph_DFS</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineWithInvalidName"></a>stateMachineWithInvalidName</td><td>Success</td><td></td><td>0.024</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="doActivity"></a>doActivity</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="k5_StateMachineGraph_ClearNodes"></a>k5_StateMachineGraph_ClearNodes</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="autoTransition_guard"></a>autoTransition_guard</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="finalStateInTwoConcurrentRegions"></a>finalStateInTwoConcurrentRegions</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="refactorFinalState"></a>refactorFinalState</td><td>Success</td><td></td><td>0.009</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="oneStateTwoEvent"></a>oneStateTwoEvent</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="autoTransition_simple"></a>autoTransition_simple</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="oneStateOneEntry"></a>oneStateOneEntry</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="oneStateOneEvent"></a>oneStateOneEvent</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="historyStatePlacement"></a>historyStatePlacement</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="timedTransictionFollowedByTransiction"></a>timedTransictionFollowedByTransiction</td><td>Success</td><td></td><td>0.016</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="malformedStateMachine"></a>malformedStateMachine</td><td>Success</td><td></td><td>0.021</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="reuseEvents"></a>reuseEvents</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="transitionsWithUndeclaredState"></a>transitionsWithUndeclaredState</td><td>Success</td><td></td><td>0.015</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="startNode_StateMachineGraph_ClearNodes"></a>startNode_StateMachineGraph_ClearNodes</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="oneStateOneGuardAfter"></a>oneStateOneGuardAfter</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="oneState_StateMachine"></a>oneState_StateMachine</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+        </table>
+        <div class="Properties">
+            <a href="javascript:displayProperties('cruise.umple.compiler.UmpleParserStateMachineTest');">
+                    Properties &raquo;
+                </a>
+        </div>
+        <div class="Properties">
+            <a href="./59_UmpleParserStateMachineTest-out.html">
+                        System.out &raquo;
+                    </a>
+        </div>
+        <div class="Properties">
+            <a href="./59_UmpleParserStateMachineTest-err.html">
+                        System.err &raquo;
+                    </a>
+        </div>
+    </body>
+</html>

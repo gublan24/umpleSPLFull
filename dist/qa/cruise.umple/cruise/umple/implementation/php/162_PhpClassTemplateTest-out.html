@@ -1,0 +1,3495 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from PhpClassTemplateTest</title>
+    </head>
+    <body>
+        <pre>&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+abstract class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Object
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+  public function example_obj(Object $g)
+  {
+    /*implementation*/
+  }
+
+  public function example_bool($b)
+  {
+    
+  }
+
+  public function example_int($i)
+  {
+    
+  }
+
+  public function example_float($f)
+  {
+    
+  }
+
+  public function example_double($d)
+  {
+    
+  }
+
+  public function example_string($s)
+  {
+    
+  }
+
+  public function example_obj_array($gs)
+  {
+    
+  }
+
+  public function example_primitive_array($is)
+  {
+    
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private $number;
+  private $number2;
+
+  //Helper Variables
+  private $canSetNumber2;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aNumber)
+  {
+    $this-&gt;number = $aNumber;
+    $this-&gt;canSetNumber2 = true;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setNumber2($aNumber2)
+  {
+    $wasSet = false;
+    if (!$this-&gt;canSetNumber2) { return false; }
+    $this-&gt;canSetNumber2 = false;
+    $this-&gt;number2 = $aNumber2;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getNumber()
+  {
+    return $this-&gt;number;
+  }
+
+  public function getNumber2()
+  {
+    return $this-&gt;number2;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private $capacity;
+  private $id;
+  private $name;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aCapacity, $aId, $aName)
+  {
+    $this-&gt;capacity = $aCapacity;
+    $this-&gt;id = $aId;
+    $this-&gt;name = $aName;
+  }
+
+  public function __construct()
+  {
+    $this-&gt;capacity = "31";
+    $this-&gt;name = "Umple";
+  }
+
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setCapacity($aCapacity)
+  {
+    $wasSet = false;
+    $this-&gt;capacity = $aCapacity;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setId($aId)
+  {
+    $wasSet = false;
+    $this-&gt;id = $aId;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setName($aName)
+  {
+    $wasSet = false;
+    $this-&gt;name = $aName;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getCapacity()
+  {
+    return $this-&gt;capacity;
+  }
+
+  public function getId()
+  {
+    return $this-&gt;id;
+  }
+
+  public function getName()
+  {
+    return $this-&gt;name;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Router implements NetworkNode
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Router Attributes
+  private $ipAddress;
+
+  //Router State Machines
+  private static $StatusDisconnected = 1;
+  private static $StatusConnected = 2;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aIpAddress)
+  {
+    $this-&gt;ipAddress = $aIpAddress;
+    $this-&gt;setStatus(self::$StatusDisconnected);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusDisconnected) { return "StatusDisconnected"; }
+    elseif ($this-&gt;status == self::$StatusConnected) { return "StatusConnected"; }
+    return null;
+  }
+
+  public function createConnection()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusDisconnected)
+    {
+      $this-&gt;setStatus(self::$StatusConnected);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function disconnectRequest()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusConnected)
+    {
+      $this-&gt;setStatus(self::$StatusDisconnected);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+  public function connect()
+  {
+          return "";
+  }
+
+  public function disconnect()
+  {
+          return "";
+  }
+
+  public function errorDetected()
+  {
+          return "";
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Router implements NetworkNode
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Router Attributes
+  private $ipAddress;
+
+  //Router State Machines
+  private static $StatusDisconnected = 1;
+  private static $StatusConnected = 2;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aIpAddress)
+  {
+    $this-&gt;ipAddress = $aIpAddress;
+    $this-&gt;setStatus(self::$StatusDisconnected);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusDisconnected) { return "StatusDisconnected"; }
+    elseif ($this-&gt;status == self::$StatusConnected) { return "StatusConnected"; }
+    return null;
+  }
+
+  public function connect()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusDisconnected)
+    {
+      $this-&gt;setStatus(self::$StatusConnected);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function disconnect()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusConnected)
+    {
+      $this-&gt;setStatus(self::$StatusDisconnected);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function errorDetected()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusConnected)
+    {
+      $this-&gt;setStatus(self::$StatusDisconnected);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Router implements NetworkNode
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Router Attributes
+  private $ipAddress;
+
+  //Router State Machines
+  private static $StatusDisconnected = 1;
+  private static $StatusConnected = 2;
+  private $status;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aIpAddress)
+  {
+    $this-&gt;ipAddress = $aIpAddress;
+    $this-&gt;setStatus(self::$StatusDisconnected);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getStatusFullName()
+  {
+    $answer = $this-&gt;getStatus();
+    return $answer;
+  }
+
+  public function getStatus()
+  {
+    if ($this-&gt;status == self::$StatusDisconnected) { return "StatusDisconnected"; }
+    elseif ($this-&gt;status == self::$StatusConnected) { return "StatusConnected"; }
+    return null;
+  }
+
+  public function connect()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusDisconnected)
+    {
+      $this-&gt;setStatus(self::$StatusConnected);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  public function disconnect()
+  {
+    $wasEventProcessed = false;
+    
+    $aStatus = $this-&gt;status;
+    if ($aStatus == self::$StatusConnected)
+    {
+      $this-&gt;setStatus(self::$StatusDisconnected);
+      $wasEventProcessed = true;
+    }
+    return $wasEventProcessed;
+  }
+
+  private function setStatus($aStatus)
+  {
+    $this-&gt;status = $aStatus;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+  public function errorDetected()
+  {
+          return "";
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+   public function showMe()
+  {
+    
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+  public function foo(int $a)
+  {
+
+    // line 22 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+    System.out.println("Starting foo...");
+    // END OF UMPLE BEFORE INJECTION
+    if(a &lt; 0) {      
+      // line 18 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+      System.out.println("Returning from foo, a: " + a);
+      // END OF UMPLE AFTER INJECTION
+      return 4;
+    }    
+    // line 18 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+    System.out.println("Returning from foo, a: " + a);
+    // END OF UMPLE AFTER INJECTION
+    return 3;
+
+  }
+
+  public function foo(int $a, $b)
+  {
+
+    // line 22 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+    System.out.println("Starting foo...");
+    // END OF UMPLE BEFORE INJECTION
+    if(a &gt; 0 &amp;&amp; "".equals(b)) {      
+      // line 18 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+      System.out.println("Returning from foo, a: " + a);
+      // END OF UMPLE AFTER INJECTION
+      return 3;
+    }    
+    // line 18 "ClassTemplateTest_CodeInjectionsParametersUnspecified.ump"
+    System.out.println("Returning from foo, a: " + a);
+    // END OF UMPLE AFTER INJECTION
+    return 1;
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // STATIC VARIABLES
+  //------------------------
+
+  public static $MAX = 100;
+  public static $MIN = -99;
+  public static $HELLO = "Hello";
+  private static $nextX = 1;
+  private static $mentorsById = array();
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private $str;
+  private $str2;
+  private $someName;
+  private $lDoub;
+  private $lBool;
+  private $name;
+  private $d;
+  private $t;
+  private $i;
+  private $id;
+  private $p;
+  private $q;
+  private $r;
+  private $s;
+  private $tt;
+  private $u;
+  private $v;
+  private $w;
+
+  //Autounique Attributes
+  private $x;
+
+  //Helper Variables
+  private $canSetStr2;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aStr, $aD, $aI, $aId)
+  {
+    $this-&gt;str = $aStr;
+    $this-&gt;canSetStr2 = true;
+    $this-&gt;someName = NULL;
+    $this-&gt;lDoub = 0;
+    $this-&gt;lBool = false;
+    $this-&gt;name = "Johannes";
+    $this-&gt;d = $aD;
+    $this-&gt;t = new Time();
+    $this-&gt;i = $aI;
+    $this-&gt;resetP();
+    $this-&gt;q = "chicken";
+    $this-&gt;resetR();
+    $this-&gt;s = "123";
+    $this-&gt;tt = date("y-m-d", strtotime("1978-12-25"));
+    $this-&gt;u = date("h:i:s", strtotime("12:13:14"));
+    $this-&gt;resetV();
+    $this-&gt;resetW();
+    $this-&gt;x = self::$nextX++;
+    if (!$this-&gt;setId($aId))
+    {
+      throw new RuntimeException("Cannot create due to duplicate id. See http://manual.umple.org?RE003ViolationofUniqueness.html");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setStr2($aStr2)
+  {
+    $wasSet = false;
+    if (!$this-&gt;canSetStr2) { return false; }
+    $this-&gt;canSetStr2 = false;
+    $this-&gt;str2 = $aStr2;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setSomeName($aSomeName)
+  {
+    $wasSet = false;
+    $this-&gt;someName = $aSomeName;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setLDoub($aLDoub)
+  {
+    $wasSet = false;
+    $this-&gt;lDoub = $aLDoub;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setLBool($aLBool)
+  {
+    $wasSet = false;
+    $this-&gt;lBool = $aLBool;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setName($aName)
+  {
+    $wasSet = false;
+    $this-&gt;name = $aName;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setD($aD)
+  {
+    $wasSet = false;
+    $this-&gt;d = $aD;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setI($aI)
+  {
+    $wasSet = false;
+    $this-&gt;i = $aI;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setId($aId)
+  {
+    $wasSet = false;
+    if (isset($this-&gt;id)) {
+      $anOldId = $this-&gt;getId();
+    }
+    if (isset($anOldId) &amp;&amp; $anOldId === $aId) {
+      return true;
+    }
+    if (Mentor::hasWithId($aId)) {
+      return $wasSet;
+    }
+    $this-&gt;id = $aId;
+    $wasSet = true;
+    if (isset($anOldId)) {
+      unset(Mentor::$mentorsById[(string)$anOldId]);
+    }
+    Mentor::$mentorsById[(string)$aId] = $this;
+    return $wasSet;
+  }
+
+  public function setP($aP)
+  {
+    $wasSet = false;
+    $this-&gt;p = $aP;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function resetP()
+  {
+    $wasReset = false;
+    $this-&gt;p = $this-&gt;getDefaultP();
+    $wasReset = true;
+    return $wasReset;
+  }
+
+  public function setQ($aQ)
+  {
+    $wasSet = false;
+    $this-&gt;q = $aQ;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setR($aR)
+  {
+    $wasSet = false;
+    $this-&gt;r = $aR;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function resetR()
+  {
+    $wasReset = false;
+    $this-&gt;r = $this-&gt;getDefaultR();
+    $wasReset = true;
+    return $wasReset;
+  }
+
+  public function setTt($aTt)
+  {
+    $wasSet = false;
+    $this-&gt;tt = $aTt;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setU($aU)
+  {
+    $wasSet = false;
+    $this-&gt;u = $aU;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setV($aV)
+  {
+    $wasSet = false;
+    $this-&gt;v = $aV;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function resetV()
+  {
+    $wasReset = false;
+    $this-&gt;v = $this-&gt;getDefaultV();
+    $wasReset = true;
+    return $wasReset;
+  }
+
+  public function setW($aW)
+  {
+    $wasSet = false;
+    $this-&gt;w = $aW;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function resetW()
+  {
+    $wasReset = false;
+    $this-&gt;w = $this-&gt;getDefaultW();
+    $wasReset = true;
+    return $wasReset;
+  }
+
+  public function getStr()
+  {
+    return $this-&gt;str;
+  }
+
+  public function getStr2()
+  {
+    return $this-&gt;str2;
+  }
+
+  public function getSomeName()
+  {
+    return $this-&gt;someName;
+  }
+
+  public function getLDoub()
+  {
+    return $this-&gt;lDoub;
+  }
+
+  public function getLBool()
+  {
+    return $this-&gt;lBool;
+  }
+
+  public function getName()
+  {
+    return $this-&gt;name;
+  }
+
+  public function getD()
+  {
+    return $this-&gt;d;
+  }
+
+  public function getI()
+  {
+    return $this-&gt;i;
+  }
+
+  public function getDerivedTwiceI()
+  {
+    return i*2;
+  }
+
+  public function getId()
+  {
+    return $this-&gt;id;
+  }
+
+  public static function getWithId($aId)
+  {
+    return Mentor::$mentorsById[(string)$aId];
+  }
+
+  public static function hasWithId($aId)
+  {
+    return array_key_exists((string)$aId, Mentor::$mentorsById);
+  }
+
+  public function getP()
+  {
+    return $this-&gt;p;
+  }
+
+  public function getDefaultP()
+  {
+    return "robot";
+  }
+
+  public function getQ()
+  {
+    return $this-&gt;q;
+  }
+
+  public function getR()
+  {
+    return $this-&gt;r;
+  }
+
+  public function getDefaultR()
+  {
+    return "";
+  }
+
+  public function getS()
+  {
+    return $this-&gt;s;
+  }
+
+  public function getTt()
+  {
+    return $this-&gt;tt;
+  }
+
+  public function getU()
+  {
+    return $this-&gt;u;
+  }
+
+  public function getV()
+  {
+    return $this-&gt;v;
+  }
+
+  public function getDefaultV()
+  {
+    return date("y-m-d", strtotime("1978-12-26"));
+  }
+
+  public function getW()
+  {
+    return $this-&gt;w;
+  }
+
+  public function getDefaultW()
+  {
+    return date("h:i:s", strtotime("12:59:59"));
+  }
+
+  public function getX()
+  {
+    return $this-&gt;x;
+  }
+
+  public function isLBool()
+  {
+    return $this-&gt;lBool;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    unset(Mentor::$mentorsById[(string)$this-&gt;getId()]);
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Foo Attributes
+  private $someStrings;
+  private $numbers;
+  private $objects;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;someStrings = array("a","b","c");
+    $this-&gt;numbers = array(1,2,3,10);
+    $this-&gt;objects = array(new Token("first"),new Token("second"));
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function addSomeString($aSomeString)
+  {
+    $wasAdded = false;
+    $this-&gt;someStrings[] = $aSomeString;
+    $wasAdded = true;
+    return $wasAdded;
+  }
+
+  public function removeSomeString($aSomeString)
+  {
+    $wasRemoved = false;
+    unset($this-&gt;someStrings[$this-&gt;indexOfSomeString($aSomeString)]);
+    $this-&gt;someStrings = array_values($this-&gt;someStrings);
+    $wasRemoved = true;
+    return $wasRemoved;
+  }
+
+  public function addNumber($aNumber)
+  {
+    $wasAdded = false;
+    $this-&gt;numbers[] = $aNumber;
+    $wasAdded = true;
+    return $wasAdded;
+  }
+
+  public function removeNumber($aNumber)
+  {
+    $wasRemoved = false;
+    unset($this-&gt;numbers[$this-&gt;indexOfNumber($aNumber)]);
+    $this-&gt;numbers = array_values($this-&gt;numbers);
+    $wasRemoved = true;
+    return $wasRemoved;
+  }
+
+  public function addObject($aObject)
+  {
+    $wasAdded = false;
+    $this-&gt;objects[] = $aObject;
+    $wasAdded = true;
+    return $wasAdded;
+  }
+
+  public function removeObject($aObject)
+  {
+    $wasRemoved = false;
+    unset($this-&gt;objects[$this-&gt;indexOfObject($aObject)]);
+    $this-&gt;objects = array_values($this-&gt;objects);
+    $wasRemoved = true;
+    return $wasRemoved;
+  }
+
+  public function getSomeString($index)
+  {
+    $aSomeString = $this-&gt;someStrings[$index];
+    return $aSomeString;
+  }
+
+  public function getSomeStrings()
+  {
+    $newSomeStrings = $this-&gt;someStrings;
+    return $newSomeStrings;
+  }
+
+  public function numberOfSomeStrings()
+  {
+    $number = count($this-&gt;someStrings);
+    return $number;
+  }
+
+  public function hasSomeStrings()
+  {
+    $has = someStrings.size() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfSomeString($aSomeString)
+  {
+    $rawAnswer = array_search($aSomeString,$this-&gt;someStrings);
+    $index = $rawAnswer == null &amp;&amp; $rawAnswer !== 0 ? -1 : $rawAnswer;
+    return $index;
+  }
+
+  public function getNumber($index)
+  {
+    $aNumber = $this-&gt;numbers[$index];
+    return $aNumber;
+  }
+
+  public function getNumbers()
+  {
+    $newNumbers = $this-&gt;numbers;
+    return $newNumbers;
+  }
+
+  public function numberOfNumbers()
+  {
+    $number = count($this-&gt;numbers);
+    return $number;
+  }
+
+  public function hasNumbers()
+  {
+    $has = numbers.size() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfNumber($aNumber)
+  {
+    $rawAnswer = array_search($aNumber,$this-&gt;numbers);
+    $index = $rawAnswer == null &amp;&amp; $rawAnswer !== 0 ? -1 : $rawAnswer;
+    return $index;
+  }
+
+  public function getObject($index)
+  {
+    $aObject = $this-&gt;objects[$index];
+    return $aObject;
+  }
+
+  public function getObjects()
+  {
+    $newObjects = $this-&gt;objects;
+    return $newObjects;
+  }
+
+  public function numberOfObjects()
+  {
+    $number = count($this-&gt;objects);
+    return $number;
+  }
+
+  public function hasObjects()
+  {
+    $has = objects.size() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfObject($aObject)
+  {
+    $rawAnswer = array_search($aObject,$this-&gt;objects);
+    $index = $rawAnswer == null &amp;&amp; $rawAnswer !== 0 ? -1 : $rawAnswer;
+    return $index;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+// This is a student
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Foo Associations
+
+  /**
+   * I am a multiline comment above an association.
+   */
+  private $bars;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;bars = array();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getBar_index($index)
+  {
+    $aBar = $this-&gt;bars[$index];
+    return $aBar;
+  }
+
+  public function getBars()
+  {
+    $newBars = $this-&gt;bars;
+    return $newBars;
+  }
+
+  public function numberOfBars()
+  {
+    $number = count($this-&gt;bars);
+    return $number;
+  }
+
+  public function hasBars()
+  {
+    $has = $this-&gt;numberOfBars() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfBar($aBar)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;bars as $bar)
+    {
+      if ($bar-&gt;equals($aBar))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public static function minimumNumberOfBars()
+  {
+    return 0;
+  }
+
+  public function addBarVia()
+  {
+    return new Bar($this);
+  }
+
+  public function addBar($aBar)
+  {
+    $wasAdded = false;
+    if ($this-&gt;indexOfBar($aBar) !== -1) { return false; }
+    $existingFoo = $aBar-&gt;getFoo();
+    $isNewFoo = $existingFoo != null &amp;&amp; $this !== $existingFoo;
+    if ($isNewFoo)
+    {
+      $aBar-&gt;setFoo($this);
+    }
+    else
+    {
+      $this-&gt;bars[] = $aBar;
+    }
+    $wasAdded = true;
+    return $wasAdded;
+  }
+
+  public function removeBar($aBar)
+  {
+    $wasRemoved = false;
+    //Unable to remove aBar, as it must always have a foo
+    if ($this !== $aBar-&gt;getFoo())
+    {
+      unset($this-&gt;bars[$this-&gt;indexOfBar($aBar)]);
+      $this-&gt;bars = array_values($this-&gt;bars);
+      $wasRemoved = true;
+    }
+    return $wasRemoved;
+  }
+
+  public function addBarAt($aBar, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addBar($aBar))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfBars()) { $index = $this-&gt;numberOfBars() - 1; }
+      array_splice($this-&gt;bars, $this-&gt;indexOfBar($aBar), 1);
+      array_splice($this-&gt;bars, $index, 0, array($aBar));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveBarAt($aBar, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfBar($aBar) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfBars()) { $index = $this-&gt;numberOfBars() - 1; }
+      array_splice($this-&gt;bars, $this-&gt;indexOfBar($aBar), 1);
+      array_splice($this-&gt;bars, $index, 0, array($aBar));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addBarAt($aBar, $index);
+    }
+    return $wasAdded;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    foreach ($this-&gt;bars as $aBar)
+    {
+      $aBar-&gt;delete();
+    }
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private $grade;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;grade = "";
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setGrade($aGrade)
+  {
+    $wasSet = false;
+    $this-&gt;grade = $aGrade;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getGrade()
+  {
+    return $this-&gt;grade;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Token
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Token Attributes
+  private $p;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aP)
+  {
+    $this-&gt;p = $aP;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setP($aP)
+  {
+    $wasSet = false;
+    $this-&gt;p = $aP;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getP()
+  {
+    return $this-&gt;p;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+// This is a student
+// Multiple comments
+// on several lines
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+/*
+* I am a class comment.
+ * 
+ * Notice how there are 4 empty lines below me.
+ * 
+ * 
+ * 
+ * 
+ * And 2 below me.
+ * 
+ * 
+ * These lines should come out as we see here.
+ * Comments such as these are often used to improve readability through whitespace clarity.
+*/
+class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Foo Attributes
+
+  /**
+   * I am a multiline comment above an attribute.
+   */
+  private $name;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aName)
+  {
+    $this-&gt;name = $aName;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setName($aName)
+  {
+    $wasSet = false;
+    $this-&gt;name = $aName;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getName()
+  {
+    return $this-&gt;name;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Token
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Foo Attributes
+
+  /**
+   * Inline comment above attribute.
+   */
+  private $testAttribute1;
+
+  /**
+   * Multiple inline comments
+   * above attribute.
+   */
+  private $testAttribute2;
+
+  /**
+   * Multiline comment above attribute.
+   */
+  private $testAttribute3;
+
+  /**
+   * Multiple multiline comments
+   * above attribute.
+   */
+  private $testAttribute4;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aTestAttribute1, $aTestAttribute2, $aTestAttribute3, $aTestAttribute4)
+  {
+    $this-&gt;testAttribute1 = $aTestAttribute1;
+    $this-&gt;testAttribute2 = $aTestAttribute2;
+    $this-&gt;testAttribute3 = $aTestAttribute3;
+    $this-&gt;testAttribute4 = $aTestAttribute4;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setTestAttribute1($aTestAttribute1)
+  {
+    $wasSet = false;
+    $this-&gt;testAttribute1 = $aTestAttribute1;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setTestAttribute2($aTestAttribute2)
+  {
+    $wasSet = false;
+    $this-&gt;testAttribute2 = $aTestAttribute2;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setTestAttribute3($aTestAttribute3)
+  {
+    $wasSet = false;
+    $this-&gt;testAttribute3 = $aTestAttribute3;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function setTestAttribute4($aTestAttribute4)
+  {
+    $wasSet = false;
+    $this-&gt;testAttribute4 = $aTestAttribute4;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getTestAttribute1()
+  {
+    return $this-&gt;testAttribute1;
+  }
+
+  public function getTestAttribute2()
+  {
+    return $this-&gt;testAttribute2;
+  }
+
+  public function getTestAttribute3()
+  {
+    return $this-&gt;testAttribute3;
+  }
+
+  public function getTestAttribute4()
+  {
+    return $this-&gt;testAttribute4;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+  public function foo(int $a)
+  {
+
+    // line 25 "ClassTemplateTest_CodeInjectionsComments.ump"
+    System.out.println("Starting foo with argument: " + a);
+    // END OF UMPLE BEFORE INJECTION
+    if(a &lt; 0) {
+      /*
+        {
+      */      
+      // line 29 "ClassTemplateTest_CodeInjectionsComments.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 0;
+    }
+    else if(a == 1) {
+      // foo()      
+      // line 29 "ClassTemplateTest_CodeInjectionsComments.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return -1;
+    }
+    else {
+      // {      
+      // line 29 "ClassTemplateTest_CodeInjectionsComments.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 4;
+    }
+
+    for(int i = 0; i &lt; a; i++) {
+      // TODO: call foo()
+      if(i == a/4) {        
+        // line 29 "ClassTemplateTest_CodeInjectionsComments.ump"
+        System.out.println("Returning from foo!");
+        // END OF UMPLE AFTER INJECTION
+        return a;
+      }
+    }    
+    // line 29 "ClassTemplateTest_CodeInjectionsComments.ump"
+    System.out.println("Returning from foo!");
+    // END OF UMPLE AFTER INJECTION
+    return 4;
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class SubMentor extends Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aName)
+  {
+    parent::__construct($aName);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    parent::delete();
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class SubMentor2 extends Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //SubMentor2 Attributes
+  private $subName;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aName, $aSubName)
+  {
+    parent::__construct($aName);
+    $this-&gt;subName = $aSubName;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setSubName($aSubName)
+  {
+    $wasSet = false;
+    $this-&gt;subName = $aSubName;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getSubName()
+  {
+    return $this-&gt;subName;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    parent::delete();
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Token
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Token Attributes
+  private $positions;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;positions = array();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function addPosition($aPosition)
+  {
+    $wasAdded = false;
+    $this-&gt;positions[] = $aPosition;
+    $wasAdded = true;
+    return $wasAdded;
+  }
+
+  public function removePosition($aPosition)
+  {
+    $wasRemoved = false;
+    unset($this-&gt;positions[$this-&gt;indexOfPosition($aPosition)]);
+    $this-&gt;positions = array_values($this-&gt;positions);
+    $wasRemoved = true;
+    return $wasRemoved;
+  }
+
+  public function getPosition($index)
+  {
+    $aPosition = $this-&gt;positions[$index];
+    return $aPosition;
+  }
+
+  public function getPositions()
+  {
+    $newPositions = $this-&gt;positions;
+    return $newPositions;
+  }
+
+  public function numberOfPositions()
+  {
+    $number = count($this-&gt;positions);
+    return $number;
+  }
+
+  public function hasPositions()
+  {
+    $has = positions.size() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfPosition($aPosition)
+  {
+    $rawAnswer = array_search($aPosition,$this-&gt;positions);
+    $index = $rawAnswer == null &amp;&amp; $rawAnswer !== 0 ? -1 : $rawAnswer;
+    return $index;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+  public function foo(int $a)
+  {
+
+    // line 17 "ClassTemplateTest_CodeInjectionsBasic.ump"
+    System.out.println("Starting foo with argument: " + a);
+    // END OF UMPLE BEFORE INJECTION
+    if(a &lt; 0) {      
+      // line 21 "ClassTemplateTest_CodeInjectionsBasic.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 0;
+    }
+
+    for(int i = 0; i &lt; a; i++) {
+      if(i == a/4) {        
+        // line 21 "ClassTemplateTest_CodeInjectionsBasic.ump"
+        System.out.println("Returning from foo!");
+        // END OF UMPLE AFTER INJECTION
+        return a;
+      }
+    }    
+    // line 21 "ClassTemplateTest_CodeInjectionsBasic.ump"
+    System.out.println("Returning from foo!");
+    // END OF UMPLE AFTER INJECTION
+    return 4;
+
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+  public function foo(int $a)
+  {
+
+    // line 26 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+    System.out.println("Starting foo...");
+    // END OF UMPLE BEFORE INJECTION
+    // line 38 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+    System.out.println("Starting execution...");
+    // END OF UMPLE BEFORE INJECTION
+    if(a &lt; 0) {
+      return 4;
+    }
+
+    return 3;
+  }
+
+  public function foo(int $a, $b)
+  {
+
+    // line 26 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+    System.out.println("Starting foo...");
+    // END OF UMPLE BEFORE INJECTION
+    if(a &gt; 0 &amp;&amp; "".equals(b)) {      
+      // line 30 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+      System.out.println("Returning from foo, a: " + a ", b: " + b);
+      // END OF UMPLE AFTER INJECTION
+      return 3;
+    }    
+    // line 30 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+    System.out.println("Returning from foo, a: " + a ", b: " + b);
+    // END OF UMPLE AFTER INJECTION
+    return 1;
+  }
+
+  public function bar()
+  {
+
+    // line 34 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+    // TODO: fix asap
+    // END OF UMPLE BEFORE INJECTION
+    // line 38 "ClassTemplateTest_CodeInjectionsParametersMulti.ump"
+    System.out.println("Starting execution...");
+    // END OF UMPLE BEFORE INJECTION
+    int a = 4;
+
+    if(a == 3) return 2;
+    
+    return 1;
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+  public function foo(int $a)
+  {
+
+    // line 18 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+    System.out.println("Starting foo with argument: " + a);
+    // END OF UMPLE BEFORE INJECTION
+    if(a &lt; 0) {      
+      // line 22 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 0;
+    }
+    else if(a == 1) {      
+      // line 22 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return -1;
+    }
+    else {      
+      // line 22 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 4;
+    }
+
+    for(int i = 0; i &lt; a; i++)
+      if(i == a/4) {        
+        // line 22 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+        System.out.println("Returning from foo!");
+        // END OF UMPLE AFTER INJECTION
+        return a;
+      }    
+    // line 22 "ClassTemplateTest_CodeInjectionsNoBraces.ump"
+    System.out.println("Returning from foo!");
+    // END OF UMPLE AFTER INJECTION
+    return 4;
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+
+  /**
+   * I am a method comment.
+   * 
+   * Notice how there are 4 empty lines below me.
+   * 
+   * 
+   * 
+   * 
+   * And 2 below me.
+   * 
+   * 
+   * These lines should come out as we see here.
+   * Comments such as these are often used to improve readability through whitespace clarity.
+   */
+  public function testMethod()
+  {
+    // I am a test method.
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+  public function foo(int $a)
+  {
+
+    // line 16 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+    System.out.println("Starting foo with argument: " + a);
+    // END OF UMPLE BEFORE INJECTION
+    if(a &lt; 0) {      
+      // line 20 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 0;
+    }
+    else if(a == 1) {      
+      // line 20 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return -1;
+    }
+    else {      
+      // line 20 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+      System.out.println("Returning from foo!");
+      // END OF UMPLE AFTER INJECTION
+      return 4;
+    }
+
+    for(int i = 0; i &lt; a; i++) {
+      // TODO: call foo()
+      if(i == a/4) {        
+        // line 20 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+        System.out.println("Returning from foo!");
+        // END OF UMPLE AFTER INJECTION
+        return a;
+      }
+    }    
+    // line 20 "ClassTemplateTest_CodeInjectionsSingleLine.ump"
+    System.out.println("Returning from foo!");
+    // END OF UMPLE AFTER INJECTION
+    return 4;
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+/*
+This is a student
+Multiple comments
+on several lines
+*/
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Foo Associations
+
+  /**
+   * I am a inline comment above an association.
+   */
+  private $bars;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;bars = array();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getBar_index($index)
+  {
+    $aBar = $this-&gt;bars[$index];
+    return $aBar;
+  }
+
+  public function getBars()
+  {
+    $newBars = $this-&gt;bars;
+    return $newBars;
+  }
+
+  public function numberOfBars()
+  {
+    $number = count($this-&gt;bars);
+    return $number;
+  }
+
+  public function hasBars()
+  {
+    $has = $this-&gt;numberOfBars() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfBar($aBar)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;bars as $bar)
+    {
+      if ($bar-&gt;equals($aBar))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public static function minimumNumberOfBars()
+  {
+    return 0;
+  }
+
+  public function addBarVia()
+  {
+    return new Bar($this);
+  }
+
+  public function addBar($aBar)
+  {
+    $wasAdded = false;
+    if ($this-&gt;indexOfBar($aBar) !== -1) { return false; }
+    $existingFoo = $aBar-&gt;getFoo();
+    $isNewFoo = $existingFoo != null &amp;&amp; $this !== $existingFoo;
+    if ($isNewFoo)
+    {
+      $aBar-&gt;setFoo($this);
+    }
+    else
+    {
+      $this-&gt;bars[] = $aBar;
+    }
+    $wasAdded = true;
+    return $wasAdded;
+  }
+
+  public function removeBar($aBar)
+  {
+    $wasRemoved = false;
+    //Unable to remove aBar, as it must always have a foo
+    if ($this !== $aBar-&gt;getFoo())
+    {
+      unset($this-&gt;bars[$this-&gt;indexOfBar($aBar)]);
+      $this-&gt;bars = array_values($this-&gt;bars);
+      $wasRemoved = true;
+    }
+    return $wasRemoved;
+  }
+
+  public function addBarAt($aBar, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addBar($aBar))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfBars()) { $index = $this-&gt;numberOfBars() - 1; }
+      array_splice($this-&gt;bars, $this-&gt;indexOfBar($aBar), 1);
+      array_splice($this-&gt;bars, $index, 0, array($aBar));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveBarAt($aBar, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfBar($aBar) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfBars()) { $index = $this-&gt;numberOfBars() - 1; }
+      array_splice($this-&gt;bars, $this-&gt;indexOfBar($aBar), 1);
+      array_splice($this-&gt;bars, $index, 0, array($aBar));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addBarAt($aBar, $index);
+    }
+    return $wasAdded;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    foreach ($this-&gt;bars as $aBar)
+    {
+      $aBar-&gt;delete();
+    }
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+// This is a student
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+
+  /**
+   * Inline comment above method.
+   */
+  public function testMethod1()
+  {
+    // I am a comment inside a method.
+  }
+
+
+  /**
+   * Multiple inline comments
+   * above method.
+   */
+  public function testMethod2()
+  {
+    // I am a comment inside a method.
+  }
+
+
+  /**
+   * Multiline comment above method.
+   */
+  public function testMethod3()
+  {
+    // I am a comment inside a method.
+  }
+
+
+  /**
+   * Multiple multiline comments
+   * above method.
+   */
+  public function testMethod4()
+  {
+    // I am a comment inside a method.
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Foo Associations
+
+  /**
+   * Inline comment above association.
+   */
+  private $bar1s;
+
+  /**
+   * Multiple inline comments
+   * above association.
+   */
+  private $bar2s;
+
+  /**
+   * Multiline comment above association.
+   */
+  private $bar3s;
+
+  /**
+   * Multiple multiline comments
+   * above association.
+   */
+  private $bar4s;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {
+    $this-&gt;bar1s = array();
+    $this-&gt;bar2s = array();
+    $this-&gt;bar3s = array();
+    $this-&gt;bar4s = array();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function getBar1_index($index)
+  {
+    $aBar1 = $this-&gt;bar1s[$index];
+    return $aBar1;
+  }
+
+  public function getBar1s()
+  {
+    $newBar1s = $this-&gt;bar1s;
+    return $newBar1s;
+  }
+
+  public function numberOfBar1s()
+  {
+    $number = count($this-&gt;bar1s);
+    return $number;
+  }
+
+  public function hasBar1s()
+  {
+    $has = $this-&gt;numberOfBar1s() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfBar1($aBar1)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;bar1s as $bar1)
+    {
+      if ($bar1-&gt;equals($aBar1))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public function getBar2_index($index)
+  {
+    $aBar2 = $this-&gt;bar2s[$index];
+    return $aBar2;
+  }
+
+  public function getBar2s()
+  {
+    $newBar2s = $this-&gt;bar2s;
+    return $newBar2s;
+  }
+
+  public function numberOfBar2s()
+  {
+    $number = count($this-&gt;bar2s);
+    return $number;
+  }
+
+  public function hasBar2s()
+  {
+    $has = $this-&gt;numberOfBar2s() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfBar2($aBar2)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;bar2s as $bar2)
+    {
+      if ($bar2-&gt;equals($aBar2))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public function getBar3_index($index)
+  {
+    $aBar3 = $this-&gt;bar3s[$index];
+    return $aBar3;
+  }
+
+  public function getBar3s()
+  {
+    $newBar3s = $this-&gt;bar3s;
+    return $newBar3s;
+  }
+
+  public function numberOfBar3s()
+  {
+    $number = count($this-&gt;bar3s);
+    return $number;
+  }
+
+  public function hasBar3s()
+  {
+    $has = $this-&gt;numberOfBar3s() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfBar3($aBar3)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;bar3s as $bar3)
+    {
+      if ($bar3-&gt;equals($aBar3))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public function getBar4_index($index)
+  {
+    $aBar4 = $this-&gt;bar4s[$index];
+    return $aBar4;
+  }
+
+  public function getBar4s()
+  {
+    $newBar4s = $this-&gt;bar4s;
+    return $newBar4s;
+  }
+
+  public function numberOfBar4s()
+  {
+    $number = count($this-&gt;bar4s);
+    return $number;
+  }
+
+  public function hasBar4s()
+  {
+    $has = $this-&gt;numberOfBar4s() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfBar4($aBar4)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;bar4s as $bar4)
+    {
+      if ($bar4-&gt;equals($aBar4))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public static function minimumNumberOfBar1s()
+  {
+    return 0;
+  }
+
+  public function addBar1Via()
+  {
+    return new Bar1($this);
+  }
+
+  public function addBar1($aBar1)
+  {
+    $wasAdded = false;
+    if ($this-&gt;indexOfBar1($aBar1) !== -1) { return false; }
+    $existingFoo = $aBar1-&gt;getFoo();
+    $isNewFoo = $existingFoo != null &amp;&amp; $this !== $existingFoo;
+    if ($isNewFoo)
+    {
+      $aBar1-&gt;setFoo($this);
+    }
+    else
+    {
+      $this-&gt;bar1s[] = $aBar1;
+    }
+    $wasAdded = true;
+    return $wasAdded;
+  }
+
+  public function removeBar1($aBar1)
+  {
+    $wasRemoved = false;
+    //Unable to remove aBar1, as it must always have a foo
+    if ($this !== $aBar1-&gt;getFoo())
+    {
+      unset($this-&gt;bar1s[$this-&gt;indexOfBar1($aBar1)]);
+      $this-&gt;bar1s = array_values($this-&gt;bar1s);
+      $wasRemoved = true;
+    }
+    return $wasRemoved;
+  }
+
+  public function addBar1At($aBar1, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addBar1($aBar1))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfBar1s()) { $index = $this-&gt;numberOfBar1s() - 1; }
+      array_splice($this-&gt;bar1s, $this-&gt;indexOfBar1($aBar1), 1);
+      array_splice($this-&gt;bar1s, $index, 0, array($aBar1));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveBar1At($aBar1, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfBar1($aBar1) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfBar1s()) { $index = $this-&gt;numberOfBar1s() - 1; }
+      array_splice($this-&gt;bar1s, $this-&gt;indexOfBar1($aBar1), 1);
+      array_splice($this-&gt;bar1s, $index, 0, array($aBar1));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addBar1At($aBar1, $index);
+    }
+    return $wasAdded;
+  }
+
+  public static function minimumNumberOfBar2s()
+  {
+    return 0;
+  }
+
+  public function addBar2Via()
+  {
+    return new Bar2($this);
+  }
+
+  public function addBar2($aBar2)
+  {
+    $wasAdded = false;
+    if ($this-&gt;indexOfBar2($aBar2) !== -1) { return false; }
+    $existingFoo = $aBar2-&gt;getFoo();
+    $isNewFoo = $existingFoo != null &amp;&amp; $this !== $existingFoo;
+    if ($isNewFoo)
+    {
+      $aBar2-&gt;setFoo($this);
+    }
+    else
+    {
+      $this-&gt;bar2s[] = $aBar2;
+    }
+    $wasAdded = true;
+    return $wasAdded;
+  }
+
+  public function removeBar2($aBar2)
+  {
+    $wasRemoved = false;
+    //Unable to remove aBar2, as it must always have a foo
+    if ($this !== $aBar2-&gt;getFoo())
+    {
+      unset($this-&gt;bar2s[$this-&gt;indexOfBar2($aBar2)]);
+      $this-&gt;bar2s = array_values($this-&gt;bar2s);
+      $wasRemoved = true;
+    }
+    return $wasRemoved;
+  }
+
+  public function addBar2At($aBar2, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addBar2($aBar2))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfBar2s()) { $index = $this-&gt;numberOfBar2s() - 1; }
+      array_splice($this-&gt;bar2s, $this-&gt;indexOfBar2($aBar2), 1);
+      array_splice($this-&gt;bar2s, $index, 0, array($aBar2));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveBar2At($aBar2, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfBar2($aBar2) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfBar2s()) { $index = $this-&gt;numberOfBar2s() - 1; }
+      array_splice($this-&gt;bar2s, $this-&gt;indexOfBar2($aBar2), 1);
+      array_splice($this-&gt;bar2s, $index, 0, array($aBar2));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addBar2At($aBar2, $index);
+    }
+    return $wasAdded;
+  }
+
+  public static function minimumNumberOfBar3s()
+  {
+    return 0;
+  }
+
+  public function addBar3Via()
+  {
+    return new Bar3($this);
+  }
+
+  public function addBar3($aBar3)
+  {
+    $wasAdded = false;
+    if ($this-&gt;indexOfBar3($aBar3) !== -1) { return false; }
+    $existingFoo = $aBar3-&gt;getFoo();
+    $isNewFoo = $existingFoo != null &amp;&amp; $this !== $existingFoo;
+    if ($isNewFoo)
+    {
+      $aBar3-&gt;setFoo($this);
+    }
+    else
+    {
+      $this-&gt;bar3s[] = $aBar3;
+    }
+    $wasAdded = true;
+    return $wasAdded;
+  }
+
+  public function removeBar3($aBar3)
+  {
+    $wasRemoved = false;
+    //Unable to remove aBar3, as it must always have a foo
+    if ($this !== $aBar3-&gt;getFoo())
+    {
+      unset($this-&gt;bar3s[$this-&gt;indexOfBar3($aBar3)]);
+      $this-&gt;bar3s = array_values($this-&gt;bar3s);
+      $wasRemoved = true;
+    }
+    return $wasRemoved;
+  }
+
+  public function addBar3At($aBar3, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addBar3($aBar3))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfBar3s()) { $index = $this-&gt;numberOfBar3s() - 1; }
+      array_splice($this-&gt;bar3s, $this-&gt;indexOfBar3($aBar3), 1);
+      array_splice($this-&gt;bar3s, $index, 0, array($aBar3));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveBar3At($aBar3, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfBar3($aBar3) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfBar3s()) { $index = $this-&gt;numberOfBar3s() - 1; }
+      array_splice($this-&gt;bar3s, $this-&gt;indexOfBar3($aBar3), 1);
+      array_splice($this-&gt;bar3s, $index, 0, array($aBar3));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addBar3At($aBar3, $index);
+    }
+    return $wasAdded;
+  }
+
+  public static function minimumNumberOfBar4s()
+  {
+    return 0;
+  }
+
+  public function addBar4Via()
+  {
+    return new Bar4($this);
+  }
+
+  public function addBar4($aBar4)
+  {
+    $wasAdded = false;
+    if ($this-&gt;indexOfBar4($aBar4) !== -1) { return false; }
+    $existingFoo = $aBar4-&gt;getFoo();
+    $isNewFoo = $existingFoo != null &amp;&amp; $this !== $existingFoo;
+    if ($isNewFoo)
+    {
+      $aBar4-&gt;setFoo($this);
+    }
+    else
+    {
+      $this-&gt;bar4s[] = $aBar4;
+    }
+    $wasAdded = true;
+    return $wasAdded;
+  }
+
+  public function removeBar4($aBar4)
+  {
+    $wasRemoved = false;
+    //Unable to remove aBar4, as it must always have a foo
+    if ($this !== $aBar4-&gt;getFoo())
+    {
+      unset($this-&gt;bar4s[$this-&gt;indexOfBar4($aBar4)]);
+      $this-&gt;bar4s = array_values($this-&gt;bar4s);
+      $wasRemoved = true;
+    }
+    return $wasRemoved;
+  }
+
+  public function addBar4At($aBar4, $index)
+  {  
+    $wasAdded = false;
+    if($this-&gt;addBar4($aBar4))
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfBar4s()) { $index = $this-&gt;numberOfBar4s() - 1; }
+      array_splice($this-&gt;bar4s, $this-&gt;indexOfBar4($aBar4), 1);
+      array_splice($this-&gt;bar4s, $index, 0, array($aBar4));
+      $wasAdded = true;
+    }
+    return $wasAdded;
+  }
+
+  public function addOrMoveBar4At($aBar4, $index)
+  {
+    $wasAdded = false;
+    if($this-&gt;indexOfBar4($aBar4) !== -1)
+    {
+      if($index &lt; 0 ) { $index = 0; }
+      if($index &gt; $this-&gt;numberOfBar4s()) { $index = $this-&gt;numberOfBar4s() - 1; }
+      array_splice($this-&gt;bar4s, $this-&gt;indexOfBar4($aBar4), 1);
+      array_splice($this-&gt;bar4s, $index, 0, array($aBar4));
+      $wasAdded = true;
+    } 
+    else 
+    {
+      $wasAdded = $this-&gt;addBar4At($aBar4, $index);
+    }
+    return $wasAdded;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    foreach ($this-&gt;bar1s as $aBar1)
+    {
+      $aBar1-&gt;delete();
+    }
+    foreach ($this-&gt;bar2s as $aBar2)
+    {
+      $aBar2-&gt;delete();
+    }
+    foreach ($this-&gt;bar3s as $aBar3)
+    {
+      $aBar3-&gt;delete();
+    }
+    foreach ($this-&gt;bar4s as $aBar4)
+    {
+      $aBar4-&gt;delete();
+    }
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+
+  /**
+   * I am a comment above a method.
+   */
+  public function testMethod()
+  {
+    // I am a comment inside a method.
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+
+  /**
+   * I am a comment above a method.
+   */
+  public function testMethod()
+  {
+    // I am a comment inside a method.
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Foo
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Foo Attributes
+
+  /**
+   * I am a inline comment above an attribute.
+   */
+  private $bar;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aBar)
+  {
+    $this-&gt;bar = $aBar;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setBar($aBar)
+  {
+    $wasSet = false;
+    $this-&gt;bar = $aBar;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getBar()
+  {
+    return $this-&gt;bar;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct()
+  {}
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+</pre>
+    </body>
+</html>

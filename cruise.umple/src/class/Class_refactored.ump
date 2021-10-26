@@ -1,0 +1,129 @@
+
+mixset Attribute { 
+  class UmpleInternalParser { 
+    before Label_Attribute_50:analyze(boolean)
+  {
+        mixset Method {
+          checkDefaultedNameConflict();
+        }
+      }  } 
+} 
+
+
+  class UmpleInternalParser { 
+    before Label_Class_53:analyzeToken(Token,int)
+  {
+      analyzeClassToken(t,analysisStep);
+    }  
+} 
+
+
+mixset AspectInjection { 
+  class UmpleInternalParser { 
+    before Label_AspectInjection_64:analyzeToken(Token,int)
+  {
+      analyzeInjectionToken(t, analysisStep);
+    }  } 
+} 
+
+  class UmpleInternalParser { 
+    before Label_Class_65:analyzeToken(Token,UmpleClass,int)
+  {
+      analyzeClassToken(t,aClass,analysisStep);
+    }  } 
+
+
+
+mixset AspectInjection { 
+  class UmpleInternalParser { 
+    before Label_AspectInjection_68:analyzeDependentTokens(Token,UmpleClass,int)
+  {
+      else if (t.is("beforeCode") || t.is("afterCode"))
+      {
+        analyzeInjectionCode(t,aClass);
+      }
+    }  } 
+}
+
+
+  class UmpleInternalParser { 
+    before Label_Class_71:postTokenAnalysis
+  {
+      if (getParseResult().getWasSuccess())
+      {
+        postTokenClassAnalysis();
+      }
+    }  } 
+// Start
+
+//src/generators/Generator_CodeUmple.ump
+mixset Class { 
+  class UmpleGenerator { 
+    before Label_Class_7:initializeParser
+  {
+      parser.addGrammarFile("/class/umple_classes.grammar");
+    }  } 
+} 
+
+mixset Mixset { 
+  class UmpleInternalParser { 
+    before Label_Class_144:getMixsetFragmentWithEnclosingElement(Token,String)
+  {
+      if (token.is("classDefinition"))
+      {
+        tokenKey = "name"; 
+        prefix ="class";
+        returnMixsetBody= true;
+      }
+    }  } 
+}
+
+mixset Attribute { 
+// Fragment source file: UmpleInternalParser_CodeClass.ump
+// Line : 5855
+ class UmpleInternalParser { 
+   mixset Method {
+      void checkDefaultedNameConflict(){
+        Map<String, CodeTranslator> allTranslators = model.getAllTranslators();
+        HashSet<String> generatedMethods = new HashSet<String>();
+        for(String langName : allTranslators.keySet()){
+          CodeTranslator t = allTranslators.get(langName);
+
+          for(UmpleClass aClass : model.getUmpleClasses()){
+            generatedMethods.clear();
+
+            for(Attribute aAttr : aClass.getAttributes()){
+              String modifier = aAttr.getModifier();
+
+              // Can add more!
+              if(!"internal".equals(modifier)){
+                addToGeneratedMethodMap(generatedMethods, aClass.getName(), t, "getMethod", aAttr);
+                addToGeneratedMethodMap(generatedMethods, aClass.getName(), t, "setMethod", aAttr);
+              }
+
+              if("defaulted".equals(modifier)){
+                addToGeneratedMethodMap(generatedMethods, aClass.getName(), t, "getDefaultMethod", aAttr);
+              }
+            }
+          }
+        }
+      }
+
+      boolean addToGeneratedMethodMap(HashSet<String> generatedMethods, String className, CodeTranslator t, String translatingLabel, Attribute aAttr){
+        String generatedMethodName = t.translate(translatingLabel, aAttr);
+
+        if(generatedMethodName != null && !"".equals(generatedMethodName) && !generatedMethodName.startsWith("UNKNOWN ID")){
+
+          boolean success = generatedMethods.add(generatedMethodName);
+          if(!success){
+            getParseResult().addErrorMessage(new ErrorMessage(48,aAttr.getPosition(), aAttr.getName(), className, generatedMethodName));
+            return false;
+          }
+
+        }
+        return true;
+      }
+
+    } } 
+
+}

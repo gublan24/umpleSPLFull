@@ -1,0 +1,132 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from RubyUnidirectionalOneTest</title>
+    </head>
+    <body>
+        <pre># PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+class Mentor
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Mentor Attributes - for documentation purposes
+  #attr_reader :name
+
+  #Mentor Associations - for documentation purposes
+  #attr_reader :student
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_name, a_student)
+    @initialized = false
+    @deleted = false
+    @name = a_name
+    unless set_student(a_student)
+      raise "Unable to create Mentor due to a_student. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html" 
+    end
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def set_name(a_name)
+    was_set = false
+    raise "Mandatory relationship with student not satisfied" if (@initialized and !@deleted and @student.nil?)
+    @name = a_name
+    was_set = true
+    was_set
+  end
+
+  def get_name
+    raise "Mandatory relationship with student not satisfied" if (@initialized and !@deleted and @student.nil?)
+    @name
+  end
+
+  def get_student
+    raise "Mandatory relationship with student not satisfied" if (@initialized and !@deleted and @student.nil?)
+    @student
+  end
+
+  def set_student(a_new_student)
+    was_set = false
+    raise "Mandatory relationship with student not satisfied" if (@initialized and !@deleted and @student.nil?)
+    unless a_new_student.nil?
+      @student = a_new_student
+      was_set = true
+    end
+    was_set
+  end
+
+  def delete
+    @deleted = true
+    raise "Mandatory relationship with student not satisfied" if (@initialized and !@deleted and @student.nil?)
+    @student = nil
+  end
+
+end
+end
+# PLEASE DO NOT EDIT THIS CODE
+# This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+# NOTE: Ruby generator is experimental and is missing some features available in
+# in other Umple generated languages like Java or PHP
+
+module Example
+
+class Student
+
+
+  #------------------------
+  # MEMBER VARIABLES
+  #------------------------
+
+  #Student Attributes - for documentation purposes
+  #attr_reader :number
+
+  #------------------------
+  # CONSTRUCTOR
+  #------------------------
+
+  def initialize(a_number)
+    @initialized = false
+    @deleted = false
+    @number = a_number
+    @initialized = true
+  end
+
+  #------------------------
+  # INTERFACE
+  #------------------------
+
+  def set_number(a_number)
+    was_set = false
+    @number = a_number
+    was_set = true
+    was_set
+  end
+
+  def get_number
+    @number
+  end
+
+  def delete
+    @deleted = true
+  end
+
+end
+end
+</pre>
+    </body>
+</html>

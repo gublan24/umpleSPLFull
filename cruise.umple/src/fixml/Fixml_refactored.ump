@@ -1,0 +1,19 @@
+mixset FIXML { 
+  class UmpleInternalParser { 
+    before Label_FIXML_61:analyzeToken(Token,int)
+  {
+      analyzeFIXML(t, analysisStep);
+    }  } 
+} 
+
+
+//src/generators/Generator_CodeUmple.ump
+mixset FIXML { 
+  class UmpleGenerator { 
+    before Label_FIXML_9:initializeParser
+  {
+      parser.addGrammarFile("/fixml/umple_fixml.grammar");
+    }  } 
+} 
+
+

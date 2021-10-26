@@ -1,0 +1,15 @@
+
+// Code for mixset FIXML : 
+
+
+class UmpleGenerator { 
+    before Label_FIXML_9:initializeParser
+  {
+      parser.addGrammarFile("/fixml/umple_fixml.grammar");
+    }  }
+
+class UmpleInternalParser { 
+    before Label_FIXML_61:analyzeToken(Token,int)
+  {
+      analyzeFIXML(t, analysisStep);
+    }  }

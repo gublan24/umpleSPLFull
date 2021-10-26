@@ -1,0 +1,56 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from SqlCompositePKGenTest</title>
+    </head>
+    <body>
+        <pre>-- PLEASE DO NOT EDIT THIS CODE
+-- This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+
+CREATE DATABASE IF NOT EXISTS `example`;
+USE `example`;
+
+CREATE TABLE IF NOT EXISTS `example`.`person`
+(
+  /*------------------------*/
+  /* MEMBER VARIABLES       */
+  /*------------------------*/
+  
+  /*person Attributes*/
+  name VARCHAR(255),
+  id INT,
+  age INT,
+  PRIMARY KEY(id, name)
+
+);
+
+
+
+-- PLEASE DO NOT EDIT THIS CODE
+-- This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!
+
+CREATE DATABASE IF NOT EXISTS `example`;
+USE `example`;
+
+CREATE TABLE IF NOT EXISTS `example`.`mentor`
+(
+  /*------------------------*/
+  /* MEMBER VARIABLES       */
+  /*------------------------*/
+
+  /*mentor Associations*/
+  person_id INT,
+  person_name VARCHAR(255),
+  
+  /*mentor Attributes*/
+  class INT,
+  PRIMARY KEY(class)
+
+);
+
+
+ALTER TABLE `example`.`mentor` ADD CONSTRAINT `fk_mentor_person_id_name` FOREIGN KEY (`person_id`, `person_name`) REFERENCES `example`.`person`(`id`, `name`);
+
+</pre>
+    </body>
+</html>

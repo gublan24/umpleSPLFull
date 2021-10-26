@@ -1,0 +1,64 @@
+/*
+
+Copyright: All contributers to the Umple Project
+
+This file is made available subject to the open source license found at:
+http://umple.org/license
+
+Definitions of the different code- or model-transformation generators
+Note that some generators such as Umlet and Violet are in their own files
+
+ */
+
+namespace cruise.umple.compiler;
+// Allows independent code generation tools
+// Different generators will do different things regarding where the files are put, etc.
+interface CodeGenerator
+{
+  boolean setModel(UmpleModel aUmpleModel);
+  boolean setOutput(String aString);
+  boolean setSuboption(String subopt);
+  boolean hasSuboption(String subopt);
+  void generate();
+  void prepare();
+  void postpare();
+}
+
+// Default implementation for generators with suboptions
+class CodeGeneratorWithSubptions
+{
+  isA CodeGenerator;
+  lazy String[] suboptions;
+  public boolean hasSuboption(String subopt)
+  {
+    return suboptions.contains(subopt);
+  }
+
+  public boolean setSuboption(String subopt)
+  {
+    return suboptions.add(subopt);
+  }
+}
+
+
+
+
+
+interface CodeTranslator
+{
+  String translate(String id, Attribute attribute);  
+  String translate(String id, AssociationVariable aVar);
+  String translate(String id, ConstraintTree constraint);
+  String translate(String id, ConstraintVariable cv);
+  // TODO: LH#171
+  //String translate(String id, AssociationVariable associationVariable);
+}
+use Umple.ump;
+use generators/GeneratorHelper_Code.ump;
+
+//End 
+
+// Base case generator, allows compilation without generation for testing command line, since Java is default
+use generators/Generator_CodeNothing.ump;
+
+

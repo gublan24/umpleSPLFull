@@ -1,0 +1,319 @@
+  /*
+
+Copyright: All contributers to the Umple Project
+
+This file is made available subject to the open source license found at:
+http://umple.org/license
+ */
+
+namespace cruise.umple.compiler;
+// Fragment source file: Umple_CodeMethod.ump
+// Line : 338
+class CodeInjection
+  {
+    public CodeInjection(String a, String b, String c, UmpleClassifier d)
+    {
+      this(a,b,new CodeBlock(c), d);
+    }
+    public void setCode(String str)
+    {
+      snippet.setCode(str);
+    }
+    public String getCode()
+    {
+      return snippet.getCode();
+    }
+    public String getConstraintCode(CodeTranslator gen)
+    {
+      return StringFormatter.format(gen.translate("Closed",constraintTree),getCode());
+    }
+    public void setCode(String lang, String code)
+    {
+      snippet.setCode(lang, code);
+    }
+    public String getCode(String lang)
+    {
+      return snippet.getCode(lang);
+    }
+  }
+
+// Fragment source file: UmpleInternalParser_CodeMixset.ump
+// Line : 483
+class CodeInjection{
+    String injectionlabel = "";
+    boolean codeBlockProcessed = false;
+
+    boolean hasCodeLabel()
+    {
+      return ! injectionlabel.equals("");
+    }
+  }
+
+  class CodeBlock{
+    depend java.util.regex.Matcher;
+    depend java.util.regex.Pattern;
+
+    public ArrayList<String> getCodeWithLabels(String codesKey) {
+      ArrayList <String> codeLabels = new ArrayList<String>();
+      String codeToLockAt = getCode(codesKey);
+      ArrayList<String> codeWithLabels = new ArrayList<String>();
+      Pattern labelPatternToMatch = Pattern.compile("(\\S+):");
+      Matcher matcher = labelPatternToMatch.matcher(codeToLockAt);
+      int lastMatchedIndex=0;
+      while (matcher.find()) {
+        String codeBeforeLabel = codeToLockAt.substring(lastMatchedIndex, matcher.start());
+        if(!codeBeforeLabel.equals(""))
+          codeWithLabels.add(codeBeforeLabel);
+        codeWithLabels.add(matcher.group()); //add the label itself to the source code.
+        codeLabels.add(matcher.group().replaceFirst(":","")); // remove colon and add it the list of labels 
+        lastMatchedIndex = matcher.end();
+      }
+      // This for last label, to add the code after last matched label 
+      String codeAfterLastLabel =codeToLockAt.substring(lastMatchedIndex); 
+      codeWithLabels.add(codeAfterLastLabel);
+      return codeWithLabels;
+    }
+
+  }
+
+  class MethodBody
+  {
+    depend java.util.regex.Matcher;
+    depend java.util.regex.Pattern;
+
+    public static int indexOfMixsetClosingBracket(String strInput) {
+    int closeIndex = 0;
+    int numOfclosingBracket=0;
+    for(int i = 0; i< strInput.length();i++)
+    {
+      char currentChar = strInput.charAt(i);
+      if(currentChar =='{')
+      numOfclosingBracket++;
+      else if(currentChar == '}')
+        {
+          numOfclosingBracket--;
+          if(numOfclosingBracket==0)
+            {
+              closeIndex = i+1;
+              break;
+            }
+        }	
+    }
+    return closeIndex;
+  }
+  public  ArrayList<MixsetInMethod> getMixsetsWithinMethod(){
+    return getMixsetsFromCode(this.getCodeblock().getCode());
+  }
+  public static ArrayList<MixsetInMethod> getMixsetsFromCode(String codeToLockAt){
+    ArrayList<MixsetInMethod> mixsetInsideMethodList = new ArrayList<MixsetInMethod>();
+    Pattern labelPatternToMatch = Pattern.compile("mixset\\s+\\S+\\s+\\{"); // to detect mixset def.
+    Matcher matcher = labelPatternToMatch.matcher(codeToLockAt);
+    while (matcher.find()) {
+      String mixsetDefPlusAfterCode = codeToLockAt.substring(matcher.start());
+      // mixset def. + the code after the mixset def.
+      int indexOfMixsetClosingBracket = matcher.start() + indexOfMixsetClosingBracket(mixsetDefPlusAfterCode);
+      String mixsetBodyWithDef = codeToLockAt.substring(matcher.start(),indexOfMixsetClosingBracket);
+      // get the name of the mixset
+      String mixsetName = matcher.group().replace("mixset", "").replace("{", "").trim(); 
+      MixsetInMethod mixsetInsideMethod = new MixsetInMethod(mixsetName,matcher.start(),indexOfMixsetClosingBracket,mixsetBodyWithDef);
+      
+      // place inner method in their right position.
+      for(MixsetInMethod tempMixsetInMethod:mixsetInsideMethodList)
+      {
+        if(mixsetInsideMethod.getStartPositionIndex() > tempMixsetInMethod.getStartPositionIndex()
+            & mixsetInsideMethod.getEndPositionIndex() < tempMixsetInMethod.getEndPositionIndex())
+        { 
+          // a nested mixset should be bounded by its close parent mixset 
+          mixsetInsideMethod.setParentInnerMixset(tempMixsetInMethod);
+          tempMixsetInMethod.addChildMixset(mixsetInsideMethod);
+        }
+      }
+      // a nested mixset should not add here. 
+      if(mixsetInsideMethod.getParentInnerMixset() == null) // its not bounded by another mixset 
+      {
+        mixsetInsideMethodList.add(mixsetInsideMethod);
+      }
+    }
+    return mixsetInsideMethodList;
+  }
+  }
+
+
+
+//end 
+class UmpleInternalParser
+{
+    private void analyzeInjectionToken(Token t, int analysisStep) {
+      if (t.is("toplevelBeforeCode"))
+      {
+        analyzeToplevelInjectionCode(t, analysisStep, "toplevelBeforeCode");
+      } else if (t.is("toplevelAfterCode"))
+      {
+        analyzeToplevelInjectionCode(t, analysisStep, "toplevelAfterCode");
+      }
+    }
+  
+    // Issue#1521
+  private void analyzeToplevelInjectionCode(Token injectToken, int analysisStep, String toplevelBeforeOrAfter)
+  {
+    if (analysisStep == 1) // Do not process when analysis step == 1
+    {
+      shouldProcessAgain = shouldProcessAgain || (analysisStep == 1);
+      return;
+    }
+    if (analysisStep == 2) // Do not process when analysis step == 2
+    {
+      shouldProcessAgain = true;
+      return;
+    }
+    Token classNameToken;
+    ArrayList<String> matchedClassNames = new ArrayList<String>();
+    ArrayList<String> matchingClassNamePatterns = new ArrayList<String>();
+    while (injectToken.getSubToken("className") != null)
+    {
+      classNameToken = injectToken.getSubToken("className");
+      String matchingClassNamePattern = classNameToken.getValue();
+      matchingClassNamePatterns.add(matchingClassNamePattern);
+      injectToken.removeSubToken(classNameToken); 
+    }
+
+    String beforeOrAfter = toplevelBeforeOrAfter.substring(8);
+    String beforeOrAfter2 = beforeOrAfter.substring(0, 1).toLowerCase() + beforeOrAfter.substring(1); //toLowerCase first letter
+    injectToken.getSubToken(toplevelBeforeOrAfter).setName(beforeOrAfter2);
+
+    ArrayList<String> operationNames = new ArrayList<String>();
+    for (Token subToken : injectToken.getSubTokens())
+    {
+      if (subToken.is("injectionOperation"))
+      {
+        for (Token subSubToken : subToken.getSubTokens())
+        {
+          if (subSubToken.is("operationName"))
+          {
+            operationNames.add(subSubToken.getValue());
+          }
+        }
+      }
+    }
+    
+    // get all class names in this model
+    ArrayList<String> allClassNames = new ArrayList<String>();
+    for (UmpleClass umpleClass:model.getUmpleClasses())
+    {
+      allClassNames.add(umpleClass.getName());
+    }
+
+    // get all matched class names for code injection
+    if (matchingClassNamePatterns.get(0).equals("*"))
+    {
+      for (UmpleClass umpleClass:model.getUmpleClasses())
+      {
+        matchedClassNames = allClassNames;
+      }
+    } else {
+      for (String matchingClassNamePattern : matchingClassNamePatterns)
+      {
+        ArrayList<String> matched = findAllMatchClassNames(allClassNames, matchingClassNamePattern);
+        for (String s : matched)
+        {
+          if (!matchedClassNames.contains(s))
+          {
+            matchedClassNames.add(s);
+          }
+        }
+      }
+    }
+
+    for (String className : matchedClassNames) //loop over every matched class
+    {
+      if (model.getUmpleClass(className) != null)
+      {
+        if (injectToken.getSubToken("around") != null)
+        {
+          analyzeInjectionCode(injectToken, model.getUmpleClass(className));
+          continue;
+        }
+        List<UmpleTrait> umpleTraits = model.getUmpleClass(className).getExtendsTraits();
+        ArrayList<String> traitNames = new ArrayList<String>();
+        Iterator hmIterator = unlinkedExtends.entrySet().iterator(); 
+        
+        while (hmIterator.hasNext()) { 
+          Map.Entry mapElement = (Map.Entry)hmIterator.next(); 
+          if (((UmpleClass)mapElement.getKey()).equals(model.getUmpleClass(className)))
+          {
+            Label_Trait_149: ;
+          }
+        } 
+
+        ArrayList<String> methodNames = model.getUmpleClass(className).getMethodNames();
+        Label_Trait_150: ;
+
+        for (String operationName : operationNames)
+        {
+          boolean foundMethod = false;
+          for (String methodName : methodNames) // target method names
+          {
+            if (methodName.matches(globToRegex(operationName))) // if the method matches
+            {
+              foundMethod = true;
+              String globMatched = "";
+              if (operationName.contains("*"))
+              {
+                globMatched = methodName;
+              }
+              Token singleOperationNameInjectToken = toSingleOperationNameInInjectToken(injectToken, operationName, globMatched);
+              analyzeInjectionCode(singleOperationNameInjectToken, model.getUmpleClass(className));
+            }
+          }
+          if (!foundMethod && !matchingClassNamePatterns.get(0).equals("*")) 
+          {
+            getParseResult().addErrorMessage(new ErrorMessage(1012, injectToken.getPosition(), operationName));
+          }
+        }    
+      }
+    }
+  }
+
+  //TODO I changed the parameter's type. please remove this comment;
+  private void analyzeInjectionCode(Token injectToken, UmpleClassifier uClassifier)
+  {
+    String type = injectToken.is("beforeCode") ? "before" : "after";
+    Token codeLabelToken = injectToken.getSubToken("codeLabel");
+
+    // around as aspect type
+    if( (injectToken.getSubToken("around") != null) && (codeLabelToken != null) ) {
+      type="around";
+    }
+    CodeBlock cb = new CodeBlock();
+    String operationName = getOperationName(injectToken);
+    String operationSource = getOperationSource(injectToken).toLowerCase();
+
+    if(operationSource.equals("")) {
+      operationSource = "all";
+    }
+
+    CodeInjection injection = new CodeInjection(type,operationName,"",uClassifier);
+    injection.setOperationSource(operationSource);
+    Label_Mixset_151: ;
+    List<String> operationsParameters = getOperationsParameters(injectToken);
+    for(String operationParameters : operationsParameters) {
+      injection.addParameter(operationParameters);      
+    }
+
+    makeCodeInject(injectToken,injection,cb,uClassifier);
+    injection.setSnippet(cb);
+    if (uClassifier instanceof UmpleClass) {
+      ((UmpleClass)uClassifier).addCodeInjection(injection);
+
+      if(!unanalyzedInjectionTokens.containsKey(uClassifier))
+      {
+        unanalyzedInjectionTokens.put(uClassifier, new ArrayList<Token>()); 
+      }
+
+      List<Token> currentTokens = unanalyzedInjectionTokens.get(uClassifier);
+      currentTokens.add(injectToken);
+    } else if (uClassifier instanceof UmpleTrait){
+      ((UmpleTrait)uClassifier).addCodeInjection(injection);
+    }
+  }
+}

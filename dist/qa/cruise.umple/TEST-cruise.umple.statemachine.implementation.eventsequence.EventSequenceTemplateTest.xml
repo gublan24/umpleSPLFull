@@ -1,0 +1,6099 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="Abdulazizs-MacBook-Pro.local" name="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" skipped="0" tests="21" time="0.165" timestamp="2021-10-26T14:28:17">
+  <properties>
+    <property name="ant.library.dir" value="/usr/local/Cellar/ant/1.10.9/libexec/lib" />
+    <property name="env.TERM" value="xterm-256color" />
+    <property name="java.specification.version" value="15" />
+    <property name="ant.project.name" value="UmpleCore" />
+    <property name="ant.file.type.UmpleCore" value="file" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="ant.file.type.LocalBuildProperties" value="file" />
+    <property name="env.SDKMAN_CANDIDATES_API" value="https://api.sdkman.io/2" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="dist.umple.docs.jar.prev" value="umpledocs-1.31.1.5860.78bb27cc6.jar" />
+    <property name="rake_cmd" value="rake" />
+    <property name="showJunitOutput" value="false" />
+    <property name="umple.deps.dir" value="/Users/abdulaziz/tmp/umple/dist/libs" />
+    <property name="java.vendor.url" value="https://openjdk.java.net/" />
+    <property name="dist.libs.dir" value="/Users/abdulaziz/tmp/umple/dist/libs" />
+    <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home/lib" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=/Users/abdulaziz/tmp/umple/junittestcases9945622084601822128.properties skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/abdulaziz/tmp/umple/dist/qa/cruise.umple/IGNORETHIS.xml crashfile=/Users/abdulaziz/tmp/umple/junitvmwatcher11280979461299836288.properties propsfile=/Users/abdulaziz/tmp/umple/junit10838995335343066243.properties" />
+    <property name="jdk.debug" value="release" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="test.output.path" value="/Users/abdulaziz/tmp/umple/dist/qa/cruise.umple" />
+    <property name="env.JAVA_HOME" value="/usr/local/opt/openjdk" />
+    <property name="java.version.date" value="2020-10-20" />
+    <property name="java.home" value="/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home" />
+    <property name="basedir" value="/Users/abdulaziz/tmp/umple" />
+    <property name="file.separator" value="/" />
+    <property name="java.vm.compressedOopsMode" value="Zero based" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="ivy.jar.file" value="/Users/abdulaziz/.ant/lib/ivy-2.4.0.jar" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.file.Template" value="/Users/abdulaziz/tmp/umple/build/_template.xml" />
+    <property name="dist.umple.stats.jar" value="umplestats-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ivyRetrieveLogLevel" value="quiet" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="java.runtime.version" value="15.0.1+9" />
+    <property name="env.TERM_PROGRAM_VERSION" value="440" />
+    <property name="user.name" value="abdulaziz" />
+    <property name="env.PATH" value="/Users/abdulaziz/.sdkman/candidates/gradle/current/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands" />
+    <property name="env.LOGNAME" value="abdulaziz" />
+    <property name="env.XPC_FLAGS" value="0x0" />
+    <property name="env.__CF_USER_TEXT_ENCODING" value="0x1F5:0x0:0x0" />
+    <property name="file.encoding" value="UTF-8" />
+    <property name="env.__CFBundleIdentifier" value="com.apple.Terminal" />
+    <property name="env.TERM_SESSION_ID" value="20D2790F-0FEC-4CCB-A10B-030C8F4ED298" />
+    <property name="umple.stable.jar" value="/Users/abdulaziz/tmp/umple/dist/libs/umple-1.31.1.5860.78bb27cc6.jar" />
+    <property name="haltonfailure" value="false" />
+    <property name="connectionTimeout" value="30" />
+    <property name="env.SHLVL" value="1" />
+    <property name="dist.dir" value="/Users/abdulaziz/tmp/umple/dist" />
+    <property name="dist.path" value="/Users/abdulaziz/tmp/umple/dist/cruise.umple" />
+    <property name="java.io.tmpdir" value="/var/folders/fm/7tjk7l8154x840c6vvrs49p40000gn/T/" />
+    <property name="umple.ivy.dep.file" value="/Users/abdulaziz/tmp/umple/build/ivy.xml" />
+    <property name="dist.umple.run.jar.prev" value="umplerun-1.31.1.5860.78bb27cc6.jar" />
+    <property name="dist.umple.jar" value="umple-1.31.1.5860.78bb27cc6.jar" />
+    <property name="java.version" value="15.0.1" />
+    <property name="env.SSH_AUTH_SOCK" value="/private/tmp/com.apple.launchd.qK4l0KXsgu/Listeners" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.home" value="/usr/local/Cellar/ant/1.10.9/libexec" />
+    <property name="ant.file.type.UmpleDeps" value="file" />
+    <property name="env.SDKMAN_DIR" value="/Users/abdulaziz/.sdkman" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.10.9 compiled on September 27 2020" />
+    <property name="env.TMPDIR" value="/var/folders/fm/7tjk7l8154x840c6vvrs49p40000gn/T/" />
+    <property name="env.SDKMAN_PLATFORM" value="darwinx64" />
+    <property name="java.library.path" value="/Users/abdulaziz/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
+    <property name="java.vendor" value="N/A" />
+    <property name="shouldPackageUmpleOnline" value="false" />
+    <property name="dist.umple.validator.jar" value="umplevalidator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="sun.io.unicode.encoding" value="UnicodeBig" />
+    <property name="jopt-simple.install.version" value="4.4" />
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="env.SDKMAN_CANDIDATES_DIR" value="/Users/abdulaziz/.sdkman/candidates" />
+    <property name="env.TERM_PROGRAM" value="Apple_Terminal" />
+    <property name="vendors.path" value="/Users/abdulaziz/tmp/umple/dist/libs/vendors" />
+    <property name="env.PWD" value="/Users/abdulaziz/tmp/umple/build" />
+    <property name="ant.file.type" value="file" />
+    <property name="last.version" value="1.31.1.5860.78bb27cc6" />
+    <property name="env.LANG" value="en_CA.UTF-8" />
+    <property name="ant.file.type.VersionLast" value="file" />
+    <property name="java.class.path" value="/Users/abdulaziz/tmp/umple/cruise.umple/bin:/Users/abdulaziz/tmp/umple/dist/libs/core/ant-launcher.jar:/Users/abdulaziz/tmp/umple/dist/libs/core/ant.jar:/Users/abdulaziz/tmp/umple/dist/libs/core/jopt-simple.jar:/Users/abdulaziz/tmp/umple/dist/libs/test/hamcrest-core.jar:/Users/abdulaziz/tmp/umple/dist/libs/test/junit.jar:/Users/abdulaziz/.ant/lib/junit.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-launcher.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-junit.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-junit4.jar" />
+    <property name="env.HOME" value="/Users/abdulaziz" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="env.GRADLE_HOME" value="/Users/abdulaziz/.sdkman/candidates/gradle/current" />
+    <property name="xtext.project.path" value="cruise.umple.xtext" />
+    <property name="ant.file.type.Template" value="file" />
+    <property name="user.timezone" value="America/Toronto" />
+    <property name="project.path" value="cruise.umple" />
+    <property name="ant.file.UmpleDeps" value="/Users/abdulaziz/tmp/umple/build/build.deps.xml" />
+    <property name="java.vm.specification.version" value="15" />
+    <property name="os.name" value="Mac OS X" />
+    <property name="env.DISPLAY" value="/private/tmp/com.apple.launchd.8VZUm1G4zQ/org.xquartz:0" />
+    <property name="dist.umple.sync.jar" value="umplesync-1.31.1.5860.78bb27cc6.jar" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="user.country" value="CA" />
+    <property name="dist.umple.run.jar" value="umplerun-1.31.1.5860.78bb27cc6.jar" />
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="user.home" value="/Users/abdulaziz" />
+    <property name="user.language" value="en" />
+    <property name="ivy.install.version" value="2.4.0" />
+    <property name="ant.java.version" value="15" />
+    <property name="ant.file.type.Umple" value="file" />
+    <property name="showJunitSummary" value="false" />
+    <property name="bin.path" value="cruise.umple/bin" />
+    <property name="umple.version" value="1.31.1.5860.78bb27cc6" />
+    <property name="dist.umple.sync.jar.prev" value="umplesync-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ivyResolveLogLevel" value="download-only" />
+    <property name="env.XPC_SERVICE_NAME" value="0" />
+    <property name="user.home.ant" value="/Users/abdulaziz/.ant/lib" />
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="is.osx" value="true" />
+    <property name="dist.umple.stats.jar.prev" value="umplestats-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ant.file" value="/Users/abdulaziz/tmp/umple/build/build.umple.xml" />
+    <property name="path.separator" value=":" />
+    <property name="dist.umple.umplificator.jar.prev" value="umpleumplificator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="os.version" value="11.6" />
+    <property name="ant.file.VersionLast" value="/Users/abdulaziz/tmp/umple/build/_versionLast.xml" />
+    <property name="ant.file.Umple" value="/Users/abdulaziz/tmp/umple/build/build.xml" />
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+    <property name="dist.umple.docs.jar" value="umpledocs-1.31.1.5860.78bb27cc6.jar" />
+    <property name="ant.project.invoked-targets" value="template.test" />
+    <property name="dist.umple.umplificator.jar" value="umpleumplificator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM" />
+    <property name="ant.file.LocalBuildProperties" value="/Users/abdulaziz/tmp/umple/build/_local.xml" />
+    <property name="env.SHELL" value="/bin/zsh" />
+    <property name="ant.core.lib" value="/usr/local/Cellar/ant/1.10.9/libexec/lib/ant.jar" />
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/" />
+    <property name="junit" value="*Test" />
+    <property name="user.dir" value="/Users/abdulaziz/tmp/umple/build" />
+    <property name="os.arch" value="x86_64" />
+    <property name="env.SDKMAN_VERSION" value="5.11.5+713" />
+    <property name="shouldDeploy" value="false" />
+    <property name="dist.umple.validator.jar.prev" value="umplevalidator-1.31.1.5860.78bb27cc6.jar" />
+    <property name="java.vm.info" value="mixed mode, sharing" />
+    <property name="java.vm.version" value="15.0.1+9" />
+    <property name="ant.file.UmpleCore" value="/Users/abdulaziz/tmp/umple/build/build.umple.xml" />
+    <property name="online" value="true" />
+    <property name="myenv" value="local" />
+    <property name="umple.deps.manual.dir" value="/Users/abdulaziz/tmp/umple/dist/libs/manual" />
+    <property name="env.USER" value="abdulaziz" />
+    <property name="java.class.version" value="59.0" />
+    <property name="first.build" value="false" />
+    <property name="dist.umple.jar.prev" value="umple-1.31.1.5860.78bb27cc6.jar" />
+    <property name="env.JAVA_MAIN_CLASS_3280" value="org.apache.tools.ant.launch.Launcher" />
+    <property name="ant.project.default-target" value="build" />
+  </properties>
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="simpleMultipleClassMultipleStateMachineEventSequence" time="0.018" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="simpleMultipleClassEventSequence" time="0.007" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="guardedTransitionEventSequenceCounterHit" time="0.012" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="eventSequenceCounterHit" time="0.007" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="eventSequenceAutoTransition" time="0.006" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="eventSequenceGuardedTimedTransition" time="0.006" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="eventSequenceNoStateMachine" time="0.003" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="guardedTransitionEventSequenceEndStateReached" time="0.007" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="eventSequenceGuardedAutoTransition" time="0.006" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="multipleStateMachinesOneTransitionlessEventSequence" time="0.005" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="transitionlessEventSequence" time="0.003" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="guardedTransitionEventSequenceAllStatesVisited" time="0.005" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="simpleEventSequence" time="0.005" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="nestedEventSequenceEndStateReached" time="0.014" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="eventSequenceEndStateReached" time="0.009" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="nestedEventSequenceAllStatesVisited" time="0.007" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="simpleNestedEventSequence" time="0.006" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="nestedEventSequenceCounterHit" time="0.009" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="eventSequenceAllStatesVisited" time="0.005" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="eventSequenceTimedTransition" time="0.006" />
+  <testcase classname="cruise.umple.statemachine.implementation.eventsequence.EventSequenceTemplateTest" name="avoidJunitError" time="0.002" />
+  <system-out><![CDATA[<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from simple_multiple_class_multiple_sm.ump</h1>
+<p>Note that the sequence of events is randomly generated. Subsequential event generation will likely yield different results.</p>
+
+
+<h2>Class SimpleFirst state machine sm11</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper0" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s111</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s112</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. ev111</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">s111</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">ev111</td>
+    <td class="">s112</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Visited all states</p>
+
+
+<h2>Class SimpleFirst state machine sm12</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper1" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s121</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s122</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. ev121</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">s121</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">ev121</td>
+    <td class="">s122</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Visited all states</p>
+
+
+<h2>Class SimpleSecond state machine sm21</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper2" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s211</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s212</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. ev211</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">s211</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">ev211</td>
+    <td class="">s212</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Visited all states</p>
+
+
+<h2>Class SimpleSecond state machine sm22</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper3" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s221</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s222</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. ev221</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">s221</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">ev221</td>
+    <td class="">s222</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Visited all states</p>
+
+<script>
+  function formatEventSequence(wrapper) 
+  {
+    if(wrapper === undefined || wrapper.innerHTML === "") 
+    {
+      return;
+    }
+
+    // Calculate spacer height due to slanted names
+    var longest = 0;
+    var last = 0;
+    var columnHeaders = wrapper
+        .getElementsByClassName("column-header");
+
+    for(var i = 0; i < columnHeaders.length; i++) 
+    {
+      var innerSpan = columnHeaders[i].firstChild.firstChild;
+      if(longest < innerSpan.offsetWidth)
+        longest = innerSpan.offsetWidth;
+
+      if(i == columnHeaders.length - 1)
+        last = innerSpan.offsetWidth;
+    }
+
+    var spacerHeight = longest * Math.cos(45 * (Math.PI / 180));
+    var lastLabelWidth = last *  Math.sin(45 * (Math.PI / 180));
+
+    // Get the various elements
+    var tableBody = wrapper.getElementsByClassName("table-body")[0];
+    var floatingCol = wrapper.getElementsByClassName('floating-col')[0];
+    var innerWrapper = wrapper.getElementsByClassName("inner-wrapper")[0];
+    var actualTable = innerWrapper.getElementsByTagName('table')[0]
+
+    // give the inner elements the header space for the slanted headers
+    tableBody.style.height = tableBody.offsetHeight + spacerHeight +'px';
+
+    // Make the inner wrapper long enough to hold the scrollable contents
+    innerWrapper.style.width = floatingCol.offsetWidth 
+                             + actualTable.offsetWidth 
+                             + lastLabelWidth 
+                             + 'px';
+
+    // Move the elements down so the headers show
+    actualTable.style.top = spacerHeight + 'px';
+    floatingCol.style.top = spacerHeight - 1 + 'px';
+
+    // Move the table body over to accommodate the floating header column
+    innerWrapper.getElementsByTagName('table')[0].style.left 
+      = floatingCol.offsetWidth - 6 + 'px';
+  };
+
+  var wrapperIndex = 0;
+
+  while(true)
+  {
+    var wrapper = document.getElementById("wrapper" + wrapperIndex);
+
+    if(wrapper === null)
+    {
+      break;
+    }
+
+    wrapperIndex++;
+    formatEventSequence(wrapper);
+  }
+</script>
+
+<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from simple_multiple_class.ump</h1>
+<p>Note that the sequence of events is randomly generated. Subsequential event generation will likely yield different results.</p>
+
+
+<h2>Class SimpleFirst state machine sm1</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper0" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s11</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s12</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. ev11</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">s11</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">ev11</td>
+    <td class="">s12</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Visited all states</p>
+
+
+<h2>Class SimpleSecond state machine sm2</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper1" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s21</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s22</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. ev21</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">s21</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">ev21</td>
+    <td class="">s22</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Visited all states</p>
+
+<script>
+  function formatEventSequence(wrapper) 
+  {
+    if(wrapper === undefined || wrapper.innerHTML === "") 
+    {
+      return;
+    }
+
+    // Calculate spacer height due to slanted names
+    var longest = 0;
+    var last = 0;
+    var columnHeaders = wrapper
+        .getElementsByClassName("column-header");
+
+    for(var i = 0; i < columnHeaders.length; i++) 
+    {
+      var innerSpan = columnHeaders[i].firstChild.firstChild;
+      if(longest < innerSpan.offsetWidth)
+        longest = innerSpan.offsetWidth;
+
+      if(i == columnHeaders.length - 1)
+        last = innerSpan.offsetWidth;
+    }
+
+    var spacerHeight = longest * Math.cos(45 * (Math.PI / 180));
+    var lastLabelWidth = last *  Math.sin(45 * (Math.PI / 180));
+
+    // Get the various elements
+    var tableBody = wrapper.getElementsByClassName("table-body")[0];
+    var floatingCol = wrapper.getElementsByClassName('floating-col')[0];
+    var innerWrapper = wrapper.getElementsByClassName("inner-wrapper")[0];
+    var actualTable = innerWrapper.getElementsByTagName('table')[0]
+
+    // give the inner elements the header space for the slanted headers
+    tableBody.style.height = tableBody.offsetHeight + spacerHeight +'px';
+
+    // Make the inner wrapper long enough to hold the scrollable contents
+    innerWrapper.style.width = floatingCol.offsetWidth 
+                             + actualTable.offsetWidth 
+                             + lastLabelWidth 
+                             + 'px';
+
+    // Move the elements down so the headers show
+    actualTable.style.top = spacerHeight + 'px';
+    floatingCol.style.top = spacerHeight - 1 + 'px';
+
+    // Move the table body over to accommodate the floating header column
+    innerWrapper.getElementsByTagName('table')[0].style.left 
+      = floatingCol.offsetWidth - 6 + 'px';
+  };
+
+  var wrapperIndex = 0;
+
+  while(true)
+  {
+    var wrapper = document.getElementById("wrapper" + wrapperIndex);
+
+    if(wrapper === null)
+    {
+      break;
+    }
+
+    wrapperIndex++;
+    formatEventSequence(wrapper);
+  }
+</script>
+
+<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from guarded_transition_counter_hit.ump</h1>
+<p>Note that the sequence of events is randomly generated. Subsequential event generation will likely yield different results.</p>
+
+
+<h2>Class GuardedTransitionCounterHit state machine sm</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper0" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s1</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s2</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s3</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s4</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. ev2</span></div></td>
+            <td class="column-header"><div><span>2. ev1</span></div></td>
+            <td class="column-header"><div><span>3. ev1 [getGuard()]</span></div></td>
+            <td class="column-header"><div><span>4. ev1</span></div></td>
+            <td class="column-header"><div><span>5. ev1 [getGuard()]</span></div></td>
+            <td class="column-header"><div><span>6. ev1</span></div></td>
+            <td class="column-header"><div><span>7. ev1 [getGuard()]</span></div></td>
+            <td class="column-header"><div><span>8. ev1</span></div></td>
+            <td class="column-header"><div><span>9. ev1 [getGuard()]</span></div></td>
+            <td class="column-header"><div><span>10. ev1</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">ev2</td>
+    <td class="">s4</td>
+  </tr>
+  <tr>
+    <td class="">2</td>
+    <td class="">ev1</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">3</td>
+    <td class="">ev1 [getGuard()]</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">4</td>
+    <td class="">ev1</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">5</td>
+    <td class="">ev1 [getGuard()]</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">6</td>
+    <td class="">ev1</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">7</td>
+    <td class="">ev1 [getGuard()]</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">8</td>
+    <td class="">ev1</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">9</td>
+    <td class="">ev1 [getGuard()]</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">10</td>
+    <td class="">ev1</td>
+    <td class="">s1</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Hit arbitrary counter</p>
+
+<script>
+  function formatEventSequence(wrapper) 
+  {
+    if(wrapper === undefined || wrapper.innerHTML === "") 
+    {
+      return;
+    }
+
+    // Calculate spacer height due to slanted names
+    var longest = 0;
+    var last = 0;
+    var columnHeaders = wrapper
+        .getElementsByClassName("column-header");
+
+    for(var i = 0; i < columnHeaders.length; i++) 
+    {
+      var innerSpan = columnHeaders[i].firstChild.firstChild;
+      if(longest < innerSpan.offsetWidth)
+        longest = innerSpan.offsetWidth;
+
+      if(i == columnHeaders.length - 1)
+        last = innerSpan.offsetWidth;
+    }
+
+    var spacerHeight = longest * Math.cos(45 * (Math.PI / 180));
+    var lastLabelWidth = last *  Math.sin(45 * (Math.PI / 180));
+
+    // Get the various elements
+    var tableBody = wrapper.getElementsByClassName("table-body")[0];
+    var floatingCol = wrapper.getElementsByClassName('floating-col')[0];
+    var innerWrapper = wrapper.getElementsByClassName("inner-wrapper")[0];
+    var actualTable = innerWrapper.getElementsByTagName('table')[0]
+
+    // give the inner elements the header space for the slanted headers
+    tableBody.style.height = tableBody.offsetHeight + spacerHeight +'px';
+
+    // Make the inner wrapper long enough to hold the scrollable contents
+    innerWrapper.style.width = floatingCol.offsetWidth 
+                             + actualTable.offsetWidth 
+                             + lastLabelWidth 
+                             + 'px';
+
+    // Move the elements down so the headers show
+    actualTable.style.top = spacerHeight + 'px';
+    floatingCol.style.top = spacerHeight - 1 + 'px';
+
+    // Move the table body over to accommodate the floating header column
+    innerWrapper.getElementsByTagName('table')[0].style.left 
+      = floatingCol.offsetWidth - 6 + 'px';
+  };
+
+  var wrapperIndex = 0;
+
+  while(true)
+  {
+    var wrapper = document.getElementById("wrapper" + wrapperIndex);
+
+    if(wrapper === null)
+    {
+      break;
+    }
+
+    wrapperIndex++;
+    formatEventSequence(wrapper);
+  }
+</script>
+
+<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from counter_hit.ump</h1>
+<p>Note that the sequence of events is randomly generated. Subsequential event generation will likely yield different results.</p>
+
+
+<h2>Class HitCounter state machine sm</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper0" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s1</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s2</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s3</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s4</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. ev3</span></div></td>
+            <td class="column-header"><div><span>2. ev2</span></div></td>
+            <td class="column-header"><div><span>3. ev2</span></div></td>
+            <td class="column-header"><div><span>4. ev3</span></div></td>
+            <td class="column-header"><div><span>5. ev1</span></div></td>
+            <td class="column-header"><div><span>6. ev2</span></div></td>
+            <td class="column-header"><div><span>7. ev2</span></div></td>
+            <td class="column-header"><div><span>8. ev1</span></div></td>
+            <td class="column-header"><div><span>9. ev2</span></div></td>
+            <td class="column-header"><div><span>10. ev1</span></div></td>
+            <td class="column-header"><div><span>11. ev2</span></div></td>
+            <td class="column-header"><div><span>12. ev3</span></div></td>
+            <td class="column-header"><div><span>13. ev2</span></div></td>
+            <td class="column-header"><div><span>14. ev2</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">X</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">ev3</td>
+    <td class="">s3</td>
+  </tr>
+  <tr>
+    <td class="">2</td>
+    <td class="">ev2</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">3</td>
+    <td class="">ev2</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">4</td>
+    <td class="">ev3</td>
+    <td class="">s3</td>
+  </tr>
+  <tr>
+    <td class="">5</td>
+    <td class="">ev1</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">6</td>
+    <td class="">ev2</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">7</td>
+    <td class="">ev2</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">8</td>
+    <td class="">ev1</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">9</td>
+    <td class="">ev2</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">10</td>
+    <td class="">ev1</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">11</td>
+    <td class="">ev2</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">12</td>
+    <td class="">ev3</td>
+    <td class="">s3</td>
+  </tr>
+  <tr>
+    <td class="">13</td>
+    <td class="">ev2</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">14</td>
+    <td class="">ev2</td>
+    <td class="">s2</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Hit arbitrary counter</p>
+
+<script>
+  function formatEventSequence(wrapper) 
+  {
+    if(wrapper === undefined || wrapper.innerHTML === "") 
+    {
+      return;
+    }
+
+    // Calculate spacer height due to slanted names
+    var longest = 0;
+    var last = 0;
+    var columnHeaders = wrapper
+        .getElementsByClassName("column-header");
+
+    for(var i = 0; i < columnHeaders.length; i++) 
+    {
+      var innerSpan = columnHeaders[i].firstChild.firstChild;
+      if(longest < innerSpan.offsetWidth)
+        longest = innerSpan.offsetWidth;
+
+      if(i == columnHeaders.length - 1)
+        last = innerSpan.offsetWidth;
+    }
+
+    var spacerHeight = longest * Math.cos(45 * (Math.PI / 180));
+    var lastLabelWidth = last *  Math.sin(45 * (Math.PI / 180));
+
+    // Get the various elements
+    var tableBody = wrapper.getElementsByClassName("table-body")[0];
+    var floatingCol = wrapper.getElementsByClassName('floating-col')[0];
+    var innerWrapper = wrapper.getElementsByClassName("inner-wrapper")[0];
+    var actualTable = innerWrapper.getElementsByTagName('table')[0]
+
+    // give the inner elements the header space for the slanted headers
+    tableBody.style.height = tableBody.offsetHeight + spacerHeight +'px';
+
+    // Make the inner wrapper long enough to hold the scrollable contents
+    innerWrapper.style.width = floatingCol.offsetWidth 
+                             + actualTable.offsetWidth 
+                             + lastLabelWidth 
+                             + 'px';
+
+    // Move the elements down so the headers show
+    actualTable.style.top = spacerHeight + 'px';
+    floatingCol.style.top = spacerHeight - 1 + 'px';
+
+    // Move the table body over to accommodate the floating header column
+    innerWrapper.getElementsByTagName('table')[0].style.left 
+      = floatingCol.offsetWidth - 6 + 'px';
+  };
+
+  var wrapperIndex = 0;
+
+  while(true)
+  {
+    var wrapper = document.getElementById("wrapper" + wrapperIndex);
+
+    if(wrapper === null)
+    {
+      break;
+    }
+
+    wrapperIndex++;
+    formatEventSequence(wrapper);
+  }
+</script>
+
+<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from auto_transition.ump</h1>
+<p>Note that the sequence of events is randomly generated. Subsequential event generation will likely yield different results.</p>
+
+
+<h2>Class AutoTransition state machine sm</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper0" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s1</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s2</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s3</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s4</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s5</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. (auto)</span></div></td>
+            <td class="column-header"><div><span>2. ev1</span></div></td>
+            <td class="column-header"><div><span>3. ev1</span></div></td>
+            <td class="column-header"><div><span>4. ev1</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">(auto)</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">2</td>
+    <td class="">ev1</td>
+    <td class="">s3</td>
+  </tr>
+  <tr>
+    <td class="">3</td>
+    <td class="">ev1</td>
+    <td class="">s4</td>
+  </tr>
+  <tr>
+    <td class="">4</td>
+    <td class="">ev1</td>
+    <td class="">s5</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Visited all states</p>
+
+<script>
+  function formatEventSequence(wrapper) 
+  {
+    if(wrapper === undefined || wrapper.innerHTML === "") 
+    {
+      return;
+    }
+
+    // Calculate spacer height due to slanted names
+    var longest = 0;
+    var last = 0;
+    var columnHeaders = wrapper
+        .getElementsByClassName("column-header");
+
+    for(var i = 0; i < columnHeaders.length; i++) 
+    {
+      var innerSpan = columnHeaders[i].firstChild.firstChild;
+      if(longest < innerSpan.offsetWidth)
+        longest = innerSpan.offsetWidth;
+
+      if(i == columnHeaders.length - 1)
+        last = innerSpan.offsetWidth;
+    }
+
+    var spacerHeight = longest * Math.cos(45 * (Math.PI / 180));
+    var lastLabelWidth = last *  Math.sin(45 * (Math.PI / 180));
+
+    // Get the various elements
+    var tableBody = wrapper.getElementsByClassName("table-body")[0];
+    var floatingCol = wrapper.getElementsByClassName('floating-col')[0];
+    var innerWrapper = wrapper.getElementsByClassName("inner-wrapper")[0];
+    var actualTable = innerWrapper.getElementsByTagName('table')[0]
+
+    // give the inner elements the header space for the slanted headers
+    tableBody.style.height = tableBody.offsetHeight + spacerHeight +'px';
+
+    // Make the inner wrapper long enough to hold the scrollable contents
+    innerWrapper.style.width = floatingCol.offsetWidth 
+                             + actualTable.offsetWidth 
+                             + lastLabelWidth 
+                             + 'px';
+
+    // Move the elements down so the headers show
+    actualTable.style.top = spacerHeight + 'px';
+    floatingCol.style.top = spacerHeight - 1 + 'px';
+
+    // Move the table body over to accommodate the floating header column
+    innerWrapper.getElementsByTagName('table')[0].style.left 
+      = floatingCol.offsetWidth - 6 + 'px';
+  };
+
+  var wrapperIndex = 0;
+
+  while(true)
+  {
+    var wrapper = document.getElementById("wrapper" + wrapperIndex);
+
+    if(wrapper === null)
+    {
+      break;
+    }
+
+    wrapperIndex++;
+    formatEventSequence(wrapper);
+  }
+</script>
+
+<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from guarded_timed_transition.ump</h1>
+<p>Note that the sequence of events is randomly generated. Subsequential event generation will likely yield different results.</p>
+
+
+<h2>Class GuardedTimedTransition state machine sm</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper0" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s1</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s2</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s3</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s4</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s5</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. after(5) [getGuard()]</span></div></td>
+            <td class="column-header"><div><span>2. ev1</span></div></td>
+            <td class="column-header"><div><span>3. ev1</span></div></td>
+            <td class="column-header"><div><span>4. ev1</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">after(5) [getGuard()]</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">2</td>
+    <td class="">ev1</td>
+    <td class="">s3</td>
+  </tr>
+  <tr>
+    <td class="">3</td>
+    <td class="">ev1</td>
+    <td class="">s4</td>
+  </tr>
+  <tr>
+    <td class="">4</td>
+    <td class="">ev1</td>
+    <td class="">s5</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Visited all states</p>
+
+<script>
+  function formatEventSequence(wrapper) 
+  {
+    if(wrapper === undefined || wrapper.innerHTML === "") 
+    {
+      return;
+    }
+
+    // Calculate spacer height due to slanted names
+    var longest = 0;
+    var last = 0;
+    var columnHeaders = wrapper
+        .getElementsByClassName("column-header");
+
+    for(var i = 0; i < columnHeaders.length; i++) 
+    {
+      var innerSpan = columnHeaders[i].firstChild.firstChild;
+      if(longest < innerSpan.offsetWidth)
+        longest = innerSpan.offsetWidth;
+
+      if(i == columnHeaders.length - 1)
+        last = innerSpan.offsetWidth;
+    }
+
+    var spacerHeight = longest * Math.cos(45 * (Math.PI / 180));
+    var lastLabelWidth = last *  Math.sin(45 * (Math.PI / 180));
+
+    // Get the various elements
+    var tableBody = wrapper.getElementsByClassName("table-body")[0];
+    var floatingCol = wrapper.getElementsByClassName('floating-col')[0];
+    var innerWrapper = wrapper.getElementsByClassName("inner-wrapper")[0];
+    var actualTable = innerWrapper.getElementsByTagName('table')[0]
+
+    // give the inner elements the header space for the slanted headers
+    tableBody.style.height = tableBody.offsetHeight + spacerHeight +'px';
+
+    // Make the inner wrapper long enough to hold the scrollable contents
+    innerWrapper.style.width = floatingCol.offsetWidth 
+                             + actualTable.offsetWidth 
+                             + lastLabelWidth 
+                             + 'px';
+
+    // Move the elements down so the headers show
+    actualTable.style.top = spacerHeight + 'px';
+    floatingCol.style.top = spacerHeight - 1 + 'px';
+
+    // Move the table body over to accommodate the floating header column
+    innerWrapper.getElementsByTagName('table')[0].style.left 
+      = floatingCol.offsetWidth - 6 + 'px';
+  };
+
+  var wrapperIndex = 0;
+
+  while(true)
+  {
+    var wrapper = document.getElementById("wrapper" + wrapperIndex);
+
+    if(wrapper === null)
+    {
+      break;
+    }
+
+    wrapperIndex++;
+    formatEventSequence(wrapper);
+  }
+</script>
+
+<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from no_state_machine.ump</h1>
+<p>No State machines found in this model</p>
+
+<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from guarded_transition_end_reached.ump</h1>
+<p>Note that the sequence of events is randomly generated. Subsequential event generation will likely yield different results.</p>
+
+
+<h2>Class GuardedTransitionEndState state machine sm</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper0" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s1</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s2</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">endState</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s4</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. ev1 [getGuard()]</span></div></td>
+            <td class="column-header"><div><span>2. ev1</span></div></td>
+            <td class="column-header"><div><span>3. ev1 [!getGuard()]</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">ev1 [getGuard()]</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">2</td>
+    <td class="">ev1</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">3</td>
+    <td class="">ev1 [!getGuard()]</td>
+    <td class="">endState</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Reached an end-state</p>
+
+<script>
+  function formatEventSequence(wrapper) 
+  {
+    if(wrapper === undefined || wrapper.innerHTML === "") 
+    {
+      return;
+    }
+
+    // Calculate spacer height due to slanted names
+    var longest = 0;
+    var last = 0;
+    var columnHeaders = wrapper
+        .getElementsByClassName("column-header");
+
+    for(var i = 0; i < columnHeaders.length; i++) 
+    {
+      var innerSpan = columnHeaders[i].firstChild.firstChild;
+      if(longest < innerSpan.offsetWidth)
+        longest = innerSpan.offsetWidth;
+
+      if(i == columnHeaders.length - 1)
+        last = innerSpan.offsetWidth;
+    }
+
+    var spacerHeight = longest * Math.cos(45 * (Math.PI / 180));
+    var lastLabelWidth = last *  Math.sin(45 * (Math.PI / 180));
+
+    // Get the various elements
+    var tableBody = wrapper.getElementsByClassName("table-body")[0];
+    var floatingCol = wrapper.getElementsByClassName('floating-col')[0];
+    var innerWrapper = wrapper.getElementsByClassName("inner-wrapper")[0];
+    var actualTable = innerWrapper.getElementsByTagName('table')[0]
+
+    // give the inner elements the header space for the slanted headers
+    tableBody.style.height = tableBody.offsetHeight + spacerHeight +'px';
+
+    // Make the inner wrapper long enough to hold the scrollable contents
+    innerWrapper.style.width = floatingCol.offsetWidth 
+                             + actualTable.offsetWidth 
+                             + lastLabelWidth 
+                             + 'px';
+
+    // Move the elements down so the headers show
+    actualTable.style.top = spacerHeight + 'px';
+    floatingCol.style.top = spacerHeight - 1 + 'px';
+
+    // Move the table body over to accommodate the floating header column
+    innerWrapper.getElementsByTagName('table')[0].style.left 
+      = floatingCol.offsetWidth - 6 + 'px';
+  };
+
+  var wrapperIndex = 0;
+
+  while(true)
+  {
+    var wrapper = document.getElementById("wrapper" + wrapperIndex);
+
+    if(wrapper === null)
+    {
+      break;
+    }
+
+    wrapperIndex++;
+    formatEventSequence(wrapper);
+  }
+</script>
+
+<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from guarded_auto_transition.ump</h1>
+<p>Note that the sequence of events is randomly generated. Subsequential event generation will likely yield different results.</p>
+
+
+<h2>Class GuardedTimedTransition state machine sm</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper0" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s1</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s2</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s3</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s4</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s5</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. (auto) [getGuard()]</span></div></td>
+            <td class="column-header"><div><span>2. ev1</span></div></td>
+            <td class="column-header"><div><span>3. ev1</span></div></td>
+            <td class="column-header"><div><span>4. ev1</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">(auto) [getGuard()]</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">2</td>
+    <td class="">ev1</td>
+    <td class="">s3</td>
+  </tr>
+  <tr>
+    <td class="">3</td>
+    <td class="">ev1</td>
+    <td class="">s4</td>
+  </tr>
+  <tr>
+    <td class="">4</td>
+    <td class="">ev1</td>
+    <td class="">s5</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Visited all states</p>
+
+<script>
+  function formatEventSequence(wrapper) 
+  {
+    if(wrapper === undefined || wrapper.innerHTML === "") 
+    {
+      return;
+    }
+
+    // Calculate spacer height due to slanted names
+    var longest = 0;
+    var last = 0;
+    var columnHeaders = wrapper
+        .getElementsByClassName("column-header");
+
+    for(var i = 0; i < columnHeaders.length; i++) 
+    {
+      var innerSpan = columnHeaders[i].firstChild.firstChild;
+      if(longest < innerSpan.offsetWidth)
+        longest = innerSpan.offsetWidth;
+
+      if(i == columnHeaders.length - 1)
+        last = innerSpan.offsetWidth;
+    }
+
+    var spacerHeight = longest * Math.cos(45 * (Math.PI / 180));
+    var lastLabelWidth = last *  Math.sin(45 * (Math.PI / 180));
+
+    // Get the various elements
+    var tableBody = wrapper.getElementsByClassName("table-body")[0];
+    var floatingCol = wrapper.getElementsByClassName('floating-col')[0];
+    var innerWrapper = wrapper.getElementsByClassName("inner-wrapper")[0];
+    var actualTable = innerWrapper.getElementsByTagName('table')[0]
+
+    // give the inner elements the header space for the slanted headers
+    tableBody.style.height = tableBody.offsetHeight + spacerHeight +'px';
+
+    // Make the inner wrapper long enough to hold the scrollable contents
+    innerWrapper.style.width = floatingCol.offsetWidth 
+                             + actualTable.offsetWidth 
+                             + lastLabelWidth 
+                             + 'px';
+
+    // Move the elements down so the headers show
+    actualTable.style.top = spacerHeight + 'px';
+    floatingCol.style.top = spacerHeight - 1 + 'px';
+
+    // Move the table body over to accommodate the floating header column
+    innerWrapper.getElementsByTagName('table')[0].style.left 
+      = floatingCol.offsetWidth - 6 + 'px';
+  };
+
+  var wrapperIndex = 0;
+
+  while(true)
+  {
+    var wrapper = document.getElementById("wrapper" + wrapperIndex);
+
+    if(wrapper === null)
+    {
+      break;
+    }
+
+    wrapperIndex++;
+    formatEventSequence(wrapper);
+  }
+</script>
+
+<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from multiple_sm_one_transitionless.ump</h1>
+<p>Note that the sequence of events is randomly generated. Subsequential event generation will likely yield different results.</p>
+
+
+<h2>Class MultipleSmOneTransitionless state machine sm1</h2>
+
+<div id="wrapper0" class="wrapper"></div><p>No transitions found in state machine</p>
+
+
+<h2>Class MultipleSmOneTransitionless state machine sm2</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper1" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s2</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s3</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. ev1</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">ev1</td>
+    <td class="">s3</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Visited all states</p>
+
+<script>
+  function formatEventSequence(wrapper) 
+  {
+    if(wrapper === undefined || wrapper.innerHTML === "") 
+    {
+      return;
+    }
+
+    // Calculate spacer height due to slanted names
+    var longest = 0;
+    var last = 0;
+    var columnHeaders = wrapper
+        .getElementsByClassName("column-header");
+
+    for(var i = 0; i < columnHeaders.length; i++) 
+    {
+      var innerSpan = columnHeaders[i].firstChild.firstChild;
+      if(longest < innerSpan.offsetWidth)
+        longest = innerSpan.offsetWidth;
+
+      if(i == columnHeaders.length - 1)
+        last = innerSpan.offsetWidth;
+    }
+
+    var spacerHeight = longest * Math.cos(45 * (Math.PI / 180));
+    var lastLabelWidth = last *  Math.sin(45 * (Math.PI / 180));
+
+    // Get the various elements
+    var tableBody = wrapper.getElementsByClassName("table-body")[0];
+    var floatingCol = wrapper.getElementsByClassName('floating-col')[0];
+    var innerWrapper = wrapper.getElementsByClassName("inner-wrapper")[0];
+    var actualTable = innerWrapper.getElementsByTagName('table')[0]
+
+    // give the inner elements the header space for the slanted headers
+    tableBody.style.height = tableBody.offsetHeight + spacerHeight +'px';
+
+    // Make the inner wrapper long enough to hold the scrollable contents
+    innerWrapper.style.width = floatingCol.offsetWidth 
+                             + actualTable.offsetWidth 
+                             + lastLabelWidth 
+                             + 'px';
+
+    // Move the elements down so the headers show
+    actualTable.style.top = spacerHeight + 'px';
+    floatingCol.style.top = spacerHeight - 1 + 'px';
+
+    // Move the table body over to accommodate the floating header column
+    innerWrapper.getElementsByTagName('table')[0].style.left 
+      = floatingCol.offsetWidth - 6 + 'px';
+  };
+
+  var wrapperIndex = 0;
+
+  while(true)
+  {
+    var wrapper = document.getElementById("wrapper" + wrapperIndex);
+
+    if(wrapper === null)
+    {
+      break;
+    }
+
+    wrapperIndex++;
+    formatEventSequence(wrapper);
+  }
+</script>
+
+<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from no_transitions.ump</h1>
+<p>Note that the sequence of events is randomly generated. Subsequential event generation will likely yield different results.</p>
+
+
+<h2>Class NoTransitions state machine sm</h2>
+
+<div id="wrapper0" class="wrapper"></div><p>No transitions found in state machine</p>
+
+<script>
+  function formatEventSequence(wrapper) 
+  {
+    if(wrapper === undefined || wrapper.innerHTML === "") 
+    {
+      return;
+    }
+
+    // Calculate spacer height due to slanted names
+    var longest = 0;
+    var last = 0;
+    var columnHeaders = wrapper
+        .getElementsByClassName("column-header");
+
+    for(var i = 0; i < columnHeaders.length; i++) 
+    {
+      var innerSpan = columnHeaders[i].firstChild.firstChild;
+      if(longest < innerSpan.offsetWidth)
+        longest = innerSpan.offsetWidth;
+
+      if(i == columnHeaders.length - 1)
+        last = innerSpan.offsetWidth;
+    }
+
+    var spacerHeight = longest * Math.cos(45 * (Math.PI / 180));
+    var lastLabelWidth = last *  Math.sin(45 * (Math.PI / 180));
+
+    // Get the various elements
+    var tableBody = wrapper.getElementsByClassName("table-body")[0];
+    var floatingCol = wrapper.getElementsByClassName('floating-col')[0];
+    var innerWrapper = wrapper.getElementsByClassName("inner-wrapper")[0];
+    var actualTable = innerWrapper.getElementsByTagName('table')[0]
+
+    // give the inner elements the header space for the slanted headers
+    tableBody.style.height = tableBody.offsetHeight + spacerHeight +'px';
+
+    // Make the inner wrapper long enough to hold the scrollable contents
+    innerWrapper.style.width = floatingCol.offsetWidth 
+                             + actualTable.offsetWidth 
+                             + lastLabelWidth 
+                             + 'px';
+
+    // Move the elements down so the headers show
+    actualTable.style.top = spacerHeight + 'px';
+    floatingCol.style.top = spacerHeight - 1 + 'px';
+
+    // Move the table body over to accommodate the floating header column
+    innerWrapper.getElementsByTagName('table')[0].style.left 
+      = floatingCol.offsetWidth - 6 + 'px';
+  };
+
+  var wrapperIndex = 0;
+
+  while(true)
+  {
+    var wrapper = document.getElementById("wrapper" + wrapperIndex);
+
+    if(wrapper === null)
+    {
+      break;
+    }
+
+    wrapperIndex++;
+    formatEventSequence(wrapper);
+  }
+</script>
+
+<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from guarded_transition_all_visited.ump</h1>
+<p>Note that the sequence of events is randomly generated. Subsequential event generation will likely yield different results.</p>
+
+
+<h2>Class GuardedTransitionAllVisited state machine sm</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper0" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s1</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s2</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s3</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. ev1 [getGuard()]</span></div></td>
+            <td class="column-header"><div><span>2. ev1</span></div></td>
+            <td class="column-header"><div><span>3. ev1 [!getGuard()]</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">ev1 [getGuard()]</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">2</td>
+    <td class="">ev1</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">3</td>
+    <td class="">ev1 [!getGuard()]</td>
+    <td class="">s3</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Visited all states</p>
+
+<script>
+  function formatEventSequence(wrapper) 
+  {
+    if(wrapper === undefined || wrapper.innerHTML === "") 
+    {
+      return;
+    }
+
+    // Calculate spacer height due to slanted names
+    var longest = 0;
+    var last = 0;
+    var columnHeaders = wrapper
+        .getElementsByClassName("column-header");
+
+    for(var i = 0; i < columnHeaders.length; i++) 
+    {
+      var innerSpan = columnHeaders[i].firstChild.firstChild;
+      if(longest < innerSpan.offsetWidth)
+        longest = innerSpan.offsetWidth;
+
+      if(i == columnHeaders.length - 1)
+        last = innerSpan.offsetWidth;
+    }
+
+    var spacerHeight = longest * Math.cos(45 * (Math.PI / 180));
+    var lastLabelWidth = last *  Math.sin(45 * (Math.PI / 180));
+
+    // Get the various elements
+    var tableBody = wrapper.getElementsByClassName("table-body")[0];
+    var floatingCol = wrapper.getElementsByClassName('floating-col')[0];
+    var innerWrapper = wrapper.getElementsByClassName("inner-wrapper")[0];
+    var actualTable = innerWrapper.getElementsByTagName('table')[0]
+
+    // give the inner elements the header space for the slanted headers
+    tableBody.style.height = tableBody.offsetHeight + spacerHeight +'px';
+
+    // Make the inner wrapper long enough to hold the scrollable contents
+    innerWrapper.style.width = floatingCol.offsetWidth 
+                             + actualTable.offsetWidth 
+                             + lastLabelWidth 
+                             + 'px';
+
+    // Move the elements down so the headers show
+    actualTable.style.top = spacerHeight + 'px';
+    floatingCol.style.top = spacerHeight - 1 + 'px';
+
+    // Move the table body over to accommodate the floating header column
+    innerWrapper.getElementsByTagName('table')[0].style.left 
+      = floatingCol.offsetWidth - 6 + 'px';
+  };
+
+  var wrapperIndex = 0;
+
+  while(true)
+  {
+    var wrapper = document.getElementById("wrapper" + wrapperIndex);
+
+    if(wrapper === null)
+    {
+      break;
+    }
+
+    wrapperIndex++;
+    formatEventSequence(wrapper);
+  }
+</script>
+
+<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from simple.ump</h1>
+<p>Note that the sequence of events is randomly generated. Subsequential event generation will likely yield different results.</p>
+
+
+<h2>Class ReallySimpleStateMachine state machine sm</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper0" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s1</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s2</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. ev1</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">ev1</td>
+    <td class="">s2</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Visited all states</p>
+
+<script>
+  function formatEventSequence(wrapper) 
+  {
+    if(wrapper === undefined || wrapper.innerHTML === "") 
+    {
+      return;
+    }
+
+    // Calculate spacer height due to slanted names
+    var longest = 0;
+    var last = 0;
+    var columnHeaders = wrapper
+        .getElementsByClassName("column-header");
+
+    for(var i = 0; i < columnHeaders.length; i++) 
+    {
+      var innerSpan = columnHeaders[i].firstChild.firstChild;
+      if(longest < innerSpan.offsetWidth)
+        longest = innerSpan.offsetWidth;
+
+      if(i == columnHeaders.length - 1)
+        last = innerSpan.offsetWidth;
+    }
+
+    var spacerHeight = longest * Math.cos(45 * (Math.PI / 180));
+    var lastLabelWidth = last *  Math.sin(45 * (Math.PI / 180));
+
+    // Get the various elements
+    var tableBody = wrapper.getElementsByClassName("table-body")[0];
+    var floatingCol = wrapper.getElementsByClassName('floating-col')[0];
+    var innerWrapper = wrapper.getElementsByClassName("inner-wrapper")[0];
+    var actualTable = innerWrapper.getElementsByTagName('table')[0]
+
+    // give the inner elements the header space for the slanted headers
+    tableBody.style.height = tableBody.offsetHeight + spacerHeight +'px';
+
+    // Make the inner wrapper long enough to hold the scrollable contents
+    innerWrapper.style.width = floatingCol.offsetWidth 
+                             + actualTable.offsetWidth 
+                             + lastLabelWidth 
+                             + 'px';
+
+    // Move the elements down so the headers show
+    actualTable.style.top = spacerHeight + 'px';
+    floatingCol.style.top = spacerHeight - 1 + 'px';
+
+    // Move the table body over to accommodate the floating header column
+    innerWrapper.getElementsByTagName('table')[0].style.left 
+      = floatingCol.offsetWidth - 6 + 'px';
+  };
+
+  var wrapperIndex = 0;
+
+  while(true)
+  {
+    var wrapper = document.getElementById("wrapper" + wrapperIndex);
+
+    if(wrapper === null)
+    {
+      break;
+    }
+
+    wrapperIndex++;
+    formatEventSequence(wrapper);
+  }
+</script>
+
+<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from nested_end_state_reached.ump</h1>
+<p>Note that the sequence of events is randomly generated. Subsequential event generation will likely yield different results.</p>
+
+
+<h2>Class EventSeqTestEndState state machine sm</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper0" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">super1</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="0">- s1</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="0">- sidestate</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="0">- s2</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="0">- s3</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">superend</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="5">- endstate</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. ev1</span></div></td>
+            <td class="column-header"><div><span>2. ev2</span></div></td>
+            <td class="column-header"><div><span>3. ev2</span></div></td>
+            <td class="column-header"><div><span>4. ev2</span></div></td>
+            <td class="column-header"><div><span>5. ev4</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="0">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="0">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="0">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="0">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="5">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">super1.s1</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">ev1</td>
+    <td class="">super1.s2</td>
+  </tr>
+  <tr>
+    <td class="">2</td>
+    <td class="">ev2</td>
+    <td class="">super1.s3</td>
+  </tr>
+  <tr>
+    <td class="">3</td>
+    <td class="">ev2</td>
+    <td class="">super1.s2</td>
+  </tr>
+  <tr>
+    <td class="">4</td>
+    <td class="">ev2</td>
+    <td class="">super1.s3</td>
+  </tr>
+  <tr>
+    <td class="">5</td>
+    <td class="">ev4</td>
+    <td class="">superend.endstate</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Reached an end-state</p>
+
+<script>
+  function formatEventSequence(wrapper) 
+  {
+    if(wrapper === undefined || wrapper.innerHTML === "") 
+    {
+      return;
+    }
+
+    // Calculate spacer height due to slanted names
+    var longest = 0;
+    var last = 0;
+    var columnHeaders = wrapper
+        .getElementsByClassName("column-header");
+
+    for(var i = 0; i < columnHeaders.length; i++) 
+    {
+      var innerSpan = columnHeaders[i].firstChild.firstChild;
+      if(longest < innerSpan.offsetWidth)
+        longest = innerSpan.offsetWidth;
+
+      if(i == columnHeaders.length - 1)
+        last = innerSpan.offsetWidth;
+    }
+
+    var spacerHeight = longest * Math.cos(45 * (Math.PI / 180));
+    var lastLabelWidth = last *  Math.sin(45 * (Math.PI / 180));
+
+    // Get the various elements
+    var tableBody = wrapper.getElementsByClassName("table-body")[0];
+    var floatingCol = wrapper.getElementsByClassName('floating-col')[0];
+    var innerWrapper = wrapper.getElementsByClassName("inner-wrapper")[0];
+    var actualTable = innerWrapper.getElementsByTagName('table')[0]
+
+    // give the inner elements the header space for the slanted headers
+    tableBody.style.height = tableBody.offsetHeight + spacerHeight +'px';
+
+    // Make the inner wrapper long enough to hold the scrollable contents
+    innerWrapper.style.width = floatingCol.offsetWidth 
+                             + actualTable.offsetWidth 
+                             + lastLabelWidth 
+                             + 'px';
+
+    // Move the elements down so the headers show
+    actualTable.style.top = spacerHeight + 'px';
+    floatingCol.style.top = spacerHeight - 1 + 'px';
+
+    // Move the table body over to accommodate the floating header column
+    innerWrapper.getElementsByTagName('table')[0].style.left 
+      = floatingCol.offsetWidth - 6 + 'px';
+  };
+
+  var wrapperIndex = 0;
+
+  while(true)
+  {
+    var wrapper = document.getElementById("wrapper" + wrapperIndex);
+
+    if(wrapper === null)
+    {
+      break;
+    }
+
+    wrapperIndex++;
+    formatEventSequence(wrapper);
+  }
+</script>
+
+<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from end_state_reached.ump</h1>
+<p>Note that the sequence of events is randomly generated. Subsequential event generation will likely yield different results.</p>
+
+
+<h2>Class EventSeqTestEndState state machine sm</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper0" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s1</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">sidestate</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s2</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s3</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">endstate</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. ev1</span></div></td>
+            <td class="column-header"><div><span>2. ev2</span></div></td>
+            <td class="column-header"><div><span>3. ev2</span></div></td>
+            <td class="column-header"><div><span>4. ev2</span></div></td>
+            <td class="column-header"><div><span>5. ev4</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">ev1</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">2</td>
+    <td class="">ev2</td>
+    <td class="">s3</td>
+  </tr>
+  <tr>
+    <td class="">3</td>
+    <td class="">ev2</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">4</td>
+    <td class="">ev2</td>
+    <td class="">s3</td>
+  </tr>
+  <tr>
+    <td class="">5</td>
+    <td class="">ev4</td>
+    <td class="">endstate</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Reached an end-state</p>
+
+<script>
+  function formatEventSequence(wrapper) 
+  {
+    if(wrapper === undefined || wrapper.innerHTML === "") 
+    {
+      return;
+    }
+
+    // Calculate spacer height due to slanted names
+    var longest = 0;
+    var last = 0;
+    var columnHeaders = wrapper
+        .getElementsByClassName("column-header");
+
+    for(var i = 0; i < columnHeaders.length; i++) 
+    {
+      var innerSpan = columnHeaders[i].firstChild.firstChild;
+      if(longest < innerSpan.offsetWidth)
+        longest = innerSpan.offsetWidth;
+
+      if(i == columnHeaders.length - 1)
+        last = innerSpan.offsetWidth;
+    }
+
+    var spacerHeight = longest * Math.cos(45 * (Math.PI / 180));
+    var lastLabelWidth = last *  Math.sin(45 * (Math.PI / 180));
+
+    // Get the various elements
+    var tableBody = wrapper.getElementsByClassName("table-body")[0];
+    var floatingCol = wrapper.getElementsByClassName('floating-col')[0];
+    var innerWrapper = wrapper.getElementsByClassName("inner-wrapper")[0];
+    var actualTable = innerWrapper.getElementsByTagName('table')[0]
+
+    // give the inner elements the header space for the slanted headers
+    tableBody.style.height = tableBody.offsetHeight + spacerHeight +'px';
+
+    // Make the inner wrapper long enough to hold the scrollable contents
+    innerWrapper.style.width = floatingCol.offsetWidth 
+                             + actualTable.offsetWidth 
+                             + lastLabelWidth 
+                             + 'px';
+
+    // Move the elements down so the headers show
+    actualTable.style.top = spacerHeight + 'px';
+    floatingCol.style.top = spacerHeight - 1 + 'px';
+
+    // Move the table body over to accommodate the floating header column
+    innerWrapper.getElementsByTagName('table')[0].style.left 
+      = floatingCol.offsetWidth - 6 + 'px';
+  };
+
+  var wrapperIndex = 0;
+
+  while(true)
+  {
+    var wrapper = document.getElementById("wrapper" + wrapperIndex);
+
+    if(wrapper === null)
+    {
+      break;
+    }
+
+    wrapperIndex++;
+    formatEventSequence(wrapper);
+  }
+</script>
+
+<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from nested_all_states_visited.ump</h1>
+<p>Note that the sequence of events is randomly generated. Subsequential event generation will likely yield different results.</p>
+
+
+<h2>Class EventSeqAllVisited state machine sm</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper0" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">supersuper</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="0">- hub</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="1">- - s1</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="0">- leaves</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="3">- - s2</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="3">- - s3</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="3">- - s4</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. ev4</span></div></td>
+            <td class="column-header"><div><span>2. ev1</span></div></td>
+            <td class="column-header"><div><span>3. ev4</span></div></td>
+            <td class="column-header"><div><span>4. ev1</span></div></td>
+            <td class="column-header"><div><span>5. ev2</span></div></td>
+            <td class="column-header"><div><span>6. ev1</span></div></td>
+            <td class="column-header"><div><span>7. ev3</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="0">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="1">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="0">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="3">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="3">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="3">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">supersuper.hub.s1</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">ev4</td>
+    <td class="">supersuper.leaves.s4</td>
+  </tr>
+  <tr>
+    <td class="">2</td>
+    <td class="">ev1</td>
+    <td class="">supersuper.hub.s1</td>
+  </tr>
+  <tr>
+    <td class="">3</td>
+    <td class="">ev4</td>
+    <td class="">supersuper.leaves.s4</td>
+  </tr>
+  <tr>
+    <td class="">4</td>
+    <td class="">ev1</td>
+    <td class="">supersuper.hub.s1</td>
+  </tr>
+  <tr>
+    <td class="">5</td>
+    <td class="">ev2</td>
+    <td class="">supersuper.leaves.s2</td>
+  </tr>
+  <tr>
+    <td class="">6</td>
+    <td class="">ev1</td>
+    <td class="">supersuper.hub.s1</td>
+  </tr>
+  <tr>
+    <td class="">7</td>
+    <td class="">ev3</td>
+    <td class="">supersuper.leaves.s3</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Visited all states</p>
+
+<script>
+  function formatEventSequence(wrapper) 
+  {
+    if(wrapper === undefined || wrapper.innerHTML === "") 
+    {
+      return;
+    }
+
+    // Calculate spacer height due to slanted names
+    var longest = 0;
+    var last = 0;
+    var columnHeaders = wrapper
+        .getElementsByClassName("column-header");
+
+    for(var i = 0; i < columnHeaders.length; i++) 
+    {
+      var innerSpan = columnHeaders[i].firstChild.firstChild;
+      if(longest < innerSpan.offsetWidth)
+        longest = innerSpan.offsetWidth;
+
+      if(i == columnHeaders.length - 1)
+        last = innerSpan.offsetWidth;
+    }
+
+    var spacerHeight = longest * Math.cos(45 * (Math.PI / 180));
+    var lastLabelWidth = last *  Math.sin(45 * (Math.PI / 180));
+
+    // Get the various elements
+    var tableBody = wrapper.getElementsByClassName("table-body")[0];
+    var floatingCol = wrapper.getElementsByClassName('floating-col')[0];
+    var innerWrapper = wrapper.getElementsByClassName("inner-wrapper")[0];
+    var actualTable = innerWrapper.getElementsByTagName('table')[0]
+
+    // give the inner elements the header space for the slanted headers
+    tableBody.style.height = tableBody.offsetHeight + spacerHeight +'px';
+
+    // Make the inner wrapper long enough to hold the scrollable contents
+    innerWrapper.style.width = floatingCol.offsetWidth 
+                             + actualTable.offsetWidth 
+                             + lastLabelWidth 
+                             + 'px';
+
+    // Move the elements down so the headers show
+    actualTable.style.top = spacerHeight + 'px';
+    floatingCol.style.top = spacerHeight - 1 + 'px';
+
+    // Move the table body over to accommodate the floating header column
+    innerWrapper.getElementsByTagName('table')[0].style.left 
+      = floatingCol.offsetWidth - 6 + 'px';
+  };
+
+  var wrapperIndex = 0;
+
+  while(true)
+  {
+    var wrapper = document.getElementById("wrapper" + wrapperIndex);
+
+    if(wrapper === null)
+    {
+      break;
+    }
+
+    wrapperIndex++;
+    formatEventSequence(wrapper);
+  }
+</script>
+
+<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from simple_nested.ump</h1>
+<p>Note that the sequence of events is randomly generated. Subsequential event generation will likely yield different results.</p>
+
+
+<h2>Class ReallySimpleNestedStateMachine state machine sm</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper0" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s1</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="0">- s11</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="0">- s12</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s2</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="3">- s21</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="3">- s22</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. ev1</span></div></td>
+            <td class="column-header"><div><span>2. ev1</span></div></td>
+            <td class="column-header"><div><span>3. ev1</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="0">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="0">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="3">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="3">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">s1.s11</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">ev1</td>
+    <td class="">s1.s12</td>
+  </tr>
+  <tr>
+    <td class="">2</td>
+    <td class="">ev1</td>
+    <td class="">s2.s21</td>
+  </tr>
+  <tr>
+    <td class="">3</td>
+    <td class="">ev1</td>
+    <td class="">s2.s22</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Visited all states</p>
+
+<script>
+  function formatEventSequence(wrapper) 
+  {
+    if(wrapper === undefined || wrapper.innerHTML === "") 
+    {
+      return;
+    }
+
+    // Calculate spacer height due to slanted names
+    var longest = 0;
+    var last = 0;
+    var columnHeaders = wrapper
+        .getElementsByClassName("column-header");
+
+    for(var i = 0; i < columnHeaders.length; i++) 
+    {
+      var innerSpan = columnHeaders[i].firstChild.firstChild;
+      if(longest < innerSpan.offsetWidth)
+        longest = innerSpan.offsetWidth;
+
+      if(i == columnHeaders.length - 1)
+        last = innerSpan.offsetWidth;
+    }
+
+    var spacerHeight = longest * Math.cos(45 * (Math.PI / 180));
+    var lastLabelWidth = last *  Math.sin(45 * (Math.PI / 180));
+
+    // Get the various elements
+    var tableBody = wrapper.getElementsByClassName("table-body")[0];
+    var floatingCol = wrapper.getElementsByClassName('floating-col')[0];
+    var innerWrapper = wrapper.getElementsByClassName("inner-wrapper")[0];
+    var actualTable = innerWrapper.getElementsByTagName('table')[0]
+
+    // give the inner elements the header space for the slanted headers
+    tableBody.style.height = tableBody.offsetHeight + spacerHeight +'px';
+
+    // Make the inner wrapper long enough to hold the scrollable contents
+    innerWrapper.style.width = floatingCol.offsetWidth 
+                             + actualTable.offsetWidth 
+                             + lastLabelWidth 
+                             + 'px';
+
+    // Move the elements down so the headers show
+    actualTable.style.top = spacerHeight + 'px';
+    floatingCol.style.top = spacerHeight - 1 + 'px';
+
+    // Move the table body over to accommodate the floating header column
+    innerWrapper.getElementsByTagName('table')[0].style.left 
+      = floatingCol.offsetWidth - 6 + 'px';
+  };
+
+  var wrapperIndex = 0;
+
+  while(true)
+  {
+    var wrapper = document.getElementById("wrapper" + wrapperIndex);
+
+    if(wrapper === null)
+    {
+      break;
+    }
+
+    wrapperIndex++;
+    formatEventSequence(wrapper);
+  }
+</script>
+
+<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from nested_counter_hit.ump</h1>
+<p>Note that the sequence of events is randomly generated. Subsequential event generation will likely yield different results.</p>
+
+
+<h2>Class NestedCounterHit state machine sm</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper0" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">ss1</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="0">- s1</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="0">- s2</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">ss2</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="3">- s3</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="3">- s4</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. ev2</span></div></td>
+            <td class="column-header"><div><span>2. ev2</span></div></td>
+            <td class="column-header"><div><span>3. ev1</span></div></td>
+            <td class="column-header"><div><span>4. ev4</span></div></td>
+            <td class="column-header"><div><span>5. ev2</span></div></td>
+            <td class="column-header"><div><span>6. ev2</span></div></td>
+            <td class="column-header"><div><span>7. ev3</span></div></td>
+            <td class="column-header"><div><span>8. ev1</span></div></td>
+            <td class="column-header"><div><span>9. ev1</span></div></td>
+            <td class="column-header"><div><span>10. ev1</span></div></td>
+            <td class="column-header"><div><span>11. ev4</span></div></td>
+            <td class="column-header"><div><span>12. ev1</span></div></td>
+            <td class="column-header"><div><span>13. ev1</span></div></td>
+            <td class="column-header"><div><span>14. ev3</span></div></td>
+            <td class="column-header"><div><span>15. ev5</span></div></td>
+            <td class="column-header"><div><span>16. ev1</span></div></td>
+            <td class="column-header"><div><span>17. ev1</span></div></td>
+            <td class="column-header"><div><span>18. ev3</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="0">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="0">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="3">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="3">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">ss1.s1</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">ev2</td>
+    <td class="">ss1.s2</td>
+  </tr>
+  <tr>
+    <td class="">2</td>
+    <td class="">ev2</td>
+    <td class="">ss1.s2</td>
+  </tr>
+  <tr>
+    <td class="">3</td>
+    <td class="">ev1</td>
+    <td class="">ss1.s1</td>
+  </tr>
+  <tr>
+    <td class="">4</td>
+    <td class="">ev4</td>
+    <td class="">ss2.s3</td>
+  </tr>
+  <tr>
+    <td class="">5</td>
+    <td class="">ev2</td>
+    <td class="">ss1.s2</td>
+  </tr>
+  <tr>
+    <td class="">6</td>
+    <td class="">ev2</td>
+    <td class="">ss1.s2</td>
+  </tr>
+  <tr>
+    <td class="">7</td>
+    <td class="">ev3</td>
+    <td class="">ss2.s3</td>
+  </tr>
+  <tr>
+    <td class="">8</td>
+    <td class="">ev1</td>
+    <td class="">ss1.s1</td>
+  </tr>
+  <tr>
+    <td class="">9</td>
+    <td class="">ev1</td>
+    <td class="">ss1.s1</td>
+  </tr>
+  <tr>
+    <td class="">10</td>
+    <td class="">ev1</td>
+    <td class="">ss1.s1</td>
+  </tr>
+  <tr>
+    <td class="">11</td>
+    <td class="">ev4</td>
+    <td class="">ss2.s3</td>
+  </tr>
+  <tr>
+    <td class="">12</td>
+    <td class="">ev1</td>
+    <td class="">ss1.s1</td>
+  </tr>
+  <tr>
+    <td class="">13</td>
+    <td class="">ev1</td>
+    <td class="">ss1.s1</td>
+  </tr>
+  <tr>
+    <td class="">14</td>
+    <td class="">ev3</td>
+    <td class="">ss2.s3</td>
+  </tr>
+  <tr>
+    <td class="">15</td>
+    <td class="">ev5</td>
+    <td class="">ss1.s1</td>
+  </tr>
+  <tr>
+    <td class="">16</td>
+    <td class="">ev1</td>
+    <td class="">ss1.s1</td>
+  </tr>
+  <tr>
+    <td class="">17</td>
+    <td class="">ev1</td>
+    <td class="">ss1.s1</td>
+  </tr>
+  <tr>
+    <td class="">18</td>
+    <td class="">ev3</td>
+    <td class="">ss2.s3</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Hit arbitrary counter</p>
+
+<script>
+  function formatEventSequence(wrapper) 
+  {
+    if(wrapper === undefined || wrapper.innerHTML === "") 
+    {
+      return;
+    }
+
+    // Calculate spacer height due to slanted names
+    var longest = 0;
+    var last = 0;
+    var columnHeaders = wrapper
+        .getElementsByClassName("column-header");
+
+    for(var i = 0; i < columnHeaders.length; i++) 
+    {
+      var innerSpan = columnHeaders[i].firstChild.firstChild;
+      if(longest < innerSpan.offsetWidth)
+        longest = innerSpan.offsetWidth;
+
+      if(i == columnHeaders.length - 1)
+        last = innerSpan.offsetWidth;
+    }
+
+    var spacerHeight = longest * Math.cos(45 * (Math.PI / 180));
+    var lastLabelWidth = last *  Math.sin(45 * (Math.PI / 180));
+
+    // Get the various elements
+    var tableBody = wrapper.getElementsByClassName("table-body")[0];
+    var floatingCol = wrapper.getElementsByClassName('floating-col')[0];
+    var innerWrapper = wrapper.getElementsByClassName("inner-wrapper")[0];
+    var actualTable = innerWrapper.getElementsByTagName('table')[0]
+
+    // give the inner elements the header space for the slanted headers
+    tableBody.style.height = tableBody.offsetHeight + spacerHeight +'px';
+
+    // Make the inner wrapper long enough to hold the scrollable contents
+    innerWrapper.style.width = floatingCol.offsetWidth 
+                             + actualTable.offsetWidth 
+                             + lastLabelWidth 
+                             + 'px';
+
+    // Move the elements down so the headers show
+    actualTable.style.top = spacerHeight + 'px';
+    floatingCol.style.top = spacerHeight - 1 + 'px';
+
+    // Move the table body over to accommodate the floating header column
+    innerWrapper.getElementsByTagName('table')[0].style.left 
+      = floatingCol.offsetWidth - 6 + 'px';
+  };
+
+  var wrapperIndex = 0;
+
+  while(true)
+  {
+    var wrapper = document.getElementById("wrapper" + wrapperIndex);
+
+    if(wrapper === null)
+    {
+      break;
+    }
+
+    wrapperIndex++;
+    formatEventSequence(wrapper);
+  }
+</script>
+
+<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from all_states_visited.ump</h1>
+<p>Note that the sequence of events is randomly generated. Subsequential event generation will likely yield different results.</p>
+
+
+<h2>Class EventSeqAllVisited state machine sm</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper0" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s1</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s2</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s3</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s4</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. ev4</span></div></td>
+            <td class="column-header"><div><span>2. ev1</span></div></td>
+            <td class="column-header"><div><span>3. ev2</span></div></td>
+            <td class="column-header"><div><span>4. ev1</span></div></td>
+            <td class="column-header"><div><span>5. ev3</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">ev4</td>
+    <td class="">s4</td>
+  </tr>
+  <tr>
+    <td class="">2</td>
+    <td class="">ev1</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">3</td>
+    <td class="">ev2</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">4</td>
+    <td class="">ev1</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">5</td>
+    <td class="">ev3</td>
+    <td class="">s3</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Visited all states</p>
+
+<script>
+  function formatEventSequence(wrapper) 
+  {
+    if(wrapper === undefined || wrapper.innerHTML === "") 
+    {
+      return;
+    }
+
+    // Calculate spacer height due to slanted names
+    var longest = 0;
+    var last = 0;
+    var columnHeaders = wrapper
+        .getElementsByClassName("column-header");
+
+    for(var i = 0; i < columnHeaders.length; i++) 
+    {
+      var innerSpan = columnHeaders[i].firstChild.firstChild;
+      if(longest < innerSpan.offsetWidth)
+        longest = innerSpan.offsetWidth;
+
+      if(i == columnHeaders.length - 1)
+        last = innerSpan.offsetWidth;
+    }
+
+    var spacerHeight = longest * Math.cos(45 * (Math.PI / 180));
+    var lastLabelWidth = last *  Math.sin(45 * (Math.PI / 180));
+
+    // Get the various elements
+    var tableBody = wrapper.getElementsByClassName("table-body")[0];
+    var floatingCol = wrapper.getElementsByClassName('floating-col')[0];
+    var innerWrapper = wrapper.getElementsByClassName("inner-wrapper")[0];
+    var actualTable = innerWrapper.getElementsByTagName('table')[0]
+
+    // give the inner elements the header space for the slanted headers
+    tableBody.style.height = tableBody.offsetHeight + spacerHeight +'px';
+
+    // Make the inner wrapper long enough to hold the scrollable contents
+    innerWrapper.style.width = floatingCol.offsetWidth 
+                             + actualTable.offsetWidth 
+                             + lastLabelWidth 
+                             + 'px';
+
+    // Move the elements down so the headers show
+    actualTable.style.top = spacerHeight + 'px';
+    floatingCol.style.top = spacerHeight - 1 + 'px';
+
+    // Move the table body over to accommodate the floating header column
+    innerWrapper.getElementsByTagName('table')[0].style.left 
+      = floatingCol.offsetWidth - 6 + 'px';
+  };
+
+  var wrapperIndex = 0;
+
+  while(true)
+  {
+    var wrapper = document.getElementById("wrapper" + wrapperIndex);
+
+    if(wrapper === null)
+    {
+      break;
+    }
+
+    wrapperIndex++;
+    formatEventSequence(wrapper);
+  }
+</script>
+
+<style>
+  /* Shared Styles */
+  .event-sequence-grid, .event-sequence-list 
+  { 
+    font-family: sans-serif;
+  }
+
+  .event-sequence-grid table, table.event-sequence-list
+  {
+    border-collapse: collapse;
+  }
+
+  .event-sequence-list td, .event-sequence-grid td
+  { 
+    line-height: 1;
+    padding: 2px 10px 2px 10px; 
+    white-space: nowrap;
+    text-align: center; 
+  }
+
+  /* Grid-only styles */
+  .event-sequence-grid .content-cell {
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .row-header {
+    text-align: left;
+  }
+
+  .event-sequence-grid .column-header > div {
+    width: 10px;
+
+    -moz-transform:
+      perspective(999px) /* Helps with the font distortion */
+      translate(20px, 0px)
+      rotate(-45deg);
+    -moz-transform-origin: left bottom;
+    -ms-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -ms-transform-origin: left bottom;
+    -webkit-transform:
+      translate(21px, 2px) 
+      rotate(-45deg);
+    -webkit-transform-origin: left bottom;
+    -o-transform:
+      translate(21px, 0px)
+      rotate(-45deg);
+    -o-transform-origin: left bottom;
+  }
+
+  .event-sequence-grid .column-header span {
+    border-bottom: 1px solid black;
+  }
+
+  /* Floating column styles */
+  .event-sequence-grid .wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .event-sequence-grid .floating-col {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    border-right: 1px solid black;
+    z-index: 1;
+  }
+
+  .event-sequence-grid .inner-wrapper {
+    position: relative;
+  }
+
+  .event-sequence-grid .hidden-spacer {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .table-body {
+    overflow-x: scroll;
+  }
+
+  .event-sequence-grid .table-body table {
+    position: relative;
+    display: inline-block;
+  }
+
+  .event-sequence-grid .floating-col td {
+    background-color: white;
+    border: 1px solid black;
+  }
+
+  .event-sequence-grid .floating-col td.first {
+  }
+
+  /* List-only styles */
+  table.event-sequence-list
+  {
+    margin-top: 20px;
+  }
+
+  .event-sequence-list td
+  {
+    border: 1px solid black;
+  }
+</style>
+
+<h1>Event sequence generated by Umple from timed_transition.ump</h1>
+<p>Note that the sequence of events is randomly generated. Subsequential event generation will likely yield different results.</p>
+
+
+<h2>Class TimedTransition state machine sm</h2>
+
+<div class="event-sequence-grid">
+  <div id="wrapper0" class="wrapper">
+    <div class="floating-col">
+      <table>
+        <tr>
+          <td class="row-header first">States</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s1</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s2</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s3</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s4</td>
+        </tr>
+        <tr>
+          <td class="row-header" data-parent="">s5</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <div class="inner-wrapper">
+        <table>
+          <tr>
+            <td class="column-header"><div><span>START</span></div></td>
+            <td class="column-header"><div><span>1. after(5)</span></div></td>
+            <td class="column-header"><div><span>2. ev1</span></div></td>
+            <td class="column-header"><div><span>3. ev1</span></div></td>
+            <td class="column-header"><div><span>4. ev1</span></div></td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+            <td class="content-cell">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="content-cell" data-parent="">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">&nbsp;</td>
+            <td class="content-cell">X</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="event-sequence-list">
+  <tr>
+    <td class="column-header">Event<br>Number</td>
+    <td class="column-header">Event</td>
+    <td class="column-header">Next State</td>
+  </tr>
+  <tr>
+    <td class="">START</td>
+    <td class="">-</td>
+    <td class="">s1</td>
+  </tr>
+  <tr>
+    <td class="">1</td>
+    <td class="">after(5)</td>
+    <td class="">s2</td>
+  </tr>
+  <tr>
+    <td class="">2</td>
+    <td class="">ev1</td>
+    <td class="">s3</td>
+  </tr>
+  <tr>
+    <td class="">3</td>
+    <td class="">ev1</td>
+    <td class="">s4</td>
+  </tr>
+  <tr>
+    <td class="">4</td>
+    <td class="">ev1</td>
+    <td class="">s5</td>
+  </tr>
+</table>
+
+<p>Event sequence ending reason: Visited all states</p>
+
+<script>
+  function formatEventSequence(wrapper) 
+  {
+    if(wrapper === undefined || wrapper.innerHTML === "") 
+    {
+      return;
+    }
+
+    // Calculate spacer height due to slanted names
+    var longest = 0;
+    var last = 0;
+    var columnHeaders = wrapper
+        .getElementsByClassName("column-header");
+
+    for(var i = 0; i < columnHeaders.length; i++) 
+    {
+      var innerSpan = columnHeaders[i].firstChild.firstChild;
+      if(longest < innerSpan.offsetWidth)
+        longest = innerSpan.offsetWidth;
+
+      if(i == columnHeaders.length - 1)
+        last = innerSpan.offsetWidth;
+    }
+
+    var spacerHeight = longest * Math.cos(45 * (Math.PI / 180));
+    var lastLabelWidth = last *  Math.sin(45 * (Math.PI / 180));
+
+    // Get the various elements
+    var tableBody = wrapper.getElementsByClassName("table-body")[0];
+    var floatingCol = wrapper.getElementsByClassName('floating-col')[0];
+    var innerWrapper = wrapper.getElementsByClassName("inner-wrapper")[0];
+    var actualTable = innerWrapper.getElementsByTagName('table')[0]
+
+    // give the inner elements the header space for the slanted headers
+    tableBody.style.height = tableBody.offsetHeight + spacerHeight +'px';
+
+    // Make the inner wrapper long enough to hold the scrollable contents
+    innerWrapper.style.width = floatingCol.offsetWidth 
+                             + actualTable.offsetWidth 
+                             + lastLabelWidth 
+                             + 'px';
+
+    // Move the elements down so the headers show
+    actualTable.style.top = spacerHeight + 'px';
+    floatingCol.style.top = spacerHeight - 1 + 'px';
+
+    // Move the table body over to accommodate the floating header column
+    innerWrapper.getElementsByTagName('table')[0].style.left 
+      = floatingCol.offsetWidth - 6 + 'px';
+  };
+
+  var wrapperIndex = 0;
+
+  while(true)
+  {
+    var wrapper = document.getElementById("wrapper" + wrapperIndex);
+
+    if(wrapper === null)
+    {
+      break;
+    }
+
+    wrapperIndex++;
+    formatEventSequence(wrapper);
+  }
+</script>
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

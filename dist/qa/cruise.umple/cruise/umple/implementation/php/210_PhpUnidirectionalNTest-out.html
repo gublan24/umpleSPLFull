@@ -1,0 +1,199 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from PhpUnidirectionalNTest</title>
+    </head>
+    <body>
+        <pre>&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private $name;
+
+  //Mentor Associations
+  private $students;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aName, $allStudents)
+  {
+    $this-&gt;name = $aName;
+    $this-&gt;students = array();
+    $didAddStudents = $this-&gt;setStudents($allStudents);
+    if (!$didAddStudents)
+    {
+      throw new Exception("Unable to create Mentor, must have 4 students. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setName($aName)
+  {
+    $wasSet = false;
+    $this-&gt;name = $aName;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getName()
+  {
+    return $this-&gt;name;
+  }
+
+  public function getStudent_index($index)
+  {
+    $aStudent = $this-&gt;students[$index];
+    return $aStudent;
+  }
+
+  public function getStudents()
+  {
+    $newStudents = $this-&gt;students;
+    return $newStudents;
+  }
+
+  public function numberOfStudents()
+  {
+    $number = count($this-&gt;students);
+    return $number;
+  }
+
+  public function hasStudents()
+  {
+    $has = $this-&gt;numberOfStudents() &gt; 0;
+    return $has;
+  }
+
+  public function indexOfStudent($aStudent)
+  {
+    $wasFound = false;
+    $index = 0;
+    foreach($this-&gt;students as $student)
+    {
+      if ($student-&gt;equals($aStudent))
+      {
+        $wasFound = true;
+        break;
+      }
+      $index += 1;
+    }
+    $index = $wasFound ? $index : -1;
+    return $index;
+  }
+
+  public static function requiredNumberOfStudents()
+  {
+    return 4;
+  }
+
+  public static function minimumNumberOfStudents()
+  {
+    return 4;
+  }
+
+  public static function maximumNumberOfStudents()
+  {
+    return 4;
+  }
+
+  public function setStudents($newStudents)
+  {
+    $wasSet = false;
+    $verifiedStudents = array();
+    foreach ($newStudents as $aStudent)
+    {
+      if (array_search($aStudent,$verifiedStudents) !== false)
+      {
+        continue;
+      }
+      $verifiedStudents[] = $aStudent;
+    }
+
+    if (count($verifiedStudents) != count($newStudents) || count($verifiedStudents) != self::requiredNumberOfStudents())
+    {
+      return $wasSet;
+    }
+
+    $this-&gt;students = $verifiedStudents;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $this-&gt;students = array();
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private $number;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aNumber)
+  {
+    $this-&gt;number = $aNumber;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setNumber($aNumber)
+  {
+    $wasSet = false;
+    $this-&gt;number = $aNumber;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getNumber()
+  {
+    return $this-&gt;number;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {}
+
+}
+?&gt;
+</pre>
+    </body>
+</html>

@@ -1,0 +1,239 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from UnidirectionalOptionalNTest</title>
+    </head>
+    <body>
+        <pre>/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+import java.util.*;
+
+// line 3 "../UnidirectionalOptionalNTest.ump"
+public class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private String name;
+
+  //Mentor Associations
+  private List&lt;Student&gt; students;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Mentor(String aName)
+  {
+    name = aName;
+    students = new ArrayList&lt;Student&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setName(String aName)
+  {
+    boolean wasSet = false;
+    name = aName;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getName()
+  {
+    return name;
+  }
+  /* Code from template association_GetMany */
+  public Student getStudent(int index)
+  {
+    Student aStudent = students.get(index);
+    return aStudent;
+  }
+
+  public List&lt;Student&gt; getStudents()
+  {
+    List&lt;Student&gt; newStudents = Collections.unmodifiableList(students);
+    return newStudents;
+  }
+
+  public int numberOfStudents()
+  {
+    int number = students.size();
+    return number;
+  }
+
+  public boolean hasStudents()
+  {
+    boolean has = students.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfStudent(Student aStudent)
+  {
+    int index = students.indexOf(aStudent);
+    return index;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfStudents()
+  {
+    return 0;
+  }
+  /* Code from template association_MaximumNumberOfMethod */
+  public static int maximumNumberOfStudents()
+  {
+    return 6;
+  }
+  /* Code from template association_AddUnidirectionalOptionalN */
+  public boolean addStudent(Student aStudent)
+  {
+    boolean wasAdded = false;
+    if (students.contains(aStudent)) { return false; }
+    if (numberOfStudents() &lt; maximumNumberOfStudents())
+    {
+      students.add(aStudent);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean removeStudent(Student aStudent)
+  {
+    boolean wasRemoved = false;
+    if (students.contains(aStudent))
+    {
+      students.remove(aStudent);
+      wasRemoved = true;
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_SetUnidirectionalOptionalN */
+  public boolean setStudents(Student... newStudents)
+  {
+    boolean wasSet = false;
+    ArrayList&lt;Student&gt; verifiedStudents = new ArrayList&lt;Student&gt;();
+    for (Student aStudent : newStudents)
+    {
+      if (verifiedStudents.contains(aStudent))
+      {
+        continue;
+      }
+      verifiedStudents.add(aStudent);
+    }
+
+    if (verifiedStudents.size() != newStudents.length || verifiedStudents.size() &gt; maximumNumberOfStudents())
+    {
+      return wasSet;
+    }
+
+    students.clear();
+    students.addAll(verifiedStudents);
+    wasSet = true;
+    return wasSet;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addStudentAt(Student aStudent, int index)
+  {  
+    boolean wasAdded = false;
+    if(addStudent(aStudent))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfStudents()) { index = numberOfStudents() - 1; }
+      students.remove(aStudent);
+      students.add(index, aStudent);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveStudentAt(Student aStudent, int index)
+  {
+    boolean wasAdded = false;
+    if(students.contains(aStudent))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfStudents()) { index = numberOfStudents() - 1; }
+      students.remove(aStudent);
+      students.add(index, aStudent);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addStudentAt(aStudent, index);
+    }
+    return wasAdded;
+  }
+
+  public void delete()
+  {
+    students.clear();
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "name" + ":" + getName()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 9 "../UnidirectionalOptionalNTest.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private String number;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student(String aNumber)
+  {
+    number = aNumber;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setNumber(String aNumber)
+  {
+    boolean wasSet = false;
+    number = aNumber;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getNumber()
+  {
+    return number;
+  }
+
+  public void delete()
+  {}
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "number" + ":" + getNumber()+ "]";
+  }
+}
+</pre>
+    </body>
+</html>

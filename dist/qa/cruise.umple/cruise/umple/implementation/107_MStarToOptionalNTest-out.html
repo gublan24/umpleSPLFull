@@ -1,0 +1,430 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from MStarToOptionalNTest</title>
+    </head>
+    <body>
+        <pre>/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+import java.util.*;
+
+// line 9 "../MStarToOptionalNTest.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private String number;
+
+  //Student Associations
+  private List&lt;Mentor&gt; mentors;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student(String aNumber)
+  {
+    number = aNumber;
+    mentors = new ArrayList&lt;Mentor&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setNumber(String aNumber)
+  {
+    boolean wasSet = false;
+    number = aNumber;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getNumber()
+  {
+    return number;
+  }
+  /* Code from template association_GetMany */
+  public Mentor getMentor(int index)
+  {
+    Mentor aMentor = mentors.get(index);
+    return aMentor;
+  }
+
+  public List&lt;Mentor&gt; getMentors()
+  {
+    List&lt;Mentor&gt; newMentors = Collections.unmodifiableList(mentors);
+    return newMentors;
+  }
+
+  public int numberOfMentors()
+  {
+    int number = mentors.size();
+    return number;
+  }
+
+  public boolean hasMentors()
+  {
+    boolean has = mentors.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfMentor(Mentor aMentor)
+  {
+    int index = mentors.indexOf(aMentor);
+    return index;
+  }
+  /* Code from template association_IsNumberOfValidMethod */
+  public boolean isNumberOfMentorsValid()
+  {
+    boolean isValid = numberOfMentors() &gt;= minimumNumberOfMentors();
+    return isValid;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfMentors()
+  {
+    return 2;
+  }
+  /* Code from template association_AddManyToManyMethod */
+  public boolean addMentor(Mentor aMentor)
+  {
+    boolean wasAdded = false;
+    if (mentors.contains(aMentor)) { return false; }
+    mentors.add(aMentor);
+    if (aMentor.indexOfStudent(this) != -1)
+    {
+      wasAdded = true;
+    }
+    else
+    {
+      wasAdded = aMentor.addStudent(this);
+      if (!wasAdded)
+      {
+        mentors.remove(aMentor);
+      }
+    }
+    return wasAdded;
+  }
+  /* Code from template association_AddMStarToMany */
+  public boolean removeMentor(Mentor aMentor)
+  {
+    boolean wasRemoved = false;
+    if (!mentors.contains(aMentor))
+    {
+      return wasRemoved;
+    }
+
+    if (numberOfMentors() &lt;= minimumNumberOfMentors())
+    {
+      return wasRemoved;
+    }
+
+    int oldIndex = mentors.indexOf(aMentor);
+    mentors.remove(oldIndex);
+    if (aMentor.indexOfStudent(this) == -1)
+    {
+      wasRemoved = true;
+    }
+    else
+    {
+      wasRemoved = aMentor.removeStudent(this);
+      if (!wasRemoved)
+      {
+        mentors.add(oldIndex,aMentor);
+      }
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_SetMStarToMany */
+  public boolean setMentors(Mentor... newMentors)
+  {
+    boolean wasSet = false;
+    ArrayList&lt;Mentor&gt; verifiedMentors = new ArrayList&lt;Mentor&gt;();
+    for (Mentor aMentor : newMentors)
+    {
+      if (verifiedMentors.contains(aMentor))
+      {
+        continue;
+      }
+      verifiedMentors.add(aMentor);
+    }
+
+    if (verifiedMentors.size() != newMentors.length || verifiedMentors.size() &lt; minimumNumberOfMentors())
+    {
+      return wasSet;
+    }
+
+    ArrayList&lt;Mentor&gt; oldMentors = new ArrayList&lt;Mentor&gt;(mentors);
+    mentors.clear();
+    for (Mentor aNewMentor : verifiedMentors)
+    {
+      mentors.add(aNewMentor);
+      if (oldMentors.contains(aNewMentor))
+      {
+        oldMentors.remove(aNewMentor);
+      }
+      else
+      {
+        aNewMentor.addStudent(this);
+      }
+    }
+
+    for (Mentor anOldMentor : oldMentors)
+    {
+      anOldMentor.removeStudent(this);
+    }
+    wasSet = true;
+    return wasSet;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addMentorAt(Mentor aMentor, int index)
+  {  
+    boolean wasAdded = false;
+    if(addMentor(aMentor))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfMentors()) { index = numberOfMentors() - 1; }
+      mentors.remove(aMentor);
+      mentors.add(index, aMentor);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveMentorAt(Mentor aMentor, int index)
+  {
+    boolean wasAdded = false;
+    if(mentors.contains(aMentor))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfMentors()) { index = numberOfMentors() - 1; }
+      mentors.remove(aMentor);
+      mentors.add(index, aMentor);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addMentorAt(aMentor, index);
+    }
+    return wasAdded;
+  }
+
+  public void delete()
+  {
+    ArrayList&lt;Mentor&gt; copyOfMentors = new ArrayList&lt;Mentor&gt;(mentors);
+    mentors.clear();
+    for(Mentor aMentor : copyOfMentors)
+    {
+      aMentor.removeStudent(this);
+    }
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "number" + ":" + getNumber()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+import java.util.*;
+
+// line 3 "../MStarToOptionalNTest.ump"
+public class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private String name;
+
+  //Mentor Associations
+  private List&lt;Student&gt; students;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Mentor(String aName)
+  {
+    name = aName;
+    students = new ArrayList&lt;Student&gt;();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setName(String aName)
+  {
+    boolean wasSet = false;
+    name = aName;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getName()
+  {
+    return name;
+  }
+  /* Code from template association_GetMany */
+  public Student getStudent(int index)
+  {
+    Student aStudent = students.get(index);
+    return aStudent;
+  }
+
+  public List&lt;Student&gt; getStudents()
+  {
+    List&lt;Student&gt; newStudents = Collections.unmodifiableList(students);
+    return newStudents;
+  }
+
+  public int numberOfStudents()
+  {
+    int number = students.size();
+    return number;
+  }
+
+  public boolean hasStudents()
+  {
+    boolean has = students.size() &gt; 0;
+    return has;
+  }
+
+  public int indexOfStudent(Student aStudent)
+  {
+    int index = students.indexOf(aStudent);
+    return index;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfStudents()
+  {
+    return 0;
+  }
+  /* Code from template association_MaximumNumberOfMethod */
+  public static int maximumNumberOfStudents()
+  {
+    return 3;
+  }
+  /* Code from template association_AddManyToManyMethod */
+  public boolean addStudent(Student aStudent)
+  {
+    boolean wasAdded = false;
+    if (students.contains(aStudent)) { return false; }
+    if (numberOfStudents() &gt;= maximumNumberOfStudents())
+    {
+      return wasAdded;
+    }
+
+    students.add(aStudent);
+    if (aStudent.indexOfMentor(this) != -1)
+    {
+      wasAdded = true;
+    }
+    else
+    {
+      wasAdded = aStudent.addMentor(this);
+      if (!wasAdded)
+      {
+        students.remove(aStudent);
+      }
+    }
+    return wasAdded;
+  }
+  /* Code from template association_RemoveMany */
+  public boolean removeStudent(Student aStudent)
+  {
+    boolean wasRemoved = false;
+    if (!students.contains(aStudent))
+    {
+      return wasRemoved;
+    }
+
+    int oldIndex = students.indexOf(aStudent);
+    students.remove(oldIndex);
+    if (aStudent.indexOfMentor(this) == -1)
+    {
+      wasRemoved = true;
+    }
+    else
+    {
+      wasRemoved = aStudent.removeMentor(this);
+      if (!wasRemoved)
+      {
+        students.add(oldIndex,aStudent);
+      }
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addStudentAt(Student aStudent, int index)
+  {  
+    boolean wasAdded = false;
+    if(addStudent(aStudent))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfStudents()) { index = numberOfStudents() - 1; }
+      students.remove(aStudent);
+      students.add(index, aStudent);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveStudentAt(Student aStudent, int index)
+  {
+    boolean wasAdded = false;
+    if(students.contains(aStudent))
+    {
+      if(index &lt; 0 ) { index = 0; }
+      if(index &gt; numberOfStudents()) { index = numberOfStudents() - 1; }
+      students.remove(aStudent);
+      students.add(index, aStudent);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addStudentAt(aStudent, index);
+    }
+    return wasAdded;
+  }
+
+  public void delete()
+  {
+    ArrayList&lt;Student&gt; copyOfStudents = new ArrayList&lt;Student&gt;(students);
+    students.clear();
+    for(Student aStudent : copyOfStudents)
+    {
+      if (aStudent.numberOfMentors() &lt;= Student.minimumNumberOfMentors())
+      {
+        aStudent.delete();
+      }
+      else
+      {
+        aStudent.removeMentor(this);
+      }
+    }
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "name" + ":" + getName()+ "]";
+  }
+}
+</pre>
+    </body>
+</html>

@@ -1,0 +1,1090 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Unit Test Results: cruise.umple.compiler.UmpleTraitTest</title>
+        <link rel="stylesheet" type="text/css" title="Style" href="../../../stylesheet.css">
+        <script type="text/javascript" language="JavaScript">
+        var TestCases = new Array();
+        var cur;
+        
+    cur = TestCases['cruise.umple.compiler.UmpleTraitTest'] = new Array();
+    
+        cur['ant.core.lib'] = '/usr/local/Cellar/ant/1.10.9/libexec/lib/ant.jar';
+    
+        cur['ant.file'] = '/Users/abdulaziz/tmp/umple/build/build.umple.xml';
+    
+        cur['ant.file.LocalBuildProperties'] = '/Users/abdulaziz/tmp/umple/build/_local.xml';
+    
+        cur['ant.file.Template'] = '/Users/abdulaziz/tmp/umple/build/_template.xml';
+    
+        cur['ant.file.type'] = 'file';
+    
+        cur['ant.file.type.LocalBuildProperties'] = 'file';
+    
+        cur['ant.file.type.Template'] = 'file';
+    
+        cur['ant.file.type.Umple'] = 'file';
+    
+        cur['ant.file.type.UmpleCore'] = 'file';
+    
+        cur['ant.file.type.UmpleDeps'] = 'file';
+    
+        cur['ant.file.type.VersionLast'] = 'file';
+    
+        cur['ant.file.Umple'] = '/Users/abdulaziz/tmp/umple/build/build.xml';
+    
+        cur['ant.file.UmpleCore'] = '/Users/abdulaziz/tmp/umple/build/build.umple.xml';
+    
+        cur['ant.file.UmpleDeps'] = '/Users/abdulaziz/tmp/umple/build/build.deps.xml';
+    
+        cur['ant.file.VersionLast'] = '/Users/abdulaziz/tmp/umple/build/_versionLast.xml';
+    
+        cur['ant.home'] = '/usr/local/Cellar/ant/1.10.9/libexec';
+    
+        cur['ant.java.version'] = '15';
+    
+        cur['ant.library.dir'] = '/usr/local/Cellar/ant/1.10.9/libexec/lib';
+    
+        cur['ant.project.default-target'] = 'build';
+    
+        cur['ant.project.invoked-targets'] = 'template.test';
+    
+        cur['ant.project.name'] = 'UmpleCore';
+    
+        cur['ant.version'] = 'Apache Ant(TM) version 1.10.9 compiled on September 27 2020';
+    
+        cur['basedir'] = '/Users/abdulaziz/tmp/umple';
+    
+        cur['bin.path'] = 'cruise.umple/bin';
+    
+        cur['connectionTimeout'] = '30';
+    
+        cur['dist.dir'] = '/Users/abdulaziz/tmp/umple/dist';
+    
+        cur['dist.libs.dir'] = '/Users/abdulaziz/tmp/umple/dist/libs';
+    
+        cur['dist.path'] = '/Users/abdulaziz/tmp/umple/dist/cruise.umple';
+    
+        cur['dist.umple.docs.jar'] = 'umpledocs-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.docs.jar.prev'] = 'umpledocs-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.jar'] = 'umple-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.jar.prev'] = 'umple-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.run.jar'] = 'umplerun-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.run.jar.prev'] = 'umplerun-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.stats.jar'] = 'umplestats-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.stats.jar.prev'] = 'umplestats-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.sync.jar'] = 'umplesync-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.sync.jar.prev'] = 'umplesync-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.umplificator.jar'] = 'umpleumplificator-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.umplificator.jar.prev'] = 'umpleumplificator-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.validator.jar'] = 'umplevalidator-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['dist.umple.validator.jar.prev'] = 'umplevalidator-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['env.__CF_USER_TEXT_ENCODING'] = '0x1F5:0x0:0x0';
+    
+        cur['env.__CFBundleIdentifier'] = 'com.apple.Terminal';
+    
+        cur['env.DISPLAY'] = '/private/tmp/com.apple.launchd.8VZUm1G4zQ/org.xquartz:0';
+    
+        cur['env.GRADLE_HOME'] = '/Users/abdulaziz/.sdkman/candidates/gradle/current';
+    
+        cur['env.HOME'] = '/Users/abdulaziz';
+    
+        cur['env.JAVA_HOME'] = '/usr/local/opt/openjdk';
+    
+        cur['env.JAVA_MAIN_CLASS_3280'] = 'org.apache.tools.ant.launch.Launcher';
+    
+        cur['env.LANG'] = 'en_CA.UTF-8';
+    
+        cur['env.LOGNAME'] = 'abdulaziz';
+    
+        cur['env.PATH'] = '/Users/abdulaziz/.sdkman/candidates/gradle/current/bin:/Library/Frameworks/Python.framework/Versions/3.9/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands';
+    
+        cur['env.PWD'] = '/Users/abdulaziz/tmp/umple/build';
+    
+        cur['env.SDKMAN_CANDIDATES_API'] = 'https://api.sdkman.io/2';
+    
+        cur['env.SDKMAN_CANDIDATES_DIR'] = '/Users/abdulaziz/.sdkman/candidates';
+    
+        cur['env.SDKMAN_DIR'] = '/Users/abdulaziz/.sdkman';
+    
+        cur['env.SDKMAN_PLATFORM'] = 'darwinx64';
+    
+        cur['env.SDKMAN_VERSION'] = '5.11.5+713';
+    
+        cur['env.SHELL'] = '/bin/zsh';
+    
+        cur['env.SHLVL'] = '1';
+    
+        cur['env.SSH_AUTH_SOCK'] = '/private/tmp/com.apple.launchd.qK4l0KXsgu/Listeners';
+    
+        cur['env.TERM'] = 'xterm-256color';
+    
+        cur['env.TERM_PROGRAM'] = 'Apple_Terminal';
+    
+        cur['env.TERM_PROGRAM_VERSION'] = '440';
+    
+        cur['env.TERM_SESSION_ID'] = '20D2790F-0FEC-4CCB-A10B-030C8F4ED298';
+    
+        cur['env.TMPDIR'] = '/var/folders/fm/7tjk7l8154x840c6vvrs49p40000gn/T/';
+    
+        cur['env.USER'] = 'abdulaziz';
+    
+        cur['env.XPC_FLAGS'] = '0x0';
+    
+        cur['env.XPC_SERVICE_NAME'] = '0';
+    
+        cur['file.encoding'] = 'UTF-8';
+    
+        cur['file.separator'] = '/';
+    
+        cur['first.build'] = 'false';
+    
+        cur['ftp.nonProxyHosts'] = 'local|*.local|169.254/16|*.169.254/16';
+    
+        cur['haltonfailure'] = 'false';
+    
+        cur['http.nonProxyHosts'] = 'local|*.local|169.254/16|*.169.254/16';
+    
+        cur['is.osx'] = 'true';
+    
+        cur['ivy.install.version'] = '2.4.0';
+    
+        cur['ivy.jar.file'] = '/Users/abdulaziz/.ant/lib/ivy-2.4.0.jar';
+    
+        cur['ivyResolveLogLevel'] = 'download-only';
+    
+        cur['ivyRetrieveLogLevel'] = 'quiet';
+    
+        cur['java.class.path'] = '/Users/abdulaziz/tmp/umple/cruise.umple/bin:/Users/abdulaziz/tmp/umple/dist/libs/core/ant-launcher.jar:/Users/abdulaziz/tmp/umple/dist/libs/core/ant.jar:/Users/abdulaziz/tmp/umple/dist/libs/core/jopt-simple.jar:/Users/abdulaziz/tmp/umple/dist/libs/test/hamcrest-core.jar:/Users/abdulaziz/tmp/umple/dist/libs/test/junit.jar:/Users/abdulaziz/.ant/lib/junit.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-launcher.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-junit.jar:/usr/local/Cellar/ant/1.10.9/libexec/lib/ant-junit4.jar';
+    
+        cur['java.class.version'] = '59.0';
+    
+        cur['java.home'] = '/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home';
+    
+        cur['java.io.tmpdir'] = '/var/folders/fm/7tjk7l8154x840c6vvrs49p40000gn/T/';
+    
+        cur['java.library.path'] = '/Users/abdulaziz/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.';
+    
+        cur['java.runtime.name'] = 'OpenJDK Runtime Environment';
+    
+        cur['java.runtime.version'] = '15.0.1+9';
+    
+        cur['java.specification.name'] = 'Java Platform API Specification';
+    
+        cur['java.specification.vendor'] = 'Oracle Corporation';
+    
+        cur['java.specification.version'] = '15';
+    
+        cur['java.vendor'] = 'N/A';
+    
+        cur['java.vendor.url'] = 'https://openjdk.java.net/';
+    
+        cur['java.vendor.url.bug'] = 'https://bugreport.java.com/bugreport/';
+    
+        cur['java.version'] = '15.0.1';
+    
+        cur['java.version.date'] = '2020-10-20';
+    
+        cur['java.vm.compressedOopsMode'] = 'Zero based';
+    
+        cur['java.vm.info'] = 'mixed mode, sharing';
+    
+        cur['java.vm.name'] = 'OpenJDK 64-Bit Server VM';
+    
+        cur['java.vm.specification.name'] = 'Java Virtual Machine Specification';
+    
+        cur['java.vm.specification.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vm.specification.version'] = '15';
+    
+        cur['java.vm.vendor'] = 'Oracle Corporation';
+    
+        cur['java.vm.version'] = '15.0.1+9';
+    
+        cur['jdk.debug'] = 'release';
+    
+        cur['jopt-simple.install.version'] = '4.4';
+    
+        cur['junit'] = '*Test';
+    
+        cur['last.version'] = '1.31.1.5860.78bb27cc6';
+    
+        cur['line.separator'] = '\n';
+    
+        cur['myenv'] = 'local';
+    
+        cur['online'] = 'true';
+    
+        cur['os.arch'] = 'x86_64';
+    
+        cur['os.name'] = 'Mac OS X';
+    
+        cur['os.version'] = '11.6';
+    
+        cur['path.separator'] = ':';
+    
+        cur['project.path'] = 'cruise.umple';
+    
+        cur['rake_cmd'] = 'rake';
+    
+        cur['shouldDeploy'] = 'false';
+    
+        cur['shouldPackageUmpleOnline'] = 'false';
+    
+        cur['showJunitOutput'] = 'false';
+    
+        cur['showJunitSummary'] = 'false';
+    
+        cur['socksNonProxyHosts'] = 'local|*.local|169.254/16|*.169.254/16';
+    
+        cur['sun.arch.data.model'] = '64';
+    
+        cur['sun.boot.library.path'] = '/usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home/lib';
+    
+        cur['sun.cpu.endian'] = 'little';
+    
+        cur['sun.io.unicode.encoding'] = 'UnicodeBig';
+    
+        cur['sun.java.command'] = 'org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testsfile=/Users/abdulaziz/tmp/umple/junittestcases9945622084601822128.properties skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/abdulaziz/tmp/umple/dist/qa/cruise.umple/IGNORETHIS.xml crashfile=/Users/abdulaziz/tmp/umple/junitvmwatcher11280979461299836288.properties propsfile=/Users/abdulaziz/tmp/umple/junit10838995335343066243.properties';
+    
+        cur['sun.java.launcher'] = 'SUN_STANDARD';
+    
+        cur['sun.jnu.encoding'] = 'UTF-8';
+    
+        cur['sun.management.compiler'] = 'HotSpot 64-Bit Tiered Compilers';
+    
+        cur['test.output.path'] = '/Users/abdulaziz/tmp/umple/dist/qa/cruise.umple';
+    
+        cur['umple.deps.dir'] = '/Users/abdulaziz/tmp/umple/dist/libs';
+    
+        cur['umple.deps.manual.dir'] = '/Users/abdulaziz/tmp/umple/dist/libs/manual';
+    
+        cur['umple.ivy.dep.file'] = '/Users/abdulaziz/tmp/umple/build/ivy.xml';
+    
+        cur['umple.stable.jar'] = '/Users/abdulaziz/tmp/umple/dist/libs/umple-1.31.1.5860.78bb27cc6.jar';
+    
+        cur['umple.version'] = '1.31.1.5860.78bb27cc6';
+    
+        cur['user.country'] = 'CA';
+    
+        cur['user.dir'] = '/Users/abdulaziz/tmp/umple/build';
+    
+        cur['user.home'] = '/Users/abdulaziz';
+    
+        cur['user.home.ant'] = '/Users/abdulaziz/.ant/lib';
+    
+        cur['user.language'] = 'en';
+    
+        cur['user.name'] = 'abdulaziz';
+    
+        cur['user.timezone'] = 'America/Toronto';
+    
+        cur['vendors.path'] = '/Users/abdulaziz/tmp/umple/dist/libs/vendors';
+    
+        cur['xtext.project.path'] = 'cruise.umple.xtext';
+    </script><script type="text/javascript" language="JavaScript">
+        function displayProperties (name) {
+          var win = window.open('','JUnitSystemProperties','scrollbars=1,resizable=1');
+          var doc = win.document;
+          doc.open();
+          doc.write("<html><head><title>Properties of " + name + "</title>");
+          doc.write("<style type=\"text/css\">");
+          doc.write("body {font:normal 68% verdana,arial,helvetica; color:#000000; }");
+          doc.write("table tr td, table tr th { font-size: 68%; }");
+          doc.write("table.properties { border-collapse:collapse; border-left:solid 1 #cccccc; border-top:solid 1 #cccccc; padding:5px; }");
+          doc.write("table.properties th { text-align:left; border-right:solid 1 #cccccc; border-bottom:solid 1 #cccccc; background-color:#eeeeee; }");
+          doc.write("table.properties td { font:normal; text-align:left; border-right:solid 1 #cccccc; border-bottom:solid 1 #cccccc; background-color:#fffffff; }");
+          doc.write("h3 { margin-bottom: 0.5em; font: bold 115% verdana,arial,helvetica }");
+          doc.write("</style>");
+          doc.write("</head><body>");
+          doc.write("<h3>Properties of " + name + "</h3>");
+          doc.write("<div align=\"right\"><a href=\"javascript:window.close();\">Close</a></div>");
+          doc.write("<table class='properties'>");
+          doc.write("<tr><th>Name</th><th>Value</th></tr>");
+          for (prop in TestCases[name]) {
+            doc.write("<tr><th>" + prop + "</th><td>" + TestCases[name][prop] + "</td></tr>");
+          }
+          doc.write("</table>");
+          doc.write("</body></html>");
+          doc.close();
+          win.focus();
+        }
+      
+      </script>
+    </head>
+    <body>
+        <h1>Unit Test Results.</h1>
+        <table width="100%">
+            <tr>
+                <td align="left"></td><td align="right">Designed for use with <a href="https://www.junit.org/">JUnit</a> and <a href="https://ant.apache.org/">Ant</a>.</td>
+            </tr>
+        </table>
+        <hr size="1">
+        <h3>Class cruise.umple.compiler.UmpleTraitTest</h3>
+        <table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
+            <tr valign="top">
+                <th width="80%">Name</th><th>Tests</th><th>Errors</th><th>Failures</th><th>Skipped</th><th nowrap>Time(s)</th><th nowrap>Time Stamp</th><th>Host</th>
+            </tr>
+            <tr valign="top" class="Pass">
+                <td><a title="Display all tests" href="63_UmpleTraitTest.html">UmpleTraitTest</a></td><td><a title="Display all tests" href="63_UmpleTraitTest.html">244</a></td><td>0</td><td>0</td><td>0</td><td>1.309</td><td>2021-10-26T14:26:25</td><td>Abdulazizs-MacBook-Pro.local</td>
+            </tr>
+        </table>
+        <h2>Tests</h2>
+        <table class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
+            <tr valign="top">
+                <th>Name</th><th>Status</th><th width="80%">Type</th><th nowrap>Time(s)</th>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="compositionTraitClassRule10Test"></a>compositionTraitClassRule10Test</td><td>Success</td><td></td><td>0.011</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="compositionTraitClassRule11Test"></a>compositionTraitClassRule11Test</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="compositionTraitClassRule12Test"></a>compositionTraitClassRule12Test</td><td>Success</td><td></td><td>0.012</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="TypeParameterTest00"></a>TypeParameterTest00</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="TypeParameterTest01"></a>TypeParameterTest01</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="TypeParameterTest02"></a>TypeParameterTest02</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="TypeParameterTest03"></a>TypeParameterTest03</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="TypeParameterTest04"></a>TypeParameterTest04</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="TypeParameterTest05"></a>TypeParameterTest05</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="TypeParameterTest06"></a>TypeParameterTest06</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="TypeParameterTest07"></a>TypeParameterTest07</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="RequiredInterfaces001"></a>RequiredInterfaces001</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="RequiredInterfaces002"></a>RequiredInterfaces002</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="RequiredInterfaces003"></a>RequiredInterfaces003</td><td>Success</td><td></td><td>0.008</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="RequiredInterfaces004"></a>RequiredInterfaces004</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associationTraits000Test"></a>associationTraits000Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits005Test"></a>stateMachineTraits005Test</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits006Test"></a>stateMachineTraits006Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits007Test"></a>stateMachineTraits007Test</td><td>Success</td><td></td><td>0.012</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits008Test"></a>stateMachineTraits008Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits009Test"></a>stateMachineTraits009Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits010Test"></a>stateMachineTraits010Test</td><td>Success</td><td></td><td>0.011</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits011Test"></a>stateMachineTraits011Test</td><td>Success</td><td></td><td>0.008</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits012Test"></a>stateMachineTraits012Test</td><td>Success</td><td></td><td>0.009</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits013Test"></a>stateMachineTraits013Test</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits014Test"></a>stateMachineTraits014Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits015Test"></a>stateMachineTraits015Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits016Test"></a>stateMachineTraits016Test</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits017Test"></a>stateMachineTraits017Test</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits018Test"></a>stateMachineTraits018Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits019Test"></a>stateMachineTraits019Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRule10Test"></a>includeExcludeRule10Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRule11Test"></a>includeExcludeRule11Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRule12Test"></a>includeExcludeRule12Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRule13Test"></a>includeExcludeRule13Test</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRule14Test"></a>includeExcludeRule14Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRule15Test"></a>includeExcludeRule15Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits020Test"></a>stateMachineTraits020Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits021Test"></a>stateMachineTraits021Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits022Test"></a>stateMachineTraits022Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="extraCodeTraitsTest"></a>extraCodeTraitsTest</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits023Test"></a>stateMachineTraits023Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits024Test"></a>stateMachineTraits024Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits025Test"></a>stateMachineTraits025Test</td><td>Success</td><td></td><td>0.012</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits026Test"></a>stateMachineTraits026Test</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits027Test"></a>stateMachineTraits027Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits028Test"></a>stateMachineTraits028Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits029Test"></a>stateMachineTraits029Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits030Test"></a>stateMachineTraits030Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits031Test"></a>stateMachineTraits031Test</td><td>Success</td><td></td><td>0.014</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits032Test"></a>stateMachineTraits032Test</td><td>Success</td><td></td><td>0.008</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits033Test"></a>stateMachineTraits033Test</td><td>Success</td><td></td><td>0.009</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits034Test"></a>stateMachineTraits034Test</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits035Test"></a>stateMachineTraits035Test</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits036Test"></a>stateMachineTraits036Test</td><td>Success</td><td></td><td>0.008</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits037Test"></a>stateMachineTraits037Test</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits038Test"></a>stateMachineTraits038Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits039Test"></a>stateMachineTraits039Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits040Test"></a>stateMachineTraits040Test</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits041Test"></a>stateMachineTraits041Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits042Test"></a>stateMachineTraits042Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits043Test"></a>stateMachineTraits043Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits044Test"></a>stateMachineTraits044Test</td><td>Success</td><td></td><td>0.008</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits045Test"></a>stateMachineTraits045Test</td><td>Success</td><td></td><td>0.011</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits046Test"></a>stateMachineTraits046Test</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits047Test"></a>stateMachineTraits047Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits048Test"></a>stateMachineTraits048Test</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits049Test"></a>stateMachineTraits049Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits050Test"></a>stateMachineTraits050Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits051Test"></a>stateMachineTraits051Test</td><td>Success</td><td></td><td>0.010</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits052Test"></a>stateMachineTraits052Test</td><td>Success</td><td></td><td>0.010</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits053Test"></a>stateMachineTraits053Test</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits054Test"></a>stateMachineTraits054Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits055Test"></a>stateMachineTraits055Test</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits056Test"></a>stateMachineTraits056Test</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits057Test"></a>stateMachineTraits057Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits058Test"></a>stateMachineTraits058Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits059Test"></a>stateMachineTraits059Test</td><td>Success</td><td></td><td>0.014</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits060Test"></a>stateMachineTraits060Test</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits061Test"></a>stateMachineTraits061Test</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits062Test"></a>stateMachineTraits062Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits063Test"></a>stateMachineTraits063Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits064Test"></a>stateMachineTraits064Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits065Test"></a>stateMachineTraits065Test</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits067Test"></a>stateMachineTraits067Test</td><td>Success</td><td></td><td>0.016</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits068Test"></a>stateMachineTraits068Test</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits069Test"></a>stateMachineTraits069Test</td><td>Success</td><td></td><td>0.011</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits070Test"></a>stateMachineTraits070Test</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits071Test"></a>stateMachineTraits071Test</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits072Test"></a>stateMachineTraits072Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits073Test"></a>stateMachineTraits073Test</td><td>Success</td><td></td><td>0.010</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits074Test"></a>stateMachineTraits074Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits075Test"></a>stateMachineTraits075Test</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits076Test"></a>stateMachineTraits076Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits077Test"></a>stateMachineTraits077Test</td><td>Success</td><td></td><td>0.010</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits078Test"></a>stateMachineTraits078Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits079Test"></a>stateMachineTraits079Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits080Test"></a>stateMachineTraits080Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits081Test"></a>stateMachineTraits081Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits082Test"></a>stateMachineTraits082Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits083Test"></a>stateMachineTraits083Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits084Test"></a>stateMachineTraits084Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits085Test"></a>stateMachineTraits085Test</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits086Test"></a>stateMachineTraits086Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits087Test"></a>stateMachineTraits087Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits088Test"></a>stateMachineTraits088Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits089Test"></a>stateMachineTraits089Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits090Test"></a>stateMachineTraits090Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits091Test"></a>stateMachineTraits091Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits092Test"></a>stateMachineTraits092Test</td><td>Success</td><td></td><td>0.015</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits093Test"></a>stateMachineTraits093Test</td><td>Success</td><td></td><td>0.013</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits094Test"></a>stateMachineTraits094Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits095Test"></a>stateMachineTraits095Test</td><td>Success</td><td></td><td>0.008</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="multipleInheritanceTraitsTest"></a>multipleInheritanceTraitsTest</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associationTraitsTest"></a>associationTraitsTest</td><td>Success</td><td></td><td>0.009</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="mixin001"></a>mixin001</td><td>Success</td><td></td><td>0.017</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="attributeDetectionTest"></a>attributeDetectionTest</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="traitDetectionTest"></a>traitDetectionTest</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="methodsTest"></a>methodsTest</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraitsTest"></a>stateMachineTraitsTest</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="checkUniqueNameTest02"></a>checkUniqueNameTest02</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraitsExtra001Test"></a>stateMachineTraitsExtra001Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="singletonTest"></a>singletonTest</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits100Test"></a>stateMachineTraits100Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits101Test"></a>stateMachineTraits101Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits102Test"></a>stateMachineTraits102Test</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits103Test"></a>stateMachineTraits103Test</td><td>Success</td><td></td><td>0.012</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits104Test"></a>stateMachineTraits104Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits105Test"></a>stateMachineTraits105Test</td><td>Success</td><td></td><td>0.015</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits106Test"></a>stateMachineTraits106Test</td><td>Success</td><td></td><td>0.020</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits107Test"></a>stateMachineTraits107Test</td><td>Success</td><td></td><td>0.008</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits108Test"></a>stateMachineTraits108Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits109Test"></a>stateMachineTraits109Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits110Test"></a>stateMachineTraits110Test</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits0111Test"></a>stateMachineTraits0111Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits0112Test"></a>stateMachineTraits0112Test</td><td>Success</td><td></td><td>0.008</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits0113Test"></a>stateMachineTraits0113Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits0114Test"></a>stateMachineTraits0114Test</td><td>Success</td><td></td><td>0.008</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits0115Test"></a>stateMachineTraits0115Test</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits0116Test"></a>stateMachineTraits0116Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits0117Test"></a>stateMachineTraits0117Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits0118Test"></a>stateMachineTraits0118Test</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits0119Test"></a>stateMachineTraits0119Test</td><td>Success</td><td></td><td>0.017</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits0120Test"></a>stateMachineTraits0120Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits0121Test"></a>stateMachineTraits0121Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits0122Test"></a>stateMachineTraits0122Test</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits0123Test"></a>stateMachineTraits0123Test</td><td>Success</td><td></td><td>0.010</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits0124Test"></a>stateMachineTraits0124Test</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits0125Test"></a>stateMachineTraits0125Test</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits0126Test"></a>stateMachineTraits0126Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits0127Test"></a>stateMachineTraits0127Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits0128Test"></a>stateMachineTraits0128Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="stateMachineTraits0129Test"></a>stateMachineTraits0129Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="checkDuplicatedMethods1Test"></a>checkDuplicatedMethods1Test</td><td>Success</td><td></td><td>0.009</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="checkDuplicatedMethods2Test"></a>checkDuplicatedMethods2Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="selfInheritanceTest"></a>selfInheritanceTest</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="templateInCode01Test"></a>templateInCode01Test</td><td>Success</td><td></td><td>0.008</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="templateInCode02Test"></a>templateInCode02Test</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="templateInCode03Test"></a>templateInCode03Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="templateInCode04Test"></a>templateInCode04Test</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="checkUniqueNameTest"></a>checkUniqueNameTest</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates001"></a>InterfaceForTemplates001</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates002"></a>InterfaceForTemplates002</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates003"></a>InterfaceForTemplates003</td><td>Success</td><td></td><td>0.008</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates004"></a>InterfaceForTemplates004</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates005"></a>InterfaceForTemplates005</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates006"></a>InterfaceForTemplates006</td><td>Success</td><td></td><td>0.006</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates007"></a>InterfaceForTemplates007</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates008"></a>InterfaceForTemplates008</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates009"></a>InterfaceForTemplates009</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates010"></a>InterfaceForTemplates010</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates011"></a>InterfaceForTemplates011</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates012"></a>InterfaceForTemplates012</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates013"></a>InterfaceForTemplates013</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates014"></a>InterfaceForTemplates014</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates015"></a>InterfaceForTemplates015</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates016"></a>InterfaceForTemplates016</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates017"></a>InterfaceForTemplates017</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates018"></a>InterfaceForTemplates018</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates019"></a>InterfaceForTemplates019</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates020"></a>InterfaceForTemplates020</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates021"></a>InterfaceForTemplates021</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="InterfaceForTemplates022"></a>InterfaceForTemplates022</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRuleVisibility1Test"></a>includeExcludeRuleVisibility1Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRuleVisibility2Test"></a>includeExcludeRuleVisibility2Test</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRuleVisibility3Test"></a>includeExcludeRuleVisibility3Test</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRuleVisibility4Test"></a>includeExcludeRuleVisibility4Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associations001Test"></a>associations001Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associations002Test"></a>associations002Test</td><td>Success</td><td></td><td>0.008</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associations003Test"></a>associations003Test</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associations004Test"></a>associations004Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associations005Test"></a>associations005Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associations006Test"></a>associations006Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="associations007Test"></a>associations007Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRuleAlias10Test"></a>includeExcludeRuleAlias10Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="semanticAnalysisTemplateRestriction001"></a>semanticAnalysisTemplateRestriction001</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="semanticAnalysisTemplateRestriction002"></a>semanticAnalysisTemplateRestriction002</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="semanticAnalysisTemplateRestriction003"></a>semanticAnalysisTemplateRestriction003</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="compositionTraitClassRule1Test"></a>compositionTraitClassRule1Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="compositionTraitClassRule2Test"></a>compositionTraitClassRule2Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="compositionTraitClassRule3Test"></a>compositionTraitClassRule3Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="compositionTraitClassRule4Test"></a>compositionTraitClassRule4Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="compositionTraitClassRule5Test"></a>compositionTraitClassRule5Test</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="compositionTraitClassRule6Test"></a>compositionTraitClassRule6Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="compositionTraitClassRule7Test"></a>compositionTraitClassRule7Test</td><td>Success</td><td></td><td>0.008</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="compositionTraitClassRule8Test"></a>compositionTraitClassRule8Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="compositionTraitClassRule9Test"></a>compositionTraitClassRule9Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="cyclicInheritanceTest"></a>cyclicInheritanceTest</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="checkRequiredMethodTest1"></a>checkRequiredMethodTest1</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="checkRequiredMethodTest2"></a>checkRequiredMethodTest2</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="checkRequiredMethodTest3"></a>checkRequiredMethodTest3</td><td>Success</td><td></td><td>0.007</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="generalRule1Test"></a>generalRule1Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="Attribute01Test"></a>Attribute01Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="Attribute02Test"></a>Attribute02Test</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="Attribute03Test"></a>Attribute03Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="Attribute04Test"></a>Attribute04Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="Attribute05Test"></a>Attribute05Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="Attribute06Test"></a>Attribute06Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="Attribute07Test"></a>Attribute07Test</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="Attribute08Test"></a>Attribute08Test</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="Attribute09Test"></a>Attribute09Test</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="Attribute10Test"></a>Attribute10Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRuleAlias2Test"></a>includeExcludeRuleAlias2Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRuleAlias3Test"></a>includeExcludeRuleAlias3Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRuleAlias4Test"></a>includeExcludeRuleAlias4Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRuleAlias5Test"></a>includeExcludeRuleAlias5Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRuleAlias6Test"></a>includeExcludeRuleAlias6Test</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRuleAlias7Test"></a>includeExcludeRuleAlias7Test</td><td>Success</td><td></td><td>0.005</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRuleAlias8Test"></a>includeExcludeRuleAlias8Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRuleAlias9Test"></a>includeExcludeRuleAlias9Test</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRule1Test"></a>includeExcludeRule1Test</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRule2Test"></a>includeExcludeRule2Test</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRule3Test"></a>includeExcludeRule3Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRule4Test"></a>includeExcludeRule4Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRule5Test"></a>includeExcludeRule5Test</td><td>Success</td><td></td><td>0.008</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRule6Test"></a>includeExcludeRule6Test</td><td>Success</td><td></td><td>0.003</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRule7Test"></a>includeExcludeRule7Test</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRule8Test"></a>includeExcludeRule8Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="includeExcludeRule9Test"></a>includeExcludeRule9Test</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="checkValidNameTest"></a>checkValidNameTest</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="depTest"></a>depTest</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="traitInheritanceTest"></a>traitInheritanceTest</td><td>Success</td><td></td><td>0.001</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="codeInjectTraitsTest"></a>codeInjectTraitsTest</td><td>Success</td><td></td><td>0.004</td>
+            </tr>
+            <tr valign="top" class="TableRowColor">
+                <td><a name="constraintTest"></a>constraintTest</td><td>Success</td><td></td><td>0.002</td>
+            </tr>
+        </table>
+        <div class="Properties">
+            <a href="javascript:displayProperties('cruise.umple.compiler.UmpleTraitTest');">
+                    Properties &raquo;
+                </a>
+        </div>
+    </body>
+</html>

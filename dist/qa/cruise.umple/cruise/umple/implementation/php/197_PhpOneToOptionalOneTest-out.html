@@ -1,0 +1,205 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from PhpOneToOptionalOneTest</title>
+    </head>
+    <body>
+        <pre>&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class MySubordinate
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //MySubordinate Attributes
+  private $number;
+
+  //MySubordinate Associations
+  private $myDriver;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aNumber, $aMyDriver)
+  {
+    $this-&gt;number = $aNumber;
+    $didAddMyDriver = $this-&gt;setMyDriver($aMyDriver);
+    if (!$didAddMyDriver)
+    {
+      throw new Exception("Unable to create mySubordinate due to myDriver. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setNumber($aNumber)
+  {
+    $wasSet = false;
+    $this-&gt;number = $aNumber;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getNumber()
+  {
+    return $this-&gt;number;
+  }
+
+  public function getMyDriver()
+  {
+    return $this-&gt;myDriver;
+  }
+
+  public function setMyDriver($aNewMyDriver)
+  {
+    $wasSet = false;
+    if ($aNewMyDriver == null)
+    {
+      //Unable to setMyDriver to null, as mySubordinate must always be associated to a myDriver
+      return $wasSet;
+    }
+    
+    $existingMySubordinate = $aNewMyDriver-&gt;getMySubordinate();
+    if ($existingMySubordinate != null &amp;&amp; $this != $existingMySubordinate)
+    {
+      //Unable to setMyDriver, the current myDriver already has a mySubordinate, which would be orphaned if it were re-assigned
+      return $wasSet;
+    }
+    
+    $anOldMyDriver = $this-&gt;myDriver;
+    $this-&gt;myDriver = $aNewMyDriver;
+    $this-&gt;myDriver-&gt;setMySubordinate($this);
+    
+    if ($anOldMyDriver != null)
+    {
+      $anOldMyDriver-&gt;setMySubordinate(null);
+    }
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $existingMyDriver = $this-&gt;myDriver;
+    $this-&gt;myDriver = null;
+    if ($existingMyDriver != null)
+    {
+      $existingMyDriver-&gt;setMySubordinate(null);
+    }
+  }
+
+}
+?&gt;
+&lt;?php
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+class MyDriver
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //MyDriver Attributes
+  private $name;
+
+  //MyDriver Associations
+  public $mySubordinate; //until PHP 5.3 (setAccessible)
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public function __construct($aName)
+  {
+    $this-&gt;name = $aName;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public function setName($aName)
+  {
+    $wasSet = false;
+    $this-&gt;name = $aName;
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function getName()
+  {
+    return $this-&gt;name;
+  }
+
+  public function getMySubordinate()
+  {
+    return $this-&gt;mySubordinate;
+  }
+
+  public function hasMySubordinate()
+  {
+    $has = $this-&gt;mySubordinate != null;
+    return $has;
+  }
+
+  public function setMySubordinate($aNewMySubordinate)
+  {
+    $wasSet = false;
+    if ($this-&gt;mySubordinate != null &amp;&amp; $this-&gt;mySubordinate != $aNewMySubordinate &amp;&amp; $this == $this-&gt;mySubordinate-&gt;getMyDriver())
+    {
+      //Unable to setMySubordinate, as existing mySubordinate would become an orphan
+      return $wasSet;
+    }
+    
+    $this-&gt;mySubordinate = $aNewMySubordinate;
+    $anOldMyDriver = $aNewMySubordinate != null ? $aNewMySubordinate-&gt;getMyDriver() : null;
+    
+    if ($this != $anOldMyDriver)
+    {
+      if ($anOldMyDriver != null)
+      {
+        $anOldMyDriver-&gt;mySubordinate = null;
+      }
+      if ($this-&gt;mySubordinate != null)
+      {
+        $this-&gt;mySubordinate-&gt;setMyDriver($this);
+      }
+    }
+    $wasSet = true;
+    return $wasSet;
+  }
+
+  public function equals($compareTo)
+  {
+    return $this == $compareTo;
+  }
+
+  public function delete()
+  {
+    $existingMySubordinate = $this-&gt;mySubordinate;
+    $this-&gt;mySubordinate = null;
+    if ($existingMySubordinate != null)
+    {
+      $existingMySubordinate-&gt;delete();
+    }
+  }
+
+}
+?&gt;
+</pre>
+    </body>
+</html>

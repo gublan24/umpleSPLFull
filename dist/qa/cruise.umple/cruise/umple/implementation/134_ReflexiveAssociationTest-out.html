@@ -1,0 +1,471 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Standard Output from ReflexiveAssociationTest</title>
+    </head>
+    <body>
+        <pre>/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 27 "../ReflexiveAssociationTest.ump"
+public class OneToMany
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //OneToMany Associations
+  private OneToMany oneToMany;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public OneToMany(OneToMany aOneToMany)
+  {
+    if (!setOneToMany(aOneToMany))
+    {
+      throw new RuntimeException("Unable to create OneToMany due to aOneToMany. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+  /* Code from template association_GetOne */
+  public OneToMany getOneToMany()
+  {
+    return oneToMany;
+  }
+  /* Code from template association_SetUnidirectionalOne */
+  public boolean setOneToMany(OneToMany aNewOneToMany)
+  {
+    boolean wasSet = false;
+    if (aNewOneToMany != null)
+    {
+      oneToMany = aNewOneToMany;
+      wasSet = true;
+    }
+    return wasSet;
+  }
+
+  public void delete()
+  {
+    oneToMany = null;
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 9 "../ReflexiveAssociationTest.ump"
+public class Student
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Student Attributes
+  private int number;
+
+  //Student Associations
+  private Student pupil;
+  private Student ta;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Student(int aNumber)
+  {
+    number = aNumber;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setNumber(int aNumber)
+  {
+    boolean wasSet = false;
+    number = aNumber;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public int getNumber()
+  {
+    return number;
+  }
+  /* Code from template association_GetOne */
+  public Student getPupil()
+  {
+    return pupil;
+  }
+
+  public boolean hasPupil()
+  {
+    boolean has = pupil != null;
+    return has;
+  }
+  /* Code from template association_GetOne */
+  public Student getTa()
+  {
+    return ta;
+  }
+
+  public boolean hasTa()
+  {
+    boolean has = ta != null;
+    return has;
+  }
+  /* Code from template association_SetOptionalOneToOptionalOne */
+  public boolean setPupil(Student aNewPupil)
+  {
+    boolean wasSet = false;
+    if (aNewPupil == null)
+    {
+      Student existingPupil = pupil;
+      pupil = null;
+      
+      if (existingPupil != null &amp;&amp; existingPupil.getTa() != null)
+      {
+        existingPupil.setTa(null);
+      }
+      wasSet = true;
+      return wasSet;
+    }
+
+    Student currentPupil = getPupil();
+    if (currentPupil != null &amp;&amp; !currentPupil.equals(aNewPupil))
+    {
+      currentPupil.setTa(null);
+    }
+
+    pupil = aNewPupil;
+    Student existingTa = aNewPupil.getTa();
+
+    if (!equals(existingTa))
+    {
+      aNewPupil.setTa(this);
+    }
+    wasSet = true;
+    return wasSet;
+  }
+  /* Code from template association_SetOptionalOneToOptionalOne */
+  public boolean setTa(Student aNewTa)
+  {
+    boolean wasSet = false;
+    if (aNewTa == null)
+    {
+      Student existingTa = ta;
+      ta = null;
+      
+      if (existingTa != null &amp;&amp; existingTa.getPupil() != null)
+      {
+        existingTa.setPupil(null);
+      }
+      wasSet = true;
+      return wasSet;
+    }
+
+    Student currentTa = getTa();
+    if (currentTa != null &amp;&amp; !currentTa.equals(aNewTa))
+    {
+      currentTa.setPupil(null);
+    }
+
+    ta = aNewTa;
+    Student existingPupil = aNewTa.getPupil();
+
+    if (!equals(existingPupil))
+    {
+      aNewTa.setPupil(this);
+    }
+    wasSet = true;
+    return wasSet;
+  }
+
+  public void delete()
+  {
+    if (pupil != null)
+    {
+      pupil.setTa(null);
+    }
+    if (ta != null)
+    {
+      ta.setPupil(null);
+    }
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "number" + ":" + getNumber()+ "]";
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 15 "../ReflexiveAssociationTest.ump"
+public class OneSymmetric
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //OneSymmetric Attributes
+  private String name;
+  private int number;
+
+  //OneSymmetric Associations
+  private OneSymmetric friend;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public OneSymmetric(String aName, int aNumber, OneSymmetric aFriend)
+  {
+    name = aName;
+    number = aNumber;
+    if (aFriend == null || aFriend.getFriend() != null)
+    {
+      throw new RuntimeException("Unable to create OneSymmetric due to aFriend. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+    friend = aFriend;
+  }
+
+  public OneSymmetric(String aName, int aNumber, String aNameForFriend, int aNumberForFriend)
+  {
+    name = aName;
+    number = aNumber;
+    friend = new OneSymmetric(aNameForFriend, aNumberForFriend, this);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setName(String aName)
+  {
+    boolean wasSet = false;
+    name = aName;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setNumber(int aNumber)
+  {
+    boolean wasSet = false;
+    number = aNumber;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getName()
+  {
+    return name;
+  }
+
+  public int getNumber()
+  {
+    return number;
+  }
+  /* Code from template association_GetOne */
+  public OneSymmetric getFriend()
+  {
+    return friend;
+  }
+
+  public void delete()
+  {
+    OneSymmetric existingFriend = friend;
+    friend = null;
+    if (existingFriend != null)
+    {
+      existingFriend.delete();
+    }
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "name" + ":" + getName()+ "," +
+            "number" + ":" + getNumber()+ "]" + System.getProperties().getProperty("line.separator") +
+            "  " + "friend = "+(getFriend()!=null?Integer.toHexString(System.identityHashCode(getFriend())):"null");
+  }
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 22 "../ReflexiveAssociationTest.ump"
+public class OneSymmetricNoParam
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //OneSymmetricNoParam Associations
+  private OneSymmetricNoParam friend;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public OneSymmetricNoParam(OneSymmetricNoParam aFriend)
+  {
+    if (aFriend == null || aFriend.getFriend() != null)
+    {
+      throw new RuntimeException("Unable to create OneSymmetricNoParam due to aFriend. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
+    }
+    friend = aFriend;
+  }
+
+  public OneSymmetricNoParam()
+  {
+    friend = new OneSymmetricNoParam(this);
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+  /* Code from template association_GetOne */
+  public OneSymmetricNoParam getFriend()
+  {
+    return friend;
+  }
+
+  public void delete()
+  {
+    OneSymmetricNoParam existingFriend = friend;
+    friend = null;
+    if (existingFriend != null)
+    {
+      existingFriend.delete();
+    }
+  }
+
+}
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
+
+package example;
+
+// line 3 "../ReflexiveAssociationTest.ump"
+public class Mentor
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Mentor Attributes
+  private String name;
+
+  //Mentor Associations
+  private Mentor superMentor;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Mentor(String aName)
+  {
+    name = aName;
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setName(String aName)
+  {
+    boolean wasSet = false;
+    name = aName;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getName()
+  {
+    return name;
+  }
+  /* Code from template association_GetOne */
+  public Mentor getSuperMentor()
+  {
+    return superMentor;
+  }
+
+  public boolean hasSuperMentor()
+  {
+    boolean has = superMentor != null;
+    return has;
+  }
+  /* Code from template association_SetOptionalOneToOptionalOne */
+  public boolean setSuperMentor(Mentor aNewSuperMentor)
+  {
+    boolean wasSet = false;
+    if (aNewSuperMentor == null)
+    {
+      Mentor existingSuperMentor = superMentor;
+      superMentor = null;
+      
+      if (existingSuperMentor != null &amp;&amp; existingSuperMentor.getSuperMentor() != null)
+      {
+        existingSuperMentor.setSuperMentor(null);
+      }
+      wasSet = true;
+      return wasSet;
+    }
+
+    Mentor currentSuperMentor = getSuperMentor();
+    if (currentSuperMentor != null &amp;&amp; !currentSuperMentor.equals(aNewSuperMentor))
+    {
+      currentSuperMentor.setSuperMentor(null);
+    }
+
+    superMentor = aNewSuperMentor;
+    Mentor existingSuperMentor = aNewSuperMentor.getSuperMentor();
+
+    if (!equals(existingSuperMentor))
+    {
+      aNewSuperMentor.setSuperMentor(this);
+    }
+    wasSet = true;
+    return wasSet;
+  }
+
+  public void delete()
+  {
+    if (superMentor != null)
+    {
+      superMentor.setSuperMentor(null);
+    }
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "name" + ":" + getName()+ "]" + System.getProperties().getProperty("line.separator") +
+            "  " + "superMentor = "+(getSuperMentor()!=null?Integer.toHexString(System.identityHashCode(getSuperMentor())):"null");
+  }
+}
+</pre>
+    </body>
+</html>

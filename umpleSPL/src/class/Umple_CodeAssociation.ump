@@ -1,0 +1,1499 @@
+/*
+Copyright: All contributers to the Umple Project
+This file is made available subject to the open source license found at:
+http://umple.org/license
+ */
+namespace cruise.umple.compiler;
+// Fragment source file: Umple_CodeConstraint.ump
+// Line : 680
+class ConstraintAssociation
+  {
+    String getName()
+    {
+      return association==null?null:association.getName();
+    }
+    /*
+    * A method for conveniently getting the contained association's container class.
+    */
+    UmpleClassifier retrieveClassifier(){
+      UmpleClass containerClass = association.getUmpleClass();
+      if(containerClass==null)
+      {
+        UmpleTrait containerTrait = association.getUmpleTrait();
+        return containerTrait;
+      }
+      else
+      {
+        return containerClass;
+      }
+    }
+    public String getType(){ return numberOf?"associationNumberOf":index==-1?"associationList":"associationGet"; }
+  }
+
+// Fragment source file: Umple_CodeConstraint.ump
+// Line : 823
+ class ModelConstraint { public void addAssociationEnd(Multiplicity multiplicity)
+    {
+      if(getModelConstraint(numberOfModelConstraints()-1) instanceof ModelConstraintAssociation)
+      {
+        getModelConstraint(numberOfModelConstraints()-1).addAssociationEnd(multiplicity);
+      }
+    }
+    public void setAssociationType(String type)
+    {
+      if(getModelConstraint(numberOfModelConstraints()-1) instanceof ModelConstraintAssociation)
+      {
+        getModelConstraint(numberOfModelConstraints()-1).setAssociationType(type);
+      }
+    } } 
+
+// Fragment source file: Umple_CodeConstraint.ump
+// Line : 879
+class ModelConstraintAssociation
+  {
+    isA ModelConstraint;
+    depend cruise.umple.compiler.*;
+    depend cruise.umple.parser.Position;
+
+    Multiplicity leftHandMultiplicity = new Multiplicity();
+    Multiplicity rightHandMultiplicity = new Multiplicity();
+    type = "--";
+    boolean left = true;
+    after constructor { leftHandMultiplicity.setBound("*"); }
+    after constructor { rightHandMultiplicity.setBound("*"); }
+    public void addAssociationEnd(Multiplicity multiplicity)
+    {
+      if(left)
+      {
+        leftHandMultiplicity = multiplicity;
+      }
+      else
+      {
+        rightHandMultiplicity = multiplicity;
+      }
+      left = false;
+    }
+    public void setAssociationType(String aType)
+    {
+      type = aType;
+      left = false;
+    }
+
+    public ModelConstraintResult evaluate(UmpleClassifier uClassifier)
+    {
+      ModelConstraintResult evaluation = super.evaluate(uClassifier);
+      if(!evaluation.equals(ModelConstraint.SUCCESS))
+      {
+        return evaluation;
+      }
+
+      if("this".equals(getSource()))
+      {
+        setSource(uClassifier.getName());
+      }
+      if(type.equals("<-"))
+      {
+        String temp = getSource();
+        setSource(getTarget());
+        setTarget(temp);
+        Multiplicity tempMultiplicity = rightHandMultiplicity;
+        rightHandMultiplicity = leftHandMultiplicity;
+        leftHandMultiplicity = tempMultiplicity;
+      }
+      if(uClassifier instanceof UmpleClass)
+      {
+        UmpleClass uClass = null;
+        uClass = ((UmpleClass)uClassifier).getSourceModel().getUmpleClass(getSource());
+
+        if(uClass == null)
+        {
+          return new ModelConstraintResult(getPosition(),94,getTarget(),getSource());
+        }
+        Label_Association_32: ;
+        
+        return new ModelConstraintResult(getPosition(),94,getTarget(),getSource());
+      }
+      return ModelConstraint.SUCCESS;
+    }
+  }
+
+// Fragment source file: Umple_CodeClass.ump
+// Line : 46
+ class UmpleModel { public Association getAssociation(String name)
+      {
+        for (Association a : associations)
+        {
+          if (a.getName().equals(name))
+          {
+            return a;
+          }
+        }
+        return null;
+      }
+
+      public AssociationClass addAssociationClass(String className)
+      {
+        AssociationClass newClass = (AssociationClass) getUmpleClass(className);
+        if (newClass == null)
+        {
+          newClass = new AssociationClass(className);
+          addUmpleClass(newClass);
+        }
+        return newClass;
+      } } 
+
+// Fragment source file: Umple_CodeClass.ump
+// Line : 72
+ class UmpleModel { /*
+ */
+  class AssociationClass
+  {
+    public AssociationClass(String name)
+    {
+      this(name, null);
+    }
+
+    public void addMissingKeyIfNeeded()
+    {
+      Key key = getKey();
+      if (!key.isProvided())
+      {
+        key = new Key();
+
+        for(Association associatedTo: getAssociatedTo())
+        {
+          key.addMember(associatedTo.getEnd(1).getRoleName());
+        }
+
+        key.setIsInternal(true);
+        setKey(key);
+      }
+      }
+    } } 
+
+// Fragment source file: Umple_Code_Filter.ump
+// Line : 153
+ class Filter { public boolean hasAssociation()
+	  {
+	    return getAssociationCount() > 0;
+	  } } 
+
+// Fragment source file: Umple_Code_Filter.ump
+// Line : 207
+ class UmpleModel { private void markRelatedClass(int asso)
+    {
+      ArrayList<String> names = new ArrayList<String>();
+      for(int i = 0; i<asso; i++)
+      {
+        for(UmpleClass clazz : umpleClasses)
+        {
+          if(clazz.getFilteredin())
+          {
+            addRelatedClassName(clazz,names);
+          }
+        } 
+        markClassByName(names);
+        names = new ArrayList<String>();
+      }
+    }
+    private void addRelatedClassName(UmpleClass c, ArrayList<String> names)
+    {
+      for(AssociationVariable a : c.getAssociationVariables())
+      {
+        names.add(a.getType());
+      }  
+    } } 
+
+// Fragment source file: Umple_Code_Trait.ump
+// Line : 80
+// deleted .
+
+// Fragment source file: Umple_Code_Trait.ump
+// Line : 127
+// deleted .
+
+// Fragment source file: Trace.ump
+// Line : 217
+// deleted .
+
+// Fragment source file: UmpleInternalParser_CodeTrait.ump
+// Line : 536
+ class UmpleInternalParser { private void analyzeinlineAssociation(Token inlineAssociationToken, UmpleTrait aTrait){
+    
+    Association association = analyzeAssociation(inlineAssociationToken,aTrait.getName());
+
+    if (!getParseResult().getWasSuccess())
+    {
+      return;
+    }
+
+    AssociationEnd myEnd = association.getEnd(0);
+    AssociationEnd yourEnd = association.getEnd(1);
+
+    AssociationVariable myAs = new AssociationVariable(myEnd.getRoleName(),myEnd.getClassName(),myEnd.getModifier(),null,myEnd.getMultiplicity(),association.getIsLeftNavigable());
+    myAs.setIsComposition(association.getIsLeftComposition());
+    AssociationVariable yourAs = new AssociationVariable(yourEnd.getRoleName(),yourEnd.getClassName(),yourEnd.getModifier(),null,yourEnd.getMultiplicity(),association.getIsRightNavigable());
+    yourAs.setIsComposition(association.getIsRightComposition());
+
+    myAs.setRelatedAssociation(yourAs);
+    
+    if(!"".equals(myEnd.getPriority())) { myAs.setPriority(myEnd.getPriority()); }
+    if(!"".equals(yourEnd.getPriority())) { yourAs.setPriority(yourEnd.getPriority()); }
+    
+    if (association.isImmutable())
+    {
+      boolean set = myAs.setImmutable();
+      if (set)
+      {
+        yourAs.setImmutable();
+      }
+      else
+      {
+      	//TODO traits' errors
+        setFailedPosition(inlineAssociationToken.getPosition(),17);
+      }
+    }
+
+    // Add comments above the association to the association.
+    for (Comment c : lastComments)
+    {
+      yourAs.addComment(c);
+    }
+    
+    // set last association made to be yourAs. clear lastattr.
+    lastassoc = yourAs;
+    lastassocPosition = inlineAssociationToken.getPosition();
+    lastattr = null;
+    
+
+    boolean added = aTrait.addAssociationVariable(yourAs);
+    if (added)
+    {
+      unlinkedAssociationVariables.add(yourAs);
+      aTrait.addAssociation(association);
+    }
+    else
+    {
+      if (aTrait.isImmutable()) {
+      	//TODO traits' errors
+      	setFailedPosition(inlineAssociationToken.getPosition(),17);
+      } else {
+      	//TODO traits' errors
+      	setFailedPosition(inlineAssociationToken.getPosition(),13);
+      }
+    }
+    
+  }
+
+
+//---------------------------------end----------------------------------------
+//----------------------------------------------------------------------------   
+//---------------------------------Start--------------------------------------
+   private void analyzeSymmetricReflexiveAssociation(Token symmetricReflexiveAssociationToken, UmpleTrait aTrait){
+    /*
+    String myName = symmetricReflexiveAssociationToken.getValue("roleName");
+    String myType = aTrait.getName();
+    String myModifier = "symmetricreflexive";
+    String myBound = symmetricReflexiveAssociationToken.getValue("bound");
+    String myLowerBound = symmetricReflexiveAssociationToken.getValue("lowerBound");
+    String myUpperBound = symmetricReflexiveAssociationToken.getValue("upperBound");
+    Multiplicity myMult = new Multiplicity();
+    myMult.setBound(myBound);
+    myMult.setRange(myLowerBound,myUpperBound);
+
+    AssociationVariable myAs = new AssociationVariable(myName,myType,myModifier,null,myMult,true);
+    AssociationVariable yourAs = new AssociationVariable(myName,myType,myModifier,null,myMult,true);
+
+    myAs.setRelatedAssociation(yourAs);
+    aTrait.addAssociationVariable(yourAs);
+    
+    AssociationEnd leftEnd = new AssociationEnd(null,myType,myModifier,myType,myMult);
+    AssociationEnd rightEnd = new AssociationEnd(myName,myType,myModifier,myType,myMult);
+    Association assoc = new Association(false, true, false, false, leftEnd, rightEnd);
+    aTrait.addAssociation(assoc);
+    */
+  } } 
+
+// Fragment source file: UmpleInternalParser_CodeTrait.ump
+// Line : 1002
+ class UmpleInternalParser { private void ApplyTypeParametersToAssociation(AssociationVariable inAssociationVariable, GeneralTPApplied inGeneralTPApplied,UmpleClass inClass, UmpleTrait inTrait) {  
+    String rawRName = "";
+    String rName = "";
+    boolean bidirectional = inAssociationVariable.getRelatedAssociation().getIsNavigable();
+    if (inGeneralTPApplied != null || inTrait.getGeneralTemplateParameters().size()>0) {
+      for (GeneralTemplateParameter gtp : inTrait.getGeneralTemplateParameters()){
+        String newName = (inGeneralTPApplied!=null && inGeneralTPApplied.getParameterMapping().containsKey(gtp.getName())) ? inGeneralTPApplied.getParameterMapping().get(gtp.getName()) : gtp.getDefaultValue();
+        if (inAssociationVariable.getType().equals(gtp.getName())){
+              //----------------------------------------------------------------
+             String tempOldName = StringFormatter.toCamelCase(gtp.getName());
+             String oldName = inAssociationVariable.getMultiplicity().isMany() ? model.getGlossary().getPlural(tempOldName) : tempOldName;
+              if (inAssociationVariable.getName().equals(oldName)){
+                rawRName = StringFormatter.toCamelCase(newName);
+                rName = inAssociationVariable.getMultiplicity().isMany() ? model.getGlossary().getPlural(rawRName) : rawRName;  
+                inAssociationVariable.setName(rName);
+              } else{
+                rawRName = StringFormatter.toCamelCase(inAssociationVariable.getName());
+                rName = inAssociationVariable.getMultiplicity().isMany() ? model.getGlossary().getPlural(rawRName) : rawRName;                      
+              }
+              
+              inAssociationVariable.setType(newName);
+              if (getModel().getUmpleClass(newName)==null){
+                  if (getModel().getUmpleInterface(newName)!=null){
+                      if (bidirectional){
+                        setFailedPosition(inTrait.getPosition(0), 213, "trait "+inTrait.getName());
+                        return;
+                      }
+                  } 
+              }
+              return;     
+        }
+      }
+    }
+    if (getModel().getUmpleClass(inAssociationVariable.getType())==null){
+        if (getModel().getUmpleInterface(inAssociationVariable.getType())!=null && bidirectional){
+            setFailedPosition(inTrait.getPosition(0), 213, "trait "+inTrait.getName());
+            return;
+        }
+    }
+  }
+//---------------------------------end----------------------------------------
+//----------------------------------------------------------------------------   
+//---------------------------------Start-------------------------------------- 
+  private void addAssociation(String lName, String rName, AssociationVariable inAssociationVariable, UmpleClass inClass, UmpleClass relatedClass) {	
+        AssociationEnd leftEnd = new AssociationEnd(lName, inClass.getName(), inAssociationVariable.getRelatedAssociation().getModifier(), inClass.getName(), inAssociationVariable.getRelatedAssociation().getMultiplicity());
+		AssociationEnd rightEnd = new AssociationEnd(rName,relatedClass.getName(), inAssociationVariable.getModifier(),relatedClass.getName(),inAssociationVariable.getMultiplicity());		
+		Association aAssociation = new Association(inAssociationVariable.getRelatedAssociation().getIsNavigable(), inAssociationVariable.getIsNavigable(),false,false,leftEnd,rightEnd);
+		aAssociation.setName(rName);
+		getModel().addAssociation(aAssociation);	    
+		AssociationEnd myEnd = aAssociation.getEnd(0);
+	    AssociationEnd yourEnd = aAssociation.getEnd(1);
+	    AssociationVariable myAs = new AssociationVariable(myEnd.getRoleName(),myEnd.getClassName(),myEnd.getModifier(),null,myEnd.getMultiplicity(),aAssociation.getIsLeftNavigable());
+              myAs.setIsComposition(aAssociation.getIsLeftComposition());
+	    AssociationVariable yourAs = new AssociationVariable(yourEnd.getRoleName(),yourEnd.getClassName(),yourEnd.getModifier(),null,yourEnd.getMultiplicity(),aAssociation.getIsRightNavigable());
+	    yourAs.setIsComposition(aAssociation.getIsRightComposition());
+
+	    myAs.setRelatedAssociation(yourAs); 
+	    boolean added = inClass.addAssociationVariable(yourAs);
+	    if (added)
+	    {
+		    relatedClass.addAssociationVariable(myAs);
+		    aAssociation.setSource(Association.Source.fTrait);
+	    	inClass.addAssociation(aAssociation);
+	    }
+} } 
+
+// Fragment source file: UmpleInternalParser_CodeTrait.ump
+// Line : 1681
+ class UmpleInternalParser { private void copyAssociationsFromTraitToClass(UmpleClass inClass) {
+    Map<UmpleTrait, List<AssociationVariable>> traiAssociationVariables = new HashMap<UmpleTrait, List<AssociationVariable>>();
+	Map<UmpleTrait, List<AssociationVariable>> tempTraitAssociationVariables = new HashMap<UmpleTrait, List<AssociationVariable>>();
+	for (UmpleTrait uTrait : inClass.getExtendsTraits()) {
+		tempTraitAssociationVariables = gatherAssociations(uTrait,inClass.getGeneralTPAppliedByName(uTrait.getName()),inClass);
+		if ( ! getParseResult().getWasSuccess() ) return;
+		//checkMethodComeFromTraitsIsAvaiableInClass(tempTraitAssociations,inClass);
+		//if (CheckMethodComeFromTraitsIsAvaialbleInOtherTraits(traitMethods,tempTraitAssociations,inClass)) return;
+		AddAssociationMapToAnother(traiAssociationVariables,tempTraitAssociationVariables);
+	}
+	for (UmpleTrait t1 : traiAssociationVariables.keySet()) {
+		for (AssociationVariable associationVariable : traiAssociationVariables.get(t1)) {
+            AssociationVariable relAsso = associationVariable.getRelatedAssociation();
+            String tempOldName = StringFormatter.toCamelCase(relAsso.getType());
+            String oldName = relAsso.getMultiplicity().isMany() ? model.getGlossary().getPlural(tempOldName) : tempOldName;
+             if (relAsso.getName().equals(oldName)){
+                 String rawRName = StringFormatter.toCamelCase(inClass.getName());
+                 relAsso.setName(relAsso.getMultiplicity().isMany() ? model.getGlossary().getPlural(rawRName) : rawRName);
+             }
+  
+             if (model.getUmpleClass(associationVariable.getType())!=null){
+                 addAssociation(relAsso.getName(), associationVariable.getName(), associationVariable,inClass, model.getUmpleClass(associationVariable.getType()));
+                 if (associationVariable.getIsNavigable())
+                   {                  
+                       inClass.addReferencedPackage(model.getUmpleClass(associationVariable.getType()).getPackageName());
+                   }
+                   if (associationVariable.getRelatedAssociation().getIsNavigable())
+                   {
+                       model.getUmpleClass(associationVariable.getType()).addReferencedPackage(inClass.getPackageName());
+                   }        
+             } else if (model.getUmpleInterface(associationVariable.getType())!=null){
+                 
+                 addAssociation(relAsso.getName(), associationVariable.getName(), associationVariable,inClass, new UmpleClass(associationVariable.getType()));
+                 if (associationVariable.getRelatedAssociation().getIsNavigable())
+                   {
+                       inClass.addReferencedPackage(model.getUmpleInterface(associationVariable.getType()).getPackageName());
+                   }     
+             }  		
+		}
+	}	
+  } } 
+
+// Fragment source file: UmpleInternalParser_CodeTrait.ump
+// Line : 1756
+ class UmpleInternalParser { private Map<UmpleTrait, List<AssociationVariable>> gatherAssociations(UmpleTrait inTrait, GeneralTPApplied inGTPApplied, UmpleClass inClass) {
+     Map<UmpleTrait, List<AssociationVariable>> traitAssociationVariables = new HashMap<UmpleTrait, List<AssociationVariable>>(); 
+ 	 Map<UmpleTrait, List<AssociationVariable>> tempTraitAssociationVariables = new HashMap<UmpleTrait, List<AssociationVariable>>();
+ 	 //----------------------------------------------------------------------------------------
+ 	 List<AssociationVariable> associationVariables = new ArrayList<AssociationVariable>();	  
+ 	 for (AssociationVariable associationVariable : inTrait.getAssociationVariables()) {
+ 		 	AssociationVariable newAssociationVariable = new AssociationVariable(associationVariable);
+ 		 	AssociationVariable tempAssociationVariable = new AssociationVariable(associationVariable.getRelatedAssociation());
+ 		 	newAssociationVariable.setRelatedAssociation(tempAssociationVariable);
+    	 	ApplyTypeParametersToAssociation(newAssociationVariable,inGTPApplied,inClass, inTrait);
+    	 	associationVariables.add(newAssociationVariable);
+	 }
+ 	traitAssociationVariables.put(inTrait,associationVariables);
+     //----------------------------------------------------------------------------------------
+     for (UmpleTrait uTrait : inTrait.getExtendsTraits()) {
+       GeneralTPApplied newGTParameter = inTrait.getGeneralTPAppliedByName(uTrait.getName())!=null ? new GeneralTPApplied(inTrait.getGeneralTPAppliedByName(uTrait.getName())) : null;     
+       if (newGTParameter!=null){
+         ApplyTypeParametersToTypeParameters(newGTParameter, inGTPApplied,inTrait);       
+    	   tempTraitAssociationVariables = gatherAssociations(uTrait,newGTParameter,inClass);   
+    	 }	 
+    	 if ( ! getParseResult().getWasSuccess() ) return traitAssociationVariables;
+//    	 if (CheckAssociationsComeFromTraitsIsAvaialbleInOtherTraits(traitAssociations,tempTraitAssociations,inTrait)) return traitAssociations;
+    	 AddAssociationMapToAnother(traitAssociationVariables,tempTraitAssociationVariables);
+	 }
+     return traitAssociationVariables;
+} } 
+
+// Fragment source file: UmpleInternalParser_CodeTrait.ump
+// Line : 1953
+ class UmpleInternalParser { private void AddAssociationMapToAnother(Map<UmpleTrait, List<AssociationVariable>> inTraitAssociations,Map<UmpleTrait, List<AssociationVariable>> inTempTraitAssociations) {
+    for (UmpleTrait uTrait : inTempTraitAssociations.keySet()) {
+		if (inTraitAssociations.containsKey(uTrait)){
+			for (AssociationVariable associationVariable : inTraitAssociations.get(uTrait)) {
+				inTraitAssociations.get(uTrait).add(associationVariable);
+        }
+      } else{
+        inTraitAssociations.put(uTrait, inTempTraitAssociations.get(uTrait));
+      }	
+	  }	
+  } } 
+
+// Fragment source file: UmpleInternalParser_FIXML.ump
+// Line : 7
+ class UmpleInternalParser { Map<Association,List<Token>> afixmlLastIntilialization = new HashMap<Association, List<Token>>();
+     Map<Association,Integer> afixmlAttributeCount = new HashMap<Association, Integer>(); } 
+
+// Fragment source file: UmpleInternalParser_FIXML.ump
+// Line : 326
+ class UmpleInternalParser { private void addAssociation(UmpleClass uClass, UmpleClass rUClass, Token mainToken){
+    Multiplicity m = new Multiplicity();
+		Association aAss = getModel().getAssociation(rUClass.getName()+"_Object");
+		if ( aAss != null) {			
+			Integer bound = Integer.parseInt(getModel().getAssociation(rUClass.getName()+"_Object").getEnd(1).getMultiplicity().getBound());
+			bound++;
+			m.setBound( bound.toString());
+			getModel().getAssociation(rUClass.getName()+"_Object").getEnd(1).setMultiplicity(m);
+			for (AssociationVariable yourAs : uClass.getAssociationVariables()) {
+				if (yourAs.getName().equals(rUClass.getName()+"_Object")) {
+					yourAs.setMultiplicity(m);
+				}
+			}
+		    List <Token> listOfToken = afixmlLastIntilialization.get(aAss);
+		    listOfToken.add(mainToken);
+		    afixmlLastIntilialization.put(aAss, listOfToken);
+			
+		} else {
+			m.setBound("1");
+			AssociationEnd leftEnd = new AssociationEnd(uClass.getName()+"_Object",uClass.getName(), "",uClass.getName(), m);
+			AssociationEnd rightEnd = new AssociationEnd(rUClass.getName()+"_Object",rUClass.getName(), "",rUClass.getName(), m);		
+			Association aAssociation = new Association(false, true,false,false,leftEnd,rightEnd);
+			aAssociation.setName(rUClass.getName()+"_Object");
+			getModel().addAssociation(aAssociation);	    
+			AssociationEnd myEnd = aAssociation.getEnd(0);
+		    AssociationEnd yourEnd = aAssociation.getEnd(1);
+		    AssociationVariable myAs = new AssociationVariable(myEnd.getRoleName(),myEnd.getClassName(),myEnd.getModifier(),null,myEnd.getMultiplicity(),aAssociation.getIsLeftNavigable());
+                    myAs.setIsComposition(aAssociation.getIsLeftComposition());
+		    AssociationVariable yourAs = new AssociationVariable(yourEnd.getRoleName(),yourEnd.getClassName(),yourEnd.getModifier(),null,yourEnd.getMultiplicity(),aAssociation.getIsRightNavigable());
+                    yourAs.setIsComposition(aAssociation.getIsRightComposition());
+
+		    myAs.setRelatedAssociation(yourAs);
+		    boolean added = uClass.addAssociationVariable(yourAs);
+		    if (added)
+		    {
+		      unlinkedAssociationVariables.add(yourAs);
+		      uClass.addAssociation(aAssociation);
+		    }
+		    List <Token> listOfToken = new ArrayList<>();
+		    listOfToken.add(mainToken);
+		    afixmlLastIntilialization.put(aAssociation, listOfToken);
+		}
+   }
+//---------------------------------end----------------------------------------
+//----------------------------------------------------------------------------   
+//---------------------------------Start--------------------------------------
+   private void assignAssociationInitialValues(){
+    String value = "";
+	for (Association	aa : getModel().getAssociations()) {
+		UmpleClass mainClass = getModel().getUmpleClass(aa.getEnd(0).getClassName());
+		UmpleClass uClass = getModel().getUmpleClass(aa.getEnd(1).getClassName());
+		if (Integer.parseInt(aa.getEnd(1).getMultiplicity().getBound()) >1) {
+			for (Token rootToken : afixmlLastIntilialization.get(aa)) {
+				value = "new "+uClass.getName()+"(";
+				Map<String,String> db = new HashMap<String,String>();
+				for (Token subToken : rootToken.getSubTokens()) {
+					if (subToken.is("tagDefinition")) {
+						   String attname = subToken.getSubToken(0).getValue();
+						   //   String attType = "String";
+						   String attValue = subToken.getSubToken(3).getValue();	
+						   db.put(attname, attValue);  	
+					}
+				}			
+				for (Attribute aAttribute : uClass.getAttributes()) {
+					if (db.containsKey(aAttribute.getName())){
+						String attValue = db.get(aAttribute.getName());
+						   if  ( isStringInteger(attValue) && aAttribute.getType().equals("Integer")) {
+							  // attType="Integer";
+						   } else if (isStringDuble(attValue) && aAttribute.getType().equals("Double")) {
+							   //attType = "Double";
+						   } else if (aAttribute.getType().equals("String")) {
+							   attValue = "\""+attValue+"\"";
+						   } else {
+							   attValue = "\""+attValue+"\"";
+						   }
+						value = value + attValue +", ";
+					} else {
+					   if  ( aAttribute.getType().equals("Integer") ) {
+						   value = value+"0"+", ";
+					   } else if (aAttribute.getType().equals("Double")) {
+						   value = value+"0.0"+", ";
+					   } else if (aAttribute.getType().equals("String")){
+						   value = value+"\"\""+", ";
+					   }
+					}	
+				}
+				
+				for (Association aAssociation : uClass.getAssociations()) {
+					List<Token> aToken = afixmlLastIntilialization.get(aAssociation);
+					if (aToken.size() >1) {
+
+					} else {
+						if (!hasThisObject(rootToken,aAssociation.getEnd(1).getClassName())) {
+							 value = value+"null"+", ";
+						} else {
+							value = value+getAssociationConstructorInConstructor(aAssociation.getEnd(1).getClassName(),aToken.get(0))+", ";
+						}
+					}
+				}
+				
+				value = value.subSequence(0, value.length()-2) + ")";
+				String valueG = aa.getEnd(1).getRoleName()+".add("+value+");";	
+				String valuep= "$this->"+aa.getEnd(1).getRoleName()+"[] = "+value+";";
+				CodeBlock cb1 = new CodeBlock();
+				cb1.setCode("", valueG);
+				cb1.setCode("Php", valuep);
+				CodeInjection injection = new CodeInjection("after","emptyConstructor",cb1,mainClass);
+				mainClass.addCodeInjection(injection);
+			}
+		} else {
+			value = "new "+uClass.getName()+"(";
+			value = value+")"; //t.getSubToken(3).getValue();
+			value = "set"+aa.getEnd(1).getRoleName()+"("+value+");";
+			CodeInjection injection = new CodeInjection("after","emptyConstructor",value,mainClass);
+			mainClass.addCodeInjection(injection);
+		}
+
+	}
+   }
+//---------------------------------end----------------------------------------
+//----------------------------------------------------------------------------   
+//---------------------------------Start--------------------------------------
+   private String getAssociationConstructorInConstructor(String inName, Token inToken){	  
+    Map<String,String> db = new HashMap<String,String>();
+		String value = "new "+inName+"("; //t.getSubToken(3).getValue();	
+		for (Token subToken : inToken.getSubTokens()) {
+			if (subToken.getName().equals("tagDefinition")) {
+				   String attname = subToken.getSubToken(0).getValue();
+				   //String attType = "String";
+				   String attValue = subToken.getSubToken(3).getValue();
+				   db.put(attname, attValue);  	
+				 }
+			}  
+	for (Attribute aAttribute : getModel().getUmpleClass(inName).getAttributes()) {
+		if (db.containsKey(aAttribute.getName())){
+			String attValue = db.get(aAttribute.getName());
+			   if  ( isStringInteger(attValue) && aAttribute.getType().equals("Integer")) {
+				  // attType="Integer";
+			   } else if (isStringDuble(attValue) && aAttribute.getType().equals("Double")) {
+				   //attType = "Double";
+			   } else if (aAttribute.getType().equals("String")) {
+				   attValue = "\""+attValue+"\"";
+			   } else {
+				   attValue = "\""+attValue+"\"";
+			   }
+			value = value + attValue+", ";
+		} else {
+		   if  ( aAttribute.getType().equals("Integer") ) {
+			   value = value+"0"+", ";
+		   } else if (aAttribute.getType().equals("Double")) {
+			   value = value+"0.0"+", ";
+		   } else if (aAttribute.getType().equals("String")){
+			   value = value+"\"\""+", ";
+		   }
+		}
+		
+	}		  
+	for (Association aAssociation : getModel().getUmpleClass(inName).getAssociations()) {
+		List<Token> aToken = afixmlLastIntilialization.get(aAssociation);
+		if (aToken.size() >1) {
+
+		} else {
+			if (!hasThisObject(inToken,aAssociation.getEnd(1).getClassName())) {
+				 value = value+"null"+", ";
+			} else {
+				value = value+getAssociationConstructorInConstructor(aAssociation.getEnd(1).getClassName(),aToken.get(0));
+			}
+		}
+	}
+	  value = value.subSequence(0, value.length()-2) + ")";	
+	  return value;
+   } } 
+
+// Fragment source file: UmpleInternalParser_CodeStructure.ump
+// Line : 1260
+ class CompositeStructureTokenAnalyzer { private ConstraintTree analyzeAssociationLiteralConstraintExpression(Token literalToken, UmpleClassifier uClassifier, boolean cardinal, boolean all, boolean firstName, ConstraintTree subject, ConstraintOperator operator)
+	{
+		ConstraintTree rawLine = new ConstraintTree();
+		for(Token sub:literalToken.getSubTokens())
+		{
+			if(sub.is("associationLit"))
+			{
+				rawLine.addElementAll(analyzeAssociationLiteralConstraintExpression(sub, uClassifier, cardinal, all, firstName, subject, operator));
+				firstName = false;
+			}
+			else if(sub.is("constraintName"))
+			{
+				if(!firstName)
+				{
+					if(all&&!cardinal)
+					{
+						rawLine.addElement(new ConstraintOperator("&&"));
+					}
+					else
+					{
+						rawLine.addElement(new ConstraintOperator("||"));
+					}
+				}
+				else
+				{
+					firstName = false;
+				}
+				rawLine.addElementAll(subject);
+				rawLine.addElement(operator);
+				rawLine.addElement(analyzeConstraintName(sub,uClassifier,true));
+			}
+			else if(sub.is("elements"))
+			{
+				if(!cardinal)
+				{
+					operator.setValue("cardinality==");
+				}
+			}
+			else if(sub.is("number"))
+			{
+				if(!firstName)
+				{
+					if(all&&!cardinal)
+					{
+						rawLine.addElement(new ConstraintOperator("&&"));
+					}
+					else
+					{
+						rawLine.addElement(new ConstraintOperator("||"));
+					}
+				}
+				else
+				{
+					firstName = false;
+				}
+				rawLine.addElementAll(subject);
+				rawLine.addElement(operator);
+				rawLine.addElement(analyzeConstraintNumber(sub));
+				firstName = false;
+			}
+		}
+		return rawLine;
+	}
+
+	private ConstraintTree analyzeAssociationConstraintExpression(Token associationExpressionToken , UmpleClassifier uClassifier)
+	{
+		List<Token> associationExpressionSubtokens = associationExpressionToken.getSubTokens();
+		ConstraintTree rawLine = new ConstraintTree();
+		ConstraintTree subject = new ConstraintTree();
+		boolean card = associationExpressionToken.getValue("firstOp").equals("cardinality");
+		boolean all = false;
+		ConstraintOperator operator = new ConstraintOperator(associationExpressionToken.getValue("firstOp"));
+		for(Token sub : associationExpressionSubtokens)
+		{
+			if(sub.is("constraintName"))
+			{
+				subject.addElement(analyzeConstraintName(sub,uClassifier,true));
+			}
+			else if(sub.is("all"))
+			{
+				if(!card)
+				{
+					operator.setValue("hasAll");
+					all = true;
+				}
+				else
+				{
+					//warning that cardinality all is not supported
+				}
+			}
+			else if(sub.is("moreOp"))
+			{
+				if(!card)
+				{
+					card = true;
+				}
+				operator.setValue("cardinality>");
+			}
+			else if(sub.is("smallerOp"))
+			{
+				if(!card)
+				{
+					card = true;
+				}
+				operator.setValue("cardinality<");
+			}
+			else if(sub.is("greaterOp"))
+			{
+				if(!card)
+				{
+					card = true;
+				}
+				operator.setValue("cardinality>=");
+			}
+			else if(sub.is("lessOp"))
+			{
+				if(!card)
+				{
+					card = true;
+				}
+				operator.setValue("cardinality<=");
+			}
+			else if(sub.is("equalsOp"))
+			{
+				if(!card)
+				{
+					card = true;
+				}
+				operator.setValue("cardinality==");
+			}
+			else if(sub.is("notequalsOp"))
+			{
+				if(!card)
+				{
+					card = true;
+				}
+				operator.setValue("cardinality!=");
+			}
+		}
+    Label_Association_154:;
+
+		return rawLine;
+	} } 
+
+// Fragment source file: UmpleFilterModel.ump
+// Line : 15
+ class Filter { Integer associationCount = -1; } 
+
+// Fragment source file: UmpleInternalParser_CodeFilter.ump
+// Line : 108
+ class UmpleInternalParser { private void addAssociationValue(Filter f, Token t)
+    {
+      for(Token nt : t.getSubTokens())
+      {
+        if("associationNum".equals(nt.getName()))
+        {
+          int associationNum = Integer.parseInt(nt.getValue("associationNum"));
+          f.setAssociationCount(associationNum);
+        }
+      }
+    } } 
+// end
+
+class Association
+{
+   public  Association(Association another){
+    //Association Attributes
+	  this.name = another.getName();
+	  this.isLeftNavigable = another.getIsLeftNavigable();
+	  this.isRightNavigable = another.getIsRightNavigable();
+	  this.isLeftComposition = another.getIsLeftComposition();
+	  this.isRightComposition = another.getIsRightComposition();
+	  this.positions = new ArrayList<Coordinate>();
+	  for (Coordinate coordinate : another.getPositions()) {
+		this.positions.add(coordinate);
+	  }
+	  this.tokenPosition = another.getTokenPosition();
+	  this.tokenEndPosition = another.getTokenEndPosition();
+	  this.immutable = another.immutable;
+
+	  //Association Associations
+	  this.ends = new ArrayList<AssociationEnd>();
+	  for (AssociationEnd associationEnd : another.getEnds()) {
+		  this.ends.add(new AssociationEnd(associationEnd));
+	  }
+  }
+
+  public void setLeftAndRight()
+  {
+    String name = this.getName();
+
+    int underscore = name.indexOf("__");
+    String nameOne = name.substring(0,underscore);
+    String nameTwo = name.substring(underscore + "__".length(), name.length());
+
+    if (nameOne.compareTo(nameTwo) > 0)
+    {
+
+    }
+
+  }
+
+  public int whoIsInvalid()
+  {
+    if (!getIsLeftNavigable() || !getIsRightNavigable())
+    {
+      return -1;
+    }
+
+    if (getEnd(0).getClassName().equals(getEnd(1).getClassName()))
+    {
+      if (getEnd(0).getMultiplicity().getLowerBound() != 0)
+      {
+        return 0;
+      }
+      else if (getEnd(1).getMultiplicity().getLowerBound() != 0)
+      {
+        return 1;
+      }
+    }
+    return -1;
+  }
+
+  public boolean isValid()
+  {
+    return whoIsInvalid() == -1;
+  }
+
+  public String getArrowString()
+  {
+    String arrow = "--";
+    if (getIsLeftComposition() && !getIsRightComposition() && getIsLeftNavigable() && getIsRightNavigable()) {
+    	arrow = "<@>-";
+    }
+    else if (!getIsLeftComposition() && getIsRightComposition() && getIsLeftNavigable() && getIsRightNavigable()) {
+    	arrow = "-<@>";
+    }
+    else if ( (!getIsLeftNavigable() || !getIsRightNavigable()) && (getIsLeftComposition() || getIsRightComposition())) {
+    	arrow = "><";
+    }
+    else if (getIsRightComposition() && getIsLeftComposition())
+    {
+      arrow = "><";
+    }
+    else if (getIsLeftNavigable() && !getIsRightNavigable())
+    {
+      arrow = "<-";
+    }
+    else if (!getIsLeftNavigable() && getIsRightNavigable())
+    {
+      arrow = "->";
+    }
+    else if (!getIsLeftNavigable() && !getIsRightNavigable())
+    {
+      arrow = "><";
+    }
+
+    return arrow;
+  }
+
+  public String toGenericString()
+  {
+    String leftSide = getEnd(0).toGenericString();
+    String rightSide = getEnd(1).toGenericString();
+
+
+    if (leftSide.equals("n") && rightSide.equals("n") && !getEnd(0).toSimpleString().equals(getEnd(1).toSimpleString()))
+    {
+      return cruise.umple.util.StringFormatter.format("n {0} m",getArrowString());
+    }
+    else
+    {
+      return cruise.umple.util.StringFormatter.format("{0} {1} {2}",leftSide,getArrowString(),rightSide);
+    }
+  }
+
+  public String deriveName()
+  {
+    AssociationEnd firstEnd = this.getEnd(0);
+    AssociationEnd secondEnd = this.getEnd(1);
+
+    String firstClassName = firstEnd.getClassName();
+    String secondClassName = secondEnd.getClassName();
+
+    String firstRole = firstEnd.getDisplayRoleName().equals("") ? "" : ":" + firstEnd.getDisplayRoleName();
+    String secondRole = secondEnd.getDisplayRoleName().equals("") ? "" : ":" + secondEnd.getDisplayRoleName();
+
+    if (firstClassName.compareTo(secondClassName) <= 0)
+    {
+      return firstClassName + firstRole + "__" + secondClassName + secondRole;
+    }
+    else
+    {
+      return secondClassName + secondRole + "__" + firstClassName + firstRole;
+    }
+  }
+
+  public void setImmutable()
+  {
+    this.immutable = true;
+  }
+
+  public boolean isImmutable()
+  {
+    return this.immutable;
+  }
+
+  public boolean isComposition() {
+  	return this.isLeftComposition || this.isRightComposition;
+  }
+}
+
+/*
+ * In Umple_Code.ump: Methods for computing compound properties
+ */
+class AssociationEnd
+{
+
+  public AssociationEnd(AssociationEnd another) {
+  	//AssociationEnd Attributes
+  	this.roleName = another.getRoleName();
+  	this.className = another.getClassName();
+  	this.modifier = another.getModifier();
+  	this.referenceToClassName = another.getReferenceToClassName();
+  	this.multiplicity = another.getMultiplicity();
+  	this.isDefaultRoleName = another.getIsDefaultRoleName();
+  	this.priority = another.getPriority();
+
+  	//AssociationEnd Associations
+  	this.association = another.getAssociation();
+
+  	//Helper Variables
+  	this.cachedHashCode = another.cachedHashCode;
+  	this.canSetMultiplicity = another.canSetMultiplicity;
+  	this.canSetRoleName = another.canSetRoleName;
+	this.canSetClassName = another.canSetClassName;
+	this.canSetModifier = another.canSetModifier;
+	this.canSetReferenceToClassName = another.canSetReferenceToClassName;
+  }
+  private static int MULT_MANY = -1;
+
+  public boolean isNavigable()
+  {
+    return !getModifier().toLowerCase().equals("nonnavigable");
+  }
+
+  public String getLowerBoundString()
+  {
+    return getMultiplicity().getLowerBound() == -1 ? "*" : getMultiplicity().getLowerBound() + "";
+  }
+
+  public String getUpperBoundString()
+  {
+    return getMultiplicity().getUpperBound() == -1 ? "*" : getMultiplicity().getUpperBound() + "";
+  }
+
+  public String getDisplayRoleName()
+  {
+    return isDefaultRoleName ? "" : getRoleName();
+  }
+
+  public String toSimpleString()
+  {
+    if (getMultiplicity().getLowerBound() == 0 && getMultiplicity().getUpperBound() == MULT_MANY)
+    {
+      return formatEnd(getMultiplicity().getUpperBound());
+    }
+    else if (getMultiplicity().getLowerBound() == MULT_MANY && getMultiplicity().getUpperBound() == MULT_MANY)
+    {
+      return formatEnd(getMultiplicity().getLowerBound()) + ".." + formatEnd(getMultiplicity().getUpperBound());
+    }
+    else if (getMultiplicity().getLowerBound() == getMultiplicity().getUpperBound())
+    {
+      return formatEnd(getMultiplicity().getLowerBound());
+    }
+    else
+    {
+      return formatEnd(getMultiplicity().getLowerBound()) + ".." + formatEnd(getMultiplicity().getUpperBound());
+    }
+  }
+
+  public String toGenericString()
+  {
+    if (getMultiplicity().getLowerBound() == 0 && getMultiplicity().getUpperBound() == MULT_MANY)
+    {
+      return formatEnd(getMultiplicity().getUpperBound());
+    }
+    else if (getMultiplicity().getLowerBound() == MULT_MANY && getMultiplicity().getUpperBound() == MULT_MANY)
+    {
+      return formatEnd(getMultiplicity().getLowerBound()) + ".." + formatEnd(getMultiplicity().getUpperBound());
+    }
+    else if (getMultiplicity().getLowerBound() == getMultiplicity().getUpperBound())
+    {
+      return formatGenericEnd(getMultiplicity().getLowerBound(),"n");
+    }
+    else if (getMultiplicity().getLowerBound() == 0 || getMultiplicity().getLowerBound() == 1)
+    {
+      return getMultiplicity().getLowerBound() + ".." + formatGenericEnd(getMultiplicity().getUpperBound(),"n");
+    }
+    else
+    {
+      return formatGenericEnd(getMultiplicity().getLowerBound(),"n") + ".." + formatGenericEnd(getMultiplicity().getUpperBound(),"m");
+    }
+  }
+
+  public String toString()
+  {
+    String asText = "";
+
+    if (!getModifier().equals("internal"))
+    {
+      asText += getModifier() + " " + asText;
+    }
+    asText += toSimpleString();
+
+    if (getRoleName().length() > 0)
+    {
+      asText += " [" + roleName + "]";
+    }
+
+    if (getClassName().length() > 0)
+    {
+      asText += " " + className;
+    }
+
+    if (getReferenceToClassName().length() > 0)
+    {
+      asText += " -- " + referenceToClassName;
+    }
+
+    return asText;
+  }
+
+  private String formatEnd(int aValue)
+  {
+    return aValue == MULT_MANY ? "*" : aValue + "";
+  }
+
+  private String formatGenericEnd(int aValue, String defaultIfNotOneOrMany)
+  {
+
+    if (aValue == MULT_MANY)
+    {
+      return "*";
+    }
+    else if (aValue == 0 || aValue == 1)
+    {
+      return aValue + "";
+    }
+    else
+    {
+      return defaultIfNotOneOrMany;
+    }
+  }
+
+}
+
+/*
+ * In Umple_Code.ump: Methods for testing various complex properties
+ */
+class AssociationVariable
+{
+  public AssociationVariable(AssociationVariable another){
+	  super(another.getName(), another.getType(),another.getModifier(), another.getValue());
+	  //AssociationVariable Attributes
+	  this.multiplicity = another.getMultiplicity();
+	  this.isNavigable = another.getIsNavigable();
+	  this.priority  = another.getPriority();
+
+	  //AssociationVariable Associations
+	  this.relatedAssociation = null;
+	  this.comments = new ArrayList<Comment>();
+	  for (Comment comment : another.getComments()) {
+		  this.comments.add(comment);
+	  }
+
+	  this.umpleClass = another.getUmpleClass();
+	  this.umpleTrait = another.getUmpleTrait();
+	  //Helper Variables
+	  //this.canSetIsNavigable = another.canSetIsNavigable;
+  }
+
+  public boolean isReflexive()
+  {
+    return getRelatedAssociation() != null && getType().equals(getRelatedAssociation().getType());
+  }
+
+  public boolean isSymmetricReflexive()
+  {
+    return getRelatedAssociation() != null && "symmetricreflexive".equals(getModifier());
+  }
+
+  public void configureRelatedAssociation(AssociationVariable newRelatedAssociation)
+  {
+    if (newRelatedAssociation == null || !getType().equals(newRelatedAssociation.getType()))
+    {
+      setRelatedAssociation(newRelatedAssociation);
+    }
+    else
+    {
+      multiplicity.minimizeRange(newRelatedAssociation.getMultiplicity());
+      setRelatedAssociation(this);
+    }
+  }
+
+  public void setOneDirectionalRelatedAssociation(AssociationVariable other){
+    //for inheritance use
+
+    relatedAssociation = other;
+    isNavigable = true;
+  }
+
+
+  public boolean isTwoDirectionalAssociation(AssociationVariable other){
+    //for inheritance use
+
+    if (!other.hasRelatedAssociation() || relatedAssociation == null)
+      return false;
+    return other.getRelatedAssociation().equals(relatedAssociation);
+  }
+
+
+  public static int min(int first, int second)
+  {
+    return first == -1 ? second : second == -1 ? first : Math.min(first, second);
+  }
+
+  public static int max(int first, int second)
+  {
+    return first == -1 ? first : second == -1 ? second : Math.max(first, second);
+  }
+
+  public boolean isMany()
+  {
+    return multiplicity.getUpperBound() == -1 || multiplicity.getUpperBound() > 1;
+  }
+
+  public boolean isOptionalN()
+  {
+    return multiplicity.getLowerBound() == 0 && multiplicity.getUpperBound() > 1;
+  }
+
+  public boolean isOne()
+  {
+    return multiplicity.getUpperBound() == 1;
+  }
+
+  public boolean isOnlyOne()
+  {
+    return multiplicity.getUpperBound() == 1 && multiplicity.getLowerBound() == 1;
+  }
+
+  public boolean isOptionalOne()
+  {
+    return multiplicity.getUpperBound() == 1 && multiplicity.getLowerBound() == 0;
+  }
+
+  public boolean isOptionalMany()
+  {
+    return multiplicity.getLowerBound() == 0 && isMany();
+  }
+
+  public boolean isUpperBounded()
+  {
+    return multiplicity.getUpperBound() >= 0;
+  }
+
+  public boolean isN()
+  {
+    return multiplicity.getLowerBound() > 1 && multiplicity.getLowerBound() == multiplicity.getUpperBound();
+  }
+
+  public boolean isMN()
+  {
+    return multiplicity.getLowerBound() > 0 && (multiplicity.getUpperBound() > multiplicity.getLowerBound() || multiplicity.getUpperBound() == -1);
+  }
+
+  public boolean isMStar()
+  {
+    return multiplicity.getLowerBound() > 0 && multiplicity.getUpperBound() == -1;
+  }
+
+  public boolean isStar()
+  {
+    return multiplicity.getUpperBound() == -1;
+  }
+
+  public boolean isMandatory()
+  {
+    return multiplicity.getLowerBound() > 0;
+  }
+
+  public boolean isMandatoryOne()
+  {
+    return multiplicity.getLowerBound() == 1 && multiplicity.getUpperBound() == 1;
+  }
+
+  public boolean isMandatoryMany()
+  {
+    return multiplicity.getLowerBound() > 0 && isMany();
+  }
+
+  public boolean isImmutable()
+  {
+    AssociationVariable related = getRelatedAssociation();
+    Boolean relatedAssocIsImmutable = (related == null) ? false : "immutable".equals(related.getModifier());
+
+    Boolean myUmpleClassIsImmutable =
+      (getIsNavigable() && getUmpleClass() != null) ? getUmpleClass().isImmutable() : false;
+    Boolean yourUmpleClassIsImmutable =
+      (related != null && related.getIsNavigable() && related.getUmpleClass() != null) ? related.getUmpleClass().isImmutable() : false;
+
+    return (super.isImmutable() || relatedAssocIsImmutable
+        || myUmpleClassIsImmutable || yourUmpleClassIsImmutable);
+  }
+
+  public boolean setImmutable()
+  {
+    boolean wasSet = false;
+    if (canBeImmutable())
+    {
+      setModifier("immutable");
+      wasSet = true;
+    }
+    return wasSet;
+  }
+
+  public boolean isSorted()
+  {
+    return !priority.equals("");
+  }
+
+  private boolean canBeImmutable()
+  {
+    AssociationVariable related = getRelatedAssociation();
+    if (related == null) { return true; }
+
+    boolean canBe = true;
+    if (getIsNavigable() && related.getIsNavigable())
+    {
+      canBe = false;
+    }
+    else if (related.getIsNavigable() && (umpleClass != null) && !umpleClass.isImmutable())
+    {
+      canBe = false;
+    }
+    else if (getIsNavigable() && (related.getUmpleClass() != null) && !related.getUmpleClass().isImmutable())
+    {
+      canBe = false;
+    }
+    return canBe;
+  }
+
+  private boolean canBeRelatedAssociation(AssociationVariable related)
+  {
+    if (related == null)
+    {
+      return true;
+    }
+    Boolean myUmpleClassIsImmutable = (getUmpleClass() != null) ? getUmpleClass().isImmutable() : false;
+    Boolean yourUmpleClassIsImmutable = (related.getUmpleClass() != null) ? related.getUmpleClass().isImmutable() : false;
+
+    return UmpleClass.immutabilityAssociationRulesSatisfied(this, umpleClass, myUmpleClassIsImmutable,
+        related, related.getUmpleClass(), yourUmpleClassIsImmutable);
+  }
+
+  public ArrayList<String> getMethodNames()
+  {
+    if(!getIsNavigable())
+    {
+      return new ArrayList<String>();
+    }
+
+    ArrayList<String> methodNames = new ArrayList<String>();      
+    String attributeCapitalizedName = this.getUpperCaseName();
+
+    String singularName = getUmpleClass().getSourceModel().getGlossary().getSingular(this.getName());
+    String singularCapitalizedName = singularName.substring(0, 1).toUpperCase() + singularName.substring(1);
+
+    if(isMany())
+    {
+      methodNames.add("get" + singularCapitalizedName);
+      methodNames.add("get" + attributeCapitalizedName);
+      methodNames.add("numberOf" + attributeCapitalizedName);
+      methodNames.add("has" + attributeCapitalizedName);
+      methodNames.add("indexOf" + singularCapitalizedName);
+      methodNames.add("minimumNumberOf" + attributeCapitalizedName);
+      methodNames.add("add" + singularCapitalizedName);
+      methodNames.add("add" + singularCapitalizedName + "At");
+      methodNames.add("addOrMove" + singularCapitalizedName + "At");
+      methodNames.add("remove" + singularCapitalizedName);
+    }
+    else
+    {
+      methodNames.add("get" + attributeCapitalizedName);
+      methodNames.add("set" + attributeCapitalizedName);
+    }
+    
+    return methodNames;
+  }
+}
+
+
+/*
+ * In Umple_Code.ump: Methods for querying various propertiies of a Multiplicit
+ */
+class Multiplicity
+{
+
+  public void setRange(String lowerBound, String upperBound)
+  {
+    minimum = lowerBound;
+    maximum = upperBound;
+  }
+
+  public String getRange()
+  {
+    String lowerBound = getLowerBound() == -1 ? "*" : getLowerBound() + "";
+    String upperBound = getUpperBound() == -1 ? "*" : getUpperBound() + "";
+    return StringFormatter.format("[{0},{1}]",lowerBound,upperBound);
+  }
+
+  public String[] getRangeParts()
+  {
+    String lowerBound = getLowerBound() == -1 ? "*" : getLowerBound() + "";
+    String upperBound = getUpperBound() == -1 ? "*" : getUpperBound() + "";
+    return new String[] { lowerBound, upperBound };
+  }
+
+  public boolean isValid()
+  {
+    if ("*".equals(getMinimum()))
+    {
+      return false;
+    }
+
+    if ("-1".equals(getMinimum()) || "-1".equals(getMaximum()) || "-1".equals(getBound()))
+    {
+      return false;
+    }
+
+    if (getLowerBound() < -1 || getUpperBound() < -1)
+    {
+      return false;
+    }
+
+    // Fix for issue 292
+    if (getUpperBound() == 0)
+    {
+      return false;
+    }
+
+
+    if (getLowerBound() > getUpperBound() && !isUpperBoundMany())
+    {
+      return false;
+    }
+
+    return true;
+  }
+
+  public void minimizeRange(Multiplicity compareTo)
+  {
+    if (compareTo.getLowerBound() > getLowerBound() && compareTo.minimum != null)
+    {
+      minimum = compareTo.minimum;
+    }
+    if (compareTo.getUpperBound() < getUpperBound() && compareTo.maximum != null && compareTo.getUpperBound() != -1)
+    {
+      maximum = compareTo.maximum;
+    }
+  }
+
+  public int getLowerBound()
+  {
+    if (getBound() != null)
+    {
+      return parseInt(getBound(),0);
+    }
+    else
+    {
+      return parseInt(getMinimum(),-1);
+    }
+  }
+
+  public int getUpperBound()
+  {
+    if (getBound() != null)
+    {
+      return parseInt(getBound(),-1);
+    }
+    else
+    {
+      return parseInt(getMaximum(),-1);
+    }
+  }
+
+  public boolean isLowerBoundMany()
+  {
+    return getLowerBound() == -1;
+  }
+
+  public boolean isUpperBoundMany()
+  {
+    return getUpperBound() == -1;
+  }
+
+  public boolean isLowerBoundNumeric()
+  {
+    return getLowerBound() >= -1;
+  }
+
+  public boolean isUpperBoundNumeric()
+  {
+    return getUpperBound() >= -1;
+  }
+
+  public boolean isMany()
+  {
+    return getUpperBound() > 1 || getUpperBound() == -1;
+  }
+
+  public boolean isOne()
+  {
+    return getUpperBound() == 1;
+  }
+
+  private int parseInt(String input, int defaultIfStar)
+  {
+    try
+    {
+      if ("*".equals(input))
+      {
+        return defaultIfStar;
+      }
+      else
+      {
+        return Integer.parseInt(input);
+      }
+    }
+    catch(Exception e)
+    {
+      return -2;
+    }
+  }
+}

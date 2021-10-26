@@ -1,0 +1,59 @@
+  class UmpleInternalParser { 
+    before Label_Structure_57:analyzeToken(Token,int)
+  {
+      analyzeComponentToken(t,analysisStep);
+    }  } 
+
+
+  class UmpleInternalParser { 
+    before Label_Structure_76:postTokenAnalysis
+  {
+      if (getParseResult().getWasSuccess()) {
+        postTokenComponentAnalysis();
+      }
+    }  
+} 
+
+mixset Template_Strcture { 
+// Fragment source file: UmpleInternalParser_Code.ump
+// Line : 510
+ class UmpleInternalParser { // This MIXSET contains common code used by Template & Strcture.
+    public boolean reAnalyze() {
+      return shouldProcessAgain;
+    }
+    public void reAnalyze(boolean re) {
+  	shouldProcessAgain = re;
+    } } 
+
+}
+
+
+  class ConstraintNameNameAnalyzer { 
+    before Label_Structure_46:generateConstraintName(UmpleClassifier,String,Boolean)
+  {
+            Port port = null;
+            if (uClassifier instanceof UmpleClass)
+            {
+              port = ((UmpleClass)(uClassifier)).getPort(value);
+            }
+            if(port!=null)
+            {
+              ConstraintPort name = new ConstraintPort(port);
+              return name;
+            }
+        }  
+} 
+
+
+  class UmpleGenerator { 
+    before Label_Structure_13:initializeParser
+  {
+      parser.addGrammarFile("/strcture/umple_structure.grammar");
+    }  
+    
+} 
+
+
+
+
+
