@@ -1,4 +1,8 @@
+  
+  
+  
   class UmpleInternalParser {
+
     before Label_StateMachine_142:postTokenClassEnumerationAnalysis(UmpleClass)
     {
       // Check if the enumeration conflicts with any state machines, and if the enumeration is used as
@@ -98,93 +102,11 @@
     }  } 
 
 
-// File UmpleAnalysis.ump:
-  class GuardAnalyzer
-  {
-    isA Analyzer;
-    depend cruise.umple.parser.analysis.Analyzer;
-    depend cruise.umple.parser.Token;
-    depend cruise.umple.compiler.*;
-    depend java.util.*;
-    ConstraintTree rawLine = new ConstraintTree();
-    lazy UmpleClassifier uClassifier;
-    lazy Transition t;
-    
-    void analyze(Token token)
-    {
-      Guard constraint = new Guard();
-      constraint.addElementAll(rawLine.getRoot());
-      constraint.setPosition(token.getPosition());
-      constraint.setEndPosition(token.getEndPosition());
 
-      t.setGuard(constraint);
-      rawLine = new ConstraintTree();
-    }
-  }
 
-// File UmpleAnalysis.ump:
 
-class StatemachineExprAnalyzer
-{
-  isA Analyzer;
-  depend cruise.umple.parser.analysis.Analyzer;
-  depend cruise.umple.parser.Token;
-  depend cruise.umple.compiler.*;
-  depend java.util.*;
-  lazy ConstraintTree rawLine;
-  lazy UmpleClassifier uClassifier;
-  ConstraintTree cv = null;
-  boolean isStateMachine = true;
-  public void prepare(Token token)
-  {
-    cv = rawLine.createNew();
-  }
-}
 
-class StatemachineExprStateNameAnalyzer
-{
-  isA Analyzer;
-  depend cruise.umple.parser.analysis.Analyzer;
-  depend cruise.umple.parser.Token;
-  depend cruise.umple.compiler.*;
-  depend java.util.*;
-  lazy UmpleClassifier uClassifier;  
-  lazy ConstraintTree cv;
-  ConstraintTree rawLine = null;
 
-  public void prepare(Token token)
-  {
-    rawLine = cv.createNew();
-  }
-  public void analyze(Token token)
-  {
-    StateMachine stateMachine = null;
-    while(!(cv.getRoot() instanceof ConstraintStateMachine))
-    {
-      if(cv.getRoot()!=null&&(cv.getRoot() instanceof ConstraintOperator))
-      {
-        ConstraintOperator operator = (ConstraintOperator)cv.getRoot();
-        if(operator.getLeft()!=null&&(operator.getLeft() instanceof ConstraintTree))
-        {
-          cv = (ConstraintTree)operator.getLeft();
-        }
-        else break;
-      }
-      else break;
-    }
-    if(cv.getRoot() instanceof ConstraintStateMachine)
-    {
-      State state = ((ConstraintStateMachine)cv.getRoot()).getStateMachine().findState(token.getValue());
-      ConstraintState var = new ConstraintState(state);
-      rawLine.addElement(var);
-    }
-    else
-    {
-      //TODO: add error
-    }
-  }
-
-}
 
 
   class ConstraintNameNameAnalyzer { 
@@ -206,8 +128,8 @@ class ConstraintNameNameAnalyzer {
           ConstraintStateMachine name = new ConstraintStateMachine(stateMachine);
           return name;
         }
-        }  } 
-} 
+  }  
+}  
 
 
 
@@ -217,13 +139,19 @@ class ConstraintNameNameAnalyzer {
 
 // Fragment source file: Umple.ump
 // Line : 519
- class ConstraintState { State state;
-      key { state } } 
+ class ConstraintState { 
+   State state;
+      key { state } 
+      
+      } 
 
 // Fragment source file: Umple.ump
 // Line : 530
- class ConstraintStateMachine { StateMachine stateMachine;
-      key { stateMachine } } 
+ class ConstraintStateMachine { 
+
+   StateMachine stateMachine;
+      key { stateMachine } 
+      } 
 
 // Fragment source file: Umple.ump
 // Line : 757
@@ -240,7 +168,8 @@ class ConstraintNameNameAnalyzer {
 
 // Fragment source file: Umple.ump
 // Line : 878
-class StateMachineTemplateSignature{
+class StateMachineTemplateSignature
+{
 	modifier;
 	srcStateMachine;
 	desStateMachine;
@@ -403,9 +332,13 @@ class StateMachineTemplateSignature{
 // Fragment source file: Generator.ump
 // Line : 44
 interface CodeTranslator {
+
     String translate(String id, StateMachine stm);
+
     String translate(String id, State st);
+
     String translate(String id, Event e);
+
     String translate(String id, Activity a);
   }
 
@@ -442,7 +375,9 @@ class ExtendStateByStateMachine{
 
 // Fragment source file: Umple_Code_Trait.ump
 // Line : 295
- class UmpleTrait { public StateMachine getStateMachine(String name){
+ class UmpleTrait { 
+   
+   public StateMachine getStateMachine(String name){
     for (StateMachine sm : stateMachines)
     {
       if (sm.getName().equals(name))
@@ -455,7 +390,8 @@ class ExtendStateByStateMachine{
 
 // Fragment source file: Umple_Code_Trait.ump
 // Line : 498
- class GeneralTPApplied { boolean hasStateMachineTemplateSignature(StateMachineTemplateSignature inSMTSignature) {
+ class GeneralTPApplied { 
+   boolean hasStateMachineTemplateSignature(StateMachineTemplateSignature inSMTSignature) {
    for (StateMachineTemplateSignature smTSignature : getStateMachineTemplateSignatures()) {
       if (smTSignature.getSrcStateMachine().equals(inSMTSignature.getSrcStateMachine()) && smTSignature.numberOfSrcStates()==inSMTSignature.numberOfSrcStates()){
         boolean find = true;

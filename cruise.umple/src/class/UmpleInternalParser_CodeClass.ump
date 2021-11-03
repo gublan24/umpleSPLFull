@@ -352,7 +352,7 @@ class UmpleInternalParser
     }
     Label_Mixset_79: ;
 
-    else if (token.is("extraCode"))
+    if (token.is("extraCode"))
     {
       analyzeExtraCode(token,aClass);
     }
@@ -3340,7 +3340,7 @@ private Boolean checkIsDistributed(UmpleInterface uInterface)
     }
     Label_Trait_99: ;
 
-    else if (uElement instanceof UmpleInterface)
+    if (uElement instanceof UmpleInterface)
     {
       UmpleInterface uInterface = (UmpleInterface) uElement;
       if (!uInterface.hasMethod(aMethod))

@@ -212,7 +212,7 @@ class UmpleInternalParser
     }
     Label_Mixset_106: ;
 
-    else if (token.is("testCase"))
+    if (token.is("testCase"))
     {
       analyzeTraitTestCaseToken(token, aTrait);
    
@@ -277,7 +277,7 @@ class UmpleInternalParser
       aTrait.addDepend(d);
     }
     Label_Association_107: ;    
-    else if (token.is("exception"))
+     if (token.is("exception"))
     {
       analyzeException(token,aTrait);
     }
@@ -605,7 +605,7 @@ class UmpleInternalParser
     }
     Label_AspectInjection_110: ;
 
-    else if (t.is("key") || t.is("defaultKey"))
+    if (t.is("key") || t.is("defaultKey"))
     {
     //TODO should applied for traits
     //  analyzeKey(t,aClass);
@@ -1236,7 +1236,7 @@ private void recursiveCheckRequiredInterfaces(UmpleClass inClass,	UmpleTrait inT
         } 
         Label_StateMachine_116: ;
 
-        else if (subToken.is("traitAppliedParameters")){
+         if (subToken.is("traitAppliedParameters")){
             parameterName = subToken.getValue("pName");
             if (aGeneralTPApplied.getParameterMapping().containsKey(parameterName)){
               getParseResult().addErrorMessage(new ErrorMessage(216,subToken.getPosition(),parameterName));

@@ -256,7 +256,7 @@ class UmpleInternalParser
     Label_AspectInjection_68: ;
 
 
-    else if (t.is("key") || t.is("defaultKey"))
+     if (t.is("key") || t.is("defaultKey"))
     {
       addKey(t, aClass, unlinkedKeysTokens);
     }

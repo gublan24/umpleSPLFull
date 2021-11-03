@@ -301,9 +301,9 @@ class SuperCodeGenerator {
     {
       return ConstraintLookupMap.get("accessor")+((ConstraintMethodParameter)cv).getParameter().getName();
     }
-    Label_StateMachine_18 : ;
+    Label_StateMachine_18: ;
 
-    else if("literal".equals(id))
+    if("literal".equals(id))
     {
       return ((ConstraintLiteral)cv).getValue();
     }

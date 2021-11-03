@@ -1248,6 +1248,17 @@ class Port {
   1 -> 0..1 Position endPosition;
 }
 
+/*
+* Represents a requirement, such as those found around classes, methods, attributes and associations.
+*/
+class Requirement{
+  depend java.util.*;
+
+  identifier;
+  statement;
+  language;
+}
+
 
 use UmpleVersion.ump;
 use UmpleDiagram.ump;

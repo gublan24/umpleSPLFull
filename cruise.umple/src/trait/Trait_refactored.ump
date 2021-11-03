@@ -65,7 +65,7 @@
   {
           //Interaction between Trait and StateMachine
           mixset StateMachine {
-            else if(uClassifier instanceof UmpleTrait)
+            if(uClassifier instanceof UmpleTrait)
             {
               stateMachine = ((UmpleTrait)uClassifier).getStateMachine(value);
             }

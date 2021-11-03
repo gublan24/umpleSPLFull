@@ -1061,7 +1061,7 @@ class CompositeStructureTokenAnalyzer {
 	   }
 	   Label_Association_152: ;
 	   Label_StateMachine_153: ;
-	   else if(invariantToken.is("loneBoolean"))
+	   if(invariantToken.is("loneBoolean"))
 	   {
 		   rawLine.addElement(analyzeConstraintName(invariantToken.getSubToken(0),uClassifier,true));
 	   }
@@ -1274,7 +1274,7 @@ class CompositeStructureTokenAnalyzer {
 			   }
 			   Label_Association_155: ;
 			   Label_StateMachine_156: ;
-			   else if(invariantToken.is("loneBoolean"))
+			    if(invariantToken.is("loneBoolean"))
 			   {
 				   rawLine.addElement(analyzeConstraintName(invariantToken.getSubToken(0),null,true));
 			   }

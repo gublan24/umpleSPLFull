@@ -166,7 +166,7 @@ class ActiveDirectionHandlerBody {
 	lazy CodeBlock codeblock;
 	lazy Comment comment;
 	lazy Trigger trigger;
-	
+	lazy Requirement requirement;
 	lazy Position position;
   	lazy Position codePosition;
   	lazy Position endPosition;
