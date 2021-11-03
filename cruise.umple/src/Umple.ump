@@ -69,6 +69,7 @@ class UmpleModel
 
   Map<String,String> generatedCode = new HashMap<String,String>();
   Map<String,Analyzer> analyzers = new HashMap<String,Analyzer>();
+  //Map<String, Requirement> allRequirements = new HashMap<String, Requirement>();
 
   // data for default class positioning
   internal Coordinate levelOffset = new Coordinate(200,100,0,0);
@@ -210,6 +211,9 @@ class Method
   
   // Specifies, for fAutoAPI methods, if the method was generated
   Boolean wasGenerated = false;
+
+    //The requirement ids implemented within the method.
+  1 -> * Requirement;
 }
 
 
@@ -626,7 +630,12 @@ class UmpleInterface
 
   // The comments associated with the Umple Interface (such as the Javadoc above it).
   1 -> * Comment;
+
+  1 -> * Requirement;
+
+  
   0..1 -- * UmpleTestCase;
+
 
   before setPackageName { if (aPackageName == null) { return false; } }
   before addDepend { if (depends.contains(aDepend)) { return false; } }
@@ -739,6 +748,8 @@ class UmpleClass
 
 
   boolean isUmpleClass() {return true;}
+
+    1 -> * Requirement;
 }
 
 
@@ -821,6 +832,8 @@ class UmpleTrait {
 
 
   boolean isUmpleTrait() {return true;}
+
+    1 -> * Requirement;
 }
 
 //This class is used to specify parameters for traits.
@@ -959,6 +972,9 @@ class Attribute
   // In case this attribute needs to have error handling preformed
   1 -> 0..1 Position;
   1 -> 0..1 Position endPosition;
+
+
+  1 -> * Requirement;
 }
 
 /*
@@ -1075,6 +1091,8 @@ class AssociationVariable
 
   // The comments associated with the association (such as the Javadoc above it).
   1 -> * Comment;
+
+  1 -> * Requirement;
 
   before setUmpleClass { if ((aUmpleClass != null) && !aUmpleClass.immutabilityAssociationRulesSatisfied(this, aUmpleClass.isImmutable())) { return false; } }
 

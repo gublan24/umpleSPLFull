@@ -1286,7 +1286,7 @@ mixset Mixset {
   class UmpleInternalParser { 
     before Label_Association_147:getMixsetFragmentWithEnclosingElement(Token,String)
   {
-      else if (token.is("associationDefinition"))
+      if (token.is("associationDefinition"))
       {
         tokenKey = "name"; 
         prefix ="association";

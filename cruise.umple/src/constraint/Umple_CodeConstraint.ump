@@ -446,7 +446,7 @@ class ConstraintOperator
 
     Label_Association_26: ;
 
-    else if((variable instanceof ConstraintTree)&&((ConstraintTree)variable).getNumberOfElements()>0)
+    if((variable instanceof ConstraintTree)&&((ConstraintTree)variable).getNumberOfElements()>0)
     {
       correctForCardinality(((ConstraintTree)variable).getRoot());
     }

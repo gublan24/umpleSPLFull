@@ -178,7 +178,7 @@ mixset Mixset {
   class UmpleInternalParser { 
     before Label_Trait_146:getMixsetFragmentWithEnclosingElement(Token,String)
   {
-      else if (token.is("traitDefinition"))
+      if (token.is("traitDefinition"))
       {
         tokenKey = "name"; 
         prefix ="trait";

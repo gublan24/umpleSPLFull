@@ -68,6 +68,7 @@ mixset Structure {
 }
 mixset Template {
   use template/UmpleInternalParser_CodeTemplate.ump;
+  use template/Template_refactored.ump;
   mixset Structure {
     use Template_Strcture;
   }

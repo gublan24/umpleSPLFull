@@ -1699,7 +1699,7 @@ mixset Mixset {
   class UmpleInternalParser { 
     before Label_StateMachine_145:getMixsetFragmentWithEnclosingElement(Token,String)
   {
-      else if (token.is("state"))
+       if (token.is("state"))
       {
         tokenKey = "stateName";
       }
@@ -1715,7 +1715,7 @@ mixset Structure {
   class CompositeStructureTokenAnalyzer { 
     before Label_StateMachine_153:analyzeConstraint(Token,UmpleClassifier)
   {
-	     else if (invariantToken.is("statemachineExpr"))
+	    if (invariantToken.is("statemachineExpr"))
 	     {
 		   rawLine.addElementAll(analyzeStateMachineConstraintExpression(invariantToken,uClassifier));
 	     }
@@ -1726,7 +1726,7 @@ mixset Structure {
   class CompositeStructureTokenAnalyzer { 
     before Label_StateMachine_156:analyzeInvariantConstraint(Token)
   {
-			     else if (invariantToken.is("statemachineExpr"))
+			      if (invariantToken.is("statemachineExpr"))
 			     {
 				   rawLine.addElementAll(analyzeStateMachineConstraintExpression(invariantToken,null));
 			     }
